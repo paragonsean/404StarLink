@@ -37,13 +37,14 @@ find "$API_BASE_DIR" -type f -name "openapi.yaml" | while read -r api_spec; do
     mkdir -p "$api_docs_dir"
     
     # Run OpenAPI Generator CLI to generate the Python client library
-    echo "Generating Python client for $api_name..."
-    openapi-generator generate -i "$api_spec" -g python -o "$api_output_dir"
-    
-    # Run OpenAPI Generator CLI to generate the HTML documentation
-    echo "Generating documentation for $api_name..."
-    openapi-generator generate -i "$api_spec" -g html -o "$api_docs_dir"
-    
+    # Run OpenAPI Generator CLI to generate the Python client library (skip validation)
+echo "Generating Python client for $api_name..."
+openapi-generator generate -i "$api_spec" -g python -o "$api_output_dir" --skip-validate-spec
+
+# Run OpenAPI Generator CLI to generate the HTML documentation (skip validation)
+echo "Generating documentation for $api_name..."
+openapi-generator generate -i "$api_spec" -g html -o "$api_docs_dir" --skip-validate-spec
+   
     echo "Generated Python client and documentation for $api_name"
     echo "Python client at: $api_output_dir"
     echo "Documentation at: $api_docs_dir"
