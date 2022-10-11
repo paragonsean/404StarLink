@@ -39,7 +39,7 @@ find "$API_BASE_DIR" -type f -name "openapi.yaml" | while read -r api_spec; do
     # Run OpenAPI Generator CLI to generate the Python client library
     # Run OpenAPI Generator CLI to generate the Python client library (skip validation)
 echo "Generating Python client for $api_name..."
-openapi-generator generate -i "$api_spec" -g python -o "$api_output_dir" --skip-validate-spec
+openapi-generator generate -i "$api_spec" -g java -o "$api_output_dir" --skip-validate-spec
 
 # Run OpenAPI Generator CLI to generate the HTML documentation (skip validation)
 echo "Generating documentation for $api_name..."
