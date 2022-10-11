@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Clicks on a target element (such as a link, button, checkbox, or radio button) with specified CSS Selector.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:41.623286-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:20.015134-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Click {
   public static final String SERIALIZED_NAME_IGNORE_IF_NOT_PRESENT = "ignoreIfNotPresent";
   @SerializedName(SERIALIZED_NAME_IGNORE_IF_NOT_PRESENT)
