@@ -1,0 +1,875 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Dataflow Kit Web Scraper</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Dataflow Kit Web Scraper</h1>
+    <div class="app-desc"><p>Render Javascript driven pages, while we internally manage Headless Chrome and proxies for you.</p>
+<ul>
+<li>Build a custom web scraper with our Visual point-and-click toolkit.</li>
+<li>Scrape the most popular Search engines result pages (SERP).</li>
+<li>Convert web pages to PDF and capture screenshots.</li>
+</ul>
+<hr />
+<h3>Authentication</h3>
+<p>Dataflow Kit API require you to sign up for an API key in order to use the API.</p>
+<p>The API key can be found in the <a href="https://account.dataflowkit.com">DFK Dashboard</a> after <em>free registration</em>.</p>
+<p>Pass a secret API Key to all API requests to the server as the <code>api_key</code> query parameter.</p>
+</div>
+    <div class="app-desc">More information: <a href="https://dataflowkit.com/">https://dataflowkit.com/</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 1.3</div>
+    <div class="app-desc">BasePath:/v1</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:api_key KeyInQuery:true KeyInHeader:false</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Fetch">Fetch</a></h4>
+  <ul>
+  <li><a href="#fetch"><code><span class="http-method">post</span> /fetch</code></a></li>
+  </ul>
+  <h4><a href="#Parse">Parse</a></h4>
+  <ul>
+  <li><a href="#parse"><code><span class="http-method">post</span> /parse</code></a></li>
+  </ul>
+  <h4><a href="#Serp">Serp</a></h4>
+  <ul>
+  <li><a href="#serp"><code><span class="http-method">post</span> /serp</code></a></li>
+  </ul>
+  <h4><a href="#UrlToPdf">UrlToPdf</a></h4>
+  <ul>
+  <li><a href="#urlToPdf"><code><span class="http-method">post</span> /convert/url/pdf</code></a></li>
+  </ul>
+  <h4><a href="#UrlToScreenshot">UrlToScreenshot</a></h4>
+  <ul>
+  <li><a href="#urlToScreenshot"><code><span class="http-method">post</span> /convert/url/screenshot</code></a></li>
+  </ul>
+
+  <h1><a name="Fetch">Fetch</a></h1>
+  <div class="method"><a name="fetch"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /fetch</code></pre></div>
+    <div class="method-summary">Download web page content (<span class="nickname">fetch</span>)</div>
+    <div class="method-notes">Use fetch endpoint to download web pages.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">fetchrequest <a href="#fetchrequest">fetchrequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>text/html; charset=utf-8</code></li>
+      <li><code>text/plain; charset=utf-8</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Returns utf8 encoded web page content.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad Request. Invalid payload specified.
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized. <code>api_key</code> parameter is missed or incorrect
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error is a very general HTTP status code that means something has gone wrong on the web site's server.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Parse">Parse</a></h1>
+  <div class="method"><a name="parse"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /parse</code></pre></div>
+    <div class="method-summary">Extract structured data from web pages (<span class="nickname">parse</span>)</div>
+    <div class="method-notes"><p>Dataflow kit uses CSS selectors to find HTML elements in web pages for later data extraction.</p>
+<p>Open <a href="https://dataflowkit.com/dfk">visual point-and-click toolkit</a> and click desired elements on a page to specify extracting data.</p>
+<p>Then you can send generated payload to <code>/parse</code> endpoint. We crawl web pages and extract data like text, links, or images for you following the specified rules.</p>
+<p>Extracted data is returned in CSV, MS Excel, JSON, JSON(Lines) or XML format.</p>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">parserequest <a href="#parserequest">parserequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>text/plain; charset=utf-8</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Returns data in the one of the follwing formats - JSON, JSON Lines, CSV, MS Excel, XML
+        <a href="#Object">Object</a>
+    <h4 class="field-label">400</h4>
+    Bad Request. Invalid payload specified.
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized. <code>api_key</code> parameter is missed or incorrect
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error is a very general HTTP status code that means something has gone wrong on the web site's server.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Serp">Serp</a></h1>
+  <div class="method"><a name="serp"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /serp</code></pre></div>
+    <div class="method-summary">Collect search results from search engines (<span class="nickname">serp</span>)</div>
+    <div class="method-notes"><p>To crawl search engine result pages, you can use <code>/serp</code> endpoint. SERP collection service extracts a list of organic results, news, images, and more.  Specify configuration parameters, such as country or languages, to customize output SERP data.
+The following search engines are supported</p>
+<ul>
+<li>google</li>
+<li>google-image</li>
+<li>google-news</li>
+<li>google-shopping</li>
+<li>bing</li>
+<li>duckduckgo</li>
+<li>baidu</li>
+<li>yandex</li>
+</ul>
+<p>Generate ready-to-run code for your favorite language at <a href="https://dataflowkit.com/serp">https://dataflowkit.com/serp</a></p>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">serprequest <a href="#serprequest">serprequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/x-ndjson</code></li>
+      <li><code>text/csv</code></li>
+      <li><code>text/plain; charset=utf-8</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Returns data in the one of the follwing formats - JSON, JSON Lines, CSV, MS Excel, XML
+        <a href="#Object">Object</a>
+    <h4 class="field-label">400</h4>
+    Bad Request. Invalid payload specified.
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized. <code>api_key</code> parameter is missed or incorrect
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error is a very general HTTP status code that means something has gone wrong on the web site's server.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="UrlToPdf">UrlToPdf</a></h1>
+  <div class="method"><a name="urlToPdf"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /convert/url/pdf</code></pre></div>
+    <div class="method-summary">Save web page as PDF (<span class="nickname">urlToPdf</span>)</div>
+    <div class="method-notes"><p>Automate URL to PDF Conversion right in your application.</p>
+<p>Specify request parameters like URL, Proxy, and actions to render web pages to PDF using Headless Chrome.</p>
+<p>Get resulted PDF even from websites blocked in your area for some reason utilizing our worldwide pool of proxies.</p>
+<p>Simulate real-world human interaction with the page. For example, before saving a web page to PDF, you may need to scroll it.</p>
+<p>Generate ready-to-run code for your favorite language at <a href="https://dataflowkit.com/url-to-pdf">https://dataflowkit.com/url-to-pdf</a></p>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">url2pdfrequest <a href="#url2pdfrequest">url2pdfrequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      File
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/pdf</code></li>
+      <li><code>text/plain; charset=utf-8</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A PDF file.
+        <a href="#File">File</a>
+    <h4 class="field-label">400</h4>
+    Bad Request. Invalid payload specified.
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized. <code>api_key</code> parameter is missed or incorrect
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error is a very general HTTP status code that means something has gone wrong on the web site's server.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="UrlToScreenshot">UrlToScreenshot</a></h1>
+  <div class="method"><a name="urlToScreenshot"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /convert/url/screenshot</code></pre></div>
+    <div class="method-summary">Capture web page Screenshots. (<span class="nickname">urlToScreenshot</span>)</div>
+    <div class="method-notes"><p>Automate URL to Screenshot Conversion right in your application.</p>
+<p>Specify request parameters like URL, Proxy, and actions to convert web pages to screenshots using Headless Chrome.</p>
+<p>Get resulted pictures in JPG or PNG formats even from websites blocked in your area for some reason utilizing our worldwide pool of proxies.</p>
+<p>Simulate real-world human interaction with the page. For example, before capturing a web page, you may need to scroll it.</p>
+<p>Generate ready-to-run code for your favorite language at <a href="https://dataflowkit.com/url-to-screenshot">https://dataflowkit.com/url-to-screenshot</a></p>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">url2screenshotrequest <a href="#url2screenshotrequest">url2screenshotrequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      File
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>image/jpeg</code></li>
+      <li><code>image/png</code></li>
+      <li><code>text/plain; charset=utf-8</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Returns jpg or png file.
+        <a href="#File">File</a>
+    <h4 class="field-label">400</h4>
+    Bad Request. Invalid payload specified.
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized. <code>api_key</code> parameter is missed or incorrect
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error is a very general HTTP status code that means something has gone wrong on the web site's server.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Paginator"><code>Paginator</code> - </a></li>
+    <li><a href="#action"><code>action</code> - Action</a></li>
+    <li><a href="#click"><code>click</code> - click</a></li>
+    <li><a href="#doubleClick"><code>doubleClick</code> - doubleClick</a></li>
+    <li><a href="#execute"><code>execute</code> - execute</a></li>
+    <li><a href="#fetchrequest"><code>fetchrequest</code> - Fetch request</a></li>
+    <li><a href="#field"><code>field</code> - Field</a></li>
+    <li><a href="#field_filters_inner"><code>field_filters_inner</code> - </a></li>
+    <li><a href="#field_filters_inner_anyOf"><code>field_filters_inner_anyOf</code> - </a></li>
+    <li><a href="#field_filters_inner_anyOf_1"><code>field_filters_inner_anyOf_1</code> - </a></li>
+    <li><a href="#getcontent"><code>getcontent</code> - getcontent</a></li>
+    <li><a href="#initialCookie"><code>initialCookie</code> - initialCookie</a></li>
+    <li><a href="#input"><code>input</code> - input</a></li>
+    <li><a href="#jsclick"><code>jsclick</code> - jsclick</a></li>
+    <li><a href="#loop____times"><code>loop____times</code> - loop .. times</a></li>
+    <li><a href="#parserequest"><code>parserequest</code> - Parse request</a></li>
+    <li><a href="#pause"><code>pause</code> - pause</a></li>
+    <li><a href="#scroll"><code>scroll</code> - scroll</a></li>
+    <li><a href="#sendKeys"><code>sendKeys</code> - sendKeys</a></li>
+    <li><a href="#serprequest"><code>serprequest</code> - SERP request</a></li>
+    <li><a href="#submit"><code>submit</code> - submit</a></li>
+    <li><a href="#url2pdfrequest"><code>url2pdfrequest</code> - URL to PDF request</a></li>
+    <li><a href="#url2screenshotrequest"><code>url2screenshotrequest</code> - URL to Screenshot request</a></li>
+    <li><a href="#waitNotVisible"><code>waitNotVisible</code> - waitNotVisible</a></li>
+    <li><a href="#waitVisible"><code>waitVisible</code> - waitVisible</a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Paginator"><code>Paginator</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specify <em>Next link</em> paginator on pages containing a link pointing to the next page. The next page link is extracted from a document by querying href attribute of a given element's CSS selector.</div>
+    <div class="field-items">
+      <div class="param">nextPageSelector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pageNum (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="action"><code>action</code> - Action</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ignoreIfNotPresent (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> This optional parameter is useful when the target element occasionally may not be present in the DOM. </div>
+<div class="param">selector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Some websites require clicking 'More' button while scrolling a page. Put here 'More' button valid CSS Selector. </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Sequence of keys to send. Keys can include keystrokes such as ALT+A, ENTER, BACKSPACE, etc. </div>
+<div class="param">skipLastIteration (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> It is only used for loop actions only. Skips the last iteration. </div>
+<div class="param">waitDelay (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Wait time (in milliseconds). </div>
+<div class="param">script (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The JavaScript snippet to run </div>
+<div class="param">actions (optional)</div><div class="param-desc"><span class="param-type"><a href="#action">array[action]</a></span> list of actions combined in the loop are executed step-by-step </div>
+<div class="param">times (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of times to scroll down a web page. </div>
+<div class="param">scrollByPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Scrolls a web page by the number of pixels specified by 'scrollByPixels' parameter. </div>
+<div class="param">scrollingElementSelector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optionally specify here a valid CSS Selector of scrolling element. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="click"><code>click</code> - click</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Clicks on a target element (such as a link, button, checkbox, or radio button) with specified CSS Selector.</div>
+    <div class="field-items">
+      <div class="param">ignoreIfNotPresent (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> This optional parameter is useful when the target element occasionally may not be present in the DOM. </div>
+<div class="param">selector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Must be a valid CSS Selector </div>
+<div class="param">skipLastIteration (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> It is only used for click action inside a loop only. Skips the last iteration. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="doubleClick"><code>doubleClick</code> - doubleClick</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Double clicks on a target element (such as a link, button, checkbox, or radio button) with specified CSS Selector.</div>
+    <div class="field-items">
+      <div class="param">ignoreIfNotPresent (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> This optional parameter is useful when the target element occasionally may not be present in the DOM. </div>
+<div class="param">selector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Must be a valid CSS Selector </div>
+<div class="param">skipLastIteration (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> It is only used for click action inside a loop only. Skips the last iteration. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="execute"><code>execute</code> - execute</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Executes the Javascript passes as 'script' parameter</div>
+    <div class="field-items">
+      <div class="param">script (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The JavaScript snippet to run </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="fetchrequest"><code>fetchrequest</code> - Fetch request</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">actions (optional)</div><div class="param-desc"><span class="param-type"><a href="#action">array[action]</a></span> Use actions to automate manual workflows while rendering web pages. They simulate real-world human interaction with pages. <em>(Chrome fetcher type only)</em> </div>
+<div class="param">ignoreHTTPStatusErrCodes (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> The HTTP 200 OK success status response code indicates that the request has succeeded. Sometimes a server returns normal HTML content even with an erroneous Non-200 HTTP response status code. The IgnoreHTTPStatusCode option is useful when you need to force the return of HTML content. Defaults to &quot;false.&quot; </div>
+<div class="param">initialCookies (optional)</div><div class="param-desc"><span class="param-type"><a href="#initialCookie">array[initialCookie]</a></span> The &quot;Initial Cookies&quot; option is useful for crawling websites that require a login. The simplest solution to get an array of cookies for specific websites is to use a web browser &quot;EditThisCookie&quot; extension. Copy a cookie array with &quot;EditThisCookie&quot; and paste it into the &quot;Initial cookie&quot; field. </div>
+<div class="param">output (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If set to <em>file</em>, the content of downloaded HTML is uploaded to Dataflow Kit Storage first. Then the link to this file is returned. Overwise, downloaded content is returned in the response body. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">buffer</div><div class="param-enum">file</div>
+<div class="param">proxy (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specify proxy by adding <a href="https://en.wikipedia.org/wiki/ISO_3166-2">country ISO code</a> to <code>country-</code> value to send requests through a proxy in the specified country. Use <code>country-any</code> to use random geo-targets. </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If set to <code>base</code>, the Base fetcher is used for downloading web page content. Use <code>chrome</code> for fetching content with a Headless chrome browser. If omitted <code>base</code> fetcher is used by default. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">base</div><div class="param-enum">chrome</div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specify URL to download. </div>
+<div class="param">waitDelay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Specify a wait delay (in seconds). This may be useful if certain elements of the web site need to be rendered after the initial page load. <em>(Chrome fetcher type only)</em> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="field"><code>field</code> - Field</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">attrs </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> A set of attributes to extract from a Field. Find more information about attributes </div>
+        <div class="param-enum-header">Enum:</div>
+        
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#parserequest">parserequest</a></span> Details themself represent independent Parse request that extracts data from linked pages. </div>
+<div class="param">filters (optional)</div><div class="param-desc"><span class="param-type"><a href="#field_filters_inner">array[field_filters_inner]</a></span> Filters are used to pre-processing of text data when extracting. </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Field name is used to aggregate results. </div>
+<div class="param">selector </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Selector represents a CSS selector for data extraction within the given block. </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Selector type. ( 0 - image, 1 - text, 2 - link) </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">0</div><div class="param-enum">1</div><div class="param-enum">2</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="field_filters_inner"><code>field_filters_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">param (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="field_filters_inner_anyOf"><code>field_filters_inner_anyOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">trim</div><div class="param-enum">normal</div><div class="param-enum">uppercase</div><div class="param-enum">lowercase</div><div class="param-enum">capitalize</div><div class="param-enum">concatinate</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="field_filters_inner_anyOf_1"><code>field_filters_inner_anyOf_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">param (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="getcontent"><code>getcontent</code> - getcontent</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Sometimes it is necessary to retrieve the HTML content of a web page multiple times in a single request. This action is for that.</div>
+    <div class="field-items">
+      <div class="param">skipLastIteration (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> It is only used for loop actions only. Skips the last iteration. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="initialCookie"><code>initialCookie</code> - initialCookie</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>InitialCookie structure keep cookies that optionally can be passed to the new fetcher crawl a website that requires a login. Generate Cookies array with EditThisCookie chrome extension.</div>
+    <div class="field-items">
+      <div class="param">domain (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">expirationDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">hostOnly (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">httpOnly (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">path (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">sameSite (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">unspecified</div><div class="param-enum">strict</div><div class="param-enum">lax</div><div class="param-enum">no_restriction</div>
+<div class="param">secure (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">session (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">storeID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="input"><code>input</code> - input</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Sets the value of an input field as if you had typed it in. You can also set the value of combo boxes, checkboxes, etc., using this action. In these cases, the value must be the value of the selected option, not visible text.</div>
+    <div class="field-items">
+      <div class="param">ignoreIfNotPresent (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">selector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Must be a valid CSS Selector </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The value to input. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="jsclick"><code>jsclick</code> - jsclick</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Click on an element with the specified CSS Selector. JS Click internally invokes a script (Javascript) that clicks the element.</div>
+    <div class="field-items">
+      <div class="param">ignoreIfNotPresent (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> This optional parameter is useful when the target element occasionally may not be present in the DOM. </div>
+<div class="param">selector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Must be a valid CSS Selector for the target element. </div>
+<div class="param">skipLastIteration (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> It is only used for click action inside a loop only. Skips the last iteration. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="loop____times"><code>loop____times</code> - loop .. times</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Loop action combines a set of actions and executes it as many times as specified in the &quot;times&quot; parameter.</div>
+    <div class="field-items">
+      <div class="param">actions (optional)</div><div class="param-desc"><span class="param-type"><a href="#action">array[action]</a></span> list of actions combined in the loop are executed step-by-step </div>
+<div class="param">times (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> the number of times to execute the wrapped actions within the 'loop .. times' construction. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="parserequest"><code>parserequest</code> - Parse request</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">commonParent (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specifies common ancestor block for a set of fields used to extract data from a web page. <em>(CSS Selector)</em> </div>
+<div class="param">fields </div><div class="param-desc"><span class="param-type"><a href="#field">array[field]</a></span> Define a  set of fields used to extract data from a web page. A Field represents a given chunk of extracted data from every block on each page. </div>
+<div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Extracted data is returned either in CSV, MS Excel, JSON, JSON(Lines) or XML format. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">csv</div><div class="param-enum">json</div><div class="param-enum">jsonl</div><div class="param-enum">excel</div><div class="param-enum">xml</div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Collection name. </div>
+<div class="param">paginator (optional)</div><div class="param-desc"><span class="param-type"><a href="#Paginator">Paginator</a></span>  </div>
+<div class="param">path (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Path is a special parameter specifying navigation pages only. It collects information from detailed pages. No results from the current page return. Defaults to false. </div>
+<div class="param">request (optional)</div><div class="param-desc"><span class="param-type"><a href="#fetchrequest">fetchrequest</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="pause"><code>pause</code> - pause</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Wait for the specified amount of time.</div>
+    <div class="field-items">
+      <div class="param">waitDelay (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Wait time (in milliseconds). </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="scroll"><code>scroll</code> - scroll</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Scroll a page down to load more content, simulating user interaction with infinite scrolled pages. Or specify the element's CSS Selector to click for loading more content.</div>
+    <div class="field-items">
+      <div class="param">scrollByPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Scrolls a web page by the number of pixels specified by 'scrollByPixels' parameter. </div>
+<div class="param">scrollingElementSelector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optionally specify here a valid CSS Selector of scrolling element. </div>
+<div class="param">selector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Some websites require clicking 'More' button while scrolling a page. Put here 'More' button valid CSS Selector. </div>
+<div class="param">times (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of times to scroll down a web page. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="sendKeys"><code>sendKeys</code> - sendKeys</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The Send Keys action simulates real user input of key by key into a given string. It mimics real user behavior, such as the inability to type into invisible or read-only DOM elements. This action is useful for cases where explicit keystroke events are required, like auto-completing combo boxes. Unlike a similar 'input' action, which forces a specified value directly into an input selector, this action does not overwrite existing content.</div>
+    <div class="field-items">
+      <div class="param">ignoreIfNotPresent (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">selector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Must be a valid CSS Selector </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Sequence of keys to send. Keys can include keystrokes such as ALT+A, ENTER, BACKSPACE, etc. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="serprequest"><code>serprequest</code> - SERP request</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">fields (optional)</div><div class="param-desc"><span class="param-type"><a href="#field">array[field]</a></span> <p>Specify CSS selectors (patterns) used to gather data from Search Engine Result Pages.</p>
+<p>Ready-to-use payloads for collecting search results from the most popular Search Engines are available. These payloads are customizable, though.</p>
+ </div>
+<div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Extracted data is returned either in CSV, MS Excel, JSON, JSON(Lines) or XML format. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">csv</div><div class="param-enum">json</div><div class="param-enum">jsonl</div><div class="param-enum">excel</div><div class="param-enum">xml</div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Collection name. </div>
+<div class="param">pageNum (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Specify number of pages to crawl. </div>
+<div class="param">proxy </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Always specify proxy for sending SERP requests. Add choosen <a href="https://en.wikipedia.org/wiki/ISO_3166-2">country ISO code</a> to <code>country-</code> value to send requests through a proxy in the specified country. Use <code>country-any</code> to use random geo-targets. </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> For SERP requests you should <em>always</em> use <code>chrome</code> type to fetch content with a Headless chrome browser </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> url holds the link to a Search Engine to use, and other optional parameters like languages or country. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="submit"><code>submit</code> - submit</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Submit the specified form. This action is useful for forms without explicit submit buttons, such as single-input Search forms.</div>
+    <div class="field-items">
+      <div class="param">selector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Must be an any valid CSS Selector inside the parent form to submit. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="url2pdfrequest"><code>url2pdfrequest</code> - URL to PDF request</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">actions (optional)</div><div class="param-desc"><span class="param-type"><a href="#action">array[action]</a></span> Use actions to automate manual workflows while rendering web pages. They simulate real-world human interaction with pages. </div>
+<div class="param">ignoreHTTPStatusErrCodes (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> The HTTP 200 OK success status response code indicates that the request has succeeded. Sometimes a server returns normal HTML content even with an erroneous Non-200 HTTP response status code. The IgnoreHTTPStatusCode option is useful when you need to force the return of HTML content. Defaults to &quot;false.&quot; </div>
+<div class="param">initialCookies (optional)</div><div class="param-desc"><span class="param-type"><a href="#initialCookie">array[initialCookie]</a></span> The &quot;Initial Cookies&quot; option is useful for crawling websites that require a login. The simplest solution to get an array of cookies for specific websites is to use a web browser &quot;EditThisCookie&quot; extension. Copy a cookie array with &quot;EditThisCookie&quot; and paste it into the &quot;Initial cookie&quot; field. </div>
+<div class="param">landscape (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Paper orientation. Parameter landscape = false means portrait orientation. Set landscape to true for landscape page oriantation. </div>
+<div class="param">marginBottom (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Bottom Margin of the PDF (in inches) </div>
+<div class="param">marginLeft (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Left Margin of the PDF (in inches) </div>
+<div class="param">marginRight (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Right Margin of the PDF (in inches) </div>
+<div class="param">marginTop (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Top Margin of the PDF (in inches) </div>
+<div class="param">output (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If set to <em>file</em>, the resulted PDF is uploaded to Dataflow Kit Storage first. Then the link to this file is returned. Overwise, PDF content is returned in the response body. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">buffer</div><div class="param-enum">file</div>
+<div class="param">pageRanges (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specify page ranges to convert. Defaults to the empty value, which means convert all pages. </div>
+<div class="param">paperSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Page size parameter consists of the most popular page formats. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">A3</div><div class="param-enum">A4</div><div class="param-enum">A5</div><div class="param-enum">A6</div><div class="param-enum">Letter</div><div class="param-enum">Legal</div><div class="param-enum">Tabloid</div>
+<div class="param">printBackground (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Print background graphics in the PDF. </div>
+<div class="param">printHeaderFooter (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> printHeaderFooter  parameter consists of the date, name of the web page, the page URL, and how many pages the document you are printing. </div>
+<div class="param">proxy (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specify proxy by adding <a href="https://en.wikipedia.org/wiki/ISO_3166-2">country ISO code</a> to <code>country-</code> value to send requests through a proxy in the specified country. Use <code>country-any</code> to use random geo-targets. </div>
+<div class="param">scale (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> By default, PDF document content is generated according to dimensions of the original web page content. Using the <code>scale</code> parameter, you can specify a custom zoom factor from 0.1 to 5.0 of the webpage rendering. </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The full URL address (including HTTP/HTTPS) of a web page that you want to save as PDF </div>
+<div class="param">waitDelay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Specify a wait delay (in seconds). This may be useful if certain elements of the web site need to be rendered after the initial page load. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="url2screenshotrequest"><code>url2screenshotrequest</code> - URL to Screenshot request</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">actions (optional)</div><div class="param-desc"><span class="param-type"><a href="#action">array[action]</a></span> Use actions to automate manual workflows while rendering web pages. They simulate real-world human interaction with pages. </div>
+<div class="param">clipSelector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Captures a screenshot of specified CSS element on a web page. </div>
+<div class="param">format (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Sets the Format of output image </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">png</div><div class="param-enum">jpeg</div>
+<div class="param">fullPage (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> takes a screenshot of a full web page. It ignores offsetX, offsety, width and height argument values. </div>
+<div class="param">height (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Rectangle height in device independent pixels (dip). </div>
+<div class="param">ignoreHTTPStatusErrCodes (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> The HTTP 200 OK success status response code indicates that the request has succeeded. Sometimes a server returns normal HTML content even with an erroneous Non-200 HTTP response status code. The IgnoreHTTPStatusCode option is useful when you need to force the return of HTML content. Defaults to &quot;false.&quot; </div>
+<div class="param">initialCookies (optional)</div><div class="param-desc"><span class="param-type"><a href="#initialCookie">array[initialCookie]</a></span> The &quot;Initial Cookies&quot; option is useful for crawling websites that require a login. The simplest solution to get an array of cookies for specific websites is to use a web browser &quot;EditThisCookie&quot; extension. Copy a cookie array with &quot;EditThisCookie&quot; and paste it into the &quot;Initial cookie&quot; field. </div>
+<div class="param">offsetx (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> X offset in device independent pixels (dip). </div>
+<div class="param">offsety (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Y offset in device independent pixels (dip). </div>
+<div class="param">output (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If set to <em>file</em>, the resulted screenshot is uploaded to Dataflow Kit Storage first. Then the link to this file is returned. Overwise, web site screenshot is returned in the response body. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">buffer</div><div class="param-enum">file</div>
+<div class="param">printBackground (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Print background graphics in the PDF. </div>
+<div class="param">proxy (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specify proxy by adding <a href="https://en.wikipedia.org/wiki/ISO_3166-2">country ISO code</a> to <code>country-</code> value to send requests through a proxy in the specified country. Use <code>country-any</code> to use random geo-targets. </div>
+<div class="param">quality (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Sets the Quality of output image. Compression quality from range [0..100] (jpeg only). </div>
+<div class="param">scale (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Image scale factor. range [0.1 .. 3] </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The full URL address (including HTTP/HTTPS) of a web page that you want to capture </div>
+<div class="param">waitDelay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Specify a wait delay (in seconds). This may be useful if certain elements of the web site need to be rendered after the initial page load. </div>
+<div class="param">width (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Rectangle width in device independent pixels (dip). </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="waitNotVisible"><code>waitNotVisible</code> - waitNotVisible</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Wait for the target element to become invisible on the page.</div>
+    <div class="field-items">
+      <div class="param">selector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Must be a valid CSS Selector for the target element. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="waitVisible"><code>waitVisible</code> - waitVisible</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Wait for the target element to become visible on the page.</div>
+    <div class="field-items">
+      <div class="param">selector (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Must be a valid CSS Selector for the target element. </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
