@@ -29,7 +29,7 @@ find "$API_BASE_DIR" -type f -name "openapi.yaml" | while read -r api_spec; do
     api_name=$(basename "$(dirname "$api_spec")")
     
     # Create an output directory for the Python client, ensuring it exists
-    api_output_dir="$OUTPUT_DIR/$api_name/python-client"
+    api_output_dir="$OUTPUT_DIR/$api_name/java-client"
     mkdir -p "$api_output_dir"
     
     # Create an output directory for the documentation, ensuring it exists
