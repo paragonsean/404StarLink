@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Wait for the target element to become invisible on the page.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:03.113982-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:44.180158-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class WaitNotVisible {
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)

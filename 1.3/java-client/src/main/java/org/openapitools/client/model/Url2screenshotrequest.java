@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * Url2screenshotrequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:03.113982-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:44.180158-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Url2screenshotrequest {
   public static final String SERIALIZED_NAME_ACTIONS = "actions";
   @SerializedName(SERIALIZED_NAME_ACTIONS)

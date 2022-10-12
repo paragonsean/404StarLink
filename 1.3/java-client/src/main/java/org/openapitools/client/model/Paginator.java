@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Specify _Next link_ paginator on pages containing a link pointing to the next page. The next page link is extracted from a document by querying href attribute of a given element&#39;s CSS selector.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:03.113982-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:44.180158-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Paginator {
   public static final String SERIALIZED_NAME_NEXT_PAGE_SELECTOR = "nextPageSelector";
   @SerializedName(SERIALIZED_NAME_NEXT_PAGE_SELECTOR)
