@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Submit the specified form. This action is useful for forms without explicit submit buttons, such as single-input Search forms.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:44.180158-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:22.777626-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Submit {
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)

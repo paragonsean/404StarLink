@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * The Send Keys action simulates real user input of key by key into a given string. It mimics real user behavior, such as the inability to type into invisible or read-only DOM elements. This action is useful for cases where explicit keystroke events are required, like auto-completing combo boxes. Unlike a similar &#39;input&#39; action, which forces a specified value directly into an input selector, this action does not overwrite existing content.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:44.180158-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:22.777626-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SendKeys {
   public static final String SERIALIZED_NAME_IGNORE_IF_NOT_PRESENT = "ignoreIfNotPresent";
   @SerializedName(SERIALIZED_NAME_IGNORE_IF_NOT_PRESENT)

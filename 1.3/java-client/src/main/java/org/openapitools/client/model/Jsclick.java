@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Click on an element with the specified CSS Selector. JS Click internally invokes a script (Javascript) that clicks the element.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:44.180158-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:22.777626-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Jsclick {
   public static final String SERIALIZED_NAME_IGNORE_IF_NOT_PRESENT = "ignoreIfNotPresent";
   @SerializedName(SERIALIZED_NAME_IGNORE_IF_NOT_PRESENT)
