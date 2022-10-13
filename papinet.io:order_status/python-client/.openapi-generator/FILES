@@ -1,7 +1,6 @@
 .github/workflows/python.yml
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/DefaultApi.md
@@ -36,12 +35,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_default_api.py
-test/test_list_of_orders.py
-test/test_order.py
-test/test_order_header.py
-test/test_order_line_item.py
-test/test_order_line_item_quantities_inner.py
-test/test_pagination_links.py
-test/test_pagination_links_first.py
 tox.ini
