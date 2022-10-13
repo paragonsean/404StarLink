@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * FieldFiltersInnerAnyOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:05.617687-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:46.666199-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class FieldFiltersInnerAnyOf {
   /**
    * Gets or Sets name
