@@ -1,6 +1,6 @@
 /*
- * Amazon Personalize Runtime
- * <p/>
+ * Amazon Personalize
+ * Amazon Personalize is a machine learning service that makes it easy to add individualized recommendations to customers.
  *
  * The version of the OpenAPI document: 2018-05-22
  * Contact: mike.ralphson@gmail.com

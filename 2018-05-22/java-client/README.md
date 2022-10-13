@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Amazon Personalize Runtime
+Amazon Personalize
 - API version: 2018-05-22
-  - Build date: 2024-10-11T01:57:53.559734-04:00[America/New_York]
+  - Build date: 2024-10-11T02:02:25.633240-04:00[America/New_York]
   - Generator version: 7.9.0
 
-<p/>
+Amazon Personalize is a machine learning service that makes it easy to add individualized recommendations to customers.
 
   For more information, please visit [https://github.com/mermade/aws2openapi](https://github.com/mermade/aws2openapi)
 
@@ -92,7 +92,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://personalize-runtime.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("http://personalize.us-east-1.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -101,7 +101,8 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    GetPersonalizedRankingRequest getPersonalizedRankingRequest = new GetPersonalizedRankingRequest(); // GetPersonalizedRankingRequest | 
+    String xAmzTarget = "AmazonPersonalize.CreateBatchInferenceJob"; // String | 
+    CreateBatchInferenceJobRequest createBatchInferenceJobRequest = new CreateBatchInferenceJobRequest(); // CreateBatchInferenceJobRequest | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
     String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
@@ -110,10 +111,10 @@ public class Example {
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
     try {
-      GetPersonalizedRankingResponse result = apiInstance.getPersonalizedRanking(getPersonalizedRankingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      CreateBatchInferenceJobResponse result = apiInstance.createBatchInferenceJob(xAmzTarget, createBatchInferenceJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getPersonalizedRanking");
+      System.err.println("Exception when calling DefaultApi#createBatchInferenceJob");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -126,22 +127,322 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://personalize-runtime.us-east-1.amazonaws.com*
+All URIs are relative to *http://personalize.us-east-1.amazonaws.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**getPersonalizedRanking**](docs/DefaultApi.md#getPersonalizedRanking) | **POST** /personalize-ranking | 
-*DefaultApi* | [**getRecommendations**](docs/DefaultApi.md#getRecommendations) | **POST** /recommendations | 
+*DefaultApi* | [**createBatchInferenceJob**](docs/DefaultApi.md#createBatchInferenceJob) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateBatchInferenceJob | 
+*DefaultApi* | [**createBatchSegmentJob**](docs/DefaultApi.md#createBatchSegmentJob) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateBatchSegmentJob | 
+*DefaultApi* | [**createCampaign**](docs/DefaultApi.md#createCampaign) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateCampaign | 
+*DefaultApi* | [**createDataset**](docs/DefaultApi.md#createDataset) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateDataset | 
+*DefaultApi* | [**createDatasetExportJob**](docs/DefaultApi.md#createDatasetExportJob) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateDatasetExportJob | 
+*DefaultApi* | [**createDatasetGroup**](docs/DefaultApi.md#createDatasetGroup) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateDatasetGroup | 
+*DefaultApi* | [**createDatasetImportJob**](docs/DefaultApi.md#createDatasetImportJob) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateDatasetImportJob | 
+*DefaultApi* | [**createEventTracker**](docs/DefaultApi.md#createEventTracker) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateEventTracker | 
+*DefaultApi* | [**createFilter**](docs/DefaultApi.md#createFilter) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateFilter | 
+*DefaultApi* | [**createMetricAttribution**](docs/DefaultApi.md#createMetricAttribution) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateMetricAttribution | 
+*DefaultApi* | [**createRecommender**](docs/DefaultApi.md#createRecommender) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateRecommender | 
+*DefaultApi* | [**createSchema**](docs/DefaultApi.md#createSchema) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateSchema | 
+*DefaultApi* | [**createSolution**](docs/DefaultApi.md#createSolution) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateSolution | 
+*DefaultApi* | [**createSolutionVersion**](docs/DefaultApi.md#createSolutionVersion) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.CreateSolutionVersion | 
+*DefaultApi* | [**deleteCampaign**](docs/DefaultApi.md#deleteCampaign) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DeleteCampaign | 
+*DefaultApi* | [**deleteDataset**](docs/DefaultApi.md#deleteDataset) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DeleteDataset | 
+*DefaultApi* | [**deleteDatasetGroup**](docs/DefaultApi.md#deleteDatasetGroup) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DeleteDatasetGroup | 
+*DefaultApi* | [**deleteEventTracker**](docs/DefaultApi.md#deleteEventTracker) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DeleteEventTracker | 
+*DefaultApi* | [**deleteFilter**](docs/DefaultApi.md#deleteFilter) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DeleteFilter | 
+*DefaultApi* | [**deleteMetricAttribution**](docs/DefaultApi.md#deleteMetricAttribution) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DeleteMetricAttribution | 
+*DefaultApi* | [**deleteRecommender**](docs/DefaultApi.md#deleteRecommender) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DeleteRecommender | 
+*DefaultApi* | [**deleteSchema**](docs/DefaultApi.md#deleteSchema) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DeleteSchema | 
+*DefaultApi* | [**deleteSolution**](docs/DefaultApi.md#deleteSolution) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DeleteSolution | 
+*DefaultApi* | [**describeAlgorithm**](docs/DefaultApi.md#describeAlgorithm) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeAlgorithm | 
+*DefaultApi* | [**describeBatchInferenceJob**](docs/DefaultApi.md#describeBatchInferenceJob) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeBatchInferenceJob | 
+*DefaultApi* | [**describeBatchSegmentJob**](docs/DefaultApi.md#describeBatchSegmentJob) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeBatchSegmentJob | 
+*DefaultApi* | [**describeCampaign**](docs/DefaultApi.md#describeCampaign) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeCampaign | 
+*DefaultApi* | [**describeDataset**](docs/DefaultApi.md#describeDataset) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeDataset | 
+*DefaultApi* | [**describeDatasetExportJob**](docs/DefaultApi.md#describeDatasetExportJob) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeDatasetExportJob | 
+*DefaultApi* | [**describeDatasetGroup**](docs/DefaultApi.md#describeDatasetGroup) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeDatasetGroup | 
+*DefaultApi* | [**describeDatasetImportJob**](docs/DefaultApi.md#describeDatasetImportJob) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeDatasetImportJob | 
+*DefaultApi* | [**describeEventTracker**](docs/DefaultApi.md#describeEventTracker) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeEventTracker | 
+*DefaultApi* | [**describeFeatureTransformation**](docs/DefaultApi.md#describeFeatureTransformation) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeFeatureTransformation | 
+*DefaultApi* | [**describeFilter**](docs/DefaultApi.md#describeFilter) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeFilter | 
+*DefaultApi* | [**describeMetricAttribution**](docs/DefaultApi.md#describeMetricAttribution) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeMetricAttribution | 
+*DefaultApi* | [**describeRecipe**](docs/DefaultApi.md#describeRecipe) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeRecipe | 
+*DefaultApi* | [**describeRecommender**](docs/DefaultApi.md#describeRecommender) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeRecommender | 
+*DefaultApi* | [**describeSchema**](docs/DefaultApi.md#describeSchema) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeSchema | 
+*DefaultApi* | [**describeSolution**](docs/DefaultApi.md#describeSolution) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeSolution | 
+*DefaultApi* | [**describeSolutionVersion**](docs/DefaultApi.md#describeSolutionVersion) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.DescribeSolutionVersion | 
+*DefaultApi* | [**getSolutionMetrics**](docs/DefaultApi.md#getSolutionMetrics) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.GetSolutionMetrics | 
+*DefaultApi* | [**listBatchInferenceJobs**](docs/DefaultApi.md#listBatchInferenceJobs) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListBatchInferenceJobs | 
+*DefaultApi* | [**listBatchSegmentJobs**](docs/DefaultApi.md#listBatchSegmentJobs) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListBatchSegmentJobs | 
+*DefaultApi* | [**listCampaigns**](docs/DefaultApi.md#listCampaigns) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListCampaigns | 
+*DefaultApi* | [**listDatasetExportJobs**](docs/DefaultApi.md#listDatasetExportJobs) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListDatasetExportJobs | 
+*DefaultApi* | [**listDatasetGroups**](docs/DefaultApi.md#listDatasetGroups) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListDatasetGroups | 
+*DefaultApi* | [**listDatasetImportJobs**](docs/DefaultApi.md#listDatasetImportJobs) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListDatasetImportJobs | 
+*DefaultApi* | [**listDatasets**](docs/DefaultApi.md#listDatasets) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListDatasets | 
+*DefaultApi* | [**listEventTrackers**](docs/DefaultApi.md#listEventTrackers) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListEventTrackers | 
+*DefaultApi* | [**listFilters**](docs/DefaultApi.md#listFilters) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListFilters | 
+*DefaultApi* | [**listMetricAttributionMetrics**](docs/DefaultApi.md#listMetricAttributionMetrics) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListMetricAttributionMetrics | 
+*DefaultApi* | [**listMetricAttributions**](docs/DefaultApi.md#listMetricAttributions) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListMetricAttributions | 
+*DefaultApi* | [**listRecipes**](docs/DefaultApi.md#listRecipes) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListRecipes | 
+*DefaultApi* | [**listRecommenders**](docs/DefaultApi.md#listRecommenders) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListRecommenders | 
+*DefaultApi* | [**listSchemas**](docs/DefaultApi.md#listSchemas) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListSchemas | 
+*DefaultApi* | [**listSolutionVersions**](docs/DefaultApi.md#listSolutionVersions) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListSolutionVersions | 
+*DefaultApi* | [**listSolutions**](docs/DefaultApi.md#listSolutions) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListSolutions | 
+*DefaultApi* | [**listTagsForResource**](docs/DefaultApi.md#listTagsForResource) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.ListTagsForResource | 
+*DefaultApi* | [**startRecommender**](docs/DefaultApi.md#startRecommender) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.StartRecommender | 
+*DefaultApi* | [**stopRecommender**](docs/DefaultApi.md#stopRecommender) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.StopRecommender | 
+*DefaultApi* | [**stopSolutionVersionCreation**](docs/DefaultApi.md#stopSolutionVersionCreation) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.StopSolutionVersionCreation | 
+*DefaultApi* | [**tagResource**](docs/DefaultApi.md#tagResource) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.TagResource | 
+*DefaultApi* | [**untagResource**](docs/DefaultApi.md#untagResource) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.UntagResource | 
+*DefaultApi* | [**updateCampaign**](docs/DefaultApi.md#updateCampaign) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.UpdateCampaign | 
+*DefaultApi* | [**updateMetricAttribution**](docs/DefaultApi.md#updateMetricAttribution) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.UpdateMetricAttribution | 
+*DefaultApi* | [**updateRecommender**](docs/DefaultApi.md#updateRecommender) | **POST** /#X-Amz-Target&#x3D;AmazonPersonalize.UpdateRecommender | 
 
 
 ## Documentation for Models
 
- - [GetPersonalizedRankingRequest](docs/GetPersonalizedRankingRequest.md)
- - [GetPersonalizedRankingResponse](docs/GetPersonalizedRankingResponse.md)
- - [GetRecommendationsRequest](docs/GetRecommendationsRequest.md)
- - [GetRecommendationsResponse](docs/GetRecommendationsResponse.md)
- - [PredictedItem](docs/PredictedItem.md)
- - [Promotion](docs/Promotion.md)
+ - [Algorithm](docs/Algorithm.md)
+ - [AlgorithmAlgorithmImage](docs/AlgorithmAlgorithmImage.md)
+ - [AlgorithmDefaultHyperParameterRanges](docs/AlgorithmDefaultHyperParameterRanges.md)
+ - [AlgorithmImage](docs/AlgorithmImage.md)
+ - [AutoMLConfig](docs/AutoMLConfig.md)
+ - [AutoMLResult](docs/AutoMLResult.md)
+ - [BatchInferenceJob](docs/BatchInferenceJob.md)
+ - [BatchInferenceJobBatchInferenceJobConfig](docs/BatchInferenceJobBatchInferenceJobConfig.md)
+ - [BatchInferenceJobConfig](docs/BatchInferenceJobConfig.md)
+ - [BatchInferenceJobInput](docs/BatchInferenceJobInput.md)
+ - [BatchInferenceJobInputS3DataSource](docs/BatchInferenceJobInputS3DataSource.md)
+ - [BatchInferenceJobJobInput](docs/BatchInferenceJobJobInput.md)
+ - [BatchInferenceJobJobOutput](docs/BatchInferenceJobJobOutput.md)
+ - [BatchInferenceJobOutput](docs/BatchInferenceJobOutput.md)
+ - [BatchInferenceJobOutputS3DataDestination](docs/BatchInferenceJobOutputS3DataDestination.md)
+ - [BatchInferenceJobSummary](docs/BatchInferenceJobSummary.md)
+ - [BatchSegmentJob](docs/BatchSegmentJob.md)
+ - [BatchSegmentJobInput](docs/BatchSegmentJobInput.md)
+ - [BatchSegmentJobJobInput](docs/BatchSegmentJobJobInput.md)
+ - [BatchSegmentJobJobOutput](docs/BatchSegmentJobJobOutput.md)
+ - [BatchSegmentJobOutput](docs/BatchSegmentJobOutput.md)
+ - [BatchSegmentJobSummary](docs/BatchSegmentJobSummary.md)
+ - [Campaign](docs/Campaign.md)
+ - [CampaignConfig](docs/CampaignConfig.md)
+ - [CampaignSummary](docs/CampaignSummary.md)
+ - [CampaignUpdateSummary](docs/CampaignUpdateSummary.md)
+ - [CategoricalHyperParameterRange](docs/CategoricalHyperParameterRange.md)
+ - [ContinuousHyperParameterRange](docs/ContinuousHyperParameterRange.md)
+ - [CreateBatchInferenceJobRequest](docs/CreateBatchInferenceJobRequest.md)
+ - [CreateBatchInferenceJobRequestBatchInferenceJobConfig](docs/CreateBatchInferenceJobRequestBatchInferenceJobConfig.md)
+ - [CreateBatchInferenceJobRequestJobInput](docs/CreateBatchInferenceJobRequestJobInput.md)
+ - [CreateBatchInferenceJobRequestJobOutput](docs/CreateBatchInferenceJobRequestJobOutput.md)
+ - [CreateBatchInferenceJobResponse](docs/CreateBatchInferenceJobResponse.md)
+ - [CreateBatchSegmentJobRequest](docs/CreateBatchSegmentJobRequest.md)
+ - [CreateBatchSegmentJobRequestJobInput](docs/CreateBatchSegmentJobRequestJobInput.md)
+ - [CreateBatchSegmentJobRequestJobOutput](docs/CreateBatchSegmentJobRequestJobOutput.md)
+ - [CreateBatchSegmentJobResponse](docs/CreateBatchSegmentJobResponse.md)
+ - [CreateCampaignRequest](docs/CreateCampaignRequest.md)
+ - [CreateCampaignRequestCampaignConfig](docs/CreateCampaignRequestCampaignConfig.md)
+ - [CreateCampaignResponse](docs/CreateCampaignResponse.md)
+ - [CreateDatasetExportJobRequest](docs/CreateDatasetExportJobRequest.md)
+ - [CreateDatasetExportJobRequestJobOutput](docs/CreateDatasetExportJobRequestJobOutput.md)
+ - [CreateDatasetExportJobResponse](docs/CreateDatasetExportJobResponse.md)
+ - [CreateDatasetGroupRequest](docs/CreateDatasetGroupRequest.md)
+ - [CreateDatasetGroupResponse](docs/CreateDatasetGroupResponse.md)
+ - [CreateDatasetImportJobRequest](docs/CreateDatasetImportJobRequest.md)
+ - [CreateDatasetImportJobRequestDataSource](docs/CreateDatasetImportJobRequestDataSource.md)
+ - [CreateDatasetImportJobResponse](docs/CreateDatasetImportJobResponse.md)
+ - [CreateDatasetRequest](docs/CreateDatasetRequest.md)
+ - [CreateDatasetResponse](docs/CreateDatasetResponse.md)
+ - [CreateEventTrackerRequest](docs/CreateEventTrackerRequest.md)
+ - [CreateEventTrackerResponse](docs/CreateEventTrackerResponse.md)
+ - [CreateFilterRequest](docs/CreateFilterRequest.md)
+ - [CreateFilterResponse](docs/CreateFilterResponse.md)
+ - [CreateMetricAttributionRequest](docs/CreateMetricAttributionRequest.md)
+ - [CreateMetricAttributionRequestMetricsOutputConfig](docs/CreateMetricAttributionRequestMetricsOutputConfig.md)
+ - [CreateMetricAttributionResponse](docs/CreateMetricAttributionResponse.md)
+ - [CreateRecommenderRequest](docs/CreateRecommenderRequest.md)
+ - [CreateRecommenderRequestRecommenderConfig](docs/CreateRecommenderRequestRecommenderConfig.md)
+ - [CreateRecommenderResponse](docs/CreateRecommenderResponse.md)
+ - [CreateSchemaRequest](docs/CreateSchemaRequest.md)
+ - [CreateSchemaResponse](docs/CreateSchemaResponse.md)
+ - [CreateSolutionRequest](docs/CreateSolutionRequest.md)
+ - [CreateSolutionRequestSolutionConfig](docs/CreateSolutionRequestSolutionConfig.md)
+ - [CreateSolutionResponse](docs/CreateSolutionResponse.md)
+ - [CreateSolutionVersionRequest](docs/CreateSolutionVersionRequest.md)
+ - [CreateSolutionVersionResponse](docs/CreateSolutionVersionResponse.md)
+ - [DataSource](docs/DataSource.md)
+ - [Dataset](docs/Dataset.md)
+ - [DatasetExportJob](docs/DatasetExportJob.md)
+ - [DatasetExportJobJobOutput](docs/DatasetExportJobJobOutput.md)
+ - [DatasetExportJobOutput](docs/DatasetExportJobOutput.md)
+ - [DatasetExportJobSummary](docs/DatasetExportJobSummary.md)
+ - [DatasetGroup](docs/DatasetGroup.md)
+ - [DatasetGroupSummary](docs/DatasetGroupSummary.md)
+ - [DatasetImportJob](docs/DatasetImportJob.md)
+ - [DatasetImportJobSummary](docs/DatasetImportJobSummary.md)
+ - [DatasetSchema](docs/DatasetSchema.md)
+ - [DatasetSchemaSummary](docs/DatasetSchemaSummary.md)
+ - [DatasetSummary](docs/DatasetSummary.md)
+ - [DefaultCategoricalHyperParameterRange](docs/DefaultCategoricalHyperParameterRange.md)
+ - [DefaultContinuousHyperParameterRange](docs/DefaultContinuousHyperParameterRange.md)
+ - [DefaultHyperParameterRanges](docs/DefaultHyperParameterRanges.md)
+ - [DefaultIntegerHyperParameterRange](docs/DefaultIntegerHyperParameterRange.md)
+ - [DeleteCampaignRequest](docs/DeleteCampaignRequest.md)
+ - [DeleteDatasetGroupRequest](docs/DeleteDatasetGroupRequest.md)
+ - [DeleteDatasetRequest](docs/DeleteDatasetRequest.md)
+ - [DeleteEventTrackerRequest](docs/DeleteEventTrackerRequest.md)
+ - [DeleteFilterRequest](docs/DeleteFilterRequest.md)
+ - [DeleteMetricAttributionRequest](docs/DeleteMetricAttributionRequest.md)
+ - [DeleteRecommenderRequest](docs/DeleteRecommenderRequest.md)
+ - [DeleteSchemaRequest](docs/DeleteSchemaRequest.md)
+ - [DeleteSolutionRequest](docs/DeleteSolutionRequest.md)
+ - [DescribeAlgorithmRequest](docs/DescribeAlgorithmRequest.md)
+ - [DescribeAlgorithmResponse](docs/DescribeAlgorithmResponse.md)
+ - [DescribeAlgorithmResponseAlgorithm](docs/DescribeAlgorithmResponseAlgorithm.md)
+ - [DescribeBatchInferenceJobRequest](docs/DescribeBatchInferenceJobRequest.md)
+ - [DescribeBatchInferenceJobResponse](docs/DescribeBatchInferenceJobResponse.md)
+ - [DescribeBatchInferenceJobResponseBatchInferenceJob](docs/DescribeBatchInferenceJobResponseBatchInferenceJob.md)
+ - [DescribeBatchSegmentJobRequest](docs/DescribeBatchSegmentJobRequest.md)
+ - [DescribeBatchSegmentJobResponse](docs/DescribeBatchSegmentJobResponse.md)
+ - [DescribeBatchSegmentJobResponseBatchSegmentJob](docs/DescribeBatchSegmentJobResponseBatchSegmentJob.md)
+ - [DescribeCampaignRequest](docs/DescribeCampaignRequest.md)
+ - [DescribeCampaignResponse](docs/DescribeCampaignResponse.md)
+ - [DescribeCampaignResponseCampaign](docs/DescribeCampaignResponseCampaign.md)
+ - [DescribeDatasetExportJobRequest](docs/DescribeDatasetExportJobRequest.md)
+ - [DescribeDatasetExportJobResponse](docs/DescribeDatasetExportJobResponse.md)
+ - [DescribeDatasetExportJobResponseDatasetExportJob](docs/DescribeDatasetExportJobResponseDatasetExportJob.md)
+ - [DescribeDatasetGroupRequest](docs/DescribeDatasetGroupRequest.md)
+ - [DescribeDatasetGroupResponse](docs/DescribeDatasetGroupResponse.md)
+ - [DescribeDatasetGroupResponseDatasetGroup](docs/DescribeDatasetGroupResponseDatasetGroup.md)
+ - [DescribeDatasetImportJobRequest](docs/DescribeDatasetImportJobRequest.md)
+ - [DescribeDatasetImportJobResponse](docs/DescribeDatasetImportJobResponse.md)
+ - [DescribeDatasetImportJobResponseDatasetImportJob](docs/DescribeDatasetImportJobResponseDatasetImportJob.md)
+ - [DescribeDatasetRequest](docs/DescribeDatasetRequest.md)
+ - [DescribeDatasetResponse](docs/DescribeDatasetResponse.md)
+ - [DescribeDatasetResponseDataset](docs/DescribeDatasetResponseDataset.md)
+ - [DescribeEventTrackerRequest](docs/DescribeEventTrackerRequest.md)
+ - [DescribeEventTrackerResponse](docs/DescribeEventTrackerResponse.md)
+ - [DescribeEventTrackerResponseEventTracker](docs/DescribeEventTrackerResponseEventTracker.md)
+ - [DescribeFeatureTransformationRequest](docs/DescribeFeatureTransformationRequest.md)
+ - [DescribeFeatureTransformationResponse](docs/DescribeFeatureTransformationResponse.md)
+ - [DescribeFeatureTransformationResponseFeatureTransformation](docs/DescribeFeatureTransformationResponseFeatureTransformation.md)
+ - [DescribeFilterRequest](docs/DescribeFilterRequest.md)
+ - [DescribeFilterResponse](docs/DescribeFilterResponse.md)
+ - [DescribeFilterResponseFilter](docs/DescribeFilterResponseFilter.md)
+ - [DescribeMetricAttributionRequest](docs/DescribeMetricAttributionRequest.md)
+ - [DescribeMetricAttributionResponse](docs/DescribeMetricAttributionResponse.md)
+ - [DescribeMetricAttributionResponseMetricAttribution](docs/DescribeMetricAttributionResponseMetricAttribution.md)
+ - [DescribeRecipeRequest](docs/DescribeRecipeRequest.md)
+ - [DescribeRecipeResponse](docs/DescribeRecipeResponse.md)
+ - [DescribeRecipeResponseRecipe](docs/DescribeRecipeResponseRecipe.md)
+ - [DescribeRecommenderRequest](docs/DescribeRecommenderRequest.md)
+ - [DescribeRecommenderResponse](docs/DescribeRecommenderResponse.md)
+ - [DescribeRecommenderResponseRecommender](docs/DescribeRecommenderResponseRecommender.md)
+ - [DescribeSchemaRequest](docs/DescribeSchemaRequest.md)
+ - [DescribeSchemaResponse](docs/DescribeSchemaResponse.md)
+ - [DescribeSchemaResponseSchema](docs/DescribeSchemaResponseSchema.md)
+ - [DescribeSolutionRequest](docs/DescribeSolutionRequest.md)
+ - [DescribeSolutionResponse](docs/DescribeSolutionResponse.md)
+ - [DescribeSolutionResponseSolution](docs/DescribeSolutionResponseSolution.md)
+ - [DescribeSolutionVersionRequest](docs/DescribeSolutionVersionRequest.md)
+ - [DescribeSolutionVersionResponse](docs/DescribeSolutionVersionResponse.md)
+ - [DescribeSolutionVersionResponseSolutionVersion](docs/DescribeSolutionVersionResponseSolutionVersion.md)
+ - [Domain](docs/Domain.md)
+ - [EventTracker](docs/EventTracker.md)
+ - [EventTrackerSummary](docs/EventTrackerSummary.md)
+ - [FeatureTransformation](docs/FeatureTransformation.md)
+ - [Filter](docs/Filter.md)
+ - [FilterSummary](docs/FilterSummary.md)
+ - [GetSolutionMetricsRequest](docs/GetSolutionMetricsRequest.md)
+ - [GetSolutionMetricsResponse](docs/GetSolutionMetricsResponse.md)
+ - [HPOConfig](docs/HPOConfig.md)
+ - [HPOConfigAlgorithmHyperParameterRanges](docs/HPOConfigAlgorithmHyperParameterRanges.md)
+ - [HPOConfigHpoObjective](docs/HPOConfigHpoObjective.md)
+ - [HPOConfigHpoResourceConfig](docs/HPOConfigHpoResourceConfig.md)
+ - [HPOObjective](docs/HPOObjective.md)
+ - [HPOResourceConfig](docs/HPOResourceConfig.md)
+ - [HyperParameterRanges](docs/HyperParameterRanges.md)
+ - [ImportMode](docs/ImportMode.md)
+ - [IngestionMode](docs/IngestionMode.md)
+ - [IntegerHyperParameterRange](docs/IntegerHyperParameterRange.md)
+ - [ListBatchInferenceJobsRequest](docs/ListBatchInferenceJobsRequest.md)
+ - [ListBatchInferenceJobsResponse](docs/ListBatchInferenceJobsResponse.md)
+ - [ListBatchSegmentJobsRequest](docs/ListBatchSegmentJobsRequest.md)
+ - [ListBatchSegmentJobsResponse](docs/ListBatchSegmentJobsResponse.md)
+ - [ListCampaignsRequest](docs/ListCampaignsRequest.md)
+ - [ListCampaignsResponse](docs/ListCampaignsResponse.md)
+ - [ListDatasetExportJobsRequest](docs/ListDatasetExportJobsRequest.md)
+ - [ListDatasetExportJobsResponse](docs/ListDatasetExportJobsResponse.md)
+ - [ListDatasetGroupsRequest](docs/ListDatasetGroupsRequest.md)
+ - [ListDatasetGroupsResponse](docs/ListDatasetGroupsResponse.md)
+ - [ListDatasetImportJobsRequest](docs/ListDatasetImportJobsRequest.md)
+ - [ListDatasetImportJobsResponse](docs/ListDatasetImportJobsResponse.md)
+ - [ListDatasetsRequest](docs/ListDatasetsRequest.md)
+ - [ListDatasetsResponse](docs/ListDatasetsResponse.md)
+ - [ListEventTrackersRequest](docs/ListEventTrackersRequest.md)
+ - [ListEventTrackersResponse](docs/ListEventTrackersResponse.md)
+ - [ListFiltersRequest](docs/ListFiltersRequest.md)
+ - [ListFiltersResponse](docs/ListFiltersResponse.md)
+ - [ListMetricAttributionMetricsRequest](docs/ListMetricAttributionMetricsRequest.md)
+ - [ListMetricAttributionMetricsResponse](docs/ListMetricAttributionMetricsResponse.md)
+ - [ListMetricAttributionsRequest](docs/ListMetricAttributionsRequest.md)
+ - [ListMetricAttributionsResponse](docs/ListMetricAttributionsResponse.md)
+ - [ListRecipesRequest](docs/ListRecipesRequest.md)
+ - [ListRecipesResponse](docs/ListRecipesResponse.md)
+ - [ListRecommendersRequest](docs/ListRecommendersRequest.md)
+ - [ListRecommendersResponse](docs/ListRecommendersResponse.md)
+ - [ListSchemasRequest](docs/ListSchemasRequest.md)
+ - [ListSchemasResponse](docs/ListSchemasResponse.md)
+ - [ListSolutionVersionsRequest](docs/ListSolutionVersionsRequest.md)
+ - [ListSolutionVersionsResponse](docs/ListSolutionVersionsResponse.md)
+ - [ListSolutionsRequest](docs/ListSolutionsRequest.md)
+ - [ListSolutionsResponse](docs/ListSolutionsResponse.md)
+ - [ListTagsForResourceRequest](docs/ListTagsForResourceRequest.md)
+ - [ListTagsForResourceResponse](docs/ListTagsForResourceResponse.md)
+ - [MetricAttribute](docs/MetricAttribute.md)
+ - [MetricAttribution](docs/MetricAttribution.md)
+ - [MetricAttributionMetricsOutputConfig](docs/MetricAttributionMetricsOutputConfig.md)
+ - [MetricAttributionOutput](docs/MetricAttributionOutput.md)
+ - [MetricAttributionSummary](docs/MetricAttributionSummary.md)
+ - [ObjectiveSensitivity](docs/ObjectiveSensitivity.md)
+ - [OptimizationObjective](docs/OptimizationObjective.md)
+ - [Recipe](docs/Recipe.md)
+ - [RecipeProvider](docs/RecipeProvider.md)
+ - [RecipeSummary](docs/RecipeSummary.md)
+ - [Recommender](docs/Recommender.md)
+ - [RecommenderConfig](docs/RecommenderConfig.md)
+ - [RecommenderLatestRecommenderUpdate](docs/RecommenderLatestRecommenderUpdate.md)
+ - [RecommenderSummary](docs/RecommenderSummary.md)
+ - [RecommenderUpdateSummary](docs/RecommenderUpdateSummary.md)
+ - [RecommenderUpdateSummaryRecommenderConfig](docs/RecommenderUpdateSummaryRecommenderConfig.md)
+ - [S3DataConfig](docs/S3DataConfig.md)
+ - [Solution](docs/Solution.md)
+ - [SolutionAutoMLResult](docs/SolutionAutoMLResult.md)
+ - [SolutionConfig](docs/SolutionConfig.md)
+ - [SolutionConfigAutoMLConfig](docs/SolutionConfigAutoMLConfig.md)
+ - [SolutionConfigHpoConfig](docs/SolutionConfigHpoConfig.md)
+ - [SolutionConfigOptimizationObjective](docs/SolutionConfigOptimizationObjective.md)
+ - [SolutionLatestSolutionVersion](docs/SolutionLatestSolutionVersion.md)
+ - [SolutionSolutionConfig](docs/SolutionSolutionConfig.md)
+ - [SolutionSummary](docs/SolutionSummary.md)
+ - [SolutionVersion](docs/SolutionVersion.md)
+ - [SolutionVersionSummary](docs/SolutionVersionSummary.md)
+ - [SolutionVersionTunedHPOParams](docs/SolutionVersionTunedHPOParams.md)
+ - [StartRecommenderRequest](docs/StartRecommenderRequest.md)
+ - [StartRecommenderResponse](docs/StartRecommenderResponse.md)
+ - [StopRecommenderRequest](docs/StopRecommenderRequest.md)
+ - [StopRecommenderResponse](docs/StopRecommenderResponse.md)
+ - [StopSolutionVersionCreationRequest](docs/StopSolutionVersionCreationRequest.md)
+ - [Tag](docs/Tag.md)
+ - [TagResourceRequest](docs/TagResourceRequest.md)
+ - [TrainingMode](docs/TrainingMode.md)
+ - [TunedHPOParams](docs/TunedHPOParams.md)
+ - [UntagResourceRequest](docs/UntagResourceRequest.md)
+ - [UpdateCampaignRequest](docs/UpdateCampaignRequest.md)
+ - [UpdateCampaignResponse](docs/UpdateCampaignResponse.md)
+ - [UpdateMetricAttributionRequest](docs/UpdateMetricAttributionRequest.md)
+ - [UpdateMetricAttributionRequestMetricsOutputConfig](docs/UpdateMetricAttributionRequestMetricsOutputConfig.md)
+ - [UpdateMetricAttributionResponse](docs/UpdateMetricAttributionResponse.md)
+ - [UpdateRecommenderRequest](docs/UpdateRecommenderRequest.md)
+ - [UpdateRecommenderResponse](docs/UpdateRecommenderResponse.md)
 
 
 <a id="documentation-for-authorization"></a>

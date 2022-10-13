@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ListCampaignsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:49.326201-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:25.633240-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ListCampaignsRequest {
   public static final String SERIALIZED_NAME_SOLUTION_ARN = "solutionArn";
   @SerializedName(SERIALIZED_NAME_SOLUTION_ARN)

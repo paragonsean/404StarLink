@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Provides a summary of the properties of a recommender update. For a complete listing, call the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html\&quot;&gt;DescribeRecommender&lt;/a&gt; API.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:49.326201-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:25.633240-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class RecommenderUpdateSummary {
   public static final String SERIALIZED_NAME_RECOMMENDER_CONFIG = "recommenderConfig";
   @SerializedName(SERIALIZED_NAME_RECOMMENDER_CONFIG)

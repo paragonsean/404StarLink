@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * An object that provides information about a specific version of a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_Solution.html\&quot;&gt;Solution&lt;/a&gt; in a Custom dataset group.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:49.326201-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:25.633240-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SolutionVersion {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * A truncated version of the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_BatchInferenceJob.html\&quot;&gt;BatchInferenceJob&lt;/a&gt;. The &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListBatchInferenceJobs.html\&quot;&gt;ListBatchInferenceJobs&lt;/a&gt; operation returns a list of batch inference job summaries.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:49.326201-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:25.633240-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BatchInferenceJobSummary {
   public static final String SERIALIZED_NAME_BATCH_INFERENCE_JOB_ARN = "batchInferenceJobArn";
   @SerializedName(SERIALIZED_NAME_BATCH_INFERENCE_JOB_ARN)

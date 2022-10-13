@@ -1,6 +1,6 @@
 /*
- * Amazon Personalize Runtime
- * <p/>
+ * Amazon Personalize
+ * Amazon Personalize is a machine learning service that makes it easy to add individualized recommendations to customers.
  *
  * The version of the OpenAPI document: 2018-05-22
  * Contact: mike.ralphson@gmail.com
@@ -21,7 +21,7 @@ import java.util.List;
  * <p>ApiException class.</p>
  */
 @SuppressWarnings("serial")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:53.559734-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:25.633240-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ApiException extends Exception {
     private static final long serialVersionUID = 1L;
 

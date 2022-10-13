@@ -1,6 +1,6 @@
 /*
- * Amazon Personalize Runtime
- * <p/>
+ * Amazon Personalize
+ * Amazon Personalize is a machine learning service that makes it easy to add individualized recommendations to customers.
  *
  * The version of the OpenAPI document: 2018-05-22
  * Contact: mike.ralphson@gmail.com
@@ -20,7 +20,7 @@ import java.net.URI;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:53.559734-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:25.633240-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

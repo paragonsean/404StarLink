@@ -1,6 +1,6 @@
 /*
- * Amazon Personalize Runtime
- * <p/>
+ * Amazon Personalize
+ * Amazon Personalize is a machine learning service that makes it easy to add individualized recommendations to customers.
  *
  * The version of the OpenAPI document: 2018-05-22
  * Contact: mike.ralphson@gmail.com
@@ -27,10 +27,126 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.GetPersonalizedRankingRequest;
-import org.openapitools.client.model.GetPersonalizedRankingResponse;
-import org.openapitools.client.model.GetRecommendationsRequest;
-import org.openapitools.client.model.GetRecommendationsResponse;
+import org.openapitools.client.model.CreateBatchInferenceJobRequest;
+import org.openapitools.client.model.CreateBatchInferenceJobResponse;
+import org.openapitools.client.model.CreateBatchSegmentJobRequest;
+import org.openapitools.client.model.CreateBatchSegmentJobResponse;
+import org.openapitools.client.model.CreateCampaignRequest;
+import org.openapitools.client.model.CreateCampaignResponse;
+import org.openapitools.client.model.CreateDatasetExportJobRequest;
+import org.openapitools.client.model.CreateDatasetExportJobResponse;
+import org.openapitools.client.model.CreateDatasetGroupRequest;
+import org.openapitools.client.model.CreateDatasetGroupResponse;
+import org.openapitools.client.model.CreateDatasetImportJobRequest;
+import org.openapitools.client.model.CreateDatasetImportJobResponse;
+import org.openapitools.client.model.CreateDatasetRequest;
+import org.openapitools.client.model.CreateDatasetResponse;
+import org.openapitools.client.model.CreateEventTrackerRequest;
+import org.openapitools.client.model.CreateEventTrackerResponse;
+import org.openapitools.client.model.CreateFilterRequest;
+import org.openapitools.client.model.CreateFilterResponse;
+import org.openapitools.client.model.CreateMetricAttributionRequest;
+import org.openapitools.client.model.CreateMetricAttributionResponse;
+import org.openapitools.client.model.CreateRecommenderRequest;
+import org.openapitools.client.model.CreateRecommenderResponse;
+import org.openapitools.client.model.CreateSchemaRequest;
+import org.openapitools.client.model.CreateSchemaResponse;
+import org.openapitools.client.model.CreateSolutionRequest;
+import org.openapitools.client.model.CreateSolutionResponse;
+import org.openapitools.client.model.CreateSolutionVersionRequest;
+import org.openapitools.client.model.CreateSolutionVersionResponse;
+import org.openapitools.client.model.DeleteCampaignRequest;
+import org.openapitools.client.model.DeleteDatasetGroupRequest;
+import org.openapitools.client.model.DeleteDatasetRequest;
+import org.openapitools.client.model.DeleteEventTrackerRequest;
+import org.openapitools.client.model.DeleteFilterRequest;
+import org.openapitools.client.model.DeleteMetricAttributionRequest;
+import org.openapitools.client.model.DeleteRecommenderRequest;
+import org.openapitools.client.model.DeleteSchemaRequest;
+import org.openapitools.client.model.DeleteSolutionRequest;
+import org.openapitools.client.model.DescribeAlgorithmRequest;
+import org.openapitools.client.model.DescribeAlgorithmResponse;
+import org.openapitools.client.model.DescribeBatchInferenceJobRequest;
+import org.openapitools.client.model.DescribeBatchInferenceJobResponse;
+import org.openapitools.client.model.DescribeBatchSegmentJobRequest;
+import org.openapitools.client.model.DescribeBatchSegmentJobResponse;
+import org.openapitools.client.model.DescribeCampaignRequest;
+import org.openapitools.client.model.DescribeCampaignResponse;
+import org.openapitools.client.model.DescribeDatasetExportJobRequest;
+import org.openapitools.client.model.DescribeDatasetExportJobResponse;
+import org.openapitools.client.model.DescribeDatasetGroupRequest;
+import org.openapitools.client.model.DescribeDatasetGroupResponse;
+import org.openapitools.client.model.DescribeDatasetImportJobRequest;
+import org.openapitools.client.model.DescribeDatasetImportJobResponse;
+import org.openapitools.client.model.DescribeDatasetRequest;
+import org.openapitools.client.model.DescribeDatasetResponse;
+import org.openapitools.client.model.DescribeEventTrackerRequest;
+import org.openapitools.client.model.DescribeEventTrackerResponse;
+import org.openapitools.client.model.DescribeFeatureTransformationRequest;
+import org.openapitools.client.model.DescribeFeatureTransformationResponse;
+import org.openapitools.client.model.DescribeFilterRequest;
+import org.openapitools.client.model.DescribeFilterResponse;
+import org.openapitools.client.model.DescribeMetricAttributionRequest;
+import org.openapitools.client.model.DescribeMetricAttributionResponse;
+import org.openapitools.client.model.DescribeRecipeRequest;
+import org.openapitools.client.model.DescribeRecipeResponse;
+import org.openapitools.client.model.DescribeRecommenderRequest;
+import org.openapitools.client.model.DescribeRecommenderResponse;
+import org.openapitools.client.model.DescribeSchemaRequest;
+import org.openapitools.client.model.DescribeSchemaResponse;
+import org.openapitools.client.model.DescribeSolutionRequest;
+import org.openapitools.client.model.DescribeSolutionResponse;
+import org.openapitools.client.model.DescribeSolutionVersionRequest;
+import org.openapitools.client.model.DescribeSolutionVersionResponse;
+import org.openapitools.client.model.GetSolutionMetricsRequest;
+import org.openapitools.client.model.GetSolutionMetricsResponse;
+import org.openapitools.client.model.ListBatchInferenceJobsRequest;
+import org.openapitools.client.model.ListBatchInferenceJobsResponse;
+import org.openapitools.client.model.ListBatchSegmentJobsRequest;
+import org.openapitools.client.model.ListBatchSegmentJobsResponse;
+import org.openapitools.client.model.ListCampaignsRequest;
+import org.openapitools.client.model.ListCampaignsResponse;
+import org.openapitools.client.model.ListDatasetExportJobsRequest;
+import org.openapitools.client.model.ListDatasetExportJobsResponse;
+import org.openapitools.client.model.ListDatasetGroupsRequest;
+import org.openapitools.client.model.ListDatasetGroupsResponse;
+import org.openapitools.client.model.ListDatasetImportJobsRequest;
+import org.openapitools.client.model.ListDatasetImportJobsResponse;
+import org.openapitools.client.model.ListDatasetsRequest;
+import org.openapitools.client.model.ListDatasetsResponse;
+import org.openapitools.client.model.ListEventTrackersRequest;
+import org.openapitools.client.model.ListEventTrackersResponse;
+import org.openapitools.client.model.ListFiltersRequest;
+import org.openapitools.client.model.ListFiltersResponse;
+import org.openapitools.client.model.ListMetricAttributionMetricsRequest;
+import org.openapitools.client.model.ListMetricAttributionMetricsResponse;
+import org.openapitools.client.model.ListMetricAttributionsRequest;
+import org.openapitools.client.model.ListMetricAttributionsResponse;
+import org.openapitools.client.model.ListRecipesRequest;
+import org.openapitools.client.model.ListRecipesResponse;
+import org.openapitools.client.model.ListRecommendersRequest;
+import org.openapitools.client.model.ListRecommendersResponse;
+import org.openapitools.client.model.ListSchemasRequest;
+import org.openapitools.client.model.ListSchemasResponse;
+import org.openapitools.client.model.ListSolutionVersionsRequest;
+import org.openapitools.client.model.ListSolutionVersionsResponse;
+import org.openapitools.client.model.ListSolutionsRequest;
+import org.openapitools.client.model.ListSolutionsResponse;
+import org.openapitools.client.model.ListTagsForResourceRequest;
+import org.openapitools.client.model.ListTagsForResourceResponse;
+import org.openapitools.client.model.StartRecommenderRequest;
+import org.openapitools.client.model.StartRecommenderResponse;
+import org.openapitools.client.model.StopRecommenderRequest;
+import org.openapitools.client.model.StopRecommenderResponse;
+import org.openapitools.client.model.StopSolutionVersionCreationRequest;
+import org.openapitools.client.model.TagResourceRequest;
+import org.openapitools.client.model.UntagResourceRequest;
+import org.openapitools.client.model.UpdateCampaignRequest;
+import org.openapitools.client.model.UpdateCampaignResponse;
+import org.openapitools.client.model.UpdateMetricAttributionRequest;
+import org.openapitools.client.model.UpdateMetricAttributionResponse;
+import org.openapitools.client.model.UpdateRecommenderRequest;
+import org.openapitools.client.model.UpdateRecommenderResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -76,8 +192,9 @@ public class DefaultApi {
     }
 
     /**
-     * Build call for getPersonalizedRanking
-     * @param getPersonalizedRankingRequest  (required)
+     * Build call for createBatchInferenceJob
+     * @param xAmzTarget  (required)
+     * @param createBatchInferenceJobRequest  (required)
      * @param xAmzContentSha256  (optional)
      * @param xAmzDate  (optional)
      * @param xAmzAlgorithm  (optional)
@@ -93,10 +210,14 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
-        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPersonalizedRankingCall(GetPersonalizedRankingRequest getPersonalizedRankingRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createBatchInferenceJobCall(String xAmzTarget, CreateBatchInferenceJobRequest createBatchInferenceJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -110,10 +231,10 @@ public class DefaultApi {
             basePath = null;
         }
 
-        Object localVarPostBody = getPersonalizedRankingRequest;
+        Object localVarPostBody = createBatchInferenceJobRequest;
 
         // create path and map variables
-        String localVarPath = "/personalize-ranking";
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateBatchInferenceJob";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -149,6 +270,10 @@ public class DefaultApi {
             localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
         }
 
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -170,20 +295,26 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPersonalizedRankingValidateBeforeCall(GetPersonalizedRankingRequest getPersonalizedRankingRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'getPersonalizedRankingRequest' is set
-        if (getPersonalizedRankingRequest == null) {
-            throw new ApiException("Missing the required parameter 'getPersonalizedRankingRequest' when calling getPersonalizedRanking(Async)");
+    private okhttp3.Call createBatchInferenceJobValidateBeforeCall(String xAmzTarget, CreateBatchInferenceJobRequest createBatchInferenceJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createBatchInferenceJob(Async)");
         }
 
-        return getPersonalizedRankingCall(getPersonalizedRankingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        // verify the required parameter 'createBatchInferenceJobRequest' is set
+        if (createBatchInferenceJobRequest == null) {
+            throw new ApiException("Missing the required parameter 'createBatchInferenceJobRequest' when calling createBatchInferenceJob(Async)");
+        }
+
+        return createBatchInferenceJobCall(xAmzTarget, createBatchInferenceJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
 
     }
 
     /**
      * 
-     * &lt;p&gt;Re-ranks a list of recommended items for the given user. The first item in the list is deemed the most likely item to be of interest to the user.&lt;/p&gt; &lt;note&gt; &lt;p&gt;The solution backing the campaign must have been created using a recipe of type PERSONALIZED_RANKING.&lt;/p&gt; &lt;/note&gt;
-     * @param getPersonalizedRankingRequest  (required)
+     * Creates a batch inference job. The operation can handle up to 50 million records and the input file must be in JSON format. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html\&quot;&gt;Creating a batch inference job&lt;/a&gt;. 
+     * @param xAmzTarget  (required)
+     * @param createBatchInferenceJobRequest  (required)
      * @param xAmzContentSha256  (optional)
      * @param xAmzDate  (optional)
      * @param xAmzAlgorithm  (optional)
@@ -191,25 +322,30 @@ public class DefaultApi {
      * @param xAmzSecurityToken  (optional)
      * @param xAmzSignature  (optional)
      * @param xAmzSignedHeaders  (optional)
-     * @return GetPersonalizedRankingResponse
+     * @return CreateBatchInferenceJobResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
-        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
      </table>
      */
-    public GetPersonalizedRankingResponse getPersonalizedRanking(GetPersonalizedRankingRequest getPersonalizedRankingRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
-        ApiResponse<GetPersonalizedRankingResponse> localVarResp = getPersonalizedRankingWithHttpInfo(getPersonalizedRankingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    public CreateBatchInferenceJobResponse createBatchInferenceJob(String xAmzTarget, CreateBatchInferenceJobRequest createBatchInferenceJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateBatchInferenceJobResponse> localVarResp = createBatchInferenceJobWithHttpInfo(xAmzTarget, createBatchInferenceJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * &lt;p&gt;Re-ranks a list of recommended items for the given user. The first item in the list is deemed the most likely item to be of interest to the user.&lt;/p&gt; &lt;note&gt; &lt;p&gt;The solution backing the campaign must have been created using a recipe of type PERSONALIZED_RANKING.&lt;/p&gt; &lt;/note&gt;
-     * @param getPersonalizedRankingRequest  (required)
+     * Creates a batch inference job. The operation can handle up to 50 million records and the input file must be in JSON format. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html\&quot;&gt;Creating a batch inference job&lt;/a&gt;. 
+     * @param xAmzTarget  (required)
+     * @param createBatchInferenceJobRequest  (required)
      * @param xAmzContentSha256  (optional)
      * @param xAmzDate  (optional)
      * @param xAmzAlgorithm  (optional)
@@ -217,26 +353,31 @@ public class DefaultApi {
      * @param xAmzSecurityToken  (optional)
      * @param xAmzSignature  (optional)
      * @param xAmzSignedHeaders  (optional)
-     * @return ApiResponse&lt;GetPersonalizedRankingResponse&gt;
+     * @return ApiResponse&lt;CreateBatchInferenceJobResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
-        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetPersonalizedRankingResponse> getPersonalizedRankingWithHttpInfo(GetPersonalizedRankingRequest getPersonalizedRankingRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
-        okhttp3.Call localVarCall = getPersonalizedRankingValidateBeforeCall(getPersonalizedRankingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
-        Type localVarReturnType = new TypeToken<GetPersonalizedRankingResponse>(){}.getType();
+    public ApiResponse<CreateBatchInferenceJobResponse> createBatchInferenceJobWithHttpInfo(String xAmzTarget, CreateBatchInferenceJobRequest createBatchInferenceJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createBatchInferenceJobValidateBeforeCall(xAmzTarget, createBatchInferenceJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateBatchInferenceJobResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * &lt;p&gt;Re-ranks a list of recommended items for the given user. The first item in the list is deemed the most likely item to be of interest to the user.&lt;/p&gt; &lt;note&gt; &lt;p&gt;The solution backing the campaign must have been created using a recipe of type PERSONALIZED_RANKING.&lt;/p&gt; &lt;/note&gt;
-     * @param getPersonalizedRankingRequest  (required)
+     * Creates a batch inference job. The operation can handle up to 50 million records and the input file must be in JSON format. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html\&quot;&gt;Creating a batch inference job&lt;/a&gt;. 
+     * @param xAmzTarget  (required)
+     * @param createBatchInferenceJobRequest  (required)
      * @param xAmzContentSha256  (optional)
      * @param xAmzDate  (optional)
      * @param xAmzAlgorithm  (optional)
@@ -252,19 +393,24 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
-        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPersonalizedRankingAsync(GetPersonalizedRankingRequest getPersonalizedRankingRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<GetPersonalizedRankingResponse> _callback) throws ApiException {
+    public okhttp3.Call createBatchInferenceJobAsync(String xAmzTarget, CreateBatchInferenceJobRequest createBatchInferenceJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateBatchInferenceJobResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPersonalizedRankingValidateBeforeCall(getPersonalizedRankingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
-        Type localVarReturnType = new TypeToken<GetPersonalizedRankingResponse>(){}.getType();
+        okhttp3.Call localVarCall = createBatchInferenceJobValidateBeforeCall(xAmzTarget, createBatchInferenceJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateBatchInferenceJobResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for getRecommendations
-     * @param getRecommendationsRequest  (required)
+     * Build call for createBatchSegmentJob
+     * @param xAmzTarget  (required)
+     * @param createBatchSegmentJobRequest  (required)
      * @param xAmzContentSha256  (optional)
      * @param xAmzDate  (optional)
      * @param xAmzAlgorithm  (optional)
@@ -280,10 +426,14 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
-        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRecommendationsCall(GetRecommendationsRequest getRecommendationsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createBatchSegmentJobCall(String xAmzTarget, CreateBatchSegmentJobRequest createBatchSegmentJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -297,10 +447,10 @@ public class DefaultApi {
             basePath = null;
         }
 
-        Object localVarPostBody = getRecommendationsRequest;
+        Object localVarPostBody = createBatchSegmentJobRequest;
 
         // create path and map variables
-        String localVarPath = "/recommendations";
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateBatchSegmentJob";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -336,6 +486,10 @@ public class DefaultApi {
             localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
         }
 
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -357,20 +511,26 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRecommendationsValidateBeforeCall(GetRecommendationsRequest getRecommendationsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'getRecommendationsRequest' is set
-        if (getRecommendationsRequest == null) {
-            throw new ApiException("Missing the required parameter 'getRecommendationsRequest' when calling getRecommendations(Async)");
+    private okhttp3.Call createBatchSegmentJobValidateBeforeCall(String xAmzTarget, CreateBatchSegmentJobRequest createBatchSegmentJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createBatchSegmentJob(Async)");
         }
 
-        return getRecommendationsCall(getRecommendationsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        // verify the required parameter 'createBatchSegmentJobRequest' is set
+        if (createBatchSegmentJobRequest == null) {
+            throw new ApiException("Missing the required parameter 'createBatchSegmentJobRequest' when calling createBatchSegmentJob(Async)");
+        }
+
+        return createBatchSegmentJobCall(xAmzTarget, createBatchSegmentJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
 
     }
 
     /**
      * 
-     * &lt;p&gt;Returns a list of recommended items. For campaigns, the campaign&#39;s Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to create the solution backing the campaign as follows:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;USER_PERSONALIZATION - &lt;code&gt;userId&lt;/code&gt; required, &lt;code&gt;itemId&lt;/code&gt; not used&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;RELATED_ITEMS - &lt;code&gt;itemId&lt;/code&gt; required, &lt;code&gt;userId&lt;/code&gt; not used&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;note&gt; &lt;p&gt;Campaigns that are backed by a solution created using a recipe of type PERSONALIZED_RANKING use the API.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; For recommenders, the recommender&#39;s ARN is required and the required item and user input depends on the use case (domain-based recipe) backing the recommender. For information on use case requirements see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html\&quot;&gt;Choosing recommender use cases&lt;/a&gt;. &lt;/p&gt;
-     * @param getRecommendationsRequest  (required)
+     * Creates a batch segment job. The operation can handle up to 50 million records and the input file must be in JSON format. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html\&quot;&gt;Getting batch recommendations and user segments&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param createBatchSegmentJobRequest  (required)
      * @param xAmzContentSha256  (optional)
      * @param xAmzDate  (optional)
      * @param xAmzAlgorithm  (optional)
@@ -378,25 +538,30 @@ public class DefaultApi {
      * @param xAmzSecurityToken  (optional)
      * @param xAmzSignature  (optional)
      * @param xAmzSignedHeaders  (optional)
-     * @return GetRecommendationsResponse
+     * @return CreateBatchSegmentJobResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
-        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
      </table>
      */
-    public GetRecommendationsResponse getRecommendations(GetRecommendationsRequest getRecommendationsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
-        ApiResponse<GetRecommendationsResponse> localVarResp = getRecommendationsWithHttpInfo(getRecommendationsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    public CreateBatchSegmentJobResponse createBatchSegmentJob(String xAmzTarget, CreateBatchSegmentJobRequest createBatchSegmentJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateBatchSegmentJobResponse> localVarResp = createBatchSegmentJobWithHttpInfo(xAmzTarget, createBatchSegmentJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * &lt;p&gt;Returns a list of recommended items. For campaigns, the campaign&#39;s Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to create the solution backing the campaign as follows:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;USER_PERSONALIZATION - &lt;code&gt;userId&lt;/code&gt; required, &lt;code&gt;itemId&lt;/code&gt; not used&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;RELATED_ITEMS - &lt;code&gt;itemId&lt;/code&gt; required, &lt;code&gt;userId&lt;/code&gt; not used&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;note&gt; &lt;p&gt;Campaigns that are backed by a solution created using a recipe of type PERSONALIZED_RANKING use the API.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; For recommenders, the recommender&#39;s ARN is required and the required item and user input depends on the use case (domain-based recipe) backing the recommender. For information on use case requirements see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html\&quot;&gt;Choosing recommender use cases&lt;/a&gt;. &lt;/p&gt;
-     * @param getRecommendationsRequest  (required)
+     * Creates a batch segment job. The operation can handle up to 50 million records and the input file must be in JSON format. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html\&quot;&gt;Getting batch recommendations and user segments&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param createBatchSegmentJobRequest  (required)
      * @param xAmzContentSha256  (optional)
      * @param xAmzDate  (optional)
      * @param xAmzAlgorithm  (optional)
@@ -404,7 +569,4552 @@ public class DefaultApi {
      * @param xAmzSecurityToken  (optional)
      * @param xAmzSignature  (optional)
      * @param xAmzSignedHeaders  (optional)
-     * @return ApiResponse&lt;GetRecommendationsResponse&gt;
+     * @return ApiResponse&lt;CreateBatchSegmentJobResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateBatchSegmentJobResponse> createBatchSegmentJobWithHttpInfo(String xAmzTarget, CreateBatchSegmentJobRequest createBatchSegmentJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createBatchSegmentJobValidateBeforeCall(xAmzTarget, createBatchSegmentJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateBatchSegmentJobResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Creates a batch segment job. The operation can handle up to 50 million records and the input file must be in JSON format. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html\&quot;&gt;Getting batch recommendations and user segments&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param createBatchSegmentJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createBatchSegmentJobAsync(String xAmzTarget, CreateBatchSegmentJobRequest createBatchSegmentJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateBatchSegmentJobResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createBatchSegmentJobValidateBeforeCall(xAmzTarget, createBatchSegmentJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateBatchSegmentJobResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createCampaign
+     * @param xAmzTarget  (required)
+     * @param createCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createCampaignCall(String xAmzTarget, CreateCampaignRequest createCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createCampaignRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateCampaign";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createCampaignValidateBeforeCall(String xAmzTarget, CreateCampaignRequest createCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createCampaign(Async)");
+        }
+
+        // verify the required parameter 'createCampaignRequest' is set
+        if (createCampaignRequest == null) {
+            throw new ApiException("Missing the required parameter 'createCampaignRequest' when calling createCampaign(Async)");
+        }
+
+        return createCampaignCall(xAmzTarget, createCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates a campaign that deploys a solution version. When a client calls the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; and &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html\&quot;&gt;GetPersonalizedRanking&lt;/a&gt; APIs, a campaign is specified in the request.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Minimum Provisioned TPS and Auto-Scaling&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A transaction is a single &lt;code&gt;GetRecommendations&lt;/code&gt; or &lt;code&gt;GetPersonalizedRanking&lt;/code&gt; call. Transactions per second (TPS) is the throughput and unit of billing for Amazon Personalize. The minimum provisioned TPS (&lt;code&gt;minProvisionedTPS&lt;/code&gt;) specifies the baseline throughput provisioned by Amazon Personalize, and thus, the minimum billing charge. &lt;/p&gt; &lt;p&gt; If your TPS increases beyond &lt;code&gt;minProvisionedTPS&lt;/code&gt;, Amazon Personalize auto-scales the provisioned capacity up and down, but never below &lt;code&gt;minProvisionedTPS&lt;/code&gt;. There&#39;s a short time delay while the capacity is increased that might cause loss of transactions.&lt;/p&gt; &lt;p&gt;The actual TPS used is calculated as the average requests/second within a 5-minute window. You pay for maximum of either the minimum provisioned TPS or the actual TPS. We recommend starting with a low &lt;code&gt;minProvisionedTPS&lt;/code&gt;, track your usage using Amazon CloudWatch metrics, and then increase the &lt;code&gt;minProvisionedTPS&lt;/code&gt; as necessary.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A campaign can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the campaign status, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html\&quot;&gt;DescribeCampaign&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Wait until the &lt;code&gt;status&lt;/code&gt; of the campaign is &lt;code&gt;ACTIVE&lt;/code&gt; before asking the campaign for recommendations.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html\&quot;&gt;ListCampaigns&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html\&quot;&gt;DescribeCampaign&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateCampaign.html\&quot;&gt;UpdateCampaign&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html\&quot;&gt;DeleteCampaign&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateCampaignResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateCampaignResponse createCampaign(String xAmzTarget, CreateCampaignRequest createCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateCampaignResponse> localVarResp = createCampaignWithHttpInfo(xAmzTarget, createCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates a campaign that deploys a solution version. When a client calls the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; and &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html\&quot;&gt;GetPersonalizedRanking&lt;/a&gt; APIs, a campaign is specified in the request.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Minimum Provisioned TPS and Auto-Scaling&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A transaction is a single &lt;code&gt;GetRecommendations&lt;/code&gt; or &lt;code&gt;GetPersonalizedRanking&lt;/code&gt; call. Transactions per second (TPS) is the throughput and unit of billing for Amazon Personalize. The minimum provisioned TPS (&lt;code&gt;minProvisionedTPS&lt;/code&gt;) specifies the baseline throughput provisioned by Amazon Personalize, and thus, the minimum billing charge. &lt;/p&gt; &lt;p&gt; If your TPS increases beyond &lt;code&gt;minProvisionedTPS&lt;/code&gt;, Amazon Personalize auto-scales the provisioned capacity up and down, but never below &lt;code&gt;minProvisionedTPS&lt;/code&gt;. There&#39;s a short time delay while the capacity is increased that might cause loss of transactions.&lt;/p&gt; &lt;p&gt;The actual TPS used is calculated as the average requests/second within a 5-minute window. You pay for maximum of either the minimum provisioned TPS or the actual TPS. We recommend starting with a low &lt;code&gt;minProvisionedTPS&lt;/code&gt;, track your usage using Amazon CloudWatch metrics, and then increase the &lt;code&gt;minProvisionedTPS&lt;/code&gt; as necessary.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A campaign can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the campaign status, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html\&quot;&gt;DescribeCampaign&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Wait until the &lt;code&gt;status&lt;/code&gt; of the campaign is &lt;code&gt;ACTIVE&lt;/code&gt; before asking the campaign for recommendations.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html\&quot;&gt;ListCampaigns&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html\&quot;&gt;DescribeCampaign&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateCampaign.html\&quot;&gt;UpdateCampaign&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html\&quot;&gt;DeleteCampaign&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateCampaignResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateCampaignResponse> createCampaignWithHttpInfo(String xAmzTarget, CreateCampaignRequest createCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createCampaignValidateBeforeCall(xAmzTarget, createCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateCampaignResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Creates a campaign that deploys a solution version. When a client calls the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; and &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html\&quot;&gt;GetPersonalizedRanking&lt;/a&gt; APIs, a campaign is specified in the request.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Minimum Provisioned TPS and Auto-Scaling&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A transaction is a single &lt;code&gt;GetRecommendations&lt;/code&gt; or &lt;code&gt;GetPersonalizedRanking&lt;/code&gt; call. Transactions per second (TPS) is the throughput and unit of billing for Amazon Personalize. The minimum provisioned TPS (&lt;code&gt;minProvisionedTPS&lt;/code&gt;) specifies the baseline throughput provisioned by Amazon Personalize, and thus, the minimum billing charge. &lt;/p&gt; &lt;p&gt; If your TPS increases beyond &lt;code&gt;minProvisionedTPS&lt;/code&gt;, Amazon Personalize auto-scales the provisioned capacity up and down, but never below &lt;code&gt;minProvisionedTPS&lt;/code&gt;. There&#39;s a short time delay while the capacity is increased that might cause loss of transactions.&lt;/p&gt; &lt;p&gt;The actual TPS used is calculated as the average requests/second within a 5-minute window. You pay for maximum of either the minimum provisioned TPS or the actual TPS. We recommend starting with a low &lt;code&gt;minProvisionedTPS&lt;/code&gt;, track your usage using Amazon CloudWatch metrics, and then increase the &lt;code&gt;minProvisionedTPS&lt;/code&gt; as necessary.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A campaign can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the campaign status, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html\&quot;&gt;DescribeCampaign&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Wait until the &lt;code&gt;status&lt;/code&gt; of the campaign is &lt;code&gt;ACTIVE&lt;/code&gt; before asking the campaign for recommendations.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html\&quot;&gt;ListCampaigns&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html\&quot;&gt;DescribeCampaign&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateCampaign.html\&quot;&gt;UpdateCampaign&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html\&quot;&gt;DeleteCampaign&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createCampaignAsync(String xAmzTarget, CreateCampaignRequest createCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateCampaignResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createCampaignValidateBeforeCall(xAmzTarget, createCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateCampaignResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createDataset
+     * @param xAmzTarget  (required)
+     * @param createDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createDatasetCall(String xAmzTarget, CreateDatasetRequest createDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createDatasetRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateDataset";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createDatasetValidateBeforeCall(String xAmzTarget, CreateDatasetRequest createDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createDataset(Async)");
+        }
+
+        // verify the required parameter 'createDatasetRequest' is set
+        if (createDatasetRequest == null) {
+            throw new ApiException("Missing the required parameter 'createDatasetRequest' when calling createDataset(Async)");
+        }
+
+        return createDatasetCall(xAmzTarget, createDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates an empty dataset and adds it to the specified dataset group. Use &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html\&quot;&gt;CreateDatasetImportJob&lt;/a&gt; to import your training data to a dataset.&lt;/p&gt; &lt;p&gt;There are three types of datasets:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Interactions&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Items&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Users&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Each dataset type has an associated schema with required field types. Only the &lt;code&gt;Interactions&lt;/code&gt; dataset is required in order to train a model (also referred to as creating a solution).&lt;/p&gt; &lt;p&gt;A dataset can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the dataset, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html\&quot;&gt;DescribeDataset&lt;/a&gt;.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html\&quot;&gt;CreateDatasetGroup&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html\&quot;&gt;ListDatasets&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html\&quot;&gt;DescribeDataset&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html\&quot;&gt;DeleteDataset&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateDatasetResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateDatasetResponse createDataset(String xAmzTarget, CreateDatasetRequest createDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateDatasetResponse> localVarResp = createDatasetWithHttpInfo(xAmzTarget, createDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates an empty dataset and adds it to the specified dataset group. Use &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html\&quot;&gt;CreateDatasetImportJob&lt;/a&gt; to import your training data to a dataset.&lt;/p&gt; &lt;p&gt;There are three types of datasets:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Interactions&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Items&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Users&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Each dataset type has an associated schema with required field types. Only the &lt;code&gt;Interactions&lt;/code&gt; dataset is required in order to train a model (also referred to as creating a solution).&lt;/p&gt; &lt;p&gt;A dataset can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the dataset, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html\&quot;&gt;DescribeDataset&lt;/a&gt;.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html\&quot;&gt;CreateDatasetGroup&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html\&quot;&gt;ListDatasets&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html\&quot;&gt;DescribeDataset&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html\&quot;&gt;DeleteDataset&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateDatasetResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateDatasetResponse> createDatasetWithHttpInfo(String xAmzTarget, CreateDatasetRequest createDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createDatasetValidateBeforeCall(xAmzTarget, createDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateDatasetResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Creates an empty dataset and adds it to the specified dataset group. Use &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html\&quot;&gt;CreateDatasetImportJob&lt;/a&gt; to import your training data to a dataset.&lt;/p&gt; &lt;p&gt;There are three types of datasets:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Interactions&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Items&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Users&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Each dataset type has an associated schema with required field types. Only the &lt;code&gt;Interactions&lt;/code&gt; dataset is required in order to train a model (also referred to as creating a solution).&lt;/p&gt; &lt;p&gt;A dataset can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the dataset, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html\&quot;&gt;DescribeDataset&lt;/a&gt;.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html\&quot;&gt;CreateDatasetGroup&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html\&quot;&gt;ListDatasets&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html\&quot;&gt;DescribeDataset&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html\&quot;&gt;DeleteDataset&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createDatasetAsync(String xAmzTarget, CreateDatasetRequest createDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateDatasetResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createDatasetValidateBeforeCall(xAmzTarget, createDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateDatasetResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createDatasetExportJob
+     * @param xAmzTarget  (required)
+     * @param createDatasetExportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createDatasetExportJobCall(String xAmzTarget, CreateDatasetExportJobRequest createDatasetExportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createDatasetExportJobRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateDatasetExportJob";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createDatasetExportJobValidateBeforeCall(String xAmzTarget, CreateDatasetExportJobRequest createDatasetExportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createDatasetExportJob(Async)");
+        }
+
+        // verify the required parameter 'createDatasetExportJobRequest' is set
+        if (createDatasetExportJobRequest == null) {
+            throw new ApiException("Missing the required parameter 'createDatasetExportJobRequest' when calling createDatasetExportJob(Async)");
+        }
+
+        return createDatasetExportJobCall(xAmzTarget, createDatasetExportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt; Creates a job that exports data from your dataset to an Amazon S3 bucket. To allow Amazon Personalize to export the training data, you must specify an service-linked IAM role that gives Amazon Personalize &lt;code&gt;PutObject&lt;/code&gt; permissions for your Amazon S3 bucket. For information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/export-data.html\&quot;&gt;Exporting a dataset&lt;/a&gt; in the Amazon Personalize developer guide. &lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A dataset export job can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; To get the status of the export job, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html\&quot;&gt;DescribeDatasetExportJob&lt;/a&gt;, and specify the Amazon Resource Name (ARN) of the dataset export job. The dataset export is complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the job failed. &lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetExportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateDatasetExportJobResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateDatasetExportJobResponse createDatasetExportJob(String xAmzTarget, CreateDatasetExportJobRequest createDatasetExportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateDatasetExportJobResponse> localVarResp = createDatasetExportJobWithHttpInfo(xAmzTarget, createDatasetExportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt; Creates a job that exports data from your dataset to an Amazon S3 bucket. To allow Amazon Personalize to export the training data, you must specify an service-linked IAM role that gives Amazon Personalize &lt;code&gt;PutObject&lt;/code&gt; permissions for your Amazon S3 bucket. For information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/export-data.html\&quot;&gt;Exporting a dataset&lt;/a&gt; in the Amazon Personalize developer guide. &lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A dataset export job can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; To get the status of the export job, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html\&quot;&gt;DescribeDatasetExportJob&lt;/a&gt;, and specify the Amazon Resource Name (ARN) of the dataset export job. The dataset export is complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the job failed. &lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetExportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateDatasetExportJobResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateDatasetExportJobResponse> createDatasetExportJobWithHttpInfo(String xAmzTarget, CreateDatasetExportJobRequest createDatasetExportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createDatasetExportJobValidateBeforeCall(xAmzTarget, createDatasetExportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateDatasetExportJobResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt; Creates a job that exports data from your dataset to an Amazon S3 bucket. To allow Amazon Personalize to export the training data, you must specify an service-linked IAM role that gives Amazon Personalize &lt;code&gt;PutObject&lt;/code&gt; permissions for your Amazon S3 bucket. For information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/export-data.html\&quot;&gt;Exporting a dataset&lt;/a&gt; in the Amazon Personalize developer guide. &lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A dataset export job can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; To get the status of the export job, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html\&quot;&gt;DescribeDatasetExportJob&lt;/a&gt;, and specify the Amazon Resource Name (ARN) of the dataset export job. The dataset export is complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the job failed. &lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetExportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createDatasetExportJobAsync(String xAmzTarget, CreateDatasetExportJobRequest createDatasetExportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateDatasetExportJobResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createDatasetExportJobValidateBeforeCall(xAmzTarget, createDatasetExportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateDatasetExportJobResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createDatasetGroup
+     * @param xAmzTarget  (required)
+     * @param createDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createDatasetGroupCall(String xAmzTarget, CreateDatasetGroupRequest createDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createDatasetGroupRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateDatasetGroup";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createDatasetGroupValidateBeforeCall(String xAmzTarget, CreateDatasetGroupRequest createDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createDatasetGroup(Async)");
+        }
+
+        // verify the required parameter 'createDatasetGroupRequest' is set
+        if (createDatasetGroupRequest == null) {
+            throw new ApiException("Missing the required parameter 'createDatasetGroupRequest' when calling createDatasetGroup(Async)");
+        }
+
+        return createDatasetGroupCall(xAmzTarget, createDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates an empty dataset group. A dataset group is a container for Amazon Personalize resources. A dataset group can contain at most three datasets, one for each type of dataset:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Interactions&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Items&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Users&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; A dataset group can be a Domain dataset group, where you specify a domain and use pre-configured resources like recommenders, or a Custom dataset group, where you use custom resources, such as a solution with a solution version, that you deploy with a campaign. If you start with a Domain dataset group, you can still add custom resources such as solutions and solution versions trained with recipes for custom use cases and deployed with campaigns. &lt;/p&gt; &lt;p&gt;A dataset group can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the dataset group, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html\&quot;&gt;DescribeDatasetGroup&lt;/a&gt;. If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the creation failed.&lt;/p&gt; &lt;note&gt; &lt;p&gt;You must wait until the &lt;code&gt;status&lt;/code&gt; of the dataset group is &lt;code&gt;ACTIVE&lt;/code&gt; before adding a dataset to the group.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;You can specify an Key Management Service (KMS) key to encrypt the datasets in the group. If you specify a KMS key, you must also include an Identity and Access Management (IAM) role that has permission to access the key.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;APIs that require a dataset group ARN in the request&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetGroups.html\&quot;&gt;ListDatasetGroups&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html\&quot;&gt;DescribeDatasetGroup&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html\&quot;&gt;DeleteDatasetGroup&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateDatasetGroupResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateDatasetGroupResponse createDatasetGroup(String xAmzTarget, CreateDatasetGroupRequest createDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateDatasetGroupResponse> localVarResp = createDatasetGroupWithHttpInfo(xAmzTarget, createDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates an empty dataset group. A dataset group is a container for Amazon Personalize resources. A dataset group can contain at most three datasets, one for each type of dataset:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Interactions&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Items&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Users&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; A dataset group can be a Domain dataset group, where you specify a domain and use pre-configured resources like recommenders, or a Custom dataset group, where you use custom resources, such as a solution with a solution version, that you deploy with a campaign. If you start with a Domain dataset group, you can still add custom resources such as solutions and solution versions trained with recipes for custom use cases and deployed with campaigns. &lt;/p&gt; &lt;p&gt;A dataset group can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the dataset group, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html\&quot;&gt;DescribeDatasetGroup&lt;/a&gt;. If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the creation failed.&lt;/p&gt; &lt;note&gt; &lt;p&gt;You must wait until the &lt;code&gt;status&lt;/code&gt; of the dataset group is &lt;code&gt;ACTIVE&lt;/code&gt; before adding a dataset to the group.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;You can specify an Key Management Service (KMS) key to encrypt the datasets in the group. If you specify a KMS key, you must also include an Identity and Access Management (IAM) role that has permission to access the key.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;APIs that require a dataset group ARN in the request&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetGroups.html\&quot;&gt;ListDatasetGroups&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html\&quot;&gt;DescribeDatasetGroup&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html\&quot;&gt;DeleteDatasetGroup&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateDatasetGroupResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateDatasetGroupResponse> createDatasetGroupWithHttpInfo(String xAmzTarget, CreateDatasetGroupRequest createDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createDatasetGroupValidateBeforeCall(xAmzTarget, createDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateDatasetGroupResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Creates an empty dataset group. A dataset group is a container for Amazon Personalize resources. A dataset group can contain at most three datasets, one for each type of dataset:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Interactions&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Items&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Users&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; A dataset group can be a Domain dataset group, where you specify a domain and use pre-configured resources like recommenders, or a Custom dataset group, where you use custom resources, such as a solution with a solution version, that you deploy with a campaign. If you start with a Domain dataset group, you can still add custom resources such as solutions and solution versions trained with recipes for custom use cases and deployed with campaigns. &lt;/p&gt; &lt;p&gt;A dataset group can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the dataset group, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html\&quot;&gt;DescribeDatasetGroup&lt;/a&gt;. If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the creation failed.&lt;/p&gt; &lt;note&gt; &lt;p&gt;You must wait until the &lt;code&gt;status&lt;/code&gt; of the dataset group is &lt;code&gt;ACTIVE&lt;/code&gt; before adding a dataset to the group.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;You can specify an Key Management Service (KMS) key to encrypt the datasets in the group. If you specify a KMS key, you must also include an Identity and Access Management (IAM) role that has permission to access the key.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;APIs that require a dataset group ARN in the request&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetGroups.html\&quot;&gt;ListDatasetGroups&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html\&quot;&gt;DescribeDatasetGroup&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html\&quot;&gt;DeleteDatasetGroup&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createDatasetGroupAsync(String xAmzTarget, CreateDatasetGroupRequest createDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateDatasetGroupResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createDatasetGroupValidateBeforeCall(xAmzTarget, createDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateDatasetGroupResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createDatasetImportJob
+     * @param xAmzTarget  (required)
+     * @param createDatasetImportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createDatasetImportJobCall(String xAmzTarget, CreateDatasetImportJobRequest createDatasetImportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createDatasetImportJobRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateDatasetImportJob";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createDatasetImportJobValidateBeforeCall(String xAmzTarget, CreateDatasetImportJobRequest createDatasetImportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createDatasetImportJob(Async)");
+        }
+
+        // verify the required parameter 'createDatasetImportJobRequest' is set
+        if (createDatasetImportJobRequest == null) {
+            throw new ApiException("Missing the required parameter 'createDatasetImportJobRequest' when calling createDatasetImportJob(Async)");
+        }
+
+        return createDatasetImportJobCall(xAmzTarget, createDatasetImportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates a job that imports training data from your data source (an Amazon S3 bucket) to an Amazon Personalize dataset. To allow Amazon Personalize to import the training data, you must specify an IAM service role that has permission to read from the data source, as Amazon Personalize makes a copy of your data and processes it internally. For information on granting access to your Amazon S3 bucket, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html\&quot;&gt;Giving Amazon Personalize Access to Amazon S3 Resources&lt;/a&gt;. &lt;/p&gt; &lt;important&gt; &lt;p&gt;By default, a dataset import job replaces any existing data in the dataset that you imported in bulk. To add new records without replacing existing data, specify INCREMENTAL for the import mode in the CreateDatasetImportJob operation.&lt;/p&gt; &lt;/important&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A dataset import job can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the import job, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html\&quot;&gt;DescribeDatasetImportJob&lt;/a&gt;, providing the Amazon Resource Name (ARN) of the dataset import job. The dataset import is complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the job failed.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Importing takes time. You must wait until the status shows as ACTIVE before training a model using the dataset.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetImportJobs.html\&quot;&gt;ListDatasetImportJobs&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html\&quot;&gt;DescribeDatasetImportJob&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetImportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateDatasetImportJobResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateDatasetImportJobResponse createDatasetImportJob(String xAmzTarget, CreateDatasetImportJobRequest createDatasetImportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateDatasetImportJobResponse> localVarResp = createDatasetImportJobWithHttpInfo(xAmzTarget, createDatasetImportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates a job that imports training data from your data source (an Amazon S3 bucket) to an Amazon Personalize dataset. To allow Amazon Personalize to import the training data, you must specify an IAM service role that has permission to read from the data source, as Amazon Personalize makes a copy of your data and processes it internally. For information on granting access to your Amazon S3 bucket, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html\&quot;&gt;Giving Amazon Personalize Access to Amazon S3 Resources&lt;/a&gt;. &lt;/p&gt; &lt;important&gt; &lt;p&gt;By default, a dataset import job replaces any existing data in the dataset that you imported in bulk. To add new records without replacing existing data, specify INCREMENTAL for the import mode in the CreateDatasetImportJob operation.&lt;/p&gt; &lt;/important&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A dataset import job can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the import job, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html\&quot;&gt;DescribeDatasetImportJob&lt;/a&gt;, providing the Amazon Resource Name (ARN) of the dataset import job. The dataset import is complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the job failed.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Importing takes time. You must wait until the status shows as ACTIVE before training a model using the dataset.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetImportJobs.html\&quot;&gt;ListDatasetImportJobs&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html\&quot;&gt;DescribeDatasetImportJob&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetImportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateDatasetImportJobResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateDatasetImportJobResponse> createDatasetImportJobWithHttpInfo(String xAmzTarget, CreateDatasetImportJobRequest createDatasetImportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createDatasetImportJobValidateBeforeCall(xAmzTarget, createDatasetImportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateDatasetImportJobResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Creates a job that imports training data from your data source (an Amazon S3 bucket) to an Amazon Personalize dataset. To allow Amazon Personalize to import the training data, you must specify an IAM service role that has permission to read from the data source, as Amazon Personalize makes a copy of your data and processes it internally. For information on granting access to your Amazon S3 bucket, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html\&quot;&gt;Giving Amazon Personalize Access to Amazon S3 Resources&lt;/a&gt;. &lt;/p&gt; &lt;important&gt; &lt;p&gt;By default, a dataset import job replaces any existing data in the dataset that you imported in bulk. To add new records without replacing existing data, specify INCREMENTAL for the import mode in the CreateDatasetImportJob operation.&lt;/p&gt; &lt;/important&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A dataset import job can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the import job, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html\&quot;&gt;DescribeDatasetImportJob&lt;/a&gt;, providing the Amazon Resource Name (ARN) of the dataset import job. The dataset import is complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the job failed.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Importing takes time. You must wait until the status shows as ACTIVE before training a model using the dataset.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetImportJobs.html\&quot;&gt;ListDatasetImportJobs&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html\&quot;&gt;DescribeDatasetImportJob&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createDatasetImportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createDatasetImportJobAsync(String xAmzTarget, CreateDatasetImportJobRequest createDatasetImportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateDatasetImportJobResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createDatasetImportJobValidateBeforeCall(xAmzTarget, createDatasetImportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateDatasetImportJobResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createEventTracker
+     * @param xAmzTarget  (required)
+     * @param createEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEventTrackerCall(String xAmzTarget, CreateEventTrackerRequest createEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createEventTrackerRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateEventTracker";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createEventTrackerValidateBeforeCall(String xAmzTarget, CreateEventTrackerRequest createEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createEventTracker(Async)");
+        }
+
+        // verify the required parameter 'createEventTrackerRequest' is set
+        if (createEventTrackerRequest == null) {
+            throw new ApiException("Missing the required parameter 'createEventTrackerRequest' when calling createEventTracker(Async)");
+        }
+
+        return createEventTrackerCall(xAmzTarget, createEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates an event tracker that you use when adding event data to a specified dataset group using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html\&quot;&gt;PutEvents&lt;/a&gt; API.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Only one event tracker can be associated with a dataset group. You will get an error if you call &lt;code&gt;CreateEventTracker&lt;/code&gt; using the same dataset group as an existing event tracker.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;When you create an event tracker, the response includes a tracking ID, which you pass as a parameter when you use the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html\&quot;&gt;PutEvents&lt;/a&gt; operation. Amazon Personalize then appends the event data to the Interactions dataset of the dataset group you specify in your event tracker. &lt;/p&gt; &lt;p&gt;The event tracker can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the event tracker, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html\&quot;&gt;DescribeEventTracker&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;The event tracker must be in the ACTIVE state before using the tracking ID.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListEventTrackers.html\&quot;&gt;ListEventTrackers&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html\&quot;&gt;DescribeEventTracker&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html\&quot;&gt;DeleteEventTracker&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateEventTrackerResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateEventTrackerResponse createEventTracker(String xAmzTarget, CreateEventTrackerRequest createEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateEventTrackerResponse> localVarResp = createEventTrackerWithHttpInfo(xAmzTarget, createEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates an event tracker that you use when adding event data to a specified dataset group using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html\&quot;&gt;PutEvents&lt;/a&gt; API.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Only one event tracker can be associated with a dataset group. You will get an error if you call &lt;code&gt;CreateEventTracker&lt;/code&gt; using the same dataset group as an existing event tracker.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;When you create an event tracker, the response includes a tracking ID, which you pass as a parameter when you use the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html\&quot;&gt;PutEvents&lt;/a&gt; operation. Amazon Personalize then appends the event data to the Interactions dataset of the dataset group you specify in your event tracker. &lt;/p&gt; &lt;p&gt;The event tracker can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the event tracker, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html\&quot;&gt;DescribeEventTracker&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;The event tracker must be in the ACTIVE state before using the tracking ID.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListEventTrackers.html\&quot;&gt;ListEventTrackers&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html\&quot;&gt;DescribeEventTracker&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html\&quot;&gt;DeleteEventTracker&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateEventTrackerResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateEventTrackerResponse> createEventTrackerWithHttpInfo(String xAmzTarget, CreateEventTrackerRequest createEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createEventTrackerValidateBeforeCall(xAmzTarget, createEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateEventTrackerResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Creates an event tracker that you use when adding event data to a specified dataset group using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html\&quot;&gt;PutEvents&lt;/a&gt; API.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Only one event tracker can be associated with a dataset group. You will get an error if you call &lt;code&gt;CreateEventTracker&lt;/code&gt; using the same dataset group as an existing event tracker.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;When you create an event tracker, the response includes a tracking ID, which you pass as a parameter when you use the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html\&quot;&gt;PutEvents&lt;/a&gt; operation. Amazon Personalize then appends the event data to the Interactions dataset of the dataset group you specify in your event tracker. &lt;/p&gt; &lt;p&gt;The event tracker can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the event tracker, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html\&quot;&gt;DescribeEventTracker&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;The event tracker must be in the ACTIVE state before using the tracking ID.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListEventTrackers.html\&quot;&gt;ListEventTrackers&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html\&quot;&gt;DescribeEventTracker&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html\&quot;&gt;DeleteEventTracker&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEventTrackerAsync(String xAmzTarget, CreateEventTrackerRequest createEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateEventTrackerResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createEventTrackerValidateBeforeCall(xAmzTarget, createEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateEventTrackerResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createFilter
+     * @param xAmzTarget  (required)
+     * @param createFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createFilterCall(String xAmzTarget, CreateFilterRequest createFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createFilterRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateFilter";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createFilterValidateBeforeCall(String xAmzTarget, CreateFilterRequest createFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createFilter(Async)");
+        }
+
+        // verify the required parameter 'createFilterRequest' is set
+        if (createFilterRequest == null) {
+            throw new ApiException("Missing the required parameter 'createFilterRequest' when calling createFilter(Async)");
+        }
+
+        return createFilterCall(xAmzTarget, createFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Creates a recommendation filter. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/filter.html\&quot;&gt;Filtering recommendations and user segments&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param createFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateFilterResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateFilterResponse createFilter(String xAmzTarget, CreateFilterRequest createFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateFilterResponse> localVarResp = createFilterWithHttpInfo(xAmzTarget, createFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Creates a recommendation filter. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/filter.html\&quot;&gt;Filtering recommendations and user segments&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param createFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateFilterResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateFilterResponse> createFilterWithHttpInfo(String xAmzTarget, CreateFilterRequest createFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createFilterValidateBeforeCall(xAmzTarget, createFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateFilterResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Creates a recommendation filter. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/filter.html\&quot;&gt;Filtering recommendations and user segments&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param createFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createFilterAsync(String xAmzTarget, CreateFilterRequest createFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateFilterResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createFilterValidateBeforeCall(xAmzTarget, createFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateFilterResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createMetricAttribution
+     * @param xAmzTarget  (required)
+     * @param createMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createMetricAttributionCall(String xAmzTarget, CreateMetricAttributionRequest createMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createMetricAttributionRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateMetricAttribution";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createMetricAttributionValidateBeforeCall(String xAmzTarget, CreateMetricAttributionRequest createMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createMetricAttribution(Async)");
+        }
+
+        // verify the required parameter 'createMetricAttributionRequest' is set
+        if (createMetricAttributionRequest == null) {
+            throw new ApiException("Missing the required parameter 'createMetricAttributionRequest' when calling createMetricAttribution(Async)");
+        }
+
+        return createMetricAttributionCall(xAmzTarget, createMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Creates a metric attribution. A metric attribution creates reports on the data that you import into Amazon Personalize. Depending on how you imported the data, you can view reports in Amazon CloudWatch or Amazon S3. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html\&quot;&gt;Measuring impact of recommendations&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param createMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateMetricAttributionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateMetricAttributionResponse createMetricAttribution(String xAmzTarget, CreateMetricAttributionRequest createMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateMetricAttributionResponse> localVarResp = createMetricAttributionWithHttpInfo(xAmzTarget, createMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Creates a metric attribution. A metric attribution creates reports on the data that you import into Amazon Personalize. Depending on how you imported the data, you can view reports in Amazon CloudWatch or Amazon S3. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html\&quot;&gt;Measuring impact of recommendations&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param createMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateMetricAttributionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateMetricAttributionResponse> createMetricAttributionWithHttpInfo(String xAmzTarget, CreateMetricAttributionRequest createMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createMetricAttributionValidateBeforeCall(xAmzTarget, createMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateMetricAttributionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Creates a metric attribution. A metric attribution creates reports on the data that you import into Amazon Personalize. Depending on how you imported the data, you can view reports in Amazon CloudWatch or Amazon S3. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html\&quot;&gt;Measuring impact of recommendations&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param createMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createMetricAttributionAsync(String xAmzTarget, CreateMetricAttributionRequest createMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateMetricAttributionResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createMetricAttributionValidateBeforeCall(xAmzTarget, createMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateMetricAttributionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createRecommender
+     * @param xAmzTarget  (required)
+     * @param createRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createRecommenderCall(String xAmzTarget, CreateRecommenderRequest createRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createRecommenderRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateRecommender";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createRecommenderValidateBeforeCall(String xAmzTarget, CreateRecommenderRequest createRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createRecommender(Async)");
+        }
+
+        // verify the required parameter 'createRecommenderRequest' is set
+        if (createRecommenderRequest == null) {
+            throw new ApiException("Missing the required parameter 'createRecommenderRequest' when calling createRecommender(Async)");
+        }
+
+        return createRecommenderCall(xAmzTarget, createRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates a recommender with the recipe (a Domain dataset group use case) you specify. You create recommenders for a Domain dataset group and specify the recommender&#39;s Amazon Resource Name (ARN) when you make a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; request. &lt;/p&gt; &lt;p&gt; &lt;b&gt;Minimum recommendation requests per second&lt;/b&gt; &lt;/p&gt; &lt;p&gt;When you create a recommender, you can configure the recommender&#39;s minimum recommendation requests per second. The minimum recommendation requests per second (&lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;) specifies the baseline recommendation request throughput provisioned by Amazon Personalize. The default minRecommendationRequestsPerSecond is &lt;code&gt;1&lt;/code&gt;. A recommendation request is a single &lt;code&gt;GetRecommendations&lt;/code&gt; operation. Request throughput is measured in requests per second and Amazon Personalize uses your requests per second to derive your requests per hour and the price of your recommender usage. &lt;/p&gt; &lt;p&gt; If your requests per second increases beyond &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;, Amazon Personalize auto-scales the provisioned capacity up and down, but never below &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;. There&#39;s a short time delay while the capacity is increased that might cause loss of requests.&lt;/p&gt; &lt;p&gt; Your bill is the greater of either the minimum requests per hour (based on minRecommendationRequestsPerSecond) or the actual number of requests. The actual request throughput used is calculated as the average requests/second within a one-hour window. We recommend starting with the default &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;, track your usage using Amazon CloudWatch metrics, and then increase the &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt; as necessary. &lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A recommender can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;STOP PENDING &amp;gt; STOP IN_PROGRESS &amp;gt; INACTIVE &amp;gt; START PENDING &amp;gt; START IN_PROGRESS &amp;gt; ACTIVE&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the recommender status, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html\&quot;&gt;DescribeRecommender&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Wait until the &lt;code&gt;status&lt;/code&gt; of the recommender is &lt;code&gt;ACTIVE&lt;/code&gt; before asking the recommender for recommendations.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListRecommenders.html\&quot;&gt;ListRecommenders&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html\&quot;&gt;DescribeRecommender&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateRecommender.html\&quot;&gt;UpdateRecommender&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteRecommender.html\&quot;&gt;DeleteRecommender&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateRecommenderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateRecommenderResponse createRecommender(String xAmzTarget, CreateRecommenderRequest createRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateRecommenderResponse> localVarResp = createRecommenderWithHttpInfo(xAmzTarget, createRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates a recommender with the recipe (a Domain dataset group use case) you specify. You create recommenders for a Domain dataset group and specify the recommender&#39;s Amazon Resource Name (ARN) when you make a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; request. &lt;/p&gt; &lt;p&gt; &lt;b&gt;Minimum recommendation requests per second&lt;/b&gt; &lt;/p&gt; &lt;p&gt;When you create a recommender, you can configure the recommender&#39;s minimum recommendation requests per second. The minimum recommendation requests per second (&lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;) specifies the baseline recommendation request throughput provisioned by Amazon Personalize. The default minRecommendationRequestsPerSecond is &lt;code&gt;1&lt;/code&gt;. A recommendation request is a single &lt;code&gt;GetRecommendations&lt;/code&gt; operation. Request throughput is measured in requests per second and Amazon Personalize uses your requests per second to derive your requests per hour and the price of your recommender usage. &lt;/p&gt; &lt;p&gt; If your requests per second increases beyond &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;, Amazon Personalize auto-scales the provisioned capacity up and down, but never below &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;. There&#39;s a short time delay while the capacity is increased that might cause loss of requests.&lt;/p&gt; &lt;p&gt; Your bill is the greater of either the minimum requests per hour (based on minRecommendationRequestsPerSecond) or the actual number of requests. The actual request throughput used is calculated as the average requests/second within a one-hour window. We recommend starting with the default &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;, track your usage using Amazon CloudWatch metrics, and then increase the &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt; as necessary. &lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A recommender can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;STOP PENDING &amp;gt; STOP IN_PROGRESS &amp;gt; INACTIVE &amp;gt; START PENDING &amp;gt; START IN_PROGRESS &amp;gt; ACTIVE&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the recommender status, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html\&quot;&gt;DescribeRecommender&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Wait until the &lt;code&gt;status&lt;/code&gt; of the recommender is &lt;code&gt;ACTIVE&lt;/code&gt; before asking the recommender for recommendations.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListRecommenders.html\&quot;&gt;ListRecommenders&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html\&quot;&gt;DescribeRecommender&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateRecommender.html\&quot;&gt;UpdateRecommender&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteRecommender.html\&quot;&gt;DeleteRecommender&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateRecommenderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateRecommenderResponse> createRecommenderWithHttpInfo(String xAmzTarget, CreateRecommenderRequest createRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createRecommenderValidateBeforeCall(xAmzTarget, createRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateRecommenderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Creates a recommender with the recipe (a Domain dataset group use case) you specify. You create recommenders for a Domain dataset group and specify the recommender&#39;s Amazon Resource Name (ARN) when you make a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; request. &lt;/p&gt; &lt;p&gt; &lt;b&gt;Minimum recommendation requests per second&lt;/b&gt; &lt;/p&gt; &lt;p&gt;When you create a recommender, you can configure the recommender&#39;s minimum recommendation requests per second. The minimum recommendation requests per second (&lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;) specifies the baseline recommendation request throughput provisioned by Amazon Personalize. The default minRecommendationRequestsPerSecond is &lt;code&gt;1&lt;/code&gt;. A recommendation request is a single &lt;code&gt;GetRecommendations&lt;/code&gt; operation. Request throughput is measured in requests per second and Amazon Personalize uses your requests per second to derive your requests per hour and the price of your recommender usage. &lt;/p&gt; &lt;p&gt; If your requests per second increases beyond &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;, Amazon Personalize auto-scales the provisioned capacity up and down, but never below &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;. There&#39;s a short time delay while the capacity is increased that might cause loss of requests.&lt;/p&gt; &lt;p&gt; Your bill is the greater of either the minimum requests per hour (based on minRecommendationRequestsPerSecond) or the actual number of requests. The actual request throughput used is calculated as the average requests/second within a one-hour window. We recommend starting with the default &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt;, track your usage using Amazon CloudWatch metrics, and then increase the &lt;code&gt;minRecommendationRequestsPerSecond&lt;/code&gt; as necessary. &lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A recommender can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;STOP PENDING &amp;gt; STOP IN_PROGRESS &amp;gt; INACTIVE &amp;gt; START PENDING &amp;gt; START IN_PROGRESS &amp;gt; ACTIVE&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the recommender status, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html\&quot;&gt;DescribeRecommender&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Wait until the &lt;code&gt;status&lt;/code&gt; of the recommender is &lt;code&gt;ACTIVE&lt;/code&gt; before asking the recommender for recommendations.&lt;/p&gt; &lt;/note&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListRecommenders.html\&quot;&gt;ListRecommenders&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html\&quot;&gt;DescribeRecommender&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateRecommender.html\&quot;&gt;UpdateRecommender&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteRecommender.html\&quot;&gt;DeleteRecommender&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createRecommenderAsync(String xAmzTarget, CreateRecommenderRequest createRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateRecommenderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createRecommenderValidateBeforeCall(xAmzTarget, createRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateRecommenderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createSchema
+     * @param xAmzTarget  (required)
+     * @param createSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSchemaCall(String xAmzTarget, CreateSchemaRequest createSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createSchemaRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateSchema";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSchemaValidateBeforeCall(String xAmzTarget, CreateSchemaRequest createSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createSchema(Async)");
+        }
+
+        // verify the required parameter 'createSchemaRequest' is set
+        if (createSchemaRequest == null) {
+            throw new ApiException("Missing the required parameter 'createSchemaRequest' when calling createSchema(Async)");
+        }
+
+        return createSchemaCall(xAmzTarget, createSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates an Amazon Personalize schema from the specified schema string. The schema you create must be in Avro JSON format.&lt;/p&gt; &lt;p&gt;Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you provide the domain of the Domain dataset group. You specify a schema when you call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html\&quot;&gt;ListSchemas&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html\&quot;&gt;DescribeSchema&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html\&quot;&gt;DeleteSchema&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateSchemaResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateSchemaResponse createSchema(String xAmzTarget, CreateSchemaRequest createSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateSchemaResponse> localVarResp = createSchemaWithHttpInfo(xAmzTarget, createSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates an Amazon Personalize schema from the specified schema string. The schema you create must be in Avro JSON format.&lt;/p&gt; &lt;p&gt;Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you provide the domain of the Domain dataset group. You specify a schema when you call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html\&quot;&gt;ListSchemas&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html\&quot;&gt;DescribeSchema&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html\&quot;&gt;DeleteSchema&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateSchemaResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateSchemaResponse> createSchemaWithHttpInfo(String xAmzTarget, CreateSchemaRequest createSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createSchemaValidateBeforeCall(xAmzTarget, createSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateSchemaResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Creates an Amazon Personalize schema from the specified schema string. The schema you create must be in Avro JSON format.&lt;/p&gt; &lt;p&gt;Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you provide the domain of the Domain dataset group. You specify a schema when you call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html\&quot;&gt;ListSchemas&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html\&quot;&gt;DescribeSchema&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html\&quot;&gt;DeleteSchema&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSchemaAsync(String xAmzTarget, CreateSchemaRequest createSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateSchemaResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createSchemaValidateBeforeCall(xAmzTarget, createSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateSchemaResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createSolution
+     * @param xAmzTarget  (required)
+     * @param createSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSolutionCall(String xAmzTarget, CreateSolutionRequest createSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createSolutionRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateSolution";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSolutionValidateBeforeCall(String xAmzTarget, CreateSolutionRequest createSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createSolution(Async)");
+        }
+
+        // verify the required parameter 'createSolutionRequest' is set
+        if (createSolutionRequest == null) {
+            throw new ApiException("Missing the required parameter 'createSolutionRequest' when calling createSolution(Async)");
+        }
+
+        return createSolutionCall(xAmzTarget, createSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates the configuration for training a model. A trained model is known as a solution. After the configuration is created, you train the model (create a solution) by calling the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html\&quot;&gt;CreateSolutionVersion&lt;/a&gt; operation. Every time you call &lt;code&gt;CreateSolutionVersion&lt;/code&gt;, a new version of the solution is created.&lt;/p&gt; &lt;p&gt;After creating a solution version, you check its accuracy by calling &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html\&quot;&gt;GetSolutionMetrics&lt;/a&gt;. When you are satisfied with the version, you deploy it using &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;. The campaign provides recommendations to a client through the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; API.&lt;/p&gt; &lt;p&gt;To train a model, Amazon Personalize requires training data and a recipe. The training data comes from the dataset group that you provide in the request. A recipe specifies the training algorithm and a feature transformation. You can specify one of the predefined recipes provided by Amazon Personalize. Alternatively, you can specify &lt;code&gt;performAutoML&lt;/code&gt; and Amazon Personalize will analyze your data and select the optimum USER_PERSONALIZATION recipe for you.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Amazon Personalize doesn&#39;t support configuring the &lt;code&gt;hpoObjective&lt;/code&gt; for solution hyperparameter optimization at this time.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A solution can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the solution, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html\&quot;&gt;DescribeSolution&lt;/a&gt;. Wait until the status shows as ACTIVE before calling &lt;code&gt;CreateSolutionVersion&lt;/code&gt;.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html\&quot;&gt;ListSolutions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html\&quot;&gt;CreateSolutionVersion&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html\&quot;&gt;DescribeSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html\&quot;&gt;DeleteSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html\&quot;&gt;ListSolutionVersions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html\&quot;&gt;DescribeSolutionVersion&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateSolutionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateSolutionResponse createSolution(String xAmzTarget, CreateSolutionRequest createSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateSolutionResponse> localVarResp = createSolutionWithHttpInfo(xAmzTarget, createSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Creates the configuration for training a model. A trained model is known as a solution. After the configuration is created, you train the model (create a solution) by calling the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html\&quot;&gt;CreateSolutionVersion&lt;/a&gt; operation. Every time you call &lt;code&gt;CreateSolutionVersion&lt;/code&gt;, a new version of the solution is created.&lt;/p&gt; &lt;p&gt;After creating a solution version, you check its accuracy by calling &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html\&quot;&gt;GetSolutionMetrics&lt;/a&gt;. When you are satisfied with the version, you deploy it using &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;. The campaign provides recommendations to a client through the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; API.&lt;/p&gt; &lt;p&gt;To train a model, Amazon Personalize requires training data and a recipe. The training data comes from the dataset group that you provide in the request. A recipe specifies the training algorithm and a feature transformation. You can specify one of the predefined recipes provided by Amazon Personalize. Alternatively, you can specify &lt;code&gt;performAutoML&lt;/code&gt; and Amazon Personalize will analyze your data and select the optimum USER_PERSONALIZATION recipe for you.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Amazon Personalize doesn&#39;t support configuring the &lt;code&gt;hpoObjective&lt;/code&gt; for solution hyperparameter optimization at this time.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A solution can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the solution, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html\&quot;&gt;DescribeSolution&lt;/a&gt;. Wait until the status shows as ACTIVE before calling &lt;code&gt;CreateSolutionVersion&lt;/code&gt;.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html\&quot;&gt;ListSolutions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html\&quot;&gt;CreateSolutionVersion&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html\&quot;&gt;DescribeSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html\&quot;&gt;DeleteSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html\&quot;&gt;ListSolutionVersions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html\&quot;&gt;DescribeSolutionVersion&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateSolutionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateSolutionResponse> createSolutionWithHttpInfo(String xAmzTarget, CreateSolutionRequest createSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createSolutionValidateBeforeCall(xAmzTarget, createSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateSolutionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Creates the configuration for training a model. A trained model is known as a solution. After the configuration is created, you train the model (create a solution) by calling the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html\&quot;&gt;CreateSolutionVersion&lt;/a&gt; operation. Every time you call &lt;code&gt;CreateSolutionVersion&lt;/code&gt;, a new version of the solution is created.&lt;/p&gt; &lt;p&gt;After creating a solution version, you check its accuracy by calling &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html\&quot;&gt;GetSolutionMetrics&lt;/a&gt;. When you are satisfied with the version, you deploy it using &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;. The campaign provides recommendations to a client through the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; API.&lt;/p&gt; &lt;p&gt;To train a model, Amazon Personalize requires training data and a recipe. The training data comes from the dataset group that you provide in the request. A recipe specifies the training algorithm and a feature transformation. You can specify one of the predefined recipes provided by Amazon Personalize. Alternatively, you can specify &lt;code&gt;performAutoML&lt;/code&gt; and Amazon Personalize will analyze your data and select the optimum USER_PERSONALIZATION recipe for you.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Amazon Personalize doesn&#39;t support configuring the &lt;code&gt;hpoObjective&lt;/code&gt; for solution hyperparameter optimization at this time.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A solution can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the solution, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html\&quot;&gt;DescribeSolution&lt;/a&gt;. Wait until the status shows as ACTIVE before calling &lt;code&gt;CreateSolutionVersion&lt;/code&gt;.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html\&quot;&gt;ListSolutions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html\&quot;&gt;CreateSolutionVersion&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html\&quot;&gt;DescribeSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html\&quot;&gt;DeleteSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html\&quot;&gt;ListSolutionVersions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html\&quot;&gt;DescribeSolutionVersion&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSolutionAsync(String xAmzTarget, CreateSolutionRequest createSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateSolutionResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createSolutionValidateBeforeCall(xAmzTarget, createSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateSolutionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createSolutionVersion
+     * @param xAmzTarget  (required)
+     * @param createSolutionVersionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSolutionVersionCall(String xAmzTarget, CreateSolutionVersionRequest createSolutionVersionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createSolutionVersionRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.CreateSolutionVersion";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSolutionVersionValidateBeforeCall(String xAmzTarget, CreateSolutionVersionRequest createSolutionVersionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling createSolutionVersion(Async)");
+        }
+
+        // verify the required parameter 'createSolutionVersionRequest' is set
+        if (createSolutionVersionRequest == null) {
+            throw new ApiException("Missing the required parameter 'createSolutionVersionRequest' when calling createSolutionVersion(Async)");
+        }
+
+        return createSolutionVersionCall(xAmzTarget, createSolutionVersionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Trains or retrains an active solution in a Custom dataset group. A solution is created using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; operation and must be in the ACTIVE state before calling &lt;code&gt;CreateSolutionVersion&lt;/code&gt;. A new version of the solution is created every time you call this operation.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A solution version can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;ACTIVE&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE STOPPING&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE STOPPED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the version, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html\&quot;&gt;DescribeSolutionVersion&lt;/a&gt;. Wait until the status shows as ACTIVE before calling &lt;code&gt;CreateCampaign&lt;/code&gt;.&lt;/p&gt; &lt;p&gt;If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the job failed.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html\&quot;&gt;ListSolutionVersions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html\&quot;&gt;DescribeSolutionVersion&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html\&quot;&gt;ListSolutions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html\&quot;&gt;DescribeSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html\&quot;&gt;DeleteSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createSolutionVersionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return CreateSolutionVersionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateSolutionVersionResponse createSolutionVersion(String xAmzTarget, CreateSolutionVersionRequest createSolutionVersionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<CreateSolutionVersionResponse> localVarResp = createSolutionVersionWithHttpInfo(xAmzTarget, createSolutionVersionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Trains or retrains an active solution in a Custom dataset group. A solution is created using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; operation and must be in the ACTIVE state before calling &lt;code&gt;CreateSolutionVersion&lt;/code&gt;. A new version of the solution is created every time you call this operation.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A solution version can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;ACTIVE&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE STOPPING&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE STOPPED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the version, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html\&quot;&gt;DescribeSolutionVersion&lt;/a&gt;. Wait until the status shows as ACTIVE before calling &lt;code&gt;CreateCampaign&lt;/code&gt;.&lt;/p&gt; &lt;p&gt;If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the job failed.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html\&quot;&gt;ListSolutionVersions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html\&quot;&gt;DescribeSolutionVersion&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html\&quot;&gt;ListSolutions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html\&quot;&gt;DescribeSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html\&quot;&gt;DeleteSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createSolutionVersionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;CreateSolutionVersionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateSolutionVersionResponse> createSolutionVersionWithHttpInfo(String xAmzTarget, CreateSolutionVersionRequest createSolutionVersionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = createSolutionVersionValidateBeforeCall(xAmzTarget, createSolutionVersionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<CreateSolutionVersionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Trains or retrains an active solution in a Custom dataset group. A solution is created using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; operation and must be in the ACTIVE state before calling &lt;code&gt;CreateSolutionVersion&lt;/code&gt;. A new version of the solution is created every time you call this operation.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Status&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A solution version can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;ACTIVE&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE STOPPING&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE STOPPED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;To get the status of the version, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html\&quot;&gt;DescribeSolutionVersion&lt;/a&gt;. Wait until the status shows as ACTIVE before calling &lt;code&gt;CreateCampaign&lt;/code&gt;.&lt;/p&gt; &lt;p&gt;If the status shows as CREATE FAILED, the response includes a &lt;code&gt;failureReason&lt;/code&gt; key, which describes why the job failed.&lt;/p&gt; &lt;p class&#x3D;\&quot;title\&quot;&gt; &lt;b&gt;Related APIs&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html\&quot;&gt;ListSolutionVersions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html\&quot;&gt;DescribeSolutionVersion&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html\&quot;&gt;ListSolutions&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html\&quot;&gt;DescribeSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html\&quot;&gt;DeleteSolution&lt;/a&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param createSolutionVersionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> LimitExceededException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+        <tr><td> 485 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSolutionVersionAsync(String xAmzTarget, CreateSolutionVersionRequest createSolutionVersionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<CreateSolutionVersionResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createSolutionVersionValidateBeforeCall(xAmzTarget, createSolutionVersionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<CreateSolutionVersionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteCampaign
+     * @param xAmzTarget  (required)
+     * @param deleteCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteCampaignCall(String xAmzTarget, DeleteCampaignRequest deleteCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = deleteCampaignRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DeleteCampaign";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteCampaignValidateBeforeCall(String xAmzTarget, DeleteCampaignRequest deleteCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling deleteCampaign(Async)");
+        }
+
+        // verify the required parameter 'deleteCampaignRequest' is set
+        if (deleteCampaignRequest == null) {
+            throw new ApiException("Missing the required parameter 'deleteCampaignRequest' when calling deleteCampaign(Async)");
+        }
+
+        return deleteCampaignCall(xAmzTarget, deleteCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Removes a campaign by deleting the solution deployment. The solution that the campaign is based on is not deleted and can be redeployed when needed. A deleted campaign can no longer be specified in a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; request. For information on creating campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteCampaign(String xAmzTarget, DeleteCampaignRequest deleteCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        deleteCampaignWithHttpInfo(xAmzTarget, deleteCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    }
+
+    /**
+     * 
+     * Removes a campaign by deleting the solution deployment. The solution that the campaign is based on is not deleted and can be redeployed when needed. A deleted campaign can no longer be specified in a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; request. For information on creating campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteCampaignWithHttpInfo(String xAmzTarget, DeleteCampaignRequest deleteCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = deleteCampaignValidateBeforeCall(xAmzTarget, deleteCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * Removes a campaign by deleting the solution deployment. The solution that the campaign is based on is not deleted and can be redeployed when needed. A deleted campaign can no longer be specified in a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; request. For information on creating campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteCampaignAsync(String xAmzTarget, DeleteCampaignRequest deleteCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteCampaignValidateBeforeCall(xAmzTarget, deleteCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteDataset
+     * @param xAmzTarget  (required)
+     * @param deleteDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteDatasetCall(String xAmzTarget, DeleteDatasetRequest deleteDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = deleteDatasetRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DeleteDataset";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteDatasetValidateBeforeCall(String xAmzTarget, DeleteDatasetRequest deleteDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling deleteDataset(Async)");
+        }
+
+        // verify the required parameter 'deleteDatasetRequest' is set
+        if (deleteDatasetRequest == null) {
+            throw new ApiException("Missing the required parameter 'deleteDatasetRequest' when calling deleteDataset(Async)");
+        }
+
+        return deleteDatasetCall(xAmzTarget, deleteDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Deletes a dataset. You can&#39;t delete a dataset if an associated &lt;code&gt;DatasetImportJob&lt;/code&gt; or &lt;code&gt;SolutionVersion&lt;/code&gt; is in the CREATE PENDING or IN PROGRESS state. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteDataset(String xAmzTarget, DeleteDatasetRequest deleteDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        deleteDatasetWithHttpInfo(xAmzTarget, deleteDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    }
+
+    /**
+     * 
+     * Deletes a dataset. You can&#39;t delete a dataset if an associated &lt;code&gt;DatasetImportJob&lt;/code&gt; or &lt;code&gt;SolutionVersion&lt;/code&gt; is in the CREATE PENDING or IN PROGRESS state. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteDatasetWithHttpInfo(String xAmzTarget, DeleteDatasetRequest deleteDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = deleteDatasetValidateBeforeCall(xAmzTarget, deleteDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * Deletes a dataset. You can&#39;t delete a dataset if an associated &lt;code&gt;DatasetImportJob&lt;/code&gt; or &lt;code&gt;SolutionVersion&lt;/code&gt; is in the CREATE PENDING or IN PROGRESS state. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteDatasetAsync(String xAmzTarget, DeleteDatasetRequest deleteDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteDatasetValidateBeforeCall(xAmzTarget, deleteDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteDatasetGroup
+     * @param xAmzTarget  (required)
+     * @param deleteDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteDatasetGroupCall(String xAmzTarget, DeleteDatasetGroupRequest deleteDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = deleteDatasetGroupRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DeleteDatasetGroup";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteDatasetGroupValidateBeforeCall(String xAmzTarget, DeleteDatasetGroupRequest deleteDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling deleteDatasetGroup(Async)");
+        }
+
+        // verify the required parameter 'deleteDatasetGroupRequest' is set
+        if (deleteDatasetGroupRequest == null) {
+            throw new ApiException("Missing the required parameter 'deleteDatasetGroupRequest' when calling deleteDatasetGroup(Async)");
+        }
+
+        return deleteDatasetGroupCall(xAmzTarget, deleteDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Deletes a dataset group. Before you delete a dataset group, you must delete the following:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;All associated event trackers.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;All associated solutions.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;All datasets in the dataset group.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param deleteDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteDatasetGroup(String xAmzTarget, DeleteDatasetGroupRequest deleteDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        deleteDatasetGroupWithHttpInfo(xAmzTarget, deleteDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Deletes a dataset group. Before you delete a dataset group, you must delete the following:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;All associated event trackers.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;All associated solutions.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;All datasets in the dataset group.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param deleteDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteDatasetGroupWithHttpInfo(String xAmzTarget, DeleteDatasetGroupRequest deleteDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = deleteDatasetGroupValidateBeforeCall(xAmzTarget, deleteDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Deletes a dataset group. Before you delete a dataset group, you must delete the following:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;All associated event trackers.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;All associated solutions.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;All datasets in the dataset group.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+     * @param xAmzTarget  (required)
+     * @param deleteDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteDatasetGroupAsync(String xAmzTarget, DeleteDatasetGroupRequest deleteDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteDatasetGroupValidateBeforeCall(xAmzTarget, deleteDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteEventTracker
+     * @param xAmzTarget  (required)
+     * @param deleteEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteEventTrackerCall(String xAmzTarget, DeleteEventTrackerRequest deleteEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = deleteEventTrackerRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DeleteEventTracker";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteEventTrackerValidateBeforeCall(String xAmzTarget, DeleteEventTrackerRequest deleteEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling deleteEventTracker(Async)");
+        }
+
+        // verify the required parameter 'deleteEventTrackerRequest' is set
+        if (deleteEventTrackerRequest == null) {
+            throw new ApiException("Missing the required parameter 'deleteEventTrackerRequest' when calling deleteEventTracker(Async)");
+        }
+
+        return deleteEventTrackerCall(xAmzTarget, deleteEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Deletes the event tracker. Does not delete the event-interactions dataset from the associated dataset group. For more information on event trackers, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteEventTracker(String xAmzTarget, DeleteEventTrackerRequest deleteEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        deleteEventTrackerWithHttpInfo(xAmzTarget, deleteEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    }
+
+    /**
+     * 
+     * Deletes the event tracker. Does not delete the event-interactions dataset from the associated dataset group. For more information on event trackers, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteEventTrackerWithHttpInfo(String xAmzTarget, DeleteEventTrackerRequest deleteEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = deleteEventTrackerValidateBeforeCall(xAmzTarget, deleteEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * Deletes the event tracker. Does not delete the event-interactions dataset from the associated dataset group. For more information on event trackers, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteEventTrackerAsync(String xAmzTarget, DeleteEventTrackerRequest deleteEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteEventTrackerValidateBeforeCall(xAmzTarget, deleteEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteFilter
+     * @param xAmzTarget  (required)
+     * @param deleteFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteFilterCall(String xAmzTarget, DeleteFilterRequest deleteFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = deleteFilterRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DeleteFilter";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteFilterValidateBeforeCall(String xAmzTarget, DeleteFilterRequest deleteFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling deleteFilter(Async)");
+        }
+
+        // verify the required parameter 'deleteFilterRequest' is set
+        if (deleteFilterRequest == null) {
+            throw new ApiException("Missing the required parameter 'deleteFilterRequest' when calling deleteFilter(Async)");
+        }
+
+        return deleteFilterCall(xAmzTarget, deleteFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Deletes a filter.
+     * @param xAmzTarget  (required)
+     * @param deleteFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteFilter(String xAmzTarget, DeleteFilterRequest deleteFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        deleteFilterWithHttpInfo(xAmzTarget, deleteFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    }
+
+    /**
+     * 
+     * Deletes a filter.
+     * @param xAmzTarget  (required)
+     * @param deleteFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteFilterWithHttpInfo(String xAmzTarget, DeleteFilterRequest deleteFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = deleteFilterValidateBeforeCall(xAmzTarget, deleteFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * Deletes a filter.
+     * @param xAmzTarget  (required)
+     * @param deleteFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteFilterAsync(String xAmzTarget, DeleteFilterRequest deleteFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteFilterValidateBeforeCall(xAmzTarget, deleteFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteMetricAttribution
+     * @param xAmzTarget  (required)
+     * @param deleteMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteMetricAttributionCall(String xAmzTarget, DeleteMetricAttributionRequest deleteMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = deleteMetricAttributionRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DeleteMetricAttribution";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteMetricAttributionValidateBeforeCall(String xAmzTarget, DeleteMetricAttributionRequest deleteMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling deleteMetricAttribution(Async)");
+        }
+
+        // verify the required parameter 'deleteMetricAttributionRequest' is set
+        if (deleteMetricAttributionRequest == null) {
+            throw new ApiException("Missing the required parameter 'deleteMetricAttributionRequest' when calling deleteMetricAttribution(Async)");
+        }
+
+        return deleteMetricAttributionCall(xAmzTarget, deleteMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Deletes a metric attribution.
+     * @param xAmzTarget  (required)
+     * @param deleteMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteMetricAttribution(String xAmzTarget, DeleteMetricAttributionRequest deleteMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        deleteMetricAttributionWithHttpInfo(xAmzTarget, deleteMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    }
+
+    /**
+     * 
+     * Deletes a metric attribution.
+     * @param xAmzTarget  (required)
+     * @param deleteMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteMetricAttributionWithHttpInfo(String xAmzTarget, DeleteMetricAttributionRequest deleteMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = deleteMetricAttributionValidateBeforeCall(xAmzTarget, deleteMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * Deletes a metric attribution.
+     * @param xAmzTarget  (required)
+     * @param deleteMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteMetricAttributionAsync(String xAmzTarget, DeleteMetricAttributionRequest deleteMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteMetricAttributionValidateBeforeCall(xAmzTarget, deleteMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteRecommender
+     * @param xAmzTarget  (required)
+     * @param deleteRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteRecommenderCall(String xAmzTarget, DeleteRecommenderRequest deleteRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = deleteRecommenderRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DeleteRecommender";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteRecommenderValidateBeforeCall(String xAmzTarget, DeleteRecommenderRequest deleteRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling deleteRecommender(Async)");
+        }
+
+        // verify the required parameter 'deleteRecommenderRequest' is set
+        if (deleteRecommenderRequest == null) {
+            throw new ApiException("Missing the required parameter 'deleteRecommenderRequest' when calling deleteRecommender(Async)");
+        }
+
+        return deleteRecommenderCall(xAmzTarget, deleteRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Deactivates and removes a recommender. A deleted recommender can no longer be specified in a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; request.
+     * @param xAmzTarget  (required)
+     * @param deleteRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteRecommender(String xAmzTarget, DeleteRecommenderRequest deleteRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        deleteRecommenderWithHttpInfo(xAmzTarget, deleteRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    }
+
+    /**
+     * 
+     * Deactivates and removes a recommender. A deleted recommender can no longer be specified in a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; request.
+     * @param xAmzTarget  (required)
+     * @param deleteRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteRecommenderWithHttpInfo(String xAmzTarget, DeleteRecommenderRequest deleteRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = deleteRecommenderValidateBeforeCall(xAmzTarget, deleteRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * Deactivates and removes a recommender. A deleted recommender can no longer be specified in a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; request.
+     * @param xAmzTarget  (required)
+     * @param deleteRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteRecommenderAsync(String xAmzTarget, DeleteRecommenderRequest deleteRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteRecommenderValidateBeforeCall(xAmzTarget, deleteRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteSchema
+     * @param xAmzTarget  (required)
+     * @param deleteSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSchemaCall(String xAmzTarget, DeleteSchemaRequest deleteSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = deleteSchemaRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DeleteSchema";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSchemaValidateBeforeCall(String xAmzTarget, DeleteSchemaRequest deleteSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling deleteSchema(Async)");
+        }
+
+        // verify the required parameter 'deleteSchemaRequest' is set
+        if (deleteSchemaRequest == null) {
+            throw new ApiException("Missing the required parameter 'deleteSchemaRequest' when calling deleteSchema(Async)");
+        }
+
+        return deleteSchemaCall(xAmzTarget, deleteSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Deletes a schema. Before deleting a schema, you must delete all datasets referencing the schema. For more information on schemas, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html\&quot;&gt;CreateSchema&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteSchema(String xAmzTarget, DeleteSchemaRequest deleteSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        deleteSchemaWithHttpInfo(xAmzTarget, deleteSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    }
+
+    /**
+     * 
+     * Deletes a schema. Before deleting a schema, you must delete all datasets referencing the schema. For more information on schemas, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html\&quot;&gt;CreateSchema&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteSchemaWithHttpInfo(String xAmzTarget, DeleteSchemaRequest deleteSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = deleteSchemaValidateBeforeCall(xAmzTarget, deleteSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * Deletes a schema. Before deleting a schema, you must delete all datasets referencing the schema. For more information on schemas, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html\&quot;&gt;CreateSchema&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSchemaAsync(String xAmzTarget, DeleteSchemaRequest deleteSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSchemaValidateBeforeCall(xAmzTarget, deleteSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteSolution
+     * @param xAmzTarget  (required)
+     * @param deleteSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSolutionCall(String xAmzTarget, DeleteSolutionRequest deleteSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = deleteSolutionRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DeleteSolution";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSolutionValidateBeforeCall(String xAmzTarget, DeleteSolutionRequest deleteSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling deleteSolution(Async)");
+        }
+
+        // verify the required parameter 'deleteSolutionRequest' is set
+        if (deleteSolutionRequest == null) {
+            throw new ApiException("Missing the required parameter 'deleteSolutionRequest' when calling deleteSolution(Async)");
+        }
+
+        return deleteSolutionCall(xAmzTarget, deleteSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Deletes all versions of a solution and the &lt;code&gt;Solution&lt;/code&gt; object itself. Before deleting a solution, you must delete all campaigns based on the solution. To determine what campaigns are using the solution, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html\&quot;&gt;ListCampaigns&lt;/a&gt; and supply the Amazon Resource Name (ARN) of the solution. You can&#39;t delete a solution if an associated &lt;code&gt;SolutionVersion&lt;/code&gt; is in the CREATE PENDING or IN PROGRESS state. For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteSolution(String xAmzTarget, DeleteSolutionRequest deleteSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        deleteSolutionWithHttpInfo(xAmzTarget, deleteSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    }
+
+    /**
+     * 
+     * Deletes all versions of a solution and the &lt;code&gt;Solution&lt;/code&gt; object itself. Before deleting a solution, you must delete all campaigns based on the solution. To determine what campaigns are using the solution, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html\&quot;&gt;ListCampaigns&lt;/a&gt; and supply the Amazon Resource Name (ARN) of the solution. You can&#39;t delete a solution if an associated &lt;code&gt;SolutionVersion&lt;/code&gt; is in the CREATE PENDING or IN PROGRESS state. For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteSolutionWithHttpInfo(String xAmzTarget, DeleteSolutionRequest deleteSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = deleteSolutionValidateBeforeCall(xAmzTarget, deleteSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * Deletes all versions of a solution and the &lt;code&gt;Solution&lt;/code&gt; object itself. Before deleting a solution, you must delete all campaigns based on the solution. To determine what campaigns are using the solution, call &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html\&quot;&gt;ListCampaigns&lt;/a&gt; and supply the Amazon Resource Name (ARN) of the solution. You can&#39;t delete a solution if an associated &lt;code&gt;SolutionVersion&lt;/code&gt; is in the CREATE PENDING or IN PROGRESS state. For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param deleteSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSolutionAsync(String xAmzTarget, DeleteSolutionRequest deleteSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSolutionValidateBeforeCall(xAmzTarget, deleteSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeAlgorithm
+     * @param xAmzTarget  (required)
+     * @param describeAlgorithmRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeAlgorithmCall(String xAmzTarget, DescribeAlgorithmRequest describeAlgorithmRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeAlgorithmRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeAlgorithm";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeAlgorithmValidateBeforeCall(String xAmzTarget, DescribeAlgorithmRequest describeAlgorithmRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeAlgorithm(Async)");
+        }
+
+        // verify the required parameter 'describeAlgorithmRequest' is set
+        if (describeAlgorithmRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeAlgorithmRequest' when calling describeAlgorithm(Async)");
+        }
+
+        return describeAlgorithmCall(xAmzTarget, describeAlgorithmRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes the given algorithm.
+     * @param xAmzTarget  (required)
+     * @param describeAlgorithmRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeAlgorithmResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -414,16 +5124,44 @@ public class DefaultApi {
         <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetRecommendationsResponse> getRecommendationsWithHttpInfo(GetRecommendationsRequest getRecommendationsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
-        okhttp3.Call localVarCall = getRecommendationsValidateBeforeCall(getRecommendationsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
-        Type localVarReturnType = new TypeToken<GetRecommendationsResponse>(){}.getType();
+    public DescribeAlgorithmResponse describeAlgorithm(String xAmzTarget, DescribeAlgorithmRequest describeAlgorithmRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeAlgorithmResponse> localVarResp = describeAlgorithmWithHttpInfo(xAmzTarget, describeAlgorithmRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes the given algorithm.
+     * @param xAmzTarget  (required)
+     * @param describeAlgorithmRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeAlgorithmResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeAlgorithmResponse> describeAlgorithmWithHttpInfo(String xAmzTarget, DescribeAlgorithmRequest describeAlgorithmRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeAlgorithmValidateBeforeCall(xAmzTarget, describeAlgorithmRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeAlgorithmResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * &lt;p&gt;Returns a list of recommended items. For campaigns, the campaign&#39;s Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to create the solution backing the campaign as follows:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;USER_PERSONALIZATION - &lt;code&gt;userId&lt;/code&gt; required, &lt;code&gt;itemId&lt;/code&gt; not used&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;RELATED_ITEMS - &lt;code&gt;itemId&lt;/code&gt; required, &lt;code&gt;userId&lt;/code&gt; not used&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;note&gt; &lt;p&gt;Campaigns that are backed by a solution created using a recipe of type PERSONALIZED_RANKING use the API.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; For recommenders, the recommender&#39;s ARN is required and the required item and user input depends on the use case (domain-based recipe) backing the recommender. For information on use case requirements see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html\&quot;&gt;Choosing recommender use cases&lt;/a&gt;. &lt;/p&gt;
-     * @param getRecommendationsRequest  (required)
+     * Describes the given algorithm.
+     * @param xAmzTarget  (required)
+     * @param describeAlgorithmRequest  (required)
      * @param xAmzContentSha256  (optional)
      * @param xAmzDate  (optional)
      * @param xAmzAlgorithm  (optional)
@@ -442,10 +5180,8714 @@ public class DefaultApi {
         <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRecommendationsAsync(GetRecommendationsRequest getRecommendationsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<GetRecommendationsResponse> _callback) throws ApiException {
+    public okhttp3.Call describeAlgorithmAsync(String xAmzTarget, DescribeAlgorithmRequest describeAlgorithmRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeAlgorithmResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRecommendationsValidateBeforeCall(getRecommendationsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
-        Type localVarReturnType = new TypeToken<GetRecommendationsResponse>(){}.getType();
+        okhttp3.Call localVarCall = describeAlgorithmValidateBeforeCall(xAmzTarget, describeAlgorithmRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeAlgorithmResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeBatchInferenceJob
+     * @param xAmzTarget  (required)
+     * @param describeBatchInferenceJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeBatchInferenceJobCall(String xAmzTarget, DescribeBatchInferenceJobRequest describeBatchInferenceJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeBatchInferenceJobRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeBatchInferenceJob";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeBatchInferenceJobValidateBeforeCall(String xAmzTarget, DescribeBatchInferenceJobRequest describeBatchInferenceJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeBatchInferenceJob(Async)");
+        }
+
+        // verify the required parameter 'describeBatchInferenceJobRequest' is set
+        if (describeBatchInferenceJobRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeBatchInferenceJobRequest' when calling describeBatchInferenceJob(Async)");
+        }
+
+        return describeBatchInferenceJobCall(xAmzTarget, describeBatchInferenceJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Gets the properties of a batch inference job including name, Amazon Resource Name (ARN), status, input and output configurations, and the ARN of the solution version used to generate the recommendations.
+     * @param xAmzTarget  (required)
+     * @param describeBatchInferenceJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeBatchInferenceJobResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeBatchInferenceJobResponse describeBatchInferenceJob(String xAmzTarget, DescribeBatchInferenceJobRequest describeBatchInferenceJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeBatchInferenceJobResponse> localVarResp = describeBatchInferenceJobWithHttpInfo(xAmzTarget, describeBatchInferenceJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Gets the properties of a batch inference job including name, Amazon Resource Name (ARN), status, input and output configurations, and the ARN of the solution version used to generate the recommendations.
+     * @param xAmzTarget  (required)
+     * @param describeBatchInferenceJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeBatchInferenceJobResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeBatchInferenceJobResponse> describeBatchInferenceJobWithHttpInfo(String xAmzTarget, DescribeBatchInferenceJobRequest describeBatchInferenceJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeBatchInferenceJobValidateBeforeCall(xAmzTarget, describeBatchInferenceJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeBatchInferenceJobResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Gets the properties of a batch inference job including name, Amazon Resource Name (ARN), status, input and output configurations, and the ARN of the solution version used to generate the recommendations.
+     * @param xAmzTarget  (required)
+     * @param describeBatchInferenceJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeBatchInferenceJobAsync(String xAmzTarget, DescribeBatchInferenceJobRequest describeBatchInferenceJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeBatchInferenceJobResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeBatchInferenceJobValidateBeforeCall(xAmzTarget, describeBatchInferenceJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeBatchInferenceJobResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeBatchSegmentJob
+     * @param xAmzTarget  (required)
+     * @param describeBatchSegmentJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeBatchSegmentJobCall(String xAmzTarget, DescribeBatchSegmentJobRequest describeBatchSegmentJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeBatchSegmentJobRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeBatchSegmentJob";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeBatchSegmentJobValidateBeforeCall(String xAmzTarget, DescribeBatchSegmentJobRequest describeBatchSegmentJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeBatchSegmentJob(Async)");
+        }
+
+        // verify the required parameter 'describeBatchSegmentJobRequest' is set
+        if (describeBatchSegmentJobRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeBatchSegmentJobRequest' when calling describeBatchSegmentJob(Async)");
+        }
+
+        return describeBatchSegmentJobCall(xAmzTarget, describeBatchSegmentJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Gets the properties of a batch segment job including name, Amazon Resource Name (ARN), status, input and output configurations, and the ARN of the solution version used to generate segments.
+     * @param xAmzTarget  (required)
+     * @param describeBatchSegmentJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeBatchSegmentJobResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeBatchSegmentJobResponse describeBatchSegmentJob(String xAmzTarget, DescribeBatchSegmentJobRequest describeBatchSegmentJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeBatchSegmentJobResponse> localVarResp = describeBatchSegmentJobWithHttpInfo(xAmzTarget, describeBatchSegmentJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Gets the properties of a batch segment job including name, Amazon Resource Name (ARN), status, input and output configurations, and the ARN of the solution version used to generate segments.
+     * @param xAmzTarget  (required)
+     * @param describeBatchSegmentJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeBatchSegmentJobResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeBatchSegmentJobResponse> describeBatchSegmentJobWithHttpInfo(String xAmzTarget, DescribeBatchSegmentJobRequest describeBatchSegmentJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeBatchSegmentJobValidateBeforeCall(xAmzTarget, describeBatchSegmentJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeBatchSegmentJobResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Gets the properties of a batch segment job including name, Amazon Resource Name (ARN), status, input and output configurations, and the ARN of the solution version used to generate segments.
+     * @param xAmzTarget  (required)
+     * @param describeBatchSegmentJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeBatchSegmentJobAsync(String xAmzTarget, DescribeBatchSegmentJobRequest describeBatchSegmentJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeBatchSegmentJobResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeBatchSegmentJobValidateBeforeCall(xAmzTarget, describeBatchSegmentJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeBatchSegmentJobResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeCampaign
+     * @param xAmzTarget  (required)
+     * @param describeCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeCampaignCall(String xAmzTarget, DescribeCampaignRequest describeCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeCampaignRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeCampaign";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeCampaignValidateBeforeCall(String xAmzTarget, DescribeCampaignRequest describeCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeCampaign(Async)");
+        }
+
+        // verify the required parameter 'describeCampaignRequest' is set
+        if (describeCampaignRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeCampaignRequest' when calling describeCampaign(Async)");
+        }
+
+        return describeCampaignCall(xAmzTarget, describeCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Describes the given campaign, including its status.&lt;/p&gt; &lt;p&gt;A campaign can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;When the &lt;code&gt;status&lt;/code&gt; is &lt;code&gt;CREATE FAILED&lt;/code&gt;, the response includes the &lt;code&gt;failureReason&lt;/code&gt; key, which describes why.&lt;/p&gt; &lt;p&gt;For more information on campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param describeCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeCampaignResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeCampaignResponse describeCampaign(String xAmzTarget, DescribeCampaignRequest describeCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeCampaignResponse> localVarResp = describeCampaignWithHttpInfo(xAmzTarget, describeCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Describes the given campaign, including its status.&lt;/p&gt; &lt;p&gt;A campaign can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;When the &lt;code&gt;status&lt;/code&gt; is &lt;code&gt;CREATE FAILED&lt;/code&gt;, the response includes the &lt;code&gt;failureReason&lt;/code&gt; key, which describes why.&lt;/p&gt; &lt;p&gt;For more information on campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param describeCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeCampaignResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeCampaignResponse> describeCampaignWithHttpInfo(String xAmzTarget, DescribeCampaignRequest describeCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeCampaignValidateBeforeCall(xAmzTarget, describeCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeCampaignResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Describes the given campaign, including its status.&lt;/p&gt; &lt;p&gt;A campaign can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;When the &lt;code&gt;status&lt;/code&gt; is &lt;code&gt;CREATE FAILED&lt;/code&gt;, the response includes the &lt;code&gt;failureReason&lt;/code&gt; key, which describes why.&lt;/p&gt; &lt;p&gt;For more information on campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param describeCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeCampaignAsync(String xAmzTarget, DescribeCampaignRequest describeCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeCampaignResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeCampaignValidateBeforeCall(xAmzTarget, describeCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeCampaignResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeDataset
+     * @param xAmzTarget  (required)
+     * @param describeDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeDatasetCall(String xAmzTarget, DescribeDatasetRequest describeDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeDatasetRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeDataset";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeDatasetValidateBeforeCall(String xAmzTarget, DescribeDatasetRequest describeDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeDataset(Async)");
+        }
+
+        // verify the required parameter 'describeDatasetRequest' is set
+        if (describeDatasetRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeDatasetRequest' when calling describeDataset(Async)");
+        }
+
+        return describeDatasetCall(xAmzTarget, describeDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes the given dataset. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeDatasetResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeDatasetResponse describeDataset(String xAmzTarget, DescribeDatasetRequest describeDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeDatasetResponse> localVarResp = describeDatasetWithHttpInfo(xAmzTarget, describeDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes the given dataset. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeDatasetResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeDatasetResponse> describeDatasetWithHttpInfo(String xAmzTarget, DescribeDatasetRequest describeDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeDatasetValidateBeforeCall(xAmzTarget, describeDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeDatasetResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Describes the given dataset. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeDatasetAsync(String xAmzTarget, DescribeDatasetRequest describeDatasetRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeDatasetResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeDatasetValidateBeforeCall(xAmzTarget, describeDatasetRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeDatasetResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeDatasetExportJob
+     * @param xAmzTarget  (required)
+     * @param describeDatasetExportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeDatasetExportJobCall(String xAmzTarget, DescribeDatasetExportJobRequest describeDatasetExportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeDatasetExportJobRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeDatasetExportJob";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeDatasetExportJobValidateBeforeCall(String xAmzTarget, DescribeDatasetExportJobRequest describeDatasetExportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeDatasetExportJob(Async)");
+        }
+
+        // verify the required parameter 'describeDatasetExportJobRequest' is set
+        if (describeDatasetExportJobRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeDatasetExportJobRequest' when calling describeDatasetExportJob(Async)");
+        }
+
+        return describeDatasetExportJobCall(xAmzTarget, describeDatasetExportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes the dataset export job created by &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html\&quot;&gt;CreateDatasetExportJob&lt;/a&gt;, including the export job status.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetExportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeDatasetExportJobResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeDatasetExportJobResponse describeDatasetExportJob(String xAmzTarget, DescribeDatasetExportJobRequest describeDatasetExportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeDatasetExportJobResponse> localVarResp = describeDatasetExportJobWithHttpInfo(xAmzTarget, describeDatasetExportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes the dataset export job created by &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html\&quot;&gt;CreateDatasetExportJob&lt;/a&gt;, including the export job status.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetExportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeDatasetExportJobResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeDatasetExportJobResponse> describeDatasetExportJobWithHttpInfo(String xAmzTarget, DescribeDatasetExportJobRequest describeDatasetExportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeDatasetExportJobValidateBeforeCall(xAmzTarget, describeDatasetExportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeDatasetExportJobResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Describes the dataset export job created by &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html\&quot;&gt;CreateDatasetExportJob&lt;/a&gt;, including the export job status.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetExportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeDatasetExportJobAsync(String xAmzTarget, DescribeDatasetExportJobRequest describeDatasetExportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeDatasetExportJobResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeDatasetExportJobValidateBeforeCall(xAmzTarget, describeDatasetExportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeDatasetExportJobResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeDatasetGroup
+     * @param xAmzTarget  (required)
+     * @param describeDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeDatasetGroupCall(String xAmzTarget, DescribeDatasetGroupRequest describeDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeDatasetGroupRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeDatasetGroup";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeDatasetGroupValidateBeforeCall(String xAmzTarget, DescribeDatasetGroupRequest describeDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeDatasetGroup(Async)");
+        }
+
+        // verify the required parameter 'describeDatasetGroupRequest' is set
+        if (describeDatasetGroupRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeDatasetGroupRequest' when calling describeDatasetGroup(Async)");
+        }
+
+        return describeDatasetGroupCall(xAmzTarget, describeDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes the given dataset group. For more information on dataset groups, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html\&quot;&gt;CreateDatasetGroup&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeDatasetGroupResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeDatasetGroupResponse describeDatasetGroup(String xAmzTarget, DescribeDatasetGroupRequest describeDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeDatasetGroupResponse> localVarResp = describeDatasetGroupWithHttpInfo(xAmzTarget, describeDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes the given dataset group. For more information on dataset groups, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html\&quot;&gt;CreateDatasetGroup&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeDatasetGroupResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeDatasetGroupResponse> describeDatasetGroupWithHttpInfo(String xAmzTarget, DescribeDatasetGroupRequest describeDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeDatasetGroupValidateBeforeCall(xAmzTarget, describeDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeDatasetGroupResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Describes the given dataset group. For more information on dataset groups, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html\&quot;&gt;CreateDatasetGroup&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetGroupRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeDatasetGroupAsync(String xAmzTarget, DescribeDatasetGroupRequest describeDatasetGroupRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeDatasetGroupResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeDatasetGroupValidateBeforeCall(xAmzTarget, describeDatasetGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeDatasetGroupResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeDatasetImportJob
+     * @param xAmzTarget  (required)
+     * @param describeDatasetImportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeDatasetImportJobCall(String xAmzTarget, DescribeDatasetImportJobRequest describeDatasetImportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeDatasetImportJobRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeDatasetImportJob";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeDatasetImportJobValidateBeforeCall(String xAmzTarget, DescribeDatasetImportJobRequest describeDatasetImportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeDatasetImportJob(Async)");
+        }
+
+        // verify the required parameter 'describeDatasetImportJobRequest' is set
+        if (describeDatasetImportJobRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeDatasetImportJobRequest' when calling describeDatasetImportJob(Async)");
+        }
+
+        return describeDatasetImportJobCall(xAmzTarget, describeDatasetImportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes the dataset import job created by &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html\&quot;&gt;CreateDatasetImportJob&lt;/a&gt;, including the import job status.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetImportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeDatasetImportJobResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeDatasetImportJobResponse describeDatasetImportJob(String xAmzTarget, DescribeDatasetImportJobRequest describeDatasetImportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeDatasetImportJobResponse> localVarResp = describeDatasetImportJobWithHttpInfo(xAmzTarget, describeDatasetImportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes the dataset import job created by &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html\&quot;&gt;CreateDatasetImportJob&lt;/a&gt;, including the import job status.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetImportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeDatasetImportJobResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeDatasetImportJobResponse> describeDatasetImportJobWithHttpInfo(String xAmzTarget, DescribeDatasetImportJobRequest describeDatasetImportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeDatasetImportJobValidateBeforeCall(xAmzTarget, describeDatasetImportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeDatasetImportJobResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Describes the dataset import job created by &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html\&quot;&gt;CreateDatasetImportJob&lt;/a&gt;, including the import job status.
+     * @param xAmzTarget  (required)
+     * @param describeDatasetImportJobRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeDatasetImportJobAsync(String xAmzTarget, DescribeDatasetImportJobRequest describeDatasetImportJobRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeDatasetImportJobResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeDatasetImportJobValidateBeforeCall(xAmzTarget, describeDatasetImportJobRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeDatasetImportJobResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeEventTracker
+     * @param xAmzTarget  (required)
+     * @param describeEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeEventTrackerCall(String xAmzTarget, DescribeEventTrackerRequest describeEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeEventTrackerRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeEventTracker";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeEventTrackerValidateBeforeCall(String xAmzTarget, DescribeEventTrackerRequest describeEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeEventTracker(Async)");
+        }
+
+        // verify the required parameter 'describeEventTrackerRequest' is set
+        if (describeEventTrackerRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeEventTrackerRequest' when calling describeEventTracker(Async)");
+        }
+
+        return describeEventTrackerCall(xAmzTarget, describeEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes an event tracker. The response includes the &lt;code&gt;trackingId&lt;/code&gt; and &lt;code&gt;status&lt;/code&gt; of the event tracker. For more information on event trackers, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeEventTrackerResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeEventTrackerResponse describeEventTracker(String xAmzTarget, DescribeEventTrackerRequest describeEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeEventTrackerResponse> localVarResp = describeEventTrackerWithHttpInfo(xAmzTarget, describeEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes an event tracker. The response includes the &lt;code&gt;trackingId&lt;/code&gt; and &lt;code&gt;status&lt;/code&gt; of the event tracker. For more information on event trackers, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeEventTrackerResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeEventTrackerResponse> describeEventTrackerWithHttpInfo(String xAmzTarget, DescribeEventTrackerRequest describeEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeEventTrackerValidateBeforeCall(xAmzTarget, describeEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeEventTrackerResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Describes an event tracker. The response includes the &lt;code&gt;trackingId&lt;/code&gt; and &lt;code&gt;status&lt;/code&gt; of the event tracker. For more information on event trackers, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeEventTrackerRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeEventTrackerAsync(String xAmzTarget, DescribeEventTrackerRequest describeEventTrackerRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeEventTrackerResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeEventTrackerValidateBeforeCall(xAmzTarget, describeEventTrackerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeEventTrackerResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeFeatureTransformation
+     * @param xAmzTarget  (required)
+     * @param describeFeatureTransformationRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeFeatureTransformationCall(String xAmzTarget, DescribeFeatureTransformationRequest describeFeatureTransformationRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeFeatureTransformationRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeFeatureTransformation";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeFeatureTransformationValidateBeforeCall(String xAmzTarget, DescribeFeatureTransformationRequest describeFeatureTransformationRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeFeatureTransformation(Async)");
+        }
+
+        // verify the required parameter 'describeFeatureTransformationRequest' is set
+        if (describeFeatureTransformationRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeFeatureTransformationRequest' when calling describeFeatureTransformation(Async)");
+        }
+
+        return describeFeatureTransformationCall(xAmzTarget, describeFeatureTransformationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes the given feature transformation.
+     * @param xAmzTarget  (required)
+     * @param describeFeatureTransformationRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeFeatureTransformationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeFeatureTransformationResponse describeFeatureTransformation(String xAmzTarget, DescribeFeatureTransformationRequest describeFeatureTransformationRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeFeatureTransformationResponse> localVarResp = describeFeatureTransformationWithHttpInfo(xAmzTarget, describeFeatureTransformationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes the given feature transformation.
+     * @param xAmzTarget  (required)
+     * @param describeFeatureTransformationRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeFeatureTransformationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeFeatureTransformationResponse> describeFeatureTransformationWithHttpInfo(String xAmzTarget, DescribeFeatureTransformationRequest describeFeatureTransformationRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeFeatureTransformationValidateBeforeCall(xAmzTarget, describeFeatureTransformationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeFeatureTransformationResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Describes the given feature transformation.
+     * @param xAmzTarget  (required)
+     * @param describeFeatureTransformationRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeFeatureTransformationAsync(String xAmzTarget, DescribeFeatureTransformationRequest describeFeatureTransformationRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeFeatureTransformationResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeFeatureTransformationValidateBeforeCall(xAmzTarget, describeFeatureTransformationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeFeatureTransformationResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeFilter
+     * @param xAmzTarget  (required)
+     * @param describeFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeFilterCall(String xAmzTarget, DescribeFilterRequest describeFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeFilterRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeFilter";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeFilterValidateBeforeCall(String xAmzTarget, DescribeFilterRequest describeFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeFilter(Async)");
+        }
+
+        // verify the required parameter 'describeFilterRequest' is set
+        if (describeFilterRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeFilterRequest' when calling describeFilter(Async)");
+        }
+
+        return describeFilterCall(xAmzTarget, describeFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes a filter&#39;s properties.
+     * @param xAmzTarget  (required)
+     * @param describeFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeFilterResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeFilterResponse describeFilter(String xAmzTarget, DescribeFilterRequest describeFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeFilterResponse> localVarResp = describeFilterWithHttpInfo(xAmzTarget, describeFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes a filter&#39;s properties.
+     * @param xAmzTarget  (required)
+     * @param describeFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeFilterResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeFilterResponse> describeFilterWithHttpInfo(String xAmzTarget, DescribeFilterRequest describeFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeFilterValidateBeforeCall(xAmzTarget, describeFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeFilterResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Describes a filter&#39;s properties.
+     * @param xAmzTarget  (required)
+     * @param describeFilterRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeFilterAsync(String xAmzTarget, DescribeFilterRequest describeFilterRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeFilterResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeFilterValidateBeforeCall(xAmzTarget, describeFilterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeFilterResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeMetricAttribution
+     * @param xAmzTarget  (required)
+     * @param describeMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeMetricAttributionCall(String xAmzTarget, DescribeMetricAttributionRequest describeMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeMetricAttributionRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeMetricAttribution";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeMetricAttributionValidateBeforeCall(String xAmzTarget, DescribeMetricAttributionRequest describeMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeMetricAttribution(Async)");
+        }
+
+        // verify the required parameter 'describeMetricAttributionRequest' is set
+        if (describeMetricAttributionRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeMetricAttributionRequest' when calling describeMetricAttribution(Async)");
+        }
+
+        return describeMetricAttributionCall(xAmzTarget, describeMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes a metric attribution.
+     * @param xAmzTarget  (required)
+     * @param describeMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeMetricAttributionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeMetricAttributionResponse describeMetricAttribution(String xAmzTarget, DescribeMetricAttributionRequest describeMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeMetricAttributionResponse> localVarResp = describeMetricAttributionWithHttpInfo(xAmzTarget, describeMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes a metric attribution.
+     * @param xAmzTarget  (required)
+     * @param describeMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeMetricAttributionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeMetricAttributionResponse> describeMetricAttributionWithHttpInfo(String xAmzTarget, DescribeMetricAttributionRequest describeMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeMetricAttributionValidateBeforeCall(xAmzTarget, describeMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeMetricAttributionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Describes a metric attribution.
+     * @param xAmzTarget  (required)
+     * @param describeMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeMetricAttributionAsync(String xAmzTarget, DescribeMetricAttributionRequest describeMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeMetricAttributionResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeMetricAttributionValidateBeforeCall(xAmzTarget, describeMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeMetricAttributionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeRecipe
+     * @param xAmzTarget  (required)
+     * @param describeRecipeRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeRecipeCall(String xAmzTarget, DescribeRecipeRequest describeRecipeRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeRecipeRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeRecipe";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeRecipeValidateBeforeCall(String xAmzTarget, DescribeRecipeRequest describeRecipeRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeRecipe(Async)");
+        }
+
+        // verify the required parameter 'describeRecipeRequest' is set
+        if (describeRecipeRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeRecipeRequest' when calling describeRecipe(Async)");
+        }
+
+        return describeRecipeCall(xAmzTarget, describeRecipeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Describes a recipe.&lt;/p&gt; &lt;p&gt;A recipe contains three items:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;An algorithm that trains a model.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Hyperparameters that govern the training.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Feature transformation information for modifying the input data before training.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Amazon Personalize provides a set of predefined recipes. You specify a recipe when you create a solution with the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; API. &lt;code&gt;CreateSolution&lt;/code&gt; trains a model by using the algorithm in the specified recipe and a training dataset. The solution, when deployed as a campaign, can provide recommendations using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; API.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param describeRecipeRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeRecipeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeRecipeResponse describeRecipe(String xAmzTarget, DescribeRecipeRequest describeRecipeRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeRecipeResponse> localVarResp = describeRecipeWithHttpInfo(xAmzTarget, describeRecipeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Describes a recipe.&lt;/p&gt; &lt;p&gt;A recipe contains three items:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;An algorithm that trains a model.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Hyperparameters that govern the training.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Feature transformation information for modifying the input data before training.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Amazon Personalize provides a set of predefined recipes. You specify a recipe when you create a solution with the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; API. &lt;code&gt;CreateSolution&lt;/code&gt; trains a model by using the algorithm in the specified recipe and a training dataset. The solution, when deployed as a campaign, can provide recommendations using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; API.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param describeRecipeRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeRecipeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeRecipeResponse> describeRecipeWithHttpInfo(String xAmzTarget, DescribeRecipeRequest describeRecipeRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeRecipeValidateBeforeCall(xAmzTarget, describeRecipeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeRecipeResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Describes a recipe.&lt;/p&gt; &lt;p&gt;A recipe contains three items:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;An algorithm that trains a model.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Hyperparameters that govern the training.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Feature transformation information for modifying the input data before training.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Amazon Personalize provides a set of predefined recipes. You specify a recipe when you create a solution with the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; API. &lt;code&gt;CreateSolution&lt;/code&gt; trains a model by using the algorithm in the specified recipe and a training dataset. The solution, when deployed as a campaign, can provide recommendations using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; API.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param describeRecipeRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeRecipeAsync(String xAmzTarget, DescribeRecipeRequest describeRecipeRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeRecipeResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeRecipeValidateBeforeCall(xAmzTarget, describeRecipeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeRecipeResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeRecommender
+     * @param xAmzTarget  (required)
+     * @param describeRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeRecommenderCall(String xAmzTarget, DescribeRecommenderRequest describeRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeRecommenderRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeRecommender";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeRecommenderValidateBeforeCall(String xAmzTarget, DescribeRecommenderRequest describeRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeRecommender(Async)");
+        }
+
+        // verify the required parameter 'describeRecommenderRequest' is set
+        if (describeRecommenderRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeRecommenderRequest' when calling describeRecommender(Async)");
+        }
+
+        return describeRecommenderCall(xAmzTarget, describeRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Describes the given recommender, including its status.&lt;/p&gt; &lt;p&gt;A recommender can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;STOP PENDING &amp;gt; STOP IN_PROGRESS &amp;gt; INACTIVE &amp;gt; START PENDING &amp;gt; START IN_PROGRESS &amp;gt; ACTIVE&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;When the &lt;code&gt;status&lt;/code&gt; is &lt;code&gt;CREATE FAILED&lt;/code&gt;, the response includes the &lt;code&gt;failureReason&lt;/code&gt; key, which describes why.&lt;/p&gt; &lt;p&gt;The &lt;code&gt;modelMetrics&lt;/code&gt; key is null when the recommender is being created or deleted.&lt;/p&gt; &lt;p&gt;For more information on recommenders, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html\&quot;&gt;CreateRecommender&lt;/a&gt;.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param describeRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeRecommenderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeRecommenderResponse describeRecommender(String xAmzTarget, DescribeRecommenderRequest describeRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeRecommenderResponse> localVarResp = describeRecommenderWithHttpInfo(xAmzTarget, describeRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Describes the given recommender, including its status.&lt;/p&gt; &lt;p&gt;A recommender can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;STOP PENDING &amp;gt; STOP IN_PROGRESS &amp;gt; INACTIVE &amp;gt; START PENDING &amp;gt; START IN_PROGRESS &amp;gt; ACTIVE&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;When the &lt;code&gt;status&lt;/code&gt; is &lt;code&gt;CREATE FAILED&lt;/code&gt;, the response includes the &lt;code&gt;failureReason&lt;/code&gt; key, which describes why.&lt;/p&gt; &lt;p&gt;The &lt;code&gt;modelMetrics&lt;/code&gt; key is null when the recommender is being created or deleted.&lt;/p&gt; &lt;p&gt;For more information on recommenders, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html\&quot;&gt;CreateRecommender&lt;/a&gt;.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param describeRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeRecommenderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeRecommenderResponse> describeRecommenderWithHttpInfo(String xAmzTarget, DescribeRecommenderRequest describeRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeRecommenderValidateBeforeCall(xAmzTarget, describeRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeRecommenderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Describes the given recommender, including its status.&lt;/p&gt; &lt;p&gt;A recommender can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;STOP PENDING &amp;gt; STOP IN_PROGRESS &amp;gt; INACTIVE &amp;gt; START PENDING &amp;gt; START IN_PROGRESS &amp;gt; ACTIVE&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DELETE PENDING &amp;gt; DELETE IN_PROGRESS&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;When the &lt;code&gt;status&lt;/code&gt; is &lt;code&gt;CREATE FAILED&lt;/code&gt;, the response includes the &lt;code&gt;failureReason&lt;/code&gt; key, which describes why.&lt;/p&gt; &lt;p&gt;The &lt;code&gt;modelMetrics&lt;/code&gt; key is null when the recommender is being created or deleted.&lt;/p&gt; &lt;p&gt;For more information on recommenders, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html\&quot;&gt;CreateRecommender&lt;/a&gt;.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param describeRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeRecommenderAsync(String xAmzTarget, DescribeRecommenderRequest describeRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeRecommenderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeRecommenderValidateBeforeCall(xAmzTarget, describeRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeRecommenderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeSchema
+     * @param xAmzTarget  (required)
+     * @param describeSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeSchemaCall(String xAmzTarget, DescribeSchemaRequest describeSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeSchemaRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeSchema";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeSchemaValidateBeforeCall(String xAmzTarget, DescribeSchemaRequest describeSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeSchema(Async)");
+        }
+
+        // verify the required parameter 'describeSchemaRequest' is set
+        if (describeSchemaRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeSchemaRequest' when calling describeSchema(Async)");
+        }
+
+        return describeSchemaCall(xAmzTarget, describeSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes a schema. For more information on schemas, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html\&quot;&gt;CreateSchema&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeSchemaResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeSchemaResponse describeSchema(String xAmzTarget, DescribeSchemaRequest describeSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeSchemaResponse> localVarResp = describeSchemaWithHttpInfo(xAmzTarget, describeSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes a schema. For more information on schemas, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html\&quot;&gt;CreateSchema&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeSchemaResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeSchemaResponse> describeSchemaWithHttpInfo(String xAmzTarget, DescribeSchemaRequest describeSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeSchemaValidateBeforeCall(xAmzTarget, describeSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeSchemaResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Describes a schema. For more information on schemas, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html\&quot;&gt;CreateSchema&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeSchemaRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeSchemaAsync(String xAmzTarget, DescribeSchemaRequest describeSchemaRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeSchemaResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeSchemaValidateBeforeCall(xAmzTarget, describeSchemaRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeSchemaResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeSolution
+     * @param xAmzTarget  (required)
+     * @param describeSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeSolutionCall(String xAmzTarget, DescribeSolutionRequest describeSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeSolutionRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeSolution";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeSolutionValidateBeforeCall(String xAmzTarget, DescribeSolutionRequest describeSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeSolution(Async)");
+        }
+
+        // verify the required parameter 'describeSolutionRequest' is set
+        if (describeSolutionRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeSolutionRequest' when calling describeSolution(Async)");
+        }
+
+        return describeSolutionCall(xAmzTarget, describeSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes a solution. For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeSolutionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeSolutionResponse describeSolution(String xAmzTarget, DescribeSolutionRequest describeSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeSolutionResponse> localVarResp = describeSolutionWithHttpInfo(xAmzTarget, describeSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes a solution. For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeSolutionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeSolutionResponse> describeSolutionWithHttpInfo(String xAmzTarget, DescribeSolutionRequest describeSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeSolutionValidateBeforeCall(xAmzTarget, describeSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeSolutionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Describes a solution. For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param describeSolutionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeSolutionAsync(String xAmzTarget, DescribeSolutionRequest describeSolutionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeSolutionResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeSolutionValidateBeforeCall(xAmzTarget, describeSolutionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeSolutionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for describeSolutionVersion
+     * @param xAmzTarget  (required)
+     * @param describeSolutionVersionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeSolutionVersionCall(String xAmzTarget, DescribeSolutionVersionRequest describeSolutionVersionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = describeSolutionVersionRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.DescribeSolutionVersion";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call describeSolutionVersionValidateBeforeCall(String xAmzTarget, DescribeSolutionVersionRequest describeSolutionVersionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling describeSolutionVersion(Async)");
+        }
+
+        // verify the required parameter 'describeSolutionVersionRequest' is set
+        if (describeSolutionVersionRequest == null) {
+            throw new ApiException("Missing the required parameter 'describeSolutionVersionRequest' when calling describeSolutionVersion(Async)");
+        }
+
+        return describeSolutionVersionCall(xAmzTarget, describeSolutionVersionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Describes a specific version of a solution. For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; 
+     * @param xAmzTarget  (required)
+     * @param describeSolutionVersionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return DescribeSolutionVersionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public DescribeSolutionVersionResponse describeSolutionVersion(String xAmzTarget, DescribeSolutionVersionRequest describeSolutionVersionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<DescribeSolutionVersionResponse> localVarResp = describeSolutionVersionWithHttpInfo(xAmzTarget, describeSolutionVersionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Describes a specific version of a solution. For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; 
+     * @param xAmzTarget  (required)
+     * @param describeSolutionVersionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;DescribeSolutionVersionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DescribeSolutionVersionResponse> describeSolutionVersionWithHttpInfo(String xAmzTarget, DescribeSolutionVersionRequest describeSolutionVersionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = describeSolutionVersionValidateBeforeCall(xAmzTarget, describeSolutionVersionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<DescribeSolutionVersionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Describes a specific version of a solution. For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt; 
+     * @param xAmzTarget  (required)
+     * @param describeSolutionVersionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call describeSolutionVersionAsync(String xAmzTarget, DescribeSolutionVersionRequest describeSolutionVersionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<DescribeSolutionVersionResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = describeSolutionVersionValidateBeforeCall(xAmzTarget, describeSolutionVersionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<DescribeSolutionVersionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSolutionMetrics
+     * @param xAmzTarget  (required)
+     * @param getSolutionMetricsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSolutionMetricsCall(String xAmzTarget, GetSolutionMetricsRequest getSolutionMetricsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = getSolutionMetricsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.GetSolutionMetrics";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSolutionMetricsValidateBeforeCall(String xAmzTarget, GetSolutionMetricsRequest getSolutionMetricsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling getSolutionMetrics(Async)");
+        }
+
+        // verify the required parameter 'getSolutionMetricsRequest' is set
+        if (getSolutionMetricsRequest == null) {
+            throw new ApiException("Missing the required parameter 'getSolutionMetricsRequest' when calling getSolutionMetrics(Async)");
+        }
+
+        return getSolutionMetricsCall(xAmzTarget, getSolutionMetricsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Gets the metrics for the specified solution version.
+     * @param xAmzTarget  (required)
+     * @param getSolutionMetricsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return GetSolutionMetricsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetSolutionMetricsResponse getSolutionMetrics(String xAmzTarget, GetSolutionMetricsRequest getSolutionMetricsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<GetSolutionMetricsResponse> localVarResp = getSolutionMetricsWithHttpInfo(xAmzTarget, getSolutionMetricsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Gets the metrics for the specified solution version.
+     * @param xAmzTarget  (required)
+     * @param getSolutionMetricsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;GetSolutionMetricsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetSolutionMetricsResponse> getSolutionMetricsWithHttpInfo(String xAmzTarget, GetSolutionMetricsRequest getSolutionMetricsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = getSolutionMetricsValidateBeforeCall(xAmzTarget, getSolutionMetricsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<GetSolutionMetricsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Gets the metrics for the specified solution version.
+     * @param xAmzTarget  (required)
+     * @param getSolutionMetricsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSolutionMetricsAsync(String xAmzTarget, GetSolutionMetricsRequest getSolutionMetricsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<GetSolutionMetricsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSolutionMetricsValidateBeforeCall(xAmzTarget, getSolutionMetricsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<GetSolutionMetricsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listBatchInferenceJobs
+     * @param xAmzTarget  (required)
+     * @param listBatchInferenceJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBatchInferenceJobsCall(String xAmzTarget, ListBatchInferenceJobsRequest listBatchInferenceJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listBatchInferenceJobsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListBatchInferenceJobs";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listBatchInferenceJobsValidateBeforeCall(String xAmzTarget, ListBatchInferenceJobsRequest listBatchInferenceJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listBatchInferenceJobs(Async)");
+        }
+
+        // verify the required parameter 'listBatchInferenceJobsRequest' is set
+        if (listBatchInferenceJobsRequest == null) {
+            throw new ApiException("Missing the required parameter 'listBatchInferenceJobsRequest' when calling listBatchInferenceJobs(Async)");
+        }
+
+        return listBatchInferenceJobsCall(xAmzTarget, listBatchInferenceJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Gets a list of the batch inference jobs that have been performed off of a solution version.
+     * @param xAmzTarget  (required)
+     * @param listBatchInferenceJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListBatchInferenceJobsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListBatchInferenceJobsResponse listBatchInferenceJobs(String xAmzTarget, ListBatchInferenceJobsRequest listBatchInferenceJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListBatchInferenceJobsResponse> localVarResp = listBatchInferenceJobsWithHttpInfo(xAmzTarget, listBatchInferenceJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Gets a list of the batch inference jobs that have been performed off of a solution version.
+     * @param xAmzTarget  (required)
+     * @param listBatchInferenceJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListBatchInferenceJobsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListBatchInferenceJobsResponse> listBatchInferenceJobsWithHttpInfo(String xAmzTarget, ListBatchInferenceJobsRequest listBatchInferenceJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listBatchInferenceJobsValidateBeforeCall(xAmzTarget, listBatchInferenceJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListBatchInferenceJobsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Gets a list of the batch inference jobs that have been performed off of a solution version.
+     * @param xAmzTarget  (required)
+     * @param listBatchInferenceJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBatchInferenceJobsAsync(String xAmzTarget, ListBatchInferenceJobsRequest listBatchInferenceJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListBatchInferenceJobsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listBatchInferenceJobsValidateBeforeCall(xAmzTarget, listBatchInferenceJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListBatchInferenceJobsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listBatchSegmentJobs
+     * @param xAmzTarget  (required)
+     * @param listBatchSegmentJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBatchSegmentJobsCall(String xAmzTarget, ListBatchSegmentJobsRequest listBatchSegmentJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listBatchSegmentJobsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListBatchSegmentJobs";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listBatchSegmentJobsValidateBeforeCall(String xAmzTarget, ListBatchSegmentJobsRequest listBatchSegmentJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listBatchSegmentJobs(Async)");
+        }
+
+        // verify the required parameter 'listBatchSegmentJobsRequest' is set
+        if (listBatchSegmentJobsRequest == null) {
+            throw new ApiException("Missing the required parameter 'listBatchSegmentJobsRequest' when calling listBatchSegmentJobs(Async)");
+        }
+
+        return listBatchSegmentJobsCall(xAmzTarget, listBatchSegmentJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Gets a list of the batch segment jobs that have been performed off of a solution version that you specify.
+     * @param xAmzTarget  (required)
+     * @param listBatchSegmentJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListBatchSegmentJobsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListBatchSegmentJobsResponse listBatchSegmentJobs(String xAmzTarget, ListBatchSegmentJobsRequest listBatchSegmentJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListBatchSegmentJobsResponse> localVarResp = listBatchSegmentJobsWithHttpInfo(xAmzTarget, listBatchSegmentJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Gets a list of the batch segment jobs that have been performed off of a solution version that you specify.
+     * @param xAmzTarget  (required)
+     * @param listBatchSegmentJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListBatchSegmentJobsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListBatchSegmentJobsResponse> listBatchSegmentJobsWithHttpInfo(String xAmzTarget, ListBatchSegmentJobsRequest listBatchSegmentJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listBatchSegmentJobsValidateBeforeCall(xAmzTarget, listBatchSegmentJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListBatchSegmentJobsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Gets a list of the batch segment jobs that have been performed off of a solution version that you specify.
+     * @param xAmzTarget  (required)
+     * @param listBatchSegmentJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBatchSegmentJobsAsync(String xAmzTarget, ListBatchSegmentJobsRequest listBatchSegmentJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListBatchSegmentJobsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listBatchSegmentJobsValidateBeforeCall(xAmzTarget, listBatchSegmentJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListBatchSegmentJobsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listCampaigns
+     * @param xAmzTarget  (required)
+     * @param listCampaignsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listCampaignsCall(String xAmzTarget, ListCampaignsRequest listCampaignsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listCampaignsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListCampaigns";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCampaignsValidateBeforeCall(String xAmzTarget, ListCampaignsRequest listCampaignsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listCampaigns(Async)");
+        }
+
+        // verify the required parameter 'listCampaignsRequest' is set
+        if (listCampaignsRequest == null) {
+            throw new ApiException("Missing the required parameter 'listCampaignsRequest' when calling listCampaigns(Async)");
+        }
+
+        return listCampaignsCall(xAmzTarget, listCampaignsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Returns a list of campaigns that use the given solution. When a solution is not specified, all the campaigns associated with the account are listed. The response provides the properties for each campaign, including the Amazon Resource Name (ARN). For more information on campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listCampaignsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListCampaignsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListCampaignsResponse listCampaigns(String xAmzTarget, ListCampaignsRequest listCampaignsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListCampaignsResponse> localVarResp = listCampaignsWithHttpInfo(xAmzTarget, listCampaignsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns a list of campaigns that use the given solution. When a solution is not specified, all the campaigns associated with the account are listed. The response provides the properties for each campaign, including the Amazon Resource Name (ARN). For more information on campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listCampaignsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListCampaignsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListCampaignsResponse> listCampaignsWithHttpInfo(String xAmzTarget, ListCampaignsRequest listCampaignsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(xAmzTarget, listCampaignsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListCampaignsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns a list of campaigns that use the given solution. When a solution is not specified, all the campaigns associated with the account are listed. The response provides the properties for each campaign, including the Amazon Resource Name (ARN). For more information on campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listCampaignsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listCampaignsAsync(String xAmzTarget, ListCampaignsRequest listCampaignsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListCampaignsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(xAmzTarget, listCampaignsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListCampaignsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listDatasetExportJobs
+     * @param xAmzTarget  (required)
+     * @param listDatasetExportJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDatasetExportJobsCall(String xAmzTarget, ListDatasetExportJobsRequest listDatasetExportJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listDatasetExportJobsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListDatasetExportJobs";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listDatasetExportJobsValidateBeforeCall(String xAmzTarget, ListDatasetExportJobsRequest listDatasetExportJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listDatasetExportJobs(Async)");
+        }
+
+        // verify the required parameter 'listDatasetExportJobsRequest' is set
+        if (listDatasetExportJobsRequest == null) {
+            throw new ApiException("Missing the required parameter 'listDatasetExportJobsRequest' when calling listDatasetExportJobs(Async)");
+        }
+
+        return listDatasetExportJobsCall(xAmzTarget, listDatasetExportJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Returns a list of dataset export jobs that use the given dataset. When a dataset is not specified, all the dataset export jobs associated with the account are listed. The response provides the properties for each dataset export job, including the Amazon Resource Name (ARN). For more information on dataset export jobs, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html\&quot;&gt;CreateDatasetExportJob&lt;/a&gt;. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetExportJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListDatasetExportJobsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListDatasetExportJobsResponse listDatasetExportJobs(String xAmzTarget, ListDatasetExportJobsRequest listDatasetExportJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListDatasetExportJobsResponse> localVarResp = listDatasetExportJobsWithHttpInfo(xAmzTarget, listDatasetExportJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns a list of dataset export jobs that use the given dataset. When a dataset is not specified, all the dataset export jobs associated with the account are listed. The response provides the properties for each dataset export job, including the Amazon Resource Name (ARN). For more information on dataset export jobs, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html\&quot;&gt;CreateDatasetExportJob&lt;/a&gt;. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetExportJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListDatasetExportJobsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListDatasetExportJobsResponse> listDatasetExportJobsWithHttpInfo(String xAmzTarget, ListDatasetExportJobsRequest listDatasetExportJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listDatasetExportJobsValidateBeforeCall(xAmzTarget, listDatasetExportJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListDatasetExportJobsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns a list of dataset export jobs that use the given dataset. When a dataset is not specified, all the dataset export jobs associated with the account are listed. The response provides the properties for each dataset export job, including the Amazon Resource Name (ARN). For more information on dataset export jobs, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html\&quot;&gt;CreateDatasetExportJob&lt;/a&gt;. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetExportJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDatasetExportJobsAsync(String xAmzTarget, ListDatasetExportJobsRequest listDatasetExportJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListDatasetExportJobsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listDatasetExportJobsValidateBeforeCall(xAmzTarget, listDatasetExportJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListDatasetExportJobsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listDatasetGroups
+     * @param xAmzTarget  (required)
+     * @param listDatasetGroupsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDatasetGroupsCall(String xAmzTarget, ListDatasetGroupsRequest listDatasetGroupsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listDatasetGroupsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListDatasetGroups";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listDatasetGroupsValidateBeforeCall(String xAmzTarget, ListDatasetGroupsRequest listDatasetGroupsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listDatasetGroups(Async)");
+        }
+
+        // verify the required parameter 'listDatasetGroupsRequest' is set
+        if (listDatasetGroupsRequest == null) {
+            throw new ApiException("Missing the required parameter 'listDatasetGroupsRequest' when calling listDatasetGroups(Async)");
+        }
+
+        return listDatasetGroupsCall(xAmzTarget, listDatasetGroupsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Returns a list of dataset groups. The response provides the properties for each dataset group, including the Amazon Resource Name (ARN). For more information on dataset groups, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html\&quot;&gt;CreateDatasetGroup&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetGroupsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListDatasetGroupsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListDatasetGroupsResponse listDatasetGroups(String xAmzTarget, ListDatasetGroupsRequest listDatasetGroupsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListDatasetGroupsResponse> localVarResp = listDatasetGroupsWithHttpInfo(xAmzTarget, listDatasetGroupsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns a list of dataset groups. The response provides the properties for each dataset group, including the Amazon Resource Name (ARN). For more information on dataset groups, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html\&quot;&gt;CreateDatasetGroup&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetGroupsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListDatasetGroupsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListDatasetGroupsResponse> listDatasetGroupsWithHttpInfo(String xAmzTarget, ListDatasetGroupsRequest listDatasetGroupsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listDatasetGroupsValidateBeforeCall(xAmzTarget, listDatasetGroupsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListDatasetGroupsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns a list of dataset groups. The response provides the properties for each dataset group, including the Amazon Resource Name (ARN). For more information on dataset groups, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html\&quot;&gt;CreateDatasetGroup&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetGroupsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDatasetGroupsAsync(String xAmzTarget, ListDatasetGroupsRequest listDatasetGroupsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListDatasetGroupsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listDatasetGroupsValidateBeforeCall(xAmzTarget, listDatasetGroupsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListDatasetGroupsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listDatasetImportJobs
+     * @param xAmzTarget  (required)
+     * @param listDatasetImportJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDatasetImportJobsCall(String xAmzTarget, ListDatasetImportJobsRequest listDatasetImportJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listDatasetImportJobsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListDatasetImportJobs";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listDatasetImportJobsValidateBeforeCall(String xAmzTarget, ListDatasetImportJobsRequest listDatasetImportJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listDatasetImportJobs(Async)");
+        }
+
+        // verify the required parameter 'listDatasetImportJobsRequest' is set
+        if (listDatasetImportJobsRequest == null) {
+            throw new ApiException("Missing the required parameter 'listDatasetImportJobsRequest' when calling listDatasetImportJobs(Async)");
+        }
+
+        return listDatasetImportJobsCall(xAmzTarget, listDatasetImportJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Returns a list of dataset import jobs that use the given dataset. When a dataset is not specified, all the dataset import jobs associated with the account are listed. The response provides the properties for each dataset import job, including the Amazon Resource Name (ARN). For more information on dataset import jobs, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html\&quot;&gt;CreateDatasetImportJob&lt;/a&gt;. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetImportJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListDatasetImportJobsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListDatasetImportJobsResponse listDatasetImportJobs(String xAmzTarget, ListDatasetImportJobsRequest listDatasetImportJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListDatasetImportJobsResponse> localVarResp = listDatasetImportJobsWithHttpInfo(xAmzTarget, listDatasetImportJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns a list of dataset import jobs that use the given dataset. When a dataset is not specified, all the dataset import jobs associated with the account are listed. The response provides the properties for each dataset import job, including the Amazon Resource Name (ARN). For more information on dataset import jobs, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html\&quot;&gt;CreateDatasetImportJob&lt;/a&gt;. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetImportJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListDatasetImportJobsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListDatasetImportJobsResponse> listDatasetImportJobsWithHttpInfo(String xAmzTarget, ListDatasetImportJobsRequest listDatasetImportJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listDatasetImportJobsValidateBeforeCall(xAmzTarget, listDatasetImportJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListDatasetImportJobsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns a list of dataset import jobs that use the given dataset. When a dataset is not specified, all the dataset import jobs associated with the account are listed. The response provides the properties for each dataset import job, including the Amazon Resource Name (ARN). For more information on dataset import jobs, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html\&quot;&gt;CreateDatasetImportJob&lt;/a&gt;. For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetImportJobsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDatasetImportJobsAsync(String xAmzTarget, ListDatasetImportJobsRequest listDatasetImportJobsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListDatasetImportJobsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listDatasetImportJobsValidateBeforeCall(xAmzTarget, listDatasetImportJobsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListDatasetImportJobsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listDatasets
+     * @param xAmzTarget  (required)
+     * @param listDatasetsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDatasetsCall(String xAmzTarget, ListDatasetsRequest listDatasetsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listDatasetsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListDatasets";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listDatasetsValidateBeforeCall(String xAmzTarget, ListDatasetsRequest listDatasetsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listDatasets(Async)");
+        }
+
+        // verify the required parameter 'listDatasetsRequest' is set
+        if (listDatasetsRequest == null) {
+            throw new ApiException("Missing the required parameter 'listDatasetsRequest' when calling listDatasets(Async)");
+        }
+
+        return listDatasetsCall(xAmzTarget, listDatasetsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Returns the list of datasets contained in the given dataset group. The response provides the properties for each dataset, including the Amazon Resource Name (ARN). For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListDatasetsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListDatasetsResponse listDatasets(String xAmzTarget, ListDatasetsRequest listDatasetsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListDatasetsResponse> localVarResp = listDatasetsWithHttpInfo(xAmzTarget, listDatasetsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns the list of datasets contained in the given dataset group. The response provides the properties for each dataset, including the Amazon Resource Name (ARN). For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListDatasetsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListDatasetsResponse> listDatasetsWithHttpInfo(String xAmzTarget, ListDatasetsRequest listDatasetsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listDatasetsValidateBeforeCall(xAmzTarget, listDatasetsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListDatasetsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns the list of datasets contained in the given dataset group. The response provides the properties for each dataset, including the Amazon Resource Name (ARN). For more information on datasets, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listDatasetsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDatasetsAsync(String xAmzTarget, ListDatasetsRequest listDatasetsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListDatasetsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listDatasetsValidateBeforeCall(xAmzTarget, listDatasetsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListDatasetsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listEventTrackers
+     * @param xAmzTarget  (required)
+     * @param listEventTrackersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listEventTrackersCall(String xAmzTarget, ListEventTrackersRequest listEventTrackersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listEventTrackersRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListEventTrackers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listEventTrackersValidateBeforeCall(String xAmzTarget, ListEventTrackersRequest listEventTrackersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listEventTrackers(Async)");
+        }
+
+        // verify the required parameter 'listEventTrackersRequest' is set
+        if (listEventTrackersRequest == null) {
+            throw new ApiException("Missing the required parameter 'listEventTrackersRequest' when calling listEventTrackers(Async)");
+        }
+
+        return listEventTrackersCall(xAmzTarget, listEventTrackersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Returns the list of event trackers associated with the account. The response provides the properties for each event tracker, including the Amazon Resource Name (ARN) and tracking ID. For more information on event trackers, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listEventTrackersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListEventTrackersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListEventTrackersResponse listEventTrackers(String xAmzTarget, ListEventTrackersRequest listEventTrackersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListEventTrackersResponse> localVarResp = listEventTrackersWithHttpInfo(xAmzTarget, listEventTrackersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns the list of event trackers associated with the account. The response provides the properties for each event tracker, including the Amazon Resource Name (ARN) and tracking ID. For more information on event trackers, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listEventTrackersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListEventTrackersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListEventTrackersResponse> listEventTrackersWithHttpInfo(String xAmzTarget, ListEventTrackersRequest listEventTrackersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listEventTrackersValidateBeforeCall(xAmzTarget, listEventTrackersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListEventTrackersResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns the list of event trackers associated with the account. The response provides the properties for each event tracker, including the Amazon Resource Name (ARN) and tracking ID. For more information on event trackers, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html\&quot;&gt;CreateEventTracker&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listEventTrackersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listEventTrackersAsync(String xAmzTarget, ListEventTrackersRequest listEventTrackersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListEventTrackersResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listEventTrackersValidateBeforeCall(xAmzTarget, listEventTrackersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListEventTrackersResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listFilters
+     * @param xAmzTarget  (required)
+     * @param listFiltersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listFiltersCall(String xAmzTarget, ListFiltersRequest listFiltersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listFiltersRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListFilters";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listFiltersValidateBeforeCall(String xAmzTarget, ListFiltersRequest listFiltersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listFilters(Async)");
+        }
+
+        // verify the required parameter 'listFiltersRequest' is set
+        if (listFiltersRequest == null) {
+            throw new ApiException("Missing the required parameter 'listFiltersRequest' when calling listFilters(Async)");
+        }
+
+        return listFiltersCall(xAmzTarget, listFiltersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Lists all filters that belong to a given dataset group.
+     * @param xAmzTarget  (required)
+     * @param listFiltersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListFiltersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListFiltersResponse listFilters(String xAmzTarget, ListFiltersRequest listFiltersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListFiltersResponse> localVarResp = listFiltersWithHttpInfo(xAmzTarget, listFiltersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Lists all filters that belong to a given dataset group.
+     * @param xAmzTarget  (required)
+     * @param listFiltersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListFiltersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListFiltersResponse> listFiltersWithHttpInfo(String xAmzTarget, ListFiltersRequest listFiltersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listFiltersValidateBeforeCall(xAmzTarget, listFiltersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListFiltersResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Lists all filters that belong to a given dataset group.
+     * @param xAmzTarget  (required)
+     * @param listFiltersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listFiltersAsync(String xAmzTarget, ListFiltersRequest listFiltersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListFiltersResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listFiltersValidateBeforeCall(xAmzTarget, listFiltersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListFiltersResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listMetricAttributionMetrics
+     * @param xAmzTarget  (required)
+     * @param listMetricAttributionMetricsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listMetricAttributionMetricsCall(String xAmzTarget, ListMetricAttributionMetricsRequest listMetricAttributionMetricsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listMetricAttributionMetricsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListMetricAttributionMetrics";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listMetricAttributionMetricsValidateBeforeCall(String xAmzTarget, ListMetricAttributionMetricsRequest listMetricAttributionMetricsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listMetricAttributionMetrics(Async)");
+        }
+
+        // verify the required parameter 'listMetricAttributionMetricsRequest' is set
+        if (listMetricAttributionMetricsRequest == null) {
+            throw new ApiException("Missing the required parameter 'listMetricAttributionMetricsRequest' when calling listMetricAttributionMetrics(Async)");
+        }
+
+        return listMetricAttributionMetricsCall(xAmzTarget, listMetricAttributionMetricsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Lists the metrics for the metric attribution.
+     * @param xAmzTarget  (required)
+     * @param listMetricAttributionMetricsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListMetricAttributionMetricsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListMetricAttributionMetricsResponse listMetricAttributionMetrics(String xAmzTarget, ListMetricAttributionMetricsRequest listMetricAttributionMetricsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListMetricAttributionMetricsResponse> localVarResp = listMetricAttributionMetricsWithHttpInfo(xAmzTarget, listMetricAttributionMetricsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Lists the metrics for the metric attribution.
+     * @param xAmzTarget  (required)
+     * @param listMetricAttributionMetricsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListMetricAttributionMetricsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListMetricAttributionMetricsResponse> listMetricAttributionMetricsWithHttpInfo(String xAmzTarget, ListMetricAttributionMetricsRequest listMetricAttributionMetricsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listMetricAttributionMetricsValidateBeforeCall(xAmzTarget, listMetricAttributionMetricsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListMetricAttributionMetricsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Lists the metrics for the metric attribution.
+     * @param xAmzTarget  (required)
+     * @param listMetricAttributionMetricsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listMetricAttributionMetricsAsync(String xAmzTarget, ListMetricAttributionMetricsRequest listMetricAttributionMetricsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListMetricAttributionMetricsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listMetricAttributionMetricsValidateBeforeCall(xAmzTarget, listMetricAttributionMetricsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListMetricAttributionMetricsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listMetricAttributions
+     * @param xAmzTarget  (required)
+     * @param listMetricAttributionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listMetricAttributionsCall(String xAmzTarget, ListMetricAttributionsRequest listMetricAttributionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listMetricAttributionsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListMetricAttributions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listMetricAttributionsValidateBeforeCall(String xAmzTarget, ListMetricAttributionsRequest listMetricAttributionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listMetricAttributions(Async)");
+        }
+
+        // verify the required parameter 'listMetricAttributionsRequest' is set
+        if (listMetricAttributionsRequest == null) {
+            throw new ApiException("Missing the required parameter 'listMetricAttributionsRequest' when calling listMetricAttributions(Async)");
+        }
+
+        return listMetricAttributionsCall(xAmzTarget, listMetricAttributionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Lists metric attributions.
+     * @param xAmzTarget  (required)
+     * @param listMetricAttributionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListMetricAttributionsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListMetricAttributionsResponse listMetricAttributions(String xAmzTarget, ListMetricAttributionsRequest listMetricAttributionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListMetricAttributionsResponse> localVarResp = listMetricAttributionsWithHttpInfo(xAmzTarget, listMetricAttributionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Lists metric attributions.
+     * @param xAmzTarget  (required)
+     * @param listMetricAttributionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListMetricAttributionsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListMetricAttributionsResponse> listMetricAttributionsWithHttpInfo(String xAmzTarget, ListMetricAttributionsRequest listMetricAttributionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listMetricAttributionsValidateBeforeCall(xAmzTarget, listMetricAttributionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListMetricAttributionsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Lists metric attributions.
+     * @param xAmzTarget  (required)
+     * @param listMetricAttributionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listMetricAttributionsAsync(String xAmzTarget, ListMetricAttributionsRequest listMetricAttributionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListMetricAttributionsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listMetricAttributionsValidateBeforeCall(xAmzTarget, listMetricAttributionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListMetricAttributionsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listRecipes
+     * @param xAmzTarget  (required)
+     * @param listRecipesRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidInputException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listRecipesCall(String xAmzTarget, ListRecipesRequest listRecipesRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listRecipesRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListRecipes";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listRecipesValidateBeforeCall(String xAmzTarget, ListRecipesRequest listRecipesRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listRecipes(Async)");
+        }
+
+        // verify the required parameter 'listRecipesRequest' is set
+        if (listRecipesRequest == null) {
+            throw new ApiException("Missing the required parameter 'listRecipesRequest' when calling listRecipes(Async)");
+        }
+
+        return listRecipesCall(xAmzTarget, listRecipesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Returns a list of available recipes. The response provides the properties for each recipe, including the recipe&#39;s Amazon Resource Name (ARN).
+     * @param xAmzTarget  (required)
+     * @param listRecipesRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListRecipesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidInputException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListRecipesResponse listRecipes(String xAmzTarget, ListRecipesRequest listRecipesRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListRecipesResponse> localVarResp = listRecipesWithHttpInfo(xAmzTarget, listRecipesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns a list of available recipes. The response provides the properties for each recipe, including the recipe&#39;s Amazon Resource Name (ARN).
+     * @param xAmzTarget  (required)
+     * @param listRecipesRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListRecipesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidInputException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListRecipesResponse> listRecipesWithHttpInfo(String xAmzTarget, ListRecipesRequest listRecipesRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listRecipesValidateBeforeCall(xAmzTarget, listRecipesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListRecipesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns a list of available recipes. The response provides the properties for each recipe, including the recipe&#39;s Amazon Resource Name (ARN).
+     * @param xAmzTarget  (required)
+     * @param listRecipesRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidInputException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listRecipesAsync(String xAmzTarget, ListRecipesRequest listRecipesRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListRecipesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listRecipesValidateBeforeCall(xAmzTarget, listRecipesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListRecipesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listRecommenders
+     * @param xAmzTarget  (required)
+     * @param listRecommendersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listRecommendersCall(String xAmzTarget, ListRecommendersRequest listRecommendersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listRecommendersRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListRecommenders";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listRecommendersValidateBeforeCall(String xAmzTarget, ListRecommendersRequest listRecommendersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listRecommenders(Async)");
+        }
+
+        // verify the required parameter 'listRecommendersRequest' is set
+        if (listRecommendersRequest == null) {
+            throw new ApiException("Missing the required parameter 'listRecommendersRequest' when calling listRecommenders(Async)");
+        }
+
+        return listRecommendersCall(xAmzTarget, listRecommendersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Returns a list of recommenders in a given Domain dataset group. When a Domain dataset group is not specified, all the recommenders associated with the account are listed. The response provides the properties for each recommender, including the Amazon Resource Name (ARN). For more information on recommenders, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html\&quot;&gt;CreateRecommender&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listRecommendersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListRecommendersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListRecommendersResponse listRecommenders(String xAmzTarget, ListRecommendersRequest listRecommendersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListRecommendersResponse> localVarResp = listRecommendersWithHttpInfo(xAmzTarget, listRecommendersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns a list of recommenders in a given Domain dataset group. When a Domain dataset group is not specified, all the recommenders associated with the account are listed. The response provides the properties for each recommender, including the Amazon Resource Name (ARN). For more information on recommenders, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html\&quot;&gt;CreateRecommender&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listRecommendersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListRecommendersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListRecommendersResponse> listRecommendersWithHttpInfo(String xAmzTarget, ListRecommendersRequest listRecommendersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listRecommendersValidateBeforeCall(xAmzTarget, listRecommendersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListRecommendersResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns a list of recommenders in a given Domain dataset group. When a Domain dataset group is not specified, all the recommenders associated with the account are listed. The response provides the properties for each recommender, including the Amazon Resource Name (ARN). For more information on recommenders, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html\&quot;&gt;CreateRecommender&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listRecommendersRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listRecommendersAsync(String xAmzTarget, ListRecommendersRequest listRecommendersRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListRecommendersResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listRecommendersValidateBeforeCall(xAmzTarget, listRecommendersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListRecommendersResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSchemas
+     * @param xAmzTarget  (required)
+     * @param listSchemasRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSchemasCall(String xAmzTarget, ListSchemasRequest listSchemasRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listSchemasRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListSchemas";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSchemasValidateBeforeCall(String xAmzTarget, ListSchemasRequest listSchemasRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listSchemas(Async)");
+        }
+
+        // verify the required parameter 'listSchemasRequest' is set
+        if (listSchemasRequest == null) {
+            throw new ApiException("Missing the required parameter 'listSchemasRequest' when calling listSchemas(Async)");
+        }
+
+        return listSchemasCall(xAmzTarget, listSchemasRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Returns the list of schemas associated with the account. The response provides the properties for each schema, including the Amazon Resource Name (ARN). For more information on schemas, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html\&quot;&gt;CreateSchema&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listSchemasRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListSchemasResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListSchemasResponse listSchemas(String xAmzTarget, ListSchemasRequest listSchemasRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListSchemasResponse> localVarResp = listSchemasWithHttpInfo(xAmzTarget, listSchemasRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns the list of schemas associated with the account. The response provides the properties for each schema, including the Amazon Resource Name (ARN). For more information on schemas, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html\&quot;&gt;CreateSchema&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listSchemasRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListSchemasResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListSchemasResponse> listSchemasWithHttpInfo(String xAmzTarget, ListSchemasRequest listSchemasRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listSchemasValidateBeforeCall(xAmzTarget, listSchemasRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListSchemasResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns the list of schemas associated with the account. The response provides the properties for each schema, including the Amazon Resource Name (ARN). For more information on schemas, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html\&quot;&gt;CreateSchema&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listSchemasRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSchemasAsync(String xAmzTarget, ListSchemasRequest listSchemasRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListSchemasResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSchemasValidateBeforeCall(xAmzTarget, listSchemasRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListSchemasResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSolutionVersions
+     * @param xAmzTarget  (required)
+     * @param listSolutionVersionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSolutionVersionsCall(String xAmzTarget, ListSolutionVersionsRequest listSolutionVersionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listSolutionVersionsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListSolutionVersions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSolutionVersionsValidateBeforeCall(String xAmzTarget, ListSolutionVersionsRequest listSolutionVersionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listSolutionVersions(Async)");
+        }
+
+        // verify the required parameter 'listSolutionVersionsRequest' is set
+        if (listSolutionVersionsRequest == null) {
+            throw new ApiException("Missing the required parameter 'listSolutionVersionsRequest' when calling listSolutionVersions(Async)");
+        }
+
+        return listSolutionVersionsCall(xAmzTarget, listSolutionVersionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Returns a list of solution versions for the given solution. When a solution is not specified, all the solution versions associated with the account are listed. The response provides the properties for each solution version, including the Amazon Resource Name (ARN).
+     * @param xAmzTarget  (required)
+     * @param listSolutionVersionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListSolutionVersionsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListSolutionVersionsResponse listSolutionVersions(String xAmzTarget, ListSolutionVersionsRequest listSolutionVersionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListSolutionVersionsResponse> localVarResp = listSolutionVersionsWithHttpInfo(xAmzTarget, listSolutionVersionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns a list of solution versions for the given solution. When a solution is not specified, all the solution versions associated with the account are listed. The response provides the properties for each solution version, including the Amazon Resource Name (ARN).
+     * @param xAmzTarget  (required)
+     * @param listSolutionVersionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListSolutionVersionsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListSolutionVersionsResponse> listSolutionVersionsWithHttpInfo(String xAmzTarget, ListSolutionVersionsRequest listSolutionVersionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listSolutionVersionsValidateBeforeCall(xAmzTarget, listSolutionVersionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListSolutionVersionsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns a list of solution versions for the given solution. When a solution is not specified, all the solution versions associated with the account are listed. The response provides the properties for each solution version, including the Amazon Resource Name (ARN).
+     * @param xAmzTarget  (required)
+     * @param listSolutionVersionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSolutionVersionsAsync(String xAmzTarget, ListSolutionVersionsRequest listSolutionVersionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListSolutionVersionsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSolutionVersionsValidateBeforeCall(xAmzTarget, listSolutionVersionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListSolutionVersionsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSolutions
+     * @param xAmzTarget  (required)
+     * @param listSolutionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSolutionsCall(String xAmzTarget, ListSolutionsRequest listSolutionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listSolutionsRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListSolutions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxResults", maxResults));
+        }
+
+        if (nextToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nextToken", nextToken));
+        }
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSolutionsValidateBeforeCall(String xAmzTarget, ListSolutionsRequest listSolutionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listSolutions(Async)");
+        }
+
+        // verify the required parameter 'listSolutionsRequest' is set
+        if (listSolutionsRequest == null) {
+            throw new ApiException("Missing the required parameter 'listSolutionsRequest' when calling listSolutions(Async)");
+        }
+
+        return listSolutionsCall(xAmzTarget, listSolutionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Returns a list of solutions that use the given dataset group. When a dataset group is not specified, all the solutions associated with the account are listed. The response provides the properties for each solution, including the Amazon Resource Name (ARN). For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listSolutionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ListSolutionsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListSolutionsResponse listSolutions(String xAmzTarget, ListSolutionsRequest listSolutionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        ApiResponse<ListSolutionsResponse> localVarResp = listSolutionsWithHttpInfo(xAmzTarget, listSolutionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns a list of solutions that use the given dataset group. When a dataset group is not specified, all the solutions associated with the account are listed. The response provides the properties for each solution, including the Amazon Resource Name (ARN). For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listSolutionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @return ApiResponse&lt;ListSolutionsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListSolutionsResponse> listSolutionsWithHttpInfo(String xAmzTarget, ListSolutionsRequest listSolutionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken) throws ApiException {
+        okhttp3.Call localVarCall = listSolutionsValidateBeforeCall(xAmzTarget, listSolutionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, null);
+        Type localVarReturnType = new TypeToken<ListSolutionsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns a list of solutions that use the given dataset group. When a dataset group is not specified, all the solutions associated with the account are listed. The response provides the properties for each solution, including the Amazon Resource Name (ARN). For more information on solutions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt;.
+     * @param xAmzTarget  (required)
+     * @param listSolutionsRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param maxResults Pagination limit (optional)
+     * @param nextToken Pagination token (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> InvalidNextTokenException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSolutionsAsync(String xAmzTarget, ListSolutionsRequest listSolutionsRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, String maxResults, String nextToken, final ApiCallback<ListSolutionsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSolutionsValidateBeforeCall(xAmzTarget, listSolutionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken, _callback);
+        Type localVarReturnType = new TypeToken<ListSolutionsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listTagsForResource
+     * @param xAmzTarget  (required)
+     * @param listTagsForResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTagsForResourceCall(String xAmzTarget, ListTagsForResourceRequest listTagsForResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = listTagsForResourceRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.ListTagsForResource";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listTagsForResourceValidateBeforeCall(String xAmzTarget, ListTagsForResourceRequest listTagsForResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling listTagsForResource(Async)");
+        }
+
+        // verify the required parameter 'listTagsForResourceRequest' is set
+        if (listTagsForResourceRequest == null) {
+            throw new ApiException("Missing the required parameter 'listTagsForResourceRequest' when calling listTagsForResource(Async)");
+        }
+
+        return listTagsForResourceCall(xAmzTarget, listTagsForResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Get a list of &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html\&quot;&gt;tags&lt;/a&gt; attached to a resource.
+     * @param xAmzTarget  (required)
+     * @param listTagsForResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ListTagsForResourceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListTagsForResourceResponse listTagsForResource(String xAmzTarget, ListTagsForResourceRequest listTagsForResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<ListTagsForResourceResponse> localVarResp = listTagsForResourceWithHttpInfo(xAmzTarget, listTagsForResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Get a list of &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html\&quot;&gt;tags&lt;/a&gt; attached to a resource.
+     * @param xAmzTarget  (required)
+     * @param listTagsForResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;ListTagsForResourceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListTagsForResourceResponse> listTagsForResourceWithHttpInfo(String xAmzTarget, ListTagsForResourceRequest listTagsForResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = listTagsForResourceValidateBeforeCall(xAmzTarget, listTagsForResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<ListTagsForResourceResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Get a list of &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html\&quot;&gt;tags&lt;/a&gt; attached to a resource.
+     * @param xAmzTarget  (required)
+     * @param listTagsForResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTagsForResourceAsync(String xAmzTarget, ListTagsForResourceRequest listTagsForResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<ListTagsForResourceResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listTagsForResourceValidateBeforeCall(xAmzTarget, listTagsForResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<ListTagsForResourceResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for startRecommender
+     * @param xAmzTarget  (required)
+     * @param startRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call startRecommenderCall(String xAmzTarget, StartRecommenderRequest startRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = startRecommenderRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.StartRecommender";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call startRecommenderValidateBeforeCall(String xAmzTarget, StartRecommenderRequest startRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling startRecommender(Async)");
+        }
+
+        // verify the required parameter 'startRecommenderRequest' is set
+        if (startRecommenderRequest == null) {
+            throw new ApiException("Missing the required parameter 'startRecommenderRequest' when calling startRecommender(Async)");
+        }
+
+        return startRecommenderCall(xAmzTarget, startRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Starts a recommender that is INACTIVE. Starting a recommender does not create any new models, but resumes billing and automatic retraining for the recommender.
+     * @param xAmzTarget  (required)
+     * @param startRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return StartRecommenderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public StartRecommenderResponse startRecommender(String xAmzTarget, StartRecommenderRequest startRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<StartRecommenderResponse> localVarResp = startRecommenderWithHttpInfo(xAmzTarget, startRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Starts a recommender that is INACTIVE. Starting a recommender does not create any new models, but resumes billing and automatic retraining for the recommender.
+     * @param xAmzTarget  (required)
+     * @param startRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;StartRecommenderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<StartRecommenderResponse> startRecommenderWithHttpInfo(String xAmzTarget, StartRecommenderRequest startRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = startRecommenderValidateBeforeCall(xAmzTarget, startRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<StartRecommenderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Starts a recommender that is INACTIVE. Starting a recommender does not create any new models, but resumes billing and automatic retraining for the recommender.
+     * @param xAmzTarget  (required)
+     * @param startRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call startRecommenderAsync(String xAmzTarget, StartRecommenderRequest startRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<StartRecommenderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = startRecommenderValidateBeforeCall(xAmzTarget, startRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<StartRecommenderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for stopRecommender
+     * @param xAmzTarget  (required)
+     * @param stopRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopRecommenderCall(String xAmzTarget, StopRecommenderRequest stopRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = stopRecommenderRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.StopRecommender";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call stopRecommenderValidateBeforeCall(String xAmzTarget, StopRecommenderRequest stopRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling stopRecommender(Async)");
+        }
+
+        // verify the required parameter 'stopRecommenderRequest' is set
+        if (stopRecommenderRequest == null) {
+            throw new ApiException("Missing the required parameter 'stopRecommenderRequest' when calling stopRecommender(Async)");
+        }
+
+        return stopRecommenderCall(xAmzTarget, stopRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Stops a recommender that is ACTIVE. Stopping a recommender halts billing and automatic retraining for the recommender.
+     * @param xAmzTarget  (required)
+     * @param stopRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return StopRecommenderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public StopRecommenderResponse stopRecommender(String xAmzTarget, StopRecommenderRequest stopRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<StopRecommenderResponse> localVarResp = stopRecommenderWithHttpInfo(xAmzTarget, stopRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Stops a recommender that is ACTIVE. Stopping a recommender halts billing and automatic retraining for the recommender.
+     * @param xAmzTarget  (required)
+     * @param stopRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;StopRecommenderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<StopRecommenderResponse> stopRecommenderWithHttpInfo(String xAmzTarget, StopRecommenderRequest stopRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = stopRecommenderValidateBeforeCall(xAmzTarget, stopRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<StopRecommenderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Stops a recommender that is ACTIVE. Stopping a recommender halts billing and automatic retraining for the recommender.
+     * @param xAmzTarget  (required)
+     * @param stopRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopRecommenderAsync(String xAmzTarget, StopRecommenderRequest stopRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<StopRecommenderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = stopRecommenderValidateBeforeCall(xAmzTarget, stopRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<StopRecommenderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for stopSolutionVersionCreation
+     * @param xAmzTarget  (required)
+     * @param stopSolutionVersionCreationRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopSolutionVersionCreationCall(String xAmzTarget, StopSolutionVersionCreationRequest stopSolutionVersionCreationRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = stopSolutionVersionCreationRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.StopSolutionVersionCreation";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call stopSolutionVersionCreationValidateBeforeCall(String xAmzTarget, StopSolutionVersionCreationRequest stopSolutionVersionCreationRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling stopSolutionVersionCreation(Async)");
+        }
+
+        // verify the required parameter 'stopSolutionVersionCreationRequest' is set
+        if (stopSolutionVersionCreationRequest == null) {
+            throw new ApiException("Missing the required parameter 'stopSolutionVersionCreationRequest' when calling stopSolutionVersionCreation(Async)");
+        }
+
+        return stopSolutionVersionCreationCall(xAmzTarget, stopSolutionVersionCreationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS. &lt;/p&gt; &lt;p&gt;Depending on the current state of the solution version, the solution version state changes as follows:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE_PENDING &amp;gt; CREATE_STOPPED&lt;/p&gt; &lt;p&gt;or&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE_IN_PROGRESS &amp;gt; CREATE_STOPPING &amp;gt; CREATE_STOPPED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;You are billed for all of the training completed up until you stop the solution version creation. You cannot resume creating a solution version once it has been stopped.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param stopSolutionVersionCreationRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public void stopSolutionVersionCreation(String xAmzTarget, StopSolutionVersionCreationRequest stopSolutionVersionCreationRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        stopSolutionVersionCreationWithHttpInfo(xAmzTarget, stopSolutionVersionCreationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS. &lt;/p&gt; &lt;p&gt;Depending on the current state of the solution version, the solution version state changes as follows:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE_PENDING &amp;gt; CREATE_STOPPED&lt;/p&gt; &lt;p&gt;or&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE_IN_PROGRESS &amp;gt; CREATE_STOPPING &amp;gt; CREATE_STOPPED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;You are billed for all of the training completed up until you stop the solution version creation. You cannot resume creating a solution version once it has been stopped.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param stopSolutionVersionCreationRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> stopSolutionVersionCreationWithHttpInfo(String xAmzTarget, StopSolutionVersionCreationRequest stopSolutionVersionCreationRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = stopSolutionVersionCreationValidateBeforeCall(xAmzTarget, stopSolutionVersionCreationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS. &lt;/p&gt; &lt;p&gt;Depending on the current state of the solution version, the solution version state changes as follows:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE_PENDING &amp;gt; CREATE_STOPPED&lt;/p&gt; &lt;p&gt;or&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;CREATE_IN_PROGRESS &amp;gt; CREATE_STOPPING &amp;gt; CREATE_STOPPED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;You are billed for all of the training completed up until you stop the solution version creation. You cannot resume creating a solution version once it has been stopped.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param stopSolutionVersionCreationRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopSolutionVersionCreationAsync(String xAmzTarget, StopSolutionVersionCreationRequest stopSolutionVersionCreationRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = stopSolutionVersionCreationValidateBeforeCall(xAmzTarget, stopSolutionVersionCreationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for tagResource
+     * @param xAmzTarget  (required)
+     * @param tagResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tagResourceCall(String xAmzTarget, TagResourceRequest tagResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = tagResourceRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.TagResource";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call tagResourceValidateBeforeCall(String xAmzTarget, TagResourceRequest tagResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling tagResource(Async)");
+        }
+
+        // verify the required parameter 'tagResourceRequest' is set
+        if (tagResourceRequest == null) {
+            throw new ApiException("Missing the required parameter 'tagResourceRequest' when calling tagResource(Async)");
+        }
+
+        return tagResourceCall(xAmzTarget, tagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Add a list of tags to a resource.
+     * @param xAmzTarget  (required)
+     * @param tagResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object tagResource(String xAmzTarget, TagResourceRequest tagResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<Object> localVarResp = tagResourceWithHttpInfo(xAmzTarget, tagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Add a list of tags to a resource.
+     * @param xAmzTarget  (required)
+     * @param tagResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> tagResourceWithHttpInfo(String xAmzTarget, TagResourceRequest tagResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = tagResourceValidateBeforeCall(xAmzTarget, tagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Add a list of tags to a resource.
+     * @param xAmzTarget  (required)
+     * @param tagResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> TooManyTagsException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 484 </td><td> LimitExceededException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tagResourceAsync(String xAmzTarget, TagResourceRequest tagResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = tagResourceValidateBeforeCall(xAmzTarget, tagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for untagResource
+     * @param xAmzTarget  (required)
+     * @param untagResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> TooManyTagKeysException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call untagResourceCall(String xAmzTarget, UntagResourceRequest untagResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = untagResourceRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.UntagResource";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call untagResourceValidateBeforeCall(String xAmzTarget, UntagResourceRequest untagResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling untagResource(Async)");
+        }
+
+        // verify the required parameter 'untagResourceRequest' is set
+        if (untagResourceRequest == null) {
+            throw new ApiException("Missing the required parameter 'untagResourceRequest' when calling untagResource(Async)");
+        }
+
+        return untagResourceCall(xAmzTarget, untagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Remove &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html\&quot;&gt;tags&lt;/a&gt; that are attached to a resource.
+     * @param xAmzTarget  (required)
+     * @param untagResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> TooManyTagKeysException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object untagResource(String xAmzTarget, UntagResourceRequest untagResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<Object> localVarResp = untagResourceWithHttpInfo(xAmzTarget, untagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Remove &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html\&quot;&gt;tags&lt;/a&gt; that are attached to a resource.
+     * @param xAmzTarget  (required)
+     * @param untagResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> TooManyTagKeysException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> untagResourceWithHttpInfo(String xAmzTarget, UntagResourceRequest untagResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = untagResourceValidateBeforeCall(xAmzTarget, untagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Remove &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html\&quot;&gt;tags&lt;/a&gt; that are attached to a resource.
+     * @param xAmzTarget  (required)
+     * @param untagResourceRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> TooManyTagKeysException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call untagResourceAsync(String xAmzTarget, UntagResourceRequest untagResourceRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = untagResourceValidateBeforeCall(xAmzTarget, untagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateCampaign
+     * @param xAmzTarget  (required)
+     * @param updateCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateCampaignCall(String xAmzTarget, UpdateCampaignRequest updateCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateCampaignRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.UpdateCampaign";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateCampaignValidateBeforeCall(String xAmzTarget, UpdateCampaignRequest updateCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling updateCampaign(Async)");
+        }
+
+        // verify the required parameter 'updateCampaignRequest' is set
+        if (updateCampaignRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateCampaignRequest' when calling updateCampaign(Async)");
+        }
+
+        return updateCampaignCall(xAmzTarget, updateCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Updates a campaign by either deploying a new solution or changing the value of the campaign&#39;s &lt;code&gt;minProvisionedTPS&lt;/code&gt; parameter.&lt;/p&gt; &lt;p&gt;To update a campaign, the campaign status must be ACTIVE or CREATE FAILED. Check the campaign status using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html\&quot;&gt;DescribeCampaign&lt;/a&gt; operation.&lt;/p&gt; &lt;note&gt; &lt;p&gt;You can still get recommendations from a campaign while an update is in progress. The campaign will use the previous solution version and campaign configuration to generate recommendations until the latest campaign update status is &lt;code&gt;Active&lt;/code&gt;. &lt;/p&gt; &lt;/note&gt; &lt;p&gt;For more information on campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param updateCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return UpdateCampaignResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public UpdateCampaignResponse updateCampaign(String xAmzTarget, UpdateCampaignRequest updateCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<UpdateCampaignResponse> localVarResp = updateCampaignWithHttpInfo(xAmzTarget, updateCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * &lt;p&gt;Updates a campaign by either deploying a new solution or changing the value of the campaign&#39;s &lt;code&gt;minProvisionedTPS&lt;/code&gt; parameter.&lt;/p&gt; &lt;p&gt;To update a campaign, the campaign status must be ACTIVE or CREATE FAILED. Check the campaign status using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html\&quot;&gt;DescribeCampaign&lt;/a&gt; operation.&lt;/p&gt; &lt;note&gt; &lt;p&gt;You can still get recommendations from a campaign while an update is in progress. The campaign will use the previous solution version and campaign configuration to generate recommendations until the latest campaign update status is &lt;code&gt;Active&lt;/code&gt;. &lt;/p&gt; &lt;/note&gt; &lt;p&gt;For more information on campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param updateCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;UpdateCampaignResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UpdateCampaignResponse> updateCampaignWithHttpInfo(String xAmzTarget, UpdateCampaignRequest updateCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = updateCampaignValidateBeforeCall(xAmzTarget, updateCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<UpdateCampaignResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * &lt;p&gt;Updates a campaign by either deploying a new solution or changing the value of the campaign&#39;s &lt;code&gt;minProvisionedTPS&lt;/code&gt; parameter.&lt;/p&gt; &lt;p&gt;To update a campaign, the campaign status must be ACTIVE or CREATE FAILED. Check the campaign status using the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html\&quot;&gt;DescribeCampaign&lt;/a&gt; operation.&lt;/p&gt; &lt;note&gt; &lt;p&gt;You can still get recommendations from a campaign while an update is in progress. The campaign will use the previous solution version and campaign configuration to generate recommendations until the latest campaign update status is &lt;code&gt;Active&lt;/code&gt;. &lt;/p&gt; &lt;/note&gt; &lt;p&gt;For more information on campaigns, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html\&quot;&gt;CreateCampaign&lt;/a&gt;.&lt;/p&gt;
+     * @param xAmzTarget  (required)
+     * @param updateCampaignRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateCampaignAsync(String xAmzTarget, UpdateCampaignRequest updateCampaignRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<UpdateCampaignResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateCampaignValidateBeforeCall(xAmzTarget, updateCampaignRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<UpdateCampaignResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateMetricAttribution
+     * @param xAmzTarget  (required)
+     * @param updateMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMetricAttributionCall(String xAmzTarget, UpdateMetricAttributionRequest updateMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateMetricAttributionRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.UpdateMetricAttribution";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateMetricAttributionValidateBeforeCall(String xAmzTarget, UpdateMetricAttributionRequest updateMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling updateMetricAttribution(Async)");
+        }
+
+        // verify the required parameter 'updateMetricAttributionRequest' is set
+        if (updateMetricAttributionRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateMetricAttributionRequest' when calling updateMetricAttribution(Async)");
+        }
+
+        return updateMetricAttributionCall(xAmzTarget, updateMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Updates a metric attribution.
+     * @param xAmzTarget  (required)
+     * @param updateMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return UpdateMetricAttributionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public UpdateMetricAttributionResponse updateMetricAttribution(String xAmzTarget, UpdateMetricAttributionRequest updateMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<UpdateMetricAttributionResponse> localVarResp = updateMetricAttributionWithHttpInfo(xAmzTarget, updateMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Updates a metric attribution.
+     * @param xAmzTarget  (required)
+     * @param updateMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;UpdateMetricAttributionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UpdateMetricAttributionResponse> updateMetricAttributionWithHttpInfo(String xAmzTarget, UpdateMetricAttributionRequest updateMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = updateMetricAttributionValidateBeforeCall(xAmzTarget, updateMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<UpdateMetricAttributionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Updates a metric attribution.
+     * @param xAmzTarget  (required)
+     * @param updateMetricAttributionRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+        <tr><td> 483 </td><td> ResourceAlreadyExistsException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMetricAttributionAsync(String xAmzTarget, UpdateMetricAttributionRequest updateMetricAttributionRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<UpdateMetricAttributionResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateMetricAttributionValidateBeforeCall(xAmzTarget, updateMetricAttributionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<UpdateMetricAttributionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateRecommender
+     * @param xAmzTarget  (required)
+     * @param updateRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateRecommenderCall(String xAmzTarget, UpdateRecommenderRequest updateRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateRecommenderRequest;
+
+        // create path and map variables
+        String localVarPath = "/#X-Amz-Target=AmazonPersonalize.UpdateRecommender";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (xAmzContentSha256 != null) {
+            localVarHeaderParams.put("X-Amz-Content-Sha256", localVarApiClient.parameterToString(xAmzContentSha256));
+        }
+
+        if (xAmzDate != null) {
+            localVarHeaderParams.put("X-Amz-Date", localVarApiClient.parameterToString(xAmzDate));
+        }
+
+        if (xAmzAlgorithm != null) {
+            localVarHeaderParams.put("X-Amz-Algorithm", localVarApiClient.parameterToString(xAmzAlgorithm));
+        }
+
+        if (xAmzCredential != null) {
+            localVarHeaderParams.put("X-Amz-Credential", localVarApiClient.parameterToString(xAmzCredential));
+        }
+
+        if (xAmzSecurityToken != null) {
+            localVarHeaderParams.put("X-Amz-Security-Token", localVarApiClient.parameterToString(xAmzSecurityToken));
+        }
+
+        if (xAmzSignature != null) {
+            localVarHeaderParams.put("X-Amz-Signature", localVarApiClient.parameterToString(xAmzSignature));
+        }
+
+        if (xAmzSignedHeaders != null) {
+            localVarHeaderParams.put("X-Amz-SignedHeaders", localVarApiClient.parameterToString(xAmzSignedHeaders));
+        }
+
+        if (xAmzTarget != null) {
+            localVarHeaderParams.put("X-Amz-Target", localVarApiClient.parameterToString(xAmzTarget));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "hmac" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateRecommenderValidateBeforeCall(String xAmzTarget, UpdateRecommenderRequest updateRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'xAmzTarget' is set
+        if (xAmzTarget == null) {
+            throw new ApiException("Missing the required parameter 'xAmzTarget' when calling updateRecommender(Async)");
+        }
+
+        // verify the required parameter 'updateRecommenderRequest' is set
+        if (updateRecommenderRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateRecommenderRequest' when calling updateRecommender(Async)");
+        }
+
+        return updateRecommenderCall(xAmzTarget, updateRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+
+    }
+
+    /**
+     * 
+     * Updates the recommender to modify the recommender configuration.
+     * @param xAmzTarget  (required)
+     * @param updateRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return UpdateRecommenderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public UpdateRecommenderResponse updateRecommender(String xAmzTarget, UpdateRecommenderRequest updateRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        ApiResponse<UpdateRecommenderResponse> localVarResp = updateRecommenderWithHttpInfo(xAmzTarget, updateRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Updates the recommender to modify the recommender configuration.
+     * @param xAmzTarget  (required)
+     * @param updateRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @return ApiResponse&lt;UpdateRecommenderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UpdateRecommenderResponse> updateRecommenderWithHttpInfo(String xAmzTarget, UpdateRecommenderRequest updateRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders) throws ApiException {
+        okhttp3.Call localVarCall = updateRecommenderValidateBeforeCall(xAmzTarget, updateRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, null);
+        Type localVarReturnType = new TypeToken<UpdateRecommenderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Updates the recommender to modify the recommender configuration.
+     * @param xAmzTarget  (required)
+     * @param updateRecommenderRequest  (required)
+     * @param xAmzContentSha256  (optional)
+     * @param xAmzDate  (optional)
+     * @param xAmzAlgorithm  (optional)
+     * @param xAmzCredential  (optional)
+     * @param xAmzSecurityToken  (optional)
+     * @param xAmzSignature  (optional)
+     * @param xAmzSignedHeaders  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 480 </td><td> InvalidInputException </td><td>  -  </td></tr>
+        <tr><td> 481 </td><td> ResourceNotFoundException </td><td>  -  </td></tr>
+        <tr><td> 482 </td><td> ResourceInUseException </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateRecommenderAsync(String xAmzTarget, UpdateRecommenderRequest updateRecommenderRequest, String xAmzContentSha256, String xAmzDate, String xAmzAlgorithm, String xAmzCredential, String xAmzSecurityToken, String xAmzSignature, String xAmzSignedHeaders, final ApiCallback<UpdateRecommenderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateRecommenderValidateBeforeCall(xAmzTarget, updateRecommenderRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, _callback);
+        Type localVarReturnType = new TypeToken<UpdateRecommenderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
