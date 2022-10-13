@@ -1,0 +1,470 @@
+<!doctype html>
+<html>
+  <head>
+    <title>papiNet API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>papiNet API</h1>
+    <div class="app-desc">papinet API is a global initiative for the Forst and Paper supply chain.</div>
+    <div class="app-desc">More information: <a href="https://github.com/papinet/papiNet-API/issues">https://github.com/papinet/papiNet-API/issues</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">https://github.com/papinet/papiNet-API/blob/patrice-v1.0.0/LICENSE</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#ordersGet"><code><span class="http-method">get</span> /orders</code></a></li>
+  <li><a href="#ordersOrderIdGet"><code><span class="http-method">get</span> /orders/{orderId}</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="ordersGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /orders</code></pre></div>
+    <div class="method-summary">List <code>orders</code> (<span class="nickname">ordersGet</span>)</div>
+    <div class="method-notes">Gets a paginated list of all <code>orders</code>.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">orderStatus (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter by status default: null </div><div class="param">offset (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of items to skip before starting to collect the result set. default: null </div><div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of items to return. If the value exceeds the maximum, then the maximum value will be used. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListOfOrders">ListOfOrders</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "links" : {
+    "next" : {
+      "href" : "href"
+    },
+    "last" : {
+      "href" : "href"
+    },
+    "prev" : {
+      "href" : "href"
+    },
+    "first" : {
+      "href" : "href"
+    }
+  },
+  "orders" : [ {
+    "numberOfLineItems" : 0,
+    "orderNumber" : "orderNumber",
+    "orderStatus" : "Active",
+    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+  }, {
+    "numberOfLineItems" : 0,
+    "orderNumber" : "orderNumber",
+    "orderStatus" : "Active",
+    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListOfOrders">ListOfOrders</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="ordersOrderIdGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /orders/{orderId}</code></pre></div>
+    <div class="method-summary">Get an <code>order</code> (<span class="nickname">ordersOrderIdGet</span>)</div>
+    <div class="method-notes">Gets the details of a specific <code>order</code>, including a paginated list of all its lines.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">orderId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; UUID of the <code>order</code> to get default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Order">Order</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "numberOfLineItems" : 0,
+  "orderNumber" : "orderNumber",
+  "orderStatus" : "Active",
+  "links" : {
+    "next" : {
+      "href" : "href"
+    },
+    "last" : {
+      "href" : "href"
+    },
+    "prev" : {
+      "href" : "href"
+    },
+    "first" : {
+      "href" : "href"
+    }
+  },
+  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "orderLineItems" : [ {
+    "orderLineItemNumber" : 0.6027456183070403,
+    "quantities" : [ {
+      "quantityType" : "Area",
+      "quantityUOM" : "Bale",
+      "quantityContext" : "Confirmed",
+      "quantityValue" : 1.4658129805029452
+    }, {
+      "quantityType" : "Area",
+      "quantityUOM" : "Bale",
+      "quantityContext" : "Confirmed",
+      "quantityValue" : 1.4658129805029452
+    } ],
+    "changeable" : true,
+    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "orderLineItemStatus" : "Cancelled"
+  }, {
+    "orderLineItemNumber" : 0.6027456183070403,
+    "quantities" : [ {
+      "quantityType" : "Area",
+      "quantityUOM" : "Bale",
+      "quantityContext" : "Confirmed",
+      "quantityValue" : 1.4658129805029452
+    }, {
+      "quantityType" : "Area",
+      "quantityUOM" : "Bale",
+      "quantityContext" : "Confirmed",
+      "quantityValue" : 1.4658129805029452
+    } ],
+    "changeable" : true,
+    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "orderLineItemStatus" : "Cancelled"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Order">Order</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ListOfOrders"><code>ListOfOrders</code> - </a></li>
+    <li><a href="#Order"><code>Order</code> - </a></li>
+    <li><a href="#OrderHeader"><code>OrderHeader</code> - </a></li>
+    <li><a href="#OrderLineItem"><code>OrderLineItem</code> - </a></li>
+    <li><a href="#OrderLineItem_quantities_inner"><code>OrderLineItem_quantities_inner</code> - </a></li>
+    <li><a href="#PaginationLinks"><code>PaginationLinks</code> - </a></li>
+    <li><a href="#PaginationLinks_first"><code>PaginationLinks_first</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="ListOfOrders"><code>ListOfOrders</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#PaginationLinks">PaginationLinks</a></span>  </div>
+<div class="param">orders (optional)</div><div class="param-desc"><span class="param-type"><a href="#OrderHeader">array[OrderHeader]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Order"><code>Order</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">numberOfLineItems </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">orderNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">orderStatus </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Active</div><div class="param-enum">Cancelled</div><div class="param-enum">Completed</div>
+<div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#PaginationLinks">PaginationLinks</a></span>  </div>
+<div class="param">orderLineItems (optional)</div><div class="param-desc"><span class="param-type"><a href="#OrderLineItem">array[OrderLineItem]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OrderHeader"><code>OrderHeader</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">numberOfLineItems </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">orderNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">orderStatus </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Active</div><div class="param-enum">Cancelled</div><div class="param-enum">Completed</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OrderLineItem"><code>OrderLineItem</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">changeable (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">orderLineItemNumber </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">orderLineItemStatus </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Cancelled</div><div class="param-enum">Completed</div><div class="param-enum">Confirmed</div><div class="param-enum">Pending</div><div class="param-enum">ProductionCompleted</div><div class="param-enum">ShipmentCompleted</div>
+<div class="param">quantities (optional)</div><div class="param-desc"><span class="param-type"><a href="#OrderLineItem_quantities_inner">array[OrderLineItem_quantities_inner]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OrderLineItem_quantities_inner"><code>OrderLineItem_quantities_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">quantityContext (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Confirmed</div><div class="param-enum">Invoiced</div><div class="param-enum">Ordered</div><div class="param-enum">Produced</div><div class="param-enum">Shipped</div>
+<div class="param">quantityType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Area</div><div class="param-enum">Count</div><div class="param-enum">GrossWeight</div><div class="param-enum">Length</div><div class="param-enum">NetNetWeight</div><div class="param-enum">NetWeight</div><div class="param-enum">NominalWeight</div><div class="param-enum">TareWeight</div>
+<div class="param">quantityUOM (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Bale</div><div class="param-enum">Box</div><div class="param-enum">Centimeter</div><div class="param-enum">Decimeter</div><div class="param-enum">Foot</div><div class="param-enum">Gram</div><div class="param-enum">HundredPounds</div><div class="param-enum">Inch</div><div class="param-enum">Kilogram</div><div class="param-enum">Kilometer</div><div class="param-enum">Meter</div><div class="param-enum">MetricTon</div><div class="param-enum">Millimeter</div><div class="param-enum">Package</div><div class="param-enum">PalletUnit</div><div class="param-enum">Piece</div><div class="param-enum">Pound</div><div class="param-enum">PulpUnit</div><div class="param-enum">Ream</div><div class="param-enum">Reel</div><div class="param-enum">Sheet</div><div class="param-enum">ShortTon</div><div class="param-enum">Skid</div><div class="param-enum">SquareDecimeter</div><div class="param-enum">SquareFoot</div><div class="param-enum">SquareInch</div><div class="param-enum">SquareMeter</div><div class="param-enum">ThousandPieces</div><div class="param-enum">ThousandSquareCentimeters</div><div class="param-enum">ThousandSquareFeet</div><div class="param-enum">ThousandSquareInches</div><div class="param-enum">Yard</div>
+<div class="param">quantityValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PaginationLinks"><code>PaginationLinks</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">first (optional)</div><div class="param-desc"><span class="param-type"><a href="#PaginationLinks_first">PaginationLinks_first</a></span>  </div>
+<div class="param">last (optional)</div><div class="param-desc"><span class="param-type"><a href="#PaginationLinks_first">PaginationLinks_first</a></span>  </div>
+<div class="param">next </div><div class="param-desc"><span class="param-type"><a href="#PaginationLinks_first">PaginationLinks_first</a></span>  </div>
+<div class="param">prev (optional)</div><div class="param-desc"><span class="param-type"><a href="#PaginationLinks_first">PaginationLinks_first</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PaginationLinks_first"><code>PaginationLinks_first</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">href (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
