@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;The metric to optimize during hyperparameter optimization (HPO).&lt;/p&gt; &lt;note&gt; &lt;p&gt;Amazon Personalize doesn&#39;t support configuring the &lt;code&gt;hpoObjective&lt;/code&gt; at this time.&lt;/p&gt; &lt;/note&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:08.261957-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:49.326201-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class HPOObjective {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)

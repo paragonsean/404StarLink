@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * DescribeBatchSegmentJobResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:08.261957-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:49.326201-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DescribeBatchSegmentJobResponse {
   public static final String SERIALIZED_NAME_BATCH_SEGMENT_JOB = "batchSegmentJob";
   @SerializedName(SERIALIZED_NAME_BATCH_SEGMENT_JOB)

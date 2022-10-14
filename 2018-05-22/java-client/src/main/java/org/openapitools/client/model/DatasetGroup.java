@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;A dataset group is a collection of related datasets (Interactions, User, and Item). You create a dataset group by calling &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html\&quot;&gt;CreateDatasetGroup&lt;/a&gt;. You then create a dataset and add it to a dataset group by calling &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html\&quot;&gt;CreateDataset&lt;/a&gt;. The dataset group is used to create and train a solution by calling &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt;. A dataset group can contain only one of each type of dataset.&lt;/p&gt; &lt;p&gt;You can specify an Key Management Service (KMS) key to encrypt the datasets in the group.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:08.261957-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:49.326201-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DatasetGroup {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

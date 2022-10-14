@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html\&quot;&gt;CreateDatasetImportJob&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;A dataset import job can be in one of the following states:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;CREATE PENDING &amp;gt; CREATE IN_PROGRESS &amp;gt; ACTIVE -or- CREATE FAILED&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:08.261957-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:49.326201-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DatasetImportJob {
   public static final String SERIALIZED_NAME_JOB_NAME = "jobName";
   @SerializedName(SERIALIZED_NAME_JOB_NAME)
