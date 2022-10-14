@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes a recommendation generator for a Domain dataset group. You create a recommender in a Domain dataset group for a specific domain use case (domain recipe), and specify the recommender in a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html\&quot;&gt;GetRecommendations&lt;/a&gt; request.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:30.273417-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Recommender {
   public static final String SERIALIZED_NAME_RECOMMENDER_ARN = "recommenderArn";
   @SerializedName(SERIALIZED_NAME_RECOMMENDER_ARN)

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Specifies the hyperparameters and their ranges. Hyperparameters can be categorical, continuous, or integer-valued.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:30.273417-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class HyperParameterRanges {
   public static final String SERIALIZED_NAME_INTEGER_HYPER_PARAMETER_RANGES = "integerHyperParameterRanges";
   @SerializedName(SERIALIZED_NAME_INTEGER_HYPER_PARAMETER_RANGES)

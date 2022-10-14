@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Contains information on a batch segment job.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:30.273417-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BatchSegmentJob {
   public static final String SERIALIZED_NAME_JOB_NAME = "jobName";
   @SerializedName(SERIALIZED_NAME_JOB_NAME)

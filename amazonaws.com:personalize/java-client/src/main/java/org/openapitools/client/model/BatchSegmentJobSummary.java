@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * A truncated version of the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_BatchSegmentJob.html\&quot;&gt;BatchSegmentJob&lt;/a&gt; datatype. &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_ListBatchSegmentJobs.html\&quot;&gt;ListBatchSegmentJobs&lt;/a&gt; operation returns a list of batch segment job summaries.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:30.273417-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BatchSegmentJobSummary {
   public static final String SERIALIZED_NAME_BATCH_SEGMENT_JOB_ARN = "batchSegmentJobArn";
   @SerializedName(SERIALIZED_NAME_BATCH_SEGMENT_JOB_ARN)

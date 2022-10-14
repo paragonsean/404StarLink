@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * DeleteSchemaRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:30.273417-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DeleteSchemaRequest {
   public static final String SERIALIZED_NAME_SCHEMA_ARN = "schemaArn";
   @SerializedName(SERIALIZED_NAME_SCHEMA_ARN)
