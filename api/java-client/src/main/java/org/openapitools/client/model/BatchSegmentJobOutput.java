@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * The output configuration parameters of a batch segment job.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:57.894352-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:35.017884-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BatchSegmentJobOutput {
   public static final String SERIALIZED_NAME_S3_DATA_DESTINATION = "s3DataDestination";
   @SerializedName(SERIALIZED_NAME_S3_DATA_DESTINATION)

@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Provides a summary of the properties of a dataset import job. For a complete listing, call the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html\&quot;&gt;DescribeDatasetImportJob&lt;/a&gt; API.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:57.894352-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:35.017884-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DatasetImportJobSummary {
   public static final String SERIALIZED_NAME_DATASET_IMPORT_JOB_ARN = "datasetImportJobArn";
   @SerializedName(SERIALIZED_NAME_DATASET_IMPORT_JOB_ARN)

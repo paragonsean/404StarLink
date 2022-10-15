@@ -2,14 +2,14 @@
 
 # Tag
 
-A tag that can be added to an ElastiCache cluster or replication group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group. A tag with a null Value is permitted.
+The optional metadata that you apply to resources to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. For more information see <a href=\"https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html\">Tagging Personalize resources</a>. 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**key** | [**String**](String.md) |  |  [optional] |
-|**value** | [**String**](String.md) |  |  [optional] |
+|**tagKey** | [**String**](String.md) |  |  |
+|**tagValue** | [**String**](String.md) |  |  |
 
 
 
