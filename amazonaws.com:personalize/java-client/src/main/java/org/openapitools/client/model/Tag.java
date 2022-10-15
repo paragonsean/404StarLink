@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * The optional metadata that you apply to resources to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. For more information see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html\&quot;&gt;Tagging Personalize resources&lt;/a&gt;. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:12.718856-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Tag {
   public static final String SERIALIZED_NAME_TAG_KEY = "tagKey";
   @SerializedName(SERIALIZED_NAME_TAG_KEY)

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * The configuration details of a campaign.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:12.718856-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CampaignConfig {
   public static final String SERIALIZED_NAME_ITEM_EXPLORATION_CONFIG = "itemExplorationConfig";
   @SerializedName(SERIALIZED_NAME_ITEM_EXPLORATION_CONFIG)

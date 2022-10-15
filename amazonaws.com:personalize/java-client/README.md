@@ -2,7 +2,7 @@
 
 Amazon Personalize
 - API version: 2018-05-22
-  - Build date: 2024-10-11T01:53:12.718856-04:00[America/New_York]
+  - Build date: 2024-10-11T01:54:53.624516-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Amazon Personalize is a machine learning service that makes it easy to add individualized recommendations to customers.

@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * ListRecipesRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:12.718856-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ListRecipesRequest {
   public static final String SERIALIZED_NAME_RECIPE_PROVIDER = "recipeProvider";
   @SerializedName(SERIALIZED_NAME_RECIPE_PROVIDER)

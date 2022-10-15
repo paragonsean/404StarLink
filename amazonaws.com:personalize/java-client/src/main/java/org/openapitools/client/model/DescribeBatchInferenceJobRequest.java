@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * DescribeBatchInferenceJobRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:12.718856-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DescribeBatchInferenceJobRequest {
   public static final String SERIALIZED_NAME_BATCH_INFERENCE_JOB_ARN = "batchInferenceJobArn";
   @SerializedName(SERIALIZED_NAME_BATCH_INFERENCE_JOB_ARN)

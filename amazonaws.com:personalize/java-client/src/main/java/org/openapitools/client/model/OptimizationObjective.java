@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes the additional objective for the solution, such as maximizing streaming minutes or increasing revenue. For more information see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html\&quot;&gt;Optimizing a solution&lt;/a&gt;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:12.718856-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class OptimizationObjective {
   public static final String SERIALIZED_NAME_ITEM_ATTRIBUTE = "itemAttribute";
   @SerializedName(SERIALIZED_NAME_ITEM_ATTRIBUTE)

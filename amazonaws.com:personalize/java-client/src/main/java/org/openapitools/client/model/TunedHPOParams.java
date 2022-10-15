@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * If hyperparameter optimization (HPO) was performed, contains the hyperparameter values of the best performing model.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:12.718856-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TunedHPOParams {
   public static final String SERIALIZED_NAME_ALGORITHM_HYPER_PARAMETERS = "algorithmHyperParameters";
   @SerializedName(SERIALIZED_NAME_ALGORITHM_HYPER_PARAMETERS)

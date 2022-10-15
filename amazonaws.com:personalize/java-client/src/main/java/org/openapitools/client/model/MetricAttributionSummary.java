@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Provides a summary of the properties of a metric attribution. For a complete listing, call the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeMetricAttribution.html\&quot;&gt;DescribeMetricAttribution&lt;/a&gt;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:12.718856-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class MetricAttributionSummary {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

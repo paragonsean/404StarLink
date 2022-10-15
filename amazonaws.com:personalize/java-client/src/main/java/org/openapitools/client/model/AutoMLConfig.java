@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * When the solution performs AutoML (&lt;code&gt;performAutoML&lt;/code&gt; is true in &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html\&quot;&gt;CreateSolution&lt;/a&gt;), Amazon Personalize determines which recipe, from the specified list, optimizes the given metric. Amazon Personalize then uses that recipe for the solution.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:12.718856-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:53.624516-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AutoMLConfig {
   public static final String SERIALIZED_NAME_METRIC_NAME = "metricName";
   @SerializedName(SERIALIZED_NAME_METRIC_NAME)
