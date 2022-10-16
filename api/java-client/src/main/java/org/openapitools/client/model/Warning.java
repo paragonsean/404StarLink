@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * The Warning Definition
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:02.142829-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:39.621075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Warning {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)

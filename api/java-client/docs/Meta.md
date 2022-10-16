@@ -2,14 +2,14 @@
 
 # Meta
 
-Response metadata
+Meta information about the returned object(s) in \"data\"
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**cursors** | [**MetaCursors**](MetaCursors.md) |  |  [optional] |
-|**itemsOnPage** | **Integer** | Number of items returned in the data property of the response |  [optional] |
+|**count** | **Long** | Total number of object(s) retrieved |  [optional] |
+|**links** | [**Links**](Links.md) |  |  [optional] |
 
 
 
