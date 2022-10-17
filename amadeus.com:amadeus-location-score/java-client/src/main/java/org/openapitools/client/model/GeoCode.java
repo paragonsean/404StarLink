@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Geographic coordinates describing the position of any location on the surface of Earth
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:04.385555-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:42.042435-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GeoCode {
   public static final String SERIALIZED_NAME_LATITUDE = "latitude";
   @SerializedName(SERIALIZED_NAME_LATITUDE)

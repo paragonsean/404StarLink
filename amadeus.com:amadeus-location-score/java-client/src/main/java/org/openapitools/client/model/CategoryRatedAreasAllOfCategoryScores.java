@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * category scoring of the location
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:04.385555-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:42.042435-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CategoryRatedAreasAllOfCategoryScores {
   public static final String SERIALIZED_NAME_NIGHT_LIFE = "nightLife";
   @SerializedName(SERIALIZED_NAME_NIGHT_LIFE)
