@@ -1,0 +1,13 @@
+# DashIsoGroupAudioChannelConfigSchemeIdUri
+
+Use this setting only when your audio codec is a Dolby one (AC3, EAC3, or Atmos) and your downstream workflow requires that your DASH manifest use the Dolby channel configuration tag, rather than the MPEG one. For example, you might need to use this to make dynamic ad insertion work. Specify which audio channel configuration scheme ID URI MediaConvert writes in your DASH manifest. Keep the default value, MPEG channel configuration (MPEG_CHANNEL_CONFIGURATION), to have MediaConvert write this: urn:mpeg:mpegB:cicp:ChannelConfiguration. Choose Dolby channel configuration (DOLBY_CHANNEL_CONFIGURATION) to have MediaConvert write this instead: tag:dolby.com,2014:dash:audio_channel_configuration:2011.
+
+## Enum
+
+* `MPEG_CHANNEL_CONFIGURATION` (value: `'MPEG_CHANNEL_CONFIGURATION'`)
+
+* `DOLBY_CHANNEL_CONFIGURATION` (value: `'DOLBY_CHANNEL_CONFIGURATION'`)
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
