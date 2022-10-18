@@ -2,7 +2,7 @@
 
 Location Score
 - API version: 1.0.2
-  - Build date: 2024-10-11T01:53:16.975656-04:00[America/New_York]
+  - Build date: 2024-10-11T01:55:04.385555-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. 
