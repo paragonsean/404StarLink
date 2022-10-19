@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * AnnouncementsPost201Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:11.232047-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:46.849483-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AnnouncementsPost201Response {
   public static final String SERIALIZED_NAME_ANNOUNCEMENT = "announcement";
   @SerializedName(SERIALIZED_NAME_ANNOUNCEMENT)
