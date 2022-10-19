@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Meta information about the returned object(s) in \&quot;data\&quot;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:19.170414-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:06.582459-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Meta {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)

@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -67,20 +66,3 @@ src/main/java/org/openapitools/client/model/Links.java
 src/main/java/org/openapitools/client/model/Meta.java
 src/main/java/org/openapitools/client/model/Warning.java
 src/main/java/org/openapitools/client/model/WarningSource.java
-src/test/java/org/openapitools/client/api/CategoryRatedAreasApiTest.java
-src/test/java/org/openapitools/client/model/CategoryRatedAreasAllOfCategoryScoresNightLifeTest.java
-src/test/java/org/openapitools/client/model/CategoryRatedAreasAllOfCategoryScoresRestaurantTest.java
-src/test/java/org/openapitools/client/model/CategoryRatedAreasAllOfCategoryScoresShoppingTest.java
-src/test/java/org/openapitools/client/model/CategoryRatedAreasAllOfCategoryScoresSightTest.java
-src/test/java/org/openapitools/client/model/CategoryRatedAreasAllOfCategoryScoresTest.java
-src/test/java/org/openapitools/client/model/CategoryRatedAreasTest.java
-src/test/java/org/openapitools/client/model/Error400Test.java
-src/test/java/org/openapitools/client/model/Error500Test.java
-src/test/java/org/openapitools/client/model/ErrorSourceTest.java
-src/test/java/org/openapitools/client/model/ErrorTest.java
-src/test/java/org/openapitools/client/model/GeoCodeTest.java
-src/test/java/org/openapitools/client/model/GetCategoryRatedAreas200ResponseTest.java
-src/test/java/org/openapitools/client/model/LinksTest.java
-src/test/java/org/openapitools/client/model/MetaTest.java
-src/test/java/org/openapitools/client/model/WarningSourceTest.java
-src/test/java/org/openapitools/client/model/WarningTest.java
