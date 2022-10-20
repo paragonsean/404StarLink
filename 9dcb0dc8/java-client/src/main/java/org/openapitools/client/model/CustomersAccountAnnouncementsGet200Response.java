@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * CustomersAccountAnnouncementsGet200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:13.709755-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:49.551751-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CustomersAccountAnnouncementsGet200Response {
   public static final String SERIALIZED_NAME_LIST = "list";
   @SerializedName(SERIALIZED_NAME_LIST)
