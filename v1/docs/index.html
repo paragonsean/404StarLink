@@ -1,0 +1,1046 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Serverless VPC Access API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Serverless VPC Access API</h1>
+    <div class="app-desc">API for managing VPC access connectors.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v1</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Projects">Projects</a></h4>
+  <ul>
+  <li><a href="#vpcaccess.projects.locations.connectors.create"><code><span class="http-method">post</span> /v1/{parent}/connectors</code></a></li>
+  <li><a href="#vpcaccess.projects.locations.connectors.delete"><code><span class="http-method">delete</span> /v1/{name}</code></a></li>
+  <li><a href="#vpcaccess.projects.locations.connectors.list"><code><span class="http-method">get</span> /v1/{parent}/connectors</code></a></li>
+  <li><a href="#vpcaccess.projects.locations.connectors.patch"><code><span class="http-method">patch</span> /v1/{name}</code></a></li>
+  <li><a href="#vpcaccess.projects.locations.list"><code><span class="http-method">get</span> /v1/{name}/locations</code></a></li>
+  <li><a href="#vpcaccess.projects.locations.operations.get"><code><span class="http-method">get</span> /v1/{name}</code></a></li>
+  <li><a href="#vpcaccess.projects.locations.operations.list"><code><span class="http-method">get</span> /v1/{name}/operations</code></a></li>
+  </ul>
+
+  <h1><a name="Projects">Projects</a></h1>
+  <div class="method"><a name="vpcaccess.projects.locations.connectors.create"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}/connectors</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.create</span>)</div>
+    <div class="method-notes">Creates a Serverless VPC Access connector, returns an operation.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The project and location in which the configuration should be created, specified in the format <code>projects/*/locations/*</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Connector <a href="#Connector">Connector</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">connectorId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Required. The ID to use for this connector. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="vpcaccess.projects.locations.connectors.delete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.delete</span>)</div>
+    <div class="method-notes">Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Name of a Serverless VPC Access connector to delete. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="vpcaccess.projects.locations.connectors.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/connectors</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.list</span>)</div>
+    <div class="method-notes">Lists Serverless VPC Access connectors.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The project and location from which the routes should be listed. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum number of functions to return per call. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Continuation token. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListConnectorsResponse">ListConnectorsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "connectors" : [ {
+    "connectedProjects" : [ "connectedProjects", "connectedProjects" ],
+    "minInstances" : 1,
+    "subnet" : {
+      "name" : "name",
+      "projectId" : "projectId"
+    },
+    "minThroughput" : 5,
+    "name" : "name",
+    "state" : "STATE_UNSPECIFIED",
+    "maxInstances" : 0,
+    "ipCidrRange" : "ipCidrRange",
+    "machineType" : "machineType",
+    "maxThroughput" : 6,
+    "network" : "network"
+  }, {
+    "connectedProjects" : [ "connectedProjects", "connectedProjects" ],
+    "minInstances" : 1,
+    "subnet" : {
+      "name" : "name",
+      "projectId" : "projectId"
+    },
+    "minThroughput" : 5,
+    "name" : "name",
+    "state" : "STATE_UNSPECIFIED",
+    "maxInstances" : 0,
+    "ipCidrRange" : "ipCidrRange",
+    "machineType" : "machineType",
+    "maxThroughput" : 6,
+    "network" : "network"
+  } ],
+  "nextPageToken" : "nextPageToken"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListConnectorsResponse">ListConnectorsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="vpcaccess.projects.locations.connectors.patch"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /v1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.patch</span>)</div>
+    <div class="method-notes">Updates a Serverless VPC Access connector, returns an operation.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource name in the format <code>projects/*/locations/*/connectors/*</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Connector <a href="#Connector">Connector</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">updateMask (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The fields to update on the entry group. If absent or empty, all modifiable fields are updated. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="vpcaccess.projects.locations.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{name}/locations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.list</span>)</div>
+    <div class="method-notes">Lists information about the supported locations for this service.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource that owns the locations collection, if applicable. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A filter to narrow down results to a preferred subset. The filtering language accepts strings like <code>&quot;displayName=tokyo&quot;</code>, and is documented in more detail in <a href="https://google.aip.dev/160">AIP-160</a>. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of results to return. If not set, the service selects a default. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A page token received from the <code>next_page_token</code> field in the response. Send that page token to receive the subsequent page. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListLocationsResponse">ListLocationsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "locations" : [ {
+    "metadata" : {
+      "key" : ""
+    },
+    "displayName" : "displayName",
+    "locationId" : "locationId",
+    "name" : "name",
+    "labels" : {
+      "key" : "labels"
+    }
+  }, {
+    "metadata" : {
+      "key" : ""
+    },
+    "displayName" : "displayName",
+    "locationId" : "locationId",
+    "name" : "name",
+    "labels" : {
+      "key" : "labels"
+    }
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListLocationsResponse">ListLocationsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="vpcaccess.projects.locations.operations.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.operations.get</span>)</div>
+    <div class="method-notes">Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="vpcaccess.projects.locations.operations.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{name}/operations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.operations.list</span>)</div>
+    <div class="method-notes">Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns <code>UNIMPLEMENTED</code>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation's parent resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list filter. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list page size. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list page token. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListOperationsResponse">ListOperationsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "operations" : [ {
+    "metadata" : {
+      "key" : ""
+    },
+    "response" : {
+      "key" : ""
+    },
+    "name" : "name",
+    "error" : {
+      "code" : 0,
+      "details" : [ {
+        "key" : ""
+      }, {
+        "key" : ""
+      } ],
+      "message" : "message"
+    },
+    "done" : true
+  }, {
+    "metadata" : {
+      "key" : ""
+    },
+    "response" : {
+      "key" : ""
+    },
+    "name" : "name",
+    "error" : {
+      "code" : 0,
+      "details" : [ {
+        "key" : ""
+      }, {
+        "key" : ""
+      } ],
+      "message" : "message"
+    },
+    "done" : true
+  } ],
+  "nextPageToken" : "nextPageToken"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListOperationsResponse">ListOperationsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Connector"><code>Connector</code> - </a></li>
+    <li><a href="#ListConnectorsResponse"><code>ListConnectorsResponse</code> - </a></li>
+    <li><a href="#ListLocationsResponse"><code>ListLocationsResponse</code> - </a></li>
+    <li><a href="#ListOperationsResponse"><code>ListOperationsResponse</code> - </a></li>
+    <li><a href="#Location"><code>Location</code> - </a></li>
+    <li><a href="#Operation"><code>Operation</code> - </a></li>
+    <li><a href="#OperationMetadata"><code>OperationMetadata</code> - </a></li>
+    <li><a href="#OperationMetadataV1Alpha1"><code>OperationMetadataV1Alpha1</code> - </a></li>
+    <li><a href="#OperationMetadataV1Beta1"><code>OperationMetadataV1Beta1</code> - </a></li>
+    <li><a href="#Status"><code>Status</code> - </a></li>
+    <li><a href="#Subnet"><code>Subnet</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Connector"><code>Connector</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Definition of a Serverless VPC Access connector.</div>
+    <div class="field-items">
+      <div class="param">connectedProjects (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Output only. List of projects using the connector. </div>
+<div class="param">ipCidrRange (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The range of internal addresses that follows RFC 4632 notation. Example: <code>10.132.0.0/28</code>. </div>
+<div class="param">machineType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Machine type of VM Instance underlying connector. Default is e2-micro </div>
+<div class="param">maxInstances (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Maximum value of instances in autoscaling group underlying the connector. format: int32</div>
+<div class="param">maxThroughput (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Maximum throughput of the connector in Mbps. Default is 300, max is 1000. format: int32</div>
+<div class="param">minInstances (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Minimum value of instances in autoscaling group underlying the connector. format: int32</div>
+<div class="param">minThroughput (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Minimum throughput of the connector in Mbps. Default and min is 200. format: int32</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource name in the format <code>projects/*/locations/*/connectors/*</code>. </div>
+<div class="param">network (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of a VPC network. </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. State of the VPC access connector. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">STATE_UNSPECIFIED</div><div class="param-enum">READY</div><div class="param-enum">CREATING</div><div class="param-enum">DELETING</div><div class="param-enum">ERROR</div><div class="param-enum">UPDATING</div>
+<div class="param">subnet (optional)</div><div class="param-desc"><span class="param-type"><a href="#Subnet">Subnet</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListConnectorsResponse"><code>ListConnectorsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response for listing Serverless VPC Access connectors.</div>
+    <div class="field-items">
+      <div class="param">connectors (optional)</div><div class="param-desc"><span class="param-type"><a href="#Connector">array[Connector]</a></span> List of Serverless VPC Access connectors. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Continuation token. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListLocationsResponse"><code>ListLocationsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response message for Locations.ListLocations.</div>
+    <div class="field-items">
+      <div class="param">locations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Location">array[Location]</a></span> A list of locations that matches the specified filter in the request. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The standard List next-page token. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListOperationsResponse"><code>ListOperationsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response message for Operations.ListOperations.</div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The standard List next-page token. </div>
+<div class="param">operations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Operation">array[Operation]</a></span> A list of operations that matches the specified filter in the request. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Location"><code>Location</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A resource that represents Google Cloud Platform location.</div>
+    <div class="field-items">
+      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The friendly name for this location, typically a nearby city name. For example, &quot;Tokyo&quot;. </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Cross-service attributes for the location. For example {&quot;cloud.googleapis.com/region&quot;: &quot;us-east1&quot;} </div>
+<div class="param">locationId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The canonical id for this location. For example: <code>&quot;us-east1&quot;</code>. </div>
+<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Service-specific metadata. For example the available capacity at the given location. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Resource name for the location, which may vary between implementations. For example: <code>&quot;projects/example-project/locations/us-east1&quot;</code> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Operation"><code>Operation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This resource represents a long-running operation that is the result of a network API call.</div>
+    <div class="field-items">
+      <div class="param">done (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If the value is <code>false</code>, it means the operation is still in progress. If <code>true</code>, the operation is completed, and either <code>error</code> or <code>response</code> is available. </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#Status">Status</a></span>  </div>
+<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the <code>name</code> should be a resource name ending with <code>operations/{unique_id}</code>. </div>
+<div class="param">response (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The normal response of the operation in case of success. If the original method returns no data on success, such as <code>Delete</code>, the response is <code>google.protobuf.Empty</code>. If the original method is standard <code>Get</code>/<code>Create</code>/<code>Update</code>, the response should be the resource. For other methods, the response should have the type <code>XxxResponse</code>, where <code>Xxx</code> is the original method name. For example, if the original method name is <code>TakeSnapshot()</code>, the inferred response type is <code>TakeSnapshotResponse</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OperationMetadata"><code>OperationMetadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Metadata for google.longrunning.Operation.</div>
+    <div class="field-items">
+      <div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation was created. format: google-datetime</div>
+<div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation completed. format: google-datetime</div>
+<div class="param">method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1.Connectors.CreateConnector. </div>
+<div class="param">target (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OperationMetadataV1Alpha1"><code>OperationMetadataV1Alpha1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Metadata for google.longrunning.Operation.</div>
+    <div class="field-items">
+      <div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation completed. format: google-datetime</div>
+<div class="param">insertTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation was created. format: google-datetime</div>
+<div class="param">method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1alpha1.Connectors.CreateConnector. </div>
+<div class="param">target (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OperationMetadataV1Beta1"><code>OperationMetadataV1Beta1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Metadata for google.longrunning.Operation.</div>
+    <div class="field-items">
+      <div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation was created. format: google-datetime</div>
+<div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation completed. format: google-datetime</div>
+<div class="param">method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1beta1.Connectors.CreateConnector. </div>
+<div class="param">target (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Status"><code>Status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The <code>Status</code> type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by <a href="https://github.com/grpc">gRPC</a>. Each <code>Status</code> message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the <a href="https://cloud.google.com/apis/design/errors">API Design Guide</a>.</div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The status code, which should be an enum value of google.rpc.Code. format: int32</div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">array[map[String, oas_any_type_not_mapped]]</a></span> A list of messages that carry the error details. There is a common set of message types for APIs to use. </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Subnet"><code>Subnet</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The subnet in which to house the connector</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Subnet name (relative, not fully qualified). E.g. if the full subnet selfLink is https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetName} the correct input for this field would be {subnetName} </div>
+<div class="param">projectId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Project in which the subnet exists. If not set, this project is assumed to be the project for which the connector create request was issued. </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
