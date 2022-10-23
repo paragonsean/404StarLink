@@ -2,27 +2,16 @@
 
 # OperationMetadata
 
-Contains metadata for longrunning operation for the edit Metrics Scope endpoints.
+Metadata for google.longrunning.Operation.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**createTime** | **String** | The time when the batch request was received. |  [optional] |
-|**state** | [**StateEnum**](#StateEnum) | Current state of the batch operation. |  [optional] |
-|**updateTime** | **String** | The time when the operation result was last updated. |  [optional] |
-
-
-
-## Enum: StateEnum
-
-| Name | Value |
-|---- | -----|
-| STATE_UNSPECIFIED | &quot;STATE_UNSPECIFIED&quot; |
-| CREATED | &quot;CREATED&quot; |
-| RUNNING | &quot;RUNNING&quot; |
-| DONE | &quot;DONE&quot; |
-| CANCELLED | &quot;CANCELLED&quot; |
+|**createTime** | **String** | Output only. Time when the operation was created. |  [optional] [readonly] |
+|**endTime** | **String** | Output only. Time when the operation completed. |  [optional] [readonly] |
+|**method** | **String** | Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1.Connectors.CreateConnector. |  [optional] [readonly] |
+|**target** | **String** | Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1. |  [optional] [readonly] |
 
 
 

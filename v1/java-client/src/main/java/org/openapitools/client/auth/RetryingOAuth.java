@@ -1,6 +1,6 @@
 /*
- * Cloud Monitoring API
- * Manages your Cloud Monitoring data and configurations.
+ * Serverless VPC Access API
+ * API for managing VPC access connectors.
  *
  * The version of the OpenAPI document: v1
  * 

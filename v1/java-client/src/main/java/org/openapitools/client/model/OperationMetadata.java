@@ -1,6 +1,6 @@
 /*
- * Cloud Monitoring API
- * Manages your Cloud Monitoring data and configurations.
+ * Serverless VPC Access API
+ * API for managing VPC access connectors.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -46,90 +46,44 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * Contains metadata for longrunning operation for the edit Metrics Scope endpoints.
+ * Metadata for google.longrunning.Operation.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:16.300251-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:59.321628-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class OperationMetadata {
   public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   private String createTime;
 
-  /**
-   * Current state of the batch operation.
-   */
-  @JsonAdapter(StateEnum.Adapter.class)
-  public enum StateEnum {
-    STATE_UNSPECIFIED("STATE_UNSPECIFIED"),
-    
-    CREATED("CREATED"),
-    
-    RUNNING("RUNNING"),
-    
-    DONE("DONE"),
-    
-    CANCELLED("CANCELLED");
+  public static final String SERIALIZED_NAME_END_TIME = "endTime";
+  @SerializedName(SERIALIZED_NAME_END_TIME)
+  private String endTime;
 
-    private String value;
+  public static final String SERIALIZED_NAME_METHOD = "method";
+  @SerializedName(SERIALIZED_NAME_METHOD)
+  private String method;
 
-    StateEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StateEnum fromValue(String value) {
-      for (StateEnum b : StateEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<StateEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StateEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StateEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      StateEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_STATE = "state";
-  @SerializedName(SERIALIZED_NAME_STATE)
-  private StateEnum state;
-
-  public static final String SERIALIZED_NAME_UPDATE_TIME = "updateTime";
-  @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
-  private String updateTime;
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  private String target;
 
   public OperationMetadata() {
   }
 
-  public OperationMetadata createTime(String createTime) {
+  public OperationMetadata(
+     String createTime, 
+     String endTime, 
+     String method, 
+     String target
+  ) {
+    this();
     this.createTime = createTime;
-    return this;
+    this.endTime = endTime;
+    this.method = method;
+    this.target = target;
   }
 
   /**
-   * The time when the batch request was received.
+   * Output only. Time when the operation was created.
    * @return createTime
    */
   @javax.annotation.Nullable
@@ -137,47 +91,39 @@ public class OperationMetadata {
     return createTime;
   }
 
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
 
-
-  public OperationMetadata state(StateEnum state) {
-    this.state = state;
-    return this;
-  }
 
   /**
-   * Current state of the batch operation.
-   * @return state
+   * Output only. Time when the operation completed.
+   * @return endTime
    */
   @javax.annotation.Nullable
-  public StateEnum getState() {
-    return state;
-  }
-
-  public void setState(StateEnum state) {
-    this.state = state;
+  public String getEndTime() {
+    return endTime;
   }
 
 
-  public OperationMetadata updateTime(String updateTime) {
-    this.updateTime = updateTime;
-    return this;
-  }
 
   /**
-   * The time when the operation result was last updated.
-   * @return updateTime
+   * Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1.Connectors.CreateConnector.
+   * @return method
    */
   @javax.annotation.Nullable
-  public String getUpdateTime() {
-    return updateTime;
+  public String getMethod() {
+    return method;
   }
 
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
+
+
+  /**
+   * Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1.
+   * @return target
+   */
+  @javax.annotation.Nullable
+  public String getTarget() {
+    return target;
   }
+
 
 
 
@@ -191,13 +137,14 @@ public class OperationMetadata {
     }
     OperationMetadata operationMetadata = (OperationMetadata) o;
     return Objects.equals(this.createTime, operationMetadata.createTime) &&
-        Objects.equals(this.state, operationMetadata.state) &&
-        Objects.equals(this.updateTime, operationMetadata.updateTime);
+        Objects.equals(this.endTime, operationMetadata.endTime) &&
+        Objects.equals(this.method, operationMetadata.method) &&
+        Objects.equals(this.target, operationMetadata.target);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, state, updateTime);
+    return Objects.hash(createTime, endTime, method, target);
   }
 
   @Override
@@ -205,8 +152,9 @@ public class OperationMetadata {
     StringBuilder sb = new StringBuilder();
     sb.append("class OperationMetadata {\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    method: ").append(toIndentedString(method)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -230,8 +178,9 @@ public class OperationMetadata {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("createTime");
-    openapiFields.add("state");
-    openapiFields.add("updateTime");
+    openapiFields.add("endTime");
+    openapiFields.add("method");
+    openapiFields.add("target");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -261,15 +210,14 @@ public class OperationMetadata {
       if ((jsonObj.get("createTime") != null && !jsonObj.get("createTime").isJsonNull()) && !jsonObj.get("createTime").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createTime").toString()));
       }
-      if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+      if ((jsonObj.get("endTime") != null && !jsonObj.get("endTime").isJsonNull()) && !jsonObj.get("endTime").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `endTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endTime").toString()));
       }
-      // validate the optional field `state`
-      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
-        StateEnum.validateJsonElement(jsonObj.get("state"));
+      if ((jsonObj.get("method") != null && !jsonObj.get("method").isJsonNull()) && !jsonObj.get("method").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method").toString()));
       }
-      if ((jsonObj.get("updateTime") != null && !jsonObj.get("updateTime").isJsonNull()) && !jsonObj.get("updateTime").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `updateTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updateTime").toString()));
+      if ((jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull()) && !jsonObj.get("target").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target").toString()));
       }
   }
 
