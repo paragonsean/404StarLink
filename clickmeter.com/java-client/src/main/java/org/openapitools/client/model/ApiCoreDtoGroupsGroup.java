@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ApiCoreDtoGroupsGroup
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:27.199201-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:16.082688-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ApiCoreDtoGroupsGroup {
   public static final String SERIALIZED_NAME_CREATION_DATE = "creationDate";
   @SerializedName(SERIALIZED_NAME_CREATION_DATE)
