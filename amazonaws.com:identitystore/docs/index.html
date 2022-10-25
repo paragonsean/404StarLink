@@ -1,0 +1,2702 @@
+<!doctype html>
+<html>
+  <head>
+    <title>AWS SSO Identity Store</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>AWS SSO Identity Store</h1>
+    <div class="app-desc"><p>The Identity Store service used by AWS IAM Identity Center (successor to AWS Single Sign-On) provides a single place to retrieve all of your identities (users and groups). For more information, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center User Guide</a>.</p> <pre><code> &lt;note&gt; &lt;p&gt;Although AWS Single Sign-On was renamed, the &lt;code&gt;sso&lt;/code&gt; and &lt;code&gt;identitystore&lt;/code&gt; API namespaces will continue to retain their original name for backward compatibility purposes. For more information, see &lt;a href=&quot;https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed&quot;&gt;IAM Identity Center rename&lt;/a&gt;.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;This reference guide describes the identity store operations that you can call programatically and includes detailed information about data types and errors.&lt;/p&gt; </code></pre>
+</div>
+    <div class="app-desc">More information: <a href="https://github.com/mermade/aws2openapi">https://github.com/mermade/aws2openapi</a></div>
+    <div class="app-desc">Contact Info: <a href="mike.ralphson@gmail.com">mike.ralphson@gmail.com</a></div>
+    <div class="app-desc">Version: 2020-06-15</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0 License</div>
+    <div class="license-url">http://www.apache.org/licenses/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:Authorization KeyInQuery:false KeyInHeader:true</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#createGroup"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.CreateGroup</code></a></li>
+  <li><a href="#createGroupMembership"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.CreateGroupMembership</code></a></li>
+  <li><a href="#createUser"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.CreateUser</code></a></li>
+  <li><a href="#deleteGroup"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DeleteGroup</code></a></li>
+  <li><a href="#deleteGroupMembership"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DeleteGroupMembership</code></a></li>
+  <li><a href="#deleteUser"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DeleteUser</code></a></li>
+  <li><a href="#describeGroup"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DescribeGroup</code></a></li>
+  <li><a href="#describeGroupMembership"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DescribeGroupMembership</code></a></li>
+  <li><a href="#describeUser"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DescribeUser</code></a></li>
+  <li><a href="#getGroupId"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.GetGroupId</code></a></li>
+  <li><a href="#getGroupMembershipId"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.GetGroupMembershipId</code></a></li>
+  <li><a href="#getUserId"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.GetUserId</code></a></li>
+  <li><a href="#isMemberInGroups"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.IsMemberInGroups</code></a></li>
+  <li><a href="#listGroupMemberships"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.ListGroupMemberships</code></a></li>
+  <li><a href="#listGroupMembershipsForMember"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.ListGroupMembershipsForMember</code></a></li>
+  <li><a href="#listGroups"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.ListGroups</code></a></li>
+  <li><a href="#listUsers"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.ListUsers</code></a></li>
+  <li><a href="#updateGroup"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.UpdateGroup</code></a></li>
+  <li><a href="#updateUser"><code><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.UpdateUser</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="createGroup"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.CreateGroup</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createGroup</span>)</div>
+    <div class="method-notes">Creates a group within the specified identity store.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">CreateGroupRequest <a href="#CreateGroupRequest">CreateGroupRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#CreateGroupResponse">CreateGroupResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "IdentityStoreId" : "",
+  "GroupId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#CreateGroupResponse">CreateGroupResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ConflictException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ServiceQuotaExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createGroupMembership"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.CreateGroupMembership</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createGroupMembership</span>)</div>
+    <div class="method-notes">Creates a relationship between a member and a group. The following identifiers must be specified: <code>GroupId</code>, <code>IdentityStoreId</code>, and <code>MemberId</code>.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">CreateGroupMembershipRequest <a href="#CreateGroupMembershipRequest">CreateGroupMembershipRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#CreateGroupMembershipResponse">CreateGroupMembershipResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "MembershipId" : "",
+  "IdentityStoreId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#CreateGroupMembershipResponse">CreateGroupMembershipResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ConflictException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ServiceQuotaExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createUser"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.CreateUser</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createUser</span>)</div>
+    <div class="method-notes">Creates a user within the specified identity store.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">CreateUserRequest <a href="#CreateUserRequest">CreateUserRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#CreateUserResponse">CreateUserResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "UserId" : "",
+  "IdentityStoreId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#CreateUserResponse">CreateUserResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ConflictException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ServiceQuotaExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteGroup"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DeleteGroup</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteGroup</span>)</div>
+    <div class="method-notes">Delete a group within an identity store given <code>GroupId</code>.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DeleteGroupRequest <a href="#DeleteGroupRequest">DeleteGroupRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#Object">Object</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ConflictException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteGroupMembership"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DeleteGroupMembership</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteGroupMembership</span>)</div>
+    <div class="method-notes">Delete a membership within a group given <code>MembershipId</code>.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DeleteGroupMembershipRequest <a href="#DeleteGroupMembershipRequest">DeleteGroupMembershipRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#Object">Object</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ConflictException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteUser"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DeleteUser</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteUser</span>)</div>
+    <div class="method-notes">Deletes a user within an identity store given <code>UserId</code>.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DeleteUserRequest <a href="#DeleteUserRequest">DeleteUserRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#Object">Object</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ConflictException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="describeGroup"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DescribeGroup</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">describeGroup</span>)</div>
+    <div class="method-notes">Retrieves the group metadata and attributes from <code>GroupId</code> in an identity store.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DescribeGroupRequest <a href="#DescribeGroupRequest">DescribeGroupRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DescribeGroupResponse">DescribeGroupResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ExternalIds" : "",
+  "Description" : "",
+  "DisplayName" : "",
+  "IdentityStoreId" : "",
+  "GroupId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#DescribeGroupResponse">DescribeGroupResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="describeGroupMembership"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DescribeGroupMembership</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">describeGroupMembership</span>)</div>
+    <div class="method-notes">Retrieves membership metadata and attributes from <code>MembershipId</code> in an identity store.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DescribeGroupMembershipRequest <a href="#DescribeGroupMembershipRequest">DescribeGroupMembershipRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DescribeGroupMembershipResponse">DescribeGroupMembershipResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "MemberId" : {
+    "UserId" : ""
+  },
+  "MembershipId" : "",
+  "IdentityStoreId" : "",
+  "GroupId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#DescribeGroupMembershipResponse">DescribeGroupMembershipResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="describeUser"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.DescribeUser</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">describeUser</span>)</div>
+    <div class="method-notes">Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DescribeUserRequest <a href="#DescribeUserRequest">DescribeUserRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DescribeUserResponse">DescribeUserResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Locale" : "",
+  "Timezone" : "",
+  "PhoneNumbers" : "",
+  "UserName" : "",
+  "ExternalIds" : "",
+  "Title" : "",
+  "IdentityStoreId" : "",
+  "NickName" : "",
+  "Name" : {
+    "Formatted" : "",
+    "HonorificSuffix" : "",
+    "FamilyName" : "",
+    "GivenName" : "",
+    "MiddleName" : "",
+    "HonorificPrefix" : ""
+  },
+  "Addresses" : "",
+  "UserId" : "",
+  "DisplayName" : "",
+  "PreferredLanguage" : "",
+  "Emails" : "",
+  "UserType" : "",
+  "ProfileUrl" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#DescribeUserResponse">DescribeUserResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getGroupId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.GetGroupId</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getGroupId</span>)</div>
+    <div class="method-notes">Retrieves <code>GroupId</code> in an identity store.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetGroupIdRequest <a href="#GetGroupIdRequest">GetGroupIdRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetGroupIdResponse">GetGroupIdResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "IdentityStoreId" : "",
+  "GroupId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetGroupIdResponse">GetGroupIdResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getGroupMembershipId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.GetGroupMembershipId</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getGroupMembershipId</span>)</div>
+    <div class="method-notes">Retrieves the <code>MembershipId</code> in an identity store.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetGroupMembershipIdRequest <a href="#GetGroupMembershipIdRequest">GetGroupMembershipIdRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetGroupMembershipIdResponse">GetGroupMembershipIdResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "MembershipId" : "",
+  "IdentityStoreId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetGroupMembershipIdResponse">GetGroupMembershipIdResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getUserId"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.GetUserId</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getUserId</span>)</div>
+    <div class="method-notes">Retrieves the <code>UserId</code> in an identity store.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetUserIdRequest <a href="#GetUserIdRequest">GetUserIdRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetUserIdResponse">GetUserIdResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "UserId" : "",
+  "IdentityStoreId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetUserIdResponse">GetUserIdResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="isMemberInGroups"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.IsMemberInGroups</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">isMemberInGroups</span>)</div>
+    <div class="method-notes">Checks the user's membership in all requested groups and returns if the member exists in all queried groups.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">IsMemberInGroupsRequest <a href="#IsMemberInGroupsRequest">IsMemberInGroupsRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#IsMemberInGroupsResponse">IsMemberInGroupsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Results" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#IsMemberInGroupsResponse">IsMemberInGroupsResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listGroupMemberships"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.ListGroupMemberships</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listGroupMemberships</span>)</div>
+    <div class="method-notes">For the specified group in the specified identity store, returns the list of all <code>GroupMembership</code> objects and returns results in paginated form.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ListGroupMembershipsRequest <a href="#ListGroupMembershipsRequest">ListGroupMembershipsRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListGroupMembershipsResponse">ListGroupMembershipsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "NextToken" : "",
+  "GroupMemberships" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListGroupMembershipsResponse">ListGroupMembershipsResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listGroupMembershipsForMember"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.ListGroupMembershipsForMember</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listGroupMembershipsForMember</span>)</div>
+    <div class="method-notes">For the specified member in the specified identity store, returns the list of all <code>GroupMembership</code> objects and returns results in paginated form.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ListGroupMembershipsForMemberRequest <a href="#ListGroupMembershipsForMemberRequest">ListGroupMembershipsForMemberRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListGroupMembershipsForMemberResponse">ListGroupMembershipsForMemberResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "NextToken" : "",
+  "GroupMemberships" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListGroupMembershipsForMemberResponse">ListGroupMembershipsForMemberResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listGroups"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.ListGroups</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listGroups</span>)</div>
+    <div class="method-notes">Lists all groups in the identity store. Returns a paginated list of complete <code>Group</code> objects. Filtering for a <code>Group</code> by the <code>DisplayName</code> attribute is deprecated. Instead, use the <code>GetGroupId</code> API action.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ListGroupsRequest <a href="#ListGroupsRequest">ListGroupsRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListGroupsResponse">ListGroupsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "NextToken" : "",
+  "Groups" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListGroupsResponse">ListGroupsResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listUsers"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.ListUsers</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listUsers</span>)</div>
+    <div class="method-notes">Lists all users in the identity store. Returns a paginated list of complete <code>User</code> objects. Filtering for a <code>User</code> by the <code>UserName</code> attribute is deprecated. Instead, use the <code>GetUserId</code> API action.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ListUsersRequest <a href="#ListUsersRequest">ListUsersRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListUsersResponse">ListUsersResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "NextToken" : "",
+  "Users" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListUsersResponse">ListUsersResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateGroup"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.UpdateGroup</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateGroup</span>)</div>
+    <div class="method-notes">For the specified group in the specified identity store, updates the group metadata and attributes.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">UpdateGroupRequest <a href="#UpdateGroupRequest">UpdateGroupRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#Object">Object</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ConflictException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ServiceQuotaExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateUser"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSIdentityStore.UpdateUser</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateUser</span>)</div>
+    <div class="method-notes">For the specified user in the specified identity store, updates the user metadata and attributes.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">UpdateUserRequest <a href="#UpdateUserRequest">UpdateUserRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#Object">Object</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ConflictException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    InternalServerException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ValidationException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    ServiceQuotaExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Address"><code>Address</code> - </a></li>
+    <li><a href="#AlternateIdentifier"><code>AlternateIdentifier</code> - </a></li>
+    <li><a href="#AlternateIdentifier_ExternalId"><code>AlternateIdentifier_ExternalId</code> - </a></li>
+    <li><a href="#AlternateIdentifier_UniqueAttribute"><code>AlternateIdentifier_UniqueAttribute</code> - </a></li>
+    <li><a href="#AttributeOperation"><code>AttributeOperation</code> - </a></li>
+    <li><a href="#CreateGroupMembershipRequest"><code>CreateGroupMembershipRequest</code> - CreateGroupMembershipRequest</a></li>
+    <li><a href="#CreateGroupMembershipRequest_MemberId"><code>CreateGroupMembershipRequest_MemberId</code> - </a></li>
+    <li><a href="#CreateGroupMembershipResponse"><code>CreateGroupMembershipResponse</code> - </a></li>
+    <li><a href="#CreateGroupRequest"><code>CreateGroupRequest</code> - CreateGroupRequest</a></li>
+    <li><a href="#CreateGroupResponse"><code>CreateGroupResponse</code> - </a></li>
+    <li><a href="#CreateUserRequest"><code>CreateUserRequest</code> - CreateUserRequest</a></li>
+    <li><a href="#CreateUserRequest_Name"><code>CreateUserRequest_Name</code> - </a></li>
+    <li><a href="#CreateUserResponse"><code>CreateUserResponse</code> - </a></li>
+    <li><a href="#DeleteGroupMembershipRequest"><code>DeleteGroupMembershipRequest</code> - DeleteGroupMembershipRequest</a></li>
+    <li><a href="#DeleteGroupRequest"><code>DeleteGroupRequest</code> - DeleteGroupRequest</a></li>
+    <li><a href="#DeleteUserRequest"><code>DeleteUserRequest</code> - DeleteUserRequest</a></li>
+    <li><a href="#DescribeGroupMembershipRequest"><code>DescribeGroupMembershipRequest</code> - DescribeGroupMembershipRequest</a></li>
+    <li><a href="#DescribeGroupMembershipResponse"><code>DescribeGroupMembershipResponse</code> - </a></li>
+    <li><a href="#DescribeGroupRequest"><code>DescribeGroupRequest</code> - DescribeGroupRequest</a></li>
+    <li><a href="#DescribeGroupResponse"><code>DescribeGroupResponse</code> - </a></li>
+    <li><a href="#DescribeUserRequest"><code>DescribeUserRequest</code> - DescribeUserRequest</a></li>
+    <li><a href="#DescribeUserResponse"><code>DescribeUserResponse</code> - </a></li>
+    <li><a href="#DescribeUserResponse_Name"><code>DescribeUserResponse_Name</code> - </a></li>
+    <li><a href="#Email"><code>Email</code> - </a></li>
+    <li><a href="#ExternalId"><code>ExternalId</code> - </a></li>
+    <li><a href="#Filter"><code>Filter</code> - </a></li>
+    <li><a href="#GetGroupIdRequest"><code>GetGroupIdRequest</code> - GetGroupIdRequest</a></li>
+    <li><a href="#GetGroupIdRequest_AlternateIdentifier"><code>GetGroupIdRequest_AlternateIdentifier</code> - </a></li>
+    <li><a href="#GetGroupIdResponse"><code>GetGroupIdResponse</code> - </a></li>
+    <li><a href="#GetGroupMembershipIdRequest"><code>GetGroupMembershipIdRequest</code> - GetGroupMembershipIdRequest</a></li>
+    <li><a href="#GetGroupMembershipIdResponse"><code>GetGroupMembershipIdResponse</code> - </a></li>
+    <li><a href="#GetUserIdRequest"><code>GetUserIdRequest</code> - GetUserIdRequest</a></li>
+    <li><a href="#GetUserIdRequest_AlternateIdentifier"><code>GetUserIdRequest_AlternateIdentifier</code> - </a></li>
+    <li><a href="#GetUserIdResponse"><code>GetUserIdResponse</code> - </a></li>
+    <li><a href="#Group"><code>Group</code> - </a></li>
+    <li><a href="#GroupMembership"><code>GroupMembership</code> - </a></li>
+    <li><a href="#GroupMembershipExistenceResult"><code>GroupMembershipExistenceResult</code> - </a></li>
+    <li><a href="#IsMemberInGroupsRequest"><code>IsMemberInGroupsRequest</code> - IsMemberInGroupsRequest</a></li>
+    <li><a href="#IsMemberInGroupsRequest_MemberId"><code>IsMemberInGroupsRequest_MemberId</code> - </a></li>
+    <li><a href="#IsMemberInGroupsResponse"><code>IsMemberInGroupsResponse</code> - </a></li>
+    <li><a href="#ListGroupMembershipsForMemberRequest"><code>ListGroupMembershipsForMemberRequest</code> - ListGroupMembershipsForMemberRequest</a></li>
+    <li><a href="#ListGroupMembershipsForMemberResponse"><code>ListGroupMembershipsForMemberResponse</code> - </a></li>
+    <li><a href="#ListGroupMembershipsRequest"><code>ListGroupMembershipsRequest</code> - ListGroupMembershipsRequest</a></li>
+    <li><a href="#ListGroupMembershipsResponse"><code>ListGroupMembershipsResponse</code> - </a></li>
+    <li><a href="#ListGroupsRequest"><code>ListGroupsRequest</code> - ListGroupsRequest</a></li>
+    <li><a href="#ListGroupsResponse"><code>ListGroupsResponse</code> - </a></li>
+    <li><a href="#ListUsersRequest"><code>ListUsersRequest</code> - ListUsersRequest</a></li>
+    <li><a href="#ListUsersResponse"><code>ListUsersResponse</code> - </a></li>
+    <li><a href="#MemberId"><code>MemberId</code> - </a></li>
+    <li><a href="#Name"><code>Name</code> - </a></li>
+    <li><a href="#PhoneNumber"><code>PhoneNumber</code> - </a></li>
+    <li><a href="#UniqueAttribute"><code>UniqueAttribute</code> - </a></li>
+    <li><a href="#UpdateGroupRequest"><code>UpdateGroupRequest</code> - UpdateGroupRequest</a></li>
+    <li><a href="#UpdateUserRequest"><code>UpdateUserRequest</code> - UpdateUserRequest</a></li>
+    <li><a href="#User"><code>User</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Address"><code>Address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The address associated with the specified user.</div>
+    <div class="field-items">
+      <div class="param">StreetAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Locality (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Region (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PostalCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Formatted (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Primary (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AlternateIdentifier"><code>AlternateIdentifier</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A unique identifier for a user or group that is not the primary identifier. This value can be an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute.</div>
+    <div class="field-items">
+      <div class="param">ExternalId (optional)</div><div class="param-desc"><span class="param-type"><a href="#AlternateIdentifier_ExternalId">AlternateIdentifier_ExternalId</a></span>  </div>
+<div class="param">UniqueAttribute (optional)</div><div class="param-desc"><span class="param-type"><a href="#AlternateIdentifier_UniqueAttribute">AlternateIdentifier_UniqueAttribute</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AlternateIdentifier_ExternalId"><code>AlternateIdentifier_ExternalId</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Issuer </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AlternateIdentifier_UniqueAttribute"><code>AlternateIdentifier_UniqueAttribute</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">AttributePath </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AttributeValue </div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AttributeOperation"><code>AttributeOperation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An operation that applies to the requested group. This operation might add, replace, or remove an attribute.</div>
+    <div class="field-items">
+      <div class="param">AttributePath </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AttributeValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateGroupMembershipRequest"><code>CreateGroupMembershipRequest</code> - CreateGroupMembershipRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GroupId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MemberId </div><div class="param-desc"><span class="param-type"><a href="#CreateGroupMembershipRequest_MemberId">CreateGroupMembershipRequest_MemberId</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateGroupMembershipRequest_MemberId"><code>CreateGroupMembershipRequest_MemberId</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">UserId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateGroupMembershipResponse"><code>CreateGroupMembershipResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">MembershipId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateGroupRequest"><code>CreateGroupRequest</code> - CreateGroupRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DisplayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateGroupResponse"><code>CreateGroupResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">GroupId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateUserRequest"><code>CreateUserRequest</code> - CreateUserRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UserName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreateUserRequest_Name">CreateUserRequest_Name</a></span>  </div>
+<div class="param">DisplayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NickName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ProfileUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Emails (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">Addresses (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">PhoneNumbers (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">UserType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PreferredLanguage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Locale (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Timezone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateUserRequest_Name"><code>CreateUserRequest_Name</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Formatted (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">FamilyName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GivenName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MiddleName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">HonorificPrefix (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">HonorificSuffix (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateUserResponse"><code>CreateUserResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">UserId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DeleteGroupMembershipRequest"><code>DeleteGroupMembershipRequest</code> - DeleteGroupMembershipRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MembershipId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DeleteGroupRequest"><code>DeleteGroupRequest</code> - DeleteGroupRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GroupId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DeleteUserRequest"><code>DeleteUserRequest</code> - DeleteUserRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UserId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeGroupMembershipRequest"><code>DescribeGroupMembershipRequest</code> - DescribeGroupMembershipRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MembershipId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeGroupMembershipResponse"><code>DescribeGroupMembershipResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MembershipId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GroupId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MemberId </div><div class="param-desc"><span class="param-type"><a href="#MemberId">MemberId</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeGroupRequest"><code>DescribeGroupRequest</code> - DescribeGroupRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GroupId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeGroupResponse"><code>DescribeGroupResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">GroupId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DisplayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ExternalIds (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">Description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeUserRequest"><code>DescribeUserRequest</code> - DescribeUserRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UserId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeUserResponse"><code>DescribeUserResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">UserName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UserId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ExternalIds (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#DescribeUserResponse_Name">DescribeUserResponse_Name</a></span>  </div>
+<div class="param">DisplayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NickName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ProfileUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Emails (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">Addresses (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">PhoneNumbers (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">UserType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PreferredLanguage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Locale (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Timezone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeUserResponse_Name"><code>DescribeUserResponse_Name</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Formatted (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">FamilyName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GivenName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MiddleName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">HonorificPrefix (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">HonorificSuffix (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Email"><code>Email</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The email address associated with the user.</div>
+    <div class="field-items">
+      <div class="param">Value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Primary (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExternalId"><code>ExternalId</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The identifier issued to this resource by an external identity provider.</div>
+    <div class="field-items">
+      <div class="param">Issuer </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Filter"><code>Filter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A query filter used by <code>ListUsers</code> and <code>ListGroups</code>. This filter object provides the attribute name and attribute value to search users or groups.</div>
+    <div class="field-items">
+      <div class="param">AttributePath </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AttributeValue </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetGroupIdRequest"><code>GetGroupIdRequest</code> - GetGroupIdRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AlternateIdentifier </div><div class="param-desc"><span class="param-type"><a href="#GetGroupIdRequest_AlternateIdentifier">GetGroupIdRequest_AlternateIdentifier</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetGroupIdRequest_AlternateIdentifier"><code>GetGroupIdRequest_AlternateIdentifier</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ExternalId (optional)</div><div class="param-desc"><span class="param-type"><a href="#AlternateIdentifier_ExternalId">AlternateIdentifier_ExternalId</a></span>  </div>
+<div class="param">UniqueAttribute (optional)</div><div class="param-desc"><span class="param-type"><a href="#AlternateIdentifier_UniqueAttribute">AlternateIdentifier_UniqueAttribute</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetGroupIdResponse"><code>GetGroupIdResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">GroupId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetGroupMembershipIdRequest"><code>GetGroupMembershipIdRequest</code> - GetGroupMembershipIdRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GroupId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MemberId </div><div class="param-desc"><span class="param-type"><a href="#CreateGroupMembershipRequest_MemberId">CreateGroupMembershipRequest_MemberId</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetGroupMembershipIdResponse"><code>GetGroupMembershipIdResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">MembershipId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetUserIdRequest"><code>GetUserIdRequest</code> - GetUserIdRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AlternateIdentifier </div><div class="param-desc"><span class="param-type"><a href="#GetUserIdRequest_AlternateIdentifier">GetUserIdRequest_AlternateIdentifier</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetUserIdRequest_AlternateIdentifier"><code>GetUserIdRequest_AlternateIdentifier</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ExternalId (optional)</div><div class="param-desc"><span class="param-type"><a href="#AlternateIdentifier_ExternalId">AlternateIdentifier_ExternalId</a></span>  </div>
+<div class="param">UniqueAttribute (optional)</div><div class="param-desc"><span class="param-type"><a href="#AlternateIdentifier_UniqueAttribute">AlternateIdentifier_UniqueAttribute</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetUserIdResponse"><code>GetUserIdResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">UserId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Group"><code>Group</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A group object that contains the metadata and attributes for a specified group.</div>
+    <div class="field-items">
+      <div class="param">GroupId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DisplayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ExternalIds (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">Description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GroupMembership"><code>GroupMembership</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Contains the identifiers for a group, a group member, and a <code>GroupMembership</code> object in the identity store.</div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MembershipId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GroupId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MemberId (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreateGroupMembershipRequest_MemberId">CreateGroupMembershipRequest_MemberId</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GroupMembershipExistenceResult"><code>GroupMembershipExistenceResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Indicates whether a resource is a member of a group in the identity store.</div>
+    <div class="field-items">
+      <div class="param">GroupId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MemberId (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreateGroupMembershipRequest_MemberId">CreateGroupMembershipRequest_MemberId</a></span>  </div>
+<div class="param">MembershipExists (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="IsMemberInGroupsRequest"><code>IsMemberInGroupsRequest</code> - IsMemberInGroupsRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MemberId </div><div class="param-desc"><span class="param-type"><a href="#IsMemberInGroupsRequest_MemberId">IsMemberInGroupsRequest_MemberId</a></span>  </div>
+<div class="param">GroupIds </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="IsMemberInGroupsRequest_MemberId"><code>IsMemberInGroupsRequest_MemberId</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">UserId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="IsMemberInGroupsResponse"><code>IsMemberInGroupsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Results </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListGroupMembershipsForMemberRequest"><code>ListGroupMembershipsForMemberRequest</code> - ListGroupMembershipsForMemberRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MemberId </div><div class="param-desc"><span class="param-type"><a href="#CreateGroupMembershipRequest_MemberId">CreateGroupMembershipRequest_MemberId</a></span>  </div>
+<div class="param">MaxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListGroupMembershipsForMemberResponse"><code>ListGroupMembershipsForMemberResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">GroupMemberships </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListGroupMembershipsRequest"><code>ListGroupMembershipsRequest</code> - ListGroupMembershipsRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GroupId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MaxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListGroupMembershipsResponse"><code>ListGroupMembershipsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">GroupMemberships </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListGroupsRequest"><code>ListGroupsRequest</code> - ListGroupsRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MaxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Filters (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListGroupsResponse"><code>ListGroupsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Groups </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListUsersRequest"><code>ListUsersRequest</code> - ListUsersRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MaxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Filters (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListUsersResponse"><code>ListUsersResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Users </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MemberId"><code>MemberId</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object containing the identifier of a group member.</div>
+    <div class="field-items">
+      <div class="param">UserId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Name"><code>Name</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The full name of the user.</div>
+    <div class="field-items">
+      <div class="param">Formatted (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">FamilyName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GivenName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MiddleName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">HonorificPrefix (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">HonorificSuffix (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PhoneNumber"><code>PhoneNumber</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The phone number associated with the user.</div>
+    <div class="field-items">
+      <div class="param">Value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Primary (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UniqueAttribute"><code>UniqueAttribute</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An entity attribute that's unique to a specific entity.</div>
+    <div class="field-items">
+      <div class="param">AttributePath </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AttributeValue </div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateGroupRequest"><code>UpdateGroupRequest</code> - UpdateGroupRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GroupId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Operations </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateUserRequest"><code>UpdateUserRequest</code> - UpdateUserRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UserId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Operations </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="User"><code>User</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A user object that contains the metadata and attributes for a specified user.</div>
+    <div class="field-items">
+      <div class="param">UserName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UserId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ExternalIds (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreateUserRequest_Name">CreateUserRequest_Name</a></span>  </div>
+<div class="param">DisplayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NickName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ProfileUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Emails (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">Addresses (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">PhoneNumbers (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">UserType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PreferredLanguage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Locale (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Timezone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IdentityStoreId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
