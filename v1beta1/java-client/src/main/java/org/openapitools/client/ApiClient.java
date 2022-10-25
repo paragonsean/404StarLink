@@ -1,6 +1,6 @@
 /*
- * Container Analysis API
- * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
+ * Serverless VPC Access API
+ * API for managing VPC access connectors.
  *
  * The version of the OpenAPI document: v1beta1
  * 
@@ -66,10 +66,10 @@ import org.openapitools.client.auth.OAuthFlow;
  */
 public class ApiClient {
 
-    private String basePath = "https://containeranalysis.googleapis.com";
+    private String basePath = "https://vpcaccess.googleapis.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://containeranalysis.googleapis.com",
+      "https://vpcaccess.googleapis.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -231,7 +231,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://containeranalysis.googleapis.com
+     * @param basePath Base path of the URL (e.g https://vpcaccess.googleapis.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

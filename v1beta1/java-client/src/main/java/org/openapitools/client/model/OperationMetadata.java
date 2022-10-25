@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Metadata for google.longrunning.Operation.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:30.383141-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:04.239204-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class OperationMetadata {
   public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)

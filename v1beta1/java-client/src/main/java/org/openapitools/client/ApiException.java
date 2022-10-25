@@ -1,6 +1,6 @@
 /*
- * Container Analysis API
- * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
+ * Serverless VPC Access API
+ * API for managing VPC access connectors.
  *
  * The version of the OpenAPI document: v1beta1
  * 
@@ -21,7 +21,7 @@ import java.util.List;
  * <p>ApiException class.</p>
  */
 @SuppressWarnings("serial")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:04.239204-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ApiException extends Exception {
     private static final long serialVersionUID = 1L;
 

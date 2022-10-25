@@ -1,6 +1,6 @@
 /*
- * Container Analysis API
- * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
+ * Serverless VPC Access API
+ * API for managing VPC access connectors.
  *
  * The version of the OpenAPI document: v1beta1
  * 
@@ -21,7 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.client.model.Version;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,79 +48,141 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * An occurrence of a particular package installation found within a system&#39;s filesystem. E.g., glibc was found in &#x60;/var/lib/dpkg/status&#x60;.
+ * A resource that represents Google Cloud Platform location.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:04.239204-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Location {
-  public static final String SERIALIZED_NAME_CPE_URI = "cpeUri";
-  @SerializedName(SERIALIZED_NAME_CPE_URI)
-  private String cpeUri;
+  public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+  private String displayName;
 
-  public static final String SERIALIZED_NAME_PATH = "path";
-  @SerializedName(SERIALIZED_NAME_PATH)
-  private String path;
+  public static final String SERIALIZED_NAME_LABELS = "labels";
+  @SerializedName(SERIALIZED_NAME_LABELS)
+  private Map<String, String> labels = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private Version version;
+  public static final String SERIALIZED_NAME_LOCATION_ID = "locationId";
+  @SerializedName(SERIALIZED_NAME_LOCATION_ID)
+  private String locationId;
+
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private Map<String, Object> metadata = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public Location() {
   }
 
-  public Location cpeUri(String cpeUri) {
-    this.cpeUri = cpeUri;
+  public Location displayName(String displayName) {
+    this.displayName = displayName;
     return this;
   }
 
   /**
-   * Deprecated. The CPE URI in [CPE format](https://cpe.mitre.org/specification/) denoting the package manager version distributing a package.
-   * @return cpeUri
+   * The friendly name for this location, typically a nearby city name. For example, \&quot;Tokyo\&quot;.
+   * @return displayName
    */
   @javax.annotation.Nullable
-  public String getCpeUri() {
-    return cpeUri;
+  public String getDisplayName() {
+    return displayName;
   }
 
-  public void setCpeUri(String cpeUri) {
-    this.cpeUri = cpeUri;
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
 
-  public Location path(String path) {
-    this.path = path;
+  public Location labels(Map<String, String> labels) {
+    this.labels = labels;
+    return this;
+  }
+
+  public Location putLabelsItem(String key, String labelsItem) {
+    if (this.labels == null) {
+      this.labels = new HashMap<>();
+    }
+    this.labels.put(key, labelsItem);
     return this;
   }
 
   /**
-   * The path from which we gathered that this package/version is installed.
-   * @return path
+   * Cross-service attributes for the location. For example {\&quot;cloud.googleapis.com/region\&quot;: \&quot;us-east1\&quot;}
+   * @return labels
    */
   @javax.annotation.Nullable
-  public String getPath() {
-    return path;
+  public Map<String, String> getLabels() {
+    return labels;
   }
 
-  public void setPath(String path) {
-    this.path = path;
+  public void setLabels(Map<String, String> labels) {
+    this.labels = labels;
   }
 
 
-  public Location version(Version version) {
-    this.version = version;
+  public Location locationId(String locationId) {
+    this.locationId = locationId;
     return this;
   }
 
   /**
-   * Get version
-   * @return version
+   * The canonical id for this location. For example: &#x60;\&quot;us-east1\&quot;&#x60;.
+   * @return locationId
    */
   @javax.annotation.Nullable
-  public Version getVersion() {
-    return version;
+  public String getLocationId() {
+    return locationId;
   }
 
-  public void setVersion(Version version) {
-    this.version = version;
+  public void setLocationId(String locationId) {
+    this.locationId = locationId;
+  }
+
+
+  public Location metadata(Map<String, Object> metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  public Location putMetadataItem(String key, Object metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
+    }
+    this.metadata.put(key, metadataItem);
+    return this;
+  }
+
+  /**
+   * Service-specific metadata. For example the available capacity at the given location.
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  public Map<String, Object> getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(Map<String, Object> metadata) {
+    this.metadata = metadata;
+  }
+
+
+  public Location name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Resource name for the location, which may vary between implementations. For example: &#x60;\&quot;projects/example-project/locations/us-east1\&quot;&#x60;
+   * @return name
+   */
+  @javax.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -133,23 +196,27 @@ public class Location {
       return false;
     }
     Location location = (Location) o;
-    return Objects.equals(this.cpeUri, location.cpeUri) &&
-        Objects.equals(this.path, location.path) &&
-        Objects.equals(this.version, location.version);
+    return Objects.equals(this.displayName, location.displayName) &&
+        Objects.equals(this.labels, location.labels) &&
+        Objects.equals(this.locationId, location.locationId) &&
+        Objects.equals(this.metadata, location.metadata) &&
+        Objects.equals(this.name, location.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpeUri, path, version);
+    return Objects.hash(displayName, labels, locationId, metadata, name);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Location {\n");
-    sb.append("    cpeUri: ").append(toIndentedString(cpeUri)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -172,9 +239,11 @@ public class Location {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("cpeUri");
-    openapiFields.add("path");
-    openapiFields.add("version");
+    openapiFields.add("displayName");
+    openapiFields.add("labels");
+    openapiFields.add("locationId");
+    openapiFields.add("metadata");
+    openapiFields.add("name");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -201,15 +270,14 @@ public class Location {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("cpeUri") != null && !jsonObj.get("cpeUri").isJsonNull()) && !jsonObj.get("cpeUri").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cpeUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cpeUri").toString()));
+      if ((jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonNull()) && !jsonObj.get("displayName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
       }
-      if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+      if ((jsonObj.get("locationId") != null && !jsonObj.get("locationId").isJsonNull()) && !jsonObj.get("locationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `locationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locationId").toString()));
       }
-      // validate the optional field `version`
-      if (jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) {
-        Version.validateJsonElement(jsonObj.get("version"));
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }
 
