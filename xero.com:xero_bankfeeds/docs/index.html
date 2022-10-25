@@ -1,0 +1,1180 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Xero Bank Feeds API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Xero Bank Feeds API</h1>
+    <div class="app-desc">The Bank Feeds API is a closed API that is only available to financial institutions that have an established financial services partnership with Xero. If you're an existing financial services partner that wants access, contact your local Partner Manager. If you're a financial institution who wants to provide bank feeds to your business customers, contact us to become a financial services partner.</div>
+    <div class="app-desc">More information: <a href="https://developer.xero.com">https://developer.xero.com</a></div>
+    <div class="app-desc">Contact Info: <a href="api@xero.com">api@xero.com</a></div>
+    <div class="app-desc">Version: 2.9.4</div>
+    <div class="app-desc">BasePath:/bankfeeds.xro/1.0</div>
+    <div class="license-info">MIT</div>
+    <div class="license-url">https://github.com/XeroAPI/Xero-OpenAPI/blob/master/LICENSE</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://login.xero.com/identity/connect/authorizeTokenUrl:https://identity.xero.com/connect/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#BankFeeds">BankFeeds</a></h4>
+  <ul>
+  <li><a href="#createFeedConnections"><code><span class="http-method">post</span> /FeedConnections</code></a></li>
+  <li><a href="#createStatements"><code><span class="http-method">post</span> /Statements</code></a></li>
+  <li><a href="#deleteFeedConnections"><code><span class="http-method">post</span> /FeedConnections/DeleteRequests</code></a></li>
+  <li><a href="#getFeedConnection"><code><span class="http-method">get</span> /FeedConnections/{id}</code></a></li>
+  <li><a href="#getFeedConnections"><code><span class="http-method">get</span> /FeedConnections</code></a></li>
+  <li><a href="#getStatement"><code><span class="http-method">get</span> /Statements/{statementID}</code></a></li>
+  <li><a href="#getStatements"><code><span class="http-method">get</span> /Statements</code></a></li>
+  </ul>
+
+  <h1><a name="BankFeeds">BankFeeds</a></h1>
+  <div class="method"><a name="createFeedConnections"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /FeedConnections</code></pre></div>
+    <div class="method-summary">Create one or more new feed connection (<span class="nickname">createFeedConnections</span>)</div>
+    <div class="method-notes">By passing in the FeedConnections array object in the body, you can create one or more new feed connections</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">FeedConnections <a href="#FeedConnections">FeedConnections</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Xero-Tenant-Id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#FeedConnections">FeedConnections</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "pagination" : {
+    "pageCount" : 1,
+    "pageSize" : 10,
+    "page" : 1,
+    "itemCount" : 2
+  },
+  "items" : [ {
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
+    "error" : {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    },
+    "status" : "REJECTED"
+  }, {
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
+    "error" : {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    },
+    "status" : "REJECTED"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "detail" : "The application has not been configured to use these API endpoints.",
+  "title" : "Invalid Application",
+  "type" : "invalid-application",
+  "status" : 403
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    success new feed connection(s)response
+        <a href="#FeedConnections">FeedConnections</a>
+    <h4 class="field-label">400</h4>
+    invalid input, object invalid
+        <a href="#"></a>
+    <h4 class="field-label">409</h4>
+    failed to create new feed connection(s)response
+        <a href="#Error">Error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createStatements"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /Statements</code></pre></div>
+    <div class="method-summary">Creates one or more new statements (<span class="nickname">createStatements</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Statements <a href="#Statements">Statements</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Xero-Tenant-Id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Statements">Statements</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "pagination" : {
+    "pageCount" : 1,
+    "pageSize" : 10,
+    "page" : 1,
+    "itemCount" : 2
+  },
+  "items" : [ {
+    "statementLines" : [ {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.00,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    }, {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.00,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    } ],
+    "endDate" : "2018-07-27",
+    "endBalance" : {
+      "amount" : 10.1340,
+      "creditDebitIndicator" : "CREDIT"
+    },
+    "statementLineCount" : 1,
+    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
+    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
+    "errors" : [ {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    }, {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    } ],
+    "startBalance" : {
+      "amount" : 9.0000
+    },
+    "startDate" : "2018-07-27",
+    "status" : "PENDING"
+  }, {
+    "statementLines" : [ {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.00,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    }, {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.00,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    } ],
+    "endDate" : "2018-07-27",
+    "endBalance" : {
+      "amount" : 10.1340,
+      "creditDebitIndicator" : "CREDIT"
+    },
+    "statementLineCount" : 1,
+    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
+    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
+    "errors" : [ {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    }, {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    } ],
+    "startBalance" : {
+      "amount" : 9.0000
+    },
+    "startDate" : "2018-07-27",
+    "status" : "PENDING"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/problem+json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">202</h4>
+    Success returns Statements array of objects in response
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">400</h4>
+    Statement failed validation
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">403</h4>
+    Invalid application or feed connection
+        <a href="#Error">Error</a>
+    <h4 class="field-label">409</h4>
+    Duplicate statement received
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">413</h4>
+    Statement exceeds size limit
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">500</h4>
+    Intermittent Xero Error
+        <a href="#Statements">Statements</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteFeedConnections"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /FeedConnections/DeleteRequests</code></pre></div>
+    <div class="method-summary">Delete an existing feed connection (<span class="nickname">deleteFeedConnections</span>)</div>
+    <div class="method-notes">By passing in FeedConnections array object in the body, you can delete a feed connection.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">FeedConnections <a href="#FeedConnections">FeedConnections</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Xero-Tenant-Id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#FeedConnections">FeedConnections</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "pagination" : {
+    "pageCount" : 1,
+    "pageSize" : 10,
+    "page" : 1,
+    "itemCount" : 2
+  },
+  "items" : [ {
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
+    "error" : {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    },
+    "status" : "REJECTED"
+  }, {
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
+    "error" : {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    },
+    "status" : "REJECTED"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">202</h4>
+    Success response for deleted feed connection
+        <a href="#FeedConnections">FeedConnections</a>
+    <h4 class="field-label">400</h4>
+    bad input parameter
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getFeedConnection"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /FeedConnections/{id}</code></pre></div>
+    <div class="method-summary">Retrieve single feed connection based on a unique id provided (<span class="nickname">getFeedConnection</span>)</div>
+    <div class="method-notes">By passing in a FeedConnection Id options, you can search for matching feed connections</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier for retrieving single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Xero-Tenant-Id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#FeedConnection">FeedConnection</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+  "country" : "GB",
+  "accountName" : "Joe's Savings Account",
+  "accountType" : "BANK",
+  "currency" : "AUD",
+  "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+  "accountNumber" : "3809087654321500",
+  "accountToken" : "10000123",
+  "error" : {
+    "detail" : "The application has not been configured to use these API endpoints.",
+    "title" : "Invalid Application",
+    "type" : "invalid-application",
+    "status" : 403
+  },
+  "status" : "REJECTED"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returns a FeedConnection object matching the id in response
+        <a href="#FeedConnection">FeedConnection</a>
+    <h4 class="field-label">400</h4>
+    bad input parameter
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getFeedConnections"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /FeedConnections</code></pre></div>
+    <div class="method-summary">Searches for feed connections (<span class="nickname">getFeedConnections</span>)</div>
+    <div class="method-notes">By passing in the appropriate options, you can search for available feed connections in the system.</div>
+
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Xero-Tenant-Id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page number which specifies the set of records to retrieve. By default the number of the records per set is 10. Example - https://api.xero.com/bankfeeds.xro/1.0/FeedConnections?page=1 to get the second set of the records. When page value is not a number or a negative number, by default, the first set of records is returned. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page size which specifies how many records per page will be returned (default 10). Example - https://api.xero.com/bankfeeds.xro/1.0/FeedConnections?pageSize=100 to specify page size of 100. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#FeedConnections">FeedConnections</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "pagination" : {
+    "pageCount" : 1,
+    "pageSize" : 10,
+    "page" : 1,
+    "itemCount" : 2
+  },
+  "items" : [ {
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
+    "error" : {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    },
+    "status" : "REJECTED"
+  }, {
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
+    "error" : {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    },
+    "status" : "REJECTED"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    search results matching criteria returned with pagination and items array
+        <a href="#FeedConnections">FeedConnections</a>
+    <h4 class="field-label">400</h4>
+    validation error response
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getStatement"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Statements/{statementID}</code></pre></div>
+    <div class="method-summary">Retrieve single statement based on unique id provided (<span class="nickname">getStatement</span>)</div>
+    <div class="method-notes">By passing in a statement id, you can search for matching statements</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">statementID (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Xero-Tenant-Id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">statementId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; statement id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Statement">Statement</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "statementLines" : [ {
+    "reference" : "Reference for statement line 2",
+    "payeeName" : "Payee name for statement line 2",
+    "amount" : 5.00,
+    "description" : "Description for statement line 2",
+    "chequeNumber" : "021",
+    "transactionId" : "transaction-id-2",
+    "postedDate" : "2018-06-10"
+  }, {
+    "reference" : "Reference for statement line 2",
+    "payeeName" : "Payee name for statement line 2",
+    "amount" : 5.00,
+    "description" : "Description for statement line 2",
+    "chequeNumber" : "021",
+    "transactionId" : "transaction-id-2",
+    "postedDate" : "2018-06-10"
+  } ],
+  "endDate" : "2018-07-27",
+  "endBalance" : {
+    "amount" : 10.1340,
+    "creditDebitIndicator" : "CREDIT"
+  },
+  "statementLineCount" : 1,
+  "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
+  "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
+  "errors" : [ {
+    "detail" : "The application has not been configured to use these API endpoints.",
+    "title" : "Invalid Application",
+    "type" : "invalid-application",
+    "status" : 403
+  }, {
+    "detail" : "The application has not been configured to use these API endpoints.",
+    "title" : "Invalid Application",
+    "type" : "invalid-application",
+    "status" : 403
+  } ],
+  "startBalance" : {
+    "amount" : 9.0000
+  },
+  "startDate" : "2018-07-27",
+  "status" : "PENDING"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    search results matching id for single statement
+        <a href="#Statement">Statement</a>
+    <h4 class="field-label">404</h4>
+    Statement not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getStatements"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Statements</code></pre></div>
+    <div class="method-summary">Retrieve all statements (<span class="nickname">getStatements</span>)</div>
+    <div class="method-notes">By passing in parameters, you can search for matching statements</div>
+
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Xero-Tenant-Id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+<div class="param">Xero-Application-Id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: 00000000-0000-0000-0000-0000000010000 </div>
+<div class="param">Xero-User-Id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: 00000000-0000-0000-0000-0000030000000 </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; unique id for single object default: null format: int32</div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page size which specifies how many records per page will be returned (default 10). Example - https://api.xero.com/bankfeeds.xro/1.0/Statements?pageSize=100 to specify page size of 100. default: null format: int32</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Statements">Statements</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "pagination" : {
+    "pageCount" : 1,
+    "pageSize" : 10,
+    "page" : 1,
+    "itemCount" : 2
+  },
+  "items" : [ {
+    "statementLines" : [ {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.00,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    }, {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.00,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    } ],
+    "endDate" : "2018-07-27",
+    "endBalance" : {
+      "amount" : 10.1340,
+      "creditDebitIndicator" : "CREDIT"
+    },
+    "statementLineCount" : 1,
+    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
+    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
+    "errors" : [ {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    }, {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    } ],
+    "startBalance" : {
+      "amount" : 9.0000
+    },
+    "startDate" : "2018-07-27",
+    "status" : "PENDING"
+  }, {
+    "statementLines" : [ {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.00,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    }, {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.00,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    } ],
+    "endDate" : "2018-07-27",
+    "endBalance" : {
+      "amount" : 10.1340,
+      "creditDebitIndicator" : "CREDIT"
+    },
+    "statementLineCount" : 1,
+    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
+    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
+    "errors" : [ {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    }, {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    } ],
+    "startBalance" : {
+      "amount" : 9.0000
+    },
+    "startDate" : "2018-07-27",
+    "status" : "PENDING"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/problem+json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returns Statements array of objects response
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">400</h4>
+    bad input parameter
+        <a href="#Statements">Statements</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#CountryCode"><code>CountryCode</code> - </a></li>
+    <li><a href="#CreditDebitIndicator"><code>CreditDebitIndicator</code> - </a></li>
+    <li><a href="#CurrencyCode"><code>CurrencyCode</code> - </a></li>
+    <li><a href="#EndBalance"><code>EndBalance</code> - </a></li>
+    <li><a href="#Error"><code>Error</code> - </a></li>
+    <li><a href="#FeedConnection"><code>FeedConnection</code> - </a></li>
+    <li><a href="#FeedConnections"><code>FeedConnections</code> - </a></li>
+    <li><a href="#Pagination"><code>Pagination</code> - </a></li>
+    <li><a href="#StartBalance"><code>StartBalance</code> - </a></li>
+    <li><a href="#Statement"><code>Statement</code> - </a></li>
+    <li><a href="#StatementLine"><code>StatementLine</code> - </a></li>
+    <li><a href="#Statements"><code>Statements</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="CountryCode"><code>CountryCode</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>ISO-3166 alpha-2 country code, e.g. US, AU This element is required only when the Application supports multi-region. Talk to your Partner Manager to confirm if this is the case.</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreditDebitIndicator"><code>CreditDebitIndicator</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>If the statement balances are credit or debit, the CreditDebitIndicator should be specified from the perspective of the Customer.</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CurrencyCode"><code>CurrencyCode</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>3 letter alpha code for the ISO-4217 currency code, e.g. USD, AUD.</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EndBalance"><code>EndBalance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The StartBalance plus all the Statement Line Amounts should be equal to the EndBalance Amount.</div>
+    <div class="field-items">
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">creditDebitIndicator (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreditDebitIndicator">CreditDebitIndicator</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Error"><code>Error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>On error, the API consumer will receive an HTTP response with a HTTP Status Code of 4xx or 5xx and a Content-Type of application/problem+json.</div>
+    <div class="field-items">
+      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Human readable detailed error description. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The numeric HTTP Status Code, e.g. 404 </div>
+<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Human readable high level error description. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifies the type of error. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">invalid-request</div><div class="param-enum">invalid-application</div><div class="param-enum">invalid-feed-connection</div><div class="param-enum">duplicate-statement</div><div class="param-enum">invalid-end-balance</div><div class="param-enum">invalid-start-and-end-date</div><div class="param-enum">invalid-start-date</div><div class="param-enum">internal-error</div><div class="param-enum">feed-already-connected-in-current-organisation</div><div class="param-enum">invalid-end-date</div><div class="param-enum">statement-not-found</div><div class="param-enum">feed-connected-in-different-organisation</div><div class="param-enum">feed-already-connected-in-different-organisation</div><div class="param-enum">bank-feed-not-found</div><div class="param-enum">invalid-country-specified</div><div class="param-enum">invalid-organisation-bank-feeds</div><div class="param-enum">invalid-organisation-multi-currency</div><div class="param-enum">invalid-feed-connection-for-organisation</div><div class="param-enum">invalid-user-role</div><div class="param-enum">account-not-valid</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="FeedConnection"><code>FeedConnection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> Xero identifier for a bank account in Xero. Must be included if AccountNumber is not specified. format: uuid</div>
+<div class="param">accountName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Account Name will be used for the creation of a new Xero Bank Account if a matching Xero Bank Account is not found. </div>
+<div class="param">accountNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> String(40) when AccountType is BANK String(4) when AccountType is CREDITCARD The Account Number is used to match the feed to a Xero Bank Account. The API will create a new Xero Bank Account if a match to an existing Xero Bank Account is not found. Only the last 4 digits must be supplied for Credit Card numbers. Must be included if AccountId is not specified. </div>
+<div class="param">accountToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> This account identifier is generated by the financial institute (FI). This must be unique for your financial institute. </div>
+<div class="param">accountType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> High level bank account type - BANK CREDITCARD BANK encompasses all bank account types other than credit cards. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">BANK</div><div class="param-enum">CREDITCARD</div>
+<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#CountryCode">CountryCode</a></span>  </div>
+<div class="param">currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#CurrencyCode">CurrencyCode</a></span>  </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#Error">Error</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> GUID used to identify the Account. format: uuid</div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> the current status of the feed connection </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">PENDING</div><div class="param-enum">REJECTED</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="FeedConnections"><code>FeedConnections</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#FeedConnection">array[FeedConnection]</a></span>  </div>
+<div class="param">pagination (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pagination">Pagination</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Pagination"><code>Pagination</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">itemCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of items returned </div>
+<div class="param">page (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Page number which specifies the set of records to retrieve. Example - https://api.xero.com/bankfeeds.xro/1.0/Statements?page=2 to get the second set of the records. When page value is not a number or a negative number, by default, the first set of records is returned. </div>
+<div class="param">pageCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of pages available </div>
+<div class="param">pageSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Page size which specifies how many records per page will be returned (default 50). Example - https://api.xero.com/bankfeeds.xro/1.0/Statements?pageSize=100 to specify page size of 100. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartBalance"><code>StartBalance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The starting balance of the statement</div>
+    <div class="field-items">
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> decimal(19,4) unsigned Opening/closing balance amount. format: double</div>
+<div class="param">creditDebitIndicator (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreditDebitIndicator">CreditDebitIndicator</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Statement"><code>Statement</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">endBalance (optional)</div><div class="param-desc"><span class="param-type"><a href="#EndBalance">EndBalance</a></span>  </div>
+<div class="param">endDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Closing balance date ISO-8601 YYYY-MM-DD format: date</div>
+<div class="param">errors (optional)</div><div class="param-desc"><span class="param-type"><a href="#Error">array[Error]</a></span>  </div>
+<div class="param">feedConnectionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The Xero generated feed connection Id that identifies the Xero Bank Account Container into which the statement should be delivered. This is obtained by calling GET FeedConnections. format: uuid</div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> GUID used to identify the Statement. format: uuid</div>
+<div class="param">startBalance (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartBalance">StartBalance</a></span>  </div>
+<div class="param">startDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Opening balance date (can be no older than one year from the current date) ISO-8601 YYYY-MM-DD format: date</div>
+<div class="param">statementLineCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">statementLines (optional)</div><div class="param-desc"><span class="param-type"><a href="#StatementLine">array[StatementLine]</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Current status of statements </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">PENDING</div><div class="param-enum">REJECTED</div><div class="param-enum">DELIVERED</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StatementLine"><code>StatementLine</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>the lines details for a statement</div>
+    <div class="field-items">
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Transaction amount format: double</div>
+<div class="param">chequeNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The cheque/check number </div>
+<div class="param">creditDebitIndicator (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreditDebitIndicator">CreditDebitIndicator</a></span>  </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Transaction description </div>
+<div class="param">payeeName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Typically the merchant or payee name </div>
+<div class="param">postedDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> The date that the transaction was processed or cleared as seen in internet banking ISO-8601 YYYY-MM-DD format: date</div>
+<div class="param">reference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional field to enhance the Description </div>
+<div class="param">transactionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Financial institute's internal transaction identifier. If provided this field is factored into duplicate detection. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Statements"><code>Statements</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#Statement">array[Statement]</a></span>  </div>
+<div class="param">pagination (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pagination">Pagination</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
