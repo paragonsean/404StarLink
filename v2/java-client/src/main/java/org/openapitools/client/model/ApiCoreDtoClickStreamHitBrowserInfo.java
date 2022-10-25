@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ApiCoreDtoClickStreamHitBrowserInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:30.497679-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:22.685677-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ApiCoreDtoClickStreamHitBrowserInfo {
   public static final String SERIALIZED_NAME_BROWSER_TYPE = "browserType";
   @SerializedName(SERIALIZED_NAME_BROWSER_TYPE)
