@@ -2,7 +2,7 @@
 
 Serverless VPC Access API
 - API version: v1beta1
-  - Build date: 2024-10-11T01:55:32.659596-04:00[America/New_York]
+  - Build date: 2024-10-11T02:03:06.678297-04:00[America/New_York]
   - Generator version: 7.9.0
 
 API for managing VPC access connectors.
