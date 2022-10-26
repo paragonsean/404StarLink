@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Response for listing Serverless VPC Access connectors.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:33.625098-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:25.780688-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ListConnectorsResponse {
   public static final String SERIALIZED_NAME_CONNECTORS = "connectors";
   @SerializedName(SERIALIZED_NAME_CONNECTORS)
