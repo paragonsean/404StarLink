@@ -1,0 +1,13 @@
+
+
+# ErrorCause
+
+## Enum
+
+
+* `KINESIS_STREAM_NOT_FOUND` (value: `"KINESIS_STREAM_NOT_FOUND"`)
+
+* `IAM_PERMISSION_REVOKED` (value: `"IAM_PERMISSION_REVOKED"`)
+
+
+
