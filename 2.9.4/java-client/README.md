@@ -2,7 +2,7 @@
 
 Xero Bank Feeds API
 - API version: 2.9.4
-  - Build date: 2024-10-11T01:55:34.971511-04:00[America/New_York]
+  - Build date: 2024-10-11T02:03:09.172100-04:00[America/New_York]
   - Generator version: 7.9.0
 
 The Bank Feeds API is a closed API that is only available to financial institutions that have an established financial services partnership with Xero. If you're an existing financial services partner that wants access, contact your local Partner Manager. If you're a financial institution who wants to provide bank feeds to your business customers, contact us to become a financial services partner.
