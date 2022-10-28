@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build Serverless VPC Access API
+    name: Build Xero Bank Feeds API
     runs-on: ubuntu-latest
     strategy:
       matrix:

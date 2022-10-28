@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Serverless VPC Access API</title>
+    <title>Xero Bank Feeds API</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,18 +179,17 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>Serverless VPC Access API</h1>
-    <div class="app-desc">API for managing VPC access connectors.</div>
-    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
-    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
-    <div class="app-desc">Version: v1beta1</div>
-    <div class="app-desc">BasePath:</div>
-    <div class="license-info">Creative Commons Attribution 3.0</div>
-    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h1>Xero Bank Feeds API</h1>
+    <div class="app-desc">The Bank Feeds API is a closed API that is only available to financial institutions that have an established financial services partnership with Xero. If you're an existing financial services partner that wants access, contact your local Partner Manager. If you're a financial institution who wants to provide bank feeds to your business customers, contact us to become a financial services partner.</div>
+    <div class="app-desc">More information: <a href="https://developer.xero.com">https://developer.xero.com</a></div>
+    <div class="app-desc">Contact Info: <a href="api@xero.com">api@xero.com</a></div>
+    <div class="app-desc">Version: 2.9.4</div>
+    <div class="app-desc">BasePath:/bankfeeds.xro/1.0</div>
+    <div class="license-info">MIT</div>
+    <div class="license-url">https://github.com/XeroAPI/Xero-OpenAPI/blob/master/LICENSE</div>
   <h2>Access</h2>
     <ol>
-      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
-      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+      <li>OAuth AuthorizationUrl:https://login.xero.com/identity/connect/authorizeTokenUrl:https://identity.xero.com/connect/token</li>
     </ol>
 
   <h2><a name="__Methods">Methods</a></h2>
@@ -198,31 +197,25 @@ font-style: italic;
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#Projects">Projects</a></h4>
+  <h4><a href="#BankFeeds">BankFeeds</a></h4>
   <ul>
-  <li><a href="#vpcaccess.projects.locations.connectors.create"><code><span class="http-method">post</span> /v1beta1/{parent}/connectors</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.connectors.delete"><code><span class="http-method">delete</span> /v1beta1/{name}</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.connectors.list"><code><span class="http-method">get</span> /v1beta1/{parent}/connectors</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.connectors.patch"><code><span class="http-method">patch</span> /v1beta1/{name}</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.list"><code><span class="http-method">get</span> /v1beta1/{name}/locations</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.operations.get"><code><span class="http-method">get</span> /v1beta1/{name}</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.operations.list"><code><span class="http-method">get</span> /v1beta1/{name}/operations</code></a></li>
+  <li><a href="#createFeedConnections"><code><span class="http-method">post</span> /FeedConnections</code></a></li>
+  <li><a href="#createStatements"><code><span class="http-method">post</span> /Statements</code></a></li>
+  <li><a href="#deleteFeedConnections"><code><span class="http-method">post</span> /FeedConnections/DeleteRequests</code></a></li>
+  <li><a href="#getFeedConnection"><code><span class="http-method">get</span> /FeedConnections/{id}</code></a></li>
+  <li><a href="#getFeedConnections"><code><span class="http-method">get</span> /FeedConnections</code></a></li>
+  <li><a href="#getStatement"><code><span class="http-method">get</span> /Statements/{statementID}</code></a></li>
+  <li><a href="#getStatements"><code><span class="http-method">get</span> /Statements</code></a></li>
   </ul>
 
-  <h1><a name="Projects">Projects</a></h1>
-  <div class="method"><a name="vpcaccess.projects.locations.connectors.create"/>
+  <h1><a name="BankFeeds">BankFeeds</a></h1>
+  <div class="method"><a name="createFeedConnections"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1beta1/{parent}/connectors</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.create</span>)</div>
-    <div class="method-notes">Creates a Serverless VPC Access connector, returns an operation.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /FeedConnections</code></pre></div>
+    <div class="method-summary">Create one or more new feed connection (<span class="nickname">createFeedConnections</span>)</div>
+    <div class="method-notes">By passing in the FeedConnections array object in the body, you can create one or more new feed connections</div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">parent (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The project and location in which the configuration should be created, specified in the format <code>projects/*/locations/*</code>. default: null </div>
-    </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
     This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
@@ -232,46 +225,25 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">Connector <a href="#Connector">Connector</a> (optional)</div>
+      <div class="param">FeedConnections <a href="#FeedConnections">FeedConnections</a> (required)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
     </div>  <!-- field-items -->
 
-
-    <h3 class="field-label">Query parameters</h3>
+    <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
+      <div class="param">Xero-Tenant-Id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">connectorId (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Required. The ID to use for this connector. default: null </div>
     </div>  <!-- field-items -->
+
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Operation">Operation</a>
+      <a href="#FeedConnections">FeedConnections</a>
       
     </div>
 
@@ -280,218 +252,53 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "metadata" : {
-    "key" : ""
+  "pagination" : {
+    "pageCount" : 1,
+    "pageSize" : 10,
+    "page" : 1,
+    "itemCount" : 2
   },
-  "response" : {
-    "key" : ""
-  },
-  "name" : "name",
-  "error" : {
-    "code" : 0,
-    "details" : [ {
-      "key" : ""
-    }, {
-      "key" : ""
-    } ],
-    "message" : "message"
-  },
-  "done" : true
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#Operation">Operation</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.connectors.delete"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1beta1/{name}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.delete</span>)</div>
-    <div class="method-notes">Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist.</div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">name (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Name of a Serverless VPC Access connector to delete. default: null </div>
-    </div>  <!-- field-items -->
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Operation">Operation</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "metadata" : {
-    "key" : ""
-  },
-  "response" : {
-    "key" : ""
-  },
-  "name" : "name",
-  "error" : {
-    "code" : 0,
-    "details" : [ {
-      "key" : ""
-    }, {
-      "key" : ""
-    } ],
-    "message" : "message"
-  },
-  "done" : true
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#Operation">Operation</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.connectors.list"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta1/{parent}/connectors</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.list</span>)</div>
-    <div class="method-notes">Lists Serverless VPC Access connectors.</div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">parent (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The project and location from which the routes should be listed. default: null </div>
-    </div>  <!-- field-items -->
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum number of functions to return per call. default: null </div><div class="param">pageToken (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Continuation token. default: null </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#ListConnectorsResponse">ListConnectorsResponse</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "connectors" : [ {
-    "connectedProjects" : [ "connectedProjects", "connectedProjects" ],
-    "minInstances" : 1,
-    "subnet" : {
-      "name" : "name",
-      "projectId" : "projectId"
+  "items" : [ {
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
+    "error" : {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
     },
-    "minThroughput" : 5,
-    "name" : "name",
-    "state" : "STATE_UNSPECIFIED",
-    "maxInstances" : 0,
-    "ipCidrRange" : "ipCidrRange",
-    "machineType" : "machineType",
-    "maxThroughput" : 6,
-    "network" : "network"
+    "status" : "REJECTED"
   }, {
-    "connectedProjects" : [ "connectedProjects", "connectedProjects" ],
-    "minInstances" : 1,
-    "subnet" : {
-      "name" : "name",
-      "projectId" : "projectId"
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
+    "error" : {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
     },
-    "minThroughput" : 5,
-    "name" : "name",
-    "state" : "STATE_UNSPECIFIED",
-    "maxInstances" : 0,
-    "ipCidrRange" : "ipCidrRange",
-    "machineType" : "machineType",
-    "maxThroughput" : 6,
-    "network" : "network"
-  } ],
-  "nextPageToken" : "nextPageToken"
+    "status" : "REJECTED"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "detail" : "The application has not been configured to use these API endpoints.",
+  "title" : "Invalid Application",
+  "type" : "invalid-application",
+  "status" : 403
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -502,24 +309,24 @@ font-style: italic;
     </ul>
 
     <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#ListConnectorsResponse">ListConnectorsResponse</a>
+    <h4 class="field-label">201</h4>
+    success new feed connection(s)response
+        <a href="#FeedConnections">FeedConnections</a>
+    <h4 class="field-label">400</h4>
+    invalid input, object invalid
+        <a href="#"></a>
+    <h4 class="field-label">409</h4>
+    failed to create new feed connection(s)response
+        <a href="#Error">Error</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.connectors.patch"/>
+  <div class="method"><a name="createStatements"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /v1beta1/{name}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.patch</span>)</div>
-    <div class="method-notes">Updates a Serverless VPC Access connector, returns an operation.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /Statements</code></pre></div>
+    <div class="method-summary">Creates one or more new statements (<span class="nickname">createStatements</span>)</div>
+    <div class="method-notes"></div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">name (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource name in the format <code>projects/*/locations/*/connectors/*</code>. default: null </div>
-    </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
     This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
@@ -529,46 +336,25 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">Connector <a href="#Connector">Connector</a> (optional)</div>
+      <div class="param">Statements <a href="#Statements">Statements</a> (optional)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
     </div>  <!-- field-items -->
 
-
-    <h3 class="field-label">Query parameters</h3>
+    <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
+      <div class="param">Xero-Tenant-Id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">updateMask (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The fields to update on the entry group. If absent or empty, all modifiable fields are updated. default: null </div>
     </div>  <!-- field-items -->
+
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Operation">Operation</a>
+      <a href="#Statements">Statements</a>
       
     </div>
 
@@ -577,92 +363,190 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "metadata" : {
-    "key" : ""
+  "pagination" : {
+    "pageCount" : 1,
+    "pageSize" : 10,
+    "page" : 1,
+    "itemCount" : 2
   },
-  "response" : {
-    "key" : ""
-  },
-  "name" : "name",
-  "error" : {
-    "code" : 0,
-    "details" : [ {
-      "key" : ""
+  "items" : [ {
+    "statementLines" : [ {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.0,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "creditDebitIndicator" : null,
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
     }, {
-      "key" : ""
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.0,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "creditDebitIndicator" : null,
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
     } ],
-    "message" : "message"
-  },
-  "done" : true
+    "endDate" : "2018-07-27",
+    "endBalance" : {
+      "amount" : 10.134,
+      "creditDebitIndicator" : "CREDIT"
+    },
+    "statementLineCount" : 1,
+    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
+    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
+    "errors" : [ {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    }, {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    } ],
+    "startBalance" : {
+      "amount" : 9.0,
+      "creditDebitIndicator" : null
+    },
+    "startDate" : "2018-07-27",
+    "status" : "PENDING"
+  }, {
+    "statementLines" : [ {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.0,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "creditDebitIndicator" : null,
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    }, {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.0,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "creditDebitIndicator" : null,
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    } ],
+    "endDate" : "2018-07-27",
+    "endBalance" : {
+      "amount" : 10.134,
+      "creditDebitIndicator" : "CREDIT"
+    },
+    "statementLineCount" : 1,
+    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
+    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
+    "errors" : [ {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    }, {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    } ],
+    "startBalance" : {
+      "amount" : 9.0,
+      "creditDebitIndicator" : null
+    },
+    "startDate" : "2018-07-27",
+    "status" : "PENDING"
+  } ]
 }</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
+      <li><code>application/problem+json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#Operation">Operation</a>
+    <h4 class="field-label">202</h4>
+    Success returns Statements array of objects in response
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">400</h4>
+    Statement failed validation
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">403</h4>
+    Invalid application or feed connection
+        <a href="#Error">Error</a>
+    <h4 class="field-label">409</h4>
+    Duplicate statement received
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">413</h4>
+    Statement exceeds size limit
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">500</h4>
+    Intermittent Xero Error
+        <a href="#Statements">Statements</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.list"/>
+  <div class="method"><a name="deleteFeedConnections"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta1/{name}/locations</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.list</span>)</div>
-    <div class="method-notes">Lists information about the supported locations for this service.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /FeedConnections/DeleteRequests</code></pre></div>
+    <div class="method-summary">Delete an existing feed connection (<span class="nickname">deleteFeedConnections</span>)</div>
+    <div class="method-notes">By passing in FeedConnections array object in the body, you can delete a feed connection.</div>
 
-    <h3 class="field-label">Path parameters</h3>
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">name (required)</div>
+      <div class="param">FeedConnections <a href="#FeedConnections">FeedConnections</a> (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource that owns the locations collection, if applicable. default: null </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
     </div>  <!-- field-items -->
 
-
-
-
-    <h3 class="field-label">Query parameters</h3>
+    <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
+      <div class="param">Xero-Tenant-Id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A filter to narrow down results to a preferred subset. The filtering language accepts strings like <code>&quot;displayName=tokyo&quot;</code>, and is documented in more detail in <a href="https://google.aip.dev/160">AIP-160</a>. default: null </div><div class="param">pageSize (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of results to return. If not set, the service selects a default. default: null </div><div class="param">pageToken (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A page token received from the <code>next_page_token</code> field in the response. Send that page token to receive the subsequent page. default: null </div>
     </div>  <!-- field-items -->
+
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ListLocationsResponse">ListLocationsResponse</a>
+      <a href="#FeedConnections">FeedConnections</a>
       
     </div>
 
@@ -671,27 +555,44 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "nextPageToken" : "nextPageToken",
-  "locations" : [ {
-    "metadata" : {
-      "key" : ""
+  "pagination" : {
+    "pageCount" : 1,
+    "pageSize" : 10,
+    "page" : 1,
+    "itemCount" : 2
+  },
+  "items" : [ {
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
+    "error" : {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
     },
-    "displayName" : "displayName",
-    "locationId" : "locationId",
-    "name" : "name",
-    "labels" : {
-      "key" : "labels"
-    }
+    "status" : "REJECTED"
   }, {
-    "metadata" : {
-      "key" : ""
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
+    "error" : {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
     },
-    "displayName" : "displayName",
-    "locationId" : "locationId",
-    "name" : "name",
-    "labels" : {
-      "key" : "labels"
-    }
+    "status" : "REJECTED"
   } ]
 }</code></pre>
 
@@ -703,59 +604,43 @@ font-style: italic;
     </ul>
 
     <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#ListLocationsResponse">ListLocationsResponse</a>
+    <h4 class="field-label">202</h4>
+    Success response for deleted feed connection
+        <a href="#FeedConnections">FeedConnections</a>
+    <h4 class="field-label">400</h4>
+    bad input parameter
+        <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.operations.get"/>
+  <div class="method"><a name="getFeedConnection"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta1/{name}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.operations.get</span>)</div>
-    <div class="method-notes">Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /FeedConnections/{id}</code></pre></div>
+    <div class="method-summary">Retrieve single feed connection based on a unique id provided (<span class="nickname">getFeedConnection</span>)</div>
+    <div class="method-notes">By passing in a FeedConnection Id options, you can search for matching feed connections</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">name (required)</div>
+      <div class="param">id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation resource. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier for retrieving single object default: null format: uuid</div>
     </div>  <!-- field-items -->
 
 
 
-
-    <h3 class="field-label">Query parameters</h3>
+    <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
+      <div class="param">Xero-Tenant-Id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
     </div>  <!-- field-items -->
+
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Operation">Operation</a>
+      <a href="#FeedConnection">FeedConnection</a>
       
     </div>
 
@@ -764,23 +649,21 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "metadata" : {
-    "key" : ""
-  },
-  "response" : {
-    "key" : ""
-  },
-  "name" : "name",
+  "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+  "country" : "GB",
+  "accountName" : "Joe's Savings Account",
+  "accountType" : "BANK",
+  "currency" : "AUD",
+  "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+  "accountNumber" : "3809087654321500",
+  "accountToken" : "10000123",
   "error" : {
-    "code" : 0,
-    "details" : [ {
-      "key" : ""
-    }, {
-      "key" : ""
-    } ],
-    "message" : "message"
+    "detail" : "The application has not been configured to use these API endpoints.",
+    "title" : "Invalid Application",
+    "type" : "invalid-application",
+    "status" : 403
   },
-  "done" : true
+  "status" : "REJECTED"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -792,64 +675,44 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#Operation">Operation</a>
+    success returns a FeedConnection object matching the id in response
+        <a href="#FeedConnection">FeedConnection</a>
+    <h4 class="field-label">400</h4>
+    bad input parameter
+        <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.operations.list"/>
+  <div class="method"><a name="getFeedConnections"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta1/{name}/operations</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.operations.list</span>)</div>
-    <div class="method-notes">Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns <code>UNIMPLEMENTED</code>.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /FeedConnections</code></pre></div>
+    <div class="method-summary">Searches for feed connections (<span class="nickname">getFeedConnections</span>)</div>
+    <div class="method-notes">By passing in the appropriate options, you can search for available feed connections in the system.</div>
 
-    <h3 class="field-label">Path parameters</h3>
+
+
+
+    <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">name (required)</div>
+      <div class="param">Xero-Tenant-Id (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation's parent resource. default: null </div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
     </div>  <!-- field-items -->
-
-
-
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
+      <div class="param">page (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page number which specifies the set of records to retrieve. By default the number of the records per set is 10. Example - https://api.xero.com/bankfeeds.xro/1.0/FeedConnections?page=1 to get the second set of the records. When page value is not a number or a negative number, by default, the first set of records is returned. default: null </div><div class="param">pageSize (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list filter. default: null </div><div class="param">pageSize (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list page size. default: null </div><div class="param">pageToken (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list page token. default: null </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page size which specifies how many records per page will be returned (default 10). Example - https://api.xero.com/bankfeeds.xro/1.0/FeedConnections?pageSize=100 to specify page size of 100. default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ListOperationsResponse">ListOperationsResponse</a>
+      <a href="#FeedConnections">FeedConnections</a>
       
     </div>
 
@@ -858,44 +721,150 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "operations" : [ {
-    "metadata" : {
-      "key" : ""
-    },
-    "response" : {
-      "key" : ""
-    },
-    "name" : "name",
+  "pagination" : {
+    "pageCount" : 1,
+    "pageSize" : 10,
+    "page" : 1,
+    "itemCount" : 2
+  },
+  "items" : [ {
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
     "error" : {
-      "code" : 0,
-      "details" : [ {
-        "key" : ""
-      }, {
-        "key" : ""
-      } ],
-      "message" : "message"
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
     },
-    "done" : true
+    "status" : "REJECTED"
   }, {
-    "metadata" : {
-      "key" : ""
-    },
-    "response" : {
-      "key" : ""
-    },
-    "name" : "name",
+    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
+    "country" : "GB",
+    "accountName" : "Joe's Savings Account",
+    "accountType" : "BANK",
+    "currency" : "AUD",
+    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
+    "accountNumber" : "3809087654321500",
+    "accountToken" : "10000123",
     "error" : {
-      "code" : 0,
-      "details" : [ {
-        "key" : ""
-      }, {
-        "key" : ""
-      } ],
-      "message" : "message"
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
     },
-    "done" : true
+    "status" : "REJECTED"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    search results matching criteria returned with pagination and items array
+        <a href="#FeedConnections">FeedConnections</a>
+    <h4 class="field-label">400</h4>
+    validation error response
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getStatement"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Statements/{statementID}</code></pre></div>
+    <div class="method-summary">Retrieve single statement based on unique id provided (<span class="nickname">getStatement</span>)</div>
+    <div class="method-notes">By passing in a statement id, you can search for matching statements</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">statementID (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Xero-Tenant-Id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">statementId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; statement id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Statement">Statement</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "statementLines" : [ {
+    "reference" : "Reference for statement line 2",
+    "payeeName" : "Payee name for statement line 2",
+    "amount" : 5.0,
+    "description" : "Description for statement line 2",
+    "chequeNumber" : "021",
+    "creditDebitIndicator" : null,
+    "transactionId" : "transaction-id-2",
+    "postedDate" : "2018-06-10"
+  }, {
+    "reference" : "Reference for statement line 2",
+    "payeeName" : "Payee name for statement line 2",
+    "amount" : 5.0,
+    "description" : "Description for statement line 2",
+    "chequeNumber" : "021",
+    "creditDebitIndicator" : null,
+    "transactionId" : "transaction-id-2",
+    "postedDate" : "2018-06-10"
   } ],
-  "nextPageToken" : "nextPageToken"
+  "endDate" : "2018-07-27",
+  "endBalance" : {
+    "amount" : 10.134,
+    "creditDebitIndicator" : "CREDIT"
+  },
+  "statementLineCount" : 1,
+  "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
+  "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
+  "errors" : [ {
+    "detail" : "The application has not been configured to use these API endpoints.",
+    "title" : "Invalid Application",
+    "type" : "invalid-application",
+    "status" : 403
+  }, {
+    "detail" : "The application has not been configured to use these API endpoints.",
+    "title" : "Invalid Application",
+    "type" : "invalid-application",
+    "status" : 403
+  } ],
+  "startBalance" : {
+    "amount" : 9.0,
+    "creditDebitIndicator" : null
+  },
+  "startDate" : "2018-07-27",
+  "status" : "PENDING"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -907,8 +876,175 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#ListOperationsResponse">ListOperationsResponse</a>
+    search results matching id for single statement
+        <a href="#Statement">Statement</a>
+    <h4 class="field-label">404</h4>
+    Statement not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getStatements"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Statements</code></pre></div>
+    <div class="method-summary">Retrieve all statements (<span class="nickname">getStatements</span>)</div>
+    <div class="method-notes">By passing in parameters, you can search for matching statements</div>
+
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Xero-Tenant-Id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+<div class="param">Xero-Application-Id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: 00000000-0000-0000-0000-0000000010000 </div>
+<div class="param">Xero-User-Id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: 00000000-0000-0000-0000-0000030000000 </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; unique id for single object default: null format: int32</div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page size which specifies how many records per page will be returned (default 10). Example - https://api.xero.com/bankfeeds.xro/1.0/Statements?pageSize=100 to specify page size of 100. default: null format: int32</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Statements">Statements</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "pagination" : {
+    "pageCount" : 1,
+    "pageSize" : 10,
+    "page" : 1,
+    "itemCount" : 2
+  },
+  "items" : [ {
+    "statementLines" : [ {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.0,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "creditDebitIndicator" : null,
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    }, {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.0,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "creditDebitIndicator" : null,
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    } ],
+    "endDate" : "2018-07-27",
+    "endBalance" : {
+      "amount" : 10.134,
+      "creditDebitIndicator" : "CREDIT"
+    },
+    "statementLineCount" : 1,
+    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
+    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
+    "errors" : [ {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    }, {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    } ],
+    "startBalance" : {
+      "amount" : 9.0,
+      "creditDebitIndicator" : null
+    },
+    "startDate" : "2018-07-27",
+    "status" : "PENDING"
+  }, {
+    "statementLines" : [ {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.0,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "creditDebitIndicator" : null,
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    }, {
+      "reference" : "Reference for statement line 2",
+      "payeeName" : "Payee name for statement line 2",
+      "amount" : 5.0,
+      "description" : "Description for statement line 2",
+      "chequeNumber" : "021",
+      "creditDebitIndicator" : null,
+      "transactionId" : "transaction-id-2",
+      "postedDate" : "2018-06-10"
+    } ],
+    "endDate" : "2018-07-27",
+    "endBalance" : {
+      "amount" : 10.134,
+      "creditDebitIndicator" : "CREDIT"
+    },
+    "statementLineCount" : 1,
+    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
+    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
+    "errors" : [ {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    }, {
+      "detail" : "The application has not been configured to use these API endpoints.",
+      "title" : "Invalid Application",
+      "type" : "invalid-application",
+      "status" : 403
+    } ],
+    "startBalance" : {
+      "amount" : 9.0,
+      "creditDebitIndicator" : null
+    },
+    "startDate" : "2018-07-27",
+    "status" : "PENDING"
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/problem+json</div>
+    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/problem+json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    success returns Statements array of objects response
+        <a href="#Statements">Statements</a>
+    <h4 class="field-label">400</h4>
+    bad input parameter
+        <a href="#Statements">Statements</a>
   </div> <!-- method -->
   <hr/>
 
@@ -917,129 +1053,142 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#Connector"><code>Connector</code> - </a></li>
-    <li><a href="#ListConnectorsResponse"><code>ListConnectorsResponse</code> - </a></li>
-    <li><a href="#ListLocationsResponse"><code>ListLocationsResponse</code> - </a></li>
-    <li><a href="#ListOperationsResponse"><code>ListOperationsResponse</code> - </a></li>
-    <li><a href="#Location"><code>Location</code> - </a></li>
-    <li><a href="#Operation"><code>Operation</code> - </a></li>
-    <li><a href="#OperationMetadata"><code>OperationMetadata</code> - </a></li>
-    <li><a href="#OperationMetadataV1Alpha1"><code>OperationMetadataV1Alpha1</code> - </a></li>
-    <li><a href="#OperationMetadataV1Beta1"><code>OperationMetadataV1Beta1</code> - </a></li>
-    <li><a href="#Status"><code>Status</code> - </a></li>
-    <li><a href="#Subnet"><code>Subnet</code> - </a></li>
+    <li><a href="#CountryCode"><code>CountryCode</code> - </a></li>
+    <li><a href="#CreditDebitIndicator"><code>CreditDebitIndicator</code> - </a></li>
+    <li><a href="#CurrencyCode"><code>CurrencyCode</code> - </a></li>
+    <li><a href="#EndBalance"><code>EndBalance</code> - </a></li>
+    <li><a href="#Error"><code>Error</code> - </a></li>
+    <li><a href="#FeedConnection"><code>FeedConnection</code> - </a></li>
+    <li><a href="#FeedConnections"><code>FeedConnections</code> - </a></li>
+    <li><a href="#Pagination"><code>Pagination</code> - </a></li>
+    <li><a href="#StartBalance"><code>StartBalance</code> - </a></li>
+    <li><a href="#Statement"><code>Statement</code> - </a></li>
+    <li><a href="#StatementLine"><code>StatementLine</code> - </a></li>
+    <li><a href="#Statements"><code>Statements</code> - </a></li>
   </ol>
 
   <div class="model">
-    <h3><a name="Connector"><code>Connector</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Definition of a Serverless VPC Access connector.</div>
+    <h3><a name="CountryCode"><code>CountryCode</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>ISO-3166 alpha-2 country code, e.g. US, AU This element is required only when the Application supports multi-region. Talk to your Partner Manager to confirm if this is the case.</div>
     <div class="field-items">
-      <div class="param">connectedProjects (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Output only. List of projects using the connector. </div>
-<div class="param">ipCidrRange (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The range of internal addresses that follows RFC 4632 notation. Example: <code>10.132.0.0/28</code>. </div>
-<div class="param">machineType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Machine type of VM Instance underlying connector. Default is e2-micro </div>
-<div class="param">maxInstances (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Maximum value of instances in autoscaling group underlying the connector. format: int32</div>
-<div class="param">maxThroughput (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Maximum throughput of the connector in Mbps. Default is 300, max is 1000. format: int32</div>
-<div class="param">minInstances (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Minimum value of instances in autoscaling group underlying the connector. format: int32</div>
-<div class="param">minThroughput (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Minimum throughput of the connector in Mbps. Default and min is 200. format: int32</div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource name in the format <code>projects/*/locations/*/connectors/*</code>. </div>
-<div class="param">network (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of a VPC network. </div>
-<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. State of the VPC access connector. </div>
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreditDebitIndicator"><code>CreditDebitIndicator</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>If the statement balances are credit or debit, the CreditDebitIndicator should be specified from the perspective of the Customer.</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CurrencyCode"><code>CurrencyCode</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>3 letter alpha code for the ISO-4217 currency code, e.g. USD, AUD.</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EndBalance"><code>EndBalance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The StartBalance plus all the Statement Line Amounts should be equal to the EndBalance Amount.</div>
+    <div class="field-items">
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">creditDebitIndicator (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreditDebitIndicator">CreditDebitIndicator</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Error"><code>Error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>On error, the API consumer will receive an HTTP response with a HTTP Status Code of 4xx or 5xx and a Content-Type of application/problem+json.</div>
+    <div class="field-items">
+      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Human readable detailed error description. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The numeric HTTP Status Code, e.g. 404 </div>
+<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Human readable high level error description. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifies the type of error. </div>
         <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">STATE_UNSPECIFIED</div><div class="param-enum">READY</div><div class="param-enum">CREATING</div><div class="param-enum">DELETING</div><div class="param-enum">ERROR</div><div class="param-enum">UPDATING</div>
-<div class="param">subnet (optional)</div><div class="param-desc"><span class="param-type"><a href="#Subnet">Subnet</a></span>  </div>
+        <div class="param-enum">invalid-request</div><div class="param-enum">invalid-application</div><div class="param-enum">invalid-feed-connection</div><div class="param-enum">duplicate-statement</div><div class="param-enum">invalid-end-balance</div><div class="param-enum">invalid-start-and-end-date</div><div class="param-enum">invalid-start-date</div><div class="param-enum">internal-error</div><div class="param-enum">feed-already-connected-in-current-organisation</div><div class="param-enum">invalid-end-date</div><div class="param-enum">statement-not-found</div><div class="param-enum">feed-connected-in-different-organisation</div><div class="param-enum">feed-already-connected-in-different-organisation</div><div class="param-enum">bank-feed-not-found</div><div class="param-enum">invalid-country-specified</div><div class="param-enum">invalid-organisation-bank-feeds</div><div class="param-enum">invalid-organisation-multi-currency</div><div class="param-enum">invalid-feed-connection-for-organisation</div><div class="param-enum">invalid-user-role</div><div class="param-enum">account-not-valid</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ListConnectorsResponse"><code>ListConnectorsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Response for listing Serverless VPC Access connectors.</div>
+    <h3><a name="FeedConnection"><code>FeedConnection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">connectors (optional)</div><div class="param-desc"><span class="param-type"><a href="#Connector">array[Connector]</a></span> List of Serverless VPC Access connectors. </div>
-<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Continuation token. </div>
+      <div class="param">accountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> Xero identifier for a bank account in Xero. Must be included if AccountNumber is not specified. format: uuid</div>
+<div class="param">accountName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Account Name will be used for the creation of a new Xero Bank Account if a matching Xero Bank Account is not found. </div>
+<div class="param">accountNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> String(40) when AccountType is BANK String(4) when AccountType is CREDITCARD The Account Number is used to match the feed to a Xero Bank Account. The API will create a new Xero Bank Account if a match to an existing Xero Bank Account is not found. Only the last 4 digits must be supplied for Credit Card numbers. Must be included if AccountId is not specified. </div>
+<div class="param">accountToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> This account identifier is generated by the financial institute (FI). This must be unique for your financial institute. </div>
+<div class="param">accountType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> High level bank account type - BANK CREDITCARD BANK encompasses all bank account types other than credit cards. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">BANK</div><div class="param-enum">CREDITCARD</div>
+<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#CountryCode">CountryCode</a></span>  </div>
+<div class="param">currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#CurrencyCode">CurrencyCode</a></span>  </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#Error">Error</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> GUID used to identify the Account. format: uuid</div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> the current status of the feed connection </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">PENDING</div><div class="param-enum">REJECTED</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ListLocationsResponse"><code>ListLocationsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>The response message for Locations.ListLocations.</div>
+    <h3><a name="FeedConnections"><code>FeedConnections</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">locations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Location">array[Location]</a></span> A list of locations that matches the specified filter in the request. </div>
-<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The standard List next-page token. </div>
+      <div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#FeedConnection">array[FeedConnection]</a></span>  </div>
+<div class="param">pagination (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pagination">Pagination</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ListOperationsResponse"><code>ListOperationsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>The response message for Operations.ListOperations.</div>
+    <h3><a name="Pagination"><code>Pagination</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The standard List next-page token. </div>
-<div class="param">operations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Operation">array[Operation]</a></span> A list of operations that matches the specified filter in the request. </div>
+      <div class="param">itemCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of items returned </div>
+<div class="param">page (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Page number which specifies the set of records to retrieve. Example - https://api.xero.com/bankfeeds.xro/1.0/Statements?page=2 to get the second set of the records. When page value is not a number or a negative number, by default, the first set of records is returned. </div>
+<div class="param">pageCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of pages available </div>
+<div class="param">pageSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Page size which specifies how many records per page will be returned (default 50). Example - https://api.xero.com/bankfeeds.xro/1.0/Statements?pageSize=100 to specify page size of 100. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Location"><code>Location</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>A resource that represents Google Cloud Platform location.</div>
+    <h3><a name="StartBalance"><code>StartBalance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The starting balance of the statement</div>
     <div class="field-items">
-      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The friendly name for this location, typically a nearby city name. For example, &quot;Tokyo&quot;. </div>
-<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Cross-service attributes for the location. For example {&quot;cloud.googleapis.com/region&quot;: &quot;us-east1&quot;} </div>
-<div class="param">locationId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The canonical id for this location. For example: <code>&quot;us-east1&quot;</code>. </div>
-<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Service-specific metadata. For example the available capacity at the given location. </div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Resource name for the location, which may vary between implementations. For example: <code>&quot;projects/example-project/locations/us-east1&quot;</code> </div>
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> decimal(19,4) unsigned Opening/closing balance amount. format: double</div>
+<div class="param">creditDebitIndicator (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreditDebitIndicator">CreditDebitIndicator</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Operation"><code>Operation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>This resource represents a long-running operation that is the result of a network API call.</div>
+    <h3><a name="Statement"><code>Statement</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">done (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If the value is <code>false</code>, it means the operation is still in progress. If <code>true</code>, the operation is completed, and either <code>error</code> or <code>response</code> is available. </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#Status">Status</a></span>  </div>
-<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. </div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the <code>name</code> should be a resource name ending with <code>operations/{unique_id}</code>. </div>
-<div class="param">response (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The normal response of the operation in case of success. If the original method returns no data on success, such as <code>Delete</code>, the response is <code>google.protobuf.Empty</code>. If the original method is standard <code>Get</code>/<code>Create</code>/<code>Update</code>, the response should be the resource. For other methods, the response should have the type <code>XxxResponse</code>, where <code>Xxx</code> is the original method name. For example, if the original method name is <code>TakeSnapshot()</code>, the inferred response type is <code>TakeSnapshotResponse</code>. </div>
+      <div class="param">endBalance (optional)</div><div class="param-desc"><span class="param-type"><a href="#EndBalance">EndBalance</a></span>  </div>
+<div class="param">endDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Closing balance date ISO-8601 YYYY-MM-DD format: date</div>
+<div class="param">errors (optional)</div><div class="param-desc"><span class="param-type"><a href="#Error">array[Error]</a></span>  </div>
+<div class="param">feedConnectionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The Xero generated feed connection Id that identifies the Xero Bank Account Container into which the statement should be delivered. This is obtained by calling GET FeedConnections. format: uuid</div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> GUID used to identify the Statement. format: uuid</div>
+<div class="param">startBalance (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartBalance">StartBalance</a></span>  </div>
+<div class="param">startDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Opening balance date (can be no older than one year from the current date) ISO-8601 YYYY-MM-DD format: date</div>
+<div class="param">statementLineCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">statementLines (optional)</div><div class="param-desc"><span class="param-type"><a href="#StatementLine">array[StatementLine]</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Current status of statements </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">PENDING</div><div class="param-enum">REJECTED</div><div class="param-enum">DELIVERED</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="OperationMetadata"><code>OperationMetadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Metadata for google.longrunning.Operation.</div>
+    <h3><a name="StatementLine"><code>StatementLine</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>the lines details for a statement</div>
     <div class="field-items">
-      <div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation was created. format: google-datetime</div>
-<div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation completed. format: google-datetime</div>
-<div class="param">method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1.Connectors.CreateConnector. </div>
-<div class="param">target (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1. </div>
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Transaction amount format: double</div>
+<div class="param">chequeNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The cheque/check number </div>
+<div class="param">creditDebitIndicator (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreditDebitIndicator">CreditDebitIndicator</a></span>  </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Transaction description </div>
+<div class="param">payeeName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Typically the merchant or payee name </div>
+<div class="param">postedDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> The date that the transaction was processed or cleared as seen in internet banking ISO-8601 YYYY-MM-DD format: date</div>
+<div class="param">reference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional field to enhance the Description </div>
+<div class="param">transactionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Financial institute's internal transaction identifier. If provided this field is factored into duplicate detection. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="OperationMetadataV1Alpha1"><code>OperationMetadataV1Alpha1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Metadata for google.longrunning.Operation.</div>
+    <h3><a name="Statements"><code>Statements</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation completed. format: google-datetime</div>
-<div class="param">insertTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation was created. format: google-datetime</div>
-<div class="param">method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1alpha1.Connectors.CreateConnector. </div>
-<div class="param">target (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1. </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="OperationMetadataV1Beta1"><code>OperationMetadataV1Beta1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Metadata for google.longrunning.Operation.</div>
-    <div class="field-items">
-      <div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation was created. format: google-datetime</div>
-<div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation completed. format: google-datetime</div>
-<div class="param">method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1beta1.Connectors.CreateConnector. </div>
-<div class="param">target (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1. </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="Status"><code>Status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>The <code>Status</code> type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by <a href="https://github.com/grpc">gRPC</a>. Each <code>Status</code> message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the <a href="https://cloud.google.com/apis/design/errors">API Design Guide</a>.</div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The status code, which should be an enum value of google.rpc.Code. format: int32</div>
-<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">array[map[String, oas_any_type_not_mapped]]</a></span> A list of messages that carry the error details. There is a common set of message types for APIs to use. </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="Subnet"><code>Subnet</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>The subnet in which to house the connector</div>
-    <div class="field-items">
-      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Subnet name (relative, not fully qualified). E.g. if the full subnet selfLink is https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetName} the correct input for this field would be {subnetName} </div>
-<div class="param">projectId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Project in which the subnet exists. If not set, this project is assumed to be the project for which the connector create request was issued. </div>
+      <div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#Statement">array[Statement]</a></span>  </div>
+<div class="param">pagination (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pagination">Pagination</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   </body>
