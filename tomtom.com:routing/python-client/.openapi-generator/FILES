@@ -1,7 +1,6 @@
 .github/workflows/python.yml
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/CalculateReachableRangePostDataParameters.md
@@ -34,11 +33,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_calculate_reachable_range_post_data_parameters.py
-test/test_calculate_reachable_range_post_data_parameters_avoid_areas.py
-test/test_calculate_reachable_range_post_data_parameters_avoid_areas_rectangles_inner.py
-test/test_calculate_reachable_range_post_data_parameters_avoid_areas_rectangles_inner_north_east_corner.py
-test/test_calculate_route_post_data_parameters.py
-test/test_calculate_route_post_data_parameters_supporting_points_inner.py
-test/test_routing_api.py
 tox.ini
