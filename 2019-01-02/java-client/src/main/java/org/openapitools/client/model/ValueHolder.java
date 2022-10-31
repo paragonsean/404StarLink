@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A structure that can contain a value in multiple encoding formats.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:45.268682-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:20.150579-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ValueHolder {
   public static final String SERIALIZED_NAME_ION_TEXT = "IonText";
   @SerializedName(SERIALIZED_NAME_ION_TEXT)

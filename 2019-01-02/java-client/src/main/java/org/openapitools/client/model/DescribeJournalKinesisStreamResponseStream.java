@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * DescribeJournalKinesisStreamResponseStream
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:45.268682-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:20.150579-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DescribeJournalKinesisStreamResponseStream {
   public static final String SERIALIZED_NAME_LEDGER_NAME = "LedgerName";
   @SerializedName(SERIALIZED_NAME_LEDGER_NAME)

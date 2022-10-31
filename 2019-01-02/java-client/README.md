@@ -2,7 +2,7 @@
 
 Amazon QLDB
 - API version: 2019-01-02
-  - Build date: 2024-10-11T01:55:45.268682-04:00[America/New_York]
+  - Build date: 2024-10-11T02:03:20.150579-04:00[America/New_York]
   - Generator version: 7.9.0
 
 The control plane for Amazon QLDB
