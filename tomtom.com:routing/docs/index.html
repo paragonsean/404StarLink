@@ -1,0 +1,1042 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Routing</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Routing</h1>
+    <div class="app-desc">Routing consists of the following service:
+<b>Calculate Route</b>
+Calculates a route between an origin and a destination, passing through waypoints (if specified). Additional routing parameters like traffic, avoidance conditions, departure/arrival time etc. can be taken into account.
+<b>Calculate Reachable Range</b>
+Calculates a set of locations that can be reached from the origin point, subject to the available fuel or energy budget that is specified in the request.</div>
+    <div class="app-desc">More information: <a href="https://developer.tomtom.com/contact-us">https://developer.tomtom.com/contact-us</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:key KeyInQuery:true KeyInHeader:false</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Routing">Routing</a></h4>
+  <ul>
+  <li><a href="#routingVersionNumberCalculateReachableRangeOriginContentTypeGet"><code><span class="http-method">get</span> /routing/{versionNumber}/calculateReachableRange/{origin}/{contentType}</code></a></li>
+  <li><a href="#routingVersionNumberCalculateReachableRangeOriginContentTypePost"><code><span class="http-method">post</span> /routing/{versionNumber}/calculateReachableRange/{origin}/{contentType}</code></a></li>
+  <li><a href="#routingVersionNumberCalculateRouteLocationsContentTypeGet"><code><span class="http-method">get</span> /routing/{versionNumber}/calculateRoute/{locations}/{contentType}</code></a></li>
+  <li><a href="#routingVersionNumberCalculateRouteLocationsContentTypePost"><code><span class="http-method">post</span> /routing/{versionNumber}/calculateRoute/{locations}/{contentType}</code></a></li>
+  </ul>
+
+  <h1><a name="Routing">Routing</a></h1>
+  <div class="method"><a name="routingVersionNumberCalculateReachableRangeOriginContentTypeGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /routing/{versionNumber}/calculateReachableRange/{origin}/{contentType}</code></pre></div>
+    <div class="method-summary">Reachable Range (<span class="nickname">routingVersionNumberCalculateReachableRangeOriginContentTypeGet</span>)</div>
+    <div class="method-notes">Calculates a set of locations that can be reached from the origin point.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Service version number. The current value is 1. default: null </div><div class="param">origin (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Point from which the range calculation should start. default: null </div><div class="param">contentType (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The content type of the response structure. If the content type is jsonp, a callback method can be specified in the query parameters. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">fuelBudgetInLiters (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Fuel budget in liters. Determines the maximum vehicle range using the specified Combustion Consumption Model. default: null format: float</div><div class="param">energyBudgetInkWh (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Electric energy budget in kilowatt hours (kWh). Determines the maximum vehicle range using the specified Electric Consumption Model. default: null format: float</div><div class="param">timeBudgetInSec (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Time budget in seconds. Determines the maximum vehicle range using the specified driving time. The consumption parameters in the request will only affect eco-routes, and thereby indirectly the driving time. default: null format: float</div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. default: callback </div><div class="param">report (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies which data should be reported for diagnosis purposes. default: null </div><div class="param">departAt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The date and time of departure from the origin point. Departure times apart from <i>now</i> must be specified as a dateTime. default: now </div><div class="param">arriveAt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The date and time of arrival at the destination point. It must be specified as a dateTime. default: null format: dateTime</div><div class="param">routeType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The type of route requested. default: fastest </div><div class="param">traffic (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines whether current traffic is used in route calculations. Note that information on historic road speeds is always used. default: true </div><div class="param">avoid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>Specifies whether the routing engine should try to avoid specific types of road segment when calculating the route. Can be specified multiple times.
+Possible values:</p>
+<ul>
+<li>tollRoads</li>
+<li>motorways</li>
+<li>ferries</li>
+<li>unpavedRoads</li>
+<li>carpools</li>
+</ul>
+ default: null </div><div class="param">travelMode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The mode of travel for the requested route. default: car </div><div class="param">hilliness (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Degree of hilliness for calculating a thrilling route. default: normal </div><div class="param">windingness (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Amount that a thrilling route should wind. default: normal </div><div class="param">vehicleMaxSpeed (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum speed of the vehicle in km/hour. default: 0 </div><div class="param">vehicleWeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Weight of the vehicle in kilograms. default: 0 </div><div class="param">vehicleAxleWeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Weight per axle of the vehicle in kg. default: 0 </div><div class="param">vehicleLength (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Length of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleWidth (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Width of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleHeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Height of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleCommercial (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Indicates that the vehicle is used for commercial purposes. This means it may not be allowed on certain roads. default: false </div><div class="param">vehicleLoadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>Indicates what kinds of hazardous materials the vehicle is carrying (if any). This means it may not be allowed on certain roads.
+Use these for routing in the US:</p>
+<ul>
+<li><i>USHazmatClass1</i> Explosives</li>
+<li><i>USHazmatClass2</i> Compressed gas</li>
+<li><i>USHazmatClass3</i> Flammable liquids</li>
+<li><i>USHazmatClass4</i> Flammable solids</li>
+<li><i>USHazmatClass5</i> Oxidizers</li>
+<li><i>USHazmatClass6</i> Poisons</li>
+<li><i>USHazmatClass7</i> Radioactive</li>
+<li><i>USHazmatClass8</i> Corrosives</li>
+<li><i>USHazmatClass9</i> Miscellaneous</li>
+</ul>
+<p>Use these for routing in all other countries:</p>
+<ul>
+<li><i>otherHazmatExplosive</i> Explosives</li>
+<li><i>otherHazmatGeneral</i> Miscellaneous</li>
+<li><i>otherHazmatHarmfulToWater</i> Harmful to water</li>
+</ul>
+<p>vehicleLoadType can be specified multiple times. This parameter is currently only considered for <b>travelMode</b>=<i>truck</i>.</p>
+ default: null </div><div class="param">constantSpeedConsumptionInLitersPerHundredkm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the speed-dependent component of consumption. Provided as an unordered list of speed/consumption-rate pairs. default: null </div><div class="param">currentFuelInLiters (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the current supply of fuel in liters. default: null format: float</div><div class="param">auxiliaryPowerInLitersPerHour (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the amount of fuel consumed for sustaining auxiliary systems of the vehicle, in liters per hour. default: null format: float</div><div class="param">fuelEnergyDensityInMJoulesPerLiter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the amount of chemical energy stored in one liter of fuel in megajoules (MJ). default: null format: float</div><div class="param">accelerationEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting chemical energy stored in fuel to kinetic energy when the vehicle accelerates (i.e. KineticEnergyGained/ChemicalEnergyConsumed). default: null format: float</div><div class="param">decelerationEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting kinetic energy to saved (not consumed) fuel when the vehicle decelerates (i.e. ChemicalEnergySaved/KineticEnergyLost). default: null format: float</div><div class="param">uphillEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting chemical energy stored in fuel to potential energy when the vehicle gains elevation (i.e. PotentialEnergyGained/ChemicalEnergyConsumed). default: null format: float</div><div class="param">downhillEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting potential energy to saved (not consumed) fuel when the vehicle loses elevation (i.e. ChemicalEnergySaved/PotentialEnergyLost). default: null format: float</div><div class="param">vehicleEngineType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Engine type of the vehicle. default: combustion </div><div class="param">constantSpeedConsumptionInkWhPerHundredkm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the speed-dependent component of consumption. Provided as an unordered list of speed/consumption-rate pairs. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK: a range was calculated and the body of the response contains the polygon description and further data.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad request: one or more parameters were incorrectly specified or are mutually exclusive, or the origin point specified in the request is not near enough to a road.
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <p>Permission, capacity, or authentication issues:</p>
+<ul>
+<li>Forbidden</li>
+<li>Not authorized</li>
+<li>Account inactive</li>
+<li>Account over queries per second limit</li>
+<li>Account over rate limit</li>
+<li>Rate limit exceeded</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found: the requested resource could not be found, but it may be available again in the future.
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed: the client used a HTTP method other than GET or POST.
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Request timeout.
+        <a href="#"></a>
+    <h4 class="field-label">414</h4>
+    Requested uri is too long.
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    An error occurred while processing the request. Please try again later.
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Internal network connectivity issue.
+        <a href="#"></a>
+    <h4 class="field-label">503</h4>
+    Service currently unavailable.
+        <a href="#"></a>
+    <h4 class="field-label">504</h4>
+    Internal network connectivity issue or a request that has taken too long to complete.
+        <a href="#"></a>
+    <h4 class="field-label">596</h4>
+    Service not found.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="routingVersionNumberCalculateReachableRangeOriginContentTypePost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /routing/{versionNumber}/calculateReachableRange/{origin}/{contentType}</code></pre></div>
+    <div class="method-summary">Reachable Range (<span class="nickname">routingVersionNumberCalculateReachableRangeOriginContentTypePost</span>)</div>
+    <div class="method-notes">Calculates a set of locations that can be reached from the origin point. POST method handles additionally parameters: <em>supportingPoints</em>, <em>allowVignette</em>, <em>avoidVignette</em>, <em>avoidAreas</em>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Service version number. The current value is 1. default: null </div><div class="param">origin (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Point from which the range calculation should start. default: null </div><div class="param">contentType (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The content type of the response structure. If the content type is jsonp, a callback method can be specified in the query parameters. default: xml </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">calculateReachableRangePostDataParameters <a href="#calculateReachableRangePostDataParameters">calculateReachableRangePostDataParameters</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">fuelBudgetInLiters (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Fuel budget in liters. Determines the maximum vehicle range using the specified Combustion Consumption Model. default: null format: float</div><div class="param">energyBudgetInkWh (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Electric energy budget in kilowatt hours (kWh). Determines the maximum vehicle range using the specified Electric Consumption Model. default: null format: float</div><div class="param">timeBudgetInSec (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Time budget in seconds. Determines the maximum vehicle range using the specified driving time. The consumption parameters in the request will only affect eco-routes, and thereby indirectly the driving time. default: null format: float</div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. default: callback </div><div class="param">report (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies which data should be reported for diagnosis purposes. default: null </div><div class="param">departAt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The date and time of departure from the origin point. Departure times apart from <i>now</i> must be specified as a dateTime. default: now </div><div class="param">arriveAt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The date and time of arrival at the destination point. It must be specified as a dateTime. default: null format: dateTime</div><div class="param">routeType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The type of route requested. default: fastest </div><div class="param">traffic (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines whether current traffic is used in route calculations. Note that information on historic road speeds is always used. default: true </div><div class="param">avoid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>Specifies whether the routing engine should try to avoid specific types of road segment when calculating the route. Can be specified multiple times.
+Possible values:</p>
+<ul>
+<li>tollRoads</li>
+<li>motorways</li>
+<li>ferries</li>
+<li>unpavedRoads</li>
+<li>carpools</li>
+</ul>
+ default: null </div><div class="param">travelMode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The mode of travel for the requested route. default: car </div><div class="param">hilliness (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Degree of hilliness for calculating a thrilling route. default: normal </div><div class="param">windingness (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Amount that a thrilling route should wind. default: normal </div><div class="param">vehicleMaxSpeed (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum speed of the vehicle in km/hour. default: 0 </div><div class="param">vehicleWeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Weight of the vehicle in kilograms. default: 0 </div><div class="param">vehicleAxleWeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Weight per axle of the vehicle in kg. default: 0 </div><div class="param">vehicleLength (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Length of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleWidth (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Width of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleHeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Height of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleCommercial (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Indicates that the vehicle is used for commercial purposes. This means it may not be allowed on certain roads. default: false </div><div class="param">vehicleLoadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>Indicates what kinds of hazardous materials the vehicle is carrying (if any). This means it may not be allowed on certain roads.
+Use these for routing in the US:</p>
+<ul>
+<li><i>USHazmatClass1</i> Explosives</li>
+<li><i>USHazmatClass2</i> Compressed gas</li>
+<li><i>USHazmatClass3</i> Flammable liquids</li>
+<li><i>USHazmatClass4</i> Flammable solids</li>
+<li><i>USHazmatClass5</i> Oxidizers</li>
+<li><i>USHazmatClass6</i> Poisons</li>
+<li><i>USHazmatClass7</i> Radioactive</li>
+<li><i>USHazmatClass8</i> Corrosives</li>
+<li><i>USHazmatClass9</i> Miscellaneous</li>
+</ul>
+<p>Use these for routing in all other countries:</p>
+<ul>
+<li><i>otherHazmatExplosive</i> Explosives</li>
+<li><i>otherHazmatGeneral</i> Miscellaneous</li>
+<li><i>otherHazmatHarmfulToWater</i> Harmful to water</li>
+</ul>
+<p>vehicleLoadType can be specified multiple times. This parameter is currently only considered for <b>travelMode</b>=<i>truck</i>.</p>
+ default: null </div><div class="param">constantSpeedConsumptionInLitersPerHundredkm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the speed-dependent component of consumption. Provided as an unordered list of speed/consumption-rate pairs. default: null </div><div class="param">currentFuelInLiters (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the current supply of fuel in liters. default: null format: float</div><div class="param">auxiliaryPowerInLitersPerHour (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the amount of fuel consumed for sustaining auxiliary systems of the vehicle, in liters per hour. default: null format: float</div><div class="param">fuelEnergyDensityInMJoulesPerLiter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the amount of chemical energy stored in one liter of fuel in megajoules (MJ). default: null format: float</div><div class="param">accelerationEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting chemical energy stored in fuel to kinetic energy when the vehicle accelerates (i.e. KineticEnergyGained/ChemicalEnergyConsumed). default: null format: float</div><div class="param">decelerationEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting kinetic energy to saved (not consumed) fuel when the vehicle decelerates (i.e. ChemicalEnergySaved/KineticEnergyLost). default: null format: float</div><div class="param">uphillEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting chemical energy stored in fuel to potential energy when the vehicle gains elevation (i.e. PotentialEnergyGained/ChemicalEnergyConsumed). default: null format: float</div><div class="param">downhillEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting potential energy to saved (not consumed) fuel when the vehicle loses elevation (i.e. ChemicalEnergySaved/PotentialEnergyLost). default: null format: float</div><div class="param">vehicleEngineType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Engine type of the vehicle. default: combustion </div><div class="param">constantSpeedConsumptionInkWhPerHundredkm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the speed-dependent component of consumption. Provided as an unordered list of speed/consumption-rate pairs. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK: a range was calculated and the body of the response contains the polygon description and further data.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad request: one or more parameters were incorrectly specified or are mutually exclusive, or the origin point specified in the request is not near enough to a road.
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <p>Permission, capacity, or authentication issues:</p>
+<ul>
+<li>Forbidden</li>
+<li>Not authorized</li>
+<li>Account inactive</li>
+<li>Account over queries per second limit</li>
+<li>Account over rate limit</li>
+<li>Rate limit exceeded</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found: the requested resource could not be found, but it may be available again in the future.
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed: the client used a HTTP method other than GET or POST.
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Request timeout.
+        <a href="#"></a>
+    <h4 class="field-label">414</h4>
+    Requested uri is too long.
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    An error occurred while processing the request. Please try again later.
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Internal network connectivity issue.
+        <a href="#"></a>
+    <h4 class="field-label">503</h4>
+    Service currently unavailable.
+        <a href="#"></a>
+    <h4 class="field-label">504</h4>
+    Internal network connectivity issue or a request that has taken too long to complete.
+        <a href="#"></a>
+    <h4 class="field-label">596</h4>
+    Service not found.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="routingVersionNumberCalculateRouteLocationsContentTypeGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /routing/{versionNumber}/calculateRoute/{locations}/{contentType}</code></pre></div>
+    <div class="method-summary">Calculate Route (<span class="nickname">routingVersionNumberCalculateRouteLocationsContentTypeGet</span>)</div>
+    <div class="method-notes">Calculates a route between an origin and a destination.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Service version number. The current value is 1. default: null </div><div class="param">locations (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Locations through which the calculated route must pass. default: null </div><div class="param">contentType (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The content type of the response structure. If the content type is jsonp, a callback method can be specified in the query parameters. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">maxAlternatives (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Number of alternative routes to be calculated. default: 0 </div><div class="param">alternativeType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines whether the alternative routes to be calculated should be better with respect to the planning criteria provided than the reference route. default: anyRoute </div><div class="param">minDeviationDistance (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; All alternative routes will follow the reference route for the specified minimum number of meters starting from the origin point. default: 0 </div><div class="param">minDeviationTime (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; All alternative routes will follow the reference route for the specified minimum number of seconds starting from the origin point. default: 0 </div><div class="param">instructionsType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; If specified, guidance instructions will be returned (if available). default: null </div><div class="param">language (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The language parameter determines the language of the guidance messages. default: en-GB </div><div class="param">computeBestOrder (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Re-order the route waypoints to reduce the route length. default: false </div><div class="param">routeRepresentation (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the representation of the set of routes provided as a response. default: polyline </div><div class="param">computeTravelTimeFor (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies whether to return additional travel times using different types of traffic information (none, historic, live) as well as the default best-estimate travel time. default: none </div><div class="param">vehicleHeading (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The directional heading of the vehicle in degrees. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.). default: null </div><div class="param">sectionType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>Specifies which section types are explicitly reported in the route response. Can be specified multiple times.</p>
+<ul>
+<li>carTrain, ferry, tunnel or motorway</li>
+<li>pedestrian</li>
+<li>tollRoad</li>
+<li>tollVignette</li>
+<li>country</li>
+<li>travelMode</li>
+<li>traffic</li>
+</ul>
+ default: travelMode </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. default: callback </div><div class="param">report (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies which data should be reported for diagnosis purposes. default: null </div><div class="param">departAt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The date and time of departure from the origin point. Departure times apart from <i>now</i> must be specified as a dateTime. default: now </div><div class="param">arriveAt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The date and time of arrival at the destination point. It must be specified as a dateTime. default: null format: dateTime</div><div class="param">routeType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The type of route requested. default: fastest </div><div class="param">traffic (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines whether current traffic is used in route calculations. Note that information on historic road speeds is always used. default: true </div><div class="param">avoid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>Specifies whether the routing engine should try to avoid specific types of road segment when calculating the route. Can be specified multiple times.
+Possible values:</p>
+<ul>
+<li>tollRoads</li>
+<li>motorways</li>
+<li>ferries</li>
+<li>unpavedRoads</li>
+<li>carpools</li>
+<li>alreadyUsedRoads</li>
+</ul>
+ default: null </div><div class="param">travelMode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The mode of travel for the requested route. default: car </div><div class="param">hilliness (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Degree of hilliness for calculating a thrilling route. default: normal </div><div class="param">windingness (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Amount that a thrilling route should wind. default: normal </div><div class="param">vehicleMaxSpeed (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum speed of the vehicle in km/hour. default: 0 </div><div class="param">vehicleWeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Weight of the vehicle in kilograms. default: 0 </div><div class="param">vehicleAxleWeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Weight per axle of the vehicle in kg. default: 0 </div><div class="param">vehicleLength (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Length of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleWidth (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Width of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleHeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Height of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleCommercial (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Indicates that the vehicle is used for commercial purposes. This means it may not be allowed on certain roads. default: false </div><div class="param">vehicleLoadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>Indicates what kinds of hazardous materials the vehicle is carrying (if any). This means it may not be allowed on certain roads.
+Use these for routing in the US:</p>
+<ul>
+<li><i>USHazmatClass1</i> Explosives</li>
+<li><i>USHazmatClass2</i> Compressed gas</li>
+<li><i>USHazmatClass3</i> Flammable liquids</li>
+<li><i>USHazmatClass4</i> Flammable solids</li>
+<li><i>USHazmatClass5</i> Oxidizers</li>
+<li><i>USHazmatClass6</i> Poisons</li>
+<li><i>USHazmatClass7</i> Radioactive</li>
+<li><i>USHazmatClass8</i> Corrosives</li>
+<li><i>USHazmatClass9</i> Miscellaneous</li>
+</ul>
+<p>Use these for routing in all other countries:</p>
+<ul>
+<li><i>otherHazmatExplosive</i> Explosives</li>
+<li><i>otherHazmatGeneral</i> Miscellaneous</li>
+<li><i>otherHazmatHarmfulToWater</i> Harmful to water</li>
+</ul>
+<p>vehicleLoadType can be specified multiple times. This parameter is currently only considered for <b>travelMode</b>=<i>truck</i>.</p>
+ default: null </div><div class="param">vehicleEngineType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Engine type of the vehicle. default: combustion </div><div class="param">constantSpeedConsumptionInLitersPerHundredkm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the speed-dependent component of consumption. Provided as an unordered list of speed/consumption-rate pairs. default: null </div><div class="param">currentFuelInLiters (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the current supply of fuel in liters. default: null format: float</div><div class="param">auxiliaryPowerInLitersPerHour (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the amount of fuel consumed for sustaining auxiliary systems of the vehicle, in liters per hour. default: null format: float</div><div class="param">fuelEnergyDensityInMJoulesPerLiter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the amount of chemical energy stored in one liter of fuel in megajoules (MJ). default: null format: float</div><div class="param">accelerationEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting chemical energy stored in fuel to kinetic energy when the vehicle accelerates (i.e. KineticEnergyGained/ChemicalEnergyConsumed). default: null format: float</div><div class="param">decelerationEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting kinetic energy to saved (not consumed) fuel when the vehicle decelerates (i.e. ChemicalEnergySaved/KineticEnergyLost). default: null format: float</div><div class="param">uphillEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting chemical energy stored in fuel to potential energy when the vehicle gains elevation (i.e. PotentialEnergyGained/ChemicalEnergyConsumed). default: null format: float</div><div class="param">downhillEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting potential energy to saved (not consumed) fuel when the vehicle loses elevation (i.e. ChemicalEnergySaved/PotentialEnergyLost). default: null format: float</div><div class="param">constantSpeedConsumptionInkWhPerHundredkm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the speed-dependent component of consumption. Provided as an unordered list of speed/consumption-rate pairs. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK: a route was calculated and the body of the response contains the route description and any other requested data.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad request: one or more parameters were incorrectly specified, are mutually exclusive, the points in the request are not connected by the road network or the points in the request are not near enough to a road.
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <p>Permission, capacity, or authentication issues:</p>
+<ul>
+<li>Forbidden</li>
+<li>Not authorized</li>
+<li>Account inactive</li>
+<li>Account over queries per second limit</li>
+<li>Account over rate limit</li>
+<li>Rate limit exceeded</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found: the requested resource could not be found, but it may be available again in the future.
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed: the client used a HTTP method other than GET or POST.
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Request timeout.
+        <a href="#"></a>
+    <h4 class="field-label">414</h4>
+    Requested uri is too long.
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    An error occurred while processing the request. Please try again later.
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Internal network connectivity issue.
+        <a href="#"></a>
+    <h4 class="field-label">503</h4>
+    Service currently unavailable.
+        <a href="#"></a>
+    <h4 class="field-label">504</h4>
+    Internal network connectivity issue or a request that has taken too long to complete.
+        <a href="#"></a>
+    <h4 class="field-label">596</h4>
+    Service not found.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="routingVersionNumberCalculateRouteLocationsContentTypePost"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /routing/{versionNumber}/calculateRoute/{locations}/{contentType}</code></pre></div>
+    <div class="method-summary">Calculate Route (<span class="nickname">routingVersionNumberCalculateRouteLocationsContentTypePost</span>)</div>
+    <div class="method-notes">Calculates a route between an origin and a destination. POST method handles additionally parameters: <em>supportingPoints</em>, <em>allowVignette</em>, <em>avoidVignette</em>, <em>avoidAreas</em>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Service version number. The current value is 1. default: null </div><div class="param">locations (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Locations through which the calculated route must pass. default: null </div><div class="param">contentType (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The content type of the response structure. If the content type is jsonp, a callback method can be specified in the query parameters. default: xml </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">calculateRoutePostDataParameters <a href="#calculateRoutePostDataParameters">calculateRoutePostDataParameters</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">maxAlternatives (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Number of alternative routes to be calculated. default: 0 </div><div class="param">alternativeType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines whether the alternative routes to be calculated should be better with respect to the planning criteria provided than the reference route. default: anyRoute </div><div class="param">minDeviationDistance (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; All alternative routes will follow the reference route for the specified minimum number of meters starting from the origin point. default: 0 </div><div class="param">minDeviationTime (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; All alternative routes will follow the reference route for the specified minimum number of seconds starting from the origin point. default: 0 </div><div class="param">instructionsType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; If specified, guidance instructions will be returned (if available). default: null </div><div class="param">language (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The language parameter determines the language of the guidance messages. default: en-GB </div><div class="param">computeBestOrder (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Re-order the route waypoints to reduce the route length. default: false </div><div class="param">routeRepresentation (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the representation of the set of routes provided as a response. default: polyline </div><div class="param">computeTravelTimeFor (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies whether to return additional travel times using different types of traffic information (none, historic, live) as well as the default best-estimate travel time. default: none </div><div class="param">vehicleHeading (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The directional heading of the vehicle in degrees. Entered in degrees, measured clockwise from north (so north is 0, east is 90, etc.). default: null </div><div class="param">sectionType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>Specifies which section types are explicitly reported in the route response. Can be specified multiple times.</p>
+<ul>
+<li>carTrain, ferry, tunnel or motorway</li>
+<li>pedestrian</li>
+<li>tollRoad</li>
+<li>tollVignette</li>
+<li>country</li>
+<li>travelMode</li>
+<li>traffic</li>
+</ul>
+ default: travelMode </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. default: callback </div><div class="param">report (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies which data should be reported for diagnosis purposes. default: null </div><div class="param">departAt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The date and time of departure from the origin point. Departure times apart from <i>now</i> must be specified as a dateTime. default: now </div><div class="param">arriveAt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The date and time of arrival at the destination point. It must be specified as a dateTime. default: null format: dateTime</div><div class="param">routeType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The type of route requested. default: fastest </div><div class="param">traffic (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Determines whether current traffic is used in route calculations. Note that information on historic road speeds is always used. default: true </div><div class="param">avoid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>Specifies whether the routing engine should try to avoid specific types of road segment when calculating the route. Can be specified multiple times.
+Possible values:</p>
+<ul>
+<li>tollRoads</li>
+<li>motorways</li>
+<li>ferries</li>
+<li>unpavedRoads</li>
+<li>carpools</li>
+<li>alreadyUsedRoads</li>
+</ul>
+ default: null </div><div class="param">travelMode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The mode of travel for the requested route. default: car </div><div class="param">hilliness (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Degree of hilliness for calculating a thrilling route. default: normal </div><div class="param">windingness (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Amount that a thrilling route should wind. default: normal </div><div class="param">vehicleMaxSpeed (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum speed of the vehicle in km/hour. default: 0 </div><div class="param">vehicleWeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Weight of the vehicle in kilograms. default: 0 </div><div class="param">vehicleAxleWeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Weight per axle of the vehicle in kg. default: 0 </div><div class="param">vehicleLength (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Length of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleWidth (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Width of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleHeight (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Height of the vehicle in meters. default: 0 format: float</div><div class="param">vehicleCommercial (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Indicates that the vehicle is used for commercial purposes. This means it may not be allowed on certain roads. default: false </div><div class="param">vehicleLoadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; <p>Indicates what kinds of hazardous materials the vehicle is carrying (if any). This means it may not be allowed on certain roads.
+Use these for routing in the US:</p>
+<ul>
+<li><i>USHazmatClass1</i> Explosives</li>
+<li><i>USHazmatClass2</i> Compressed gas</li>
+<li><i>USHazmatClass3</i> Flammable liquids</li>
+<li><i>USHazmatClass4</i> Flammable solids</li>
+<li><i>USHazmatClass5</i> Oxidizers</li>
+<li><i>USHazmatClass6</i> Poisons</li>
+<li><i>USHazmatClass7</i> Radioactive</li>
+<li><i>USHazmatClass8</i> Corrosives</li>
+<li><i>USHazmatClass9</i> Miscellaneous</li>
+</ul>
+<p>Use these for routing in all other countries:</p>
+<ul>
+<li><i>otherHazmatExplosive</i> Explosives</li>
+<li><i>otherHazmatGeneral</i> Miscellaneous</li>
+<li><i>otherHazmatHarmfulToWater</i> Harmful to water</li>
+</ul>
+<p>vehicleLoadType can be specified multiple times. This parameter is currently only considered for <b>travelMode</b>=<i>truck</i>.</p>
+ default: null </div><div class="param">vehicleEngineType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Engine type of the vehicle. default: combustion </div><div class="param">constantSpeedConsumptionInLitersPerHundredkm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the speed-dependent component of consumption. Provided as an unordered list of speed/consumption-rate pairs. default: null </div><div class="param">currentFuelInLiters (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the current supply of fuel in liters. default: null format: float</div><div class="param">auxiliaryPowerInLitersPerHour (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the amount of fuel consumed for sustaining auxiliary systems of the vehicle, in liters per hour. default: null format: float</div><div class="param">fuelEnergyDensityInMJoulesPerLiter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the amount of chemical energy stored in one liter of fuel in megajoules (MJ). default: null format: float</div><div class="param">accelerationEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting chemical energy stored in fuel to kinetic energy when the vehicle accelerates (i.e. KineticEnergyGained/ChemicalEnergyConsumed). default: null format: float</div><div class="param">decelerationEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting kinetic energy to saved (not consumed) fuel when the vehicle decelerates (i.e. ChemicalEnergySaved/KineticEnergyLost). default: null format: float</div><div class="param">uphillEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting chemical energy stored in fuel to potential energy when the vehicle gains elevation (i.e. PotentialEnergyGained/ChemicalEnergyConsumed). default: null format: float</div><div class="param">downhillEfficiency (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the efficiency of converting potential energy to saved (not consumed) fuel when the vehicle loses elevation (i.e. ChemicalEnergySaved/PotentialEnergyLost). default: null format: float</div><div class="param">constantSpeedConsumptionInkWhPerHundredkm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the speed-dependent component of consumption. Provided as an unordered list of speed/consumption-rate pairs. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK: a route was calculated and the body of the response contains the route description and any other requested data.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad request: one or more parameters were incorrectly specified, are mutually exclusive, the points in the request are not connected by the road network or the points in the request are not near enough to a road.
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <p>Permission, capacity, or authentication issues:</p>
+<ul>
+<li>Forbidden</li>
+<li>Not authorized</li>
+<li>Account inactive</li>
+<li>Account over queries per second limit</li>
+<li>Account over rate limit</li>
+<li>Rate limit exceeded</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found: the requested resource could not be found, but it may be available again in the future.
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed: the client used a HTTP method other than GET or POST.
+        <a href="#"></a>
+    <h4 class="field-label">408</h4>
+    Request timeout.
+        <a href="#"></a>
+    <h4 class="field-label">414</h4>
+    Requested uri is too long.
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    An error occurred while processing the request. Please try again later.
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Internal network connectivity issue.
+        <a href="#"></a>
+    <h4 class="field-label">503</h4>
+    Service currently unavailable.
+        <a href="#"></a>
+    <h4 class="field-label">504</h4>
+    Internal network connectivity issue or a request that has taken too long to complete.
+        <a href="#"></a>
+    <h4 class="field-label">596</h4>
+    Service not found.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#calculateReachableRangePostDataParameters"><code>calculateReachableRangePostDataParameters</code> - </a></li>
+    <li><a href="#calculateReachableRangePostDataParameters_avoidAreas"><code>calculateReachableRangePostDataParameters_avoidAreas</code> - </a></li>
+    <li><a href="#calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner"><code>calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner</code> - </a></li>
+    <li><a href="#calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner_northEastCorner"><code>calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner_northEastCorner</code> - </a></li>
+    <li><a href="#calculateRoutePostDataParameters"><code>calculateRoutePostDataParameters</code> - </a></li>
+    <li><a href="#calculateRoutePostDataParameters_supportingPoints_inner"><code>calculateRoutePostDataParameters_supportingPoints_inner</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="calculateReachableRangePostDataParameters"><code>calculateReachableRangePostDataParameters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">allowVignette (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">avoidAreas (optional)</div><div class="param-desc"><span class="param-type"><a href="#calculateReachableRangePostDataParameters_avoidAreas">calculateReachableRangePostDataParameters_avoidAreas</a></span>  </div>
+<div class="param">avoidVignette (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="calculateReachableRangePostDataParameters_avoidAreas"><code>calculateReachableRangePostDataParameters_avoidAreas</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">rectangles (optional)</div><div class="param-desc"><span class="param-type"><a href="#calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner">array[calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner"><code>calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">northEastCorner (optional)</div><div class="param-desc"><span class="param-type"><a href="#calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner_northEastCorner">calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner_northEastCorner</a></span>  </div>
+<div class="param">southWestCorner (optional)</div><div class="param-desc"><span class="param-type"><a href="#calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner_northEastCorner">calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner_northEastCorner</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner_northEastCorner"><code>calculateReachableRangePostDataParameters_avoidAreas_rectangles_inner_northEastCorner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">latitude (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">longitude (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="calculateRoutePostDataParameters"><code>calculateRoutePostDataParameters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">allowVignette (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">avoidAreas (optional)</div><div class="param-desc"><span class="param-type"><a href="#calculateReachableRangePostDataParameters_avoidAreas">calculateReachableRangePostDataParameters_avoidAreas</a></span>  </div>
+<div class="param">avoidVignette (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">supportingPoints (optional)</div><div class="param-desc"><span class="param-type"><a href="#calculateRoutePostDataParameters_supportingPoints_inner">array[calculateRoutePostDataParameters_supportingPoints_inner]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="calculateRoutePostDataParameters_supportingPoints_inner"><code>calculateRoutePostDataParameters_supportingPoints_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">latitude (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">longitude (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
