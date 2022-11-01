@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -63,16 +62,3 @@ src/main/java/org/openapitools/client/model/StartBalance.java
 src/main/java/org/openapitools/client/model/Statement.java
 src/main/java/org/openapitools/client/model/StatementLine.java
 src/main/java/org/openapitools/client/model/Statements.java
-src/test/java/org/openapitools/client/api/BankFeedsApiTest.java
-src/test/java/org/openapitools/client/model/CountryCodeTest.java
-src/test/java/org/openapitools/client/model/CreditDebitIndicatorTest.java
-src/test/java/org/openapitools/client/model/CurrencyCodeTest.java
-src/test/java/org/openapitools/client/model/EndBalanceTest.java
-src/test/java/org/openapitools/client/model/ErrorTest.java
-src/test/java/org/openapitools/client/model/FeedConnectionTest.java
-src/test/java/org/openapitools/client/model/FeedConnectionsTest.java
-src/test/java/org/openapitools/client/model/PaginationTest.java
-src/test/java/org/openapitools/client/model/StartBalanceTest.java
-src/test/java/org/openapitools/client/model/StatementLineTest.java
-src/test/java/org/openapitools/client/model/StatementTest.java
-src/test/java/org/openapitools/client/model/StatementsTest.java

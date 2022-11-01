@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * FeedConnections
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:42.928836-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:39.871827-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class FeedConnections {
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
