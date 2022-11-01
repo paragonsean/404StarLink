@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Xero Bank Feeds API</title>
+    <title>Amazon QLDB</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,17 +179,17 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>Xero Bank Feeds API</h1>
-    <div class="app-desc">The Bank Feeds API is a closed API that is only available to financial institutions that have an established financial services partnership with Xero. If you're an existing financial services partner that wants access, contact your local Partner Manager. If you're a financial institution who wants to provide bank feeds to your business customers, contact us to become a financial services partner.</div>
-    <div class="app-desc">More information: <a href="https://developer.xero.com">https://developer.xero.com</a></div>
-    <div class="app-desc">Contact Info: <a href="api@xero.com">api@xero.com</a></div>
-    <div class="app-desc">Version: 2.9.4</div>
-    <div class="app-desc">BasePath:/bankfeeds.xro/1.0</div>
-    <div class="license-info">MIT</div>
-    <div class="license-url">https://github.com/XeroAPI/Xero-OpenAPI/blob/master/LICENSE</div>
+  <h1>Amazon QLDB</h1>
+    <div class="app-desc">The control plane for Amazon QLDB</div>
+    <div class="app-desc">More information: <a href="https://github.com/mermade/aws2openapi">https://github.com/mermade/aws2openapi</a></div>
+    <div class="app-desc">Contact Info: <a href="mike.ralphson@gmail.com">mike.ralphson@gmail.com</a></div>
+    <div class="app-desc">Version: 2019-01-02</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0 License</div>
+    <div class="license-url">http://www.apache.org/licenses/</div>
   <h2>Access</h2>
     <ol>
-      <li>OAuth AuthorizationUrl:https://login.xero.com/identity/connect/authorizeTokenUrl:https://identity.xero.com/connect/token</li>
+      <li>APIKey KeyParamName:Authorization KeyInQuery:false KeyInHeader:true</li>
     </ol>
 
   <h2><a name="__Methods">Methods</a></h2>
@@ -197,442 +197,73 @@ font-style: italic;
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#BankFeeds">BankFeeds</a></h4>
+  <h4><a href="#Default">Default</a></h4>
   <ul>
-  <li><a href="#createFeedConnections"><code><span class="http-method">post</span> /FeedConnections</code></a></li>
-  <li><a href="#createStatements"><code><span class="http-method">post</span> /Statements</code></a></li>
-  <li><a href="#deleteFeedConnections"><code><span class="http-method">post</span> /FeedConnections/DeleteRequests</code></a></li>
-  <li><a href="#getFeedConnection"><code><span class="http-method">get</span> /FeedConnections/{id}</code></a></li>
-  <li><a href="#getFeedConnections"><code><span class="http-method">get</span> /FeedConnections</code></a></li>
-  <li><a href="#getStatement"><code><span class="http-method">get</span> /Statements/{statementID}</code></a></li>
-  <li><a href="#getStatements"><code><span class="http-method">get</span> /Statements</code></a></li>
+  <li><a href="#cancelJournalKinesisStream"><code><span class="http-method">delete</span> /ledgers/{name}/journal-kinesis-streams/{streamId}</code></a></li>
+  <li><a href="#createLedger"><code><span class="http-method">post</span> /ledgers</code></a></li>
+  <li><a href="#deleteLedger"><code><span class="http-method">delete</span> /ledgers/{name}</code></a></li>
+  <li><a href="#describeJournalKinesisStream"><code><span class="http-method">get</span> /ledgers/{name}/journal-kinesis-streams/{streamId}</code></a></li>
+  <li><a href="#describeJournalS3Export"><code><span class="http-method">get</span> /ledgers/{name}/journal-s3-exports/{exportId}</code></a></li>
+  <li><a href="#describeLedger"><code><span class="http-method">get</span> /ledgers/{name}</code></a></li>
+  <li><a href="#exportJournalToS3"><code><span class="http-method">post</span> /ledgers/{name}/journal-s3-exports</code></a></li>
+  <li><a href="#getBlock"><code><span class="http-method">post</span> /ledgers/{name}/block</code></a></li>
+  <li><a href="#getDigest"><code><span class="http-method">post</span> /ledgers/{name}/digest</code></a></li>
+  <li><a href="#getRevision"><code><span class="http-method">post</span> /ledgers/{name}/revision</code></a></li>
+  <li><a href="#listJournalKinesisStreamsForLedger"><code><span class="http-method">get</span> /ledgers/{name}/journal-kinesis-streams</code></a></li>
+  <li><a href="#listJournalS3Exports"><code><span class="http-method">get</span> /journal-s3-exports</code></a></li>
+  <li><a href="#listJournalS3ExportsForLedger"><code><span class="http-method">get</span> /ledgers/{name}/journal-s3-exports</code></a></li>
+  <li><a href="#listLedgers"><code><span class="http-method">get</span> /ledgers</code></a></li>
+  <li><a href="#listTagsForResource"><code><span class="http-method">get</span> /tags/{resourceArn}</code></a></li>
+  <li><a href="#streamJournalToKinesis"><code><span class="http-method">post</span> /ledgers/{name}/journal-kinesis-streams</code></a></li>
+  <li><a href="#tagResource"><code><span class="http-method">post</span> /tags/{resourceArn}</code></a></li>
+  <li><a href="#untagResource"><code><span class="http-method">delete</span> /tags/{resourceArn}#tagKeys</code></a></li>
+  <li><a href="#updateLedger"><code><span class="http-method">patch</span> /ledgers/{name}</code></a></li>
+  <li><a href="#updateLedgerPermissionsMode"><code><span class="http-method">patch</span> /ledgers/{name}/permissions-mode</code></a></li>
   </ul>
 
-  <h1><a name="BankFeeds">BankFeeds</a></h1>
-  <div class="method"><a name="createFeedConnections"/>
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="cancelJournalKinesisStream"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /FeedConnections</code></pre></div>
-    <div class="method-summary">Create one or more new feed connection (<span class="nickname">createFeedConnections</span>)</div>
-    <div class="method-notes">By passing in the FeedConnections array object in the body, you can create one or more new feed connections</div>
-
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">FeedConnections <a href="#FeedConnections">FeedConnections</a> (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-      <div class="param">Xero-Tenant-Id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
-
-    </div>  <!-- field-items -->
-
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#FeedConnections">FeedConnections</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "pagination" : {
-    "pageCount" : 1,
-    "pageSize" : 10,
-    "page" : 1,
-    "itemCount" : 2
-  },
-  "items" : [ {
-    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
-    "country" : "GB",
-    "accountName" : "Joe's Savings Account",
-    "accountType" : "BANK",
-    "currency" : "AUD",
-    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
-    "accountNumber" : "3809087654321500",
-    "accountToken" : "10000123",
-    "error" : {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    },
-    "status" : "REJECTED"
-  }, {
-    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
-    "country" : "GB",
-    "accountName" : "Joe's Savings Account",
-    "accountType" : "BANK",
-    "currency" : "AUD",
-    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
-    "accountNumber" : "3809087654321500",
-    "accountToken" : "10000123",
-    "error" : {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    },
-    "status" : "REJECTED"
-  } ]
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "detail" : "The application has not been configured to use these API endpoints.",
-  "title" : "Invalid Application",
-  "type" : "invalid-application",
-  "status" : 403
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">201</h4>
-    success new feed connection(s)response
-        <a href="#FeedConnections">FeedConnections</a>
-    <h4 class="field-label">400</h4>
-    invalid input, object invalid
-        <a href="#"></a>
-    <h4 class="field-label">409</h4>
-    failed to create new feed connection(s)response
-        <a href="#Error">Error</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="createStatements"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /Statements</code></pre></div>
-    <div class="method-summary">Creates one or more new statements (<span class="nickname">createStatements</span>)</div>
-    <div class="method-notes"></div>
-
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">Statements <a href="#Statements">Statements</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-      <div class="param">Xero-Tenant-Id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
-
-    </div>  <!-- field-items -->
-
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Statements">Statements</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "pagination" : {
-    "pageCount" : 1,
-    "pageSize" : 10,
-    "page" : 1,
-    "itemCount" : 2
-  },
-  "items" : [ {
-    "statementLines" : [ {
-      "reference" : "Reference for statement line 2",
-      "payeeName" : "Payee name for statement line 2",
-      "amount" : 5.0,
-      "description" : "Description for statement line 2",
-      "chequeNumber" : "021",
-      "creditDebitIndicator" : null,
-      "transactionId" : "transaction-id-2",
-      "postedDate" : "2018-06-10"
-    }, {
-      "reference" : "Reference for statement line 2",
-      "payeeName" : "Payee name for statement line 2",
-      "amount" : 5.0,
-      "description" : "Description for statement line 2",
-      "chequeNumber" : "021",
-      "creditDebitIndicator" : null,
-      "transactionId" : "transaction-id-2",
-      "postedDate" : "2018-06-10"
-    } ],
-    "endDate" : "2018-07-27",
-    "endBalance" : {
-      "amount" : 10.134,
-      "creditDebitIndicator" : "CREDIT"
-    },
-    "statementLineCount" : 1,
-    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
-    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
-    "errors" : [ {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    }, {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    } ],
-    "startBalance" : {
-      "amount" : 9.0,
-      "creditDebitIndicator" : null
-    },
-    "startDate" : "2018-07-27",
-    "status" : "PENDING"
-  }, {
-    "statementLines" : [ {
-      "reference" : "Reference for statement line 2",
-      "payeeName" : "Payee name for statement line 2",
-      "amount" : 5.0,
-      "description" : "Description for statement line 2",
-      "chequeNumber" : "021",
-      "creditDebitIndicator" : null,
-      "transactionId" : "transaction-id-2",
-      "postedDate" : "2018-06-10"
-    }, {
-      "reference" : "Reference for statement line 2",
-      "payeeName" : "Payee name for statement line 2",
-      "amount" : 5.0,
-      "description" : "Description for statement line 2",
-      "chequeNumber" : "021",
-      "creditDebitIndicator" : null,
-      "transactionId" : "transaction-id-2",
-      "postedDate" : "2018-06-10"
-    } ],
-    "endDate" : "2018-07-27",
-    "endBalance" : {
-      "amount" : 10.134,
-      "creditDebitIndicator" : "CREDIT"
-    },
-    "statementLineCount" : 1,
-    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
-    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
-    "errors" : [ {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    }, {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    } ],
-    "startBalance" : {
-      "amount" : 9.0,
-      "creditDebitIndicator" : null
-    },
-    "startDate" : "2018-07-27",
-    "status" : "PENDING"
-  } ]
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/problem+json</div>
-    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/problem+json</div>
-    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/problem+json</div>
-    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/problem+json</div>
-    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/problem+json</div>
-    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/problem+json</div>
-    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-      <li><code>application/problem+json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">202</h4>
-    Success returns Statements array of objects in response
-        <a href="#Statements">Statements</a>
-    <h4 class="field-label">400</h4>
-    Statement failed validation
-        <a href="#Statements">Statements</a>
-    <h4 class="field-label">403</h4>
-    Invalid application or feed connection
-        <a href="#Error">Error</a>
-    <h4 class="field-label">409</h4>
-    Duplicate statement received
-        <a href="#Statements">Statements</a>
-    <h4 class="field-label">413</h4>
-    Statement exceeds size limit
-        <a href="#Statements">Statements</a>
-    <h4 class="field-label">422</h4>
-    Unprocessable Entity
-        <a href="#Statements">Statements</a>
-    <h4 class="field-label">500</h4>
-    Intermittent Xero Error
-        <a href="#Statements">Statements</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="deleteFeedConnections"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /FeedConnections/DeleteRequests</code></pre></div>
-    <div class="method-summary">Delete an existing feed connection (<span class="nickname">deleteFeedConnections</span>)</div>
-    <div class="method-notes">By passing in FeedConnections array object in the body, you can delete a feed connection.</div>
-
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">FeedConnections <a href="#FeedConnections">FeedConnections</a> (required)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-      <div class="param">Xero-Tenant-Id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
-
-    </div>  <!-- field-items -->
-
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#FeedConnections">FeedConnections</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "pagination" : {
-    "pageCount" : 1,
-    "pageSize" : 10,
-    "page" : 1,
-    "itemCount" : 2
-  },
-  "items" : [ {
-    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
-    "country" : "GB",
-    "accountName" : "Joe's Savings Account",
-    "accountType" : "BANK",
-    "currency" : "AUD",
-    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
-    "accountNumber" : "3809087654321500",
-    "accountToken" : "10000123",
-    "error" : {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    },
-    "status" : "REJECTED"
-  }, {
-    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
-    "country" : "GB",
-    "accountName" : "Joe's Savings Account",
-    "accountType" : "BANK",
-    "currency" : "AUD",
-    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
-    "accountNumber" : "3809087654321500",
-    "accountToken" : "10000123",
-    "error" : {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    },
-    "status" : "REJECTED"
-  } ]
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">202</h4>
-    Success response for deleted feed connection
-        <a href="#FeedConnections">FeedConnections</a>
-    <h4 class="field-label">400</h4>
-    bad input parameter
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="getFeedConnection"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /FeedConnections/{id}</code></pre></div>
-    <div class="method-summary">Retrieve single feed connection based on a unique id provided (<span class="nickname">getFeedConnection</span>)</div>
-    <div class="method-notes">By passing in a FeedConnection Id options, you can search for matching feed connections</div>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /ledgers/{name}/journal-kinesis-streams/{streamId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">cancelJournalKinesisStream</span>)</div>
+    <div class="method-notes"><p>Ends a given Amazon QLDB journal stream. Before a stream can be canceled, its current status must be <code>ACTIVE</code>.</p> <p>You can't restart a stream after you cancel it. Canceled QLDB stream resources are subject to a 7-day retention period, so they are automatically deleted after this limit expires.</p>
+</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">id (required)</div>
+      <div class="param">name (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique identifier for retrieving single object default: null format: uuid</div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div><div class="param">streamId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The UUID (represented in Base62-encoded text) of the QLDB journal stream to be canceled. default: null </div>
     </div>  <!-- field-items -->
 
 
 
     <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">Xero-Tenant-Id (required)</div>
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
 
     </div>  <!-- field-items -->
 
@@ -640,7 +271,7 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#FeedConnection">FeedConnection</a>
+      <a href="#CancelJournalKinesisStreamResponse">CancelJournalKinesisStreamResponse</a>
       
     </div>
 
@@ -649,21 +280,7 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
-  "country" : "GB",
-  "accountName" : "Joe's Savings Account",
-  "accountType" : "BANK",
-  "currency" : "AUD",
-  "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
-  "accountNumber" : "3809087654321500",
-  "accountToken" : "10000123",
-  "error" : {
-    "detail" : "The application has not been configured to use these API endpoints.",
-    "title" : "Invalid Application",
-    "type" : "invalid-application",
-    "status" : 403
-  },
-  "status" : "REJECTED"
+  "StreamId" : ""
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -675,44 +292,72 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    success returns a FeedConnection object matching the id in response
-        <a href="#FeedConnection">FeedConnection</a>
-    <h4 class="field-label">400</h4>
-    bad input parameter
-        <a href="#"></a>
+    Success
+        <a href="#CancelJournalKinesisStreamResponse">CancelJournalKinesisStreamResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourcePreconditionNotMetException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="getFeedConnections"/>
+  <div class="method"><a name="createLedger"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /FeedConnections</code></pre></div>
-    <div class="method-summary">Searches for feed connections (<span class="nickname">getFeedConnections</span>)</div>
-    <div class="method-notes">By passing in the appropriate options, you can search for available feed connections in the system.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /ledgers</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createLedger</span>)</div>
+    <div class="method-notes">Creates a new ledger in your Amazon Web Services account in the current Region.</div>
 
 
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
 
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">CreateLedger_request <a href="#CreateLedger_request">CreateLedger_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
 
     <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">Xero-Tenant-Id (required)</div>
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
 
     </div>  <!-- field-items -->
 
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">page (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page number which specifies the set of records to retrieve. By default the number of the records per set is 10. Example - https://api.xero.com/bankfeeds.xro/1.0/FeedConnections?page=1 to get the second set of the records. When page value is not a number or a negative number, by default, the first set of records is returned. default: null </div><div class="param">pageSize (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page size which specifies how many records per page will be returned (default 10). Example - https://api.xero.com/bankfeeds.xro/1.0/FeedConnections?pageSize=100 to specify page size of 100. default: null </div>
-    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#FeedConnections">FeedConnections</a>
+      <a href="#CreateLedgerResponse">CreateLedgerResponse</a>
       
     </div>
 
@@ -721,45 +366,13 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "pagination" : {
-    "pageCount" : 1,
-    "pageSize" : 10,
-    "page" : 1,
-    "itemCount" : 2
-  },
-  "items" : [ {
-    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
-    "country" : "GB",
-    "accountName" : "Joe's Savings Account",
-    "accountType" : "BANK",
-    "currency" : "AUD",
-    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
-    "accountNumber" : "3809087654321500",
-    "accountToken" : "10000123",
-    "error" : {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    },
-    "status" : "REJECTED"
-  }, {
-    "accountId" : "079a88ea-276d-41fb-a1f1-366ef3e22921",
-    "country" : "GB",
-    "accountName" : "Joe's Savings Account",
-    "accountType" : "BANK",
-    "currency" : "AUD",
-    "id" : "00d3cf8d-95dc-4466-8dc0-47e6d1197e28",
-    "accountNumber" : "3809087654321500",
-    "accountToken" : "10000123",
-    "error" : {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    },
-    "status" : "REJECTED"
-  } ]
+  "CreationDateTime" : "",
+  "PermissionsMode" : "",
+  "KmsKeyArn" : "",
+  "State" : "",
+  "DeletionProtection" : "",
+  "Arn" : "",
+  "Name" : ""
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -770,102 +383,71 @@ font-style: italic;
     </ul>
 
     <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">201</h4>
-    search results matching criteria returned with pagination and items array
-        <a href="#FeedConnections">FeedConnections</a>
-    <h4 class="field-label">400</h4>
-    validation error response
-        <a href="#"></a>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#CreateLedgerResponse">CreateLedgerResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceAlreadyExistsException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    LimitExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ResourceInUseException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="getStatement"/>
+  <div class="method"><a name="deleteLedger"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /Statements/{statementID}</code></pre></div>
-    <div class="method-summary">Retrieve single statement based on unique id provided (<span class="nickname">getStatement</span>)</div>
-    <div class="method-notes">By passing in a statement id, you can search for matching statements</div>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /ledgers/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteLedger</span>)</div>
+    <div class="method-notes"><p>Deletes a ledger and all of its contents. This action is irreversible.</p> <p>If deletion protection is enabled, you must first disable it before you can delete the ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">statementID (required)</div>
+      <div class="param">name (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger that you want to delete. default: null </div>
     </div>  <!-- field-items -->
 
 
 
     <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">Xero-Tenant-Id (required)</div>
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
 
     </div>  <!-- field-items -->
 
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">statementId (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; statement id for single object default: null format: uuid</div>
-    </div>  <!-- field-items -->
 
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Statement">Statement</a>
-      
-    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "statementLines" : [ {
-    "reference" : "Reference for statement line 2",
-    "payeeName" : "Payee name for statement line 2",
-    "amount" : 5.0,
-    "description" : "Description for statement line 2",
-    "chequeNumber" : "021",
-    "creditDebitIndicator" : null,
-    "transactionId" : "transaction-id-2",
-    "postedDate" : "2018-06-10"
-  }, {
-    "reference" : "Reference for statement line 2",
-    "payeeName" : "Payee name for statement line 2",
-    "amount" : 5.0,
-    "description" : "Description for statement line 2",
-    "chequeNumber" : "021",
-    "creditDebitIndicator" : null,
-    "transactionId" : "transaction-id-2",
-    "postedDate" : "2018-06-10"
-  } ],
-  "endDate" : "2018-07-27",
-  "endBalance" : {
-    "amount" : 10.134,
-    "creditDebitIndicator" : "CREDIT"
-  },
-  "statementLineCount" : 1,
-  "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
-  "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
-  "errors" : [ {
-    "detail" : "The application has not been configured to use these API endpoints.",
-    "title" : "Invalid Application",
-    "type" : "invalid-application",
-    "status" : 403
-  }, {
-    "detail" : "The application has not been configured to use these API endpoints.",
-    "title" : "Invalid Application",
-    "type" : "invalid-application",
-    "status" : 403
-  } ],
-  "startBalance" : {
-    "amount" : 9.0,
-    "creditDebitIndicator" : null
-  },
-  "startDate" : "2018-07-27",
-  "status" : "PENDING"
-}</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -876,50 +458,72 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    search results matching id for single statement
-        <a href="#Statement">Statement</a>
-    <h4 class="field-label">404</h4>
-    Statement not found
+    Success
         <a href="#"></a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourceInUseException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ResourcePreconditionNotMetException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="getStatements"/>
+  <div class="method"><a name="describeJournalKinesisStream"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /Statements</code></pre></div>
-    <div class="method-summary">Retrieve all statements (<span class="nickname">getStatements</span>)</div>
-    <div class="method-notes">By passing in parameters, you can search for matching statements</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /ledgers/{name}/journal-kinesis-streams/{streamId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">describeJournalKinesisStream</span>)</div>
+    <div class="method-notes"><p>Returns detailed information about a given Amazon QLDB journal stream. The output includes the Amazon Resource Name (ARN), stream name, current status, creation time, and the parameters of the original stream creation request.</p> <p>This action does not return any expired journal streams. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration">Expiration for terminal streams</a> in the <i>Amazon QLDB Developer Guide</i>.</p>
+</div>
 
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div><div class="param">streamId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The UUID (represented in Base62-encoded text) of the QLDB journal stream to describe. default: null </div>
+    </div>  <!-- field-items -->
 
 
 
     <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">Xero-Tenant-Id (required)</div>
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
-<div class="param">Xero-Application-Id (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: 00000000-0000-0000-0000-0000000010000 </div>
-<div class="param">Xero-User-Id (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: 00000000-0000-0000-0000-0000030000000 </div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
 
     </div>  <!-- field-items -->
 
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">page (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; unique id for single object default: null format: int32</div><div class="param">pageSize (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page size which specifies how many records per page will be returned (default 10). Example - https://api.xero.com/bankfeeds.xro/1.0/Statements?pageSize=100 to specify page size of 100. default: null format: int32</div>
-    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Statements">Statements</a>
+      <a href="#DescribeJournalKinesisStreamResponse">DescribeJournalKinesisStreamResponse</a>
       
     </div>
 
@@ -928,123 +532,1455 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "pagination" : {
-    "pageCount" : 1,
-    "pageSize" : 10,
-    "page" : 1,
-    "itemCount" : 2
-  },
-  "items" : [ {
-    "statementLines" : [ {
-      "reference" : "Reference for statement line 2",
-      "payeeName" : "Payee name for statement line 2",
-      "amount" : 5.0,
-      "description" : "Description for statement line 2",
-      "chequeNumber" : "021",
-      "creditDebitIndicator" : null,
-      "transactionId" : "transaction-id-2",
-      "postedDate" : "2018-06-10"
-    }, {
-      "reference" : "Reference for statement line 2",
-      "payeeName" : "Payee name for statement line 2",
-      "amount" : 5.0,
-      "description" : "Description for statement line 2",
-      "chequeNumber" : "021",
-      "creditDebitIndicator" : null,
-      "transactionId" : "transaction-id-2",
-      "postedDate" : "2018-06-10"
-    } ],
-    "endDate" : "2018-07-27",
-    "endBalance" : {
-      "amount" : 10.134,
-      "creditDebitIndicator" : "CREDIT"
+  "Stream" : {
+    "Status" : "",
+    "InclusiveStartTime" : "",
+    "StreamId" : "",
+    "StreamName" : "",
+    "ErrorCause" : "",
+    "KinesisConfiguration" : {
+      "AggregationEnabled" : "",
+      "StreamArn" : ""
     },
-    "statementLineCount" : 1,
-    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
-    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
-    "errors" : [ {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    }, {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    } ],
-    "startBalance" : {
-      "amount" : 9.0,
-      "creditDebitIndicator" : null
-    },
-    "startDate" : "2018-07-27",
-    "status" : "PENDING"
-  }, {
-    "statementLines" : [ {
-      "reference" : "Reference for statement line 2",
-      "payeeName" : "Payee name for statement line 2",
-      "amount" : 5.0,
-      "description" : "Description for statement line 2",
-      "chequeNumber" : "021",
-      "creditDebitIndicator" : null,
-      "transactionId" : "transaction-id-2",
-      "postedDate" : "2018-06-10"
-    }, {
-      "reference" : "Reference for statement line 2",
-      "payeeName" : "Payee name for statement line 2",
-      "amount" : 5.0,
-      "description" : "Description for statement line 2",
-      "chequeNumber" : "021",
-      "creditDebitIndicator" : null,
-      "transactionId" : "transaction-id-2",
-      "postedDate" : "2018-06-10"
-    } ],
-    "endDate" : "2018-07-27",
-    "endBalance" : {
-      "amount" : 10.134,
-      "creditDebitIndicator" : "CREDIT"
-    },
-    "statementLineCount" : 1,
-    "id" : "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
-    "feedConnectionId" : "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
-    "errors" : [ {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    }, {
-      "detail" : "The application has not been configured to use these API endpoints.",
-      "title" : "Invalid Application",
-      "type" : "invalid-application",
-      "status" : 403
-    } ],
-    "startBalance" : {
-      "amount" : 9.0,
-      "creditDebitIndicator" : null
-    },
-    "startDate" : "2018-07-27",
-    "status" : "PENDING"
-  } ]
+    "CreationTime" : "",
+    "ExclusiveEndTime" : "",
+    "Arn" : "",
+    "LedgerName" : "",
+    "RoleArn" : ""
+  }
 }</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/problem+json</div>
-    <pre class="example"><code>Custom MIME type example not yet supported: application/problem+json</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/json</code></li>
-      <li><code>application/problem+json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    success returns Statements array of objects response
-        <a href="#Statements">Statements</a>
-    <h4 class="field-label">400</h4>
-    bad input parameter
-        <a href="#Statements">Statements</a>
+    Success
+        <a href="#DescribeJournalKinesisStreamResponse">DescribeJournalKinesisStreamResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourcePreconditionNotMetException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="describeJournalS3Export"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /ledgers/{name}/journal-s3-exports/{exportId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">describeJournalS3Export</span>)</div>
+    <div class="method-notes"><p>Returns information about a journal export job, including the ledger name, export ID, creation time, current status, and the parameters of the original export creation request.</p> <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.</p> <p>If the export job with the given <code>ExportId</code> doesn't exist, then throws <code>ResourceNotFoundException</code>.</p> <p>If the ledger with the given <code>Name</code> doesn't exist, then throws <code>ResourceNotFoundException</code>.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div><div class="param">exportId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The UUID (represented in Base62-encoded text) of the journal export job to describe. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DescribeJournalS3ExportResponse">DescribeJournalS3ExportResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ExportDescription" : {
+    "Status" : "",
+    "InclusiveStartTime" : "",
+    "ExportId" : "",
+    "OutputFormat" : "",
+    "S3ExportConfiguration" : {
+      "Bucket" : "",
+      "EncryptionConfiguration" : {
+        "ObjectEncryptionType" : "",
+        "KmsKeyArn" : ""
+      },
+      "Prefix" : ""
+    },
+    "ExclusiveEndTime" : "",
+    "ExportCreationTime" : "",
+    "LedgerName" : "",
+    "RoleArn" : ""
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#DescribeJournalS3ExportResponse">DescribeJournalS3ExportResponse</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="describeLedger"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /ledgers/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">describeLedger</span>)</div>
+    <div class="method-notes">Returns information about a ledger, including its state, permissions mode, encryption at rest settings, and when it was created.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger that you want to describe. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DescribeLedgerResponse">DescribeLedgerResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "CreationDateTime" : "",
+  "PermissionsMode" : "",
+  "State" : "",
+  "EncryptionDescription" : {
+    "EncryptionStatus" : "",
+    "KmsKeyArn" : "",
+    "InaccessibleKmsKeyDateTime" : ""
+  },
+  "DeletionProtection" : "",
+  "Arn" : "",
+  "Name" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#DescribeLedgerResponse">DescribeLedgerResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="exportJournalToS3"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /ledgers/{name}/journal-s3-exports</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">exportJournalToS3</span>)</div>
+    <div class="method-notes"><p>Exports journal contents within a date and time range from a ledger into a specified Amazon Simple Storage Service (Amazon S3) bucket. A journal export job can write the data objects in either the text or binary representation of Amazon Ion format, or in <i>JSON Lines</i> text format.</p> <p>In JSON Lines format, each journal block in the exported data object is a valid JSON object that is delimited by a newline. You can use this format to easily integrate JSON exports with analytics tools such as Glue and Amazon Athena because these services can parse newline-delimited JSON automatically. For more information about the format, see <a href="https://jsonlines.org/">JSON Lines</a>.</p> <p>If the ledger with the given <code>Name</code> doesn't exist, then throws <code>ResourceNotFoundException</code>.</p> <p>If the ledger with the given <code>Name</code> is in <code>CREATING</code> status, then throws <code>ResourcePreconditionNotMetException</code>.</p> <p>You can initiate up to two concurrent journal export requests for each ledger. Beyond this limit, journal export requests throw <code>LimitExceededException</code>.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ExportJournalToS3_request <a href="#ExportJournalToS3_request">ExportJournalToS3_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ExportJournalToS3Response">ExportJournalToS3Response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ExportId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ExportJournalToS3Response">ExportJournalToS3Response</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourcePreconditionNotMetException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getBlock"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /ledgers/{name}/block</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getBlock</span>)</div>
+    <div class="method-notes"><p>Returns a block object at a specified address in a journal. Also returns a proof of the specified block for verification if <code>DigestTipAddress</code> is provided.</p> <p>For information about the data contents in a block, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html">Journal contents</a> in the <i>Amazon QLDB Developer Guide</i>.</p> <p>If the specified ledger doesn't exist or is in <code>DELETING</code> status, then throws <code>ResourceNotFoundException</code>.</p> <p>If the specified ledger is in <code>CREATING</code> status, then throws <code>ResourcePreconditionNotMetException</code>.</p> <p>If no block exists with the specified address, then throws <code>InvalidParameterException</code>.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetBlock_request <a href="#GetBlock_request">GetBlock_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetBlockResponse">GetBlockResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Proof" : {
+    "IonText" : ""
+  },
+  "Block" : {
+    "IonText" : ""
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetBlockResponse">GetBlockResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourcePreconditionNotMetException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getDigest"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /ledgers/{name}/digest</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getDigest</span>)</div>
+    <div class="method-notes">Returns the digest of a ledger at the latest committed block in the journal. The response includes a 256-bit hash value and a block address.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetDigestResponse">GetDigestResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Digest" : "",
+  "DigestTipAddress" : {
+    "IonText" : ""
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetDigestResponse">GetDigestResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourcePreconditionNotMetException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getRevision"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /ledgers/{name}/revision</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getRevision</span>)</div>
+    <div class="method-notes">Returns a revision data object for a specified document ID and block address. Also returns a proof of the specified revision for verification if <code>DigestTipAddress</code> is provided.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetRevision_request <a href="#GetRevision_request">GetRevision_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetRevisionResponse">GetRevisionResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Revision" : {
+    "IonText" : ""
+  },
+  "Proof" : {
+    "IonText" : ""
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetRevisionResponse">GetRevisionResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourcePreconditionNotMetException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listJournalKinesisStreamsForLedger"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /ledgers/{name}/journal-kinesis-streams</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listJournalKinesisStreamsForLedger</span>)</div>
+    <div class="method-notes"><p>Returns an array of all Amazon QLDB journal stream descriptors for a given ledger. The output of each stream descriptor includes the same details that are returned by <code>DescribeJournalKinesisStream</code>.</p> <p>This action does not return any expired journal streams. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration">Expiration for terminal streams</a> in the <i>Amazon QLDB Developer Guide</i>.</p> <p>This action returns a maximum of <code>MaxResults</code> items. It is paginated so that you can retrieve all the items by calling <code>ListJournalKinesisStreamsForLedger</code> multiple times.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">max_results (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of results to return in a single <code>ListJournalKinesisStreamsForLedger</code> request. (The actual number of results returned might be fewer.) default: null </div><div class="param">next_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A pagination token, indicating that you want to retrieve the next page of results. If you received a value for <code>NextToken</code> in the response from a previous <code>ListJournalKinesisStreamsForLedger</code> call, you should use that value as input here. default: null </div><div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListJournalKinesisStreamsForLedgerResponse">ListJournalKinesisStreamsForLedgerResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "NextToken" : "",
+  "Streams" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListJournalKinesisStreamsForLedgerResponse">ListJournalKinesisStreamsForLedgerResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourcePreconditionNotMetException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listJournalS3Exports"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /journal-s3-exports</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listJournalS3Exports</span>)</div>
+    <div class="method-notes"><p>Returns an array of journal export job descriptions for all ledgers that are associated with the current Amazon Web Services account and Region.</p> <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that you can retrieve all the items by calling <code>ListJournalS3Exports</code> multiple times.</p> <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.</p>
+</div>
+
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">max_results (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of results to return in a single <code>ListJournalS3Exports</code> request. (The actual number of results returned might be fewer.) default: null </div><div class="param">next_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A pagination token, indicating that you want to retrieve the next page of results. If you received a value for <code>NextToken</code> in the response from a previous <code>ListJournalS3Exports</code> call, then you should use that value as input here. default: null </div><div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListJournalS3ExportsResponse">ListJournalS3ExportsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "JournalS3Exports" : "",
+  "NextToken" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListJournalS3ExportsResponse">ListJournalS3ExportsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listJournalS3ExportsForLedger"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /ledgers/{name}/journal-s3-exports</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listJournalS3ExportsForLedger</span>)</div>
+    <div class="method-notes"><p>Returns an array of journal export job descriptions for a specified ledger.</p> <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code> multiple times.</p> <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">max_results (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of results to return in a single <code>ListJournalS3ExportsForLedger</code> request. (The actual number of results returned might be fewer.) default: null </div><div class="param">next_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A pagination token, indicating that you want to retrieve the next page of results. If you received a value for <code>NextToken</code> in the response from a previous <code>ListJournalS3ExportsForLedger</code> call, then you should use that value as input here. default: null </div><div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListJournalS3ExportsForLedgerResponse">ListJournalS3ExportsForLedgerResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "JournalS3Exports" : "",
+  "NextToken" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListJournalS3ExportsForLedgerResponse">ListJournalS3ExportsForLedgerResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listLedgers"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /ledgers</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listLedgers</span>)</div>
+    <div class="method-notes"><p>Returns an array of ledger summaries that are associated with the current Amazon Web Services account and Region.</p> <p>This action returns a maximum of 100 items and is paginated so that you can retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>
+</div>
+
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">max_results (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of results to return in a single <code>ListLedgers</code> request. (The actual number of results returned might be fewer.) default: null </div><div class="param">next_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A pagination token, indicating that you want to retrieve the next page of results. If you received a value for <code>NextToken</code> in the response from a previous <code>ListLedgers</code> call, then you should use that value as input here. default: null </div><div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListLedgersResponse">ListLedgersResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "NextToken" : "",
+  "Ledgers" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListLedgersResponse">ListLedgersResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listTagsForResource"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /tags/{resourceArn}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listTagsForResource</span>)</div>
+    <div class="method-notes">Returns all tags for a specified Amazon QLDB resource.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">resourceArn (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p> <p> <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code> </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListTagsForResourceResponse">ListTagsForResourceResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Tags" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListTagsForResourceResponse">ListTagsForResourceResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="streamJournalToKinesis"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /ledgers/{name}/journal-kinesis-streams</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">streamJournalToKinesis</span>)</div>
+    <div class="method-notes">Creates a journal stream for a given Amazon QLDB ledger. The stream captures every document revision that is committed to the ledger's journal and delivers the data to a specified Amazon Kinesis Data Streams resource.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">StreamJournalToKinesis_request <a href="#StreamJournalToKinesis_request">StreamJournalToKinesis_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#StreamJournalToKinesisResponse">StreamJournalToKinesisResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "StreamId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#StreamJournalToKinesisResponse">StreamJournalToKinesisResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ResourcePreconditionNotMetException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="tagResource"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /tags/{resourceArn}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">tagResource</span>)</div>
+    <div class="method-notes"><p>Adds one or more tags to a specified Amazon QLDB resource.</p> <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a resource, your request fails and returns an error.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">resourceArn (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The Amazon Resource Name (ARN) to which you want to add the tags. For example:</p> <p> <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code> </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">TagResource_request <a href="#TagResource_request">TagResource_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#Object">Object</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="untagResource"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /tags/{resourceArn}#tagKeys</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">untagResource</span>)</div>
+    <div class="method-notes">Removes one or more tags from a specified Amazon QLDB resource. You can specify up to 50 tag keys to remove.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">resourceArn (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; <p>The Amazon Resource Name (ARN) from which to remove the tags. For example:</p> <p> <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code> </p>
+ default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">tagKeys (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The list of tag keys to remove. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#Object">Object</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateLedger"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /ledgers/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateLedger</span>)</div>
+    <div class="method-notes">Updates properties on a ledger.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">UpdateLedger_request <a href="#UpdateLedger_request">UpdateLedger_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#UpdateLedgerResponse">UpdateLedgerResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "CreationDateTime" : "",
+  "State" : "",
+  "EncryptionDescription" : {
+    "EncryptionStatus" : "",
+    "KmsKeyArn" : "",
+    "InaccessibleKmsKeyDateTime" : ""
+  },
+  "DeletionProtection" : "",
+  "Arn" : "",
+  "Name" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#UpdateLedgerResponse">UpdateLedgerResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateLedgerPermissionsMode"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /ledgers/{name}/permissions-mode</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateLedgerPermissionsMode</span>)</div>
+    <div class="method-notes"><p>Updates the permissions mode of a ledger.</p> <important> <p>Before you switch to the <code>STANDARD</code> permissions mode, you must first create all required IAM policies and table tags to avoid disruption to your users. To learn more, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/ledger-management.basics.html#ledger-mgmt.basics.update-permissions.migrating">Migrating to the standard permissions mode</a> in the <i>Amazon QLDB Developer Guide</i>.</p> </important>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the ledger. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">UpdateLedgerPermissionsMode_request <a href="#UpdateLedgerPermissionsMode_request">UpdateLedgerPermissionsMode_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#UpdateLedgerPermissionsModeResponse">UpdateLedgerPermissionsModeResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "PermissionsMode" : "",
+  "Arn" : "",
+  "Name" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#UpdateLedgerPermissionsModeResponse">UpdateLedgerPermissionsModeResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
   </div> <!-- method -->
   <hr/>
 
@@ -1053,142 +1989,669 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#CountryCode"><code>CountryCode</code> - </a></li>
-    <li><a href="#CreditDebitIndicator"><code>CreditDebitIndicator</code> - </a></li>
-    <li><a href="#CurrencyCode"><code>CurrencyCode</code> - </a></li>
-    <li><a href="#EndBalance"><code>EndBalance</code> - </a></li>
-    <li><a href="#Error"><code>Error</code> - </a></li>
-    <li><a href="#FeedConnection"><code>FeedConnection</code> - </a></li>
-    <li><a href="#FeedConnections"><code>FeedConnections</code> - </a></li>
-    <li><a href="#Pagination"><code>Pagination</code> - </a></li>
-    <li><a href="#StartBalance"><code>StartBalance</code> - </a></li>
-    <li><a href="#Statement"><code>Statement</code> - </a></li>
-    <li><a href="#StatementLine"><code>StatementLine</code> - </a></li>
-    <li><a href="#Statements"><code>Statements</code> - </a></li>
+    <li><a href="#CancelJournalKinesisStreamResponse"><code>CancelJournalKinesisStreamResponse</code> - </a></li>
+    <li><a href="#CreateLedgerRequest"><code>CreateLedgerRequest</code> - CreateLedgerRequest</a></li>
+    <li><a href="#CreateLedgerResponse"><code>CreateLedgerResponse</code> - </a></li>
+    <li><a href="#CreateLedger_request"><code>CreateLedger_request</code> - </a></li>
+    <li><a href="#DescribeJournalKinesisStreamResponse"><code>DescribeJournalKinesisStreamResponse</code> - </a></li>
+    <li><a href="#DescribeJournalKinesisStreamResponse_Stream"><code>DescribeJournalKinesisStreamResponse_Stream</code> - </a></li>
+    <li><a href="#DescribeJournalS3ExportResponse"><code>DescribeJournalS3ExportResponse</code> - </a></li>
+    <li><a href="#DescribeJournalS3ExportResponse_ExportDescription"><code>DescribeJournalS3ExportResponse_ExportDescription</code> - </a></li>
+    <li><a href="#DescribeLedgerResponse"><code>DescribeLedgerResponse</code> - </a></li>
+    <li><a href="#DescribeLedgerResponse_EncryptionDescription"><code>DescribeLedgerResponse_EncryptionDescription</code> - </a></li>
+    <li><a href="#EncryptionStatus"><code>EncryptionStatus</code> - </a></li>
+    <li><a href="#ErrorCause"><code>ErrorCause</code> - </a></li>
+    <li><a href="#ExportJournalToS3Request"><code>ExportJournalToS3Request</code> - ExportJournalToS3Request</a></li>
+    <li><a href="#ExportJournalToS3Request_S3ExportConfiguration"><code>ExportJournalToS3Request_S3ExportConfiguration</code> - </a></li>
+    <li><a href="#ExportJournalToS3Response"><code>ExportJournalToS3Response</code> - </a></li>
+    <li><a href="#ExportJournalToS3_request"><code>ExportJournalToS3_request</code> - </a></li>
+    <li><a href="#ExportJournalToS3_request_S3ExportConfiguration"><code>ExportJournalToS3_request_S3ExportConfiguration</code> - </a></li>
+    <li><a href="#ExportJournalToS3_request_S3ExportConfiguration_EncryptionConfiguration"><code>ExportJournalToS3_request_S3ExportConfiguration_EncryptionConfiguration</code> - </a></li>
+    <li><a href="#ExportStatus"><code>ExportStatus</code> - </a></li>
+    <li><a href="#GetBlockRequest"><code>GetBlockRequest</code> - GetBlockRequest</a></li>
+    <li><a href="#GetBlockRequest_BlockAddress"><code>GetBlockRequest_BlockAddress</code> - </a></li>
+    <li><a href="#GetBlockRequest_DigestTipAddress"><code>GetBlockRequest_DigestTipAddress</code> - </a></li>
+    <li><a href="#GetBlockResponse"><code>GetBlockResponse</code> - </a></li>
+    <li><a href="#GetBlockResponse_Block"><code>GetBlockResponse_Block</code> - </a></li>
+    <li><a href="#GetBlockResponse_Proof"><code>GetBlockResponse_Proof</code> - </a></li>
+    <li><a href="#GetBlock_request"><code>GetBlock_request</code> - </a></li>
+    <li><a href="#GetBlock_request_BlockAddress"><code>GetBlock_request_BlockAddress</code> - </a></li>
+    <li><a href="#GetDigestResponse"><code>GetDigestResponse</code> - </a></li>
+    <li><a href="#GetDigestResponse_DigestTipAddress"><code>GetDigestResponse_DigestTipAddress</code> - </a></li>
+    <li><a href="#GetRevisionRequest"><code>GetRevisionRequest</code> - GetRevisionRequest</a></li>
+    <li><a href="#GetRevisionRequest_BlockAddress"><code>GetRevisionRequest_BlockAddress</code> - </a></li>
+    <li><a href="#GetRevisionResponse"><code>GetRevisionResponse</code> - </a></li>
+    <li><a href="#GetRevisionResponse_Proof"><code>GetRevisionResponse_Proof</code> - </a></li>
+    <li><a href="#GetRevisionResponse_Revision"><code>GetRevisionResponse_Revision</code> - </a></li>
+    <li><a href="#GetRevision_request"><code>GetRevision_request</code> - </a></li>
+    <li><a href="#JournalKinesisStreamDescription"><code>JournalKinesisStreamDescription</code> - </a></li>
+    <li><a href="#JournalKinesisStreamDescription_KinesisConfiguration"><code>JournalKinesisStreamDescription_KinesisConfiguration</code> - </a></li>
+    <li><a href="#JournalS3ExportDescription"><code>JournalS3ExportDescription</code> - </a></li>
+    <li><a href="#KinesisConfiguration"><code>KinesisConfiguration</code> - </a></li>
+    <li><a href="#LedgerEncryptionDescription"><code>LedgerEncryptionDescription</code> - </a></li>
+    <li><a href="#LedgerState"><code>LedgerState</code> - </a></li>
+    <li><a href="#LedgerSummary"><code>LedgerSummary</code> - </a></li>
+    <li><a href="#ListJournalKinesisStreamsForLedgerResponse"><code>ListJournalKinesisStreamsForLedgerResponse</code> - </a></li>
+    <li><a href="#ListJournalS3ExportsForLedgerResponse"><code>ListJournalS3ExportsForLedgerResponse</code> - </a></li>
+    <li><a href="#ListJournalS3ExportsResponse"><code>ListJournalS3ExportsResponse</code> - </a></li>
+    <li><a href="#ListLedgersResponse"><code>ListLedgersResponse</code> - </a></li>
+    <li><a href="#ListTagsForResourceResponse"><code>ListTagsForResourceResponse</code> - </a></li>
+    <li><a href="#OutputFormat"><code>OutputFormat</code> - </a></li>
+    <li><a href="#PermissionsMode"><code>PermissionsMode</code> - </a></li>
+    <li><a href="#S3EncryptionConfiguration"><code>S3EncryptionConfiguration</code> - </a></li>
+    <li><a href="#S3ExportConfiguration"><code>S3ExportConfiguration</code> - </a></li>
+    <li><a href="#S3ObjectEncryptionType"><code>S3ObjectEncryptionType</code> - </a></li>
+    <li><a href="#StreamJournalToKinesisRequest"><code>StreamJournalToKinesisRequest</code> - StreamJournalToKinesisRequest</a></li>
+    <li><a href="#StreamJournalToKinesisRequest_KinesisConfiguration"><code>StreamJournalToKinesisRequest_KinesisConfiguration</code> - </a></li>
+    <li><a href="#StreamJournalToKinesisResponse"><code>StreamJournalToKinesisResponse</code> - </a></li>
+    <li><a href="#StreamJournalToKinesis_request"><code>StreamJournalToKinesis_request</code> - </a></li>
+    <li><a href="#StreamJournalToKinesis_request_KinesisConfiguration"><code>StreamJournalToKinesis_request_KinesisConfiguration</code> - </a></li>
+    <li><a href="#StreamStatus"><code>StreamStatus</code> - </a></li>
+    <li><a href="#TagResourceRequest"><code>TagResourceRequest</code> - TagResourceRequest</a></li>
+    <li><a href="#TagResource_request"><code>TagResource_request</code> - </a></li>
+    <li><a href="#UpdateLedgerPermissionsModeRequest"><code>UpdateLedgerPermissionsModeRequest</code> - UpdateLedgerPermissionsModeRequest</a></li>
+    <li><a href="#UpdateLedgerPermissionsModeResponse"><code>UpdateLedgerPermissionsModeResponse</code> - </a></li>
+    <li><a href="#UpdateLedgerPermissionsMode_request"><code>UpdateLedgerPermissionsMode_request</code> - </a></li>
+    <li><a href="#UpdateLedgerRequest"><code>UpdateLedgerRequest</code> - UpdateLedgerRequest</a></li>
+    <li><a href="#UpdateLedgerResponse"><code>UpdateLedgerResponse</code> - </a></li>
+    <li><a href="#UpdateLedger_request"><code>UpdateLedger_request</code> - </a></li>
+    <li><a href="#ValueHolder"><code>ValueHolder</code> - </a></li>
   </ol>
 
   <div class="model">
-    <h3><a name="CountryCode"><code>CountryCode</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>ISO-3166 alpha-2 country code, e.g. US, AU This element is required only when the Application supports multi-region. Talk to your Partner Manager to confirm if this is the case.</div>
+    <h3><a name="CancelJournalKinesisStreamResponse"><code>CancelJournalKinesisStreamResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">StreamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateLedgerRequest"><code>CreateLedgerRequest</code> - CreateLedgerRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Tags (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">PermissionsMode </div><div class="param-desc"><span class="param-type"><a href="#PermissionsMode">PermissionsMode</a></span>  </div>
+<div class="param">DeletionProtection (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">KmsKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateLedgerResponse"><code>CreateLedgerResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Arn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">State (optional)</div><div class="param-desc"><span class="param-type"><a href="#LedgerState">LedgerState</a></span>  </div>
+<div class="param">CreationDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">PermissionsMode (optional)</div><div class="param-desc"><span class="param-type"><a href="#PermissionsMode">PermissionsMode</a></span>  </div>
+<div class="param">DeletionProtection (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">KmsKeyArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreateLedger_request"><code>CreateLedger_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The name of the ledger that you want to create. The name must be unique among all of the ledgers in your Amazon Web Services account in the current Region.</p> <p>Naming constraints for ledger names are defined in <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming">Quotas in Amazon QLDB</a> in the <i>Amazon QLDB Developer Guide</i>.</p>
+ </div>
+<div class="param">Tags (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> The key-value pairs to add as tags to the ledger that you want to create. Tag keys are case sensitive. Tag values are case sensitive and can be null. </div>
+<div class="param">PermissionsMode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The permissions mode to assign to the ledger that you want to create. This parameter can have one of the following values:</p> <ul> <li> <p> <code>ALLOW_ALL</code>: A legacy permissions mode that enables access control with API-level granularity for ledgers.</p> <p>This mode allows users who have the <code>SendCommand</code> API permission for this ledger to run all PartiQL commands (hence, <code>ALLOW_ALL</code>) on any tables in the specified ledger. This mode disregards any table-level or command-level IAM permissions policies that you create for the ledger.</p> </li> <li> <p> <code>STANDARD</code>: (<i>Recommended</i>) A permissions mode that enables access control with finer granularity for ledgers, tables, and PartiQL commands.</p> <p>By default, this mode denies all user requests to run any PartiQL commands on any tables in this ledger. To allow PartiQL commands to run, you must create IAM permissions policies for specific table resources and PartiQL actions, in addition to the <code>SendCommand</code> API permission for the ledger. For information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-standard-mode.html">Getting started with the standard permissions mode</a> in the <i>Amazon QLDB Developer Guide</i>.</p> </li> </ul> <note> <p>We strongly recommend using the <code>STANDARD</code> permissions mode to maximize the security of your ledger data.</p> </note>
+ </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">ALLOW_ALL</div><div class="param-enum">STANDARD</div>
+<div class="param">DeletionProtection (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> <p>The flag that prevents a ledger from being deleted by any user. If not provided on ledger creation, this feature is enabled (<code>true</code>) by default.</p> <p>If deletion protection is enabled, you must first disable it before you can delete the ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+ </div>
+<div class="param">KmsKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The key in Key Management Service (KMS) to use for encryption of data at rest in the ledger. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html">Encryption at rest</a> in the <i>Amazon QLDB Developer Guide</i>.</p> <p>Use one of the following options to specify this parameter:</p> <ul> <li> <p> <code>AWS_OWNED_KMS_KEY</code>: Use an KMS key that is owned and managed by Amazon Web Services on your behalf.</p> </li> <li> <p> <b>Undefined</b>: By default, use an Amazon Web Services owned KMS key.</p> </li> <li> <p> <b>A valid symmetric customer managed KMS key</b>: Use the specified KMS key in your account that you create, own, and manage.</p> <p>Amazon QLDB does not support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>.</p> </li> </ul> <p>To specify a customer managed KMS key, you can use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p> <p>For example:</p> <ul> <li> <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> <li> <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> <li> <p>Alias name: <code>alias/ExampleAlias</code> </p> </li> <li> <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeJournalKinesisStreamResponse"><code>DescribeJournalKinesisStreamResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Stream (optional)</div><div class="param-desc"><span class="param-type"><a href="#DescribeJournalKinesisStreamResponse_Stream">DescribeJournalKinesisStreamResponse_Stream</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeJournalKinesisStreamResponse_Stream"><code>DescribeJournalKinesisStreamResponse_Stream</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">LedgerName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CreationTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">InclusiveStartTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">ExclusiveEndTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">RoleArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Arn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Status </div><div class="param-desc"><span class="param-type"><a href="#StreamStatus">StreamStatus</a></span>  </div>
+<div class="param">KinesisConfiguration </div><div class="param-desc"><span class="param-type"><a href="#JournalKinesisStreamDescription_KinesisConfiguration">JournalKinesisStreamDescription_KinesisConfiguration</a></span>  </div>
+<div class="param">ErrorCause (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorCause">ErrorCause</a></span>  </div>
+<div class="param">StreamName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeJournalS3ExportResponse"><code>DescribeJournalS3ExportResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ExportDescription </div><div class="param-desc"><span class="param-type"><a href="#DescribeJournalS3ExportResponse_ExportDescription">DescribeJournalS3ExportResponse_ExportDescription</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeJournalS3ExportResponse_ExportDescription"><code>DescribeJournalS3ExportResponse_ExportDescription</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">LedgerName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ExportId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ExportCreationTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">Status </div><div class="param-desc"><span class="param-type"><a href="#ExportStatus">ExportStatus</a></span>  </div>
+<div class="param">InclusiveStartTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">ExclusiveEndTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">S3ExportConfiguration </div><div class="param-desc"><span class="param-type"><a href="#S3ExportConfiguration">S3ExportConfiguration</a></span>  </div>
+<div class="param">RoleArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">OutputFormat (optional)</div><div class="param-desc"><span class="param-type"><a href="#OutputFormat">OutputFormat</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeLedgerResponse"><code>DescribeLedgerResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Arn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">State (optional)</div><div class="param-desc"><span class="param-type"><a href="#LedgerState">LedgerState</a></span>  </div>
+<div class="param">CreationDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">PermissionsMode (optional)</div><div class="param-desc"><span class="param-type"><a href="#PermissionsMode">PermissionsMode</a></span>  </div>
+<div class="param">DeletionProtection (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">EncryptionDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#DescribeLedgerResponse_EncryptionDescription">DescribeLedgerResponse_EncryptionDescription</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeLedgerResponse_EncryptionDescription"><code>DescribeLedgerResponse_EncryptionDescription</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">KmsKeyArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">EncryptionStatus </div><div class="param-desc"><span class="param-type"><a href="#EncryptionStatus">EncryptionStatus</a></span>  </div>
+<div class="param">InaccessibleKmsKeyDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EncryptionStatus"><code>EncryptionStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
           </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="CreditDebitIndicator"><code>CreditDebitIndicator</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>If the statement balances are credit or debit, the CreditDebitIndicator should be specified from the perspective of the Customer.</div>
+    <h3><a name="ErrorCause"><code>ErrorCause</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
           </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="CurrencyCode"><code>CurrencyCode</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>3 letter alpha code for the ISO-4217 currency code, e.g. USD, AUD.</div>
+    <h3><a name="ExportJournalToS3Request"><code>ExportJournalToS3Request</code> - ExportJournalToS3Request</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">InclusiveStartTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">ExclusiveEndTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">S3ExportConfiguration </div><div class="param-desc"><span class="param-type"><a href="#ExportJournalToS3Request_S3ExportConfiguration">ExportJournalToS3Request_S3ExportConfiguration</a></span>  </div>
+<div class="param">RoleArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">OutputFormat (optional)</div><div class="param-desc"><span class="param-type"><a href="#OutputFormat">OutputFormat</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExportJournalToS3Request_S3ExportConfiguration"><code>ExportJournalToS3Request_S3ExportConfiguration</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Bucket </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Prefix </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">EncryptionConfiguration </div><div class="param-desc"><span class="param-type"><a href="#ExportJournalToS3_request_S3ExportConfiguration_EncryptionConfiguration">ExportJournalToS3_request_S3ExportConfiguration_EncryptionConfiguration</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExportJournalToS3Response"><code>ExportJournalToS3Response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ExportId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExportJournalToS3_request"><code>ExportJournalToS3_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">InclusiveStartTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> <p>The inclusive start date and time for the range of journal contents to export.</p> <p>The <code>InclusiveStartTime</code> must be in <code>ISO 8601</code> date and time format and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>.</p> <p>The <code>InclusiveStartTime</code> must be before <code>ExclusiveEndTime</code>.</p> <p>If you provide an <code>InclusiveStartTime</code> that is before the ledger's <code>CreationDateTime</code>, Amazon QLDB defaults it to the ledger's <code>CreationDateTime</code>.</p>
+ format: date-time</div>
+<div class="param">ExclusiveEndTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> <p>The exclusive end date and time for the range of journal contents to export.</p> <p>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>.</p> <p>The <code>ExclusiveEndTime</code> must be less than or equal to the current UTC date and time.</p>
+ format: date-time</div>
+<div class="param">S3ExportConfiguration </div><div class="param-desc"><span class="param-type"><a href="#ExportJournalToS3_request_S3ExportConfiguration">ExportJournalToS3_request_S3ExportConfiguration</a></span>  </div>
+<div class="param">RoleArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal export job to do the following:</p> <ul> <li> <p>Write objects into your Amazon Simple Storage Service (Amazon S3) bucket.</p> </li> <li> <p>(Optional) Use your customer managed key in Key Management Service (KMS) for server-side encryption of your exported data.</p> </li> </ul> <p>To pass a role to QLDB when requesting a journal export, you must have permissions to perform the <code>iam:PassRole</code> action on the IAM role resource. This is required for all journal export requests.</p>
+ </div>
+<div class="param">OutputFormat (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The output format of your exported journal data. If this parameter is not specified, the exported data defaults to <code>ION_TEXT</code> format. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">ION_BINARY</div><div class="param-enum">ION_TEXT</div><div class="param-enum">JSON</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExportJournalToS3_request_S3ExportConfiguration"><code>ExportJournalToS3_request_S3ExportConfiguration</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The Amazon Simple Storage Service (Amazon S3) bucket location in which a journal export job writes the journal contents.</div>
+    <div class="field-items">
+      <div class="param">Bucket (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Prefix (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">EncryptionConfiguration (optional)</div><div class="param-desc"><span class="param-type"><a href="#ExportJournalToS3_request_S3ExportConfiguration_EncryptionConfiguration">ExportJournalToS3_request_S3ExportConfiguration_EncryptionConfiguration</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExportJournalToS3_request_S3ExportConfiguration_EncryptionConfiguration"><code>ExportJournalToS3_request_S3ExportConfiguration_EncryptionConfiguration</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ObjectEncryptionType </div><div class="param-desc"><span class="param-type"><a href="#S3ObjectEncryptionType">S3ObjectEncryptionType</a></span>  </div>
+<div class="param">KmsKeyArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExportStatus"><code>ExportStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
           </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="EndBalance"><code>EndBalance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>The StartBalance plus all the Statement Line Amounts should be equal to the EndBalance Amount.</div>
+    <h3><a name="GetBlockRequest"><code>GetBlockRequest</code> - GetBlockRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
-<div class="param">creditDebitIndicator (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreditDebitIndicator">CreditDebitIndicator</a></span>  </div>
+      <div class="param">BlockAddress </div><div class="param-desc"><span class="param-type"><a href="#GetBlockRequest_BlockAddress">GetBlockRequest_BlockAddress</a></span>  </div>
+<div class="param">DigestTipAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetBlockRequest_DigestTipAddress">GetBlockRequest_DigestTipAddress</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Error"><code>Error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>On error, the API consumer will receive an HTTP response with a HTTP Status Code of 4xx or 5xx and a Content-Type of application/problem+json.</div>
+    <h3><a name="GetBlockRequest_BlockAddress"><code>GetBlockRequest_BlockAddress</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Human readable detailed error description. </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The numeric HTTP Status Code, e.g. 404 </div>
-<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Human readable high level error description. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifies the type of error. </div>
+      <div class="param">IonText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetBlockRequest_DigestTipAddress"><code>GetBlockRequest_DigestTipAddress</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IonText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetBlockResponse"><code>GetBlockResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Block </div><div class="param-desc"><span class="param-type"><a href="#GetBlockResponse_Block">GetBlockResponse_Block</a></span>  </div>
+<div class="param">Proof (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetBlockResponse_Proof">GetBlockResponse_Proof</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetBlockResponse_Block"><code>GetBlockResponse_Block</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IonText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetBlockResponse_Proof"><code>GetBlockResponse_Proof</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IonText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetBlock_request"><code>GetBlock_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">BlockAddress </div><div class="param-desc"><span class="param-type"><a href="#GetBlock_request_BlockAddress">GetBlock_request_BlockAddress</a></span>  </div>
+<div class="param">DigestTipAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetBlock_request_BlockAddress">GetBlock_request_BlockAddress</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetBlock_request_BlockAddress"><code>GetBlock_request_BlockAddress</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A structure that can contain a value in multiple encoding formats.</div>
+    <div class="field-items">
+      <div class="param">IonText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetDigestResponse"><code>GetDigestResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Digest </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DigestTipAddress </div><div class="param-desc"><span class="param-type"><a href="#GetDigestResponse_DigestTipAddress">GetDigestResponse_DigestTipAddress</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetDigestResponse_DigestTipAddress"><code>GetDigestResponse_DigestTipAddress</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IonText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetRevisionRequest"><code>GetRevisionRequest</code> - GetRevisionRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">BlockAddress </div><div class="param-desc"><span class="param-type"><a href="#GetRevisionRequest_BlockAddress">GetRevisionRequest_BlockAddress</a></span>  </div>
+<div class="param">DocumentId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DigestTipAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetBlockRequest_DigestTipAddress">GetBlockRequest_DigestTipAddress</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetRevisionRequest_BlockAddress"><code>GetRevisionRequest_BlockAddress</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IonText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetRevisionResponse"><code>GetRevisionResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Proof (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetRevisionResponse_Proof">GetRevisionResponse_Proof</a></span>  </div>
+<div class="param">Revision </div><div class="param-desc"><span class="param-type"><a href="#GetRevisionResponse_Revision">GetRevisionResponse_Revision</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetRevisionResponse_Proof"><code>GetRevisionResponse_Proof</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IonText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetRevisionResponse_Revision"><code>GetRevisionResponse_Revision</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">IonText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetRevision_request"><code>GetRevision_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">BlockAddress </div><div class="param-desc"><span class="param-type"><a href="#GetBlock_request_BlockAddress">GetBlock_request_BlockAddress</a></span>  </div>
+<div class="param">DocumentId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID (represented in Base62-encoded text) of the document to be verified. </div>
+<div class="param">DigestTipAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#GetBlock_request_BlockAddress">GetBlock_request_BlockAddress</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="JournalKinesisStreamDescription"><code>JournalKinesisStreamDescription</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information about an Amazon QLDB journal stream, including the Amazon Resource Name (ARN), stream name, creation time, current status, and the parameters of the original stream creation request.</div>
+    <div class="field-items">
+      <div class="param">LedgerName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CreationTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">InclusiveStartTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">ExclusiveEndTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">RoleArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Arn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Status </div><div class="param-desc"><span class="param-type"><a href="#StreamStatus">StreamStatus</a></span>  </div>
+<div class="param">KinesisConfiguration </div><div class="param-desc"><span class="param-type"><a href="#JournalKinesisStreamDescription_KinesisConfiguration">JournalKinesisStreamDescription_KinesisConfiguration</a></span>  </div>
+<div class="param">ErrorCause (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorCause">ErrorCause</a></span>  </div>
+<div class="param">StreamName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="JournalKinesisStreamDescription_KinesisConfiguration"><code>JournalKinesisStreamDescription_KinesisConfiguration</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">StreamArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AggregationEnabled (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="JournalS3ExportDescription"><code>JournalS3ExportDescription</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information about a journal export job, including the ledger name, export ID, creation time, current status, and the parameters of the original export creation request.</div>
+    <div class="field-items">
+      <div class="param">LedgerName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ExportId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ExportCreationTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">Status </div><div class="param-desc"><span class="param-type"><a href="#ExportStatus">ExportStatus</a></span>  </div>
+<div class="param">InclusiveStartTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">ExclusiveEndTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">S3ExportConfiguration </div><div class="param-desc"><span class="param-type"><a href="#S3ExportConfiguration">S3ExportConfiguration</a></span>  </div>
+<div class="param">RoleArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">OutputFormat (optional)</div><div class="param-desc"><span class="param-type"><a href="#OutputFormat">OutputFormat</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="KinesisConfiguration"><code>KinesisConfiguration</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.</div>
+    <div class="field-items">
+      <div class="param">StreamArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AggregationEnabled (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LedgerEncryptionDescription"><code>LedgerEncryptionDescription</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p>Information about the encryption of data at rest in an Amazon QLDB ledger. This includes the current status, the key in Key Management Service (KMS), and when the key became inaccessible (in the case of an error).</p> <p>For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html">Encryption at rest</a> in the <i>Amazon QLDB Developer Guide</i>.</p>
+</div>
+    <div class="field-items">
+      <div class="param">KmsKeyArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">EncryptionStatus </div><div class="param-desc"><span class="param-type"><a href="#EncryptionStatus">EncryptionStatus</a></span>  </div>
+<div class="param">InaccessibleKmsKeyDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LedgerState"><code>LedgerState</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LedgerSummary"><code>LedgerSummary</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information about a ledger, including its name, state, and when it was created.</div>
+    <div class="field-items">
+      <div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">State (optional)</div><div class="param-desc"><span class="param-type"><a href="#LedgerState">LedgerState</a></span>  </div>
+<div class="param">CreationDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListJournalKinesisStreamsForLedgerResponse"><code>ListJournalKinesisStreamsForLedgerResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Streams (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListJournalS3ExportsForLedgerResponse"><code>ListJournalS3ExportsForLedgerResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">JournalS3Exports (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListJournalS3ExportsResponse"><code>ListJournalS3ExportsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">JournalS3Exports (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListLedgersResponse"><code>ListLedgersResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Ledgers (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTagsForResourceResponse"><code>ListTagsForResourceResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Tags (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OutputFormat"><code>OutputFormat</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PermissionsMode"><code>PermissionsMode</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="S3EncryptionConfiguration"><code>S3EncryptionConfiguration</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The encryption settings that are used by a journal export job to write data in an Amazon Simple Storage Service (Amazon S3) bucket.</div>
+    <div class="field-items">
+      <div class="param">ObjectEncryptionType </div><div class="param-desc"><span class="param-type"><a href="#S3ObjectEncryptionType">S3ObjectEncryptionType</a></span>  </div>
+<div class="param">KmsKeyArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="S3ExportConfiguration"><code>S3ExportConfiguration</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The Amazon Simple Storage Service (Amazon S3) bucket location in which a journal export job writes the journal contents.</div>
+    <div class="field-items">
+      <div class="param">Bucket </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Prefix </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">EncryptionConfiguration </div><div class="param-desc"><span class="param-type"><a href="#ExportJournalToS3_request_S3ExportConfiguration_EncryptionConfiguration">ExportJournalToS3_request_S3ExportConfiguration_EncryptionConfiguration</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="S3ObjectEncryptionType"><code>S3ObjectEncryptionType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamJournalToKinesisRequest"><code>StreamJournalToKinesisRequest</code> - StreamJournalToKinesisRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">RoleArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Tags (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">InclusiveStartTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">ExclusiveEndTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">KinesisConfiguration </div><div class="param-desc"><span class="param-type"><a href="#StreamJournalToKinesisRequest_KinesisConfiguration">StreamJournalToKinesisRequest_KinesisConfiguration</a></span>  </div>
+<div class="param">StreamName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamJournalToKinesisRequest_KinesisConfiguration"><code>StreamJournalToKinesisRequest_KinesisConfiguration</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">StreamArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AggregationEnabled (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamJournalToKinesisResponse"><code>StreamJournalToKinesisResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">StreamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamJournalToKinesis_request"><code>StreamJournalToKinesis_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">RoleArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.</p> <p>To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the <code>iam:PassRole</code> action on the IAM role resource. This is required for all journal stream requests.</p>
+ </div>
+<div class="param">Tags (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> The key-value pairs to add as tags to the stream that you want to create. Tag keys are case sensitive. Tag values are case sensitive and can be null. </div>
+<div class="param">InclusiveStartTime </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> <p>The inclusive start date and time from which to start streaming journal data. This parameter must be in <code>ISO 8601</code> date and time format and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>.</p> <p>The <code>InclusiveStartTime</code> cannot be in the future and must be before <code>ExclusiveEndTime</code>.</p> <p>If you provide an <code>InclusiveStartTime</code> that is before the ledger's <code>CreationDateTime</code>, QLDB effectively defaults it to the ledger's <code>CreationDateTime</code>.</p>
+ format: date-time</div>
+<div class="param">ExclusiveEndTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> <p>The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it.</p> <p>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>.</p>
+ format: date-time</div>
+<div class="param">KinesisConfiguration </div><div class="param-desc"><span class="param-type"><a href="#StreamJournalToKinesis_request_KinesisConfiguration">StreamJournalToKinesis_request_KinesisConfiguration</a></span>  </div>
+<div class="param">StreamName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.</p> <p>Your stream name must be unique among other <i>active</i> streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming">Quotas in Amazon QLDB</a> in the <i>Amazon QLDB Developer Guide</i>.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamJournalToKinesis_request_KinesisConfiguration"><code>StreamJournalToKinesis_request_KinesisConfiguration</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.</div>
+    <div class="field-items">
+      <div class="param">StreamArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AggregationEnabled (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamStatus"><code>StreamStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TagResourceRequest"><code>TagResourceRequest</code> - TagResourceRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Tags </div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TagResource_request"><code>TagResource_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Tags </div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> The key-value pairs to add as tags to the specified QLDB resource. Tag keys are case sensitive. If you specify a key that already exists for the resource, your request fails and returns an error. Tag values are case sensitive and can be null. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateLedgerPermissionsModeRequest"><code>UpdateLedgerPermissionsModeRequest</code> - UpdateLedgerPermissionsModeRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">PermissionsMode </div><div class="param-desc"><span class="param-type"><a href="#PermissionsMode">PermissionsMode</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateLedgerPermissionsModeResponse"><code>UpdateLedgerPermissionsModeResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Arn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PermissionsMode (optional)</div><div class="param-desc"><span class="param-type"><a href="#PermissionsMode">PermissionsMode</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpdateLedgerPermissionsMode_request"><code>UpdateLedgerPermissionsMode_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">PermissionsMode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The permissions mode to assign to the ledger. This parameter can have one of the following values:</p> <ul> <li> <p> <code>ALLOW_ALL</code>: A legacy permissions mode that enables access control with API-level granularity for ledgers.</p> <p>This mode allows users who have the <code>SendCommand</code> API permission for this ledger to run all PartiQL commands (hence, <code>ALLOW_ALL</code>) on any tables in the specified ledger. This mode disregards any table-level or command-level IAM permissions policies that you create for the ledger.</p> </li> <li> <p> <code>STANDARD</code>: (<i>Recommended</i>) A permissions mode that enables access control with finer granularity for ledgers, tables, and PartiQL commands.</p> <p>By default, this mode denies all user requests to run any PartiQL commands on any tables in this ledger. To allow PartiQL commands to run, you must create IAM permissions policies for specific table resources and PartiQL actions, in addition to the <code>SendCommand</code> API permission for the ledger. For information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-standard-mode.html">Getting started with the standard permissions mode</a> in the <i>Amazon QLDB Developer Guide</i>.</p> </li> </ul> <note> <p>We strongly recommend using the <code>STANDARD</code> permissions mode to maximize the security of your ledger data.</p> </note>
+ </div>
         <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">invalid-request</div><div class="param-enum">invalid-application</div><div class="param-enum">invalid-feed-connection</div><div class="param-enum">duplicate-statement</div><div class="param-enum">invalid-end-balance</div><div class="param-enum">invalid-start-and-end-date</div><div class="param-enum">invalid-start-date</div><div class="param-enum">internal-error</div><div class="param-enum">feed-already-connected-in-current-organisation</div><div class="param-enum">invalid-end-date</div><div class="param-enum">statement-not-found</div><div class="param-enum">feed-connected-in-different-organisation</div><div class="param-enum">feed-already-connected-in-different-organisation</div><div class="param-enum">bank-feed-not-found</div><div class="param-enum">invalid-country-specified</div><div class="param-enum">invalid-organisation-bank-feeds</div><div class="param-enum">invalid-organisation-multi-currency</div><div class="param-enum">invalid-feed-connection-for-organisation</div><div class="param-enum">invalid-user-role</div><div class="param-enum">account-not-valid</div>
+        <div class="param-enum">ALLOW_ALL</div><div class="param-enum">STANDARD</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="FeedConnection"><code>FeedConnection</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="UpdateLedgerRequest"><code>UpdateLedgerRequest</code> - UpdateLedgerRequest</a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">accountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> Xero identifier for a bank account in Xero. Must be included if AccountNumber is not specified. format: uuid</div>
-<div class="param">accountName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Account Name will be used for the creation of a new Xero Bank Account if a matching Xero Bank Account is not found. </div>
-<div class="param">accountNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> String(40) when AccountType is BANK String(4) when AccountType is CREDITCARD The Account Number is used to match the feed to a Xero Bank Account. The API will create a new Xero Bank Account if a match to an existing Xero Bank Account is not found. Only the last 4 digits must be supplied for Credit Card numbers. Must be included if AccountId is not specified. </div>
-<div class="param">accountToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> This account identifier is generated by the financial institute (FI). This must be unique for your financial institute. </div>
-<div class="param">accountType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> High level bank account type - BANK CREDITCARD BANK encompasses all bank account types other than credit cards. </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">BANK</div><div class="param-enum">CREDITCARD</div>
-<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#CountryCode">CountryCode</a></span>  </div>
-<div class="param">currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#CurrencyCode">CurrencyCode</a></span>  </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#Error">Error</a></span>  </div>
-<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> GUID used to identify the Account. format: uuid</div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> the current status of the feed connection </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">PENDING</div><div class="param-enum">REJECTED</div>
+      <div class="param">DeletionProtection (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">KmsKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="FeedConnections"><code>FeedConnections</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="UpdateLedgerResponse"><code>UpdateLedgerResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#FeedConnection">array[FeedConnection]</a></span>  </div>
-<div class="param">pagination (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pagination">Pagination</a></span>  </div>
+      <div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Arn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">State (optional)</div><div class="param-desc"><span class="param-type"><a href="#LedgerState">LedgerState</a></span>  </div>
+<div class="param">CreationDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">DeletionProtection (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">EncryptionDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#DescribeLedgerResponse_EncryptionDescription">DescribeLedgerResponse_EncryptionDescription</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Pagination"><code>Pagination</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="UpdateLedger_request"><code>UpdateLedger_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">itemCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of items returned </div>
-<div class="param">page (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Page number which specifies the set of records to retrieve. Example - https://api.xero.com/bankfeeds.xro/1.0/Statements?page=2 to get the second set of the records. When page value is not a number or a negative number, by default, the first set of records is returned. </div>
-<div class="param">pageCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of pages available </div>
-<div class="param">pageSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Page size which specifies how many records per page will be returned (default 50). Example - https://api.xero.com/bankfeeds.xro/1.0/Statements?pageSize=100 to specify page size of 100. </div>
+      <div class="param">DeletionProtection (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> <p>The flag that prevents a ledger from being deleted by any user. If not provided on ledger creation, this feature is enabled (<code>true</code>) by default.</p> <p>If deletion protection is enabled, you must first disable it before you can delete the ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+ </div>
+<div class="param">KmsKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The key in Key Management Service (KMS) to use for encryption of data at rest in the ledger. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html">Encryption at rest</a> in the <i>Amazon QLDB Developer Guide</i>.</p> <p>Use one of the following options to specify this parameter:</p> <ul> <li> <p> <code>AWS_OWNED_KMS_KEY</code>: Use an KMS key that is owned and managed by Amazon Web Services on your behalf.</p> </li> <li> <p> <b>Undefined</b>: Make no changes to the KMS key of the ledger.</p> </li> <li> <p> <b>A valid symmetric customer managed KMS key</b>: Use the specified KMS key in your account that you create, own, and manage.</p> <p>Amazon QLDB does not support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>.</p> </li> </ul> <p>To specify a customer managed KMS key, you can use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p> <p>For example:</p> <ul> <li> <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> <li> <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> <li> <p>Alias name: <code>alias/ExampleAlias</code> </p> </li> <li> <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="StartBalance"><code>StartBalance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>The starting balance of the statement</div>
+    <h3><a name="ValueHolder"><code>ValueHolder</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A structure that can contain a value in multiple encoding formats.</div>
     <div class="field-items">
-      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> decimal(19,4) unsigned Opening/closing balance amount. format: double</div>
-<div class="param">creditDebitIndicator (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreditDebitIndicator">CreditDebitIndicator</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="Statement"><code>Statement</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">endBalance (optional)</div><div class="param-desc"><span class="param-type"><a href="#EndBalance">EndBalance</a></span>  </div>
-<div class="param">endDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Closing balance date ISO-8601 YYYY-MM-DD format: date</div>
-<div class="param">errors (optional)</div><div class="param-desc"><span class="param-type"><a href="#Error">array[Error]</a></span>  </div>
-<div class="param">feedConnectionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The Xero generated feed connection Id that identifies the Xero Bank Account Container into which the statement should be delivered. This is obtained by calling GET FeedConnections. format: uuid</div>
-<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> GUID used to identify the Statement. format: uuid</div>
-<div class="param">startBalance (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartBalance">StartBalance</a></span>  </div>
-<div class="param">startDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Opening balance date (can be no older than one year from the current date) ISO-8601 YYYY-MM-DD format: date</div>
-<div class="param">statementLineCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">statementLines (optional)</div><div class="param-desc"><span class="param-type"><a href="#StatementLine">array[StatementLine]</a></span>  </div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Current status of statements </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">PENDING</div><div class="param-enum">REJECTED</div><div class="param-enum">DELIVERED</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="StatementLine"><code>StatementLine</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>the lines details for a statement</div>
-    <div class="field-items">
-      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Transaction amount format: double</div>
-<div class="param">chequeNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The cheque/check number </div>
-<div class="param">creditDebitIndicator (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreditDebitIndicator">CreditDebitIndicator</a></span>  </div>
-<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Transaction description </div>
-<div class="param">payeeName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Typically the merchant or payee name </div>
-<div class="param">postedDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> The date that the transaction was processed or cleared as seen in internet banking ISO-8601 YYYY-MM-DD format: date</div>
-<div class="param">reference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional field to enhance the Description </div>
-<div class="param">transactionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Financial institute's internal transaction identifier. If provided this field is factored into duplicate detection. </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="Statements"><code>Statements</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#Statement">array[Statement]</a></span>  </div>
-<div class="param">pagination (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pagination">Pagination</a></span>  </div>
+      <div class="param">IonText (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   </body>

@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * Information about an Amazon QLDB journal stream, including the Amazon Resource Name (ARN), stream name, creation time, current status, and the parameters of the original stream creation request.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:48.114688-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:23.217080-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class JournalKinesisStreamDescription {
   public static final String SERIALIZED_NAME_LEDGER_NAME = "LedgerName";
   @SerializedName(SERIALIZED_NAME_LEDGER_NAME)
