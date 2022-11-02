@@ -1,7 +1,6 @@
 .github/workflows/python.yml
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/About.md
@@ -42,15 +41,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_about.py
-test/test_about_api_version.py
-test/test_default_api.py
-test/test_ec.py
-test/test_ec_alphabet_sequence_inner.py
-test/test_ec_entropy_distribution_inner.py
-test/test_ec_keyboard_sequence_inner.py
-test/test_ec_number_sequence_inner.py
-test/test_ec_repeated_chars_inner.py
-test/test_ec_total_inner.py
-test/test_ec_words_inner.py
 tox.ini
