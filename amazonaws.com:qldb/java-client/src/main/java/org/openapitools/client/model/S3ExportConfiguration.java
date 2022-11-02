@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * The Amazon Simple Storage Service (Amazon S3) bucket location in which a journal export job writes the journal contents.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:45.550430-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:42.369552-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class S3ExportConfiguration {
   public static final String SERIALIZED_NAME_BUCKET = "Bucket";
   @SerializedName(SERIALIZED_NAME_BUCKET)
