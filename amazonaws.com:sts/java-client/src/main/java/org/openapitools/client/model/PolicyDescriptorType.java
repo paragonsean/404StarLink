@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A reference to the IAM managed policy that is passed as a session policy for a role session or a federated user session.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:53.890345-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:29.307538-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class PolicyDescriptorType {
   public static final String SERIALIZED_NAME_ARN = "arn";
   @SerializedName(SERIALIZED_NAME_ARN)

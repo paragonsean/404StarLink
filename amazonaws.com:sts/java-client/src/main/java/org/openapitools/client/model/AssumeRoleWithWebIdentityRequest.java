@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * AssumeRoleWithWebIdentityRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:53.890345-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:29.307538-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AssumeRoleWithWebIdentityRequest {
   public static final String SERIALIZED_NAME_ROLE_ARN = "RoleArn";
   @SerializedName(SERIALIZED_NAME_ROLE_ARN)
