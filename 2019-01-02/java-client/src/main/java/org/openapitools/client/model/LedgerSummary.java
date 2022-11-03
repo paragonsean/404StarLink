@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Information about a ledger, including its name, state, and when it was created.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:48.498529-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:45.268682-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class LedgerSummary {
   public static final String SERIALIZED_NAME_NAME = "Name";
   @SerializedName(SERIALIZED_NAME_NAME)

@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * Information about a journal export job, including the ledger name, export ID, creation time, current status, and the parameters of the original export creation request.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:48.498529-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:45.268682-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class JournalS3ExportDescription {
   public static final String SERIALIZED_NAME_LEDGER_NAME = "LedgerName";
   @SerializedName(SERIALIZED_NAME_LEDGER_NAME)
