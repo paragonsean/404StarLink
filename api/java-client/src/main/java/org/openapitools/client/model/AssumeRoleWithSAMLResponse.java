@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Contains the response to a successful &lt;a&gt;AssumeRoleWithSAML&lt;/a&gt; request, including temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:56.639241-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:32.170421-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AssumeRoleWithSAMLResponse {
   public static final String SERIALIZED_NAME_CREDENTIALS = "Credentials";
   @SerializedName(SERIALIZED_NAME_CREDENTIALS)

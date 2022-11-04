@@ -2,14 +2,14 @@
 
 # Tag
 
-The optional metadata that you apply to resources to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. For more information see <a href=\"https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html\">Tagging Personalize resources</a>. 
+You can pass custom key-value pair attributes when you assume a role or federate a user. These are called session tags. You can then use the session tags to control access to resources. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html\">Tagging Amazon Web Services STS Sessions</a> in the <i>IAM User Guide</i>.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**tagKey** | [**String**](String.md) |  |  |
-|**tagValue** | [**String**](String.md) |  |  |
+|**key** | [**String**](String.md) |  |  |
+|**value** | [**String**](String.md) |  |  |
 
 
 
