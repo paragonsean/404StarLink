@@ -1,7 +1,6 @@
 .github/workflows/python.yml
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/AddrecurrenceitemRequest.md
@@ -36,12 +35,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_addrecurrenceitem_request.py
-test/test_frequency.py
-test/test_item.py
-test/test_miscellaneous_api.py
-test/test_reindexrecurrence_request.py
-test/test_updatepartialrecurrence_request.py
-test/test_updaterecurrence_request.py
-test/test_updaterecurrencesettings_request.py
 tox.ini
