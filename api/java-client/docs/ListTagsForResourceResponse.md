@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**tags** | [**List**](List.md) |  |  [optional] |
+|**tags** | [**Map**](Map.md) |  |  [optional] |
 
 
 

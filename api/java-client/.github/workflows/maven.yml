@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build Xero Bank Feeds API
+    name: Build Amazon QLDB
     runs-on: ubuntu-latest
     strategy:
       matrix:
