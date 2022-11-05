@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * You can pass custom key-value pair attributes when you assume a role or federate a user. These are called session tags. You can then use the session tags to control access to resources. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html\&quot;&gt;Tagging Amazon Web Services STS Sessions&lt;/a&gt; in the &lt;i&gt;IAM User Guide&lt;/i&gt;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:51.326464-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:51.075885-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Tag {
   public static final String SERIALIZED_NAME_KEY = "Key";
   @SerializedName(SERIALIZED_NAME_KEY)

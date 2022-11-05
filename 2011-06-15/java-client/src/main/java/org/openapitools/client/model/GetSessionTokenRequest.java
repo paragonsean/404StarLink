@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * GetSessionTokenRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:51.326464-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:51.075885-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GetSessionTokenRequest {
   public static final String SERIALIZED_NAME_DURATION_SECONDS = "DurationSeconds";
   @SerializedName(SERIALIZED_NAME_DURATION_SECONDS)
