@@ -1,0 +1,622 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Twilio - Routes</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Twilio - Routes</h1>
+    <div class="app-desc">This is the public Twilio REST API.</div>
+    <div class="app-desc">More information: <a href="https://support.twilio.com">https://support.twilio.com</a></div>
+    <div class="app-desc">Contact Info: <a href="support@twilio.com">support@twilio.com</a></div>
+    <div class="app-desc">Version: 1.42.0</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">https://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>HTTP Basic Authentication</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#fetchPhoneNumber"><code><span class="http-method">get</span> /v2/PhoneNumbers/{PhoneNumber}</code></a></li>
+  <li><a href="#fetchSipDomain"><code><span class="http-method">get</span> /v2/SipDomains/{SipDomain}</code></a></li>
+  <li><a href="#fetchTrunks"><code><span class="http-method">get</span> /v2/Trunks/{SipTrunkDomain}</code></a></li>
+  <li><a href="#updatePhoneNumber"><code><span class="http-method">post</span> /v2/PhoneNumbers/{PhoneNumber}</code></a></li>
+  <li><a href="#updateSipDomain"><code><span class="http-method">post</span> /v2/SipDomains/{SipDomain}</code></a></li>
+  <li><a href="#updateTrunks"><code><span class="http-method">post</span> /v2/Trunks/{SipTrunkDomain}</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="fetchPhoneNumber"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v2/PhoneNumbers/{PhoneNumber}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchPhoneNumber</span>)</div>
+    <div class="method-notes">Fetch the Inbound Processing Region assigned to a phone number.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">PhoneNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The phone number in E.164 format default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#routes.v2.phone_number">routes.v2.phone_number</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "voice_region" : "voice_region",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "phone_number" : "phone_number",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#routes.v2.phone_number">routes.v2.phone_number</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchSipDomain"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v2/SipDomains/{SipDomain}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchSipDomain</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">SipDomain (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#routes.v2.sip_domain">routes.v2.sip_domain</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "voice_region" : "voice_region",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "sip_domain" : "sip_domain"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#routes.v2.sip_domain">routes.v2.sip_domain</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchTrunks"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v2/Trunks/{SipTrunkDomain}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchTrunks</span>)</div>
+    <div class="method-notes">Fetch the Inbound Processing Region assigned to a SIP Trunk.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">SipTrunkDomain (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The absolute URL of the SIP Trunk default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#routes.v2.trunks">routes.v2.trunks</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "voice_region" : "voice_region",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "sip_trunk_domain" : "sip_trunk_domain",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#routes.v2.trunks">routes.v2.trunks</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatePhoneNumber"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v2/PhoneNumbers/{PhoneNumber}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updatePhoneNumber</span>)</div>
+    <div class="method-notes">Assign an Inbound Processing Region to a phone number.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">PhoneNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The phone number in E.164 format default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">FriendlyName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; A human readable description of this resource, up to 64 characters. default: null </div><div class="param">VoiceRegion (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The Inbound Processing Region used for this phone number for voice default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#routes.v2.phone_number">routes.v2.phone_number</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "voice_region" : "voice_region",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "phone_number" : "phone_number",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#routes.v2.phone_number">routes.v2.phone_number</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateSipDomain"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v2/SipDomains/{SipDomain}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateSipDomain</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">SipDomain (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">FriendlyName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null </div><div class="param">VoiceRegion (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#routes.v2.sip_domain">routes.v2.sip_domain</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "voice_region" : "voice_region",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "sip_domain" : "sip_domain"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#routes.v2.sip_domain">routes.v2.sip_domain</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateTrunks"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v2/Trunks/{SipTrunkDomain}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateTrunks</span>)</div>
+    <div class="method-notes">Assign an Inbound Processing Region to a SIP Trunk</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">SipTrunkDomain (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The absolute URL of the SIP Trunk default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">FriendlyName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; A human readable description of this resource, up to 64 characters. default: null </div><div class="param">VoiceRegion (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The Inbound Processing Region used for this SIP Trunk for voice default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#routes.v2.trunks">routes.v2.trunks</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "voice_region" : "voice_region",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "sip_trunk_domain" : "sip_trunk_domain",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#routes.v2.trunks">routes.v2.trunks</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#routes.v2.phone_number"><code>routes.v2.phone_number</code> - </a></li>
+    <li><a href="#routes.v2.sip_domain"><code>routes.v2.sip_domain</code> - </a></li>
+    <li><a href="#routes.v2.trunks"><code>routes.v2.trunks</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="routes.v2.phone_number"><code>routes.v2.phone_number</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique SID identifier of the Account. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date that this phone number was assigned an Inbound Processing Region, given in ISO 8601 format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date that the Inbound Processing Region was updated for this phone number, given in ISO 8601 format. format: date-time</div>
+<div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human readable description of the Inbound Processing Region assignments for this phone number, up to 64 characters. </div>
+<div class="param">phone_number (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number in E.164 format </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A 34 character string that uniquely identifies the Inbound Processing Region assignments for this phone number. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the resource. format: uri</div>
+<div class="param">voice_region (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Inbound Processing Region used for this phone number for voice. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="routes.v2.sip_domain"><code>routes.v2.sip_domain</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">sip_domain (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
+<div class="param">voice_region (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="routes.v2.trunks"><code>routes.v2.trunks</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique SID identifier of the Account. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date that this SIP Trunk was assigned an Inbound Processing Region, given in ISO 8601 format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date that the Inbound Processing Region was updated for this SIP Trunk, given in ISO 8601 format. format: date-time</div>
+<div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human readable description of the Inbound Processing Region assignments for this SIP Trunk, up to 64 characters. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A 34 character string that uniquely identifies the Inbound Processing Region assignments for this SIP Trunk. </div>
+<div class="param">sip_trunk_domain (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The absolute URL of the SIP Trunk </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the resource. format: uri</div>
+<div class="param">voice_region (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Inbound Processing Region used for this SIP Trunk for voice. </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
