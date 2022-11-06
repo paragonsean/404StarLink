@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * The identifiers for the temporary security credentials that the operation returns.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:53:54.154530-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:53.890345-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AssumedRoleUser {
   public static final String SERIALIZED_NAME_ASSUMED_ROLE_ID = "AssumedRoleId";
   @SerializedName(SERIALIZED_NAME_ASSUMED_ROLE_ID)

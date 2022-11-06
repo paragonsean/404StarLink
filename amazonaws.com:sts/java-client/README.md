@@ -2,7 +2,7 @@
 
 AWS Security Token Service
 - API version: 2011-06-15
-  - Build date: 2024-10-11T01:53:54.154530-04:00[America/New_York]
+  - Build date: 2024-10-11T01:55:53.890345-04:00[America/New_York]
   - Generator version: 7.9.0
 
 <fullname>Security Token Service</fullname> <p>Security Token Service (STS) enables you to request temporary, limited-privilege credentials for Identity and Access Management (IAM) users or for users that you authenticate (federated users). This guide provides descriptions of the STS API. For more information about using this service, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html\">Temporary Security Credentials</a>.</p>
