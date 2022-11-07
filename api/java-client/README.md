@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Amazon QLDB
-- API version: 2019-01-02
-  - Build date: 2024-10-11T01:55:48.114688-04:00[America/New_York]
+AWS Security Token Service
+- API version: 2011-06-15
+  - Build date: 2024-10-11T01:55:56.639241-04:00[America/New_York]
   - Generator version: 7.9.0
 
-The control plane for Amazon QLDB
+<fullname>Security Token Service</fullname> <p>Security Token Service (STS) enables you to request temporary, limited-privilege credentials for Identity and Access Management (IAM) users or for users that you authenticate (federated users). This guide provides descriptions of the STS API. For more information about using this service, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html\">Temporary Security Credentials</a>.</p>
 
   For more information, please visit [https://github.com/mermade/aws2openapi](https://github.com/mermade/aws2openapi)
 
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2019-01-02</version>
+  <version>2011-06-15</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -58,7 +58,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2019-01-02"
+     implementation "org.openapitools:openapi-java-client:2011-06-15"
   }
 ```
 
@@ -72,7 +72,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2019-01-02.jar`
+* `target/openapi-java-client-2011-06-15.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -92,7 +92,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://qldb.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("https://sts.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -101,8 +101,10 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String name = "name_example"; // String | The name of the ledger.
-    String streamId = "streamId_example"; // String | The UUID (represented in Base62-encoded text) of the QLDB journal stream to be canceled.
+    String roleArn = "roleArn_example"; // String | The Amazon Resource Name (ARN) of the role to assume.
+    String roleSessionName = "roleSessionName_example"; // String | <p>An identifier for the assumed role session.</p> <p>Use the role session name to uniquely identify a session when the same role is assumed by different principals or for different reasons. In cross-account scenarios, the role session name is visible to, and can be logged by the account that owns the role. The role session name is also used in the ARN of the assumed role principal. This means that subsequent cross-account API requests that use the temporary security credentials will expose the role session name to the external account in their CloudTrail logs.</p> <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
+    String action = "AssumeRole"; // String | 
+    String version = "2011-06-15"; // String | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
     String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
@@ -110,11 +112,20 @@ public class Example {
     String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    List<PolicyDescriptorType> policyArns = Arrays.asList(); // List<PolicyDescriptorType> | <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.</p> <p>This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plaintext that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the Amazon Web Services General Reference.</p> <note> <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs, and session tags into a packed binary format that has a separate limit. Your request can fail for this limit even if your plaintext meets the other requirements. The <code>PackedPolicySize</code> response element indicates by percentage how close the policies and tags for your request are to the upper size limit.</p> </note> <p>Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent Amazon Web Services API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session Policies</a> in the <i>IAM User Guide</i>.</p>
+    String policy = "policy_example"; // String | <p>An IAM policy in JSON format that you want to use as an inline session policy.</p> <p>This parameter is optional. Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent Amazon Web Services API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session\">Session Policies</a> in the <i>IAM User Guide</i>.</p> <p>The plaintext that you use for both inline and managed session policies can't exceed 2,048 characters. The JSON policy characters can be any ASCII character from the space character to the end of the valid character list (\\u0020 through \\u00FF). It can also include the tab (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.</p> <note> <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs, and session tags into a packed binary format that has a separate limit. Your request can fail for this limit even if your plaintext meets the other requirements. The <code>PackedPolicySize</code> response element indicates by percentage how close the policies and tags for your request are to the upper size limit.</p> </note>
+    Integer durationSeconds = 56; // Integer | <p>The duration, in seconds, of the role session. The value specified can range from 900 seconds (15 minutes) up to the maximum session duration set for the role. The maximum session duration setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting or the administrator setting (whichever is lower), the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. </p> <p>Role chaining limits your Amazon Web Services CLI or Amazon Web Services API role session to a maximum of one hour. When you use the <code>AssumeRole</code> API operation to assume a role, you can specify the duration of your role session with the <code>DurationSeconds</code> parameter. You can specify a parameter value of up to 43200 seconds (12 hours), depending on the maximum session duration setting for your role. However, if you assume a role using role chaining and provide a <code>DurationSeconds</code> parameter value greater than one hour, the operation fails. To learn how to view the maximum value for your role, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session\">View the Maximum Session Duration Setting for a Role</a> in the <i>IAM User Guide</i>.</p> <p>By default, the value is set to <code>3600</code> seconds. </p> <note> <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console session that you might request using the returned credentials. The request to the federation endpoint for a console sign-in token takes a <code>SessionDuration</code> parameter that specifies the maximum length of the console session. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html\">Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console</a> in the <i>IAM User Guide</i>.</p> </note>
+    List<Tag> tags = Arrays.asList(); // List<Tag> | <p>A list of session tags that you want to pass. Each session tag consists of a key name and an associated value. For more information about session tags, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html\">Tagging Amazon Web Services STS Sessions</a> in the <i>IAM User Guide</i>.</p> <p>This parameter is optional. You can pass up to 50 session tags. The plaintext session tag keys can’t exceed 128 characters, and the values can’t exceed 256 characters. For these and additional limits, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length\">IAM and STS Character Limits</a> in the <i>IAM User Guide</i>.</p> <note> <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs, and session tags into a packed binary format that has a separate limit. Your request can fail for this limit even if your plaintext meets the other requirements. The <code>PackedPolicySize</code> response element indicates by percentage how close the policies and tags for your request are to the upper size limit.</p> </note> <p>You can pass a session tag with the same key as a tag that is already attached to the role. When you do, session tags override a role tag with the same key. </p> <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you cannot have separate <code>Department</code> and <code>department</code> tag keys. Assume that the role has the <code>Department</code>=<code>Marketing</code> tag and you pass the <code>department</code>=<code>engineering</code> session tag. <code>Department</code> and <code>department</code> are not saved as separate tags, and the session tag passed in the request takes precedence over the role tag.</p> <p>Additionally, if you used temporary credentials to perform this operation, the new session inherits any transitive session tags from the calling session. If you pass a session tag with the same key as an inherited tag, the operation fails. To view the inherited tags for a session, see the CloudTrail logs. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_ctlogs\">Viewing Session Tags in CloudTrail</a> in the <i>IAM User Guide</i>.</p>
+    List<String> transitiveTagKeys = Arrays.asList(); // List<String> | <p>A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_role-chaining\">Chaining Roles with Session Tags</a> in the <i>IAM User Guide</i>.</p> <p>This parameter is optional. When you set session tags as transitive, the session policy and session tags packed binary limit is not affected.</p> <p>If you choose not to specify a transitive tag key, then no tags are passed from this session to any subsequent sessions.</p>
+    String externalId = "externalId_example"; // String | <p>A unique identifier that might be required when you assume a role in another account. If the administrator of the account to which the role belongs provided you with an external ID, then provide that value in the <code>ExternalId</code> parameter. This value can be any string, such as a passphrase or account number. A cross-account role is usually set up to trust everyone in an account. Therefore, the administrator of the trusting account might send an external ID to the administrator of the trusted account. That way, only someone with the ID can assume the role, rather than everyone in the account. For more information about the external ID, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html\">How to Use an External ID When Granting Access to Your Amazon Web Services Resources to a Third Party</a> in the <i>IAM User Guide</i>.</p> <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-</p>
+    String serialNumber = "serialNumber_example"; // String | <p>The identification number of the MFA device that is associated with the user who is making the <code>AssumeRole</code> call. Specify this value if the trust policy of the role being assumed includes a condition that requires MFA authentication. The value is either the serial number for a hardware device (such as <code>GAHT12345678</code>) or an Amazon Resource Name (ARN) for a virtual device (such as <code>arn:aws:iam::123456789012:mfa/user</code>).</p> <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
+    String tokenCode = "tokenCode_example"; // String | <p>The value provided by the MFA device, if the trust policy of the role being assumed requires MFA. (In other words, if the policy includes a condition that tests for MFA). If the role being assumed requires MFA and if the <code>TokenCode</code> value is missing or expired, the <code>AssumeRole</code> call returns an \"access denied\" error.</p> <p>The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.</p>
+    String sourceIdentity = "sourceIdentity_example"; // String | <p>The source identity specified by the principal that is calling the <code>AssumeRole</code> operation.</p> <p>You can require users to specify a source identity when they assume a role. You do this by using the <code>sts:SourceIdentity</code> condition key in a role trust policy. You can use source identity information in CloudTrail logs to determine who took actions with a role. You can use the <code>aws:SourceIdentity</code> condition key to further control access to Amazon Web Services resources based on the value of source identity. For more information about using source identity, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html\">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p> <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-. You cannot use a value that begins with the text <code>aws:</code>. This prefix is reserved for Amazon Web Services internal use.</p>
     try {
-      CancelJournalKinesisStreamResponse result = apiInstance.cancelJournalKinesisStream(name, streamId, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      AssumeRoleResponse result = apiInstance.gETAssumeRole(roleArn, roleSessionName, action, version, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, policyArns, policy, durationSeconds, tags, transitiveTagKeys, externalId, serialNumber, tokenCode, sourceIdentity);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#cancelJournalKinesisStream");
+      System.err.println("Exception when calling DefaultApi#gETAssumeRole");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -127,90 +138,55 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://qldb.us-east-1.amazonaws.com*
+All URIs are relative to *https://sts.amazonaws.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**cancelJournalKinesisStream**](docs/DefaultApi.md#cancelJournalKinesisStream) | **DELETE** /ledgers/{name}/journal-kinesis-streams/{streamId} | 
-*DefaultApi* | [**createLedger**](docs/DefaultApi.md#createLedger) | **POST** /ledgers | 
-*DefaultApi* | [**deleteLedger**](docs/DefaultApi.md#deleteLedger) | **DELETE** /ledgers/{name} | 
-*DefaultApi* | [**describeJournalKinesisStream**](docs/DefaultApi.md#describeJournalKinesisStream) | **GET** /ledgers/{name}/journal-kinesis-streams/{streamId} | 
-*DefaultApi* | [**describeJournalS3Export**](docs/DefaultApi.md#describeJournalS3Export) | **GET** /ledgers/{name}/journal-s3-exports/{exportId} | 
-*DefaultApi* | [**describeLedger**](docs/DefaultApi.md#describeLedger) | **GET** /ledgers/{name} | 
-*DefaultApi* | [**exportJournalToS3**](docs/DefaultApi.md#exportJournalToS3) | **POST** /ledgers/{name}/journal-s3-exports | 
-*DefaultApi* | [**getBlock**](docs/DefaultApi.md#getBlock) | **POST** /ledgers/{name}/block | 
-*DefaultApi* | [**getDigest**](docs/DefaultApi.md#getDigest) | **POST** /ledgers/{name}/digest | 
-*DefaultApi* | [**getRevision**](docs/DefaultApi.md#getRevision) | **POST** /ledgers/{name}/revision | 
-*DefaultApi* | [**listJournalKinesisStreamsForLedger**](docs/DefaultApi.md#listJournalKinesisStreamsForLedger) | **GET** /ledgers/{name}/journal-kinesis-streams | 
-*DefaultApi* | [**listJournalS3Exports**](docs/DefaultApi.md#listJournalS3Exports) | **GET** /journal-s3-exports | 
-*DefaultApi* | [**listJournalS3ExportsForLedger**](docs/DefaultApi.md#listJournalS3ExportsForLedger) | **GET** /ledgers/{name}/journal-s3-exports | 
-*DefaultApi* | [**listLedgers**](docs/DefaultApi.md#listLedgers) | **GET** /ledgers | 
-*DefaultApi* | [**listTagsForResource**](docs/DefaultApi.md#listTagsForResource) | **GET** /tags/{resourceArn} | 
-*DefaultApi* | [**streamJournalToKinesis**](docs/DefaultApi.md#streamJournalToKinesis) | **POST** /ledgers/{name}/journal-kinesis-streams | 
-*DefaultApi* | [**tagResource**](docs/DefaultApi.md#tagResource) | **POST** /tags/{resourceArn} | 
-*DefaultApi* | [**untagResource**](docs/DefaultApi.md#untagResource) | **DELETE** /tags/{resourceArn}#tagKeys | 
-*DefaultApi* | [**updateLedger**](docs/DefaultApi.md#updateLedger) | **PATCH** /ledgers/{name} | 
-*DefaultApi* | [**updateLedgerPermissionsMode**](docs/DefaultApi.md#updateLedgerPermissionsMode) | **PATCH** /ledgers/{name}/permissions-mode | 
+*DefaultApi* | [**gETAssumeRole**](docs/DefaultApi.md#gETAssumeRole) | **GET** /#Action&#x3D;AssumeRole | 
+*DefaultApi* | [**gETAssumeRoleWithSAML**](docs/DefaultApi.md#gETAssumeRoleWithSAML) | **GET** /#Action&#x3D;AssumeRoleWithSAML | 
+*DefaultApi* | [**gETAssumeRoleWithWebIdentity**](docs/DefaultApi.md#gETAssumeRoleWithWebIdentity) | **GET** /#Action&#x3D;AssumeRoleWithWebIdentity | 
+*DefaultApi* | [**gETDecodeAuthorizationMessage**](docs/DefaultApi.md#gETDecodeAuthorizationMessage) | **GET** /#Action&#x3D;DecodeAuthorizationMessage | 
+*DefaultApi* | [**gETGetAccessKeyInfo**](docs/DefaultApi.md#gETGetAccessKeyInfo) | **GET** /#Action&#x3D;GetAccessKeyInfo | 
+*DefaultApi* | [**gETGetCallerIdentity**](docs/DefaultApi.md#gETGetCallerIdentity) | **GET** /#Action&#x3D;GetCallerIdentity | 
+*DefaultApi* | [**gETGetFederationToken**](docs/DefaultApi.md#gETGetFederationToken) | **GET** /#Action&#x3D;GetFederationToken | 
+*DefaultApi* | [**gETGetSessionToken**](docs/DefaultApi.md#gETGetSessionToken) | **GET** /#Action&#x3D;GetSessionToken | 
+*DefaultApi* | [**pOSTAssumeRole**](docs/DefaultApi.md#pOSTAssumeRole) | **POST** /#Action&#x3D;AssumeRole | 
+*DefaultApi* | [**pOSTAssumeRoleWithSAML**](docs/DefaultApi.md#pOSTAssumeRoleWithSAML) | **POST** /#Action&#x3D;AssumeRoleWithSAML | 
+*DefaultApi* | [**pOSTAssumeRoleWithWebIdentity**](docs/DefaultApi.md#pOSTAssumeRoleWithWebIdentity) | **POST** /#Action&#x3D;AssumeRoleWithWebIdentity | 
+*DefaultApi* | [**pOSTDecodeAuthorizationMessage**](docs/DefaultApi.md#pOSTDecodeAuthorizationMessage) | **POST** /#Action&#x3D;DecodeAuthorizationMessage | 
+*DefaultApi* | [**pOSTGetAccessKeyInfo**](docs/DefaultApi.md#pOSTGetAccessKeyInfo) | **POST** /#Action&#x3D;GetAccessKeyInfo | 
+*DefaultApi* | [**pOSTGetCallerIdentity**](docs/DefaultApi.md#pOSTGetCallerIdentity) | **POST** /#Action&#x3D;GetCallerIdentity | 
+*DefaultApi* | [**pOSTGetFederationToken**](docs/DefaultApi.md#pOSTGetFederationToken) | **POST** /#Action&#x3D;GetFederationToken | 
+*DefaultApi* | [**pOSTGetSessionToken**](docs/DefaultApi.md#pOSTGetSessionToken) | **POST** /#Action&#x3D;GetSessionToken | 
 
 
 ## Documentation for Models
 
- - [CancelJournalKinesisStreamResponse](docs/CancelJournalKinesisStreamResponse.md)
- - [CreateLedgerRequest](docs/CreateLedgerRequest.md)
- - [CreateLedgerResponse](docs/CreateLedgerResponse.md)
- - [DescribeJournalKinesisStreamResponse](docs/DescribeJournalKinesisStreamResponse.md)
- - [DescribeJournalKinesisStreamResponseStream](docs/DescribeJournalKinesisStreamResponseStream.md)
- - [DescribeJournalS3ExportResponse](docs/DescribeJournalS3ExportResponse.md)
- - [DescribeJournalS3ExportResponseExportDescription](docs/DescribeJournalS3ExportResponseExportDescription.md)
- - [DescribeLedgerResponse](docs/DescribeLedgerResponse.md)
- - [DescribeLedgerResponseEncryptionDescription](docs/DescribeLedgerResponseEncryptionDescription.md)
- - [EncryptionStatus](docs/EncryptionStatus.md)
- - [ErrorCause](docs/ErrorCause.md)
- - [ExportJournalToS3Request](docs/ExportJournalToS3Request.md)
- - [ExportJournalToS3RequestS3ExportConfiguration](docs/ExportJournalToS3RequestS3ExportConfiguration.md)
- - [ExportJournalToS3RequestS3ExportConfigurationEncryptionConfiguration](docs/ExportJournalToS3RequestS3ExportConfigurationEncryptionConfiguration.md)
- - [ExportJournalToS3Response](docs/ExportJournalToS3Response.md)
- - [ExportStatus](docs/ExportStatus.md)
- - [GetBlockRequest](docs/GetBlockRequest.md)
- - [GetBlockRequestBlockAddress](docs/GetBlockRequestBlockAddress.md)
- - [GetBlockRequestDigestTipAddress](docs/GetBlockRequestDigestTipAddress.md)
- - [GetBlockResponse](docs/GetBlockResponse.md)
- - [GetBlockResponseBlock](docs/GetBlockResponseBlock.md)
- - [GetBlockResponseProof](docs/GetBlockResponseProof.md)
- - [GetDigestResponse](docs/GetDigestResponse.md)
- - [GetDigestResponseDigestTipAddress](docs/GetDigestResponseDigestTipAddress.md)
- - [GetRevisionRequest](docs/GetRevisionRequest.md)
- - [GetRevisionRequestBlockAddress](docs/GetRevisionRequestBlockAddress.md)
- - [GetRevisionResponse](docs/GetRevisionResponse.md)
- - [GetRevisionResponseProof](docs/GetRevisionResponseProof.md)
- - [GetRevisionResponseRevision](docs/GetRevisionResponseRevision.md)
- - [JournalKinesisStreamDescription](docs/JournalKinesisStreamDescription.md)
- - [JournalKinesisStreamDescriptionKinesisConfiguration](docs/JournalKinesisStreamDescriptionKinesisConfiguration.md)
- - [JournalS3ExportDescription](docs/JournalS3ExportDescription.md)
- - [KinesisConfiguration](docs/KinesisConfiguration.md)
- - [LedgerEncryptionDescription](docs/LedgerEncryptionDescription.md)
- - [LedgerState](docs/LedgerState.md)
- - [LedgerSummary](docs/LedgerSummary.md)
- - [ListJournalKinesisStreamsForLedgerResponse](docs/ListJournalKinesisStreamsForLedgerResponse.md)
- - [ListJournalS3ExportsForLedgerResponse](docs/ListJournalS3ExportsForLedgerResponse.md)
- - [ListJournalS3ExportsResponse](docs/ListJournalS3ExportsResponse.md)
- - [ListLedgersResponse](docs/ListLedgersResponse.md)
- - [ListTagsForResourceResponse](docs/ListTagsForResourceResponse.md)
- - [OutputFormat](docs/OutputFormat.md)
- - [PermissionsMode](docs/PermissionsMode.md)
- - [S3EncryptionConfiguration](docs/S3EncryptionConfiguration.md)
- - [S3ExportConfiguration](docs/S3ExportConfiguration.md)
- - [S3ObjectEncryptionType](docs/S3ObjectEncryptionType.md)
- - [StreamJournalToKinesisRequest](docs/StreamJournalToKinesisRequest.md)
- - [StreamJournalToKinesisRequestKinesisConfiguration](docs/StreamJournalToKinesisRequestKinesisConfiguration.md)
- - [StreamJournalToKinesisResponse](docs/StreamJournalToKinesisResponse.md)
- - [StreamStatus](docs/StreamStatus.md)
- - [TagResourceRequest](docs/TagResourceRequest.md)
- - [UpdateLedgerPermissionsModeRequest](docs/UpdateLedgerPermissionsModeRequest.md)
- - [UpdateLedgerPermissionsModeResponse](docs/UpdateLedgerPermissionsModeResponse.md)
- - [UpdateLedgerRequest](docs/UpdateLedgerRequest.md)
- - [UpdateLedgerResponse](docs/UpdateLedgerResponse.md)
- - [ValueHolder](docs/ValueHolder.md)
+ - [AssumeRoleRequest](docs/AssumeRoleRequest.md)
+ - [AssumeRoleResponse](docs/AssumeRoleResponse.md)
+ - [AssumeRoleResponseAssumedRoleUser](docs/AssumeRoleResponseAssumedRoleUser.md)
+ - [AssumeRoleResponseCredentials](docs/AssumeRoleResponseCredentials.md)
+ - [AssumeRoleWithSAMLRequest](docs/AssumeRoleWithSAMLRequest.md)
+ - [AssumeRoleWithSAMLResponse](docs/AssumeRoleWithSAMLResponse.md)
+ - [AssumeRoleWithSAMLResponseAssumedRoleUser](docs/AssumeRoleWithSAMLResponseAssumedRoleUser.md)
+ - [AssumeRoleWithWebIdentityRequest](docs/AssumeRoleWithWebIdentityRequest.md)
+ - [AssumeRoleWithWebIdentityResponse](docs/AssumeRoleWithWebIdentityResponse.md)
+ - [AssumeRoleWithWebIdentityResponseCredentials](docs/AssumeRoleWithWebIdentityResponseCredentials.md)
+ - [AssumedRoleUser](docs/AssumedRoleUser.md)
+ - [Credentials](docs/Credentials.md)
+ - [DecodeAuthorizationMessageRequest](docs/DecodeAuthorizationMessageRequest.md)
+ - [DecodeAuthorizationMessageResponse](docs/DecodeAuthorizationMessageResponse.md)
+ - [FederatedUser](docs/FederatedUser.md)
+ - [GetAccessKeyInfoRequest](docs/GetAccessKeyInfoRequest.md)
+ - [GetAccessKeyInfoResponse](docs/GetAccessKeyInfoResponse.md)
+ - [GetCallerIdentityResponse](docs/GetCallerIdentityResponse.md)
+ - [GetFederationTokenRequest](docs/GetFederationTokenRequest.md)
+ - [GetFederationTokenResponse](docs/GetFederationTokenResponse.md)
+ - [GetFederationTokenResponseFederatedUser](docs/GetFederationTokenResponseFederatedUser.md)
+ - [GetSessionTokenRequest](docs/GetSessionTokenRequest.md)
+ - [GetSessionTokenResponse](docs/GetSessionTokenResponse.md)
+ - [PolicyDescriptorType](docs/PolicyDescriptorType.md)
+ - [Tag](docs/Tag.md)
 
 
 <a id="documentation-for-authorization"></a>
