@@ -1,0 +1,19 @@
+
+
+# Drive
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**createdAt** | **OffsetDateTime** | The date and time when the object was created. |  [optional] [readonly] |
+|**createdBy** | **String** | The user who created the object. |  [optional] [readonly] |
+|**description** | **String** | A description of the object. |  [optional] |
+|**id** | **String** | A unique identifier for an object. |  [readonly] |
+|**name** | **String** | The name of the drive |  |
+|**updatedAt** | **OffsetDateTime** | The date and time when the object was last updated. |  [optional] [readonly] |
+|**updatedBy** | **String** | The user who last updated the object. |  [optional] [readonly] |
+
+
+
