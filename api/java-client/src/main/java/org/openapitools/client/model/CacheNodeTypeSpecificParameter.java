@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * A parameter that has a different value for each cache node type it is applied to. For example, in a Redis cluster, a &lt;code&gt;cache.m1.large&lt;/code&gt; cache node type would have a larger &lt;code&gt;maxmemory&lt;/code&gt; value than a &lt;code&gt;cache.m1.small&lt;/code&gt; type.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:05.565321-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:41.807787-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CacheNodeTypeSpecificParameter {
   public static final String SERIALIZED_NAME_PARAMETER_NAME = "ParameterName";
   @SerializedName(SERIALIZED_NAME_PARAMETER_NAME)

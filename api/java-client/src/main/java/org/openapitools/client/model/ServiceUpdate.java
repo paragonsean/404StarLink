@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * An update that you can apply to your Redis clusters.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:05.565321-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:41.807787-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ServiceUpdate {
   public static final String SERIALIZED_NAME_SERVICE_UPDATE_NAME = "ServiceUpdateName";
   @SerializedName(SERIALIZED_NAME_SERVICE_UPDATE_NAME)

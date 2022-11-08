@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents a single cache security group and its status.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:05.565321-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:41.807787-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SecurityGroupMembership {
   public static final String SERIALIZED_NAME_SECURITY_GROUP_ID = "SecurityGroupId";
   @SerializedName(SERIALIZED_NAME_SECURITY_GROUP_ID)

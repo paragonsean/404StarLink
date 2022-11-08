@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build Fun Generators API
+    name: Build Amazon ElastiCache
     runs-on: ubuntu-latest
     strategy:
       matrix:
