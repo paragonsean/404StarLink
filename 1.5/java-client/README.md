@@ -2,7 +2,7 @@
 
 Fun Generators API
 - API version: 1.5
-  - Build date: 2024-10-11T01:53:56.740866-04:00[America/New_York]
+  - Build date: 2024-10-11T01:55:59.300403-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Below is the documentation for the API calls. You can try them out right here. 
