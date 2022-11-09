@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build AWS Security Token Service
+    name: Build Fun Generators API
     runs-on: ubuntu-latest
     strategy:
       matrix:
