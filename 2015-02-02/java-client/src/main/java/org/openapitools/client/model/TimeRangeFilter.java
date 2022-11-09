@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Filters update actions from the service updates that are in available status during the time range.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:10.865581-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:47.534295-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TimeRangeFilter {
   public static final String SERIALIZED_NAME_START_TIME = "StartTime";
   @SerializedName(SERIALIZED_NAME_START_TIME)

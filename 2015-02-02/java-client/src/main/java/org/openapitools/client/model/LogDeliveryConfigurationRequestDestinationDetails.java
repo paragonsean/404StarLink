@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * LogDeliveryConfigurationRequestDestinationDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:10.865581-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:47.534295-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class LogDeliveryConfigurationRequestDestinationDetails {
   public static final String SERIALIZED_NAME_CLOUD_WATCH_LOGS_DETAILS = "CloudWatchLogsDetails";
   @SerializedName(SERIALIZED_NAME_CLOUD_WATCH_LOGS_DETAILS)

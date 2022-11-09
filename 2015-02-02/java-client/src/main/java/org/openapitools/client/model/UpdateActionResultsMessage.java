@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * UpdateActionResultsMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:10.865581-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:47.534295-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class UpdateActionResultsMessage {
   public static final String SERIALIZED_NAME_PROCESSED_UPDATE_ACTIONS = "ProcessedUpdateActions";
   @SerializedName(SERIALIZED_NAME_PROCESSED_UPDATE_ACTIONS)

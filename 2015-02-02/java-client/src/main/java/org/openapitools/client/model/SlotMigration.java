@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents the progress of an online resharding operation.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:10.865581-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:47.534295-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SlotMigration {
   public static final String SERIALIZED_NAME_PROGRESS_PERCENTAGE = "ProgressPercentage";
   @SerializedName(SERIALIZED_NAME_PROGRESS_PERCENTAGE)
