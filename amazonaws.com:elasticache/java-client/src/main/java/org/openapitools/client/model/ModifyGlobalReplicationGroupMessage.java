@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ModifyGlobalReplicationGroupMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:16.135451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:52.956161-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ModifyGlobalReplicationGroupMessage {
   public static final String SERIALIZED_NAME_GLOBAL_REPLICATION_GROUP_ID = "GlobalReplicationGroupId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_REPLICATION_GROUP_ID)

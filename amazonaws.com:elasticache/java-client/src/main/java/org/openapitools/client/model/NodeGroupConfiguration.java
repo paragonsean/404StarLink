@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Node group (shard) configuration options. Each node group (shard) configuration has the following: &lt;code&gt;Slots&lt;/code&gt;, &lt;code&gt;PrimaryAvailabilityZone&lt;/code&gt;, &lt;code&gt;ReplicaAvailabilityZones&lt;/code&gt;, &lt;code&gt;ReplicaCount&lt;/code&gt;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:16.135451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:52.956161-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class NodeGroupConfiguration {
   public static final String SERIALIZED_NAME_NODE_GROUP_ID = "NodeGroupId";
   @SerializedName(SERIALIZED_NAME_NODE_GROUP_ID)

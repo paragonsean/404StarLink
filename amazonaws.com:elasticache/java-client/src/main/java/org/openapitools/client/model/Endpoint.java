@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents the information required for client programs to connect to a cache node.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:16.135451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:52.956161-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Endpoint {
   public static final String SERIALIZED_NAME_ADDRESS = "Address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * ReplicationGroupPendingModifiedValuesUserGroups
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:16.135451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:52.956161-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ReplicationGroupPendingModifiedValuesUserGroups {
   public static final String SERIALIZED_NAME_USER_GROUP_IDS_TO_ADD = "UserGroupIdsToAdd";
   @SerializedName(SERIALIZED_NAME_USER_GROUP_IDS_TO_ADD)

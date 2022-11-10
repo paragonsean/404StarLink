@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents a collection of cache nodes in a replication group. One node in the node group is the read/write primary node. All the other nodes are read-only Replica nodes.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:16.135451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:03:52.956161-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class NodeGroup {
   public static final String SERIALIZED_NAME_NODE_GROUP_ID = "NodeGroupId";
   @SerializedName(SERIALIZED_NAME_NODE_GROUP_ID)
