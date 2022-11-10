@@ -1,0 +1,3607 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Discovery API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Discovery API</h1>
+    <div class="app-desc">The Ticketmaster Discovery API allows you to search for events, attractions, or venues.</div>
+    <div class="app-desc">More information: <a href="http://developer.ticketmaster.com/support/contact-us/">http://developer.ticketmaster.com/support/contact-us/</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v2</div>
+    <div class="app-desc">BasePath:/discovery/v2</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#discoveryV2ClassificationsGet"><code><span class="http-method">get</span> /discovery/v2/classifications</code></a></li>
+  <li><a href="#discoveryV2ClassificationsIdGet"><code><span class="http-method">get</span> /discovery/v2/classifications/{id}</code></a></li>
+  <li><a href="#discoveryV2EventsGet"><code><span class="http-method">get</span> /discovery/v2/events</code></a></li>
+  <li><a href="#discoveryV2EventsIdGet"><code><span class="http-method">get</span> /discovery/v2/events/{id}</code></a></li>
+  <li><a href="#discoveryV2VenuesGet"><code><span class="http-method">get</span> /discovery/v2/venues</code></a></li>
+  <li><a href="#discoveryV2VenuesIdGet"><code><span class="http-method">get</span> /discovery/v2/venues/{id}</code></a></li>
+  <li><a href="#find"><code><span class="http-method">get</span> /discovery/v2/attractions</code></a></li>
+  <li><a href="#get"><code><span class="http-method">get</span> /discovery/v2/attractions/{id}</code></a></li>
+  <li><a href="#getGenre"><code><span class="http-method">get</span> /discovery/v2/classifications/genres/{id}</code></a></li>
+  <li><a href="#getImages"><code><span class="http-method">get</span> /discovery/v2/events/{id}/images</code></a></li>
+  <li><a href="#getSegment"><code><span class="http-method">get</span> /discovery/v2/classifications/segments/{id}</code></a></li>
+  <li><a href="#getSubgenre"><code><span class="http-method">get</span> /discovery/v2/classifications/subgenres/{id}</code></a></li>
+  </ul>
+  <h4><a href="#V2">V2</a></h4>
+  <ul>
+  <li><a href="#discoveryV2SuggestGet"><code><span class="http-method">get</span> /discovery/v2/suggest</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="discoveryV2ClassificationsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/classifications</code></pre></div>
+    <div class="method-summary">Classification Search (<span class="nickname">discoveryV2ClassificationsGet</span>)</div>
+    <div class="method-notes">Find classifications and filter your search by name, and much more. Classifications help define the nature of attractions and events.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">sort (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sorting order of the search result default: name,asc </div><div class="param">keyword (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Keyword to search on default:  </div><div class="param">id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter entities by its id default:  </div><div class="param">source (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter entities by its source name default:  </div><div class="param">includeTest (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to have entities flag as test in the response. Only, if you only wanted test entities default: false </div><div class="param">page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page number default: 0 </div><div class="param">size (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page size of the response default: 20 </div><div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Yes if you want to display licensed content default: false </div><div class="param">includeSpellcheck (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; yes, to include spell check suggestions in the response. default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Classification">Classification</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>[ {
+  "subGenre" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "segment" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "genre" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "subType" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "type" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "primary" : false
+}, {
+  "subGenre" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "segment" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "genre" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "subType" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "type" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "primary" : false
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="discoveryV2ClassificationsIdGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/classifications/{id}</code></pre></div>
+    <div class="method-summary">Get Classification Details (<span class="nickname">discoveryV2ClassificationsIdGet</span>)</div>
+    <div class="method-notes">Get details for a specific segment, genre, or sub-genre using its unique identifier.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the segment, genre, or sub-genre default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to display licensed content default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Classification">Classification</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "subGenre" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "segment" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "genre" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "subType" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "type" : {
+    "name" : "name",
+    "id" : "id"
+  },
+  "primary" : false
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Classification">Classification</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="discoveryV2EventsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/events</code></pre></div>
+    <div class="method-summary">Event Search (<span class="nickname">discoveryV2EventsGet</span>)</div>
+    <div class="method-notes">Find events and filter your search by location, date, availability, and much more.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">sort (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sorting order of the search result. Allowable values : 'name,asc', 'name,desc', 'date,asc', 'date,desc', 'relevance,asc', 'relevance,desc', 'distance,asc', 'name,date,asc', 'name,date,desc', 'date,name,asc', 'date,name,desc','onsaleStartDate,asc', 'id,asc' default: relevance,desc </div><div class="param">startDateTime (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events with a start date after this date default:  </div><div class="param">endDateTime (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events with a start date before this date default:  </div><div class="param">onsaleStartDateTime (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events with onsale start date after this date default:  </div><div class="param">onsaleOnStartDate (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events with onsale start date on this date default:  </div><div class="param">onsaleOnAfterStartDate (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events with onsale range within this date default:  </div><div class="param">onsaleEndDateTime (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events with onsale end date before this date default:  </div><div class="param">city (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by city default:  </div><div class="param">countryCode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by country code default:  </div><div class="param">stateCode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by state code default:  </div><div class="param">postalCode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by postal code / zipcode default:  </div><div class="param">venueId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by venue id default:  </div><div class="param">attractionId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by attraction id default:  </div><div class="param">segmentId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by segment id default:  </div><div class="param">segmentName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by segment name default:  </div><div class="param">classificationName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by classification name: name of any segment, genre, sub-genre, type, sub-type default: null </div><div class="param">classificationId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by classification id: id of any segment, genre, sub-genre, type, sub-type default: null </div><div class="param">marketId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by market id default:  </div><div class="param">promoterId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by promoter id default:  </div><div class="param">dmaId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by dma id default:  </div><div class="param">includeTBA (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True, to include events with date to be announce (TBA) default: no if date parameter sent, yes otherwise </div><div class="param">includeTBD (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True, to include event with a date to be defined (TBD) default: no if date parameter sent, yes otherwise </div><div class="param">clientVisibility (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by clientName default:  </div><div class="param">latlong (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by latitude and longitude, this filter is deprecated and maybe removed in a future release, please use geoPoint instead default:  </div><div class="param">radius (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Radius of the area in which we want to search for events. default: 50 </div><div class="param">unit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Unit of the radius default: miles </div><div class="param">geoPoint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; filter events by geoHash default:  </div><div class="param">keyword (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Keyword to search on default:  </div><div class="param">id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter entities by its id default:  </div><div class="param">source (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter entities by its source name default:  </div><div class="param">includeTest (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to have entities flag as test in the response. Only, if you only wanted test entities default: false </div><div class="param">page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page number default: 0 </div><div class="param">size (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page size of the response default: 20 </div><div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Yes if you want to display licensed content default: false </div><div class="param">includeSpellcheck (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; yes, to include spell check suggestions in the response. default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Event">Event</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>[ {
+  "distance" : 2.027123023002322,
+  "accessibility" : {
+    "info" : "info"
+  },
+  "description" : "description",
+  "outlets" : [ {
+    "type" : "type",
+    "url" : "url"
+  }, {
+    "type" : "type",
+    "url" : "url"
+  } ],
+  "priceRanges" : [ {
+    "min" : 1.0246457001441578,
+    "max" : 1.2315135367772556,
+    "currency" : "currency",
+    "type" : "standard"
+  }, {
+    "min" : 1.0246457001441578,
+    "max" : 1.2315135367772556,
+    "currency" : "currency",
+    "type" : "standard"
+  } ],
+  "units" : "units",
+  "locale" : "locale",
+  "type" : "event",
+  "sales" : {
+    "public" : {
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "startTBD" : false,
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+    },
+    "presales" : [ {
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "name" : "name",
+      "description" : "description",
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "url" : "url"
+    }, {
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "name" : "name",
+      "description" : "description",
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "url" : "url"
+    } ]
+  },
+  "products" : [ {
+    "name" : "name",
+    "id" : "id",
+    "type" : "type",
+    "url" : "url"
+  }, {
+    "name" : "name",
+    "id" : "id",
+    "type" : "type",
+    "url" : "url"
+  } ],
+  "additionalInfo" : "additionalInfo",
+  "externalLinks" : {
+    "key" : [ {
+      "id" : "id",
+      "url" : "url"
+    }, {
+      "id" : "id",
+      "url" : "url"
+    } ]
+  },
+  "promoter" : {
+    "name" : "name",
+    "description" : "description",
+    "id" : "id"
+  },
+  "id" : "id",
+  "place" : {
+    "area" : {
+      "name" : "name"
+    },
+    "country" : {
+      "countryCode" : "countryCode",
+      "name" : "name"
+    },
+    "address" : {
+      "line3" : "line3",
+      "line2" : "line2",
+      "line1" : "line1"
+    },
+    "city" : {
+      "name" : "name"
+    },
+    "postalCode" : "postalCode",
+    "name" : "name",
+    "location" : {
+      "latitude" : 4.145608029883936,
+      "longitude" : 7.386281948385884
+    },
+    "state" : {
+      "name" : "name",
+      "stateCode" : "stateCode"
+    }
+  },
+  "promoters" : [ {
+    "name" : "name",
+    "description" : "description",
+    "id" : "id"
+  }, {
+    "name" : "name",
+    "description" : "description",
+    "id" : "id"
+  } ],
+  "info" : "info",
+  "images" : [ {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  }, {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  } ],
+  "seatmap" : {
+    "staticUrl" : "staticUrl"
+  },
+  "test" : false,
+  "dates" : {
+    "access" : {
+      "startApproximate" : false,
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "endApproximate" : false,
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+    },
+    "timezone" : "timezone",
+    "start" : {
+      "dateTime" : "2000-01-23T04:56:07.000+00:00",
+      "localTime" : {
+        "fieldTypes" : [ {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        }, {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        } ],
+        "values" : [ 3, 3 ],
+        "hourOfDay" : 5,
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "id" : "id"
+          }
+        },
+        "fields" : [ {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        }, {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        } ],
+        "minuteOfHour" : 7,
+        "secondOfMinute" : 9,
+        "millisOfDay" : 5,
+        "millisOfSecond" : 2
+      },
+      "dateTBA" : false,
+      "noSpecificTime" : false,
+      "timeTBA" : false,
+      "localDate" : "2000-01-23",
+      "dateTBD" : false
+    },
+    "end" : {
+      "dateTime" : "2000-01-23T04:56:07.000+00:00",
+      "localTime" : {
+        "fieldTypes" : [ {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        }, {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        } ],
+        "values" : [ 3, 3 ],
+        "hourOfDay" : 5,
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "id" : "id"
+          }
+        },
+        "fields" : [ {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        }, {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        } ],
+        "minuteOfHour" : 7,
+        "secondOfMinute" : 9,
+        "millisOfDay" : 5,
+        "millisOfSecond" : 2
+      },
+      "noSpecificTime" : false,
+      "approximate" : false,
+      "localDate" : "2000-01-23"
+    },
+    "spanMultipleDays" : false,
+    "status" : {
+      "code" : "onsale"
+    }
+  },
+  "url" : "url",
+  "classifications" : [ {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  }, {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  } ],
+  "name" : "name",
+  "pleaseNote" : "pleaseNote",
+  "location" : {
+    "latitude" : 4.145608029883936,
+    "longitude" : 7.386281948385884
+  }
+}, {
+  "distance" : 2.027123023002322,
+  "accessibility" : {
+    "info" : "info"
+  },
+  "description" : "description",
+  "outlets" : [ {
+    "type" : "type",
+    "url" : "url"
+  }, {
+    "type" : "type",
+    "url" : "url"
+  } ],
+  "priceRanges" : [ {
+    "min" : 1.0246457001441578,
+    "max" : 1.2315135367772556,
+    "currency" : "currency",
+    "type" : "standard"
+  }, {
+    "min" : 1.0246457001441578,
+    "max" : 1.2315135367772556,
+    "currency" : "currency",
+    "type" : "standard"
+  } ],
+  "units" : "units",
+  "locale" : "locale",
+  "type" : "event",
+  "sales" : {
+    "public" : {
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "startTBD" : false,
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+    },
+    "presales" : [ {
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "name" : "name",
+      "description" : "description",
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "url" : "url"
+    }, {
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "name" : "name",
+      "description" : "description",
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "url" : "url"
+    } ]
+  },
+  "products" : [ {
+    "name" : "name",
+    "id" : "id",
+    "type" : "type",
+    "url" : "url"
+  }, {
+    "name" : "name",
+    "id" : "id",
+    "type" : "type",
+    "url" : "url"
+  } ],
+  "additionalInfo" : "additionalInfo",
+  "externalLinks" : {
+    "key" : [ {
+      "id" : "id",
+      "url" : "url"
+    }, {
+      "id" : "id",
+      "url" : "url"
+    } ]
+  },
+  "promoter" : {
+    "name" : "name",
+    "description" : "description",
+    "id" : "id"
+  },
+  "id" : "id",
+  "place" : {
+    "area" : {
+      "name" : "name"
+    },
+    "country" : {
+      "countryCode" : "countryCode",
+      "name" : "name"
+    },
+    "address" : {
+      "line3" : "line3",
+      "line2" : "line2",
+      "line1" : "line1"
+    },
+    "city" : {
+      "name" : "name"
+    },
+    "postalCode" : "postalCode",
+    "name" : "name",
+    "location" : {
+      "latitude" : 4.145608029883936,
+      "longitude" : 7.386281948385884
+    },
+    "state" : {
+      "name" : "name",
+      "stateCode" : "stateCode"
+    }
+  },
+  "promoters" : [ {
+    "name" : "name",
+    "description" : "description",
+    "id" : "id"
+  }, {
+    "name" : "name",
+    "description" : "description",
+    "id" : "id"
+  } ],
+  "info" : "info",
+  "images" : [ {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  }, {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  } ],
+  "seatmap" : {
+    "staticUrl" : "staticUrl"
+  },
+  "test" : false,
+  "dates" : {
+    "access" : {
+      "startApproximate" : false,
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "endApproximate" : false,
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+    },
+    "timezone" : "timezone",
+    "start" : {
+      "dateTime" : "2000-01-23T04:56:07.000+00:00",
+      "localTime" : {
+        "fieldTypes" : [ {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        }, {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        } ],
+        "values" : [ 3, 3 ],
+        "hourOfDay" : 5,
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "id" : "id"
+          }
+        },
+        "fields" : [ {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        }, {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        } ],
+        "minuteOfHour" : 7,
+        "secondOfMinute" : 9,
+        "millisOfDay" : 5,
+        "millisOfSecond" : 2
+      },
+      "dateTBA" : false,
+      "noSpecificTime" : false,
+      "timeTBA" : false,
+      "localDate" : "2000-01-23",
+      "dateTBD" : false
+    },
+    "end" : {
+      "dateTime" : "2000-01-23T04:56:07.000+00:00",
+      "localTime" : {
+        "fieldTypes" : [ {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        }, {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        } ],
+        "values" : [ 3, 3 ],
+        "hourOfDay" : 5,
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "id" : "id"
+          }
+        },
+        "fields" : [ {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        }, {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        } ],
+        "minuteOfHour" : 7,
+        "secondOfMinute" : 9,
+        "millisOfDay" : 5,
+        "millisOfSecond" : 2
+      },
+      "noSpecificTime" : false,
+      "approximate" : false,
+      "localDate" : "2000-01-23"
+    },
+    "spanMultipleDays" : false,
+    "status" : {
+      "code" : "onsale"
+    }
+  },
+  "url" : "url",
+  "classifications" : [ {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  }, {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  } ],
+  "name" : "name",
+  "pleaseNote" : "pleaseNote",
+  "location" : {
+    "latitude" : 4.145608029883936,
+    "longitude" : 7.386281948385884
+  }
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="discoveryV2EventsIdGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/events/{id}</code></pre></div>
+    <div class="method-summary">Get Event Details (<span class="nickname">discoveryV2EventsIdGet</span>)</div>
+    <div class="method-notes">Get details for a specific event using the unique identifier for the event. This includes the venue and location, the attraction(s), and the Ticketmaster Website URL for purchasing tickets for the event.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the event default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to display licensed content default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Event">Event</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "distance" : 2.027123023002322,
+  "accessibility" : {
+    "info" : "info"
+  },
+  "description" : "description",
+  "outlets" : [ {
+    "type" : "type",
+    "url" : "url"
+  }, {
+    "type" : "type",
+    "url" : "url"
+  } ],
+  "priceRanges" : [ {
+    "min" : 1.0246457001441578,
+    "max" : 1.2315135367772556,
+    "currency" : "currency",
+    "type" : "standard"
+  }, {
+    "min" : 1.0246457001441578,
+    "max" : 1.2315135367772556,
+    "currency" : "currency",
+    "type" : "standard"
+  } ],
+  "units" : "units",
+  "locale" : "locale",
+  "type" : "event",
+  "sales" : {
+    "public" : {
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "startTBD" : false,
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+    },
+    "presales" : [ {
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "name" : "name",
+      "description" : "description",
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "url" : "url"
+    }, {
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "name" : "name",
+      "description" : "description",
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "url" : "url"
+    } ]
+  },
+  "products" : [ {
+    "name" : "name",
+    "id" : "id",
+    "type" : "type",
+    "url" : "url"
+  }, {
+    "name" : "name",
+    "id" : "id",
+    "type" : "type",
+    "url" : "url"
+  } ],
+  "additionalInfo" : "additionalInfo",
+  "externalLinks" : {
+    "key" : [ {
+      "id" : "id",
+      "url" : "url"
+    }, {
+      "id" : "id",
+      "url" : "url"
+    } ]
+  },
+  "promoter" : {
+    "name" : "name",
+    "description" : "description",
+    "id" : "id"
+  },
+  "id" : "id",
+  "place" : {
+    "area" : {
+      "name" : "name"
+    },
+    "country" : {
+      "countryCode" : "countryCode",
+      "name" : "name"
+    },
+    "address" : {
+      "line3" : "line3",
+      "line2" : "line2",
+      "line1" : "line1"
+    },
+    "city" : {
+      "name" : "name"
+    },
+    "postalCode" : "postalCode",
+    "name" : "name",
+    "location" : {
+      "latitude" : 4.145608029883936,
+      "longitude" : 7.386281948385884
+    },
+    "state" : {
+      "name" : "name",
+      "stateCode" : "stateCode"
+    }
+  },
+  "promoters" : [ {
+    "name" : "name",
+    "description" : "description",
+    "id" : "id"
+  }, {
+    "name" : "name",
+    "description" : "description",
+    "id" : "id"
+  } ],
+  "info" : "info",
+  "images" : [ {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  }, {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  } ],
+  "seatmap" : {
+    "staticUrl" : "staticUrl"
+  },
+  "test" : false,
+  "dates" : {
+    "access" : {
+      "startApproximate" : false,
+      "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+      "endApproximate" : false,
+      "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+    },
+    "timezone" : "timezone",
+    "start" : {
+      "dateTime" : "2000-01-23T04:56:07.000+00:00",
+      "localTime" : {
+        "fieldTypes" : [ {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        }, {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        } ],
+        "values" : [ 3, 3 ],
+        "hourOfDay" : 5,
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "id" : "id"
+          }
+        },
+        "fields" : [ {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        }, {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        } ],
+        "minuteOfHour" : 7,
+        "secondOfMinute" : 9,
+        "millisOfDay" : 5,
+        "millisOfSecond" : 2
+      },
+      "dateTBA" : false,
+      "noSpecificTime" : false,
+      "timeTBA" : false,
+      "localDate" : "2000-01-23",
+      "dateTBD" : false
+    },
+    "end" : {
+      "dateTime" : "2000-01-23T04:56:07.000+00:00",
+      "localTime" : {
+        "fieldTypes" : [ {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        }, {
+          "rangeDurationType" : {
+            "name" : "name"
+          },
+          "name" : "name",
+          "durationType" : {
+            "name" : "name"
+          }
+        } ],
+        "values" : [ 3, 3 ],
+        "hourOfDay" : 5,
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "id" : "id"
+          }
+        },
+        "fields" : [ {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        }, {
+          "minimumValue" : 1,
+          "leapDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "name" : "name",
+          "durationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "rangeDurationField" : {
+            "name" : "name",
+            "precise" : false,
+            "type" : {
+              "name" : "name"
+            },
+            "unitMillis" : 0,
+            "supported" : false
+          },
+          "type" : {
+            "rangeDurationType" : {
+              "name" : "name"
+            },
+            "name" : "name",
+            "durationType" : {
+              "name" : "name"
+            }
+          },
+          "maximumValue" : 6,
+          "lenient" : false,
+          "supported" : false
+        } ],
+        "minuteOfHour" : 7,
+        "secondOfMinute" : 9,
+        "millisOfDay" : 5,
+        "millisOfSecond" : 2
+      },
+      "noSpecificTime" : false,
+      "approximate" : false,
+      "localDate" : "2000-01-23"
+    },
+    "spanMultipleDays" : false,
+    "status" : {
+      "code" : "onsale"
+    }
+  },
+  "url" : "url",
+  "classifications" : [ {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  }, {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  } ],
+  "name" : "name",
+  "pleaseNote" : "pleaseNote",
+  "location" : {
+    "latitude" : 4.145608029883936,
+    "longitude" : 7.386281948385884
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Event">Event</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="discoveryV2VenuesGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/venues</code></pre></div>
+    <div class="method-summary">Venue Search (<span class="nickname">discoveryV2VenuesGet</span>)</div>
+    <div class="method-notes">Find venues and filter your search by name, and much more.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">sort (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sorting order of the search result. Allowable Values: 'name,asc', 'name,desc', 'relevance,asc', 'relevance,desc', 'distance,asc', 'distance,desc' default: relevance,desc </div><div class="param">stateCode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter venues by state / province code default:  </div><div class="param">countryCode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter venues by country code default:  </div><div class="param">latlong (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by latitude and longitude, this filter is deprecated and maybe removed in a future release, please use geoPoint instead default:  </div><div class="param">radius (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Radius of the area in which we want to search for events. default: 50 </div><div class="param">unit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Unit of the radius default: miles </div><div class="param">geoPoint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; filter events by geoHash default:  </div><div class="param">keyword (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Keyword to search on default:  </div><div class="param">id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter entities by its id default:  </div><div class="param">source (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter entities by its source name default:  </div><div class="param">includeTest (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to have entities flag as test in the response. Only, if you only wanted test entities default: false </div><div class="param">page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page number default: 0 </div><div class="param">size (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page size of the response default: 20 </div><div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Yes if you want to display licensed content default: false </div><div class="param">includeSpellcheck (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; yes, to include spell check suggestions in the response. default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Venue">Venue</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>[ {
+  "country" : {
+    "countryCode" : "countryCode",
+    "name" : "name"
+  },
+  "distance" : 0.8008281904610115,
+  "city" : {
+    "name" : "name"
+  },
+  "timezone" : "timezone",
+  "postalCode" : "postalCode",
+  "description" : "description",
+  "units" : "units",
+  "locale" : "locale",
+  "type" : "event",
+  "additionalInfo" : "additionalInfo",
+  "parkingDetail" : "parkingDetail",
+  "currency" : "currency",
+  "externalLinks" : {
+    "key" : [ {
+      "id" : "id",
+      "url" : "url"
+    }, {
+      "id" : "id",
+      "url" : "url"
+    } ]
+  },
+  "id" : "id",
+  "state" : {
+    "name" : "name",
+    "stateCode" : "stateCode"
+  },
+  "images" : [ {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  }, {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  } ],
+  "address" : {
+    "line3" : "line3",
+    "line2" : "line2",
+    "line1" : "line1"
+  },
+  "test" : false,
+  "social" : {
+    "twitter" : {
+      "hashtags" : "#hashtag example #hashtag another example",
+      "handle" : "@a Twitter handle exampe"
+    }
+  },
+  "upcomingEvents" : {
+    "key" : 1
+  },
+  "generalInfo" : {
+    "generalRule" : "generalRule",
+    "childRule" : "childRule"
+  },
+  "boxOfficeInfo" : {
+    "openHoursDetail" : "openHoursDetail",
+    "phoneNumberDetail" : "phoneNumberDetail",
+    "willCallDetail" : "willCallDetail",
+    "acceptedPaymentDetail" : "acceptedPaymentDetail"
+  },
+  "url" : "url",
+  "markets" : [ {
+    "id" : "id"
+  }, {
+    "id" : "id"
+  } ],
+  "accessibleSeatingDetail" : "accessibleSeatingDetail",
+  "name" : "name",
+  "dma" : [ {
+    "id" : 6
+  }, {
+    "id" : 6
+  } ],
+  "location" : {
+    "latitude" : 4.145608029883936,
+    "longitude" : 7.386281948385884
+  }
+}, {
+  "country" : {
+    "countryCode" : "countryCode",
+    "name" : "name"
+  },
+  "distance" : 0.8008281904610115,
+  "city" : {
+    "name" : "name"
+  },
+  "timezone" : "timezone",
+  "postalCode" : "postalCode",
+  "description" : "description",
+  "units" : "units",
+  "locale" : "locale",
+  "type" : "event",
+  "additionalInfo" : "additionalInfo",
+  "parkingDetail" : "parkingDetail",
+  "currency" : "currency",
+  "externalLinks" : {
+    "key" : [ {
+      "id" : "id",
+      "url" : "url"
+    }, {
+      "id" : "id",
+      "url" : "url"
+    } ]
+  },
+  "id" : "id",
+  "state" : {
+    "name" : "name",
+    "stateCode" : "stateCode"
+  },
+  "images" : [ {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  }, {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  } ],
+  "address" : {
+    "line3" : "line3",
+    "line2" : "line2",
+    "line1" : "line1"
+  },
+  "test" : false,
+  "social" : {
+    "twitter" : {
+      "hashtags" : "#hashtag example #hashtag another example",
+      "handle" : "@a Twitter handle exampe"
+    }
+  },
+  "upcomingEvents" : {
+    "key" : 1
+  },
+  "generalInfo" : {
+    "generalRule" : "generalRule",
+    "childRule" : "childRule"
+  },
+  "boxOfficeInfo" : {
+    "openHoursDetail" : "openHoursDetail",
+    "phoneNumberDetail" : "phoneNumberDetail",
+    "willCallDetail" : "willCallDetail",
+    "acceptedPaymentDetail" : "acceptedPaymentDetail"
+  },
+  "url" : "url",
+  "markets" : [ {
+    "id" : "id"
+  }, {
+    "id" : "id"
+  } ],
+  "accessibleSeatingDetail" : "accessibleSeatingDetail",
+  "name" : "name",
+  "dma" : [ {
+    "id" : 6
+  }, {
+    "id" : 6
+  } ],
+  "location" : {
+    "latitude" : 4.145608029883936,
+    "longitude" : 7.386281948385884
+  }
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="discoveryV2VenuesIdGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/venues/{id}</code></pre></div>
+    <div class="method-summary">Get Venue Details (<span class="nickname">discoveryV2VenuesIdGet</span>)</div>
+    <div class="method-notes">Get details for a specific venue using the unique identifier for the venue.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the venue default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to display licensed content default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Venue">Venue</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "country" : {
+    "countryCode" : "countryCode",
+    "name" : "name"
+  },
+  "distance" : 0.8008281904610115,
+  "city" : {
+    "name" : "name"
+  },
+  "timezone" : "timezone",
+  "postalCode" : "postalCode",
+  "description" : "description",
+  "units" : "units",
+  "locale" : "locale",
+  "type" : "event",
+  "additionalInfo" : "additionalInfo",
+  "parkingDetail" : "parkingDetail",
+  "currency" : "currency",
+  "externalLinks" : {
+    "key" : [ {
+      "id" : "id",
+      "url" : "url"
+    }, {
+      "id" : "id",
+      "url" : "url"
+    } ]
+  },
+  "id" : "id",
+  "state" : {
+    "name" : "name",
+    "stateCode" : "stateCode"
+  },
+  "images" : [ {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  }, {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  } ],
+  "address" : {
+    "line3" : "line3",
+    "line2" : "line2",
+    "line1" : "line1"
+  },
+  "test" : false,
+  "social" : {
+    "twitter" : {
+      "hashtags" : "#hashtag example #hashtag another example",
+      "handle" : "@a Twitter handle exampe"
+    }
+  },
+  "upcomingEvents" : {
+    "key" : 1
+  },
+  "generalInfo" : {
+    "generalRule" : "generalRule",
+    "childRule" : "childRule"
+  },
+  "boxOfficeInfo" : {
+    "openHoursDetail" : "openHoursDetail",
+    "phoneNumberDetail" : "phoneNumberDetail",
+    "willCallDetail" : "willCallDetail",
+    "acceptedPaymentDetail" : "acceptedPaymentDetail"
+  },
+  "url" : "url",
+  "markets" : [ {
+    "id" : "id"
+  }, {
+    "id" : "id"
+  } ],
+  "accessibleSeatingDetail" : "accessibleSeatingDetail",
+  "name" : "name",
+  "dma" : [ {
+    "id" : 6
+  }, {
+    "id" : 6
+  } ],
+  "location" : {
+    "latitude" : 4.145608029883936,
+    "longitude" : 7.386281948385884
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Venue">Venue</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="find"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/attractions</code></pre></div>
+    <div class="method-summary">Attraction Search (<span class="nickname">find</span>)</div>
+    <div class="method-notes">Find attractions (artists, sports, packages, plays and so on) and filter your search by name, and much more.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">sort (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sorting order of the search result. Allowable Values : 'name,asc', 'name,desc', 'relevance,asc', 'relevance,desc' default: relevance,desc </div><div class="param">classificationName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter attractions by classification name: name of any segment, genre, sub-genre, type, sub-type default: null </div><div class="param">classificationId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter attractions by classification id: id of any segment, genre, sub-genre, type, sub-type default: null </div><div class="param">keyword (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Keyword to search on default:  </div><div class="param">id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter entities by its id default:  </div><div class="param">source (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter entities by its source name default:  </div><div class="param">includeTest (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to have entities flag as test in the response. Only, if you only wanted test entities default: false </div><div class="param">page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page number default: 0 </div><div class="param">size (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Page size of the response default: 20 </div><div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Yes if you want to display licensed content default: false </div><div class="param">includeSpellcheck (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; yes, to include spell check suggestions in the response. default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Attraction">Attraction</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>[ {
+  "classifications" : [ {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  }, {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  } ],
+  "images" : [ {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  }, {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  } ],
+  "test" : false,
+  "upcomingEvents" : {
+    "key" : 1
+  },
+  "additionalInfo" : "additionalInfo",
+  "name" : "name",
+  "description" : "description",
+  "externalLinks" : {
+    "key" : [ {
+      "id" : "id",
+      "url" : "url"
+    }, {
+      "id" : "id",
+      "url" : "url"
+    } ]
+  },
+  "id" : "id",
+  "locale" : "locale",
+  "type" : "event",
+  "url" : "url"
+}, {
+  "classifications" : [ {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  }, {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  } ],
+  "images" : [ {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  }, {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  } ],
+  "test" : false,
+  "upcomingEvents" : {
+    "key" : 1
+  },
+  "additionalInfo" : "additionalInfo",
+  "name" : "name",
+  "description" : "description",
+  "externalLinks" : {
+    "key" : [ {
+      "id" : "id",
+      "url" : "url"
+    }, {
+      "id" : "id",
+      "url" : "url"
+    } ]
+  },
+  "id" : "id",
+  "locale" : "locale",
+  "type" : "event",
+  "url" : "url"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/attractions/{id}</code></pre></div>
+    <div class="method-summary">Get Attraction Details (<span class="nickname">get</span>)</div>
+    <div class="method-notes">Get details for a specific attraction using the unique identifier for the attraction.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the attraction default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to display licensed content default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Attraction">Attraction</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "classifications" : [ {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  }, {
+    "subGenre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "segment" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "genre" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "subType" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "type" : {
+      "name" : "name",
+      "id" : "id"
+    },
+    "primary" : false
+  } ],
+  "images" : [ {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  }, {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  } ],
+  "test" : false,
+  "upcomingEvents" : {
+    "key" : 1
+  },
+  "additionalInfo" : "additionalInfo",
+  "name" : "name",
+  "description" : "description",
+  "externalLinks" : {
+    "key" : [ {
+      "id" : "id",
+      "url" : "url"
+    }, {
+      "id" : "id",
+      "url" : "url"
+    } ]
+  },
+  "id" : "id",
+  "locale" : "locale",
+  "type" : "event",
+  "url" : "url"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Attraction">Attraction</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getGenre"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/classifications/genres/{id}</code></pre></div>
+    <div class="method-summary">Get Genre Details (<span class="nickname">getGenre</span>)</div>
+    <div class="method-notes">Get details for a specific genre using its unique identifier.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the genre default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to display licensed content default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Genre">Genre</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "name" : "name",
+  "id" : "id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Genre">Genre</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getImages"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/events/{id}/images</code></pre></div>
+    <div class="method-summary">Get Event Images (<span class="nickname">getImages</span>)</div>
+    <div class="method-notes">Get images for a specific event using the unique identifier for the event.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the event default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to display licensed content default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#EventImages">EventImages</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "images" : [ {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  }, {
+    "attribution" : "attribution",
+    "width" : 6,
+    "fallback" : false,
+    "url" : "url",
+    "height" : 0,
+    "ratio" : "169"
+  } ],
+  "id" : "id",
+  "type" : "event"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#EventImages">EventImages</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getSegment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/classifications/segments/{id}</code></pre></div>
+    <div class="method-summary">Get Segment Details (<span class="nickname">getSegment</span>)</div>
+    <div class="method-notes">Get details for a specific segment using its unique identifier.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the segment default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to display licensed content default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Segment">Segment</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "name" : "name",
+  "id" : "id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Segment">Segment</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getSubgenre"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/classifications/subgenres/{id}</code></pre></div>
+    <div class="method-summary">Get Sub-Genre Details (<span class="nickname">getSubgenre</span>)</div>
+    <div class="method-notes">Get details for a specific sub-genre using its unique identifier.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the subgenre default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True if you want to display licensed content default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Level">Level</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "name" : "name",
+  "id" : "id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Level">Level</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="V2">V2</a></h1>
+  <div class="method"><a name="discoveryV2SuggestGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /discovery/v2/suggest</code></pre></div>
+    <div class="method-summary">Find Suggest (<span class="nickname">discoveryV2SuggestGet</span>)</div>
+    <div class="method-notes">Find search suggestions and filter your suggestions by location, source, etc.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">keyword (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Keyword to search on default:  </div><div class="param">source (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter entities by its source name default:  </div><div class="param">latlong (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events by latitude and longitude, this filter is deprecated and maybe removed in a future release, please use geoPoint instead default:  </div><div class="param">radius (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Radius of the area in which we want to search for events. default: 100 </div><div class="param">unit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Unit of the radius default: miles </div><div class="param">size (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Size of every entity returned in the response default: 5 </div><div class="param">includeFuzzy (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; yes, to include fuzzy matches in the search. This has performance impact. default: false </div><div class="param">clientVisibility (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter events to clientName default:  </div><div class="param">countryCode (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter suggestions by country code default:  </div><div class="param">includeTBA (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True, to include events with date to be announce (TBA) default: no if date parameter sent, yes otherwise </div><div class="param">includeTBD (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; True, to include event with a date to be defined (TBD) default: no if date parameter sent, yes otherwise </div><div class="param">segmentId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter suggestions by segment id default:  </div><div class="param">geoPoint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; filter events by geoHash default:  </div><div class="param">locale (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used. When using a '<em>' it matches all locales. '</em>' can only be used at the end (e.g. 'en-us,en,*') default: en </div><div class="param">includeLicensedContent (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Yes if you want to display licensed content default: false </div><div class="param">includeSpellcheck (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; yes, to include spell check suggestions in the response. default: false </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/hal+json; charset=utf-8</code></li>
+      <li><code>application/json; charset=utf-8</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#AccessDates"><code>AccessDates</code> - </a></li>
+    <li><a href="#Accessibility"><code>Accessibility</code> - </a></li>
+    <li><a href="#Address"><code>Address</code> - </a></li>
+    <li><a href="#Area"><code>Area</code> - </a></li>
+    <li><a href="#Attraction"><code>Attraction</code> - </a></li>
+    <li><a href="#Attribution"><code>Attribution</code> - </a></li>
+    <li><a href="#Attributions"><code>Attributions</code> - </a></li>
+    <li><a href="#Chronology"><code>Chronology</code> - </a></li>
+    <li><a href="#City"><code>City</code> - </a></li>
+    <li><a href="#Classification"><code>Classification</code> - </a></li>
+    <li><a href="#Country"><code>Country</code> - </a></li>
+    <li><a href="#DateTimeField"><code>DateTimeField</code> - </a></li>
+    <li><a href="#DateTimeFieldType"><code>DateTimeFieldType</code> - </a></li>
+    <li><a href="#DateTimeZone"><code>DateTimeZone</code> - </a></li>
+    <li><a href="#DisplaySettingExtension"><code>DisplaySettingExtension</code> - </a></li>
+    <li><a href="#Dma"><code>Dma</code> - </a></li>
+    <li><a href="#DurationField"><code>DurationField</code> - </a></li>
+    <li><a href="#DurationFieldType"><code>DurationFieldType</code> - </a></li>
+    <li><a href="#EndDates"><code>EndDates</code> - </a></li>
+    <li><a href="#EntityChanges"><code>EntityChanges</code> - </a></li>
+    <li><a href="#Event"><code>Event</code> - </a></li>
+    <li><a href="#EventDates"><code>EventDates</code> - </a></li>
+    <li><a href="#EventImages"><code>EventImages</code> - </a></li>
+    <li><a href="#EventSalesDates"><code>EventSalesDates</code> - </a></li>
+    <li><a href="#EventStatus"><code>EventStatus</code> - </a></li>
+    <li><a href="#ExternalLink"><code>ExternalLink</code> - </a></li>
+    <li><a href="#Genre"><code>Genre</code> - </a></li>
+    <li><a href="#GeocodeExtension"><code>GeocodeExtension</code> - </a></li>
+    <li><a href="#GeolocationVenueExtensions"><code>GeolocationVenueExtensions</code> - </a></li>
+    <li><a href="#Geometry"><code>Geometry</code> - </a></li>
+    <li><a href="#Image"><code>Image</code> - </a></li>
+    <li><a href="#Level"><code>Level</code> - </a></li>
+    <li><a href="#LocalTime"><code>LocalTime</code> - </a></li>
+    <li><a href="#Locale"><code>Locale</code> - </a></li>
+    <li><a href="#Location"><code>Location</code> - </a></li>
+    <li><a href="#Market"><code>Market</code> - </a></li>
+    <li><a href="#Outlet"><code>Outlet</code> - </a></li>
+    <li><a href="#Parking"><code>Parking</code> - </a></li>
+    <li><a href="#Place"><code>Place</code> - </a></li>
+    <li><a href="#Presale"><code>Presale</code> - </a></li>
+    <li><a href="#PriceRange"><code>PriceRange</code> - </a></li>
+    <li><a href="#Product"><code>Product</code> - </a></li>
+    <li><a href="#Promoter"><code>Promoter</code> - </a></li>
+    <li><a href="#PublicSaleDates"><code>PublicSaleDates</code> - </a></li>
+    <li><a href="#Relationship"><code>Relationship</code> - </a></li>
+    <li><a href="#SeatMap"><code>SeatMap</code> - </a></li>
+    <li><a href="#Segment"><code>Segment</code> - </a></li>
+    <li><a href="#Social"><code>Social</code> - </a></li>
+    <li><a href="#StartDates"><code>StartDates</code> - </a></li>
+    <li><a href="#State"><code>State</code> - </a></li>
+    <li><a href="#TicketmasterEventExtensions"><code>TicketmasterEventExtensions</code> - </a></li>
+    <li><a href="#Twitter"><code>Twitter</code> - </a></li>
+    <li><a href="#Venue"><code>Venue</code> - </a></li>
+    <li><a href="#VenueBoxOfficeInfo"><code>VenueBoxOfficeInfo</code> - </a></li>
+    <li><a href="#VenueExtensions"><code>VenueExtensions</code> - </a></li>
+    <li><a href="#VenueGeneralInfo"><code>VenueGeneralInfo</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="AccessDates"><code>AccessDates</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Event's Access Date</div>
+    <div class="field-items">
+      <div class="param">endApproximate (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Boolean flag to indicate whether or not the access end date is approximated </div>
+<div class="param">endDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Event's end access time format: date-time</div>
+<div class="param">startApproximate (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Boolean flag to indicate whether or not the access start date is approximated </div>
+<div class="param">startDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Event's start access time format: date-time</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Accessibility"><code>Accessibility</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Additional information for people who experience disabilities</div>
+    <div class="field-items">
+      <div class="param">info (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Accessibility's information </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Address"><code>Address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Address</div>
+    <div class="field-items">
+      <div class="param">line1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Address first line </div>
+<div class="param">line2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Address second line </div>
+<div class="param">line3 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Address third line </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Area"><code>Area</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Area</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the entity </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Attraction"><code>Attraction</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Attraction</div>
+    <div class="field-items">
+      <div class="param">additionalInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information of the entity </div>
+<div class="param">classifications (optional)</div><div class="param-desc"><span class="param-type"><a href="#Classification">array[Classification]</a></span> Attraction's classifications </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Description's of the entity </div>
+<div class="param">externalLinks (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">map[String, array[ExternalLink]]</a></span> List of external links </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique id of the entity in the discovery API </div>
+<div class="param">images (optional)</div><div class="param-desc"><span class="param-type"><a href="#Image">set[Image]</a></span> Images of the entity </div>
+<div class="param">locale (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Locale in which the content is returned </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the entity </div>
+<div class="param">test (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Indicate if this is a test entity, by default test entities won't appear in discovery API </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Type of the entity </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">event</div><div class="param-enum">venue</div><div class="param-enum">attraction</div>
+<div class="param">upcomingEvents (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">map[String, Integer]</a></span> number of upcoming events format: int32</div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URL of a web site detail page of the entity </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Attribution"><code>Attribution</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Attribution</div>
+    <div class="field-items">
+      <div class="param">licenceName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> LicenceName </div>
+<div class="param">licenceUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> LicenceUrl </div>
+<div class="param">sourceName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> SourceName </div>
+<div class="param">sourceUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> SourceUrl </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Attributions"><code>Attributions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Attributions</div>
+    <div class="field-items">
+      <div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#Attribution">Attribution</a></span>  </div>
+<div class="param">descriptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#Attribution">map[String, Attribution]</a></span> Attribution descriptions - multi-lingual fields </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Chronology"><code>Chronology</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">zone (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTimeZone">DateTimeZone</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="City"><code>City</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>City</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the entity </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Classification"><code>Classification</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Classification</div>
+    <div class="field-items">
+      <div class="param">genre (optional)</div><div class="param-desc"><span class="param-type"><a href="#Level">Level</a></span>  </div>
+<div class="param">primary (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> True if this is the entity's primary classification </div>
+<div class="param">segment (optional)</div><div class="param-desc"><span class="param-type"><a href="#Segment">Segment</a></span>  </div>
+<div class="param">subGenre (optional)</div><div class="param-desc"><span class="param-type"><a href="#Level">Level</a></span>  </div>
+<div class="param">subType (optional)</div><div class="param-desc"><span class="param-type"><a href="#Level">Level</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#Level">Level</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Country"><code>Country</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Country</div>
+    <div class="field-items">
+      <div class="param">countryCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Country code (ISO 3166) </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the entity </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DateTimeField"><code>DateTimeField</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">durationField (optional)</div><div class="param-desc"><span class="param-type"><a href="#DurationField">DurationField</a></span>  </div>
+<div class="param">leapDurationField (optional)</div><div class="param-desc"><span class="param-type"><a href="#DurationField">DurationField</a></span>  </div>
+<div class="param">lenient (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">maximumValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">minimumValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">rangeDurationField (optional)</div><div class="param-desc"><span class="param-type"><a href="#DurationField">DurationField</a></span>  </div>
+<div class="param">supported (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTimeFieldType">DateTimeFieldType</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DateTimeFieldType"><code>DateTimeFieldType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">durationType (optional)</div><div class="param-desc"><span class="param-type"><a href="#DurationFieldType">DurationFieldType</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">rangeDurationType (optional)</div><div class="param-desc"><span class="param-type"><a href="#DurationFieldType">DurationFieldType</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DateTimeZone"><code>DateTimeZone</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">fixed (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DisplaySettingExtension"><code>DisplaySettingExtension</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Event's display settings extension</div>
+    <div class="field-items">
+      <div class="param">softLanding (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> True the landing is Soft otherwise it's Comingled </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Dma"><code>Dma</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>DMA (Designated Market Area)</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> DMS's id format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DurationField"><code>DurationField</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">precise (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">supported (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#DurationFieldType">DurationFieldType</a></span>  </div>
+<div class="param">unitMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DurationFieldType"><code>DurationFieldType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EndDates"><code>EndDates</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Event's End Dates</div>
+    <div class="field-items">
+      <div class="param">approximate (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Boolean flag to indicate whether or not the end date is approximated </div>
+<div class="param">dateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The event end date time format: date-time</div>
+<div class="param">localDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> The event end date in local date format: date</div>
+<div class="param">localTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#LocalTime">LocalTime</a></span>  </div>
+<div class="param">noSpecificTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Boolean flag to indicate whether or not the event end time has no specific time </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EntityChanges"><code>EntityChanges</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">changes (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">set[String]</a></span>  </div>
+<div class="param">newlyCreated (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Event"><code>Event</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Event</div>
+    <div class="field-items">
+      <div class="param">accessibility (optional)</div><div class="param-desc"><span class="param-type"><a href="#Accessibility">Accessibility</a></span>  </div>
+<div class="param">additionalInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information of the entity </div>
+<div class="param">classifications (optional)</div><div class="param-desc"><span class="param-type"><a href="#Classification">array[Classification]</a></span> Event's classifications </div>
+<div class="param">dates (optional)</div><div class="param-desc"><span class="param-type"><a href="#EventDates">EventDates</a></span>  </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Description's of the entity </div>
+<div class="param">distance (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">externalLinks (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">map[String, array[ExternalLink]]</a></span> List of external links </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique id of the entity in the discovery API </div>
+<div class="param">images (optional)</div><div class="param-desc"><span class="param-type"><a href="#Image">set[Image]</a></span> Images of the entity </div>
+<div class="param">info (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Any information related to the event </div>
+<div class="param">locale (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Locale in which the content is returned </div>
+<div class="param">location (optional)</div><div class="param-desc"><span class="param-type"><a href="#Location">Location</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the entity </div>
+<div class="param">outlets (optional)</div><div class="param-desc"><span class="param-type"><a href="#Outlet">array[Outlet]</a></span> Related outlets informations </div>
+<div class="param">place (optional)</div><div class="param-desc"><span class="param-type"><a href="#Place">Place</a></span>  </div>
+<div class="param">pleaseNote (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Any notes related to the event </div>
+<div class="param">priceRanges (optional)</div><div class="param-desc"><span class="param-type"><a href="#PriceRange">set[PriceRange]</a></span> Price ranges of this event </div>
+<div class="param">products (optional)</div><div class="param-desc"><span class="param-type"><a href="#Product">array[Product]</a></span> Related products informations </div>
+<div class="param">promoter (optional)</div><div class="param-desc"><span class="param-type"><a href="#Promoter">Promoter</a></span>  </div>
+<div class="param">promoters (optional)</div><div class="param-desc"><span class="param-type"><a href="#Promoter">array[Promoter]</a></span> Event's promoters </div>
+<div class="param">sales (optional)</div><div class="param-desc"><span class="param-type"><a href="#EventSalesDates">EventSalesDates</a></span>  </div>
+<div class="param">seatmap (optional)</div><div class="param-desc"><span class="param-type"><a href="#SeatMap">SeatMap</a></span>  </div>
+<div class="param">test (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Indicate if this is a test entity, by default test entities won't appear in discovery API </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Type of the entity </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">event</div><div class="param-enum">venue</div><div class="param-enum">attraction</div>
+<div class="param">units (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URL of a web site detail page of the entity </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EventDates"><code>EventDates</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Event's Dates</div>
+    <div class="field-items">
+      <div class="param">access (optional)</div><div class="param-desc"><span class="param-type"><a href="#AccessDates">AccessDates</a></span>  </div>
+<div class="param">end (optional)</div><div class="param-desc"><span class="param-type"><a href="#EndDates">EndDates</a></span>  </div>
+<div class="param">spanMultipleDays (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Flag indicating if date spans of multiple days </div>
+<div class="param">start (optional)</div><div class="param-desc"><span class="param-type"><a href="#StartDates">StartDates</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#EventStatus">EventStatus</a></span>  </div>
+<div class="param">timezone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Event's timezone </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EventImages"><code>EventImages</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This class defines an Event with only images view on the Discovery API</div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique id of the entity in the discovery API </div>
+<div class="param">images (optional)</div><div class="param-desc"><span class="param-type"><a href="#Image">set[Image]</a></span> Images of the entity </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Type of the entity </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">event</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EventSalesDates"><code>EventSalesDates</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Event's Sales Dates</div>
+    <div class="field-items">
+      <div class="param">presales (optional)</div><div class="param-desc"><span class="param-type"><a href="#Presale">array[Presale]</a></span> Presale information on this event </div>
+<div class="param">public (optional)</div><div class="param-desc"><span class="param-type"><a href="#PublicSaleDates">PublicSaleDates</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EventStatus"><code>EventStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Event's Status</div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The event's status code </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">onsale</div><div class="param-enum">offsale</div><div class="param-enum">canceled</div><div class="param-enum">postponed</div><div class="param-enum">rescheduled</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExternalLink"><code>ExternalLink</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>ExternalLink</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An external link id is the unique identifier of a resource on a different domain or api </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An external link url is a url that goes to a different domain or api </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Genre"><code>Genre</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Secondary Genre</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the classification's level </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Name of the classification's level </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GeocodeExtension"><code>GeocodeExtension</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">county (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">formattedAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">geometry (optional)</div><div class="param-desc"><span class="param-type"><a href="#Geometry">Geometry</a></span>  </div>
+<div class="param">postalCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">route (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">streetNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GeolocationVenueExtensions"><code>GeolocationVenueExtensions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Venue's geocode extension</div>
+    <div class="field-items">
+      <div class="param">geocode (optional)</div><div class="param-desc"><span class="param-type"><a href="#GeocodeExtension">GeocodeExtension</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Geometry"><code>Geometry</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">location (optional)</div><div class="param-desc"><span class="param-type"><a href="#Location">Location</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Image"><code>Image</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Image</div>
+    <div class="field-items">
+      <div class="param">attribution (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Attribution of the image </div>
+<div class="param">fallback (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> true if the image is not the event's image but a fallbak image </div>
+<div class="param">height (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Height of the image format: int32</div>
+<div class="param">ratio (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Aspect ratio of the image </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">169</div><div class="param-enum">32</div><div class="param-enum">43</div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Public URL of the image </div>
+<div class="param">width (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Width of the image format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Level"><code>Level</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the classification's level </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Name of the classification's level </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LocalTime"><code>LocalTime</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">chronology (optional)</div><div class="param-desc"><span class="param-type"><a href="#Chronology">Chronology</a></span>  </div>
+<div class="param">fieldTypes (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTimeFieldType">array[DateTimeFieldType]</a></span>  </div>
+<div class="param">fields (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTimeField">array[DateTimeField]</a></span>  </div>
+<div class="param">hourOfDay (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">millisOfDay (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">millisOfSecond (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">minuteOfHour (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">secondOfMinute (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">values (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span>  format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Locale"><code>Locale</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">displayCountry (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">displayLanguage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">displayScript (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">displayVariant (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">extensionKeys (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">set[String]</a></span>  </div>
+<div class="param">iso3Country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">iso3Language (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">language (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">script (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">unicodeLocaleAttributes (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">set[String]</a></span>  </div>
+<div class="param">unicodeLocaleKeys (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">set[String]</a></span>  </div>
+<div class="param">variant (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Location"><code>Location</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Location</div>
+    <div class="field-items">
+      <div class="param">latitude (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Latitude </div>
+<div class="param">longitude (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Longitude </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Market"><code>Market</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Market</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Market's id </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Outlet"><code>Outlet</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A selling point for tickets.</div>
+    <div class="field-items">
+      <div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Outlet's type </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Outlet's url </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Parking"><code>Parking</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Parking</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the entity </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Url to the web page of the parking </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Place"><code>Place</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Place</div>
+    <div class="field-items">
+      <div class="param">address (optional)</div><div class="param-desc"><span class="param-type"><a href="#Address">Address</a></span>  </div>
+<div class="param">area (optional)</div><div class="param-desc"><span class="param-type"><a href="#Area">Area</a></span>  </div>
+<div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#City">City</a></span>  </div>
+<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#Country">Country</a></span>  </div>
+<div class="param">location (optional)</div><div class="param-desc"><span class="param-type"><a href="#Location">Location</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the entity </div>
+<div class="param">postalCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Postal code / zipcode of the place </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#State">State</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Presale"><code>Presale</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Event's Presale Info</div>
+    <div class="field-items">
+      <div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Description of the presame </div>
+<div class="param">endDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Presale's end dates. The date and time when the presale will end format: date-time</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the presale </div>
+<div class="param">startDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Presale's start dates. The date and time when the presale will start format: date-time</div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Presale link URL </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PriceRange"><code>PriceRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>PriceRange</div>
+    <div class="field-items">
+      <div class="param">currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Currency </div>
+<div class="param">max (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Maximum price format: double</div>
+<div class="param">min (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Minimum price format: double</div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Type of price </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">standard</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Product"><code>Product</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Product</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Product's primary id </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the entity </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Product's type </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Product's url </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Promoter"><code>Promoter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Promoter</div>
+    <div class="field-items">
+      <div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Description of the promoter </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Id of the promoter </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the promoter </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PublicSaleDates"><code>PublicSaleDates</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Event's Public Onsales Dates</div>
+    <div class="field-items">
+      <div class="param">endDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Public sale's end dates. The date and time when the public sale will end format: date-time</div>
+<div class="param">startDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Public sale's start dates. The date and time when the public sale will start format: date-time</div>
+<div class="param">startTBD (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> True if the public sale's date is to be determined </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Relationship"><code>Relationship</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Relationship</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the related entity </div>
+<div class="param">references (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> References of this relationship in another system. Reference is the exact same entity </div>
+<div class="param">source (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The source name of the related entity </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of the relationship </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">duplicate</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SeatMap"><code>SeatMap</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Seatmap</div>
+    <div class="field-items">
+      <div class="param">staticUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Static Seatmap Url </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Segment"><code>Segment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Segment</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the classification's level </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Name of the classification's level </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Social"><code>Social</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Social networks data</div>
+    <div class="field-items">
+      <div class="param">twitter (optional)</div><div class="param-desc"><span class="param-type"><a href="#Twitter">Twitter</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StartDates"><code>StartDates</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Event's Start Dates</div>
+    <div class="field-items">
+      <div class="param">dateTBA (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Boolean flag to indicate whether or not the start date is TBA </div>
+<div class="param">dateTBD (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Boolean flag to indicate whether or not the start date is TBD </div>
+<div class="param">dateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The event start datetime format: date-time</div>
+<div class="param">localDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> The event start date in local date format: date</div>
+<div class="param">localTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#LocalTime">LocalTime</a></span>  </div>
+<div class="param">noSpecificTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Boolean flag to indicate whether or not the event start time has no specific time </div>
+<div class="param">timeTBA (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Boolean flag to indicate whether or not the start time is TBA </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="State"><code>State</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>State</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the entity </div>
+<div class="param">stateCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> State code </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TicketmasterEventExtensions"><code>TicketmasterEventExtensions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Event's extension (ticketmaster source)</div>
+    <div class="field-items">
+      <div class="param">displaySettings (optional)</div><div class="param-desc"><span class="param-type"><a href="#DisplaySettingExtension">DisplaySettingExtension</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Twitter"><code>Twitter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Twitter data</div>
+    <div class="field-items">
+      <div class="param">handle (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Twitter handle </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">@a Twitter handle</div>
+<div class="param">hashtags (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Twitter hashtags </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Venue"><code>Venue</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Venue</div>
+    <div class="field-items">
+      <div class="param">accessibleSeatingDetail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Venue accessible seating detail </div>
+<div class="param">additionalInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information of the entity </div>
+<div class="param">address (optional)</div><div class="param-desc"><span class="param-type"><a href="#Address">Address</a></span>  </div>
+<div class="param">boxOfficeInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#VenueBoxOfficeInfo">VenueBoxOfficeInfo</a></span>  </div>
+<div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#City">City</a></span>  </div>
+<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#Country">Country</a></span>  </div>
+<div class="param">currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Default currency of ticket prices for events in this venue </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Description's of the entity </div>
+<div class="param">distance (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">dma (optional)</div><div class="param-desc"><span class="param-type"><a href="#Dma">array[Dma]</a></span> The list of associated DMAs (Designated Market Areas) of the venue </div>
+<div class="param">externalLinks (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">map[String, array[ExternalLink]]</a></span> List of external links </div>
+<div class="param">generalInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#VenueGeneralInfo">VenueGeneralInfo</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique id of the entity in the discovery API </div>
+<div class="param">images (optional)</div><div class="param-desc"><span class="param-type"><a href="#Image">set[Image]</a></span> Images of the entity </div>
+<div class="param">locale (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Locale in which the content is returned </div>
+<div class="param">location (optional)</div><div class="param-desc"><span class="param-type"><a href="#Location">Location</a></span>  </div>
+<div class="param">markets (optional)</div><div class="param-desc"><span class="param-type"><a href="#Market">array[Market]</a></span> Markets of the venue </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the entity </div>
+<div class="param">parkingDetail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Venue parking info </div>
+<div class="param">postalCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Postal code / zipcode of the venue </div>
+<div class="param">social (optional)</div><div class="param-desc"><span class="param-type"><a href="#Social">Social</a></span>  </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#State">State</a></span>  </div>
+<div class="param">test (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Indicate if this is a test entity, by default test entities won't appear in discovery API </div>
+<div class="param">timezone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Timezone of the venue </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Type of the entity </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">event</div><div class="param-enum">venue</div><div class="param-enum">attraction</div>
+<div class="param">units (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">upcomingEvents (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">map[String, Integer]</a></span> number of upcoming events format: int32</div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URL of a web site detail page of the entity </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VenueBoxOfficeInfo"><code>VenueBoxOfficeInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Venue box office information</div>
+    <div class="field-items">
+      <div class="param">acceptedPaymentDetail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Venue box office accepted payment details </div>
+<div class="param">openHoursDetail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Venue box office opening hours </div>
+<div class="param">phoneNumberDetail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Venue box office phone number </div>
+<div class="param">willCallDetail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Venue box office will call details </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VenueExtensions"><code>VenueExtensions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>All Venue's extensions</div>
+    <div class="field-items">
+      <div class="param">geolocation (optional)</div><div class="param-desc"><span class="param-type"><a href="#GeolocationVenueExtensions">GeolocationVenueExtensions</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VenueGeneralInfo"><code>VenueGeneralInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Venue general information</div>
+    <div class="field-items">
+      <div class="param">childRule (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Venue children rule </div>
+<div class="param">generalRule (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Venue general rules </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
