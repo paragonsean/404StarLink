@@ -1,6 +1,6 @@
 /*
- * Maharashtra State Board of Secondary and Higher Secondary Education, Maharashtra
- * Class X and XII marksheets and passing certificates of Maharashtra State Board of Secondary and Higher Secondary Education (https://mahahsscboard.maharashtra.gov.in/) are available in DigiLocker for years 1990 to 2017.
+ * Crossbrowsertesting.com Screenshot Comparisons API
+ * What's in this version:   1. Compare two screenshots for layout differences   2. Compare a full screenshot test of browsers to a single baseline browser for layout differences.   3. Compare a screenshot test version to another test version - good for regression tests.   4. Get links to the Comparison UI for visual representation of layout differences
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -61,10 +61,10 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "https://apisetu.gov.in/hsscboardmh/v3";
+    private String basePath = "https://crossbrowsertesting.com/api/v3";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://apisetu.gov.in/hsscboardmh/v3",
+      "https://crossbrowsertesting.com/api/v3",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -100,8 +100,7 @@ public class ApiClient {
         initHttpClient();
 
         // Setup authentications (key: authentication name, value: authentication).
-        authentications.put("apiKey", new ApiKeyAuth("header", "X-APISETU-APIKEY"));
-        authentications.put("clientId", new ApiKeyAuth("header", "X-APISETU-CLIENTID"));
+        authentications.put("basicAuth", new HttpBasicAuth());
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -117,8 +116,7 @@ public class ApiClient {
         httpClient = client;
 
         // Setup authentications (key: authentication name, value: authentication).
-        authentications.put("apiKey", new ApiKeyAuth("header", "X-APISETU-APIKEY"));
-        authentications.put("clientId", new ApiKeyAuth("header", "X-APISETU-CLIENTID"));
+        authentications.put("basicAuth", new HttpBasicAuth());
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -160,7 +158,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://apisetu.gov.in/hsscboardmh/v3
+     * @param basePath Base path of the URL (e.g https://crossbrowsertesting.com/api/v3
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

@@ -1,1279 +1,454 @@
 openapi: 3.0.0
 info:
-  description: Class X and XII marksheets and passing certificates of Maharashtra
-    State Board of Secondary and Higher Secondary Education (https://mahahsscboard.maharashtra.gov.in/)
-    are available in DigiLocker for years 1990 to 2017.
-  termsOfService: https://apisetu.gov.in/terms.php
-  title: "Maharashtra State Board of Secondary and Higher Secondary Education, Maharashtra"
+  contact:
+    x-twitter: xbrowsertesting
+  description: "What's in this version: \n 1. Compare two screenshots for layout differences\
+    \ \n 2. Compare a full screenshot test of browsers to a single baseline browser\
+    \ for layout differences. \n 3. Compare a screenshot test version to another test\
+    \ version - good for regression tests. \n 4. Get links to the Comparison UI for\
+    \ visual representation of layout differences"
+  title: Crossbrowsertesting.com Screenshot Comparisons API
   version: 3.0.0
   x-apisguru-categories:
-  - open_data
+  - developer_tools
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_xbrowsertesting_profile_image.jpeg
   x-origin:
   - format: openapi
-    url: https://apisetu.gov.in/api_specification_v8/hsscboardmh.yaml
+    url: https://crossbrowsertesting.com/apidocs/definitions/screenshot-comparisons.json
     version: "3.0"
-  x-providerName: apisetu.gov.in
-  x-serviceName: hsscboardmh
-  x-logo:
-    url: https://api.apis.guru/v2/cache/logo/https_apis.guru_assets_images_no-logo.svg
+  x-providerName: crossbrowsertesting.com
 servers:
-- url: https://apisetu.gov.in/hsscboardmh/v3
+- url: https://crossbrowsertesting.com/api/v3
 paths:
-  /hpcer/certificate:
-    post:
-      description: API to verify Class XII Passing Certificate.
-      operationId: hpcer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/hpcer_request'
-        description: Request format
+  /screenshots/{target_screenshot_test_id}/{target_version_id}/comparison/parallel/{base_version_id}:
+    get:
+      description: "Get comparison results for all browsers in target screenshot test\
+        \ against the same browser in the base screenshot test. This is a good method\
+        \ for regression testing. For example, you've run a screenshot test against\
+        \ a set of browsers that is \"good\". Then, after some changes, you run a\
+        \ new screenshot test against the same set of browsers. This method will compare\
+        \ each of the same browsers against each other. For example, IE9 will be compared\
+        \ to IE9 from an earlier test. This is a many-to-many comparison where the\
+        \ OS/Browser/Resolution must match between the two test versions in order\
+        \ for the comparison to return results. The two versions can be from the same\
+        \ screenshot_test_id or not."
+      parameters:
+      - description: test id of the target Screenshot Test
+        explode: false
+        in: path
+        name: target_screenshot_test_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: version id of the target Screenshot Test
+        explode: false
+        in: path
+        name: target_version_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: version id of the base Screenshot Test
+        explode: false
+        in: path
+        name: base_version_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: The format of the returned data. Possible values are "json" or
+          "jsonp".
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          default: json
+          type: string
+        style: form
+      - description: Name of callback method for JSONP requests.
+        explode: true
+        in: query
+        name: callback
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Used as the basis for detecting box model differences in element
+          positioning and dimensions that should be flagged and reported back to the
+          comparison results. The default is 30px which is a good basis for finding
+          notable layout differences.
+        explode: true
+        in: query
+        name: tolerance
+        required: false
+        schema:
+          default: 30
+          format: integer 0-100
+          type: number
+        style: form
       responses:
         "200":
           content:
-            application/pdf:
-              example: Response body contains contents of the certificate in PDF format.
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/AcademicCertificateSchema'
-          description: "The certificate data in response body in PDF, XML or JSON\
-            \ format as requested in format parameter."
-        "400":
-          content:
             application/json:
               schema:
-                $ref: '#/components/schemas/hpcer_400_response'
-          description: Bad request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_401_response'
-          description: Unauthorized access
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_404_response'
-          description: No record found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_500_response'
-          description: Internal server error
-        "502":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_502_response'
-          description: Bad gateway
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_503_response'
-          description: Service unavailable
-        "504":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_504_response'
-          description: Gateway timeout
+                items:
+                  $ref: '#/components/schemas/single_comparison_test'
+                type: array
+          description: An array of Configuration objects. Within each configuration
+            is an array of browsers
       security:
-      - apiKey: []
-        clientId: []
-      summary: Class XII Passing Certificate
-      tags:
-      - APIs
-      x-content-type: application/json
+      - basicAuth: []
+      summary: Compare Screenshot Test Versions
       x-accepts:
       - application/json
-      - application/pdf
-      - application/xml
-  /hscer/certificate:
-    post:
-      description: API to verify Class XII Marksheet.
-      operationId: hscer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/hpcer_request'
-        description: Request format
+  /screenshots/{target_screenshot_test_id}/{target_version_id}/comparison/{base_result_id}:
+    get:
+      description: Get comparison results for all browsers in target screenshot test
+        against a base screenshot result. The base result can be from the same test
+        or from another test run at an earlier time. This is a one-to-many comparison.
+      parameters:
+      - description: test id of the target Screenshot Test
+        explode: false
+        in: path
+        name: target_screenshot_test_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: version id of the target Screenshot Test
+        explode: false
+        in: path
+        name: target_version_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: result id of the base Screenshot Test
+        explode: false
+        in: path
+        name: base_result_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: The format of the returned data. Possible values are "json" or
+          "jsonp".
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          default: json
+          type: string
+        style: form
+      - description: Name of callback method for JSONP requests.
+        explode: true
+        in: query
+        name: callback
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Used as the basis for detecting box model differences in element
+          positioning and dimensions that should be flagged and reported back to the
+          comparison results. The default is 30px which is a good basis for finding
+          notable layout differences.
+        explode: true
+        in: query
+        name: tolerance
+        required: false
+        schema:
+          default: 30
+          format: integer 0-100
+          type: number
+        style: form
       responses:
         "200":
           content:
-            application/pdf:
-              example: Response body contains contents of the certificate in PDF format.
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/AcademicCertificateSchema'
-          description: "The certificate data in response body in PDF, XML or JSON\
-            \ format as requested in format parameter."
-        "400":
-          content:
             application/json:
               schema:
-                $ref: '#/components/schemas/hpcer_400_response'
-          description: Bad request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_401_response'
-          description: Unauthorized access
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_404_response'
-          description: No record found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_500_response'
-          description: Internal server error
-        "502":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_502_response'
-          description: Bad gateway
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_503_response'
-          description: Service unavailable
-        "504":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_504_response'
-          description: Gateway timeout
+                $ref: '#/components/schemas/full_comparison_test'
+          description: An array of Configuration objects. Within each configuration
+            is an array of browsers
       security:
-      - apiKey: []
-        clientId: []
-      summary: Class XII Marksheet
-      tags:
-      - APIs
-      x-content-type: application/json
+      - basicAuth: []
+      summary: Compare Full Screenshot Test
       x-accepts:
       - application/json
-      - application/pdf
-      - application/xml
-  /spcer/certificate:
-    post:
-      description: API to verify Class X Passing Certificate.
-      operationId: spcer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/spcer_request'
-        description: Request format
+  /screenshots/{target_screenshot_test_id}/{target_version_id}/{target_result_id}/comparison/{base_result_id}:
+    get:
+      description: Get comparison results for a single target screenshot result against
+        a base screenshot result. This is a one-to-one comparison.
+      parameters:
+      - description: test id of the target Screenshot Test
+        explode: false
+        in: path
+        name: target_screenshot_test_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: version id of the target Screenshot Test
+        explode: false
+        in: path
+        name: target_version_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: result id of the target Screenshot Test
+        explode: false
+        in: path
+        name: target_result_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: result id of the base Screenshot Test
+        explode: false
+        in: path
+        name: base_result_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: The format of the returned data. Possible values are "json" or
+          "jsonp".
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          default: json
+          type: string
+        style: form
+      - description: Name of callback method for JSONP requests.
+        explode: true
+        in: query
+        name: callback
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Used as the basis for detecting box model differences in element
+          positioning and dimensions that should be flagged and reported back to the
+          comparison results. The default is 30px which is a good basis for finding
+          notable layout differences.
+        explode: true
+        in: query
+        name: tolerance
+        required: false
+        schema:
+          default: 30
+          format: integer 0-100
+          type: number
+        style: form
       responses:
         "200":
           content:
-            application/pdf:
-              example: Response body contains contents of the certificate in PDF format.
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/AcademicCertificateSchema'
-          description: "The certificate data in response body in PDF, XML or JSON\
-            \ format as requested in format parameter."
-        "400":
-          content:
             application/json:
               schema:
-                $ref: '#/components/schemas/hpcer_400_response'
-          description: Bad request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_401_response'
-          description: Unauthorized access
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_404_response'
-          description: No record found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_500_response'
-          description: Internal server error
-        "502":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_502_response'
-          description: Bad gateway
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_503_response'
-          description: Service unavailable
-        "504":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_504_response'
-          description: Gateway timeout
+                $ref: '#/components/schemas/single_comparison_test'
+          description: An array of Configuration objects. Within each configuration
+            is an array of browsers
       security:
-      - apiKey: []
-        clientId: []
-      summary: Class X Passing Certificate
-      tags:
-      - APIs
-      x-content-type: application/json
+      - basicAuth: []
+      summary: Compare Single Screenshot
       x-accepts:
       - application/json
-      - application/pdf
-      - application/xml
-  /sscer/certificate:
-    post:
-      description: API to verify Class X Marksheet.
-      operationId: sscer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/spcer_request'
-        description: Request format
-      responses:
-        "200":
-          content:
-            application/pdf:
-              example: Response body contains contents of the certificate in PDF format.
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/AcademicCertificateSchema'
-          description: "The certificate data in response body in PDF, XML or JSON\
-            \ format as requested in format parameter."
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_400_response'
-          description: Bad request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_401_response'
-          description: Unauthorized access
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_404_response'
-          description: No record found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_500_response'
-          description: Internal server error
-        "502":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_502_response'
-          description: Bad gateway
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_503_response'
-          description: Service unavailable
-        "504":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/hpcer_504_response'
-          description: Gateway timeout
-      security:
-      - apiKey: []
-        clientId: []
-      summary: Class X Marksheet
-      tags:
-      - APIs
-      x-content-type: application/json
-      x-accepts:
-      - application/json
-      - application/pdf
-      - application/xml
 components:
-  responses:
-    "400Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/hpcer_400_response'
-      description: Bad request
-    "401Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/hpcer_401_response'
-      description: Unauthorized access
-    "404Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/hpcer_404_response'
-      description: No record found
-    "500Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/hpcer_500_response'
-      description: Internal server error
-    "502Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/hpcer_502_response'
-      description: Bad gateway
-    "503Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/hpcer_503_response'
-      description: Service unavailable
-    "504Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/hpcer_504_response'
-      description: Gateway timeout
   schemas:
-    AcademicCertificateSchema:
-      properties:
-        CertificateData:
-          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData'
-        IssuedBy:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedBy'
-        IssuedTo:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo'
-        issueDate:
-          example: ' '
-          type: string
-          xml:
-            attribute: true
-        issuedAt:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        language:
-          example: "99"
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        name:
-          example: Secondary School Certificate
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        number:
-          example: 1100044
-          minLength: 1
-          type: integer
-          xml:
-            attribute: true
-        status:
-          example: A
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        type:
-          example: SSCER
-          type: string
-          xml:
-            attribute: true
-        validFromDate:
-          example: ' '
-          type: string
-          xml:
-            attribute: true
-      required:
-      - CertificateData
-      - IssuedBy
-      - IssuedTo
-      - issueDate
-      - issuedAt
-      - language
-      - name
-      - number
-      - status
-      - type
-      - validFromDate
-      type: object
-      xml:
-        name: Certificate
-    ConsentArtifactSchema:
-      properties:
-        consent:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent'
-        signature:
-          $ref: '#/components/schemas/ConsentArtifactSchema_signature'
-      required:
-      - consent
-      - signature
-    hpcer_request_certificateParameters:
-      properties:
-        FullName:
-          description: Full name
-          example: Sunil Kumar
-          type: string
-        exsession:
-          description: Exam Session
-          example: MAR or OCT
-          type: string
-        rollnumber:
-          description: Seat No
-          example: P183286
-          type: string
-        totalmarks:
-          description: Total Marks
-          example: "389"
-          type: string
-        year:
-          description: Year
-          example: "2015"
-          type: string
-      required:
-      - FullName
-      - exsession
-      - rollnumber
-      - totalmarks
-      - year
-      type: object
-    hpcer_request:
-      properties:
-        certificateParameters:
-          $ref: '#/components/schemas/hpcer_request_certificateParameters'
-        consentArtifact:
-          $ref: '#/components/schemas/ConsentArtifactSchema'
-        format:
-          description: The format of the certificate in response.
-          enum:
-          - xml
-          - pdf
-          type: string
-        txnId:
-          description: A unique transaction id for this request in UUID format. It
-            is used for tracking the request.
-          example: f7f1469c-29b0-4325-9dfc-c567200a70f7
-          format: uuid
-          type: string
-      required:
-      - format
-      - txnId
-      type: object
-    hpcer_400_response:
+    comparison:
       example:
-        errorDescription: Please provide all mandatory parameters
-        error: missing_parameter
+        show_comparisons_public_url: show_comparisons_public_url
+        differences: 6
+        elements:
+        - show_difference_web_url: show_difference_web_url
+          show_difference_public_url: show_difference_public_url
+          difference: difference
+          full_path: full_path
+          short_path: short_path
+        - show_difference_web_url: show_difference_web_url
+          show_difference_public_url: show_difference_public_url
+          difference: difference
+          full_path: full_path
+          short_path: short_path
+        error: true
+        message: message
+        show_comparisons_web_url: show_comparisons_web_url
+        tolerance: 1
       properties:
-        error:
-          enum:
-          - missing_parameter
-          - invalid_parameter
-          - invalid_format
-          - invalid_txnid
-          - invalid_consentid
-          type: string
-        errorDescription:
-          enum:
-          - Please provide all mandatory parameters
-          - Bad request
-          - The format parameter is invalid
-          - The txnId parameter must be in UUID format
-          - The consentId parameter must be in UUID format
-          type: string
-      type: object
-    hpcer_401_response:
-      example:
-        errorDescription: Authentication failed
-        error: invalid_authentication
-      properties:
-        error:
-          enum:
-          - invalid_authentication
-          - invalid_authorization
-          type: string
-        errorDescription:
-          enum:
-          - Authentication failed
-          - You are not authorized to use this API
-          type: string
-      type: object
-    hpcer_404_response:
-      example:
-        errorDescription: No record found
-        error: record_not_found
-      properties:
-        error:
-          enum:
-          - record_not_found
-          - url_not_found
-          type: string
-        errorDescription:
-          enum:
-          - No record found
-          - Your API url or path is incorrect
-          type: string
-      type: object
-    hpcer_500_response:
-      example:
-        errorDescription: Internal server error
-        error: internal_server_error
-      properties:
-        error:
-          enum:
-          - internal_server_error
-          type: string
-        errorDescription:
-          enum:
-          - Internal server error
-          type: string
-      type: object
-    hpcer_502_response:
-      example:
-        errorDescription: Publisher service returned an invalid response
-        error: bad_gatewy
-      properties:
-        error:
-          enum:
-          - bad_gatewy
-          type: string
-        errorDescription:
-          enum:
-          - Publisher service returned an invalid response
-          type: string
-      type: object
-    hpcer_503_response:
-      example:
-        errorDescription: Publisher service is temporarily unavailable
-        error: service_unavailable
-      properties:
-        error:
-          enum:
-          - service_unavailable
-          type: string
-        errorDescription:
-          enum:
-          - Publisher service is temporarily unavailable
-          type: string
-      type: object
-    hpcer_504_response:
-      example:
-        errorDescription: Publisher service did not respond in time
-        error: gateway_timeout
-      properties:
-        error:
-          enum:
-          - gateway_timeout
-          type: string
-        errorDescription:
-          enum:
-          - Publisher service did not respond in time
-          type: string
-      type: object
-    spcer_request_certificateParameters:
-      properties:
-        FullName:
-          description: Full name
-          example: Sunil Kumar
-          type: string
-        exsession:
-          description: Exam Session
-          example: MAR or OCT
-          type: string
-        rollnumber:
-          description: Seat No
-          example: C183286
-          type: string
-        totalmarks:
-          description: Total Marks
-          example: "517"
-          type: string
-        year:
-          description: Year
-          example: "2015"
-          type: string
-      required:
-      - FullName
-      - exsession
-      - rollnumber
-      - totalmarks
-      - year
-      type: object
-    spcer_request:
-      properties:
-        certificateParameters:
-          $ref: '#/components/schemas/spcer_request_certificateParameters'
-        consentArtifact:
-          $ref: '#/components/schemas/ConsentArtifactSchema'
-        format:
-          description: The format of the certificate in response.
-          enum:
-          - xml
-          - pdf
-          type: string
-        txnId:
-          description: A unique transaction id for this request in UUID format. It
-            is used for tracking the request.
-          example: f7f1469c-29b0-4325-9dfc-c567200a70f7
-          format: uuid
-          type: string
-      required:
-      - format
-      - txnId
-      type: object
-    AcademicCertificateSchema_CertificateData_Examination:
-      properties:
-        month:
-          example: MARCH
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        name:
-          example: SENION SCHOOL CERTIFICATE EXAMINATION
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        year:
-          example: "2019"
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-      required:
-      - month
-      - name
-      - year
-      type: object
-    AcademicCertificateSchema_CertificateData_Performance_Subjects_inner:
-      properties:
-        code:
-          example: "30"
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        gp:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        gpMax:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        grade:
-          example: A2
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        marksMax:
+        differences:
           type: integer
-          xml:
-            attribute: true
-        marksMaxPractical:
-          type: integer
-          xml:
-            attribute: true
-        marksMaxTheory:
-          type: integer
-          xml:
-            attribute: true
-        marksPractical:
-          example: 17
-          type: integer
-          xml:
-            attribute: true
-        marksTheory:
-          example: 70
-          minLength: 1
-          type: integer
-          xml:
-            attribute: true
-        marksTotal:
-          example: 87
-          minLength: 1
-          type: integer
-          xml:
-            attribute: true
-        name:
-          example: ECONOMICS
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-      required:
-      - code
-      - gp
-      - gpMax
-      - grade
-      - marksMax
-      - marksMaxPractical
-      - marksMaxTheory
-      - marksPractical
-      - marksTheory
-      - marksTotal
-      - name
-      type: object
-      xml:
-        name: Subject
-    AcademicCertificateSchema_CertificateData_Performance:
-      properties:
-        Subjects:
+        elements:
           items:
-            $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_Performance_Subjects_inner'
+            $ref: '#/components/schemas/element'
           type: array
-          xml:
-            name: Subjects
-            wrapped: true
-        cgpa:
-          example: ""
+        error:
+          type: boolean
+        message:
           type: string
-          xml:
-            attribute: true
-        cgpaMax:
-          example: ""
+        show_comparisons_public_url:
           type: string
-          xml:
-            attribute: true
-        grade:
-          example: ""
+        show_comparisons_web_url:
           type: string
-          xml:
-            attribute: true
-        marksMax:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        marksTotal:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        percentage:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        result:
-          example: PASS
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        resultDate:
-          example: 02-05-2019
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        updateDate:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-      required:
-      - Subjects
-      - cgpa
-      - cgpaMax
-      - grade
-      - marksMax
-      - marksTotal
-      - percentage
-      - result
-      - resultDate
-      - updateDate
+        tolerance:
+          type: integer
       type: object
-    AcademicCertificateSchema_CertificateData_School:
+    element:
+      example:
+        show_difference_web_url: show_difference_web_url
+        show_difference_public_url: show_difference_public_url
+        difference: difference
+        full_path: full_path
+        short_path: short_path
       properties:
-        code:
-          example: "20020"
-          minLength: 1
+        difference:
           type: string
-          xml:
-            attribute: true
-        name:
-          example: DELHI PUBLIC SCHOOL GURGAON
-          minLength: 1
+        full_path:
           type: string
-          xml:
-            attribute: true
-      required:
-      - code
-      - name
+        short_path:
+          type: string
+        show_difference_public_url:
+          type: string
+        show_difference_web_url:
+          type: string
       type: object
-    AcademicCertificateSchema_CertificateData:
+    full_comparison_test:
+      example:
+        targets:
+        - comparison:
+            show_comparisons_public_url: show_comparisons_public_url
+            differences: 6
+            elements:
+            - show_difference_web_url: show_difference_web_url
+              show_difference_public_url: show_difference_public_url
+              difference: difference
+              full_path: full_path
+              short_path: short_path
+            - show_difference_web_url: show_difference_web_url
+              show_difference_public_url: show_difference_public_url
+              difference: difference
+              full_path: full_path
+              short_path: short_path
+            error: true
+            message: message
+            show_comparisons_web_url: show_comparisons_web_url
+            tolerance: 1
+          screenshot:
+            screenshot_id: 0
+        - comparison:
+            show_comparisons_public_url: show_comparisons_public_url
+            differences: 6
+            elements:
+            - show_difference_web_url: show_difference_web_url
+              show_difference_public_url: show_difference_public_url
+              difference: difference
+              full_path: full_path
+              short_path: short_path
+            - show_difference_web_url: show_difference_web_url
+              show_difference_public_url: show_difference_public_url
+              difference: difference
+              full_path: full_path
+              short_path: short_path
+            error: true
+            message: message
+            show_comparisons_web_url: show_comparisons_web_url
+            tolerance: 1
+          screenshot:
+            screenshot_id: 0
+        base:
+          screenshot:
+            screenshot_id: 0
       properties:
-        Examination:
-          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_Examination'
-        Performance:
-          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_Performance'
-        School:
-          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_School'
-      required:
-      - Examination
-      - Performance
-      - School
+        base:
+          $ref: '#/components/schemas/full_comparison_test_base'
+        targets:
+          items:
+            $ref: '#/components/schemas/target'
+          type: array
       type: object
-    AcademicCertificateSchema_IssuedBy_Organization_Address:
+    screenshot:
+      example:
+        screenshot_id: 0
       properties:
-        country:
-          example: IN
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        district:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        house:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        landmark:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        line1:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        line2:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        locality:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        pin:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        state:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        type:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        vtc:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-      required:
-      - country
-      - district
-      - house
-      - landmark
-      - line1
-      - line2
-      - locality
-      - pin
-      - state
-      - type
-      - vtc
+        screenshot_id:
+          type: integer
       type: object
-    AcademicCertificateSchema_IssuedBy_Organization:
+    single_comparison_test:
+      example:
+        base:
+          screenshot:
+            screenshot_id: 0
+        target:
+          comparison:
+            show_comparisons_public_url: show_comparisons_public_url
+            differences: 6
+            elements:
+            - show_difference_web_url: show_difference_web_url
+              show_difference_public_url: show_difference_public_url
+              difference: difference
+              full_path: full_path
+              short_path: short_path
+            - show_difference_web_url: show_difference_web_url
+              show_difference_public_url: show_difference_public_url
+              difference: difference
+              full_path: full_path
+              short_path: short_path
+            error: true
+            message: message
+            show_comparisons_web_url: show_comparisons_web_url
+            tolerance: 1
+          screenshot:
+            screenshot_id: 0
       properties:
-        Address:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedBy_Organization_Address'
-        code:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        name:
-          example: Central Board of Secondary Education
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        tin:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        type:
-          example: CG
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        uid:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-      required:
-      - Address
-      - code
-      - name
-      - tin
-      - type
-      - uid
+        base:
+          $ref: '#/components/schemas/full_comparison_test_base'
+        target:
+          $ref: '#/components/schemas/target'
       type: object
-    AcademicCertificateSchema_IssuedBy:
+    target:
+      example:
+        comparison:
+          show_comparisons_public_url: show_comparisons_public_url
+          differences: 6
+          elements:
+          - show_difference_web_url: show_difference_web_url
+            show_difference_public_url: show_difference_public_url
+            difference: difference
+            full_path: full_path
+            short_path: short_path
+          - show_difference_web_url: show_difference_web_url
+            show_difference_public_url: show_difference_public_url
+            difference: difference
+            full_path: full_path
+            short_path: short_path
+          error: true
+          message: message
+          show_comparisons_web_url: show_comparisons_web_url
+          tolerance: 1
+        screenshot:
+          screenshot_id: 0
       properties:
-        Organization:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedBy_Organization'
-      required:
-      - Organization
+        comparison:
+          $ref: '#/components/schemas/comparison'
+        screenshot:
+          $ref: '#/components/schemas/screenshot'
       type: object
-    AcademicCertificateSchema_IssuedTo_Person_Address:
+    full_comparison_test_base:
+      example:
+        screenshot:
+          screenshot_id: 0
       properties:
-        country:
-          example: IN
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        district:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        house:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        landmark:
-          type: string
-          xml:
-            attribute: true
-          example: null
-        line1:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        line2:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        locality:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        pin:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        state:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        type:
-          example: permanent
-          minLength: 1
-          type: string
-        vtc:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-      required:
-      - country
-      - district
-      - house
-      - landmark
-      - line1
-      - line2
-      - locality
-      - pin
-      - state
-      - type
-      - vtc
-      type: object
-    AcademicCertificateSchema_IssuedTo_Person_Photo:
-      properties:
-        format:
-          type: string
-          xml:
-            attribute: true
-      required:
-      - format
-      type: object
-    AcademicCertificateSchema_IssuedTo_Person:
-      properties:
-        Address:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo_Person_Address'
-        Photo:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo_Person_Photo'
-        category:
-          example: SC
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        disabilityStatus:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        dob:
-          example: 01-10-1988
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        email:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        gender:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        maritalStatus:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        motherName:
-          example: SUNITA DEVI
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        name:
-          example: ANAND KUMAR
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        phone:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        religion:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        swd:
-          example: PRAMOD KUMAR
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        swdIndicator:
-          example: S
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        title:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        uid:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-      required:
-      - Address
-      - Photo
-      - category
-      - disabilityStatus
-      - dob
-      - email
-      - gender
-      - maritalStatus
-      - motherName
-      - name
-      - phone
-      - religion
-      - swd
-      - swdIndicator
-      - title
-      - uid
-      type: object
-    AcademicCertificateSchema_IssuedTo:
-      properties:
-        Person:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo_Person'
-      required:
-      - Person
-      type: object
-    ConsentArtifactSchema_consent_data:
-      properties:
-        id:
-          minLength: 1
-          type: string
-      required:
-      - id
-      type: object
-    ConsentArtifactSchema_consent_permission_dateRange:
-      properties:
-        from:
-          description: "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ"
-          format: date-time
-          minLength: 1
-          type: string
-        to:
-          description: "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ"
-          format: date-time
-          minLength: 1
-          type: string
-      required:
-      - from
-      - to
-      type: object
-    ConsentArtifactSchema_consent_permission_frequency:
-      properties:
-        repeats:
-          type: number
-        unit:
-          minLength: 1
-          type: string
-        value:
-          type: number
-      required:
-      - repeats
-      - unit
-      - value
-      type: object
-    ConsentArtifactSchema_consent_permission:
-      properties:
-        access:
-          minLength: 1
-          type: string
-        dateRange:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_permission_dateRange'
-        frequency:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_permission_frequency'
-      required:
-      - access
-      - dateRange
-      - frequency
-      type: object
-    ConsentArtifactSchema_consent_purpose:
-      properties:
-        description:
-          minLength: 1
-          type: string
-      required:
-      - description
-      type: object
-    ConsentArtifactSchema_consent_user:
-      properties:
-        email:
-          minLength: 1
-          type: string
-        idNumber:
-          minLength: 1
-          type: string
-        idType:
-          minLength: 1
-          type: string
-        mobile:
-          minLength: 1
-          type: string
-      required:
-      - email
-      - idNumber
-      - idType
-      - mobile
-      type: object
-    ConsentArtifactSchema_consent:
-      properties:
-        consentId:
-          description: A unique consent id in UUID format.
-          example: ea9c43aa-7f5a-4bf3-a0be-e1caa24737ba
-          format: uuid
-          minLength: 1
-          type: string
-        data:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_data'
-        dataConsumer:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_data'
-        dataProvider:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_data'
-        permission:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_permission'
-        purpose:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_purpose'
-        timestamp:
-          description: "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ"
-          format: date-time
-          minLength: 1
-          type: string
-        user:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_user'
-      required:
-      - consentId
-      - data
-      - dataConsumer
-      - dataProvider
-      - permission
-      - purpose
-      - timestamp
-      - user
-      type: object
-    ConsentArtifactSchema_signature:
-      properties:
-        signature:
-          type: string
-      required:
-      - signature
+        screenshot:
+          $ref: '#/components/schemas/screenshot'
       type: object
   securitySchemes:
-    apiKey:
-      in: header
-      name: X-APISETU-APIKEY
-      type: apiKey
-    clientId:
-      in: header
-      name: X-APISETU-CLIENTID
-      type: apiKey
+    basicAuth:
+      description: HTTP Basic Authentication
+      scheme: basic
+      type: http
 
