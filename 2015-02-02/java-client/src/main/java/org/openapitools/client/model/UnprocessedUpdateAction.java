@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Update action that has failed to be processed for the corresponding apply/stop request
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:01.012361-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:10.865581-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class UnprocessedUpdateAction {
   public static final String SERIALIZED_NAME_REPLICATION_GROUP_ID = "ReplicationGroupId";
   @SerializedName(SERIALIZED_NAME_REPLICATION_GROUP_ID)

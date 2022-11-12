@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents a single occurrence of something interesting within the system. Some examples of events are creating a cluster, adding or removing a cache node, or rebooting a node.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:01.012361-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:10.865581-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Event {
   public static final String SERIALIZED_NAME_SOURCE_IDENTIFIER = "SourceIdentifier";
   @SerializedName(SERIALIZED_NAME_SOURCE_IDENTIFIER)
