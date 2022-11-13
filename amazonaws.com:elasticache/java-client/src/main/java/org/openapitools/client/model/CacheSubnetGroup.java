@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Represents the output of one of the following operations:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;CreateCacheSubnetGroup&lt;/code&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;ModifyCacheSubnetGroup&lt;/code&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:06.397774-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:16.135451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CacheSubnetGroup {
   public static final String SERIALIZED_NAME_CACHE_SUBNET_GROUP_NAME = "CacheSubnetGroupName";
   @SerializedName(SERIALIZED_NAME_CACHE_SUBNET_GROUP_NAME)

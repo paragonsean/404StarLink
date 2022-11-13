@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:06.397774-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:16.135451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DestinationDetails {
   public static final String SERIALIZED_NAME_CLOUD_WATCH_LOGS_DETAILS = "CloudWatchLogsDetails";
   @SerializedName(SERIALIZED_NAME_CLOUD_WATCH_LOGS_DETAILS)

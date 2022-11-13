@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes a notification topic and its status. Notification topics are used for publishing ElastiCache events to subscribers using Amazon Simple Notification Service (SNS).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:06.397774-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:16.135451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class NotificationConfiguration {
   public static final String SERIALIZED_NAME_TOPIC_ARN = "TopicArn";
   @SerializedName(SERIALIZED_NAME_TOPIC_ARN)
