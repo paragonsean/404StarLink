@@ -1,0 +1,2223 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Master Data API - v2</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Master Data API - v2</h1>
+    <div class="app-desc"><h1>ATTENTION: <strong>This version isn't compliant with data entities of old version (e.g. CL and AD). It's possible to use this configuration only to new data entities.</strong></h1>
+<h2>Welcome!</h2>
+<p>VTEX Master Data is an easy-to-use, secure, fast, scalable and extensible repository. On it you can create your own Entities, store data and consult directly from the storefront or use it to store info for some external integration.</p>
+<p>There are internal VTEX modules that use VTEX Master Data as data repository. We have the VTEX Customer Service, VTEX Profile System and VTEX InStore, for example. It is also used by other internal services.</p>
+<p>There are two ways to use Master Data:</p>
+<ol>
+<li>Directly from the storefront</li>
+<li>External integration</li>
+</ol>
+<h3>Directly from the storefront</h3>
+<p>If your scenario is to be used inside the storefront, be aware of the following observations:</p>
+<ol>
+<li>Use the storefront host to query or store information to avoid <strong>CORS</strong>;</li>
+<li>Configure which information should be public and which shouldn't, inside the JSON Schema of the Data Entity;</li>
+<li>Do not create query loops (the storefront may be affected with Throttling and apis may be turned off as a security protection);</li>
+<li>Never add via JS any type of authentication key (x-vtex-api-appkey or x-vtex-api-apptoken);</li>
+</ol>
+<p><strong>It's important to avoid CORS using the relative path</strong></p>
+<h3>External Integration</h3>
+<p>If your scenario is to perform external integration, such as migrating client data from another service, be aware of the following observations:</p>
+<ol>
+<li>Use the host <code>{{accountName}}.vtexcommercestable.com.br</code>;</li>
+<li>Use the authentication keys (x-vtex-api-appkey ou x-vtex-api-apptoken);</li>
+</ol>
+<h3>Most used attributes listed here</h3>
+<p>| Name | Description |
+| -------- | -------- |
+| accountName | Account name in VTEX License Manager |
+| name | Data Entity name |
+| schema | JSON Schema of a Data Entity |
+| id | Identifier of a document |
+| x-vtex-api-appKey | User key |
+| x-vtex-api-appToken | User token |</p>
+</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 1.0</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:X-VTEX-API-AppKey KeyInQuery:false KeyInHeader:true</li>
+      <li>APIKey KeyParamName:X-VTEX-API-AppToken KeyInQuery:false KeyInHeader:true</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Addresses">Addresses</a></h4>
+  <ul>
+  <li><a href="#createNewCustomerAddress"><code><span class="http-method">post</span> /api/dataentities/Address/documents</code></a></li>
+  <li><a href="#deleteCustomerAddress"><code><span class="http-method">delete</span> /api/dataentities/Address/documents/{id}</code></a></li>
+  <li><a href="#updateCustomerAddress"><code><span class="http-method">patch</span> /api/dataentities/Address/documents/{id}</code></a></li>
+  </ul>
+  <h4><a href="#Clusters">Clusters</a></h4>
+  <ul>
+  <li><a href="#validatedocumentbyclusters"><code><span class="http-method">post</span> /api/dataentities/{dataEntityName}/documents/{id}/clusters</code></a></li>
+  </ul>
+  <h4><a href="#CustomerProfiles">CustomerProfiles</a></h4>
+  <ul>
+  <li><a href="#createNewCustomerProfilev2"><code><span class="http-method">post</span> /api/dataentities/Client/documents</code></a></li>
+  <li><a href="#deleteCustomerProfile"><code><span class="http-method">delete</span> /api/dataentities/Client/documents/{id}</code></a></li>
+  <li><a href="#updateCustomerProfile"><code><span class="http-method">patch</span> /api/dataentities/Client/documents/{id}</code></a></li>
+  </ul>
+  <h4><a href="#Documents">Documents</a></h4>
+  <ul>
+  <li><a href="#createnewdocument"><code><span class="http-method">post</span> /api/dataentities/{dataEntityName}/documents</code></a></li>
+  <li><a href="#createorupdatepartialdocument"><code><span class="http-method">patch</span> /api/dataentities/{dataEntityName}/documents</code></a></li>
+  <li><a href="#deletedocument"><code><span class="http-method">delete</span> /api/dataentities/{dataEntityName}/documents/{id}</code></a></li>
+  <li><a href="#getdocument"><code><span class="http-method">get</span> /api/dataentities/{dataEntityName}/documents/{id}</code></a></li>
+  <li><a href="#updateentiredocument"><code><span class="http-method">put</span> /api/dataentities/{dataEntityName}/documents/{id}</code></a></li>
+  <li><a href="#updatepartialdocument"><code><span class="http-method">patch</span> /api/dataentities/{dataEntityName}/documents/{id}</code></a></li>
+  </ul>
+  <h4><a href="#Indices">Indices</a></h4>
+  <ul>
+  <li><a href="#deleteindexbyname"><code><span class="http-method">delete</span> /api/dataentities/{dataEntityName}/indices/{index_name}</code></a></li>
+  <li><a href="#getindexbyname"><code><span class="http-method">get</span> /api/dataentities/{dataEntityName}/indices/{index_name}</code></a></li>
+  <li><a href="#getindices"><code><span class="http-method">get</span> /api/dataentities/{dataEntityName}/indices</code></a></li>
+  <li><a href="#putindices"><code><span class="http-method">put</span> /api/dataentities/{dataEntityName}/indices</code></a></li>
+  </ul>
+  <h4><a href="#Schemas">Schemas</a></h4>
+  <ul>
+  <li><a href="#deleteschemabyname"><code><span class="http-method">delete</span> /api/dataentities/{dataEntityName}/schemas/{schemaName}</code></a></li>
+  <li><a href="#getschemabyname"><code><span class="http-method">get</span> /api/dataentities/{dataEntityName}/schemas/{schemaName}</code></a></li>
+  <li><a href="#getschemas"><code><span class="http-method">get</span> /api/dataentities/{dataEntityName}/schemas</code></a></li>
+  <li><a href="#saveschemabyname"><code><span class="http-method">put</span> /api/dataentities/{dataEntityName}/schemas/{schemaName}</code></a></li>
+  </ul>
+  <h4><a href="#Scroll">Scroll</a></h4>
+  <ul>
+  <li><a href="#scrolldocuments"><code><span class="http-method">get</span> /api/dataentities/{dataEntityName}/scroll</code></a></li>
+  </ul>
+  <h4><a href="#Search">Search</a></h4>
+  <ul>
+  <li><a href="#searchdocuments"><code><span class="http-method">get</span> /api/dataentities/{dataEntityName}/search</code></a></li>
+  </ul>
+  <h4><a href="#Versions">Versions</a></h4>
+  <ul>
+  <li><a href="#getversion"><code><span class="http-method">get</span> /api/dataentities/{dataEntityName}/documents/{id}/versions/{versionId}</code></a></li>
+  <li><a href="#listversions"><code><span class="http-method">get</span> /api/dataentities/{dataEntityName}/documents/{id}/versions</code></a></li>
+  <li><a href="#putversion"><code><span class="http-method">put</span> /api/dataentities/{dataEntityName}/documents/{id}/versions/{versionId}</code></a></li>
+  </ul>
+
+  <h1><a name="Addresses">Addresses</a></h1>
+  <div class="method"><a name="createNewCustomerAddress"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/dataentities/Address/documents</code></pre></div>
+    <div class="method-summary">Create new customer address (<span class="nickname">createNewCustomerAddress</span>)</div>
+    <div class="method-notes"><p>Creates new customer address.</p>
+<blockquote>
+<p>You can use this request to create customer addresses according to any <code>AD</code> schema. Because of this, you are not restricted to using the fields exemplified below in your requests. But you should be aware of the fields allowed or required for the schemas you are using. Learn more about how to use <a href="https://developers.vtex.com/vtex-rest-api/docs/master-data-schema-lifecycle">Master Data v2 schemas</a>.</p>
+</blockquote>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">createUpdateAddressRequests <a href="#createUpdateAddressRequests">createUpdateAddressRequests</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">_schema (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of the schema the document to be created needs to be compliant with. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#documentResponse">documentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Href" : "Href",
+  "Id" : "Id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#documentResponse">documentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteCustomerAddress"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/dataentities/Address/documents/{id}</code></pre></div>
+    <div class="method-summary">Delete customer address (<span class="nickname">deleteCustomerAddress</span>)</div>
+    <div class="method-notes">Deletes a customer address.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#documentResponse">documentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Href" : "Href",
+  "Id" : "Id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#documentResponse">documentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateCustomerAddress"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /api/dataentities/Address/documents/{id}</code></pre></div>
+    <div class="method-summary">Update customer address (<span class="nickname">updateCustomerAddress</span>)</div>
+    <div class="method-notes"><p>Partially updates a customer address.</p>
+<blockquote>
+<p>You can use this request to update customer addresses according to any <code>AD</code> schema. Because of this, you are not restricted to using the fields exemplified below in your requests. But you should be aware of the fields allowed or required for the schemas you are using. Learn more about how to use <a href="https://developers.vtex.com/vtex-rest-api/docs/master-data-schema-lifecycle">Master Data v2 schemas</a>.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">createUpdateAddressRequests <a href="#createUpdateAddressRequests">createUpdateAddressRequests</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">_schema (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of the schema the document to be created needs to be compliant with. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#documentResponse">documentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Href" : "Href",
+  "Id" : "Id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#documentResponse">documentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Clusters">Clusters</a></h1>
+  <div class="method"><a name="validatedocumentbyclusters"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/dataentities/{dataEntityName}/documents/{id}/clusters</code></pre></div>
+    <div class="method-summary">Validate document by clusters (<span class="nickname">validatedocumentbyclusters</span>)</div>
+    <div class="method-notes"><p>Check if a document is present in one or more clusters (specific set of field values).</p>
+<blockquote>
+<p>There is a limit of five rules per request.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#string">string</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="CustomerProfiles">CustomerProfiles</a></h1>
+  <div class="method"><a name="createNewCustomerProfilev2"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/dataentities/Client/documents</code></pre></div>
+    <div class="method-summary">Create new customer profile (<span class="nickname">createNewCustomerProfilev2</span>)</div>
+    <div class="method-notes"><p>Creates new customer profile.</p>
+<blockquote>
+<p>You can use this request to create customer profiles according to any <code>CL</code> schema. Because of this, you are not restricted to using the fields exemplified below in your requests. But you should be aware of the fields allowed or required for the schemas you are using. Learn more about how to use <a href="https://developers.vtex.com/vtex-rest-api/docs/master-data-schema-lifecycle">Master Data v2 schemas</a>.</p>
+</blockquote>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">createUpdateProfileRequests <a href="#createUpdateProfileRequests">createUpdateProfileRequests</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">_schema (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of the schema the document to be created needs to be compliant with. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#documentResponse">documentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Href" : "Href",
+  "Id" : "Id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#documentResponse">documentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteCustomerProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/dataentities/Client/documents/{id}</code></pre></div>
+    <div class="method-summary">Delete customer profile (<span class="nickname">deleteCustomerProfile</span>)</div>
+    <div class="method-notes">Deletes a customer profile.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#documentResponse">documentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Href" : "Href",
+  "Id" : "Id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#documentResponse">documentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateCustomerProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /api/dataentities/Client/documents/{id}</code></pre></div>
+    <div class="method-summary">Update customer profile (<span class="nickname">updateCustomerProfile</span>)</div>
+    <div class="method-notes"><p>Partially updates a customer profile.</p>
+<blockquote>
+<p>You can use this request to update customer profiles according to any <code>CL</code> schema. Because of this, you are not restricted to using the fields exemplified below in your requests. But you should be aware of the fields allowed or required for the schemas you are using. Learn more about how to use <a href="https://developers.vtex.com/vtex-rest-api/docs/master-data-schema-lifecycle">Master Data v2 schemas</a>.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">createUpdateProfileRequests <a href="#createUpdateProfileRequests">createUpdateProfileRequests</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">_schema (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of the schema the document to be created needs to be compliant with. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#documentResponse">documentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Href" : "Href",
+  "Id" : "Id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#documentResponse">documentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Documents">Documents</a></h1>
+  <div class="method"><a name="createnewdocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/dataentities/{dataEntityName}/documents</code></pre></div>
+    <div class="method-summary">Create new document (<span class="nickname">createnewdocument</span>)</div>
+    <div class="method-notes"><p>This request allows you to create a new document corresponding to a given data entity. For example, you can create a new customer profile or address.</p>
+<blockquote>
+<p>You can use this request to create documents for any given data entity. Because of this, you are not restricted to using the fields exemplified below in your requests. But you should be aware of the fields allowed or required for each document you wish to create.</p>
+</blockquote>
+<h2>Example use cases</h2>
+<h3>Client profile</h3>
+<p>In order to create a new customer profile, choose the <code>CL</code> data entity and send a request similar to this:</p>
+<p>POST</p>
+<pre><code>https://examplestore.vtexcommercestable.com.br/api/dataentities/Client/documents
+</code></pre>
+<p>Request body</p>
+<pre><code class="language-json">{
+    &quot;email&quot;: &quot;clark.kent@examplemail.com&quot;,
+    &quot;firstName&quot;: &quot;Clark&quot;,
+    &quot;lastName&quot;: &quot;Kent&quot;,
+    &quot;phone&quot;: &quot;+12025550195&quot;,
+    &quot;documentType&quot;: &quot;CPF&quot;,
+    &quot;document&quot;: &quot;12345678900&quot;
+    &quot;isCorporate&quot;: false,
+    &quot;isNewsletterOptIn&quot;: false,
+    &quot;localeDefault&quot;: &quot;en-US&quot;
+ }
+</code></pre>
+<h3>Client address</h3>
+<p>For a new address, the data entity is <code>AD</code> and the request would look like this:</p>
+<p>POST</p>
+<pre><code>https://examplestore.vtexcommercestable.com.br/api/dataentities/Address/documents
+</code></pre>
+<p>Request body</p>
+<pre><code class="language-json">{
+    &quot;addressName&quot;: &quot;My House&quot;,
+    &quot;addressType&quot;: &quot;residential&quot;,
+    &quot;city&quot;: &quot;Metropolis&quot;,
+    &quot;complement&quot;: &quot;&quot;,
+    &quot;country&quot;: &quot;USA&quot;,
+    &quot;postalCode&quot;: &quot;11375&quot;,
+    &quot;receiverName&quot;: &quot;Clark Kent&quot;,
+    &quot;reference&quot;: null,
+    &quot;state&quot;: &quot;MP&quot;,
+    &quot;street&quot;: &quot;Baker Street&quot;,
+    &quot;neighborhood&quot;: &quot;Upper east side&quot;,
+    &quot;number&quot;: &quot;21&quot;,
+    &quot;userId&quot;: &quot;7e03m794-a33a-11e9-84rt6-0adfa64s5a8e&quot;
+}
+</code></pre>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">request_body <a href="#string">string</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">_schema (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of the schema the document to be created needs to be compliant with. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#documentResponse">documentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Href" : "Href",
+  "Id" : "Id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#documentResponse">documentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createorupdatepartialdocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /api/dataentities/{dataEntityName}/documents</code></pre></div>
+    <div class="method-summary">Create partial document (<span class="nickname">createorupdatepartialdocument</span>)</div>
+    <div class="method-notes"><p>This request allows you to partially update a document corresponding to a given data entity.</p>
+<blockquote>
+<p>You can use this request to create documents for any given data entity. Because of this, you are not restricted to using the fields exemplified below in your requests. But you should be aware of the fields allowed or required for each document you wish to update.</p>
+</blockquote>
+<h2>Example use cases</h2>
+<h3>Client profile</h3>
+<p>In order to create a customer profile's <code>phone</code> and <code>isNewsletterOptIn</code> fields, choose the <code>CL</code> data entity and send a request similar to this:</p>
+<p>PATCH</p>
+<pre><code>https://examplestore.vtexcommercestable.com.br/api/dataentities/Client/documents
+</code></pre>
+<p>Request body</p>
+<pre><code class="language-json">{
+    &quot;phone&quot;: &quot;+12025550195&quot;,
+    &quot;isNewsletterOptIn&quot;: false
+ }
+</code></pre>
+<h3>Client address</h3>
+<p>In order to update the <code>receiverName</code> of an existing address, the data entity is <code>AD</code> and the request would look like this:</p>
+<p>PATCH</p>
+<pre><code>https://examplestore.vtexcommercestable.com.br/api/dataentities/Address/documents
+</code></pre>
+<p>Request body</p>
+<pre><code class="language-json">{
+    &quot;receiverName&quot;: &quot;Lois Lane&quot;
+}
+</code></pre>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">request_body <a href="#string">string</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">_schema (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of the schema the document to be created needs to be compliant with. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#documentResponse">documentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Href" : "Href",
+  "Id" : "Id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#documentResponse">documentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deletedocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/dataentities/{dataEntityName}/documents/{id}</code></pre></div>
+    <div class="method-summary">Delete document (<span class="nickname">deletedocument</span>)</div>
+    <div class="method-notes">It allows to delete a document.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getdocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/dataentities/{dataEntityName}/documents/{id}</code></pre></div>
+    <div class="method-summary">Get document (<span class="nickname">getdocument</span>)</div>
+    <div class="method-notes"><p>Gets document by ID.</p>
+<blockquote>
+<p>Assign the <code>_fields</code> parameter in the query string to retrieve the desired fields. If you want to return all the fields use <code>_fields=_all</code>.</p>
+</blockquote>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Using_fields_all">Using_fields_all</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "accountId" : "14af940d-9300-4279-9355-61d44c2ff879",
+  "accountName" : "my-store-name",
+  "dataEntityId" : "Client",
+  "id" : "b818cbda-e489-11e6-94f4-0ac138d2d42e"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Sucessful response
+        <a href="#Using_fields_all">Using_fields_all</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateentiredocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/dataentities/{dataEntityName}/documents/{id}</code></pre></div>
+    <div class="method-summary">Update entire document (<span class="nickname">updateentiredocument</span>)</div>
+    <div class="method-notes"><p>Update an existing document corresponding to a given data entity. For example, you can update a customer profile or address.</p>
+<blockquote>
+<p>You can use this request to update documents in any given data entity. Because of this, you are not restricted to using the fields exemplified below in your requests. But you should be aware of the fields allowed or required for each document you wish to update.</p>
+</blockquote>
+<h2>Example use cases</h2>
+<h3>Client profile</h3>
+<p>In order to update an existing customer profile, choose the <code>CL</code> data entity and send a request similar to this:</p>
+<p>PUT</p>
+<pre><code>https://examplestore.vtexcommercestable.com.br/api/dataentities/Client/documents/123456789abc
+</code></pre>
+<p>Request body</p>
+<pre><code class="language-json">{
+    &quot;email&quot;: &quot;clark.kent@examplemail.com&quot;,
+    &quot;firstName&quot;: &quot;Clark&quot;,
+    &quot;lastName&quot;: &quot;Kent&quot;,
+    &quot;phone&quot;: &quot;+12025550195&quot;,
+    &quot;documentType&quot;: &quot;CPF&quot;,
+    &quot;document&quot;: &quot;12345678900&quot;
+    &quot;isCorporate&quot;: false,
+    &quot;isNewsletterOptIn&quot;: false,
+    &quot;localeDefault&quot;: &quot;en-US&quot;
+ }
+</code></pre>
+<h3>Client address</h3>
+<p>To update an address, the data entity is <code>AD</code> and the request would look like this:</p>
+<p>PUT</p>
+<pre><code>https://examplestore.vtexcommercestable.com.br/api/dataentities/Address/documents/123456789abc
+</code></pre>
+<p>Request body</p>
+<pre><code class="language-json">{
+    &quot;addressName&quot;: &quot;My House&quot;,
+    &quot;addressType&quot;: &quot;residential&quot;,
+    &quot;city&quot;: &quot;Metropolis&quot;,
+    &quot;complement&quot;: &quot;&quot;,
+    &quot;country&quot;: &quot;USA&quot;,
+    &quot;postalCode&quot;: &quot;11375&quot;,
+    &quot;receiverName&quot;: &quot;Clark Kent&quot;,
+    &quot;reference&quot;: null,
+    &quot;state&quot;: &quot;MP&quot;,
+    &quot;street&quot;: &quot;Baker Street&quot;,
+    &quot;neighborhood&quot;: &quot;Upper east side&quot;,
+    &quot;number&quot;: &quot;21&quot;,
+    &quot;userId&quot;: &quot;7e03m794-a33a-11e9-84rt6-0adfa64s5a8e&quot;
+}
+</code></pre>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">request_body <a href="#string">string</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">_where (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter specification. default: null </div><div class="param">_schema (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of the schema the document to be created needs to be compliant with. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#documentResponse">documentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Href" : "Href",
+  "Id" : "Id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#documentResponse">documentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updatepartialdocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /api/dataentities/{dataEntityName}/documents/{id}</code></pre></div>
+    <div class="method-summary">Update partial document (<span class="nickname">updatepartialdocument</span>)</div>
+    <div class="method-notes"><p>This request allows you to partially update a document corresponding to a given data entity. For example, you can update some fields of a customer profile or address.</p>
+<blockquote>
+<p>You can use this request to update documents for any given data entity. Because of this, you are not restricted to using the fields exemplified below in your requests. But you should be aware of the fields allowed or required for each document you wish to update.</p>
+</blockquote>
+<h2>Example use cases</h2>
+<h3>Client profile</h3>
+<p>In order to update a customer profile's <code>phone</code> and <code>isNewsletterOptIn</code> fields, choose the <code>CL</code> data entity and send a request similar to this:</p>
+<p>PATCH</p>
+<pre><code>https://examplestore.vtexcommercestable.com.br/api/dataentities/Client/documents/123456789abc
+</code></pre>
+<p>Request body</p>
+<pre><code class="language-json">{
+    &quot;phone&quot;: &quot;+12025550195&quot;,
+    &quot;isNewsletterOptIn&quot;: false
+ }
+</code></pre>
+<h3>Client address</h3>
+<p>In order to update the <code>receiverName</code> of an existing address, the data entity is <code>AD</code> and the request would look like this:</p>
+<p>PATCH</p>
+<pre><code>https://examplestore.vtexcommercestable.com.br/api/dataentities/Address/documents/123456789abc
+</code></pre>
+<p>Request body</p>
+<pre><code class="language-json">{
+    &quot;receiverName&quot;: &quot;Lois Lane&quot;
+}
+</code></pre>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">request_body <a href="#string">string</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">_where (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter specification. default: null </div><div class="param">_schema (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of the schema the document to be created needs to be compliant with. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#documentResponse">documentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Href" : "Href",
+  "Id" : "Id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#documentResponse">documentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Indices">Indices</a></h1>
+  <div class="method"><a name="deleteindexbyname"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/dataentities/{dataEntityName}/indices/{index_name}</code></pre></div>
+    <div class="method-summary">Delete index by name (<span class="nickname">deleteindexbyname</span>)</div>
+    <div class="method-notes">Delete an index.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">index_name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the index. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getindexbyname"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/dataentities/{dataEntityName}/indices/{index_name}</code></pre></div>
+    <div class="method-summary">Get index by name (<span class="nickname">getindexbyname</span>)</div>
+    <div class="method-notes">Returns an index.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">index_name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the index. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getindices"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/dataentities/{dataEntityName}/indices</code></pre></div>
+    <div class="method-summary">Get indices (<span class="nickname">getindices</span>)</div>
+    <div class="method-notes">Returns the list of indices by data entity.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="putindices"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/dataentities/{dataEntityName}/indices</code></pre></div>
+    <div class="method-summary">Put indices (<span class="nickname">putindices</span>)</div>
+    <div class="method-notes">Create an index.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">PutindicesRequest <a href="#PutindicesRequest">PutindicesRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Schemas">Schemas</a></h1>
+  <div class="method"><a name="deleteschemabyname"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/dataentities/{dataEntityName}/schemas/{schemaName}</code></pre></div>
+    <div class="method-summary">Delete schema by name (<span class="nickname">deleteschemabyname</span>)</div>
+    <div class="method-notes">Deletes an existing schema for a given data entity.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">schemaName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the schema. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    No Content
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getschemabyname"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/dataentities/{dataEntityName}/schemas/{schemaName}</code></pre></div>
+    <div class="method-summary">Get schema by name (<span class="nickname">getschemabyname</span>)</div>
+    <div class="method-notes">Returns an existing schema for a given data entity.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">schemaName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the schema. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getschemas"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/dataentities/{dataEntityName}/schemas</code></pre></div>
+    <div class="method-summary">Get schemas (<span class="nickname">getschemas</span>)</div>
+    <div class="method-notes">Return the schemas saved.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="saveschemabyname"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/dataentities/{dataEntityName}/schemas/{schemaName}</code></pre></div>
+    <div class="method-summary">Save schema by name (<span class="nickname">saveschemabyname</span>)</div>
+    <div class="method-notes"><p>Creates or edits a data entity schema. Learn more about <a href="https://developers.vtex.com/vtex-rest-api/docs/master-data-schema-lifecycle">Master Data schemas</a></p>
+<blockquote>
+<p>Note that if you send a <code>schemaName</code> that does not exist for that data entity, this request will create it.</p>
+</blockquote>
+<p>This request can also be used to <a href="https://developers.vtex.com/vtex-rest-api/docs/setting-up-triggers-in-master-data-v2">create or edit Master Data v2 triggers</a>.</p>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">schemaName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the schema. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">SaveschemabynameRequest <a href="#SaveschemabynameRequest">SaveschemabynameRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Scroll">Scroll</a></h1>
+  <div class="method"><a name="scrolldocuments"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/dataentities/{dataEntityName}/scroll</code></pre></div>
+    <div class="method-summary">Scroll documents (<span class="nickname">scrolldocuments</span>)</div>
+    <div class="method-notes"><p>In the first request, the <code>X-VTEX-MD-TOKEN</code> token will be returned in the header. This token must be passed to the next request in the query string <code>_token</code> parameter. The token has a timeout of 10 minutes, which refreshes after each request.</p>
+<p>After the token is obtained it is no longer necessary to send the filter or document size per page parameters. You only need to resend the token until the document collection is empty.</p>
+<blockquote>
+<p>Avoid sending too many requests with wildcards (<code>*</code>) in the search parameters or that use the <code>keyword</code> parameter. This may lead to this endpoint being temporarily blocked for your account. If this happens you will receive an error with status code <code>429</code>.</p>
+</blockquote>
+<h2>Request examples</h2>
+<p>First request:</p>
+<pre><code>/dataentities/Client/scroll?isCluster=true&amp;_size=250&amp;_fields=email,firstName
+</code></pre>
+<p>Retrieve the token in the header <code>X-VTEX-MD-TOKEN</code> from the first request's response and use it to make the next requests.</p>
+<p>Subsequent requests:</p>
+<pre><code>/dataentities/Client/scroll?_token={tokenValueExample}
+</code></pre>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+<div class="param">REST-Range (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Defines the collection of documents to be returned. A range within the collection limited by 100 documents per query. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Value of the header <code>X-VTEX-MD-TOKEN</code> returned in your first request. Send its value in this query string in the subsequent requests. The token has a timeout of 10 minutes, which refreshes after each new request. default: {tokenValueExample} </div><div class="param">_fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Fields that should be returned by document. Separate fields' names with commas. For example <code>_fields=email,firstName,document</code>. You can also use <code>_all</code> to fetch all fields. default: email,firstName,document </div><div class="param">_where (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter specification. default: null </div><div class="param">_schema (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of the schema the document to be created needs to be compliant with. default: null </div><div class="param">_keyword (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; String to search. Use quotes for a partial query. For example, <code>_keyword=Maria</code> or <code>_keyword=&quot;Maria&quot;</code>. default: null </div><div class="param">_sort (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sets sorting mode in two parts. The first part is the name of the field you want to sort by. In the second part, use <code>ASC</code> for ascending or <code>DESC</code> for descending. default: firstName ASC </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+    <h4 class="field-label">429</h4>
+    Too Many Requests
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Search">Search</a></h1>
+  <div class="method"><a name="searchdocuments"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/dataentities/{dataEntityName}/search</code></pre></div>
+    <div class="method-summary">Search documents (<span class="nickname">searchdocuments</span>)</div>
+    <div class="method-notes"><p>Retrieves documents' information, while choosing which fields will be returned and filtering documents by specific fields.</p>
+<blockquote>
+<p>The response header <code>REST-Content-Range</code> indicates the total amount of results for that specific search. For example, it may return <code>resources 0-100/136108</code>, which indicates it has returned results from 0 to 100 of a total 136108.</p>
+</blockquote>
+<p>Below you can see some query examples and learn more about each query parameter.</p>
+<blockquote>
+<p>Avoid sending too many requests with wildcards (<code>*</code>) in the search parameters or that use the <code>keyword</code> parameter. This may lead to this endpoint being temporarily blocked for your account. If this happens you will receive an error with status code <code>503</code>.</p>
+</blockquote>
+<h2>Query examples</h2>
+<h3>Simple filter</h3>
+<pre><code>/dataentities/Client/search?email=my@email.com
+</code></pre>
+<h3>Complex filter</h3>
+<pre><code>/dataentities/Client/search?_where=(firstName=Jon OR lastName=Smith) OR (createdIn between 2001-01-01 AND 2016-01-01)
+</code></pre>
+<h3>Date Range</h3>
+<pre><code>/dataentities/Client/search?_where=createdIn between 2001-01-01 AND 2016-01-01
+</code></pre>
+<h3>Range numeric fields</h3>
+<pre><code>/dataentities/Client/search?_where=age between 18 AND 25
+</code></pre>
+<h3>Partial filter</h3>
+<pre><code>/dataentities/Client/search?firstName=*Maria*
+</code></pre>
+<h3>Filter for null values</h3>
+<pre><code>/dataentities/Client/search?_where=firstName is null
+</code></pre>
+<h3>Filter for non-null values</h3>
+<pre><code>/dataentities/Client/search?_where=firstName is not null
+</code></pre>
+<h3>Filter for difference</h3>
+<pre><code>/dataentities/Client/search?_where=firstName&lt;&gt;maria
+</code></pre>
+<h3>Filter greater than or less than</h3>
+<pre><code>/dataentities/Client/search?_where=number&gt;5
+/dataentities/Client/search?_where=date&lt;2001-01-01
+</code></pre>
+</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+<div class="param">REST-Range (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Defines the collection of documents to be returned. A range within the collection limited by 100 documents per query. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">_fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Fields that should be returned by document. Separate fields' names with commas. For example <code>_fields=email,firstName,document</code>. You can also use <code>_all</code> to fetch all fields. default: email,firstName,document </div><div class="param">_where (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter specification. default: null </div><div class="param">_schema (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of the schema the document to be created needs to be compliant with. default: null </div><div class="param">_keyword (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; String to search. Use quotes for a partial query. For example, <code>_keyword=Maria</code> or <code>_keyword=&quot;Maria&quot;</code>. default: null </div><div class="param">_sort (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sets sorting mode in two parts. The first part is the name of the field you want to sort by. In the second part, use <code>ASC</code> for ascending or <code>DESC</code> for descending. default: firstName ASC </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+    <h4 class="field-label">503</h4>
+    Service Unavailable
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Versions">Versions</a></h1>
+  <div class="method"><a name="getversion"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/dataentities/{dataEntityName}/documents/{id}/versions/{versionId}</code></pre></div>
+    <div class="method-summary">Get version (<span class="nickname">getversion</span>)</div>
+    <div class="method-notes">Returns the version of a document.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div><div class="param">versionId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the version to update. default: 123456789abc </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Getversion">Getversion</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "author" : "user-id",
+  "document" : {
+    "accountId" : "my-account-id",
+    "accountName" : "my-account",
+    "carttag" : null,
+    "checkouttag" : null,
+    "dataEntityId" : "Client",
+    "departmentVisitedTag" : {
+      "DisplayValue" : "Ar e Ventilação",
+      "Scores" : {
+        "Ar e Ventilação" : [ {
+          "Date" : "2016-10-18T16:53:31.0842607Z",
+          "Point" : 1,
+          "Until" : "2017-04-16T16:53:31.0842607Z"
+        } ]
+      }
+    },
+    "email" : "teste@mail.com",
+    "followers" : [ ],
+    "id" : "my-id",
+    "rclastsession" : "163054c0-954f-11e6-891e-4d2b1c3450a4",
+    "rclastsessiondate" : "2016-10-18T16:53:00"
+  },
+  "id" : "version-id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Getversion">Getversion</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listversions"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/dataentities/{dataEntityName}/documents/{id}/versions</code></pre></div>
+    <div class="method-summary">List versions (<span class="nickname">listversions</span>)</div>
+    <div class="method-notes">Allows to list the versions of a document.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">load (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; If true, return all the fields in each version of the document default: true </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; If <code>load</code> is true, the response will return only these specific fields default: id,dataEntityId,isNewsletterOptIn,createdBy </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Listversion">Listversion</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "date" : "date",
+  "document" : "{}",
+  "id" : "id"
+}, {
+  "date" : "date",
+  "document" : "{}",
+  "id" : "id"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="putversion"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /api/dataentities/{dataEntityName}/documents/{id}/versions/{versionId}</code></pre></div>
+    <div class="method-summary">Put version (<span class="nickname">putversion</span>)</div>
+    <div class="method-notes">Updates document with version values.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dataEntityName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Name of the data entity. Defined by the api. Examples of native data entities you can use are <code>CL</code> for client profiles and <code>AD</code> for client addresses. default: null </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the Document. default: null </div><div class="param">versionId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the version to update default: {{versionId}} </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">Content-Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Type of the content being sent. default: null </div>
+<div class="param">Accept (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; HTTP Client Negotiation <em>Accept</em> Header. Indicates the types of responses the client can understand. default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#documentResponse">documentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Href" : "Href",
+  "Id" : "Id"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#documentResponse">documentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ArEVentilaO"><code>ArEVentilaO</code> - ArEVentilaO</a></li>
+    <li><a href="#DEPRECATED_DocumentRequest"><code>DEPRECATED_DocumentRequest</code> - </a></li>
+    <li><a href="#DepartmentVisitedTag"><code>DepartmentVisitedTag</code> - DepartmentVisitedTag</a></li>
+    <li><a href="#Document"><code>Document</code> - Document</a></li>
+    <li><a href="#Getversion"><code>Getversion</code> - Getversion</a></li>
+    <li><a href="#Listversion"><code>Listversion</code> - Listversion</a></li>
+    <li><a href="#Name"><code>Name</code> - Name</a></li>
+    <li><a href="#Properties"><code>Properties</code> - Properties</a></li>
+    <li><a href="#PutindicesRequest"><code>PutindicesRequest</code> - PutindicesRequest</a></li>
+    <li><a href="#SaveschemabynameRequest"><code>SaveschemabynameRequest</code> - SaveschemabynameRequest</a></li>
+    <li><a href="#Scores"><code>Scores</code> - Scores</a></li>
+    <li><a href="#Using_fields_all"><code>Using_fields_all</code> - Using_fields=_all</a></li>
+    <li><a href="#ValidatedocumentbyclustersRequest"><code>ValidatedocumentbyclustersRequest</code> - ValidatedocumentbyclustersRequest</a></li>
+    <li><a href="#createUpdateAddressRequests"><code>createUpdateAddressRequests</code> - </a></li>
+    <li><a href="#createUpdateProfileRequests"><code>createUpdateProfileRequests</code> - </a></li>
+    <li><a href="#documentResponse"><code>documentResponse</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="ArEVentilaO"><code>ArEVentilaO</code> - ArEVentilaO</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Date </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Point </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">Until </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DEPRECATED_DocumentRequest"><code>DEPRECATED_DocumentRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This can be any pure JSON document.</div>
+    <div class="field-items">
+      <div class="param">field (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> This can be any JSON document field. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DepartmentVisitedTag"><code>DepartmentVisitedTag</code> - DepartmentVisitedTag</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">DisplayValue </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Scores </div><div class="param-desc"><span class="param-type"><a href="#Scores">Scores</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Document"><code>Document</code> - Document</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">accountName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">carttag </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">checkouttag </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dataEntityId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">departmentVisitedTag </div><div class="param-desc"><span class="param-type"><a href="#DepartmentVisitedTag">DepartmentVisitedTag</a></span>  </div>
+<div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">followers </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">rclastsession </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">rclastsessiondate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Getversion"><code>Getversion</code> - Getversion</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">author </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">document </div><div class="param-desc"><span class="param-type"><a href="#Document">Document</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Listversion"><code>Listversion</code> - Listversion</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">date </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">document (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Name"><code>Name</code> - Name</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Properties"><code>Properties</code> - Properties</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#Name">Name</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PutindicesRequest"><code>PutindicesRequest</code> - PutindicesRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">fields </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Comma-separted fields of the index </div>
+<div class="param">multiple </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Determines whether the values need to be unique. If false, values must be unique. </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name to identify the index </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SaveschemabynameRequest"><code>SaveschemabynameRequest</code> - SaveschemabynameRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">properties </div><div class="param-desc"><span class="param-type"><a href="#Properties">Properties</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Scores"><code>Scores</code> - Scores</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Ar e Ventilação </div><div class="param-desc"><span class="param-type"><a href="#ArEVentilaO">array[ArEVentilaO]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Using_fields_all"><code>Using_fields_all</code> - Using_fields=_all</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">accountName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dataEntityId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ValidatedocumentbyclustersRequest"><code>ValidatedocumentbyclustersRequest</code> - ValidatedocumentbyclustersRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">rule </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="createUpdateAddressRequests"><code>createUpdateAddressRequests</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">addressName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Address name. </div>
+<div class="param">addressType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Type of address. For example, <code>Residential</code> or <code>Pickup</code>, among others. </div>
+<div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> City of the shipping address. </div>
+<div class="param">complement (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Complement to the shipping address in case it applies. </div>
+<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Three letter ISO code of the country of the shipping address. </div>
+<div class="param">neighborhood (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Neighborhood of the address. </div>
+<div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Number of the building, house or apartment in the shipping address. </div>
+<div class="param">postalCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Postal Code. </div>
+<div class="param">receiverName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the person who is going to receive the order. </div>
+<div class="param">reference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Complement that might help locate the shipping address more precisely in case of delivery. </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> State of the shipping address. </div>
+<div class="param">street (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Street of the address. </div>
+<div class="param">userId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> ID of the customer to whom the address belongs. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="createUpdateProfileRequests"><code>createUpdateProfileRequests</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">document (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client document. </div>
+<div class="param">documentType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client document type. </div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client email address. </div>
+<div class="param">firstName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client first name. </div>
+<div class="param">isCorporate (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Indicates whether client is corporate. </div>
+<div class="param">isNewsletterOptIn (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Indicates whether client otped to receive the store newsletter. </div>
+<div class="param">lastName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client last name. </div>
+<div class="param">localeDefault (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Default locale, used to set store language and currency, for example. </div>
+<div class="param">phone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client telephone number. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="documentResponse"><code>documentResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Href </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Document reference URL. </div>
+<div class="param">Id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> ID of the document that was created or updated. </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
