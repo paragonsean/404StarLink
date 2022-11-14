@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * FullComparisonTest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:11.535881-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:20.933088-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class FullComparisonTest {
   public static final String SERIALIZED_NAME_BASE = "base";
   @SerializedName(SERIALIZED_NAME_BASE)

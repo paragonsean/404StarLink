@@ -1,6 +1,6 @@
 /*
- * Transport Department, Daman & Diu
- * Driving License (DL) and Vehicle Registration Certificate (RC) of the State, as available on Parivahan Sewa (http://parivahan.co.in/) of Ministry of Road Transport and Highways, are available on DigiLocker. Citizens can pull these documents into their DigiLocker accounts.
+ * Crossbrowsertesting.com Screenshot Comparisons API
+ * What's in this version:   1. Compare two screenshots for layout differences   2. Compare a full screenshot test of browsers to a single baseline browser for layout differences.   3. Compare a screenshot test version to another test version - good for regression tests.   4. Get links to the Comparison UI for visual representation of layout differences
  *
  * The version of the OpenAPI document: 3.0.0
  * 
