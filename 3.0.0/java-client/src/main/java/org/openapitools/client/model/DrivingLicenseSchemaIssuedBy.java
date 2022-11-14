@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * DrivingLicenseSchemaIssuedBy
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:27.520622-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:04.999102-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DrivingLicenseSchemaIssuedBy {
   public static final String SERIALIZED_NAME_ORGANIZATION = "Organization";
   @SerializedName(SERIALIZED_NAME_ORGANIZATION)
