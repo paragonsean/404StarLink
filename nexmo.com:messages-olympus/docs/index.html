@@ -1,0 +1,1966 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Messages API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Messages API</h1>
+    <div class="app-desc">The Messages API consolidates and normalises exchanges across all messaging channels. It allows you to use a single API to interact with our various channels such as SMS, MMS, WhatsApp, Viber and Facebook Messenger</div>
+    <div class="app-desc">More information: <a href="https://developer.nexmo.com/">https://developer.nexmo.com/</a></div>
+    <div class="app-desc">Contact Info: <a href="devrel@nexmo.com">devrel@nexmo.com</a></div>
+    <div class="app-desc">Version: 1.4.0</div>
+    <div class="app-desc">BasePath:/v1/messages</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>HTTP Basic Authentication</li>
+      <li>HTTP Bearer Token authentication (JWT)</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#sendMessage"><code><span class="http-method">post</span> /</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="sendMessage"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /</code></pre></div>
+    <div class="method-summary">Send a message to the given channel. (<span class="nickname">sendMessage</span>)</div>
+    <div class="method-notes">Send a Message</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">SendMessage_request <a href="#SendMessage_request">SendMessage_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#SendMessage_202_response">SendMessage_202_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message_uuid" : "aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "instance" : "bf0ca0bf927b3b52e3cb03217e1a1ddf",
+  "detail" : "Check that you're using the correct credentials, and that your account has this feature enabled",
+  "title" : "You did not provide correct credentials.",
+  "type" : "https://developer.nexmo.com/api-errors/#unathorized"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "instance" : "bf0ca0bf927b3b52e3cb03217e1a1ddf",
+  "detail" : "This request could not be performed due to your account balance being low.",
+  "title" : "Low balance",
+  "type" : "https://developer.nexmo.com/api-errors/#low-balance"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "instance" : "bf0ca0bf927b3b52e3cb03217e1a1ddf",
+  "detail" : "Unexpected character ('\"' (code 34)): was expecting comma to separate Object entries",
+  "title" : "The request body did not contain valid JSON",
+  "type" : "https://developer.nexmo.com/api-errors#invalid-json"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "instance" : "bf0ca0bf927b3b52e3cb03217e1a1ddf",
+  "detail" : "Please wait, then retry your request",
+  "title" : "Rate Limit Hit",
+  "type" : "https://developer.nexmo.com/api-errors/messages-olympus#1000"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "instance" : "bf0ca0bf927b3b52e3cb03217e1a1ddf",
+  "detail" : "There was an error processing your request in the Platform.",
+  "title" : "Internal error",
+  "type" : "https://developer.nexmo.com/api-errors/messages-olympus#1000"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">202</h4>
+    Accepted.
+        <a href="#SendMessage_202_response">SendMessage_202_response</a>
+    <h4 class="field-label">401</h4>
+    Authentication failure
+        <a href="#SendMessage_401_response">SendMessage_401_response</a>
+    <h4 class="field-label">402</h4>
+    Payment Required
+        <a href="#ErrorPaymentRequired">ErrorPaymentRequired</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity
+        <a href="#SendMessage_422_response">SendMessage_422_response</a>
+    <h4 class="field-label">429</h4>
+    Too Many Requests
+        <a href="#ErrorThrottled">ErrorThrottled</a>
+    <h4 class="field-label">500</h4>
+    Internal error
+        <a href="#ErrorInternal">ErrorInternal</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Audio"><code>Audio</code> - </a></li>
+    <li><a href="#Audio_1_audio"><code>Audio_1_audio</code> - </a></li>
+    <li><a href="#Context"><code>Context</code> - </a></li>
+    <li><a href="#Context_whatsapp_referred_product"><code>Context_whatsapp_referred_product</code> - </a></li>
+    <li><a href="#Custom"><code>Custom</code> - </a></li>
+    <li><a href="#ErrorChannel"><code>ErrorChannel</code> - </a></li>
+    <li><a href="#ErrorChannelParams"><code>ErrorChannelParams</code> - </a></li>
+    <li><a href="#ErrorChannelParams_invalid_parameters_inner"><code>ErrorChannelParams_invalid_parameters_inner</code> - </a></li>
+    <li><a href="#ErrorClientReference"><code>ErrorClientReference</code> - </a></li>
+    <li><a href="#ErrorInternal"><code>ErrorInternal</code> - </a></li>
+    <li><a href="#ErrorInvalidJson"><code>ErrorInvalidJson</code> - </a></li>
+    <li><a href="#ErrorMessageParams"><code>ErrorMessageParams</code> - </a></li>
+    <li><a href="#ErrorMessageParams_invalid_parameters_inner"><code>ErrorMessageParams_invalid_parameters_inner</code> - </a></li>
+    <li><a href="#ErrorMessageType"><code>ErrorMessageType</code> - </a></li>
+    <li><a href="#ErrorPaymentRequired"><code>ErrorPaymentRequired</code> - </a></li>
+    <li><a href="#ErrorRecipient"><code>ErrorRecipient</code> - </a></li>
+    <li><a href="#ErrorSender"><code>ErrorSender</code> - </a></li>
+    <li><a href="#ErrorThrottled"><code>ErrorThrottled</code> - </a></li>
+    <li><a href="#ErrorUnauthorizedInvalidApplication"><code>ErrorUnauthorizedInvalidApplication</code> - </a></li>
+    <li><a href="#ErrorUnauthorizedMissingCredentials"><code>ErrorUnauthorizedMissingCredentials</code> - </a></li>
+    <li><a href="#File"><code>File</code> - </a></li>
+    <li><a href="#File_1_file"><code>File_1_file</code> - </a></li>
+    <li><a href="#Image"><code>Image</code> - </a></li>
+    <li><a href="#Image_1_image"><code>Image_1_image</code> - </a></li>
+    <li><a href="#InboundMessengerMessageCommon"><code>InboundMessengerMessageCommon</code> - Messenger</a></li>
+    <li><a href="#InboundViberMessageCommon"><code>InboundViberMessageCommon</code> - Viber</a></li>
+    <li><a href="#InboundViberMessageCommon_context"><code>InboundViberMessageCommon_context</code> - </a></li>
+    <li><a href="#Location"><code>Location</code> - </a></li>
+    <li><a href="#Location_1_location"><code>Location_1_location</code> - </a></li>
+    <li><a href="#MMS"><code>MMS</code> - MMS</a></li>
+    <li><a href="#MMS_oneOf"><code>MMS_oneOf</code> - </a></li>
+    <li><a href="#MMS_oneOf_1"><code>MMS_oneOf_1</code> - </a></li>
+    <li><a href="#MMS_oneOf_1_allOf_vcard"><code>MMS_oneOf_1_allOf_vcard</code> - </a></li>
+    <li><a href="#MMS_oneOf_2"><code>MMS_oneOf_2</code> - </a></li>
+    <li><a href="#MMS_oneOf_2_allOf_audio"><code>MMS_oneOf_2_allOf_audio</code> - </a></li>
+    <li><a href="#MMS_oneOf_3"><code>MMS_oneOf_3</code> - </a></li>
+    <li><a href="#MMS_oneOf_3_allOf_video"><code>MMS_oneOf_3_allOf_video</code> - </a></li>
+    <li><a href="#MMS_oneOf_allOf_image"><code>MMS_oneOf_allOf_image</code> - </a></li>
+    <li><a href="#Messenger"><code>Messenger</code> - Messenger</a></li>
+    <li><a href="#Messenger_oneOf"><code>Messenger_oneOf</code> - </a></li>
+    <li><a href="#Messenger_oneOf_1"><code>Messenger_oneOf_1</code> - </a></li>
+    <li><a href="#Messenger_oneOf_1_allOf_image"><code>Messenger_oneOf_1_allOf_image</code> - </a></li>
+    <li><a href="#Messenger_oneOf_2"><code>Messenger_oneOf_2</code> - </a></li>
+    <li><a href="#Messenger_oneOf_2_allOf_audio"><code>Messenger_oneOf_2_allOf_audio</code> - </a></li>
+    <li><a href="#Messenger_oneOf_3"><code>Messenger_oneOf_3</code> - </a></li>
+    <li><a href="#Messenger_oneOf_3_allOf_video"><code>Messenger_oneOf_3_allOf_video</code> - </a></li>
+    <li><a href="#Messenger_oneOf_4"><code>Messenger_oneOf_4</code> - </a></li>
+    <li><a href="#Messenger_oneOf_4_allOf_file"><code>Messenger_oneOf_4_allOf_file</code> - </a></li>
+    <li><a href="#Order"><code>Order</code> - </a></li>
+    <li><a href="#Order_1_order"><code>Order_1_order</code> - </a></li>
+    <li><a href="#Order_1_order_product_items"><code>Order_1_order_product_items</code> - </a></li>
+    <li><a href="#Profile"><code>Profile</code> - </a></li>
+    <li><a href="#Reply"><code>Reply</code> - </a></li>
+    <li><a href="#Reply_1_reply"><code>Reply_1_reply</code> - </a></li>
+    <li><a href="#SMS"><code>SMS</code> - SMS</a></li>
+    <li><a href="#SMS_oneOf"><code>SMS_oneOf</code> - </a></li>
+    <li><a href="#SendMessage_202_response"><code>SendMessage_202_response</code> - </a></li>
+    <li><a href="#SendMessage_202_response_oneOf"><code>SendMessage_202_response_oneOf</code> - </a></li>
+    <li><a href="#SendMessage_202_response_oneOf_1"><code>SendMessage_202_response_oneOf_1</code> - </a></li>
+    <li><a href="#SendMessage_202_response_oneOf_2"><code>SendMessage_202_response_oneOf_2</code> - </a></li>
+    <li><a href="#SendMessage_202_response_oneOf_3"><code>SendMessage_202_response_oneOf_3</code> - </a></li>
+    <li><a href="#SendMessage_202_response_oneOf_4"><code>SendMessage_202_response_oneOf_4</code> - </a></li>
+    <li><a href="#SendMessage_401_response"><code>SendMessage_401_response</code> - </a></li>
+    <li><a href="#SendMessage_422_response"><code>SendMessage_422_response</code> - </a></li>
+    <li><a href="#SendMessage_request"><code>SendMessage_request</code> - </a></li>
+    <li><a href="#Template"><code>Template</code> - </a></li>
+    <li><a href="#Template_1_template"><code>Template_1_template</code> - </a></li>
+    <li><a href="#Text"><code>Text</code> - </a></li>
+    <li><a href="#Unsupported"><code>Unsupported</code> - </a></li>
+    <li><a href="#Usage"><code>Usage</code> - </a></li>
+    <li><a href="#Viber"><code>Viber</code> - Viber</a></li>
+    <li><a href="#Viber_oneOf"><code>Viber_oneOf</code> - </a></li>
+    <li><a href="#Viber_oneOf_1"><code>Viber_oneOf_1</code> - </a></li>
+    <li><a href="#Viber_oneOf_1_allOf_image"><code>Viber_oneOf_1_allOf_image</code> - </a></li>
+    <li><a href="#Viber_oneOf_2"><code>Viber_oneOf_2</code> - </a></li>
+    <li><a href="#Viber_oneOf_2_allOf_video"><code>Viber_oneOf_2_allOf_video</code> - </a></li>
+    <li><a href="#Viber_oneOf_3"><code>Viber_oneOf_3</code> - </a></li>
+    <li><a href="#Viber_oneOf_3_allOf_file"><code>Viber_oneOf_3_allOf_file</code> - </a></li>
+    <li><a href="#Video"><code>Video</code> - </a></li>
+    <li><a href="#Video_1_video"><code>Video_1_video</code> - </a></li>
+    <li><a href="#WhatsApp"><code>WhatsApp</code> - WhatsApp</a></li>
+    <li><a href="#WhatsApp_1_usage"><code>WhatsApp_1_usage</code> - </a></li>
+    <li><a href="#WhatsApp_1_whatsapp"><code>WhatsApp_1_whatsapp</code> - </a></li>
+    <li><a href="#WhatsApp_1_whatsapp_conversation"><code>WhatsApp_1_whatsapp_conversation</code> - </a></li>
+    <li><a href="#WhatsApp_1_whatsapp_conversation_origin"><code>WhatsApp_1_whatsapp_conversation_origin</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf"><code>WhatsApp_oneOf</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_1"><code>WhatsApp_oneOf_1</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_2"><code>WhatsApp_oneOf_2</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_2_allOf_image"><code>WhatsApp_oneOf_2_allOf_image</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_3"><code>WhatsApp_oneOf_3</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_3_allOf_audio"><code>WhatsApp_oneOf_3_allOf_audio</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_4"><code>WhatsApp_oneOf_4</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_4_allOf_video"><code>WhatsApp_oneOf_4_allOf_video</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_5"><code>WhatsApp_oneOf_5</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_5_allOf_file"><code>WhatsApp_oneOf_5_allOf_file</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_6"><code>WhatsApp_oneOf_6</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_6_allOf_whatsapp"><code>WhatsApp_oneOf_6_allOf_whatsapp</code> - </a></li>
+    <li><a href="#WhatsApp_oneOf_7"><code>WhatsApp_oneOf_7</code> - </a></li>
+    <li><a href="#baseMessageType"><code>baseMessageType</code> - </a></li>
+    <li><a href="#channelOptionsMessenger"><code>channelOptionsMessenger</code> - </a></li>
+    <li><a href="#channelOptionsMessenger_messenger"><code>channelOptionsMessenger_messenger</code> - </a></li>
+    <li><a href="#channelOptionsMms"><code>channelOptionsMms</code> - </a></li>
+    <li><a href="#channelOptionsSms"><code>channelOptionsSms</code> - </a></li>
+    <li><a href="#channelOptionsViber"><code>channelOptionsViber</code> - </a></li>
+    <li><a href="#channelOptionsViberVideo"><code>channelOptionsViberVideo</code> - </a></li>
+    <li><a href="#channelOptionsViberVideo_viber_service"><code>channelOptionsViberVideo_viber_service</code> - </a></li>
+    <li><a href="#channelOptionsViberWithButton"><code>channelOptionsViberWithButton</code> - </a></li>
+    <li><a href="#channelOptionsViberWithButton_viber_service"><code>channelOptionsViberWithButton_viber_service</code> - </a></li>
+    <li><a href="#channelOptionsViberWithButton_viber_service_action"><code>channelOptionsViberWithButton_viber_service_action</code> - </a></li>
+    <li><a href="#channelOptionsViber_viber_service"><code>channelOptionsViber_viber_service</code> - </a></li>
+    <li><a href="#channelOptionsWhatsapp"><code>channelOptionsWhatsapp</code> - </a></li>
+    <li><a href="#inboundMessageMMS"><code>inboundMessageMMS</code> - MMS</a></li>
+    <li><a href="#inboundMessageSMS"><code>inboundMessageSMS</code> - SMS</a></li>
+    <li><a href="#inboundMessageSMS_sms"><code>inboundMessageSMS_sms</code> - </a></li>
+    <li><a href="#inboundWhatsAppMessageCommon"><code>inboundWhatsAppMessageCommon</code> - WhatsApp</a></li>
+    <li><a href="#messageStatusBase"><code>messageStatusBase</code> - </a></li>
+    <li><a href="#messageStatusBase_error"><code>messageStatusBase_error</code> - </a></li>
+    <li><a href="#messageStatusBase_usage"><code>messageStatusBase_usage</code> - </a></li>
+    <li><a href="#messageStatusMMS"><code>messageStatusMMS</code> - </a></li>
+    <li><a href="#messageStatusMessenger"><code>messageStatusMessenger</code> - </a></li>
+    <li><a href="#messageStatusSMS"><code>messageStatusSMS</code> - </a></li>
+    <li><a href="#messageStatusViber"><code>messageStatusViber</code> - </a></li>
+    <li><a href="#messageStatusWhatsApp"><code>messageStatusWhatsApp</code> - </a></li>
+    <li><a href="#message_status_request"><code>message_status_request</code> - </a></li>
+    <li><a href="#vCard"><code>vCard</code> - </a></li>
+    <li><a href="#vCard_1_vcard"><code>vCard_1_vcard</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Audio"><code>Audio</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">audio </div><div class="param-desc"><span class="param-type"><a href="#Audio_1_audio">Audio_1_audio</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>audio</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">audio</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Audio_1_audio"><code>Audio_1_audio</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: url</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Context"><code>Context</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This is only present for the Inbound Message where the user is quoting another message, or for a <code>product</code> message where the user has selected the 'Message Business'
+option. It provides information about the quoted message and/or the product message being responded to.</div>
+    <div class="field-items">
+      <div class="param">message_from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the <strong>original sender</strong> of the message being quoted in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Not present in a <code>context</code> object which is the result of a user selecting 'Message Business' in a <code>product</code> message. </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message being quoted. Not present in a <code>context</code> object which is the result of a user selecting 'Message Business' in a <code>product</code> message. </div>
+<div class="param">whatsapp_referred_product (optional)</div><div class="param-desc"><span class="param-type"><a href="#Context_whatsapp_referred_product">Context_whatsapp_referred_product</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Context_whatsapp_referred_product"><code>Context_whatsapp_referred_product</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object containing details of a product from a <code>product</code> message being quoted or replied to using the 'Message Business' option.</div>
+    <div class="field-items">
+      <div class="param">catalog_id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the catalog associated with the product from the <code>product</code> message being quoted or replied to using the 'Message Business' option. </div>
+<div class="param">product_retailer_id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the product from the <code>product</code> message being quoted or replied to using the 'Message Business' option. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Custom"><code>Custom</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">custom (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> A custom payload, which is passed directly to WhatsApp for certain features such as templates and interactive messages. The schema of a custom object can vary widely. <a href="https://developer.vonage.com/messages/concepts/custom-objects">Read more about Custom Objects</a>. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>custom</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">custom</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorChannel"><code>ErrorChannel</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Unsupported channel</div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorChannelParams"><code>ErrorChannelParams</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Invalid channel parameters</div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">invalid_parameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorChannelParams_invalid_parameters_inner">array[ErrorChannelParams_invalid_parameters_inner]</a></span>  </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorChannelParams_invalid_parameters_inner"><code>ErrorChannelParams_invalid_parameters_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of invalid parameter </div>
+<div class="param">reason (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Reason of failure </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorClientReference"><code>ErrorClientReference</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Invalid client reference</div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorInternal"><code>ErrorInternal</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorInvalidJson"><code>ErrorInvalidJson</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Invalid JSON</div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorMessageParams"><code>ErrorMessageParams</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Invalid message parameters</div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">invalid_parameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorMessageParams_invalid_parameters_inner">array[ErrorMessageParams_invalid_parameters_inner]</a></span>  </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorMessageParams_invalid_parameters_inner"><code>ErrorMessageParams_invalid_parameters_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of invalid parameter </div>
+<div class="param">reason (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Reason of failure </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorMessageType"><code>ErrorMessageType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Invalid message type</div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorPaymentRequired"><code>ErrorPaymentRequired</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorRecipient"><code>ErrorRecipient</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Invalid recipient</div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorSender"><code>ErrorSender</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Invalid sender</div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorThrottled"><code>ErrorThrottled</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorUnauthorizedInvalidApplication"><code>ErrorUnauthorizedInvalidApplication</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Invalid Application Type</div>
+    <div class="field-items">
+      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorUnauthorizedMissingCredentials"><code>ErrorUnauthorizedMissingCredentials</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Missing or Invalid Credentials</div>
+    <div class="field-items">
+      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="File"><code>File</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">file </div><div class="param-desc"><span class="param-type"><a href="#File_1_file">File_1_file</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>file</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">file</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="File_1_file"><code>File_1_file</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Image"><code>Image</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">image </div><div class="param-desc"><span class="param-type"><a href="#Image_1_image">Image_1_image</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>image</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">image</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Image_1_image"><code>Image_1_image</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The publicly accessible URL of the image attachment. The image file is available for 48 hours after it is created. Supported types are .jpg, .jpeg, and .png format: url</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="InboundMessengerMessageCommon"><code>InboundMessengerMessageCommon</code> - Messenger</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel that the message came in on </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">messenger</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message recipient </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="InboundViberMessageCommon"><code>InboundViberMessageCommon</code> - Viber</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel that the message came in on </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+<div class="param">context (optional)</div><div class="param-desc"><span class="param-type"><a href="#InboundViberMessageCommon_context">InboundViberMessageCommon_context</a></span>  </div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message recipient </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="InboundViberMessageCommon_context"><code>InboundViberMessageCommon_context</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Object containing contextual details for the inbound message when it is a response to another message.</div>
+    <div class="field-items">
+      <div class="param">message_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message being replied to. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Location"><code>Location</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">location </div><div class="param-desc"><span class="param-type"><a href="#Location_1_location">Location_1_location</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>location</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">location</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Location_1_location"><code>Location_1_location</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">address (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Address of the location. Only displayed if <code>name</code> is present. </div>
+<div class="param">lat </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Latitude of the location. </div>
+<div class="param">long </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Longitude of the location. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the location. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MMS"><code>MMS</code> - MMS</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">image </div><div class="param-desc"><span class="param-type"><a href="#MMS_oneOf_allOf_image">MMS_oneOf_allOf_image</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The type of message to send. You must provide <code>video</code> in this field.</p>
+<p>For best device and network support .mp4 is recommended. Not supported for US short codes.</p>
+ </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">video</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>mms</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">mms</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">vcard </div><div class="param-desc"><span class="param-type"><a href="#MMS_oneOf_1_allOf_vcard">MMS_oneOf_1_allOf_vcard</a></span>  </div>
+<div class="param">audio </div><div class="param-desc"><span class="param-type"><a href="#MMS_oneOf_2_allOf_audio">MMS_oneOf_2_allOf_audio</a></span>  </div>
+<div class="param">video </div><div class="param-desc"><span class="param-type"><a href="#MMS_oneOf_3_allOf_video">MMS_oneOf_3_allOf_video</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MMS_oneOf"><code>MMS_oneOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">image </div><div class="param-desc"><span class="param-type"><a href="#MMS_oneOf_allOf_image">MMS_oneOf_allOf_image</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>image</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">image</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>mms</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">mms</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MMS_oneOf_1"><code>MMS_oneOf_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>vcard</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">vcard</div>
+<div class="param">vcard </div><div class="param-desc"><span class="param-type"><a href="#MMS_oneOf_1_allOf_vcard">MMS_oneOf_1_allOf_vcard</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>mms</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">mms</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MMS_oneOf_1_allOf_vcard"><code>MMS_oneOf_1_allOf_vcard</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The URL of the vCard attachment.</p>
+<p>Supports <code>.vcf</code> only.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MMS_oneOf_2"><code>MMS_oneOf_2</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">audio </div><div class="param-desc"><span class="param-type"><a href="#MMS_oneOf_2_allOf_audio">MMS_oneOf_2_allOf_audio</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The type of message to send. You must provide <code>audio</code> in this field.</p>
+<p>For best device and network support .mp3 is recommended. Not supported for US short codes.</p>
+ </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">audio</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>mms</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">mms</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MMS_oneOf_2_allOf_audio"><code>MMS_oneOf_2_allOf_audio</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">caption (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional text to accompany the audio file. </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The URL of the audio attachment. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MMS_oneOf_3"><code>MMS_oneOf_3</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The type of message to send. You must provide <code>video</code> in this field.</p>
+<p>For best device and network support .mp4 is recommended. Not supported for US short codes.</p>
+ </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">video</div>
+<div class="param">video </div><div class="param-desc"><span class="param-type"><a href="#MMS_oneOf_3_allOf_video">MMS_oneOf_3_allOf_video</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>mms</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">mms</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MMS_oneOf_3_allOf_video"><code>MMS_oneOf_3_allOf_video</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">caption (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional text to accompany the video file. </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The URL of the video attachment. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MMS_oneOf_allOf_image"><code>MMS_oneOf_allOf_image</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">caption (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional text to accompany the image. </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The URL of the image attachment.</p>
+<p>Supports <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code> and <code>.gif</code>.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Messenger"><code>Messenger</code> - Messenger</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>file</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">file</div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The text of message to send; limited to 640 characters, including unicode. </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>messenger</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">messenger</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">messenger (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsMessenger_messenger">channelOptionsMessenger_messenger</a></span>  </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message recipient </div>
+<div class="param">image </div><div class="param-desc"><span class="param-type"><a href="#Messenger_oneOf_1_allOf_image">Messenger_oneOf_1_allOf_image</a></span>  </div>
+<div class="param">audio </div><div class="param-desc"><span class="param-type"><a href="#Messenger_oneOf_2_allOf_audio">Messenger_oneOf_2_allOf_audio</a></span>  </div>
+<div class="param">video </div><div class="param-desc"><span class="param-type"><a href="#Messenger_oneOf_3_allOf_video">Messenger_oneOf_3_allOf_video</a></span>  </div>
+<div class="param">file </div><div class="param-desc"><span class="param-type"><a href="#Messenger_oneOf_4_allOf_file">Messenger_oneOf_4_allOf_file</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Messenger_oneOf"><code>Messenger_oneOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>text</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">text</div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The text of message to send; limited to 640 characters, including unicode. </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>messenger</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">messenger</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">messenger (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsMessenger_messenger">channelOptionsMessenger_messenger</a></span>  </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message recipient </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Messenger_oneOf_1"><code>Messenger_oneOf_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">image </div><div class="param-desc"><span class="param-type"><a href="#Messenger_oneOf_1_allOf_image">Messenger_oneOf_1_allOf_image</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>image</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">image</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>messenger</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">messenger</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">messenger (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsMessenger_messenger">channelOptionsMessenger_messenger</a></span>  </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message recipient </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Messenger_oneOf_1_allOf_image"><code>Messenger_oneOf_1_allOf_image</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The URL of the image attachment.</p>
+<p>Supports <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code> and <code>.gif</code>.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Messenger_oneOf_2"><code>Messenger_oneOf_2</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">audio </div><div class="param-desc"><span class="param-type"><a href="#Messenger_oneOf_2_allOf_audio">Messenger_oneOf_2_allOf_audio</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>audio</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">audio</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>messenger</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">messenger</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">messenger (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsMessenger_messenger">channelOptionsMessenger_messenger</a></span>  </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message recipient </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Messenger_oneOf_2_allOf_audio"><code>Messenger_oneOf_2_allOf_audio</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> <p>The URL of the audio attachment.</p>
+<p>Only supports <code>.mp3</code> files</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Messenger_oneOf_3"><code>Messenger_oneOf_3</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>video</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">video</div>
+<div class="param">video </div><div class="param-desc"><span class="param-type"><a href="#Messenger_oneOf_3_allOf_video">Messenger_oneOf_3_allOf_video</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>messenger</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">messenger</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">messenger (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsMessenger_messenger">channelOptionsMessenger_messenger</a></span>  </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message recipient </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Messenger_oneOf_3_allOf_video"><code>Messenger_oneOf_3_allOf_video</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> <p>The URL of the video attachment.</p>
+<p>Supports <code>.mp4</code> files. Note, only <code>H.264</code> video codec and <code>AAC</code> audio codec is supported.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Messenger_oneOf_4"><code>Messenger_oneOf_4</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">file </div><div class="param-desc"><span class="param-type"><a href="#Messenger_oneOf_4_allOf_file">Messenger_oneOf_4_allOf_file</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>file</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">file</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>messenger</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">messenger</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">messenger (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsMessenger_messenger">channelOptionsMessenger_messenger</a></span>  </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message recipient </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Messenger_oneOf_4_allOf_file"><code>Messenger_oneOf_4_allOf_file</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> <p>The URL of the file attachment.</p>
+<p>Supports a wide range of attachments including <code>.zip</code>, <code>.csv</code> and <code>.pdf</code>.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Order"><code>Order</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">order</div>
+<div class="param">order </div><div class="param-desc"><span class="param-type"><a href="#Order_1_order">Order_1_order</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Order_1_order"><code>Order_1_order</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">catalog_id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the catalog containing the products in this order. </div>
+<div class="param">product_items </div><div class="param-desc"><span class="param-type"><a href="#Order_1_order_product_items">array[Order_1_order_product_items]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Order_1_order_product_items"><code>Order_1_order_product_items</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The currency code representing the currency for this specific item. </div>
+<div class="param">item_price (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unit price for this specific item. </div>
+<div class="param">product_retailer_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the specific product being ordered. </div>
+<div class="param">quantity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The quantity ordered for this specific item. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Profile"><code>Profile</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The WhatsApp number's displayed profile name </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Reply"><code>Reply</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>custom</code> in this field. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">reply</div>
+<div class="param">reply </div><div class="param-desc"><span class="param-type"><a href="#Reply_1_reply">Reply_1_reply</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Reply_1_reply"><code>Reply_1_reply</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A description that may be added to the interactive options presented (available only on interactive lists). </div>
+<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An identifier to help identify the exact interactive message response. </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The title displayed on the interactive option chosen. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SMS"><code>SMS</code> - SMS</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>text</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">text</div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The text of message to send; limited to 1000 characters. The Messages API automatically detects unicode characters when sending SMS and sends the message as a unicode SMS. For more information on how concatenation and encoding please visit: <a href="https://developer.nexmo.com/messaging/sms/guides/concatenation-and-encoding">developer.nexmo.com/messaging/sms/guides/concatenation-and-encoding</a>. </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>sms</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">sms</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SMS_oneOf"><code>SMS_oneOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>text</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">text</div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The text of message to send; limited to 1000 characters. The Messages API automatically detects unicode characters when sending SMS and sends the message as a unicode SMS. For more information on how concatenation and encoding please visit: <a href="https://developer.nexmo.com/messaging/sms/guides/concatenation-and-encoding">developer.nexmo.com/messaging/sms/guides/concatenation-and-encoding</a>. </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>sms</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">sms</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SendMessage_202_response"><code>SendMessage_202_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">message_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SendMessage_202_response_oneOf"><code>SendMessage_202_response_oneOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>SMS</div>
+    <div class="field-items">
+      <div class="param">message_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SendMessage_202_response_oneOf_1"><code>SendMessage_202_response_oneOf_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>MMS</div>
+    <div class="field-items">
+      <div class="param">message_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SendMessage_202_response_oneOf_2"><code>SendMessage_202_response_oneOf_2</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>WhatsApp</div>
+    <div class="field-items">
+      <div class="param">message_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SendMessage_202_response_oneOf_3"><code>SendMessage_202_response_oneOf_3</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Messenger</div>
+    <div class="field-items">
+      <div class="param">message_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SendMessage_202_response_oneOf_4"><code>SendMessage_202_response_oneOf_4</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Viber</div>
+    <div class="field-items">
+      <div class="param">message_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SendMessage_401_response"><code>SendMessage_401_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SendMessage_422_response"><code>SendMessage_422_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">detail </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional information about the error </div>
+<div class="param">instance </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Internal Trace ID </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Generic error message </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to error / remediation options </div>
+<div class="param">invalid_parameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorMessageParams_invalid_parameters_inner">array[ErrorMessageParams_invalid_parameters_inner]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SendMessage_request"><code>SendMessage_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>file</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">file</div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The text of message to send; limited to 1000 characters, including unicode. </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>viber_service</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">image </div><div class="param-desc"><span class="param-type"><a href="#Viber_oneOf_1_allOf_image">Viber_oneOf_1_allOf_image</a></span>  </div>
+<div class="param">vcard </div><div class="param-desc"><span class="param-type"><a href="#MMS_oneOf_1_allOf_vcard">MMS_oneOf_1_allOf_vcard</a></span>  </div>
+<div class="param">audio </div><div class="param-desc"><span class="param-type"><a href="#Messenger_oneOf_2_allOf_audio">Messenger_oneOf_2_allOf_audio</a></span>  </div>
+<div class="param">video </div><div class="param-desc"><span class="param-type"><a href="#Viber_oneOf_2_allOf_video">Viber_oneOf_2_allOf_video</a></span>  </div>
+<div class="param">location </div><div class="param-desc"><span class="param-type"><a href="#Location_1_location">Location_1_location</a></span>  </div>
+<div class="param">file </div><div class="param-desc"><span class="param-type"><a href="#Viber_oneOf_3_allOf_file">Viber_oneOf_3_allOf_file</a></span>  </div>
+<div class="param">template </div><div class="param-desc"><span class="param-type"><a href="#Template_1_template">Template_1_template</a></span>  </div>
+<div class="param">whatsapp </div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_oneOf_6_allOf_whatsapp">WhatsApp_oneOf_6_allOf_whatsapp</a></span>  </div>
+<div class="param">custom (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> A custom payload, which is passed directly to WhatsApp for certain features such as templates and interactive messages. The schema of a custom object can vary widely. <a href="https://developer.vonage.com/messages/concepts/custom-objects">Read more about Custom Objects</a>. </div>
+<div class="param">messenger (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsMessenger_messenger">channelOptionsMessenger_messenger</a></span>  </div>
+<div class="param">viber_service (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsViber_viber_service">channelOptionsViber_viber_service</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Template"><code>Template</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>template</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">template</div>
+<div class="param">template </div><div class="param-desc"><span class="param-type"><a href="#Template_1_template">Template_1_template</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Template_1_template"><code>Template_1_template</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the template. For WhatsApp use your WhatsApp namespace (available via Facebook Business Manager), followed by a colon : and the name of the template to use. </div>
+<div class="param">parameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The parameters are an array of strings, with the first string being used for {{1}} in the template, with the second being {{2}} etc. Only required if the template specified by <code>name</code> contains parameters. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Text"><code>Text</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>text</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">text</div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Unsupported"><code>Unsupported</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. Will be <code>unsupported</code> if the type of message received from user is not supported by the channel. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">unsupported</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Usage"><code>Usage</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The charge currency in ISO 4217 format. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">EUR</div>
+<div class="param">price (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The charge amount as a stringified number. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Viber"><code>Viber</code> - Viber</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>file</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">file</div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The text of message to send; limited to 1000 characters, including unicode. </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>viber_service</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">viber_service (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsViber_viber_service">channelOptionsViber_viber_service</a></span>  </div>
+<div class="param">image </div><div class="param-desc"><span class="param-type"><a href="#Viber_oneOf_1_allOf_image">Viber_oneOf_1_allOf_image</a></span>  </div>
+<div class="param">video </div><div class="param-desc"><span class="param-type"><a href="#Viber_oneOf_2_allOf_video">Viber_oneOf_2_allOf_video</a></span>  </div>
+<div class="param">file </div><div class="param-desc"><span class="param-type"><a href="#Viber_oneOf_3_allOf_file">Viber_oneOf_3_allOf_file</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Viber_oneOf"><code>Viber_oneOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>text</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">text</div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The text of message to send; limited to 1000 characters, including unicode. </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>viber_service</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">viber_service (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsViberWithButton_viber_service">channelOptionsViberWithButton_viber_service</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Viber_oneOf_1"><code>Viber_oneOf_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">image </div><div class="param-desc"><span class="param-type"><a href="#Viber_oneOf_1_allOf_image">Viber_oneOf_1_allOf_image</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>image</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">image</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>viber_service</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">viber_service (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsViberWithButton_viber_service">channelOptionsViberWithButton_viber_service</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Viber_oneOf_1_allOf_image"><code>Viber_oneOf_1_allOf_image</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">caption (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A caption to accompany the image. Required if the message includes an action button. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The URL of the image attachment.</p>
+<p>Supports <code>.jpg</code>, <code>.jpeg</code>, and <code>.png</code>.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Viber_oneOf_2"><code>Viber_oneOf_2</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>video</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">video</div>
+<div class="param">video </div><div class="param-desc"><span class="param-type"><a href="#Viber_oneOf_2_allOf_video">Viber_oneOf_2_allOf_video</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>viber_service</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">viber_service (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsViberVideo_viber_service">channelOptionsViberVideo_viber_service</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Viber_oneOf_2_allOf_video"><code>Viber_oneOf_2_allOf_video</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">caption (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Text caption to accompany message. </div>
+<div class="param">thumb_url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URL to an image file for a thumbnail preview of the video. </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The URL of the video attachment. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Viber_oneOf_3"><code>Viber_oneOf_3</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">file </div><div class="param-desc"><span class="param-type"><a href="#Viber_oneOf_3_allOf_file">Viber_oneOf_3_allOf_file</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>file</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">file</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>viber_service</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">viber_service (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsViber_viber_service">channelOptionsViber_viber_service</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Viber_oneOf_3_allOf_file"><code>Viber_oneOf_3_allOf_file</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object containing details of the file to be sent. Note: allowed file types are <code>.doc,</code> <code>.docx</code>, <code>.rtf</code>, <code>.dot</code>, <code>.dotx</code>, <code>.odt</code>, <code>.odf</code>, <code>.fodt</code>, <code>.txt</code>, <code>.info</code>, <code>.pdf</code>, <code>.xps</code>, <code>.pdax</code>, <code>.eps</code>, <code>.xls</code>, <code>.xlsx</code>, <code>.ods</code>, <code>.fods</code>, <code>.csv</code>, <code>.xlsm</code>, <code>.xltx</code>. Maximum file size is 200MB</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name and extension of the file. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The URL for the file attachment <em>or</em> the path for the location of the file attachement. If <code>name</code> is included, can just be the path. If  <code>name</code> is not included, must include the filename and extension. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Video"><code>Video</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>video</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">video</div>
+<div class="param">video </div><div class="param-desc"><span class="param-type"><a href="#Video_1_video">Video_1_video</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Video_1_video"><code>Video_1_video</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>Publicly accessible URL of the video attachment. Supports file types .mp4 and .3gpp</p>
+<blockquote>
+<p>Note: Only supports video codec H.264 and audio codec AAC</p>
+</blockquote>
+ format: url</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp"><code>WhatsApp</code> - WhatsApp</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>custom</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">custom</div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The location to be sent in the message. </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>whatsapp</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">location </div><div class="param-desc"><span class="param-type"><a href="#Location_1_location">Location_1_location</a></span>  </div>
+<div class="param">image </div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_oneOf_2_allOf_image">WhatsApp_oneOf_2_allOf_image</a></span>  </div>
+<div class="param">audio </div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_oneOf_3_allOf_audio">WhatsApp_oneOf_3_allOf_audio</a></span>  </div>
+<div class="param">video </div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_oneOf_4_allOf_video">WhatsApp_oneOf_4_allOf_video</a></span>  </div>
+<div class="param">file </div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_oneOf_5_allOf_file">WhatsApp_oneOf_5_allOf_file</a></span>  </div>
+<div class="param">template </div><div class="param-desc"><span class="param-type"><a href="#Template_1_template">Template_1_template</a></span>  </div>
+<div class="param">whatsapp </div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_oneOf_6_allOf_whatsapp">WhatsApp_oneOf_6_allOf_whatsapp</a></span>  </div>
+<div class="param">custom (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> A custom payload, which is passed directly to WhatsApp for certain features such as templates and interactive messages. The schema of a custom object can vary widely. <a href="https://developer.vonage.com/messages/concepts/custom-objects">Read more about Custom Objects</a>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_1_usage"><code>WhatsApp_1_usage</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The charge currency in ISO 4217 format. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">EUR</div>
+<div class="param">price (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The charge amount as a stringified number. For WhatsApp this is the default Vonage charge per conversation. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_1_whatsapp"><code>WhatsApp_1_whatsapp</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object contining meta-data related to the WhatsApp message that triggered this callback. Only present for callbacks with a <code>status</code> of <code>delivered</code>.</div>
+    <div class="field-items">
+      <div class="param">conversation (optional)</div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_1_whatsapp_conversation">WhatsApp_1_whatsapp_conversation</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_1_whatsapp_conversation"><code>WhatsApp_1_whatsapp_conversation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object contining data for the conversation to which the message relates.</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The id of the conversation. </div>
+<div class="param">origin (optional)</div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_1_whatsapp_conversation_origin">WhatsApp_1_whatsapp_conversation_origin</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_1_whatsapp_conversation_origin"><code>WhatsApp_1_whatsapp_conversation_origin</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An object contining data related to the origin of the conversation.</div>
+    <div class="field-items">
+      <div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The conversation type. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf"><code>WhatsApp_oneOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>text</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">text</div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The text of message to send; limited to 4096 characters, including unicode. </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>whatsapp</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_1"><code>WhatsApp_oneOf_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">location </div><div class="param-desc"><span class="param-type"><a href="#Location_1_location">Location_1_location</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>location</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">location</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>whatsapp</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The location to be sent in the message. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_2"><code>WhatsApp_oneOf_2</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">image </div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_oneOf_2_allOf_image">WhatsApp_oneOf_2_allOf_image</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>image</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">image</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>whatsapp</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_2_allOf_image"><code>WhatsApp_oneOf_2_allOf_image</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">caption (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional text to accompany the image. </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The URL of the image attachment.</p>
+<p>Supports <code>.jpg</code>, <code>.jpeg</code>, and <code>.png</code>.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_3"><code>WhatsApp_oneOf_3</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">audio </div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_oneOf_3_allOf_audio">WhatsApp_oneOf_3_allOf_audio</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>audio</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">audio</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>whatsapp</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_3_allOf_audio"><code>WhatsApp_oneOf_3_allOf_audio</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> <p>The URL of the audio attachment.</p>
+<p>Supports <code>.aac</code>, <code>.m4a</code>, <code>.amr</code>, <code>.mp3</code> and <code>.opus</code>.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_4"><code>WhatsApp_oneOf_4</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>video</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">video</div>
+<div class="param">video </div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_oneOf_4_allOf_video">WhatsApp_oneOf_4_allOf_video</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>whatsapp</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_4_allOf_video"><code>WhatsApp_oneOf_4_allOf_video</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">caption (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional text to accompany the file. </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> <p>The URL of the video attachment.</p>
+<p>Supports <code>.mp4</code> and <code>.3gpp</code>. Note, only <code>H.264</code> video codec and <code>AAC</code> audio codec is supported.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_5"><code>WhatsApp_oneOf_5</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">file </div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_oneOf_5_allOf_file">WhatsApp_oneOf_5_allOf_file</a></span>  </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>file</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">file</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>whatsapp</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_5_allOf_file"><code>WhatsApp_oneOf_5_allOf_file</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">caption (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Additional text to accompany the file. </div>
+<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> <p>The URL of the file attachment.</p>
+<p>Supports supports a wide range of attachments including <code>.zip</code>, <code>.csv</code> and <code>.pdf</code>.</p>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_6"><code>WhatsApp_oneOf_6</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>template</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">template</div>
+<div class="param">template </div><div class="param-desc"><span class="param-type"><a href="#Template_1_template">Template_1_template</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>whatsapp</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">whatsapp </div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_oneOf_6_allOf_whatsapp">WhatsApp_oneOf_6_allOf_whatsapp</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_6_allOf_whatsapp"><code>WhatsApp_oneOf_6_allOf_whatsapp</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">locale </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> language of the template. See <a href="https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages-">the WhatsApp documentation</a> for supported languages. </div>
+<div class="param">policy (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Policy for resolving what language template to use. As of right now the only valid choice is <code>deterministic</code>. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">deterministic</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WhatsApp_oneOf_7"><code>WhatsApp_oneOf_7</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">custom (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> A custom payload, which is passed directly to WhatsApp for certain features such as templates and interactive messages. The schema of a custom object can vary widely. <a href="https://developer.vonage.com/messages/concepts/custom-objects">Read more about Custom Objects</a>. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>custom</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">custom</div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>whatsapp</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="baseMessageType"><code>baseMessageType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsMessenger"><code>channelOptionsMessenger</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>messenger</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">messenger</div>
+<div class="param">from (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">messenger (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsMessenger_messenger">channelOptionsMessenger_messenger</a></span>  </div>
+<div class="param">to (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message recipient </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsMessenger_messenger"><code>channelOptionsMessenger_messenger</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">category (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The use of different category tags enables the business to send messages for different use cases. For Facebook Messenger they need to comply with their <a href="https://developers.facebook.com/docs/messenger-platform/send-messages#messaging_types">Messaging Types policy</a>. Vonage maps our <code>category</code> to their <code>messaging_type</code>. If <code>message_tag</code> is used, then an additional <code>tag</code> for that type is mandatory. By default Vonage sends the <code>response</code> category to Facebook Messenger. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">response</div><div class="param-enum">update</div><div class="param-enum">message_tag</div>
+<div class="param">tag (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A tag describing the type and relevance of the 1:1 communication between your app and the end user. A full list of available tags is available <a href="https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags">here</a> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsMms"><code>channelOptionsMms</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>mms</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">mms</div>
+<div class="param">from (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsSms"><code>channelOptionsSms</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>sms</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">sms</div>
+<div class="param">from (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsViber"><code>channelOptionsViber</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>viber_service</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+<div class="param">from (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">to (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">viber_service (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsViber_viber_service">channelOptionsViber_viber_service</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsViberVideo"><code>channelOptionsViberVideo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>viber_service</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+<div class="param">from (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">to (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">viber_service (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsViberVideo_viber_service">channelOptionsViberVideo_viber_service</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsViberVideo_viber_service"><code>channelOptionsViberVideo_viber_service</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">category (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The use of different category tags enables the business to send messages for different use cases. For Viber Business Messages the first message sent from a business to a user must be personal, informative &amp; a targeted message - not promotional. By default Vonage sends the <code>transaction</code> category to Viber Business Messages. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">transaction</div><div class="param-enum">promotion</div>
+<div class="param">duration (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The duration of the video in seconds. </div>
+<div class="param">file_size (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The file size of the video in MB. </div>
+<div class="param">ttl (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Viber-specific type definition. To use &quot;template&quot;, please contact your Vonage Account Manager to setup your templates. To find out more please visit the <a href="https://www.vonage.com/communications-apis/messages/">product page</a> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsViberWithButton"><code>channelOptionsViberWithButton</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>viber_service</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+<div class="param">from (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">to (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">viber_service (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsViberWithButton_viber_service">channelOptionsViberWithButton_viber_service</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsViberWithButton_viber_service"><code>channelOptionsViberWithButton_viber_service</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">action (optional)</div><div class="param-desc"><span class="param-type"><a href="#channelOptionsViberWithButton_viber_service_action">channelOptionsViberWithButton_viber_service_action</a></span>  </div>
+<div class="param">category (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The use of different category tags enables the business to send messages for different use cases. For Viber Business Messages the first message sent from a business to a user must be personal, informative &amp; a targeted message - not promotional. By default Vonage sends the <code>transaction</code> category to Viber Business Messages. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">transaction</div><div class="param-enum">promotion</div>
+<div class="param">ttl (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Viber-specific type definition. To use &quot;template&quot;, please contact your Vonage Account Manager to setup your templates. To find out more please visit the <a href="https://www.vonage.com/communications-apis/messages/">product page</a> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsViberWithButton_viber_service_action"><code>channelOptionsViberWithButton_viber_service_action</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Node for Viber action buttons.</div>
+    <div class="field-items">
+      <div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Text which is rendered on the action button. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A URL which is requested when the action button is clicked. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsViber_viber_service"><code>channelOptionsViber_viber_service</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">category (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The use of different category tags enables the business to send messages for different use cases. For Viber Business Messages the first message sent from a business to a user must be personal, informative &amp; a targeted message - not promotional. By default Vonage sends the <code>transaction</code> category to Viber Business Messages. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">transaction</div><div class="param-enum">promotion</div>
+<div class="param">ttl (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Viber-specific type definition. To use &quot;template&quot;, please contact your Vonage Account Manager to setup your templates. To find out more please visit the <a href="https://www.vonage.com/communications-apis/messages/">product page</a> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="channelOptionsWhatsapp"><code>channelOptionsWhatsapp</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel to send to. You must provide <code>whatsapp</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">from (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">to (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inboundMessageMMS"><code>inboundMessageMMS</code> - MMS</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel the message came in on </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">mms</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inboundMessageSMS"><code>inboundMessageSMS</code> - SMS</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel the message came in on </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">sms</div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">sms (optional)</div><div class="param-desc"><span class="param-type"><a href="#inboundMessageSMS_sms">inboundMessageSMS_sms</a></span>  </div>
+<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UTF-8 encoded text of the inbound message. </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">usage (optional)</div><div class="param-desc"><span class="param-type"><a href="#Usage">Usage</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inboundMessageSMS_sms"><code>inboundMessageSMS_sms</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Channel specific metadata for SMS</div>
+    <div class="field-items">
+      <div class="param">keyword (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The first word of the message sent to uppercase. </div>
+<div class="param">num_messages (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The number of inbound SMS messages concatenated together to comprise this message. SMS messages are 160 characters, if an inbound message exceeds that size they are concatenated together to forma single message. This number indicates how many messages formed this webhook. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="inboundWhatsAppMessageCommon"><code>inboundWhatsAppMessageCommon</code> - WhatsApp</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel that the message came in on </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">context (optional)</div><div class="param-desc"><span class="param-type"><a href="#Context">Context</a></span>  </div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">profile (optional)</div><div class="param-desc"><span class="param-type"><a href="#Profile">Profile</a></span>  </div>
+<div class="param">provider_message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A message from the channel provider, which may contain a description, error codes or other information </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="messageStatusBase"><code>messageStatusBase</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_error">messageStatusBase_error</a></span>  </div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The status of the message. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">submitted</div><div class="param-enum">delivered</div><div class="param-enum">rejected</div><div class="param-enum">undeliverable</div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">usage (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_usage">messageStatusBase_usage</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="messageStatusBase_error"><code>messageStatusBase_error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>If the message encountered a problem a descriptive error will be supplied in this object.</div>
+    <div class="field-items">
+      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Text describing the error. See <a href="https://developer.nexmo.com/api-errors/messages-olympus">our errors list</a> for a list of possible errors </div>
+<div class="param">instance (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The record id of this error's occurrence. </div>
+<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The error code encountered when sending the message. See <a href="https://developer.nexmo.com/api-errors/messages-olympus">our errors list</a> for a list of possible errors </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of error encountered, follow URL for more details format: url</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="messageStatusBase_usage"><code>messageStatusBase_usage</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The charge currency in ISO 4217 format. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">EUR</div>
+<div class="param">price (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The charge amount as a stringified number. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="messageStatusMMS"><code>messageStatusMMS</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_error">messageStatusBase_error</a></span>  </div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The status of the message. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">submitted</div><div class="param-enum">delivered</div><div class="param-enum">rejected</div><div class="param-enum">undeliverable</div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">usage (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_usage">messageStatusBase_usage</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel sending to. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">mms</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="messageStatusMessenger"><code>messageStatusMessenger</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_error">messageStatusBase_error</a></span>  </div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message sender </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">submitted</div><div class="param-enum">delivered</div><div class="param-enum">rejected</div><div class="param-enum">undeliverable</div><div class="param-enum">read</div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the message recipient </div>
+<div class="param">usage (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_usage">messageStatusBase_usage</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel sending to. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">messenger</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="messageStatusSMS"><code>messageStatusSMS</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_error">messageStatusBase_error</a></span>  </div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The status of the message. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">submitted</div><div class="param-enum">delivered</div><div class="param-enum">rejected</div><div class="param-enum">undeliverable</div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">usage (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_usage">messageStatusBase_usage</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel sending to. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">sms</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="messageStatusViber"><code>messageStatusViber</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_error">messageStatusBase_error</a></span>  </div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">submitted</div><div class="param-enum">delivered</div><div class="param-enum">rejected</div><div class="param-enum">undeliverable</div><div class="param-enum">read</div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">usage (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_usage">messageStatusBase_usage</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel sending to. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="messageStatusWhatsApp"><code>messageStatusWhatsApp</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_error">messageStatusBase_error</a></span>  </div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">submitted</div><div class="param-enum">delivered</div><div class="param-enum">rejected</div><div class="param-enum">undeliverable</div><div class="param-enum">read</div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">usage (optional)</div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_1_usage">WhatsApp_1_usage</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel sending to. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">whatsapp</div>
+<div class="param">whatsapp (optional)</div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_1_whatsapp">WhatsApp_1_whatsapp</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="message_status_request"><code>message_status_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_error">messageStatusBase_error</a></span>  </div>
+<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>sender</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see <a href="https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features">Global Messaging</a> for more details </div>
+<div class="param">message_uuid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The UUID of the message </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">submitted</div><div class="param-enum">delivered</div><div class="param-enum">rejected</div><div class="param-enum">undeliverable</div><div class="param-enum">read</div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The datetime of when the event occurred, in <code>ISO 8601</code> format. </div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the message <strong>recipient</strong> in the <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. </div>
+<div class="param">usage (optional)</div><div class="param-desc"><span class="param-type"><a href="#messageStatusBase_usage">messageStatusBase_usage</a></span>  </div>
+<div class="param">channel </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The channel sending to. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">viber_service</div>
+<div class="param">whatsapp (optional)</div><div class="param-desc"><span class="param-type"><a href="#WhatsApp_1_whatsapp">WhatsApp_1_whatsapp</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="vCard"><code>vCard</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">client_ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Client reference of up to 100 characters. The reference will be present in every message status. </div>
+<div class="param">message_type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of message to send. You must provide <code>vcard</code> in this field </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">vcard</div>
+<div class="param">vcard </div><div class="param-desc"><span class="param-type"><a href="#vCard_1_vcard">vCard_1_vcard</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="vCard_1_vcard"><code>vCard_1_vcard</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The publicly accessible URL of the vCard attachment. Supported types are .vcf only format: url</div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
