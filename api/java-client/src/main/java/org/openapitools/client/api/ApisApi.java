@@ -1,6 +1,6 @@
 /*
- * Maharashtra State Board of Secondary and Higher Secondary Education, Maharashtra
- * Class X and XII marksheets and passing certificates of Maharashtra State Board of Secondary and Higher Secondary Education (https://mahahsscboard.maharashtra.gov.in/) are available in DigiLocker for years 1990 to 2017.
+ * Transport Department, Daman & Diu
+ * Driving License (DL) and Vehicle Registration Certificate (RC) of the State, as available on Parivahan Sewa (http://parivahan.co.in/) of Ministry of Road Transport and Highways, are available on DigiLocker. Citizens can pull these documents into their DigiLocker accounts.
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -27,16 +27,17 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.AcademicCertificateSchema;
-import org.openapitools.client.model.Hpcer400Response;
-import org.openapitools.client.model.Hpcer401Response;
-import org.openapitools.client.model.Hpcer404Response;
-import org.openapitools.client.model.Hpcer500Response;
-import org.openapitools.client.model.Hpcer502Response;
-import org.openapitools.client.model.Hpcer503Response;
-import org.openapitools.client.model.Hpcer504Response;
-import org.openapitools.client.model.HpcerRequest;
-import org.openapitools.client.model.SpcerRequest;
+import org.openapitools.client.model.DrivingLicenseSchema;
+import org.openapitools.client.model.Drvlc400Response;
+import org.openapitools.client.model.Drvlc401Response;
+import org.openapitools.client.model.Drvlc404Response;
+import org.openapitools.client.model.Drvlc500Response;
+import org.openapitools.client.model.Drvlc502Response;
+import org.openapitools.client.model.Drvlc503Response;
+import org.openapitools.client.model.Drvlc504Response;
+import org.openapitools.client.model.DrvlcRequest;
+import org.openapitools.client.model.RvcerRequest;
+import org.openapitools.client.model.VehicleRegistrationSchema;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -82,8 +83,8 @@ public class ApisApi {
     }
 
     /**
-     * Build call for hpcer
-     * @param hpcerRequest Request format (optional)
+     * Build call for drvlc
+     * @param drvlcRequest Request format (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -100,7 +101,7 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call hpcerCall(HpcerRequest hpcerRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call drvlcCall(DrvlcRequest drvlcRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -114,10 +115,10 @@ public class ApisApi {
             basePath = null;
         }
 
-        Object localVarPostBody = hpcerRequest;
+        Object localVarPostBody = drvlcRequest;
 
         // create path and map variables
-        String localVarPath = "/hpcer/certificate";
+        String localVarPath = "/drvlc/certificate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -148,15 +149,15 @@ public class ApisApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call hpcerValidateBeforeCall(HpcerRequest hpcerRequest, final ApiCallback _callback) throws ApiException {
-        return hpcerCall(hpcerRequest, _callback);
+    private okhttp3.Call drvlcValidateBeforeCall(DrvlcRequest drvlcRequest, final ApiCallback _callback) throws ApiException {
+        return drvlcCall(drvlcRequest, _callback);
 
     }
 
     /**
-     * Class XII Passing Certificate
-     * API to verify Class XII Passing Certificate.
-     * @param hpcerRequest Request format (optional)
+     * Driving License
+     * API to verify Driving License.
+     * @param drvlcRequest Request format (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -171,14 +172,14 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public void hpcer(HpcerRequest hpcerRequest) throws ApiException {
-        hpcerWithHttpInfo(hpcerRequest);
+    public void drvlc(DrvlcRequest drvlcRequest) throws ApiException {
+        drvlcWithHttpInfo(drvlcRequest);
     }
 
     /**
-     * Class XII Passing Certificate
-     * API to verify Class XII Passing Certificate.
-     * @param hpcerRequest Request format (optional)
+     * Driving License
+     * API to verify Driving License.
+     * @param drvlcRequest Request format (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -194,15 +195,15 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> hpcerWithHttpInfo(HpcerRequest hpcerRequest) throws ApiException {
-        okhttp3.Call localVarCall = hpcerValidateBeforeCall(hpcerRequest, null);
+    public ApiResponse<Void> drvlcWithHttpInfo(DrvlcRequest drvlcRequest) throws ApiException {
+        okhttp3.Call localVarCall = drvlcValidateBeforeCall(drvlcRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * Class XII Passing Certificate (asynchronously)
-     * API to verify Class XII Passing Certificate.
-     * @param hpcerRequest Request format (optional)
+     * Driving License (asynchronously)
+     * API to verify Driving License.
+     * @param drvlcRequest Request format (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -219,15 +220,15 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call hpcerAsync(HpcerRequest hpcerRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call drvlcAsync(DrvlcRequest drvlcRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = hpcerValidateBeforeCall(hpcerRequest, _callback);
+        okhttp3.Call localVarCall = drvlcValidateBeforeCall(drvlcRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
-     * Build call for hscer
-     * @param hpcerRequest Request format (optional)
+     * Build call for rvcer
+     * @param rvcerRequest Request format (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -244,7 +245,7 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call hscerCall(HpcerRequest hpcerRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call rvcerCall(RvcerRequest rvcerRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -258,10 +259,10 @@ public class ApisApi {
             basePath = null;
         }
 
-        Object localVarPostBody = hpcerRequest;
+        Object localVarPostBody = rvcerRequest;
 
         // create path and map variables
-        String localVarPath = "/hscer/certificate";
+        String localVarPath = "/rvcer/certificate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -292,15 +293,15 @@ public class ApisApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call hscerValidateBeforeCall(HpcerRequest hpcerRequest, final ApiCallback _callback) throws ApiException {
-        return hscerCall(hpcerRequest, _callback);
+    private okhttp3.Call rvcerValidateBeforeCall(RvcerRequest rvcerRequest, final ApiCallback _callback) throws ApiException {
+        return rvcerCall(rvcerRequest, _callback);
 
     }
 
     /**
-     * Class XII Marksheet
-     * API to verify Class XII Marksheet.
-     * @param hpcerRequest Request format (optional)
+     * Registration of Vehicles
+     * API to verify Registration of Vehicles.
+     * @param rvcerRequest Request format (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -315,14 +316,14 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public void hscer(HpcerRequest hpcerRequest) throws ApiException {
-        hscerWithHttpInfo(hpcerRequest);
+    public void rvcer(RvcerRequest rvcerRequest) throws ApiException {
+        rvcerWithHttpInfo(rvcerRequest);
     }
 
     /**
-     * Class XII Marksheet
-     * API to verify Class XII Marksheet.
-     * @param hpcerRequest Request format (optional)
+     * Registration of Vehicles
+     * API to verify Registration of Vehicles.
+     * @param rvcerRequest Request format (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -338,15 +339,15 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> hscerWithHttpInfo(HpcerRequest hpcerRequest) throws ApiException {
-        okhttp3.Call localVarCall = hscerValidateBeforeCall(hpcerRequest, null);
+    public ApiResponse<Void> rvcerWithHttpInfo(RvcerRequest rvcerRequest) throws ApiException {
+        okhttp3.Call localVarCall = rvcerValidateBeforeCall(rvcerRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * Class XII Marksheet (asynchronously)
-     * API to verify Class XII Marksheet.
-     * @param hpcerRequest Request format (optional)
+     * Registration of Vehicles (asynchronously)
+     * API to verify Registration of Vehicles.
+     * @param rvcerRequest Request format (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -363,297 +364,9 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call hscerAsync(HpcerRequest hpcerRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call rvcerAsync(RvcerRequest rvcerRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = hscerValidateBeforeCall(hpcerRequest, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for spcer
-     * @param spcerRequest Request format (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call spcerCall(SpcerRequest spcerRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = spcerRequest;
-
-        // create path and map variables
-        String localVarPath = "/spcer/certificate";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/pdf",
-            "application/xml",
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "clientId", "apiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call spcerValidateBeforeCall(SpcerRequest spcerRequest, final ApiCallback _callback) throws ApiException {
-        return spcerCall(spcerRequest, _callback);
-
-    }
-
-    /**
-     * Class X Passing Certificate
-     * API to verify Class X Passing Certificate.
-     * @param spcerRequest Request format (optional)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public void spcer(SpcerRequest spcerRequest) throws ApiException {
-        spcerWithHttpInfo(spcerRequest);
-    }
-
-    /**
-     * Class X Passing Certificate
-     * API to verify Class X Passing Certificate.
-     * @param spcerRequest Request format (optional)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> spcerWithHttpInfo(SpcerRequest spcerRequest) throws ApiException {
-        okhttp3.Call localVarCall = spcerValidateBeforeCall(spcerRequest, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Class X Passing Certificate (asynchronously)
-     * API to verify Class X Passing Certificate.
-     * @param spcerRequest Request format (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call spcerAsync(SpcerRequest spcerRequest, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = spcerValidateBeforeCall(spcerRequest, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for sscer
-     * @param spcerRequest Request format (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call sscerCall(SpcerRequest spcerRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = spcerRequest;
-
-        // create path and map variables
-        String localVarPath = "/sscer/certificate";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/pdf",
-            "application/xml",
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "clientId", "apiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call sscerValidateBeforeCall(SpcerRequest spcerRequest, final ApiCallback _callback) throws ApiException {
-        return sscerCall(spcerRequest, _callback);
-
-    }
-
-    /**
-     * Class X Marksheet
-     * API to verify Class X Marksheet.
-     * @param spcerRequest Request format (optional)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public void sscer(SpcerRequest spcerRequest) throws ApiException {
-        sscerWithHttpInfo(spcerRequest);
-    }
-
-    /**
-     * Class X Marksheet
-     * API to verify Class X Marksheet.
-     * @param spcerRequest Request format (optional)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> sscerWithHttpInfo(SpcerRequest spcerRequest) throws ApiException {
-        okhttp3.Call localVarCall = sscerValidateBeforeCall(spcerRequest, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Class X Marksheet (asynchronously)
-     * API to verify Class X Marksheet.
-     * @param spcerRequest Request format (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call sscerAsync(SpcerRequest spcerRequest, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = sscerValidateBeforeCall(spcerRequest, _callback);
+        okhttp3.Call localVarCall = rvcerValidateBeforeCall(rvcerRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
