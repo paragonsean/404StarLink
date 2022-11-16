@@ -2,7 +2,7 @@
 
 Crossbrowsertesting.com Screenshot Comparisons API
 - API version: 3.0.0
-  - Build date: 2024-10-11T01:54:13.754426-04:00[America/New_York]
+  - Build date: 2024-10-11T01:56:25.215820-04:00[America/New_York]
   - Generator version: 7.9.0
 
 What's in this version: 

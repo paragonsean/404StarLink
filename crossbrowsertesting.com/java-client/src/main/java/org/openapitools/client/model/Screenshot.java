@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Screenshot
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:13.754426-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:25.215820-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Screenshot {
   public static final String SERIALIZED_NAME_SCREENSHOT_ID = "screenshot_id";
   @SerializedName(SERIALIZED_NAME_SCREENSHOT_ID)

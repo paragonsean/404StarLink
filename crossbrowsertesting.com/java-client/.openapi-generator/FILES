@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -49,11 +48,3 @@ src/main/java/org/openapitools/client/model/FullComparisonTestBase.java
 src/main/java/org/openapitools/client/model/Screenshot.java
 src/main/java/org/openapitools/client/model/SingleComparisonTest.java
 src/main/java/org/openapitools/client/model/Target.java
-src/test/java/org/openapitools/client/api/DefaultApiTest.java
-src/test/java/org/openapitools/client/model/ComparisonTest.java
-src/test/java/org/openapitools/client/model/ElementTest.java
-src/test/java/org/openapitools/client/model/FullComparisonTestBaseTest.java
-src/test/java/org/openapitools/client/model/FullComparisonTestTest.java
-src/test/java/org/openapitools/client/model/ScreenshotTest.java
-src/test/java/org/openapitools/client/model/SingleComparisonTestTest.java
-src/test/java/org/openapitools/client/model/TargetTest.java
