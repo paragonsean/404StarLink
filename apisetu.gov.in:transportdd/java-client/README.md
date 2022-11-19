@@ -2,7 +2,7 @@
 
 Transport Department, Daman &amp; Diu
 - API version: 3.0.0
-  - Build date: 2024-10-11T01:54:18.712891-04:00[America/New_York]
+  - Build date: 2024-10-11T01:56:32.694934-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Driving License (DL) and Vehicle Registration Certificate (RC) of the State, as available on Parivahan Sewa (http://parivahan.co.in/) of Ministry of Road Transport and Highways, are available on DigiLocker. Citizens can pull these documents into their DigiLocker accounts.
