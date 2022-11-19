@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build SMS API
+    name: Build File storage API
     runs-on: ubuntu-latest
     strategy:
       matrix:

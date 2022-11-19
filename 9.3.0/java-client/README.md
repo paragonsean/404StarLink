@@ -1,13 +1,13 @@
 # openapi-java-client
 
-SMS API
+File storage API
 - API version: 9.3.0
-  - Build date: 2024-10-11T01:58:27.521921-04:00[America/New_York]
+  - Build date: 2024-10-11T02:04:20.319897-04:00[America/New_York]
   - Generator version: 7.9.0
 
-Welcome to the SMS API.
+Welcome to the File Storage API.
 
-You can use this API to access all SMS API endpoints.
+You can use this API to access all File Storage API endpoints.
 
 ## Base URL
 
@@ -348,7 +348,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.MessagesApi;
+import org.openapitools.client.api.DriveGroupsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -361,17 +361,17 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //apiKey.setApiKeyPrefix("Token");
 
-    MessagesApi apiInstance = new MessagesApi(defaultClient);
+    DriveGroupsApi apiInstance = new DriveGroupsApi(defaultClient);
     String xApideckConsumerId = "xApideckConsumerId_example"; // String | ID of the consumer which you want to get or push data from
     String xApideckAppId = "dSBdXd2H6Mqwfg0atXHXYcysLJE9qyn1VwBtXHX"; // String | The ID of your Unify application
-    Message message = new Message(); // Message | 
+    DriveGroup driveGroup = new DriveGroup(); // DriveGroup | 
     Boolean raw = false; // Boolean | Include raw response. Mostly used for debugging purposes
     String xApideckServiceId = "xApideckServiceId_example"; // String | Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.
     try {
-      CreateMessageResponse result = apiInstance.messagesAdd(xApideckConsumerId, xApideckAppId, message, raw, xApideckServiceId);
+      CreateDriveGroupResponse result = apiInstance.driveGroupsAdd(xApideckConsumerId, xApideckAppId, driveGroup, raw, xApideckServiceId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MessagesApi#messagesAdd");
+      System.err.println("Exception when calling DriveGroupsApi#driveGroupsAdd");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -388,44 +388,113 @@ All URIs are relative to *https://unify.apideck.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*MessagesApi* | [**messagesAdd**](docs/MessagesApi.md#messagesAdd) | **POST** /sms/messages | Create Message
-*MessagesApi* | [**messagesAll**](docs/MessagesApi.md#messagesAll) | **GET** /sms/messages | List Messages
-*MessagesApi* | [**messagesDelete**](docs/MessagesApi.md#messagesDelete) | **DELETE** /sms/messages/{id} | Delete Message
-*MessagesApi* | [**messagesOne**](docs/MessagesApi.md#messagesOne) | **GET** /sms/messages/{id} | Get Message
-*MessagesApi* | [**messagesUpdate**](docs/MessagesApi.md#messagesUpdate) | **PATCH** /sms/messages/{id} | Update Message
+*DriveGroupsApi* | [**driveGroupsAdd**](docs/DriveGroupsApi.md#driveGroupsAdd) | **POST** /file-storage/drive-groups | Create DriveGroup
+*DriveGroupsApi* | [**driveGroupsAll**](docs/DriveGroupsApi.md#driveGroupsAll) | **GET** /file-storage/drive-groups | List DriveGroups
+*DriveGroupsApi* | [**driveGroupsDelete**](docs/DriveGroupsApi.md#driveGroupsDelete) | **DELETE** /file-storage/drive-groups/{id} | Delete DriveGroup
+*DriveGroupsApi* | [**driveGroupsOne**](docs/DriveGroupsApi.md#driveGroupsOne) | **GET** /file-storage/drive-groups/{id} | Get DriveGroup
+*DriveGroupsApi* | [**driveGroupsUpdate**](docs/DriveGroupsApi.md#driveGroupsUpdate) | **PATCH** /file-storage/drive-groups/{id} | Update DriveGroup
+*DrivesApi* | [**drivesAdd**](docs/DrivesApi.md#drivesAdd) | **POST** /file-storage/drives | Create Drive
+*DrivesApi* | [**drivesAll**](docs/DrivesApi.md#drivesAll) | **GET** /file-storage/drives | List Drives
+*DrivesApi* | [**drivesDelete**](docs/DrivesApi.md#drivesDelete) | **DELETE** /file-storage/drives/{id} | Delete Drive
+*DrivesApi* | [**drivesOne**](docs/DrivesApi.md#drivesOne) | **GET** /file-storage/drives/{id} | Get Drive
+*DrivesApi* | [**drivesUpdate**](docs/DrivesApi.md#drivesUpdate) | **PATCH** /file-storage/drives/{id} | Update Drive
+*FilesApi* | [**filesAll**](docs/FilesApi.md#filesAll) | **GET** /file-storage/files | List Files
+*FilesApi* | [**filesDelete**](docs/FilesApi.md#filesDelete) | **DELETE** /file-storage/files/{id} | Delete File
+*FilesApi* | [**filesDownload**](docs/FilesApi.md#filesDownload) | **GET** /file-storage/files/{id}/download | Download File
+*FilesApi* | [**filesOne**](docs/FilesApi.md#filesOne) | **GET** /file-storage/files/{id} | Get File
+*FilesApi* | [**filesSearch**](docs/FilesApi.md#filesSearch) | **POST** /file-storage/files/search | Search Files
+*FilesApi* | [**filesUpdate**](docs/FilesApi.md#filesUpdate) | **PATCH** /file-storage/files/{id} | Rename or move File
+*FilesApi* | [**filesUpload**](docs/FilesApi.md#filesUpload) | **POST** /file-storage/files | Upload file
+*FoldersApi* | [**foldersAdd**](docs/FoldersApi.md#foldersAdd) | **POST** /file-storage/folders | Create Folder
+*FoldersApi* | [**foldersCopy**](docs/FoldersApi.md#foldersCopy) | **POST** /file-storage/folders/{id}/copy | Copy Folder
+*FoldersApi* | [**foldersDelete**](docs/FoldersApi.md#foldersDelete) | **DELETE** /file-storage/folders/{id} | Delete Folder
+*FoldersApi* | [**foldersOne**](docs/FoldersApi.md#foldersOne) | **GET** /file-storage/folders/{id} | Get Folder
+*FoldersApi* | [**foldersUpdate**](docs/FoldersApi.md#foldersUpdate) | **PATCH** /file-storage/folders/{id} | Rename or move Folder
+*SharedLinksApi* | [**sharedLinksAdd**](docs/SharedLinksApi.md#sharedLinksAdd) | **POST** /file-storage/shared-links | Create Shared Link
+*SharedLinksApi* | [**sharedLinksAll**](docs/SharedLinksApi.md#sharedLinksAll) | **GET** /file-storage/shared-links | List SharedLinks
+*SharedLinksApi* | [**sharedLinksDelete**](docs/SharedLinksApi.md#sharedLinksDelete) | **DELETE** /file-storage/shared-links/{id} | Delete Shared Link
+*SharedLinksApi* | [**sharedLinksOne**](docs/SharedLinksApi.md#sharedLinksOne) | **GET** /file-storage/shared-links/{id} | Get Shared Link
+*SharedLinksApi* | [**sharedLinksUpdate**](docs/SharedLinksApi.md#sharedLinksUpdate) | **PATCH** /file-storage/shared-links/{id} | Update Shared Link
+*UploadSessionsApi* | [**uploadSessionsAdd**](docs/UploadSessionsApi.md#uploadSessionsAdd) | **POST** /file-storage/upload-sessions | Start Upload Session
+*UploadSessionsApi* | [**uploadSessionsDelete**](docs/UploadSessionsApi.md#uploadSessionsDelete) | **DELETE** /file-storage/upload-sessions/{id} | Abort Upload Session
+*UploadSessionsApi* | [**uploadSessionsFinish**](docs/UploadSessionsApi.md#uploadSessionsFinish) | **POST** /file-storage/upload-sessions/{id}/finish | Finish Upload Session
+*UploadSessionsApi* | [**uploadSessionsOne**](docs/UploadSessionsApi.md#uploadSessionsOne) | **GET** /file-storage/upload-sessions/{id} | Get Upload Session
+*UploadSessionsApi* | [**uploadSessionsUpload**](docs/UploadSessionsApi.md#uploadSessionsUpload) | **PUT** /file-storage/upload-sessions/{id} | Upload part of File to Upload Session
 
 
 ## Documentation for Models
 
  - [BadRequestResponse](docs/BadRequestResponse.md)
  - [BadRequestResponseDetail](docs/BadRequestResponseDetail.md)
- - [CreateMessageResponse](docs/CreateMessageResponse.md)
- - [Currency](docs/Currency.md)
- - [CustomField](docs/CustomField.md)
- - [CustomFieldValue](docs/CustomFieldValue.md)
- - [DeleteMessageResponse](docs/DeleteMessageResponse.md)
- - [Email](docs/Email.md)
- - [Error](docs/Error.md)
- - [GetMessageResponse](docs/GetMessageResponse.md)
- - [GetMessagesResponse](docs/GetMessagesResponse.md)
+ - [CopyFolderRequest](docs/CopyFolderRequest.md)
+ - [CreateDriveGroupResponse](docs/CreateDriveGroupResponse.md)
+ - [CreateDriveResponse](docs/CreateDriveResponse.md)
+ - [CreateFileRequest](docs/CreateFileRequest.md)
+ - [CreateFileResponse](docs/CreateFileResponse.md)
+ - [CreateFolderRequest](docs/CreateFolderRequest.md)
+ - [CreateFolderResponse](docs/CreateFolderResponse.md)
+ - [CreateSharedLinkResponse](docs/CreateSharedLinkResponse.md)
+ - [CreateUploadSessionRequest](docs/CreateUploadSessionRequest.md)
+ - [CreateUploadSessionResponse](docs/CreateUploadSessionResponse.md)
+ - [DeleteDriveGroupResponse](docs/DeleteDriveGroupResponse.md)
+ - [DeleteDriveResponse](docs/DeleteDriveResponse.md)
+ - [DeleteFileResponse](docs/DeleteFileResponse.md)
+ - [DeleteFolderResponse](docs/DeleteFolderResponse.md)
+ - [DeleteSharedLinkResponse](docs/DeleteSharedLinkResponse.md)
+ - [DeleteUploadSessionResponse](docs/DeleteUploadSessionResponse.md)
+ - [Drive](docs/Drive.md)
+ - [DriveGroup](docs/DriveGroup.md)
+ - [DriveGroupsFilter](docs/DriveGroupsFilter.md)
+ - [DrivesFilter](docs/DrivesFilter.md)
+ - [FileStorageEventType](docs/FileStorageEventType.md)
+ - [FileType](docs/FileType.md)
+ - [FilesFilter](docs/FilesFilter.md)
+ - [FilesSearch](docs/FilesSearch.md)
+ - [FilesSort](docs/FilesSort.md)
+ - [Folder](docs/Folder.md)
+ - [GetDriveGroupResponse](docs/GetDriveGroupResponse.md)
+ - [GetDriveGroupsResponse](docs/GetDriveGroupsResponse.md)
+ - [GetDriveResponse](docs/GetDriveResponse.md)
+ - [GetDrivesResponse](docs/GetDrivesResponse.md)
+ - [GetFileResponse](docs/GetFileResponse.md)
+ - [GetFilesResponse](docs/GetFilesResponse.md)
+ - [GetFolderResponse](docs/GetFolderResponse.md)
+ - [GetFoldersResponse](docs/GetFoldersResponse.md)
+ - [GetSharedLinkResponse](docs/GetSharedLinkResponse.md)
+ - [GetSharedLinksResponse](docs/GetSharedLinksResponse.md)
+ - [GetUploadSessionResponse](docs/GetUploadSessionResponse.md)
+ - [LinkedFolder](docs/LinkedFolder.md)
  - [Links](docs/Links.md)
- - [Message](docs/Message.md)
  - [Meta](docs/Meta.md)
  - [MetaCursors](docs/MetaCursors.md)
  - [NotFoundResponse](docs/NotFoundResponse.md)
  - [NotFoundResponseDetail](docs/NotFoundResponseDetail.md)
  - [NotImplementedResponse](docs/NotImplementedResponse.md)
  - [NotImplementedResponseDetail](docs/NotImplementedResponseDetail.md)
+ - [Owner](docs/Owner.md)
+ - [PassThroughQuery](docs/PassThroughQuery.md)
  - [PaymentRequiredResponse](docs/PaymentRequiredResponse.md)
- - [Price](docs/Price.md)
+ - [SharedLink](docs/SharedLink.md)
+ - [SharedLinkTarget](docs/SharedLinkTarget.md)
+ - [SortDirection](docs/SortDirection.md)
  - [TooManyRequestsResponse](docs/TooManyRequestsResponse.md)
  - [TooManyRequestsResponseDetail](docs/TooManyRequestsResponseDetail.md)
  - [UnauthorizedResponse](docs/UnauthorizedResponse.md)
  - [UnexpectedErrorResponse](docs/UnexpectedErrorResponse.md)
  - [UnexpectedErrorResponseDetail](docs/UnexpectedErrorResponseDetail.md)
+ - [UnifiedFile](docs/UnifiedFile.md)
  - [UnifiedId](docs/UnifiedId.md)
  - [UnprocessableResponse](docs/UnprocessableResponse.md)
- - [UpdateMessageResponse](docs/UpdateMessageResponse.md)
+ - [UpdateDriveGroupResponse](docs/UpdateDriveGroupResponse.md)
+ - [UpdateDriveResponse](docs/UpdateDriveResponse.md)
+ - [UpdateFileRequest](docs/UpdateFileRequest.md)
+ - [UpdateFileResponse](docs/UpdateFileResponse.md)
+ - [UpdateFolderRequest](docs/UpdateFolderRequest.md)
+ - [UpdateFolderResponse](docs/UpdateFolderResponse.md)
+ - [UpdateSharedLinkResponse](docs/UpdateSharedLinkResponse.md)
+ - [UpdateUploadSessionResponse](docs/UpdateUploadSessionResponse.md)
+ - [UploadSession](docs/UploadSession.md)
+ - [WebhookEvent](docs/WebhookEvent.md)
 
 
 <a id="documentation-for-authorization"></a>

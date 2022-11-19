@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * UpdateFolderRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:41.911427-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:20.319897-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class UpdateFolderRequest {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
