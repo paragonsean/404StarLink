@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents a profile field as a name-value pair with optional verification.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:48.626423-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:23.722002-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Field {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents the relationship between accounts, such as following / blocking / muting / etc.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:48.626423-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:23.722002-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Relationship {
   public static final String SERIALIZED_NAME_BLOCKED_BY = "blocked_by";
   @SerializedName(SERIALIZED_NAME_BLOCKED_BY)

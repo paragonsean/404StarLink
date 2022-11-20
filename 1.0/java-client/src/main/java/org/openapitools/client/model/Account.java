@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents a user of Mastodon and their associated profile.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:48.626423-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:23.722002-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Account {
   public static final String SERIALIZED_NAME_ACCT = "acct";
   @SerializedName(SERIALIZED_NAME_ACCT)
