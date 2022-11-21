@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * DriveGroupsFilter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:21.509169-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:38.701745-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DriveGroupsFilter {
   public static final String SERIALIZED_NAME_PARENT_GROUP_ID = "parent_group_id";
   @SerializedName(SERIALIZED_NAME_PARENT_GROUP_ID)
