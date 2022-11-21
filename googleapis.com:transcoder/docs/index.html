@@ -1,0 +1,4732 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Transcoder API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Transcoder API</h1>
+    <div class="app-desc">This API converts video files into formats suitable for consumer distribution.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v1beta1</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Projects">Projects</a></h4>
+  <ul>
+  <li><a href="#transcoder.projects.locations.jobTemplates.create"><code><span class="http-method">post</span> /v1beta1/{parent}/jobTemplates</code></a></li>
+  <li><a href="#transcoder.projects.locations.jobTemplates.delete"><code><span class="http-method">delete</span> /v1beta1/{name}</code></a></li>
+  <li><a href="#transcoder.projects.locations.jobTemplates.get"><code><span class="http-method">get</span> /v1beta1/{name}</code></a></li>
+  <li><a href="#transcoder.projects.locations.jobTemplates.list"><code><span class="http-method">get</span> /v1beta1/{parent}/jobTemplates</code></a></li>
+  <li><a href="#transcoder.projects.locations.jobs.create"><code><span class="http-method">post</span> /v1beta1/{parent}/jobs</code></a></li>
+  <li><a href="#transcoder.projects.locations.jobs.list"><code><span class="http-method">get</span> /v1beta1/{parent}/jobs</code></a></li>
+  </ul>
+
+  <h1><a name="Projects">Projects</a></h1>
+  <div class="method"><a name="transcoder.projects.locations.jobTemplates.create"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1beta1/{parent}/jobTemplates</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">transcoder.projects.locations.jobTemplates.create</span>)</div>
+    <div class="method-notes">Creates a job template in the specified region.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The parent location to create this job template. Format: <code>projects/{project}/locations/{location}</code> default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">JobTemplate <a href="#JobTemplate">JobTemplate</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">jobTemplateId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Required. The ID to use for the job template, which will become the final component of the job template's resource name. This value should be 4-63 characters, and valid characters must match the regular expression <code>a-zA-Z*</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#JobTemplate">JobTemplate</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "name" : "name",
+  "config" : {
+    "output" : {
+      "uri" : "uri"
+    },
+    "adBreaks" : [ {
+      "startTimeOffset" : "startTimeOffset"
+    }, {
+      "startTimeOffset" : "startTimeOffset"
+    } ],
+    "editList" : [ {
+      "endTimeOffset" : "endTimeOffset",
+      "inputs" : [ "inputs", "inputs" ],
+      "startTimeOffset" : "startTimeOffset",
+      "key" : "key"
+    }, {
+      "endTimeOffset" : "endTimeOffset",
+      "inputs" : [ "inputs", "inputs" ],
+      "startTimeOffset" : "startTimeOffset",
+      "key" : "key"
+    } ],
+    "spriteSheets" : [ {
+      "endTimeOffset" : "endTimeOffset",
+      "spriteWidthPixels" : 7,
+      "format" : "format",
+      "interval" : "interval",
+      "columnCount" : 3,
+      "rowCount" : 7,
+      "filePrefix" : "filePrefix",
+      "startTimeOffset" : "startTimeOffset",
+      "totalCount" : 6,
+      "spriteHeightPixels" : 0,
+      "quality" : 3
+    }, {
+      "endTimeOffset" : "endTimeOffset",
+      "spriteWidthPixels" : 7,
+      "format" : "format",
+      "interval" : "interval",
+      "columnCount" : 3,
+      "rowCount" : 7,
+      "filePrefix" : "filePrefix",
+      "startTimeOffset" : "startTimeOffset",
+      "totalCount" : 6,
+      "spriteHeightPixels" : 0,
+      "quality" : 3
+    } ],
+    "muxStreams" : [ {
+      "container" : "container",
+      "fileName" : "fileName",
+      "segmentSettings" : {
+        "segmentDuration" : "segmentDuration",
+        "individualSegments" : true
+      },
+      "encryption" : {
+        "aes128" : {
+          "keyUri" : "keyUri"
+        },
+        "mpegCenc" : {
+          "scheme" : "scheme",
+          "keyId" : "keyId"
+        },
+        "sampleAes" : {
+          "keyUri" : "keyUri"
+        },
+        "iv" : "iv",
+        "key" : "key"
+      },
+      "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+      "key" : "key"
+    }, {
+      "container" : "container",
+      "fileName" : "fileName",
+      "segmentSettings" : {
+        "segmentDuration" : "segmentDuration",
+        "individualSegments" : true
+      },
+      "encryption" : {
+        "aes128" : {
+          "keyUri" : "keyUri"
+        },
+        "mpegCenc" : {
+          "scheme" : "scheme",
+          "keyId" : "keyId"
+        },
+        "sampleAes" : {
+          "keyUri" : "keyUri"
+        },
+        "iv" : "iv",
+        "key" : "key"
+      },
+      "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+      "key" : "key"
+    } ],
+    "pubsubDestination" : {
+      "topic" : "topic"
+    },
+    "inputs" : [ {
+      "preprocessingConfig" : {
+        "pad" : {
+          "topPixels" : 6,
+          "bottomPixels" : 6,
+          "rightPixels" : 2,
+          "leftPixels" : 1
+        },
+        "denoise" : {
+          "strength" : 3.5571952270680973,
+          "tune" : "tune"
+        },
+        "color" : {
+          "saturation" : 9.965781217890562,
+          "brightness" : 4.965218492984954,
+          "contrast" : 5.025004791520295
+        },
+        "audio" : {
+          "lufs" : 1.1730742509559433,
+          "lowBoost" : true,
+          "highBoost" : true
+        },
+        "deblock" : {
+          "strength" : 6.438423552598547,
+          "enabled" : true
+        },
+        "crop" : {
+          "topPixels" : 9,
+          "bottomPixels" : 9,
+          "rightPixels" : 8,
+          "leftPixels" : 6
+        }
+      },
+      "uri" : "uri",
+      "key" : "key"
+    }, {
+      "preprocessingConfig" : {
+        "pad" : {
+          "topPixels" : 6,
+          "bottomPixels" : 6,
+          "rightPixels" : 2,
+          "leftPixels" : 1
+        },
+        "denoise" : {
+          "strength" : 3.5571952270680973,
+          "tune" : "tune"
+        },
+        "color" : {
+          "saturation" : 9.965781217890562,
+          "brightness" : 4.965218492984954,
+          "contrast" : 5.025004791520295
+        },
+        "audio" : {
+          "lufs" : 1.1730742509559433,
+          "lowBoost" : true,
+          "highBoost" : true
+        },
+        "deblock" : {
+          "strength" : 6.438423552598547,
+          "enabled" : true
+        },
+        "crop" : {
+          "topPixels" : 9,
+          "bottomPixels" : 9,
+          "rightPixels" : 8,
+          "leftPixels" : 6
+        }
+      },
+      "uri" : "uri",
+      "key" : "key"
+    } ],
+    "overlays" : [ {
+      "image" : {
+        "alpha" : 6.704019297950036,
+        "resolution" : {
+          "x" : 6.878052220127876,
+          "y" : 5.944895607614016
+        },
+        "uri" : "uri"
+      },
+      "animations" : [ {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      }, {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      } ]
+    }, {
+      "image" : {
+        "alpha" : 6.704019297950036,
+        "resolution" : {
+          "x" : 6.878052220127876,
+          "y" : 5.944895607614016
+        },
+        "uri" : "uri"
+      },
+      "animations" : [ {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      }, {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      } ]
+    } ],
+    "manifests" : [ {
+      "fileName" : "fileName",
+      "muxStreams" : [ "muxStreams", "muxStreams" ],
+      "type" : "MANIFEST_TYPE_UNSPECIFIED"
+    }, {
+      "fileName" : "fileName",
+      "muxStreams" : [ "muxStreams", "muxStreams" ],
+      "type" : "MANIFEST_TYPE_UNSPECIFIED"
+    } ],
+    "elementaryStreams" : [ {
+      "videoStream" : {
+        "entropyCoder" : "entropyCoder",
+        "pixelFormat" : "pixelFormat",
+        "enableTwoPass" : true,
+        "profile" : "profile",
+        "crfLevel" : 4,
+        "heightPixels" : 1,
+        "preset" : "preset",
+        "bitrateBps" : 2,
+        "tune" : "tune",
+        "widthPixels" : 7,
+        "codec" : "codec",
+        "frameRate" : 7.386281948385884,
+        "vbvSizeBits" : 6,
+        "bFrameCount" : 3,
+        "gopDuration" : "gopDuration",
+        "allowOpenGop" : true,
+        "aqStrength" : 9.301444243932576,
+        "bPyramid" : true,
+        "gopFrameCount" : 1,
+        "vbvFullnessBits" : 1,
+        "rateControlMode" : "rateControlMode"
+      },
+      "audioStream" : {
+        "sampleRateHertz" : 2,
+        "channelCount" : 6,
+        "channelLayout" : [ "channelLayout", "channelLayout" ],
+        "codec" : "codec",
+        "mapping" : [ {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        }, {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        } ],
+        "bitrateBps" : 0
+      },
+      "textStream" : {
+        "codec" : "codec",
+        "mapping" : [ {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        }, {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        } ],
+        "languageCode" : "languageCode"
+      },
+      "key" : "key"
+    }, {
+      "videoStream" : {
+        "entropyCoder" : "entropyCoder",
+        "pixelFormat" : "pixelFormat",
+        "enableTwoPass" : true,
+        "profile" : "profile",
+        "crfLevel" : 4,
+        "heightPixels" : 1,
+        "preset" : "preset",
+        "bitrateBps" : 2,
+        "tune" : "tune",
+        "widthPixels" : 7,
+        "codec" : "codec",
+        "frameRate" : 7.386281948385884,
+        "vbvSizeBits" : 6,
+        "bFrameCount" : 3,
+        "gopDuration" : "gopDuration",
+        "allowOpenGop" : true,
+        "aqStrength" : 9.301444243932576,
+        "bPyramid" : true,
+        "gopFrameCount" : 1,
+        "vbvFullnessBits" : 1,
+        "rateControlMode" : "rateControlMode"
+      },
+      "audioStream" : {
+        "sampleRateHertz" : 2,
+        "channelCount" : 6,
+        "channelLayout" : [ "channelLayout", "channelLayout" ],
+        "codec" : "codec",
+        "mapping" : [ {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        }, {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        } ],
+        "bitrateBps" : 0
+      },
+      "textStream" : {
+        "codec" : "codec",
+        "mapping" : [ {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        }, {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        } ],
+        "languageCode" : "languageCode"
+      },
+      "key" : "key"
+    } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#JobTemplate">JobTemplate</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="transcoder.projects.locations.jobTemplates.delete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1beta1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">transcoder.projects.locations.jobTemplates.delete</span>)</div>
+    <div class="method-notes">Deletes a job template.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the job template to delete. <code>projects/{project}/locations/{location}/jobTemplates/{job_template}</code> default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="transcoder.projects.locations.jobTemplates.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">transcoder.projects.locations.jobTemplates.get</span>)</div>
+    <div class="method-notes">Returns the job template data.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the job template to retrieve. Format: <code>projects/{project}/locations/{location}/jobTemplates/{job_template}</code> default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#JobTemplate">JobTemplate</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "name" : "name",
+  "config" : {
+    "output" : {
+      "uri" : "uri"
+    },
+    "adBreaks" : [ {
+      "startTimeOffset" : "startTimeOffset"
+    }, {
+      "startTimeOffset" : "startTimeOffset"
+    } ],
+    "editList" : [ {
+      "endTimeOffset" : "endTimeOffset",
+      "inputs" : [ "inputs", "inputs" ],
+      "startTimeOffset" : "startTimeOffset",
+      "key" : "key"
+    }, {
+      "endTimeOffset" : "endTimeOffset",
+      "inputs" : [ "inputs", "inputs" ],
+      "startTimeOffset" : "startTimeOffset",
+      "key" : "key"
+    } ],
+    "spriteSheets" : [ {
+      "endTimeOffset" : "endTimeOffset",
+      "spriteWidthPixels" : 7,
+      "format" : "format",
+      "interval" : "interval",
+      "columnCount" : 3,
+      "rowCount" : 7,
+      "filePrefix" : "filePrefix",
+      "startTimeOffset" : "startTimeOffset",
+      "totalCount" : 6,
+      "spriteHeightPixels" : 0,
+      "quality" : 3
+    }, {
+      "endTimeOffset" : "endTimeOffset",
+      "spriteWidthPixels" : 7,
+      "format" : "format",
+      "interval" : "interval",
+      "columnCount" : 3,
+      "rowCount" : 7,
+      "filePrefix" : "filePrefix",
+      "startTimeOffset" : "startTimeOffset",
+      "totalCount" : 6,
+      "spriteHeightPixels" : 0,
+      "quality" : 3
+    } ],
+    "muxStreams" : [ {
+      "container" : "container",
+      "fileName" : "fileName",
+      "segmentSettings" : {
+        "segmentDuration" : "segmentDuration",
+        "individualSegments" : true
+      },
+      "encryption" : {
+        "aes128" : {
+          "keyUri" : "keyUri"
+        },
+        "mpegCenc" : {
+          "scheme" : "scheme",
+          "keyId" : "keyId"
+        },
+        "sampleAes" : {
+          "keyUri" : "keyUri"
+        },
+        "iv" : "iv",
+        "key" : "key"
+      },
+      "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+      "key" : "key"
+    }, {
+      "container" : "container",
+      "fileName" : "fileName",
+      "segmentSettings" : {
+        "segmentDuration" : "segmentDuration",
+        "individualSegments" : true
+      },
+      "encryption" : {
+        "aes128" : {
+          "keyUri" : "keyUri"
+        },
+        "mpegCenc" : {
+          "scheme" : "scheme",
+          "keyId" : "keyId"
+        },
+        "sampleAes" : {
+          "keyUri" : "keyUri"
+        },
+        "iv" : "iv",
+        "key" : "key"
+      },
+      "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+      "key" : "key"
+    } ],
+    "pubsubDestination" : {
+      "topic" : "topic"
+    },
+    "inputs" : [ {
+      "preprocessingConfig" : {
+        "pad" : {
+          "topPixels" : 6,
+          "bottomPixels" : 6,
+          "rightPixels" : 2,
+          "leftPixels" : 1
+        },
+        "denoise" : {
+          "strength" : 3.5571952270680973,
+          "tune" : "tune"
+        },
+        "color" : {
+          "saturation" : 9.965781217890562,
+          "brightness" : 4.965218492984954,
+          "contrast" : 5.025004791520295
+        },
+        "audio" : {
+          "lufs" : 1.1730742509559433,
+          "lowBoost" : true,
+          "highBoost" : true
+        },
+        "deblock" : {
+          "strength" : 6.438423552598547,
+          "enabled" : true
+        },
+        "crop" : {
+          "topPixels" : 9,
+          "bottomPixels" : 9,
+          "rightPixels" : 8,
+          "leftPixels" : 6
+        }
+      },
+      "uri" : "uri",
+      "key" : "key"
+    }, {
+      "preprocessingConfig" : {
+        "pad" : {
+          "topPixels" : 6,
+          "bottomPixels" : 6,
+          "rightPixels" : 2,
+          "leftPixels" : 1
+        },
+        "denoise" : {
+          "strength" : 3.5571952270680973,
+          "tune" : "tune"
+        },
+        "color" : {
+          "saturation" : 9.965781217890562,
+          "brightness" : 4.965218492984954,
+          "contrast" : 5.025004791520295
+        },
+        "audio" : {
+          "lufs" : 1.1730742509559433,
+          "lowBoost" : true,
+          "highBoost" : true
+        },
+        "deblock" : {
+          "strength" : 6.438423552598547,
+          "enabled" : true
+        },
+        "crop" : {
+          "topPixels" : 9,
+          "bottomPixels" : 9,
+          "rightPixels" : 8,
+          "leftPixels" : 6
+        }
+      },
+      "uri" : "uri",
+      "key" : "key"
+    } ],
+    "overlays" : [ {
+      "image" : {
+        "alpha" : 6.704019297950036,
+        "resolution" : {
+          "x" : 6.878052220127876,
+          "y" : 5.944895607614016
+        },
+        "uri" : "uri"
+      },
+      "animations" : [ {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      }, {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      } ]
+    }, {
+      "image" : {
+        "alpha" : 6.704019297950036,
+        "resolution" : {
+          "x" : 6.878052220127876,
+          "y" : 5.944895607614016
+        },
+        "uri" : "uri"
+      },
+      "animations" : [ {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      }, {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      } ]
+    } ],
+    "manifests" : [ {
+      "fileName" : "fileName",
+      "muxStreams" : [ "muxStreams", "muxStreams" ],
+      "type" : "MANIFEST_TYPE_UNSPECIFIED"
+    }, {
+      "fileName" : "fileName",
+      "muxStreams" : [ "muxStreams", "muxStreams" ],
+      "type" : "MANIFEST_TYPE_UNSPECIFIED"
+    } ],
+    "elementaryStreams" : [ {
+      "videoStream" : {
+        "entropyCoder" : "entropyCoder",
+        "pixelFormat" : "pixelFormat",
+        "enableTwoPass" : true,
+        "profile" : "profile",
+        "crfLevel" : 4,
+        "heightPixels" : 1,
+        "preset" : "preset",
+        "bitrateBps" : 2,
+        "tune" : "tune",
+        "widthPixels" : 7,
+        "codec" : "codec",
+        "frameRate" : 7.386281948385884,
+        "vbvSizeBits" : 6,
+        "bFrameCount" : 3,
+        "gopDuration" : "gopDuration",
+        "allowOpenGop" : true,
+        "aqStrength" : 9.301444243932576,
+        "bPyramid" : true,
+        "gopFrameCount" : 1,
+        "vbvFullnessBits" : 1,
+        "rateControlMode" : "rateControlMode"
+      },
+      "audioStream" : {
+        "sampleRateHertz" : 2,
+        "channelCount" : 6,
+        "channelLayout" : [ "channelLayout", "channelLayout" ],
+        "codec" : "codec",
+        "mapping" : [ {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        }, {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        } ],
+        "bitrateBps" : 0
+      },
+      "textStream" : {
+        "codec" : "codec",
+        "mapping" : [ {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        }, {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        } ],
+        "languageCode" : "languageCode"
+      },
+      "key" : "key"
+    }, {
+      "videoStream" : {
+        "entropyCoder" : "entropyCoder",
+        "pixelFormat" : "pixelFormat",
+        "enableTwoPass" : true,
+        "profile" : "profile",
+        "crfLevel" : 4,
+        "heightPixels" : 1,
+        "preset" : "preset",
+        "bitrateBps" : 2,
+        "tune" : "tune",
+        "widthPixels" : 7,
+        "codec" : "codec",
+        "frameRate" : 7.386281948385884,
+        "vbvSizeBits" : 6,
+        "bFrameCount" : 3,
+        "gopDuration" : "gopDuration",
+        "allowOpenGop" : true,
+        "aqStrength" : 9.301444243932576,
+        "bPyramid" : true,
+        "gopFrameCount" : 1,
+        "vbvFullnessBits" : 1,
+        "rateControlMode" : "rateControlMode"
+      },
+      "audioStream" : {
+        "sampleRateHertz" : 2,
+        "channelCount" : 6,
+        "channelLayout" : [ "channelLayout", "channelLayout" ],
+        "codec" : "codec",
+        "mapping" : [ {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        }, {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        } ],
+        "bitrateBps" : 0
+      },
+      "textStream" : {
+        "codec" : "codec",
+        "mapping" : [ {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        }, {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        } ],
+        "languageCode" : "languageCode"
+      },
+      "key" : "key"
+    } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#JobTemplate">JobTemplate</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="transcoder.projects.locations.jobTemplates.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta1/{parent}/jobTemplates</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">transcoder.projects.locations.jobTemplates.list</span>)</div>
+    <div class="method-notes">Lists job templates in the specified region.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The parent location from which to retrieve the collection of job templates. Format: <code>projects/{project}/locations/{location}</code> default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of items to return. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The <code>next_page_token</code> value returned from a previous List request, if any. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListJobTemplatesResponse">ListJobTemplatesResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "jobTemplates" : [ {
+    "name" : "name",
+    "config" : {
+      "output" : {
+        "uri" : "uri"
+      },
+      "adBreaks" : [ {
+        "startTimeOffset" : "startTimeOffset"
+      }, {
+        "startTimeOffset" : "startTimeOffset"
+      } ],
+      "editList" : [ {
+        "endTimeOffset" : "endTimeOffset",
+        "inputs" : [ "inputs", "inputs" ],
+        "startTimeOffset" : "startTimeOffset",
+        "key" : "key"
+      }, {
+        "endTimeOffset" : "endTimeOffset",
+        "inputs" : [ "inputs", "inputs" ],
+        "startTimeOffset" : "startTimeOffset",
+        "key" : "key"
+      } ],
+      "spriteSheets" : [ {
+        "endTimeOffset" : "endTimeOffset",
+        "spriteWidthPixels" : 7,
+        "format" : "format",
+        "interval" : "interval",
+        "columnCount" : 3,
+        "rowCount" : 7,
+        "filePrefix" : "filePrefix",
+        "startTimeOffset" : "startTimeOffset",
+        "totalCount" : 6,
+        "spriteHeightPixels" : 0,
+        "quality" : 3
+      }, {
+        "endTimeOffset" : "endTimeOffset",
+        "spriteWidthPixels" : 7,
+        "format" : "format",
+        "interval" : "interval",
+        "columnCount" : 3,
+        "rowCount" : 7,
+        "filePrefix" : "filePrefix",
+        "startTimeOffset" : "startTimeOffset",
+        "totalCount" : 6,
+        "spriteHeightPixels" : 0,
+        "quality" : 3
+      } ],
+      "muxStreams" : [ {
+        "container" : "container",
+        "fileName" : "fileName",
+        "segmentSettings" : {
+          "segmentDuration" : "segmentDuration",
+          "individualSegments" : true
+        },
+        "encryption" : {
+          "aes128" : {
+            "keyUri" : "keyUri"
+          },
+          "mpegCenc" : {
+            "scheme" : "scheme",
+            "keyId" : "keyId"
+          },
+          "sampleAes" : {
+            "keyUri" : "keyUri"
+          },
+          "iv" : "iv",
+          "key" : "key"
+        },
+        "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+        "key" : "key"
+      }, {
+        "container" : "container",
+        "fileName" : "fileName",
+        "segmentSettings" : {
+          "segmentDuration" : "segmentDuration",
+          "individualSegments" : true
+        },
+        "encryption" : {
+          "aes128" : {
+            "keyUri" : "keyUri"
+          },
+          "mpegCenc" : {
+            "scheme" : "scheme",
+            "keyId" : "keyId"
+          },
+          "sampleAes" : {
+            "keyUri" : "keyUri"
+          },
+          "iv" : "iv",
+          "key" : "key"
+        },
+        "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+        "key" : "key"
+      } ],
+      "pubsubDestination" : {
+        "topic" : "topic"
+      },
+      "inputs" : [ {
+        "preprocessingConfig" : {
+          "pad" : {
+            "topPixels" : 6,
+            "bottomPixels" : 6,
+            "rightPixels" : 2,
+            "leftPixels" : 1
+          },
+          "denoise" : {
+            "strength" : 3.5571952270680973,
+            "tune" : "tune"
+          },
+          "color" : {
+            "saturation" : 9.965781217890562,
+            "brightness" : 4.965218492984954,
+            "contrast" : 5.025004791520295
+          },
+          "audio" : {
+            "lufs" : 1.1730742509559433,
+            "lowBoost" : true,
+            "highBoost" : true
+          },
+          "deblock" : {
+            "strength" : 6.438423552598547,
+            "enabled" : true
+          },
+          "crop" : {
+            "topPixels" : 9,
+            "bottomPixels" : 9,
+            "rightPixels" : 8,
+            "leftPixels" : 6
+          }
+        },
+        "uri" : "uri",
+        "key" : "key"
+      }, {
+        "preprocessingConfig" : {
+          "pad" : {
+            "topPixels" : 6,
+            "bottomPixels" : 6,
+            "rightPixels" : 2,
+            "leftPixels" : 1
+          },
+          "denoise" : {
+            "strength" : 3.5571952270680973,
+            "tune" : "tune"
+          },
+          "color" : {
+            "saturation" : 9.965781217890562,
+            "brightness" : 4.965218492984954,
+            "contrast" : 5.025004791520295
+          },
+          "audio" : {
+            "lufs" : 1.1730742509559433,
+            "lowBoost" : true,
+            "highBoost" : true
+          },
+          "deblock" : {
+            "strength" : 6.438423552598547,
+            "enabled" : true
+          },
+          "crop" : {
+            "topPixels" : 9,
+            "bottomPixels" : 9,
+            "rightPixels" : 8,
+            "leftPixels" : 6
+          }
+        },
+        "uri" : "uri",
+        "key" : "key"
+      } ],
+      "overlays" : [ {
+        "image" : {
+          "alpha" : 6.704019297950036,
+          "resolution" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "uri" : "uri"
+        },
+        "animations" : [ {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        }, {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        } ]
+      }, {
+        "image" : {
+          "alpha" : 6.704019297950036,
+          "resolution" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "uri" : "uri"
+        },
+        "animations" : [ {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        }, {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        } ]
+      } ],
+      "manifests" : [ {
+        "fileName" : "fileName",
+        "muxStreams" : [ "muxStreams", "muxStreams" ],
+        "type" : "MANIFEST_TYPE_UNSPECIFIED"
+      }, {
+        "fileName" : "fileName",
+        "muxStreams" : [ "muxStreams", "muxStreams" ],
+        "type" : "MANIFEST_TYPE_UNSPECIFIED"
+      } ],
+      "elementaryStreams" : [ {
+        "videoStream" : {
+          "entropyCoder" : "entropyCoder",
+          "pixelFormat" : "pixelFormat",
+          "enableTwoPass" : true,
+          "profile" : "profile",
+          "crfLevel" : 4,
+          "heightPixels" : 1,
+          "preset" : "preset",
+          "bitrateBps" : 2,
+          "tune" : "tune",
+          "widthPixels" : 7,
+          "codec" : "codec",
+          "frameRate" : 7.386281948385884,
+          "vbvSizeBits" : 6,
+          "bFrameCount" : 3,
+          "gopDuration" : "gopDuration",
+          "allowOpenGop" : true,
+          "aqStrength" : 9.301444243932576,
+          "bPyramid" : true,
+          "gopFrameCount" : 1,
+          "vbvFullnessBits" : 1,
+          "rateControlMode" : "rateControlMode"
+        },
+        "audioStream" : {
+          "sampleRateHertz" : 2,
+          "channelCount" : 6,
+          "channelLayout" : [ "channelLayout", "channelLayout" ],
+          "codec" : "codec",
+          "mapping" : [ {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          }, {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          } ],
+          "bitrateBps" : 0
+        },
+        "textStream" : {
+          "codec" : "codec",
+          "mapping" : [ {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          }, {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          } ],
+          "languageCode" : "languageCode"
+        },
+        "key" : "key"
+      }, {
+        "videoStream" : {
+          "entropyCoder" : "entropyCoder",
+          "pixelFormat" : "pixelFormat",
+          "enableTwoPass" : true,
+          "profile" : "profile",
+          "crfLevel" : 4,
+          "heightPixels" : 1,
+          "preset" : "preset",
+          "bitrateBps" : 2,
+          "tune" : "tune",
+          "widthPixels" : 7,
+          "codec" : "codec",
+          "frameRate" : 7.386281948385884,
+          "vbvSizeBits" : 6,
+          "bFrameCount" : 3,
+          "gopDuration" : "gopDuration",
+          "allowOpenGop" : true,
+          "aqStrength" : 9.301444243932576,
+          "bPyramid" : true,
+          "gopFrameCount" : 1,
+          "vbvFullnessBits" : 1,
+          "rateControlMode" : "rateControlMode"
+        },
+        "audioStream" : {
+          "sampleRateHertz" : 2,
+          "channelCount" : 6,
+          "channelLayout" : [ "channelLayout", "channelLayout" ],
+          "codec" : "codec",
+          "mapping" : [ {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          }, {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          } ],
+          "bitrateBps" : 0
+        },
+        "textStream" : {
+          "codec" : "codec",
+          "mapping" : [ {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          }, {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          } ],
+          "languageCode" : "languageCode"
+        },
+        "key" : "key"
+      } ]
+    }
+  }, {
+    "name" : "name",
+    "config" : {
+      "output" : {
+        "uri" : "uri"
+      },
+      "adBreaks" : [ {
+        "startTimeOffset" : "startTimeOffset"
+      }, {
+        "startTimeOffset" : "startTimeOffset"
+      } ],
+      "editList" : [ {
+        "endTimeOffset" : "endTimeOffset",
+        "inputs" : [ "inputs", "inputs" ],
+        "startTimeOffset" : "startTimeOffset",
+        "key" : "key"
+      }, {
+        "endTimeOffset" : "endTimeOffset",
+        "inputs" : [ "inputs", "inputs" ],
+        "startTimeOffset" : "startTimeOffset",
+        "key" : "key"
+      } ],
+      "spriteSheets" : [ {
+        "endTimeOffset" : "endTimeOffset",
+        "spriteWidthPixels" : 7,
+        "format" : "format",
+        "interval" : "interval",
+        "columnCount" : 3,
+        "rowCount" : 7,
+        "filePrefix" : "filePrefix",
+        "startTimeOffset" : "startTimeOffset",
+        "totalCount" : 6,
+        "spriteHeightPixels" : 0,
+        "quality" : 3
+      }, {
+        "endTimeOffset" : "endTimeOffset",
+        "spriteWidthPixels" : 7,
+        "format" : "format",
+        "interval" : "interval",
+        "columnCount" : 3,
+        "rowCount" : 7,
+        "filePrefix" : "filePrefix",
+        "startTimeOffset" : "startTimeOffset",
+        "totalCount" : 6,
+        "spriteHeightPixels" : 0,
+        "quality" : 3
+      } ],
+      "muxStreams" : [ {
+        "container" : "container",
+        "fileName" : "fileName",
+        "segmentSettings" : {
+          "segmentDuration" : "segmentDuration",
+          "individualSegments" : true
+        },
+        "encryption" : {
+          "aes128" : {
+            "keyUri" : "keyUri"
+          },
+          "mpegCenc" : {
+            "scheme" : "scheme",
+            "keyId" : "keyId"
+          },
+          "sampleAes" : {
+            "keyUri" : "keyUri"
+          },
+          "iv" : "iv",
+          "key" : "key"
+        },
+        "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+        "key" : "key"
+      }, {
+        "container" : "container",
+        "fileName" : "fileName",
+        "segmentSettings" : {
+          "segmentDuration" : "segmentDuration",
+          "individualSegments" : true
+        },
+        "encryption" : {
+          "aes128" : {
+            "keyUri" : "keyUri"
+          },
+          "mpegCenc" : {
+            "scheme" : "scheme",
+            "keyId" : "keyId"
+          },
+          "sampleAes" : {
+            "keyUri" : "keyUri"
+          },
+          "iv" : "iv",
+          "key" : "key"
+        },
+        "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+        "key" : "key"
+      } ],
+      "pubsubDestination" : {
+        "topic" : "topic"
+      },
+      "inputs" : [ {
+        "preprocessingConfig" : {
+          "pad" : {
+            "topPixels" : 6,
+            "bottomPixels" : 6,
+            "rightPixels" : 2,
+            "leftPixels" : 1
+          },
+          "denoise" : {
+            "strength" : 3.5571952270680973,
+            "tune" : "tune"
+          },
+          "color" : {
+            "saturation" : 9.965781217890562,
+            "brightness" : 4.965218492984954,
+            "contrast" : 5.025004791520295
+          },
+          "audio" : {
+            "lufs" : 1.1730742509559433,
+            "lowBoost" : true,
+            "highBoost" : true
+          },
+          "deblock" : {
+            "strength" : 6.438423552598547,
+            "enabled" : true
+          },
+          "crop" : {
+            "topPixels" : 9,
+            "bottomPixels" : 9,
+            "rightPixels" : 8,
+            "leftPixels" : 6
+          }
+        },
+        "uri" : "uri",
+        "key" : "key"
+      }, {
+        "preprocessingConfig" : {
+          "pad" : {
+            "topPixels" : 6,
+            "bottomPixels" : 6,
+            "rightPixels" : 2,
+            "leftPixels" : 1
+          },
+          "denoise" : {
+            "strength" : 3.5571952270680973,
+            "tune" : "tune"
+          },
+          "color" : {
+            "saturation" : 9.965781217890562,
+            "brightness" : 4.965218492984954,
+            "contrast" : 5.025004791520295
+          },
+          "audio" : {
+            "lufs" : 1.1730742509559433,
+            "lowBoost" : true,
+            "highBoost" : true
+          },
+          "deblock" : {
+            "strength" : 6.438423552598547,
+            "enabled" : true
+          },
+          "crop" : {
+            "topPixels" : 9,
+            "bottomPixels" : 9,
+            "rightPixels" : 8,
+            "leftPixels" : 6
+          }
+        },
+        "uri" : "uri",
+        "key" : "key"
+      } ],
+      "overlays" : [ {
+        "image" : {
+          "alpha" : 6.704019297950036,
+          "resolution" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "uri" : "uri"
+        },
+        "animations" : [ {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        }, {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        } ]
+      }, {
+        "image" : {
+          "alpha" : 6.704019297950036,
+          "resolution" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "uri" : "uri"
+        },
+        "animations" : [ {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        }, {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        } ]
+      } ],
+      "manifests" : [ {
+        "fileName" : "fileName",
+        "muxStreams" : [ "muxStreams", "muxStreams" ],
+        "type" : "MANIFEST_TYPE_UNSPECIFIED"
+      }, {
+        "fileName" : "fileName",
+        "muxStreams" : [ "muxStreams", "muxStreams" ],
+        "type" : "MANIFEST_TYPE_UNSPECIFIED"
+      } ],
+      "elementaryStreams" : [ {
+        "videoStream" : {
+          "entropyCoder" : "entropyCoder",
+          "pixelFormat" : "pixelFormat",
+          "enableTwoPass" : true,
+          "profile" : "profile",
+          "crfLevel" : 4,
+          "heightPixels" : 1,
+          "preset" : "preset",
+          "bitrateBps" : 2,
+          "tune" : "tune",
+          "widthPixels" : 7,
+          "codec" : "codec",
+          "frameRate" : 7.386281948385884,
+          "vbvSizeBits" : 6,
+          "bFrameCount" : 3,
+          "gopDuration" : "gopDuration",
+          "allowOpenGop" : true,
+          "aqStrength" : 9.301444243932576,
+          "bPyramid" : true,
+          "gopFrameCount" : 1,
+          "vbvFullnessBits" : 1,
+          "rateControlMode" : "rateControlMode"
+        },
+        "audioStream" : {
+          "sampleRateHertz" : 2,
+          "channelCount" : 6,
+          "channelLayout" : [ "channelLayout", "channelLayout" ],
+          "codec" : "codec",
+          "mapping" : [ {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          }, {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          } ],
+          "bitrateBps" : 0
+        },
+        "textStream" : {
+          "codec" : "codec",
+          "mapping" : [ {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          }, {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          } ],
+          "languageCode" : "languageCode"
+        },
+        "key" : "key"
+      }, {
+        "videoStream" : {
+          "entropyCoder" : "entropyCoder",
+          "pixelFormat" : "pixelFormat",
+          "enableTwoPass" : true,
+          "profile" : "profile",
+          "crfLevel" : 4,
+          "heightPixels" : 1,
+          "preset" : "preset",
+          "bitrateBps" : 2,
+          "tune" : "tune",
+          "widthPixels" : 7,
+          "codec" : "codec",
+          "frameRate" : 7.386281948385884,
+          "vbvSizeBits" : 6,
+          "bFrameCount" : 3,
+          "gopDuration" : "gopDuration",
+          "allowOpenGop" : true,
+          "aqStrength" : 9.301444243932576,
+          "bPyramid" : true,
+          "gopFrameCount" : 1,
+          "vbvFullnessBits" : 1,
+          "rateControlMode" : "rateControlMode"
+        },
+        "audioStream" : {
+          "sampleRateHertz" : 2,
+          "channelCount" : 6,
+          "channelLayout" : [ "channelLayout", "channelLayout" ],
+          "codec" : "codec",
+          "mapping" : [ {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          }, {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          } ],
+          "bitrateBps" : 0
+        },
+        "textStream" : {
+          "codec" : "codec",
+          "mapping" : [ {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          }, {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          } ],
+          "languageCode" : "languageCode"
+        },
+        "key" : "key"
+      } ]
+    }
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListJobTemplatesResponse">ListJobTemplatesResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="transcoder.projects.locations.jobs.create"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1beta1/{parent}/jobs</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">transcoder.projects.locations.jobs.create</span>)</div>
+    <div class="method-notes">Creates a job in the specified region.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The parent location to create and process this job. Format: <code>projects/{project}/locations/{location}</code> default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Job <a href="#Job">Job</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Job">Job</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ttlAfterCompletionDays" : 2,
+  "outputUri" : "outputUri",
+  "inputUri" : "inputUri",
+  "priority" : 0,
+  "templateId" : "templateId",
+  "createTime" : "createTime",
+  "failureDetails" : [ {
+    "description" : "description"
+  }, {
+    "description" : "description"
+  } ],
+  "failureReason" : "failureReason",
+  "name" : "name",
+  "originUri" : {
+    "dash" : "dash",
+    "hls" : "hls"
+  },
+  "progress" : {
+    "notified" : 5.962133916683182,
+    "analyzed" : 6.027456183070403,
+    "uploaded" : 5.637376656633329,
+    "encoded" : 1.4658129805029452
+  },
+  "startTime" : "startTime",
+  "endTime" : "endTime",
+  "state" : "PROCESSING_STATE_UNSPECIFIED",
+  "config" : {
+    "output" : {
+      "uri" : "uri"
+    },
+    "adBreaks" : [ {
+      "startTimeOffset" : "startTimeOffset"
+    }, {
+      "startTimeOffset" : "startTimeOffset"
+    } ],
+    "editList" : [ {
+      "endTimeOffset" : "endTimeOffset",
+      "inputs" : [ "inputs", "inputs" ],
+      "startTimeOffset" : "startTimeOffset",
+      "key" : "key"
+    }, {
+      "endTimeOffset" : "endTimeOffset",
+      "inputs" : [ "inputs", "inputs" ],
+      "startTimeOffset" : "startTimeOffset",
+      "key" : "key"
+    } ],
+    "spriteSheets" : [ {
+      "endTimeOffset" : "endTimeOffset",
+      "spriteWidthPixels" : 7,
+      "format" : "format",
+      "interval" : "interval",
+      "columnCount" : 3,
+      "rowCount" : 7,
+      "filePrefix" : "filePrefix",
+      "startTimeOffset" : "startTimeOffset",
+      "totalCount" : 6,
+      "spriteHeightPixels" : 0,
+      "quality" : 3
+    }, {
+      "endTimeOffset" : "endTimeOffset",
+      "spriteWidthPixels" : 7,
+      "format" : "format",
+      "interval" : "interval",
+      "columnCount" : 3,
+      "rowCount" : 7,
+      "filePrefix" : "filePrefix",
+      "startTimeOffset" : "startTimeOffset",
+      "totalCount" : 6,
+      "spriteHeightPixels" : 0,
+      "quality" : 3
+    } ],
+    "muxStreams" : [ {
+      "container" : "container",
+      "fileName" : "fileName",
+      "segmentSettings" : {
+        "segmentDuration" : "segmentDuration",
+        "individualSegments" : true
+      },
+      "encryption" : {
+        "aes128" : {
+          "keyUri" : "keyUri"
+        },
+        "mpegCenc" : {
+          "scheme" : "scheme",
+          "keyId" : "keyId"
+        },
+        "sampleAes" : {
+          "keyUri" : "keyUri"
+        },
+        "iv" : "iv",
+        "key" : "key"
+      },
+      "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+      "key" : "key"
+    }, {
+      "container" : "container",
+      "fileName" : "fileName",
+      "segmentSettings" : {
+        "segmentDuration" : "segmentDuration",
+        "individualSegments" : true
+      },
+      "encryption" : {
+        "aes128" : {
+          "keyUri" : "keyUri"
+        },
+        "mpegCenc" : {
+          "scheme" : "scheme",
+          "keyId" : "keyId"
+        },
+        "sampleAes" : {
+          "keyUri" : "keyUri"
+        },
+        "iv" : "iv",
+        "key" : "key"
+      },
+      "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+      "key" : "key"
+    } ],
+    "pubsubDestination" : {
+      "topic" : "topic"
+    },
+    "inputs" : [ {
+      "preprocessingConfig" : {
+        "pad" : {
+          "topPixels" : 6,
+          "bottomPixels" : 6,
+          "rightPixels" : 2,
+          "leftPixels" : 1
+        },
+        "denoise" : {
+          "strength" : 3.5571952270680973,
+          "tune" : "tune"
+        },
+        "color" : {
+          "saturation" : 9.965781217890562,
+          "brightness" : 4.965218492984954,
+          "contrast" : 5.025004791520295
+        },
+        "audio" : {
+          "lufs" : 1.1730742509559433,
+          "lowBoost" : true,
+          "highBoost" : true
+        },
+        "deblock" : {
+          "strength" : 6.438423552598547,
+          "enabled" : true
+        },
+        "crop" : {
+          "topPixels" : 9,
+          "bottomPixels" : 9,
+          "rightPixels" : 8,
+          "leftPixels" : 6
+        }
+      },
+      "uri" : "uri",
+      "key" : "key"
+    }, {
+      "preprocessingConfig" : {
+        "pad" : {
+          "topPixels" : 6,
+          "bottomPixels" : 6,
+          "rightPixels" : 2,
+          "leftPixels" : 1
+        },
+        "denoise" : {
+          "strength" : 3.5571952270680973,
+          "tune" : "tune"
+        },
+        "color" : {
+          "saturation" : 9.965781217890562,
+          "brightness" : 4.965218492984954,
+          "contrast" : 5.025004791520295
+        },
+        "audio" : {
+          "lufs" : 1.1730742509559433,
+          "lowBoost" : true,
+          "highBoost" : true
+        },
+        "deblock" : {
+          "strength" : 6.438423552598547,
+          "enabled" : true
+        },
+        "crop" : {
+          "topPixels" : 9,
+          "bottomPixels" : 9,
+          "rightPixels" : 8,
+          "leftPixels" : 6
+        }
+      },
+      "uri" : "uri",
+      "key" : "key"
+    } ],
+    "overlays" : [ {
+      "image" : {
+        "alpha" : 6.704019297950036,
+        "resolution" : {
+          "x" : 6.878052220127876,
+          "y" : 5.944895607614016
+        },
+        "uri" : "uri"
+      },
+      "animations" : [ {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      }, {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      } ]
+    }, {
+      "image" : {
+        "alpha" : 6.704019297950036,
+        "resolution" : {
+          "x" : 6.878052220127876,
+          "y" : 5.944895607614016
+        },
+        "uri" : "uri"
+      },
+      "animations" : [ {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      }, {
+        "animationStatic" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationFade" : {
+          "xy" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "endTimeOffset" : "endTimeOffset",
+          "fadeType" : "FADE_TYPE_UNSPECIFIED",
+          "startTimeOffset" : "startTimeOffset"
+        },
+        "animationEnd" : {
+          "startTimeOffset" : "startTimeOffset"
+        }
+      } ]
+    } ],
+    "manifests" : [ {
+      "fileName" : "fileName",
+      "muxStreams" : [ "muxStreams", "muxStreams" ],
+      "type" : "MANIFEST_TYPE_UNSPECIFIED"
+    }, {
+      "fileName" : "fileName",
+      "muxStreams" : [ "muxStreams", "muxStreams" ],
+      "type" : "MANIFEST_TYPE_UNSPECIFIED"
+    } ],
+    "elementaryStreams" : [ {
+      "videoStream" : {
+        "entropyCoder" : "entropyCoder",
+        "pixelFormat" : "pixelFormat",
+        "enableTwoPass" : true,
+        "profile" : "profile",
+        "crfLevel" : 4,
+        "heightPixels" : 1,
+        "preset" : "preset",
+        "bitrateBps" : 2,
+        "tune" : "tune",
+        "widthPixels" : 7,
+        "codec" : "codec",
+        "frameRate" : 7.386281948385884,
+        "vbvSizeBits" : 6,
+        "bFrameCount" : 3,
+        "gopDuration" : "gopDuration",
+        "allowOpenGop" : true,
+        "aqStrength" : 9.301444243932576,
+        "bPyramid" : true,
+        "gopFrameCount" : 1,
+        "vbvFullnessBits" : 1,
+        "rateControlMode" : "rateControlMode"
+      },
+      "audioStream" : {
+        "sampleRateHertz" : 2,
+        "channelCount" : 6,
+        "channelLayout" : [ "channelLayout", "channelLayout" ],
+        "codec" : "codec",
+        "mapping" : [ {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        }, {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        } ],
+        "bitrateBps" : 0
+      },
+      "textStream" : {
+        "codec" : "codec",
+        "mapping" : [ {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        }, {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        } ],
+        "languageCode" : "languageCode"
+      },
+      "key" : "key"
+    }, {
+      "videoStream" : {
+        "entropyCoder" : "entropyCoder",
+        "pixelFormat" : "pixelFormat",
+        "enableTwoPass" : true,
+        "profile" : "profile",
+        "crfLevel" : 4,
+        "heightPixels" : 1,
+        "preset" : "preset",
+        "bitrateBps" : 2,
+        "tune" : "tune",
+        "widthPixels" : 7,
+        "codec" : "codec",
+        "frameRate" : 7.386281948385884,
+        "vbvSizeBits" : 6,
+        "bFrameCount" : 3,
+        "gopDuration" : "gopDuration",
+        "allowOpenGop" : true,
+        "aqStrength" : 9.301444243932576,
+        "bPyramid" : true,
+        "gopFrameCount" : 1,
+        "vbvFullnessBits" : 1,
+        "rateControlMode" : "rateControlMode"
+      },
+      "audioStream" : {
+        "sampleRateHertz" : 2,
+        "channelCount" : 6,
+        "channelLayout" : [ "channelLayout", "channelLayout" ],
+        "codec" : "codec",
+        "mapping" : [ {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        }, {
+          "channels" : [ {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          }, {
+            "inputs" : [ {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            }, {
+              "gainDb" : 5.962133916683182,
+              "channel" : 1,
+              "track" : 5,
+              "key" : "key"
+            } ]
+          } ],
+          "key" : "key"
+        } ],
+        "bitrateBps" : 0
+      },
+      "textStream" : {
+        "codec" : "codec",
+        "mapping" : [ {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        }, {
+          "inputs" : [ {
+            "track" : 7,
+            "key" : "key"
+          }, {
+            "track" : 7,
+            "key" : "key"
+          } ],
+          "key" : "key"
+        } ],
+        "languageCode" : "languageCode"
+      },
+      "key" : "key"
+    } ]
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Job">Job</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="transcoder.projects.locations.jobs.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta1/{parent}/jobs</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">transcoder.projects.locations.jobs.list</span>)</div>
+    <div class="method-notes">Lists jobs in the specified region.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Format: <code>projects/{project}/locations/{location}</code> default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of items to return. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The <code>next_page_token</code> value returned from a previous List request, if any. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListJobsResponse">ListJobsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "jobs" : [ {
+    "ttlAfterCompletionDays" : 2,
+    "outputUri" : "outputUri",
+    "inputUri" : "inputUri",
+    "priority" : 0,
+    "templateId" : "templateId",
+    "createTime" : "createTime",
+    "failureDetails" : [ {
+      "description" : "description"
+    }, {
+      "description" : "description"
+    } ],
+    "failureReason" : "failureReason",
+    "name" : "name",
+    "originUri" : {
+      "dash" : "dash",
+      "hls" : "hls"
+    },
+    "progress" : {
+      "notified" : 5.962133916683182,
+      "analyzed" : 6.027456183070403,
+      "uploaded" : 5.637376656633329,
+      "encoded" : 1.4658129805029452
+    },
+    "startTime" : "startTime",
+    "endTime" : "endTime",
+    "state" : "PROCESSING_STATE_UNSPECIFIED",
+    "config" : {
+      "output" : {
+        "uri" : "uri"
+      },
+      "adBreaks" : [ {
+        "startTimeOffset" : "startTimeOffset"
+      }, {
+        "startTimeOffset" : "startTimeOffset"
+      } ],
+      "editList" : [ {
+        "endTimeOffset" : "endTimeOffset",
+        "inputs" : [ "inputs", "inputs" ],
+        "startTimeOffset" : "startTimeOffset",
+        "key" : "key"
+      }, {
+        "endTimeOffset" : "endTimeOffset",
+        "inputs" : [ "inputs", "inputs" ],
+        "startTimeOffset" : "startTimeOffset",
+        "key" : "key"
+      } ],
+      "spriteSheets" : [ {
+        "endTimeOffset" : "endTimeOffset",
+        "spriteWidthPixels" : 7,
+        "format" : "format",
+        "interval" : "interval",
+        "columnCount" : 3,
+        "rowCount" : 7,
+        "filePrefix" : "filePrefix",
+        "startTimeOffset" : "startTimeOffset",
+        "totalCount" : 6,
+        "spriteHeightPixels" : 0,
+        "quality" : 3
+      }, {
+        "endTimeOffset" : "endTimeOffset",
+        "spriteWidthPixels" : 7,
+        "format" : "format",
+        "interval" : "interval",
+        "columnCount" : 3,
+        "rowCount" : 7,
+        "filePrefix" : "filePrefix",
+        "startTimeOffset" : "startTimeOffset",
+        "totalCount" : 6,
+        "spriteHeightPixels" : 0,
+        "quality" : 3
+      } ],
+      "muxStreams" : [ {
+        "container" : "container",
+        "fileName" : "fileName",
+        "segmentSettings" : {
+          "segmentDuration" : "segmentDuration",
+          "individualSegments" : true
+        },
+        "encryption" : {
+          "aes128" : {
+            "keyUri" : "keyUri"
+          },
+          "mpegCenc" : {
+            "scheme" : "scheme",
+            "keyId" : "keyId"
+          },
+          "sampleAes" : {
+            "keyUri" : "keyUri"
+          },
+          "iv" : "iv",
+          "key" : "key"
+        },
+        "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+        "key" : "key"
+      }, {
+        "container" : "container",
+        "fileName" : "fileName",
+        "segmentSettings" : {
+          "segmentDuration" : "segmentDuration",
+          "individualSegments" : true
+        },
+        "encryption" : {
+          "aes128" : {
+            "keyUri" : "keyUri"
+          },
+          "mpegCenc" : {
+            "scheme" : "scheme",
+            "keyId" : "keyId"
+          },
+          "sampleAes" : {
+            "keyUri" : "keyUri"
+          },
+          "iv" : "iv",
+          "key" : "key"
+        },
+        "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+        "key" : "key"
+      } ],
+      "pubsubDestination" : {
+        "topic" : "topic"
+      },
+      "inputs" : [ {
+        "preprocessingConfig" : {
+          "pad" : {
+            "topPixels" : 6,
+            "bottomPixels" : 6,
+            "rightPixels" : 2,
+            "leftPixels" : 1
+          },
+          "denoise" : {
+            "strength" : 3.5571952270680973,
+            "tune" : "tune"
+          },
+          "color" : {
+            "saturation" : 9.965781217890562,
+            "brightness" : 4.965218492984954,
+            "contrast" : 5.025004791520295
+          },
+          "audio" : {
+            "lufs" : 1.1730742509559433,
+            "lowBoost" : true,
+            "highBoost" : true
+          },
+          "deblock" : {
+            "strength" : 6.438423552598547,
+            "enabled" : true
+          },
+          "crop" : {
+            "topPixels" : 9,
+            "bottomPixels" : 9,
+            "rightPixels" : 8,
+            "leftPixels" : 6
+          }
+        },
+        "uri" : "uri",
+        "key" : "key"
+      }, {
+        "preprocessingConfig" : {
+          "pad" : {
+            "topPixels" : 6,
+            "bottomPixels" : 6,
+            "rightPixels" : 2,
+            "leftPixels" : 1
+          },
+          "denoise" : {
+            "strength" : 3.5571952270680973,
+            "tune" : "tune"
+          },
+          "color" : {
+            "saturation" : 9.965781217890562,
+            "brightness" : 4.965218492984954,
+            "contrast" : 5.025004791520295
+          },
+          "audio" : {
+            "lufs" : 1.1730742509559433,
+            "lowBoost" : true,
+            "highBoost" : true
+          },
+          "deblock" : {
+            "strength" : 6.438423552598547,
+            "enabled" : true
+          },
+          "crop" : {
+            "topPixels" : 9,
+            "bottomPixels" : 9,
+            "rightPixels" : 8,
+            "leftPixels" : 6
+          }
+        },
+        "uri" : "uri",
+        "key" : "key"
+      } ],
+      "overlays" : [ {
+        "image" : {
+          "alpha" : 6.704019297950036,
+          "resolution" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "uri" : "uri"
+        },
+        "animations" : [ {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        }, {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        } ]
+      }, {
+        "image" : {
+          "alpha" : 6.704019297950036,
+          "resolution" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "uri" : "uri"
+        },
+        "animations" : [ {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        }, {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        } ]
+      } ],
+      "manifests" : [ {
+        "fileName" : "fileName",
+        "muxStreams" : [ "muxStreams", "muxStreams" ],
+        "type" : "MANIFEST_TYPE_UNSPECIFIED"
+      }, {
+        "fileName" : "fileName",
+        "muxStreams" : [ "muxStreams", "muxStreams" ],
+        "type" : "MANIFEST_TYPE_UNSPECIFIED"
+      } ],
+      "elementaryStreams" : [ {
+        "videoStream" : {
+          "entropyCoder" : "entropyCoder",
+          "pixelFormat" : "pixelFormat",
+          "enableTwoPass" : true,
+          "profile" : "profile",
+          "crfLevel" : 4,
+          "heightPixels" : 1,
+          "preset" : "preset",
+          "bitrateBps" : 2,
+          "tune" : "tune",
+          "widthPixels" : 7,
+          "codec" : "codec",
+          "frameRate" : 7.386281948385884,
+          "vbvSizeBits" : 6,
+          "bFrameCount" : 3,
+          "gopDuration" : "gopDuration",
+          "allowOpenGop" : true,
+          "aqStrength" : 9.301444243932576,
+          "bPyramid" : true,
+          "gopFrameCount" : 1,
+          "vbvFullnessBits" : 1,
+          "rateControlMode" : "rateControlMode"
+        },
+        "audioStream" : {
+          "sampleRateHertz" : 2,
+          "channelCount" : 6,
+          "channelLayout" : [ "channelLayout", "channelLayout" ],
+          "codec" : "codec",
+          "mapping" : [ {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          }, {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          } ],
+          "bitrateBps" : 0
+        },
+        "textStream" : {
+          "codec" : "codec",
+          "mapping" : [ {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          }, {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          } ],
+          "languageCode" : "languageCode"
+        },
+        "key" : "key"
+      }, {
+        "videoStream" : {
+          "entropyCoder" : "entropyCoder",
+          "pixelFormat" : "pixelFormat",
+          "enableTwoPass" : true,
+          "profile" : "profile",
+          "crfLevel" : 4,
+          "heightPixels" : 1,
+          "preset" : "preset",
+          "bitrateBps" : 2,
+          "tune" : "tune",
+          "widthPixels" : 7,
+          "codec" : "codec",
+          "frameRate" : 7.386281948385884,
+          "vbvSizeBits" : 6,
+          "bFrameCount" : 3,
+          "gopDuration" : "gopDuration",
+          "allowOpenGop" : true,
+          "aqStrength" : 9.301444243932576,
+          "bPyramid" : true,
+          "gopFrameCount" : 1,
+          "vbvFullnessBits" : 1,
+          "rateControlMode" : "rateControlMode"
+        },
+        "audioStream" : {
+          "sampleRateHertz" : 2,
+          "channelCount" : 6,
+          "channelLayout" : [ "channelLayout", "channelLayout" ],
+          "codec" : "codec",
+          "mapping" : [ {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          }, {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          } ],
+          "bitrateBps" : 0
+        },
+        "textStream" : {
+          "codec" : "codec",
+          "mapping" : [ {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          }, {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          } ],
+          "languageCode" : "languageCode"
+        },
+        "key" : "key"
+      } ]
+    }
+  }, {
+    "ttlAfterCompletionDays" : 2,
+    "outputUri" : "outputUri",
+    "inputUri" : "inputUri",
+    "priority" : 0,
+    "templateId" : "templateId",
+    "createTime" : "createTime",
+    "failureDetails" : [ {
+      "description" : "description"
+    }, {
+      "description" : "description"
+    } ],
+    "failureReason" : "failureReason",
+    "name" : "name",
+    "originUri" : {
+      "dash" : "dash",
+      "hls" : "hls"
+    },
+    "progress" : {
+      "notified" : 5.962133916683182,
+      "analyzed" : 6.027456183070403,
+      "uploaded" : 5.637376656633329,
+      "encoded" : 1.4658129805029452
+    },
+    "startTime" : "startTime",
+    "endTime" : "endTime",
+    "state" : "PROCESSING_STATE_UNSPECIFIED",
+    "config" : {
+      "output" : {
+        "uri" : "uri"
+      },
+      "adBreaks" : [ {
+        "startTimeOffset" : "startTimeOffset"
+      }, {
+        "startTimeOffset" : "startTimeOffset"
+      } ],
+      "editList" : [ {
+        "endTimeOffset" : "endTimeOffset",
+        "inputs" : [ "inputs", "inputs" ],
+        "startTimeOffset" : "startTimeOffset",
+        "key" : "key"
+      }, {
+        "endTimeOffset" : "endTimeOffset",
+        "inputs" : [ "inputs", "inputs" ],
+        "startTimeOffset" : "startTimeOffset",
+        "key" : "key"
+      } ],
+      "spriteSheets" : [ {
+        "endTimeOffset" : "endTimeOffset",
+        "spriteWidthPixels" : 7,
+        "format" : "format",
+        "interval" : "interval",
+        "columnCount" : 3,
+        "rowCount" : 7,
+        "filePrefix" : "filePrefix",
+        "startTimeOffset" : "startTimeOffset",
+        "totalCount" : 6,
+        "spriteHeightPixels" : 0,
+        "quality" : 3
+      }, {
+        "endTimeOffset" : "endTimeOffset",
+        "spriteWidthPixels" : 7,
+        "format" : "format",
+        "interval" : "interval",
+        "columnCount" : 3,
+        "rowCount" : 7,
+        "filePrefix" : "filePrefix",
+        "startTimeOffset" : "startTimeOffset",
+        "totalCount" : 6,
+        "spriteHeightPixels" : 0,
+        "quality" : 3
+      } ],
+      "muxStreams" : [ {
+        "container" : "container",
+        "fileName" : "fileName",
+        "segmentSettings" : {
+          "segmentDuration" : "segmentDuration",
+          "individualSegments" : true
+        },
+        "encryption" : {
+          "aes128" : {
+            "keyUri" : "keyUri"
+          },
+          "mpegCenc" : {
+            "scheme" : "scheme",
+            "keyId" : "keyId"
+          },
+          "sampleAes" : {
+            "keyUri" : "keyUri"
+          },
+          "iv" : "iv",
+          "key" : "key"
+        },
+        "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+        "key" : "key"
+      }, {
+        "container" : "container",
+        "fileName" : "fileName",
+        "segmentSettings" : {
+          "segmentDuration" : "segmentDuration",
+          "individualSegments" : true
+        },
+        "encryption" : {
+          "aes128" : {
+            "keyUri" : "keyUri"
+          },
+          "mpegCenc" : {
+            "scheme" : "scheme",
+            "keyId" : "keyId"
+          },
+          "sampleAes" : {
+            "keyUri" : "keyUri"
+          },
+          "iv" : "iv",
+          "key" : "key"
+        },
+        "elementaryStreams" : [ "elementaryStreams", "elementaryStreams" ],
+        "key" : "key"
+      } ],
+      "pubsubDestination" : {
+        "topic" : "topic"
+      },
+      "inputs" : [ {
+        "preprocessingConfig" : {
+          "pad" : {
+            "topPixels" : 6,
+            "bottomPixels" : 6,
+            "rightPixels" : 2,
+            "leftPixels" : 1
+          },
+          "denoise" : {
+            "strength" : 3.5571952270680973,
+            "tune" : "tune"
+          },
+          "color" : {
+            "saturation" : 9.965781217890562,
+            "brightness" : 4.965218492984954,
+            "contrast" : 5.025004791520295
+          },
+          "audio" : {
+            "lufs" : 1.1730742509559433,
+            "lowBoost" : true,
+            "highBoost" : true
+          },
+          "deblock" : {
+            "strength" : 6.438423552598547,
+            "enabled" : true
+          },
+          "crop" : {
+            "topPixels" : 9,
+            "bottomPixels" : 9,
+            "rightPixels" : 8,
+            "leftPixels" : 6
+          }
+        },
+        "uri" : "uri",
+        "key" : "key"
+      }, {
+        "preprocessingConfig" : {
+          "pad" : {
+            "topPixels" : 6,
+            "bottomPixels" : 6,
+            "rightPixels" : 2,
+            "leftPixels" : 1
+          },
+          "denoise" : {
+            "strength" : 3.5571952270680973,
+            "tune" : "tune"
+          },
+          "color" : {
+            "saturation" : 9.965781217890562,
+            "brightness" : 4.965218492984954,
+            "contrast" : 5.025004791520295
+          },
+          "audio" : {
+            "lufs" : 1.1730742509559433,
+            "lowBoost" : true,
+            "highBoost" : true
+          },
+          "deblock" : {
+            "strength" : 6.438423552598547,
+            "enabled" : true
+          },
+          "crop" : {
+            "topPixels" : 9,
+            "bottomPixels" : 9,
+            "rightPixels" : 8,
+            "leftPixels" : 6
+          }
+        },
+        "uri" : "uri",
+        "key" : "key"
+      } ],
+      "overlays" : [ {
+        "image" : {
+          "alpha" : 6.704019297950036,
+          "resolution" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "uri" : "uri"
+        },
+        "animations" : [ {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        }, {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        } ]
+      }, {
+        "image" : {
+          "alpha" : 6.704019297950036,
+          "resolution" : {
+            "x" : 6.878052220127876,
+            "y" : 5.944895607614016
+          },
+          "uri" : "uri"
+        },
+        "animations" : [ {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        }, {
+          "animationStatic" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationFade" : {
+            "xy" : {
+              "x" : 6.878052220127876,
+              "y" : 5.944895607614016
+            },
+            "endTimeOffset" : "endTimeOffset",
+            "fadeType" : "FADE_TYPE_UNSPECIFIED",
+            "startTimeOffset" : "startTimeOffset"
+          },
+          "animationEnd" : {
+            "startTimeOffset" : "startTimeOffset"
+          }
+        } ]
+      } ],
+      "manifests" : [ {
+        "fileName" : "fileName",
+        "muxStreams" : [ "muxStreams", "muxStreams" ],
+        "type" : "MANIFEST_TYPE_UNSPECIFIED"
+      }, {
+        "fileName" : "fileName",
+        "muxStreams" : [ "muxStreams", "muxStreams" ],
+        "type" : "MANIFEST_TYPE_UNSPECIFIED"
+      } ],
+      "elementaryStreams" : [ {
+        "videoStream" : {
+          "entropyCoder" : "entropyCoder",
+          "pixelFormat" : "pixelFormat",
+          "enableTwoPass" : true,
+          "profile" : "profile",
+          "crfLevel" : 4,
+          "heightPixels" : 1,
+          "preset" : "preset",
+          "bitrateBps" : 2,
+          "tune" : "tune",
+          "widthPixels" : 7,
+          "codec" : "codec",
+          "frameRate" : 7.386281948385884,
+          "vbvSizeBits" : 6,
+          "bFrameCount" : 3,
+          "gopDuration" : "gopDuration",
+          "allowOpenGop" : true,
+          "aqStrength" : 9.301444243932576,
+          "bPyramid" : true,
+          "gopFrameCount" : 1,
+          "vbvFullnessBits" : 1,
+          "rateControlMode" : "rateControlMode"
+        },
+        "audioStream" : {
+          "sampleRateHertz" : 2,
+          "channelCount" : 6,
+          "channelLayout" : [ "channelLayout", "channelLayout" ],
+          "codec" : "codec",
+          "mapping" : [ {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          }, {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          } ],
+          "bitrateBps" : 0
+        },
+        "textStream" : {
+          "codec" : "codec",
+          "mapping" : [ {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          }, {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          } ],
+          "languageCode" : "languageCode"
+        },
+        "key" : "key"
+      }, {
+        "videoStream" : {
+          "entropyCoder" : "entropyCoder",
+          "pixelFormat" : "pixelFormat",
+          "enableTwoPass" : true,
+          "profile" : "profile",
+          "crfLevel" : 4,
+          "heightPixels" : 1,
+          "preset" : "preset",
+          "bitrateBps" : 2,
+          "tune" : "tune",
+          "widthPixels" : 7,
+          "codec" : "codec",
+          "frameRate" : 7.386281948385884,
+          "vbvSizeBits" : 6,
+          "bFrameCount" : 3,
+          "gopDuration" : "gopDuration",
+          "allowOpenGop" : true,
+          "aqStrength" : 9.301444243932576,
+          "bPyramid" : true,
+          "gopFrameCount" : 1,
+          "vbvFullnessBits" : 1,
+          "rateControlMode" : "rateControlMode"
+        },
+        "audioStream" : {
+          "sampleRateHertz" : 2,
+          "channelCount" : 6,
+          "channelLayout" : [ "channelLayout", "channelLayout" ],
+          "codec" : "codec",
+          "mapping" : [ {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          }, {
+            "channels" : [ {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            }, {
+              "inputs" : [ {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              }, {
+                "gainDb" : 5.962133916683182,
+                "channel" : 1,
+                "track" : 5,
+                "key" : "key"
+              } ]
+            } ],
+            "key" : "key"
+          } ],
+          "bitrateBps" : 0
+        },
+        "textStream" : {
+          "codec" : "codec",
+          "mapping" : [ {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          }, {
+            "inputs" : [ {
+              "track" : 7,
+              "key" : "key"
+            }, {
+              "track" : 7,
+              "key" : "key"
+            } ],
+            "key" : "key"
+          } ],
+          "languageCode" : "languageCode"
+        },
+        "key" : "key"
+      } ]
+    }
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListJobsResponse">ListJobsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#AdBreak"><code>AdBreak</code> - </a></li>
+    <li><a href="#Aes128Encryption"><code>Aes128Encryption</code> - </a></li>
+    <li><a href="#Animation"><code>Animation</code> - </a></li>
+    <li><a href="#AnimationEnd"><code>AnimationEnd</code> - </a></li>
+    <li><a href="#AnimationFade"><code>AnimationFade</code> - </a></li>
+    <li><a href="#AnimationStatic"><code>AnimationStatic</code> - </a></li>
+    <li><a href="#Audio"><code>Audio</code> - </a></li>
+    <li><a href="#AudioAtom"><code>AudioAtom</code> - </a></li>
+    <li><a href="#AudioChannel"><code>AudioChannel</code> - </a></li>
+    <li><a href="#AudioChannelInput"><code>AudioChannelInput</code> - </a></li>
+    <li><a href="#AudioStream"><code>AudioStream</code> - </a></li>
+    <li><a href="#Color"><code>Color</code> - </a></li>
+    <li><a href="#Crop"><code>Crop</code> - </a></li>
+    <li><a href="#Deblock"><code>Deblock</code> - </a></li>
+    <li><a href="#Denoise"><code>Denoise</code> - </a></li>
+    <li><a href="#EditAtom"><code>EditAtom</code> - </a></li>
+    <li><a href="#ElementaryStream"><code>ElementaryStream</code> - </a></li>
+    <li><a href="#Encryption"><code>Encryption</code> - </a></li>
+    <li><a href="#FailureDetail"><code>FailureDetail</code> - </a></li>
+    <li><a href="#Image"><code>Image</code> - </a></li>
+    <li><a href="#Input"><code>Input</code> - </a></li>
+    <li><a href="#Job"><code>Job</code> - </a></li>
+    <li><a href="#JobConfig"><code>JobConfig</code> - </a></li>
+    <li><a href="#JobTemplate"><code>JobTemplate</code> - </a></li>
+    <li><a href="#ListJobTemplatesResponse"><code>ListJobTemplatesResponse</code> - </a></li>
+    <li><a href="#ListJobsResponse"><code>ListJobsResponse</code> - </a></li>
+    <li><a href="#Manifest"><code>Manifest</code> - </a></li>
+    <li><a href="#MpegCommonEncryption"><code>MpegCommonEncryption</code> - </a></li>
+    <li><a href="#MuxStream"><code>MuxStream</code> - </a></li>
+    <li><a href="#NormalizedCoordinate"><code>NormalizedCoordinate</code> - </a></li>
+    <li><a href="#OriginUri"><code>OriginUri</code> - </a></li>
+    <li><a href="#Output"><code>Output</code> - </a></li>
+    <li><a href="#Overlay"><code>Overlay</code> - </a></li>
+    <li><a href="#Pad"><code>Pad</code> - </a></li>
+    <li><a href="#PreprocessingConfig"><code>PreprocessingConfig</code> - </a></li>
+    <li><a href="#Progress"><code>Progress</code> - </a></li>
+    <li><a href="#PubsubDestination"><code>PubsubDestination</code> - </a></li>
+    <li><a href="#SampleAesEncryption"><code>SampleAesEncryption</code> - </a></li>
+    <li><a href="#SegmentSettings"><code>SegmentSettings</code> - </a></li>
+    <li><a href="#SpriteSheet"><code>SpriteSheet</code> - </a></li>
+    <li><a href="#TextAtom"><code>TextAtom</code> - </a></li>
+    <li><a href="#TextInput"><code>TextInput</code> - </a></li>
+    <li><a href="#TextStream"><code>TextStream</code> - </a></li>
+    <li><a href="#VideoStream"><code>VideoStream</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="AdBreak"><code>AdBreak</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Ad break.</div>
+    <div class="field-items">
+      <div class="param">startTimeOffset (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Start time in seconds for the ad break, relative to the output file timeline. The default is <code>0s</code>. format: google-duration</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Aes128Encryption"><code>Aes128Encryption</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Configuration for AES-128 encryption.</div>
+    <div class="field-items">
+      <div class="param">keyUri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. URI of the key delivery service. This URI is inserted into the M3U8 header. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Animation"><code>Animation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Animation types.</div>
+    <div class="field-items">
+      <div class="param">animationEnd (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnimationEnd">AnimationEnd</a></span>  </div>
+<div class="param">animationFade (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnimationFade">AnimationFade</a></span>  </div>
+<div class="param">animationStatic (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnimationStatic">AnimationStatic</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AnimationEnd"><code>AnimationEnd</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>End previous overlay animation from the video. Without AnimationEnd, the overlay object will keep the state of previous animation until the end of the video.</div>
+    <div class="field-items">
+      <div class="param">startTimeOffset (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time to end overlay object, in seconds. Default: 0 format: google-duration</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AnimationFade"><code>AnimationFade</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Display overlay object with fade animation.</div>
+    <div class="field-items">
+      <div class="param">endTimeOffset (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time to end the fade animation, in seconds. Default: <code>start_time_offset</code> + 1s format: google-duration</div>
+<div class="param">fadeType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. Type of fade animation: <code>FADE_IN</code> or <code>FADE_OUT</code>. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">FADE_TYPE_UNSPECIFIED</div><div class="param-enum">FADE_IN</div><div class="param-enum">FADE_OUT</div>
+<div class="param">startTimeOffset (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time to start the fade animation, in seconds. Default: 0 format: google-duration</div>
+<div class="param">xy (optional)</div><div class="param-desc"><span class="param-type"><a href="#NormalizedCoordinate">NormalizedCoordinate</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AnimationStatic"><code>AnimationStatic</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Display static overlay object.</div>
+    <div class="field-items">
+      <div class="param">startTimeOffset (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time to start displaying the overlay object, in seconds. Default: 0 format: google-duration</div>
+<div class="param">xy (optional)</div><div class="param-desc"><span class="param-type"><a href="#NormalizedCoordinate">NormalizedCoordinate</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Audio"><code>Audio</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Audio preprocessing configuration.</div>
+    <div class="field-items">
+      <div class="param">highBoost (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Enable boosting high frequency components. The default is <code>false</code>. </div>
+<div class="param">lowBoost (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Enable boosting low frequency components. The default is <code>false</code>. </div>
+<div class="param">lufs (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Specify audio loudness normalization in loudness units relative to full scale (LUFS). Enter a value between -24 and 0 (the default), where: * -24 is the Advanced Television Systems Committee (ATSC A/85) standard * -23 is the EU R128 broadcast standard * -19 is the prior standard for online mono audio * -18 is the ReplayGain standard * -16 is the prior standard for stereo audio * -14 is the new online audio standard recommended by Spotify, as well as Amazon Echo * 0 disables normalization format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AudioAtom"><code>AudioAtom</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The mapping for the <code>Job.edit_list</code> atoms with audio <code>EditAtom.inputs</code>.</div>
+    <div class="field-items">
+      <div class="param">channels (optional)</div><div class="param-desc"><span class="param-type"><a href="#AudioChannel">array[AudioChannel]</a></span> List of <code>Channel</code>s for this audio stream. for in-depth explanation. </div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The <code>EditAtom.key</code> that references the atom with audio inputs in the <code>Job.edit_list</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AudioChannel"><code>AudioChannel</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The audio channel.</div>
+    <div class="field-items">
+      <div class="param">inputs (optional)</div><div class="param-desc"><span class="param-type"><a href="#AudioChannelInput">array[AudioChannelInput]</a></span> List of <code>Job.inputs</code> for this audio channel. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AudioChannelInput"><code>AudioChannelInput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Identifies which input file, track, and channel should be used.</div>
+    <div class="field-items">
+      <div class="param">channel (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Required. The zero-based index of the channel in the input file. format: int32</div>
+<div class="param">gainDb (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Audio volume control in dB. Negative values decrease volume, positive values increase. The default is 0. format: double</div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The <code>Input.key</code> that identifies the input file. </div>
+<div class="param">track (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Required. The zero-based index of the track in the input file. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AudioStream"><code>AudioStream</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Audio stream resource.</div>
+    <div class="field-items">
+      <div class="param">bitrateBps (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Required. Audio bitrate in bits per second. Must be between 1 and 10,000,000. format: int32</div>
+<div class="param">channelCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of audio channels. Must be between 1 and 6. The default is 2. format: int32</div>
+<div class="param">channelLayout (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> A list of channel names specifying layout of the audio channels. This only affects the metadata embedded in the container headers, if supported by the specified format. The default is <code>[&quot;fl&quot;, &quot;fr&quot;]</code>. Supported channel names: - 'fl' - Front left channel - 'fr' - Front right channel - 'sl' - Side left channel - 'sr' - Side right channel - 'fc' - Front center channel - 'lfe' - Low frequency </div>
+<div class="param">codec (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The codec for this audio stream. The default is <code>&quot;aac&quot;</code>. Supported audio codecs: - 'aac' - 'aac-he' - 'aac-he-v2' - 'mp3' - 'ac3' - 'eac3' </div>
+<div class="param">mapping (optional)</div><div class="param-desc"><span class="param-type"><a href="#AudioAtom">array[AudioAtom]</a></span> The mapping for the <code>Job.edit_list</code> atoms with audio <code>EditAtom.inputs</code>. </div>
+<div class="param">sampleRateHertz (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The audio sample rate in Hertz. The default is 48000 Hertz. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Color"><code>Color</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Color preprocessing configuration.</div>
+    <div class="field-items">
+      <div class="param">brightness (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Control brightness of the video. Enter a value between -1 and 1, where -1 is minimum brightness and 1 is maximum brightness. 0 is no change. The default is 0. format: double</div>
+<div class="param">contrast (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Control black and white contrast of the video. Enter a value between -1 and 1, where -1 is minimum contrast and 1 is maximum contrast. 0 is no change. The default is 0. format: double</div>
+<div class="param">saturation (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Control color saturation of the video. Enter a value between -1 and 1, where -1 is fully desaturated and 1 is maximum saturation. 0 is no change. The default is 0. format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Crop"><code>Crop</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Video cropping configuration for the input video. The cropped input video is scaled to match the output resolution.</div>
+    <div class="field-items">
+      <div class="param">bottomPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of pixels to crop from the bottom. The default is 0. format: int32</div>
+<div class="param">leftPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of pixels to crop from the left. The default is 0. format: int32</div>
+<div class="param">rightPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of pixels to crop from the right. The default is 0. format: int32</div>
+<div class="param">topPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of pixels to crop from the top. The default is 0. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Deblock"><code>Deblock</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Deblock preprocessing configuration.</div>
+    <div class="field-items">
+      <div class="param">enabled (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Enable deblocker. The default is <code>false</code>. </div>
+<div class="param">strength (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Set strength of the deblocker. Enter a value between 0 and 1. The higher the value, the stronger the block removal. 0 is no deblocking. The default is 0. format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Denoise"><code>Denoise</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Denoise preprocessing configuration.</div>
+    <div class="field-items">
+      <div class="param">strength (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Set strength of the denoise. Enter a value between 0 and 1. The higher the value, the smoother the image. 0 is no denoising. The default is 0. format: double</div>
+<div class="param">tune (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Set the denoiser mode. The default is <code>&quot;standard&quot;</code>. Supported denoiser modes: - 'standard' - 'grain' </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EditAtom"><code>EditAtom</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Edit atom.</div>
+    <div class="field-items">
+      <div class="param">endTimeOffset (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> End time in seconds for the atom, relative to the input file timeline. When <code>end_time_offset</code> is not specified, the <code>inputs</code> are used until the end of the atom. format: google-duration</div>
+<div class="param">inputs (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> List of <code>Input.key</code>s identifying files that should be used in this atom. The listed <code>inputs</code> must have the same timeline. </div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A unique key for this atom. Must be specified when using advanced mapping. </div>
+<div class="param">startTimeOffset (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Start time in seconds for the atom, relative to the input file timeline. The default is <code>0s</code>. format: google-duration</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ElementaryStream"><code>ElementaryStream</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Encoding of an input file such as an audio, video, or text track. Elementary streams must be packaged before mapping and sharing between different output formats.</div>
+    <div class="field-items">
+      <div class="param">audioStream (optional)</div><div class="param-desc"><span class="param-type"><a href="#AudioStream">AudioStream</a></span>  </div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A unique key for this elementary stream. </div>
+<div class="param">textStream (optional)</div><div class="param-desc"><span class="param-type"><a href="#TextStream">TextStream</a></span>  </div>
+<div class="param">videoStream (optional)</div><div class="param-desc"><span class="param-type"><a href="#VideoStream">VideoStream</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Encryption"><code>Encryption</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Encryption settings.</div>
+    <div class="field-items">
+      <div class="param">aes128 (optional)</div><div class="param-desc"><span class="param-type"><a href="#Aes128Encryption">Aes128Encryption</a></span>  </div>
+<div class="param">iv (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. 128 bit Initialization Vector (IV) represented as lowercase hexadecimal digits. </div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. 128 bit encryption key represented as lowercase hexadecimal digits. </div>
+<div class="param">mpegCenc (optional)</div><div class="param-desc"><span class="param-type"><a href="#MpegCommonEncryption">MpegCommonEncryption</a></span>  </div>
+<div class="param">sampleAes (optional)</div><div class="param-desc"><span class="param-type"><a href="#SampleAesEncryption">SampleAesEncryption</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="FailureDetail"><code>FailureDetail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Additional information about the reasons for the failure.</div>
+    <div class="field-items">
+      <div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A description of the failure. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Image"><code>Image</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Overlaid jpeg image.</div>
+    <div class="field-items">
+      <div class="param">alpha (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Target image opacity. Valid values are from <code>1.0</code> (solid, default) to <code>0.0</code> (transparent), exclusive. Set this to a value greater than <code>0.0</code>. format: double</div>
+<div class="param">resolution (optional)</div><div class="param-desc"><span class="param-type"><a href="#NormalizedCoordinate">NormalizedCoordinate</a></span>  </div>
+<div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. URI of the JPEG image in Cloud Storage. For example, <code>gs://bucket/inputs/image.jpeg</code>. JPEG is the only supported image type. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Input"><code>Input</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Input asset.</div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A unique key for this input. Must be specified when using advanced mapping and edit lists. </div>
+<div class="param">preprocessingConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#PreprocessingConfig">PreprocessingConfig</a></span>  </div>
+<div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URI of the media. Input files must be at least 5 seconds in duration and stored in Cloud Storage (for example, <code>gs://bucket/inputs/file.mp4</code>). If empty, the value will be populated from <code>Job.input_uri</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Job"><code>Job</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Transcoding job resource.</div>
+    <div class="field-items">
+      <div class="param">config (optional)</div><div class="param-desc"><span class="param-type"><a href="#JobConfig">JobConfig</a></span>  </div>
+<div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The time the job was created. format: google-datetime</div>
+<div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The time the transcoding finished. format: google-datetime</div>
+<div class="param">failureDetails (optional)</div><div class="param-desc"><span class="param-type"><a href="#FailureDetail">array[FailureDetail]</a></span> Output only. List of failure details. This property may contain additional information about the failure when <code>failure_reason</code> is present. <em>Note</em>: This feature is not yet available. </div>
+<div class="param">failureReason (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. A description of the reason for the failure. This property is always present when <code>state</code> is <code>FAILED</code>. </div>
+<div class="param">inputUri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Input only. Specify the <code>input_uri</code> to populate empty <code>uri</code> fields in each element of <code>Job.config.inputs</code> or <code>JobTemplate.config.inputs</code> when using template. URI of the media. Input files must be at least 5 seconds in duration and stored in Cloud Storage (for example, <code>gs://bucket/inputs/file.mp4</code>). </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource name of the job. Format: <code>projects/{project}/locations/{location}/jobs/{job}</code> </div>
+<div class="param">originUri (optional)</div><div class="param-desc"><span class="param-type"><a href="#OriginUri">OriginUri</a></span>  </div>
+<div class="param">outputUri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Input only. Specify the <code>output_uri</code> to populate an empty <code>Job.config.output.uri</code> or <code>JobTemplate.config.output.uri</code> when using template. URI for the output file(s). For example, <code>gs://my-bucket/outputs/</code>. </div>
+<div class="param">priority (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Specify the priority of the job. Enter a value between 0 and 100, where 0 is the lowest priority and 100 is the highest priority. The default is 0. format: int32</div>
+<div class="param">progress (optional)</div><div class="param-desc"><span class="param-type"><a href="#Progress">Progress</a></span>  </div>
+<div class="param">startTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The time the transcoding started. format: google-datetime</div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The current state of the job. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">PROCESSING_STATE_UNSPECIFIED</div><div class="param-enum">PENDING</div><div class="param-enum">RUNNING</div><div class="param-enum">SUCCEEDED</div><div class="param-enum">FAILED</div>
+<div class="param">templateId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Input only. Specify the <code>template_id</code> to use for populating <code>Job.config</code>. The default is <code>preset/web-hd</code>. Preset Transcoder templates: - <code>preset/{preset_id}</code> - User defined JobTemplate: <code>{job_template_id}</code> </div>
+<div class="param">ttlAfterCompletionDays (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Job time to live value in days, which will be effective after job completion. Job should be deleted automatically after the given TTL. Enter a value between 1 and 90. The default is 30. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="JobConfig"><code>JobConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Job configuration</div>
+    <div class="field-items">
+      <div class="param">adBreaks (optional)</div><div class="param-desc"><span class="param-type"><a href="#AdBreak">array[AdBreak]</a></span> List of ad breaks. Specifies where to insert ad break tags in the output manifests. </div>
+<div class="param">editList (optional)</div><div class="param-desc"><span class="param-type"><a href="#EditAtom">array[EditAtom]</a></span> List of <code>Edit atom</code>s. Defines the ultimate timeline of the resulting file or manifest. </div>
+<div class="param">elementaryStreams (optional)</div><div class="param-desc"><span class="param-type"><a href="#ElementaryStream">array[ElementaryStream]</a></span> List of elementary streams. </div>
+<div class="param">inputs (optional)</div><div class="param-desc"><span class="param-type"><a href="#Input">array[Input]</a></span> List of input assets stored in Cloud Storage. </div>
+<div class="param">manifests (optional)</div><div class="param-desc"><span class="param-type"><a href="#Manifest">array[Manifest]</a></span> List of output manifests. </div>
+<div class="param">muxStreams (optional)</div><div class="param-desc"><span class="param-type"><a href="#MuxStream">array[MuxStream]</a></span> List of multiplexing settings for output streams. </div>
+<div class="param">output (optional)</div><div class="param-desc"><span class="param-type"><a href="#Output">Output</a></span>  </div>
+<div class="param">overlays (optional)</div><div class="param-desc"><span class="param-type"><a href="#Overlay">array[Overlay]</a></span> List of overlays on the output video, in descending Z-order. </div>
+<div class="param">pubsubDestination (optional)</div><div class="param-desc"><span class="param-type"><a href="#PubsubDestination">PubsubDestination</a></span>  </div>
+<div class="param">spriteSheets (optional)</div><div class="param-desc"><span class="param-type"><a href="#SpriteSheet">array[SpriteSheet]</a></span> List of output sprite sheets. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="JobTemplate"><code>JobTemplate</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Transcoding job template resource.</div>
+    <div class="field-items">
+      <div class="param">config (optional)</div><div class="param-desc"><span class="param-type"><a href="#JobConfig">JobConfig</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource name of the job template. Format: <code>projects/{project}/locations/{location}/jobTemplates/{job_template}</code> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListJobTemplatesResponse"><code>ListJobTemplatesResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response message for <code>TranscoderService.ListJobTemplates</code>.</div>
+    <div class="field-items">
+      <div class="param">jobTemplates (optional)</div><div class="param-desc"><span class="param-type"><a href="#JobTemplate">array[JobTemplate]</a></span> List of job templates in the specified region. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The pagination token. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListJobsResponse"><code>ListJobsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response message for <code>TranscoderService.ListJobs</code>.</div>
+    <div class="field-items">
+      <div class="param">jobs (optional)</div><div class="param-desc"><span class="param-type"><a href="#Job">array[Job]</a></span> List of jobs in the specified region. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The pagination token. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Manifest"><code>Manifest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Manifest configuration.</div>
+    <div class="field-items">
+      <div class="param">fileName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the generated file. The default is <code>&quot;manifest&quot;</code> with the extension suffix corresponding to the <code>Manifest.type</code>. </div>
+<div class="param">muxStreams (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Required. List of user given <code>MuxStream.key</code>s that should appear in this manifest. When <code>Manifest.type</code> is <code>HLS</code>, a media manifest with name <code>MuxStream.key</code> and <code>.m3u8</code> extension is generated for each element of the <code>Manifest.mux_streams</code>. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. Type of the manifest, can be &quot;HLS&quot; or &quot;DASH&quot;. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">MANIFEST_TYPE_UNSPECIFIED</div><div class="param-enum">HLS</div><div class="param-enum">DASH</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MpegCommonEncryption"><code>MpegCommonEncryption</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Configuration for MPEG Common Encryption (MPEG-CENC).</div>
+    <div class="field-items">
+      <div class="param">keyId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. 128 bit Key ID represented as lowercase hexadecimal digits for use with common encryption. </div>
+<div class="param">scheme (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. Specify the encryption scheme. Supported encryption schemes: - 'cenc' - 'cbcs' </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MuxStream"><code>MuxStream</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Multiplexing settings for output stream.</div>
+    <div class="field-items">
+      <div class="param">container (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The container format. The default is <code>&quot;mp4&quot;</code> Supported container formats: - 'ts' - 'fmp4'- the corresponding file extension is <code>&quot;.m4s&quot;</code> - 'mp4' - 'vtt' </div>
+<div class="param">elementaryStreams (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> List of <code>ElementaryStream.key</code>s multiplexed in this stream. </div>
+<div class="param">encryption (optional)</div><div class="param-desc"><span class="param-type"><a href="#Encryption">Encryption</a></span>  </div>
+<div class="param">fileName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the generated file. The default is <code>MuxStream.key</code> with the extension suffix corresponding to the <code>MuxStream.container</code>. Individual segments also have an incremental 10-digit zero-padded suffix starting from 0 before the extension, such as <code>&quot;mux_stream0000000123.ts&quot;</code>. </div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A unique key for this multiplexed stream. HLS media manifests will be named <code>MuxStream.key</code> with the <code>&quot;.m3u8&quot;</code> extension suffix. </div>
+<div class="param">segmentSettings (optional)</div><div class="param-desc"><span class="param-type"><a href="#SegmentSettings">SegmentSettings</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NormalizedCoordinate"><code>NormalizedCoordinate</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>2D normalized coordinates. Default: <code>{0.0, 0.0}</code></div>
+    <div class="field-items">
+      <div class="param">x (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Normalized x coordinate. format: double</div>
+<div class="param">y (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Normalized y coordinate. format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OriginUri"><code>OriginUri</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The origin URI.</div>
+    <div class="field-items">
+      <div class="param">dash (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Dash manifest URI. If multiple Dash manifests are created, only the first one is listed. </div>
+<div class="param">hls (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HLS manifest URI per https://tools.ietf.org/html/rfc8216#section-4.3.4. If multiple HLS manifests are created, only the first one is listed. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Output"><code>Output</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Location of output file(s) in a Cloud Storage bucket.</div>
+    <div class="field-items">
+      <div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URI for the output file(s). For example, <code>gs://my-bucket/outputs/</code>. If empty the value is populated from <code>Job.output_uri</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Overlay"><code>Overlay</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Overlay configuration.</div>
+    <div class="field-items">
+      <div class="param">animations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Animation">array[Animation]</a></span> List of Animations. The list should be chronological, without any time overlap. </div>
+<div class="param">image (optional)</div><div class="param-desc"><span class="param-type"><a href="#Image">Image</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Pad"><code>Pad</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Pad filter configuration for the input video. The padded input video is scaled after padding with black to match the output resolution.</div>
+    <div class="field-items">
+      <div class="param">bottomPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of pixels to add to the bottom. The default is 0. format: int32</div>
+<div class="param">leftPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of pixels to add to the left. The default is 0. format: int32</div>
+<div class="param">rightPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of pixels to add to the right. The default is 0. format: int32</div>
+<div class="param">topPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of pixels to add to the top. The default is 0. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PreprocessingConfig"><code>PreprocessingConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Preprocessing configurations.</div>
+    <div class="field-items">
+      <div class="param">audio (optional)</div><div class="param-desc"><span class="param-type"><a href="#Audio">Audio</a></span>  </div>
+<div class="param">color (optional)</div><div class="param-desc"><span class="param-type"><a href="#Color">Color</a></span>  </div>
+<div class="param">crop (optional)</div><div class="param-desc"><span class="param-type"><a href="#Crop">Crop</a></span>  </div>
+<div class="param">deblock (optional)</div><div class="param-desc"><span class="param-type"><a href="#Deblock">Deblock</a></span>  </div>
+<div class="param">denoise (optional)</div><div class="param-desc"><span class="param-type"><a href="#Denoise">Denoise</a></span>  </div>
+<div class="param">pad (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pad">Pad</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Progress"><code>Progress</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Estimated fractional progress for each step, from <code>0</code> to <code>1</code>.</div>
+    <div class="field-items">
+      <div class="param">analyzed (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Estimated fractional progress for <code>analyzing</code> step. format: double</div>
+<div class="param">encoded (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Estimated fractional progress for <code>encoding</code> step. format: double</div>
+<div class="param">notified (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Estimated fractional progress for <code>notifying</code> step. format: double</div>
+<div class="param">uploaded (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Estimated fractional progress for <code>uploading</code> step. format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PubsubDestination"><code>PubsubDestination</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A Pub/Sub destination.</div>
+    <div class="field-items">
+      <div class="param">topic (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the Pub/Sub topic to publish job completion notification to. For example: <code>projects/{project}/topics/{topic}</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SampleAesEncryption"><code>SampleAesEncryption</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Configuration for SAMPLE-AES encryption.</div>
+    <div class="field-items">
+      <div class="param">keyUri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. URI of the key delivery service. This URI is inserted into the M3U8 header. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SegmentSettings"><code>SegmentSettings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Segment settings for <code>&quot;ts&quot;</code>, <code>&quot;fmp4&quot;</code> and <code>&quot;vtt&quot;</code>.</div>
+    <div class="field-items">
+      <div class="param">individualSegments (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Required. Create an individual segment file. The default is <code>false</code>. </div>
+<div class="param">segmentDuration (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Duration of the segments in seconds. The default is <code>&quot;6.0s&quot;</code>. Note that <code>segmentDuration</code> must be greater than or equal to <a href="#videostream"><code>gopDuration</code></a>, and <code>segmentDuration</code> must be divisible by <a href="#videostream"><code>gopDuration</code></a>. format: google-duration</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SpriteSheet"><code>SpriteSheet</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Sprite sheet configuration.</div>
+    <div class="field-items">
+      <div class="param">columnCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The maximum number of sprites per row in a sprite sheet. The default is 0, which indicates no maximum limit. format: int32</div>
+<div class="param">endTimeOffset (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> End time in seconds, relative to the output file timeline. When <code>end_time_offset</code> is not specified, the sprites are generated until the end of the output file. format: google-duration</div>
+<div class="param">filePrefix (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. File name prefix for the generated sprite sheets. Each sprite sheet has an incremental 10-digit zero-padded suffix starting from 0 before the extension, such as <code>&quot;sprite_sheet0000000123.jpeg&quot;</code>. </div>
+<div class="param">format (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Format type. The default is <code>&quot;jpeg&quot;</code>. Supported formats: - 'jpeg' </div>
+<div class="param">interval (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Starting from <code>0s</code>, create sprites at regular intervals. Specify the interval value in seconds. format: google-duration</div>
+<div class="param">quality (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The quality of the generated sprite sheet. Enter a value between 1 and 100, where 1 is the lowest quality and 100 is the highest quality. The default is 100. A high quality value corresponds to a low image data compression ratio. format: int32</div>
+<div class="param">rowCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The maximum number of rows per sprite sheet. When the sprite sheet is full, a new sprite sheet is created. The default is 0, which indicates no maximum limit. format: int32</div>
+<div class="param">spriteHeightPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Required. The height of sprite in pixels. Must be an even integer. To preserve the source aspect ratio, set the SpriteSheet.sprite_height_pixels field or the SpriteSheet.sprite_width_pixels field, but not both (the API will automatically calculate the missing field). format: int32</div>
+<div class="param">spriteWidthPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Required. The width of sprite in pixels. Must be an even integer. To preserve the source aspect ratio, set the SpriteSheet.sprite_width_pixels field or the SpriteSheet.sprite_height_pixels field, but not both (the API will automatically calculate the missing field). format: int32</div>
+<div class="param">startTimeOffset (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Start time in seconds, relative to the output file timeline. Determines the first sprite to pick. The default is <code>0s</code>. format: google-duration</div>
+<div class="param">totalCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Total number of sprites. Create the specified number of sprites distributed evenly across the timeline of the output media. The default is 100. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TextAtom"><code>TextAtom</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The mapping for the <code>Job.edit_list</code> atoms with text <code>EditAtom.inputs</code>.</div>
+    <div class="field-items">
+      <div class="param">inputs (optional)</div><div class="param-desc"><span class="param-type"><a href="#TextInput">array[TextInput]</a></span> List of <code>Job.inputs</code> that should be embedded in this atom. Only one input is supported. </div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The <code>EditAtom.key</code> that references atom with text inputs in the <code>Job.edit_list</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TextInput"><code>TextInput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Identifies which input file and track should be used.</div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The <code>Input.key</code> that identifies the input file. </div>
+<div class="param">track (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Required. The zero-based index of the track in the input file. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TextStream"><code>TextStream</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Encoding of a text stream. For example, closed captions or subtitles.</div>
+    <div class="field-items">
+      <div class="param">codec (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The codec for this text stream. The default is <code>&quot;webvtt&quot;</code>. Supported text codecs: - 'srt' - 'ttml' - 'cea608' - 'cea708' - 'webvtt' </div>
+<div class="param">languageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The BCP-47 language code, such as <code>&quot;en-US&quot;</code> or <code>&quot;sr-Latn&quot;</code>. For more information, see https://www.unicode.org/reports/tr35/#Unicode_locale_identifier. </div>
+<div class="param">mapping (optional)</div><div class="param-desc"><span class="param-type"><a href="#TextAtom">array[TextAtom]</a></span> The mapping for the <code>Job.edit_list</code> atoms with text <code>EditAtom.inputs</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VideoStream"><code>VideoStream</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Video stream resource.</div>
+    <div class="field-items">
+      <div class="param">allowOpenGop (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Specifies whether an open Group of Pictures (GOP) structure should be allowed or not. The default is <code>false</code>. </div>
+<div class="param">aqStrength (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Specify the intensity of the adaptive quantizer (AQ). Must be between 0 and 1, where 0 disables the quantizer and 1 maximizes the quantizer. A higher value equals a lower bitrate but smoother image. The default is 0. format: double</div>
+<div class="param">bFrameCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of consecutive B-frames. Must be greater than or equal to zero. Must be less than <code>VideoStream.gop_frame_count</code> if set. The default is 0. format: int32</div>
+<div class="param">bPyramid (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Allow B-pyramid for reference frame selection. This may not be supported on all decoders. The default is <code>false</code>. </div>
+<div class="param">bitrateBps (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Required. The video bitrate in bits per second. The minimum value is 1,000. The maximum value for H264/H265 is 800,000,000. The maximum value for VP9 is 480,000,000. format: int32</div>
+<div class="param">codec (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Codec type. The following codecs are supported: * <code>h264</code> (default) * <code>h265</code> * <code>vp9</code> </div>
+<div class="param">crfLevel (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Target CRF level. Must be between 10 and 36, where 10 is the highest quality and 36 is the most efficient compression. The default is 21. format: int32</div>
+<div class="param">enableTwoPass (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Use two-pass encoding strategy to achieve better video quality. <code>VideoStream.rate_control_mode</code> must be <code>&quot;vbr&quot;</code>. The default is <code>false</code>. </div>
+<div class="param">entropyCoder (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The entropy coder to use. The default is <code>&quot;cabac&quot;</code>. Supported entropy coders: - 'cavlc' - 'cabac' </div>
+<div class="param">frameRate (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Required. The target video frame rate in frames per second (FPS). Must be less than or equal to 120. Will default to the input frame rate if larger than the input frame rate. The API will generate an output FPS that is divisible by the input FPS, and smaller or equal to the target FPS. See <a href="https://cloud.google.com/transcoder/docs/concepts/frame-rate">Calculate frame rate</a> for more information. format: double</div>
+<div class="param">gopDuration (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Select the GOP size based on the specified duration. The default is <code>&quot;3s&quot;</code>. Note that <code>gopDuration</code> must be less than or equal to <a href="#SegmentSettings"><code>segmentDuration</code></a>, and <a href="#SegmentSettings"><code>segmentDuration</code></a> must be divisible by <code>gopDuration</code>. format: google-duration</div>
+<div class="param">gopFrameCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Select the GOP size based on the specified frame count. Must be greater than zero. format: int32</div>
+<div class="param">heightPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The height of the video in pixels. Must be an even integer. When not specified, the height is adjusted to match the specified width and input aspect ratio. If both are omitted, the input height is used. format: int32</div>
+<div class="param">pixelFormat (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Pixel format to use. The default is <code>&quot;yuv420p&quot;</code>. Supported pixel formats: - 'yuv420p' pixel format. - 'yuv422p' pixel format. - 'yuv444p' pixel format. - 'yuv420p10' 10-bit HDR pixel format. - 'yuv422p10' 10-bit HDR pixel format. - 'yuv444p10' 10-bit HDR pixel format. - 'yuv420p12' 12-bit HDR pixel format. - 'yuv422p12' 12-bit HDR pixel format. - 'yuv444p12' 12-bit HDR pixel format. </div>
+<div class="param">preset (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enforces the specified codec preset. The default is <code>veryfast</code>. The available options are FFmpeg-compatible. Note that certain values for this field may cause the transcoder to override other fields you set in the <code>VideoStream</code> message. </div>
+<div class="param">profile (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enforces the specified codec profile. The following profiles are supported: * <code>baseline</code> * <code>main</code> * <code>high</code> (default) The available options are FFmpeg-compatible. Note that certain values for this field may cause the transcoder to override other fields you set in the <code>VideoStream</code> message. </div>
+<div class="param">rateControlMode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specify the <code>rate_control_mode</code>. The default is <code>&quot;vbr&quot;</code>. Supported rate control modes: - 'vbr' - variable bitrate - 'crf' - constant rate factor </div>
+<div class="param">tune (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enforces the specified codec tune. The available options are FFmpeg-compatible. Note that certain values for this field may cause the transcoder to override other fields you set in the <code>VideoStream</code> message. </div>
+<div class="param">vbvFullnessBits (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Initial fullness of the Video Buffering Verifier (VBV) buffer in bits. Must be greater than zero. The default is equal to 90% of <code>VideoStream.vbv_size_bits</code>. format: int32</div>
+<div class="param">vbvSizeBits (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Size of the Video Buffering Verifier (VBV) buffer in bits. Must be greater than zero. The default is equal to <code>VideoStream.bitrate_bps</code>. format: int32</div>
+<div class="param">widthPixels (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The width of the video in pixels. Must be an even integer. When not specified, the width is adjusted to match the specified height and input aspect ratio. If both are omitted, the input width is used. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
