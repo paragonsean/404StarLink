@@ -2,14 +2,15 @@
 
 # Tag
 
-A tag that can be added to an ElastiCache cluster or replication group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group. A tag with a null Value is permitted.
+Represents a hashtag used within the content of a status.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**key** | [**String**](String.md) |  |  [optional] |
-|**value** | [**String**](String.md) |  |  [optional] |
+|**history** | [**List&lt;History&gt;**](History.md) | Usage statistics for given days. |  [optional] |
+|**name** | **String** | The value of the hashtag after the &#x60;#&#x60; sign. |  |
+|**url** | **String** | A link to the hashtag on the instance. |  |
 
 
 
