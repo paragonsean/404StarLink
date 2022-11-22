@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * PassThroughQuery
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:24.695873-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:41.911427-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class PassThroughQuery {
   public static final String SERIALIZED_NAME_EXAMPLE_DOWNSTREAM_PROPERTY = "example_downstream_property";
   @SerializedName(SERIALIZED_NAME_EXAMPLE_DOWNSTREAM_PROPERTY)

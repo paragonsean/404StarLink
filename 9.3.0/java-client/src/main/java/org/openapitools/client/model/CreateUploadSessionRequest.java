@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * CreateUploadSessionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:24.695873-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:41.911427-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CreateUploadSessionRequest {
   public static final String SERIALIZED_NAME_DRIVE_ID = "drive_id";
   @SerializedName(SERIALIZED_NAME_DRIVE_ID)
