@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * Reports filed against users and/or statuses, to be taken action on by moderators.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:27.813212-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:45.133390-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Report {
   public static final String SERIALIZED_NAME_ACTION_TAKEN = "action_taken";
   @SerializedName(SERIALIZED_NAME_ACTION_TAKEN)

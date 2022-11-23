@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents an announcement set by an administrator.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:54:27.813212-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:45.133390-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Announcement {
   public static final String SERIALIZED_NAME_ALL_DAY = "all_day";
   @SerializedName(SERIALIZED_NAME_ALL_DAY)
