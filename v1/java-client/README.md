@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Serverless VPC Access API
+reCAPTCHA Enterprise API
 - API version: v1
-  - Build date: 2024-10-11T02:02:59.321628-04:00[America/New_York]
+  - Build date: 2024-10-11T02:04:34.115959-04:00[America/New_York]
   - Generator version: 7.9.0
 
-API for managing VPC access connectors.
+Help protect your website from fraudulent activity, spam, and abuse without creating friction.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -92,7 +92,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://vpcaccess.googleapis.com");
+    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -103,7 +103,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The project and location in which the configuration should be created, specified in the format `projects/_*_/locations/_*`.
+    String name = "name_example"; // String | Required. The resource name of the Assessment, in the format \"projects/{project}/assessments/{assessment}\".
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -115,13 +115,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String connectorId = "connectorId_example"; // String | Required. The ID to use for this connector.
-    Connector connector = new Connector(); // Connector | 
+    GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest googleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest = new GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest(); // GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest | 
     try {
-      Operation result = apiInstance.vpcaccessProjectsLocationsConnectorsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, connectorId, connector);
+      Object result = apiInstance.recaptchaenterpriseProjectsAssessmentsAnnotate(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#vpcaccessProjectsLocationsConnectorsCreate");
+      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsAssessmentsAnnotate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -134,32 +133,73 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://vpcaccess.googleapis.com*
+All URIs are relative to *https://recaptchaenterprise.googleapis.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ProjectsApi* | [**vpcaccessProjectsLocationsConnectorsCreate**](docs/ProjectsApi.md#vpcaccessProjectsLocationsConnectorsCreate) | **POST** /v1/{parent}/connectors | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsConnectorsDelete**](docs/ProjectsApi.md#vpcaccessProjectsLocationsConnectorsDelete) | **DELETE** /v1/{name} | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsConnectorsList**](docs/ProjectsApi.md#vpcaccessProjectsLocationsConnectorsList) | **GET** /v1/{parent}/connectors | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsConnectorsPatch**](docs/ProjectsApi.md#vpcaccessProjectsLocationsConnectorsPatch) | **PATCH** /v1/{name} | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsList**](docs/ProjectsApi.md#vpcaccessProjectsLocationsList) | **GET** /v1/{name}/locations | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsOperationsGet**](docs/ProjectsApi.md#vpcaccessProjectsLocationsOperationsGet) | **GET** /v1/{name} | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsOperationsList**](docs/ProjectsApi.md#vpcaccessProjectsLocationsOperationsList) | **GET** /v1/{name}/operations | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsAssessmentsAnnotate**](docs/ProjectsApi.md#recaptchaenterpriseProjectsAssessmentsAnnotate) | **POST** /v1/{name}:annotate | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsAssessmentsCreate**](docs/ProjectsApi.md#recaptchaenterpriseProjectsAssessmentsCreate) | **POST** /v1/{parent}/assessments | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsFirewallpoliciesCreate**](docs/ProjectsApi.md#recaptchaenterpriseProjectsFirewallpoliciesCreate) | **POST** /v1/{parent}/firewallpolicies | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsFirewallpoliciesList**](docs/ProjectsApi.md#recaptchaenterpriseProjectsFirewallpoliciesList) | **GET** /v1/{parent}/firewallpolicies | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsKeysCreate**](docs/ProjectsApi.md#recaptchaenterpriseProjectsKeysCreate) | **POST** /v1/{parent}/keys | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsKeysDelete**](docs/ProjectsApi.md#recaptchaenterpriseProjectsKeysDelete) | **DELETE** /v1/{name} | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsKeysGetMetrics**](docs/ProjectsApi.md#recaptchaenterpriseProjectsKeysGetMetrics) | **GET** /v1/{name} | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsKeysList**](docs/ProjectsApi.md#recaptchaenterpriseProjectsKeysList) | **GET** /v1/{parent}/keys | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsKeysMigrate**](docs/ProjectsApi.md#recaptchaenterpriseProjectsKeysMigrate) | **POST** /v1/{name}:migrate | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsKeysPatch**](docs/ProjectsApi.md#recaptchaenterpriseProjectsKeysPatch) | **PATCH** /v1/{name} | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsKeysRetrieveLegacySecretKey**](docs/ProjectsApi.md#recaptchaenterpriseProjectsKeysRetrieveLegacySecretKey) | **GET** /v1/{key}:retrieveLegacySecretKey | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsRelatedaccountgroupmembershipsSearch**](docs/ProjectsApi.md#recaptchaenterpriseProjectsRelatedaccountgroupmembershipsSearch) | **POST** /v1/{project}/relatedaccountgroupmemberships:search | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsRelatedaccountgroupsList**](docs/ProjectsApi.md#recaptchaenterpriseProjectsRelatedaccountgroupsList) | **GET** /v1/{parent}/relatedaccountgroups | 
+*ProjectsApi* | [**recaptchaenterpriseProjectsRelatedaccountgroupsMembershipsList**](docs/ProjectsApi.md#recaptchaenterpriseProjectsRelatedaccountgroupsMembershipsList) | **GET** /v1/{parent}/memberships | 
 
 
 ## Documentation for Models
 
- - [Connector](docs/Connector.md)
- - [ListConnectorsResponse](docs/ListConnectorsResponse.md)
- - [ListLocationsResponse](docs/ListLocationsResponse.md)
- - [ListOperationsResponse](docs/ListOperationsResponse.md)
- - [Location](docs/Location.md)
- - [Operation](docs/Operation.md)
- - [OperationMetadata](docs/OperationMetadata.md)
- - [OperationMetadataV1Alpha1](docs/OperationMetadataV1Alpha1.md)
- - [OperationMetadataV1Beta1](docs/OperationMetadataV1Beta1.md)
- - [Status](docs/Status.md)
- - [Subnet](docs/Subnet.md)
+ - [GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment](docs/GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment.md)
+ - [GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo](docs/GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo.md)
+ - [GoogleCloudRecaptchaenterpriseV1AndroidKeySettings](docs/GoogleCloudRecaptchaenterpriseV1AndroidKeySettings.md)
+ - [GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest](docs/GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest.md)
+ - [GoogleCloudRecaptchaenterpriseV1Assessment](docs/GoogleCloudRecaptchaenterpriseV1Assessment.md)
+ - [GoogleCloudRecaptchaenterpriseV1ChallengeMetrics](docs/GoogleCloudRecaptchaenterpriseV1ChallengeMetrics.md)
+ - [GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo](docs/GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo.md)
+ - [GoogleCloudRecaptchaenterpriseV1Event](docs/GoogleCloudRecaptchaenterpriseV1Event.md)
+ - [GoogleCloudRecaptchaenterpriseV1FirewallAction](docs/GoogleCloudRecaptchaenterpriseV1FirewallAction.md)
+ - [GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction](docs/GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction.md)
+ - [GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction](docs/GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction.md)
+ - [GoogleCloudRecaptchaenterpriseV1FirewallPolicy](docs/GoogleCloudRecaptchaenterpriseV1FirewallPolicy.md)
+ - [GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment](docs/GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment.md)
+ - [GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment](docs/GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment.md)
+ - [GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict](docs/GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict.md)
+ - [GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict](docs/GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict.md)
+ - [GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict](docs/GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict.md)
+ - [GoogleCloudRecaptchaenterpriseV1IOSKeySettings](docs/GoogleCloudRecaptchaenterpriseV1IOSKeySettings.md)
+ - [GoogleCloudRecaptchaenterpriseV1Key](docs/GoogleCloudRecaptchaenterpriseV1Key.md)
+ - [GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse](docs/GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse.md)
+ - [GoogleCloudRecaptchaenterpriseV1ListKeysResponse](docs/GoogleCloudRecaptchaenterpriseV1ListKeysResponse.md)
+ - [GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse](docs/GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse.md)
+ - [GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse](docs/GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse.md)
+ - [GoogleCloudRecaptchaenterpriseV1Metrics](docs/GoogleCloudRecaptchaenterpriseV1Metrics.md)
+ - [GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest](docs/GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest.md)
+ - [GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification](docs/GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification.md)
+ - [GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup](docs/GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup.md)
+ - [GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership](docs/GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership.md)
+ - [GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse](docs/GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse.md)
+ - [GoogleCloudRecaptchaenterpriseV1RiskAnalysis](docs/GoogleCloudRecaptchaenterpriseV1RiskAnalysis.md)
+ - [GoogleCloudRecaptchaenterpriseV1ScoreDistribution](docs/GoogleCloudRecaptchaenterpriseV1ScoreDistribution.md)
+ - [GoogleCloudRecaptchaenterpriseV1ScoreMetrics](docs/GoogleCloudRecaptchaenterpriseV1ScoreMetrics.md)
+ - [GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest](docs/GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest.md)
+ - [GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse](docs/GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse.md)
+ - [GoogleCloudRecaptchaenterpriseV1TestingOptions](docs/GoogleCloudRecaptchaenterpriseV1TestingOptions.md)
+ - [GoogleCloudRecaptchaenterpriseV1TokenProperties](docs/GoogleCloudRecaptchaenterpriseV1TokenProperties.md)
+ - [GoogleCloudRecaptchaenterpriseV1TransactionData](docs/GoogleCloudRecaptchaenterpriseV1TransactionData.md)
+ - [GoogleCloudRecaptchaenterpriseV1TransactionDataAddress](docs/GoogleCloudRecaptchaenterpriseV1TransactionDataAddress.md)
+ - [GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo](docs/GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo.md)
+ - [GoogleCloudRecaptchaenterpriseV1TransactionDataItem](docs/GoogleCloudRecaptchaenterpriseV1TransactionDataItem.md)
+ - [GoogleCloudRecaptchaenterpriseV1TransactionDataUser](docs/GoogleCloudRecaptchaenterpriseV1TransactionDataUser.md)
+ - [GoogleCloudRecaptchaenterpriseV1TransactionEvent](docs/GoogleCloudRecaptchaenterpriseV1TransactionEvent.md)
+ - [GoogleCloudRecaptchaenterpriseV1WafSettings](docs/GoogleCloudRecaptchaenterpriseV1WafSettings.md)
+ - [GoogleCloudRecaptchaenterpriseV1WebKeySettings](docs/GoogleCloudRecaptchaenterpriseV1WebKeySettings.md)
+ - [GoogleRpcStatus](docs/GoogleRpcStatus.md)
 
 
 <a id="documentation-for-authorization"></a>

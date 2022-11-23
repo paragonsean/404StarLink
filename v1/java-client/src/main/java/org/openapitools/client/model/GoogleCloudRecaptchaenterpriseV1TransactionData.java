@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * Transaction data associated with a payment protected by reCAPTCHA Enterprise. All fields are optional.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:52.022302-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:34.115959-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleCloudRecaptchaenterpriseV1TransactionData {
   public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
   @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS)

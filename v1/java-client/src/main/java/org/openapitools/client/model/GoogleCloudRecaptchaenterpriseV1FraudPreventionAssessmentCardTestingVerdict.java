@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Information about card testing fraud, where an adversary is testing fraudulently obtained cards or brute forcing their details.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:52.022302-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:34.115959-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict {
   public static final String SERIALIZED_NAME_RISK = "risk";
   @SerializedName(SERIALIZED_NAME_RISK)
