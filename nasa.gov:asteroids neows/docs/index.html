@@ -1,0 +1,586 @@
+<!doctype html>
+<html>
+  <head>
+    <title>TechPort</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>TechPort</h1>
+    <div class="app-desc">TechPort RESTful API</div>
+    <div class="app-desc">More information: <a href="https://techport.nasa.gov">https://techport.nasa.gov</a></div>
+    <div class="app-desc">Contact Info: <a href="hq-techport@mail.nasa.gov">hq-techport@mail.nasa.gov</a></div>
+    <div class="app-desc">Version: 3.4.0</div>
+    <div class="app-desc">BasePath:/api</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#apiGet"><code><span class="http-method">get</span> /api</code></a></li>
+  <li><a href="#apiProjectsFormatGet"><code><span class="http-method">get</span> /api/projects{.format}</code></a></li>
+  <li><a href="#apiProjectsIdFormatGet"><code><span class="http-method">get</span> /api/projects/{id}{.format}</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="apiGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiGet</span>)</div>
+    <div class="method-notes">Returns the swagger specification for the API.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#"></a>
+    <h4 class="field-label">default</h4>
+    Object not found.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiProjectsFormatGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/projects{.format}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiProjectsFormatGet</span>)</div>
+    <div class="method-notes">Returns a list of available technology project IDs.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">.format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Automatically added default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">updatedSince (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; ISO 8601 full-date in the format YYYY-MM-DD. Filters the list of available ID values by their lastUpdated parameter. default: null format: date</div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The response type desired. default: json </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_api_projects__format__get_200_response">_api_projects__format__get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "lastUpdated" : "lastUpdated",
+  "id" : 0
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/xml</div>
+    <pre class="example"><code><null>
+  <id>123456789</id>
+  <lastUpdated>aeiou</lastUpdated>
+</null></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#_api_projects__format__get_200_response">_api_projects__format__get_200_response</a>
+    <h4 class="field-label">default</h4>
+    Object not found.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiProjectsIdFormatGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/projects/{id}{.format}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">apiProjectsIdFormatGet</span>)</div>
+    <div class="method-notes">Returns information about a specific technology project.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of project to fetch default: null format: int64</div><div class="param">.format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Automatically added default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The response type desired. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#project">project</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "benefits" : "benefits",
+  "programDirectors" : [ null, null ],
+  "coInvestigators" : [ null, null ],
+  "responsibleProgram" : "responsibleProgram",
+  "workLocations" : [ null, null ],
+  "supportedMissionType" : "supportedMissionType",
+  "endDate" : "endDate",
+  "primaryTas" : [ {
+    "code" : "code",
+    "name" : "name",
+    "id" : 0
+  }, {
+    "code" : "code",
+    "name" : "name",
+    "id" : 0
+  } ],
+  "programManagers" : [ null, null ],
+  "description" : "description",
+  "technologyMaturityCurrent" : "technologyMaturityCurrent",
+  "title" : "title",
+  "leadOrganization" : {
+    "acronym" : "acronym",
+    "city" : "city",
+    "name" : "name",
+    "state" : "state"
+  },
+  "additionalTas" : [ {
+    "code" : "code",
+    "name" : "name",
+    "id" : 0
+  }, {
+    "code" : "code",
+    "name" : "name",
+    "id" : 0
+  } ],
+  "technologyMaturityEnd" : "technologyMaturityEnd",
+  "lastUpdated" : "2000-01-23",
+  "supportingOrganizations" : [ {
+    "acronym" : "acronym",
+    "city" : "city",
+    "name" : "name",
+    "state" : "state"
+  }, {
+    "acronym" : "acronym",
+    "city" : "city",
+    "name" : "name",
+    "state" : "state"
+  } ],
+  "technologyMaturityStart" : "technologyMaturityStart",
+  "closeoutSummary" : "closeoutSummary",
+  "responsibleMissionDirectorateOrOffice" : "responsibleMissionDirectorateOrOffice",
+  "id" : 6,
+  "website" : "website",
+  "acronym" : "acronym",
+  "libraryItems" : [ {
+    "externalUrl" : "externalUrl",
+    "publishedBy" : "publishedBy",
+    "description" : "description",
+    "files" : [ {
+      "size" : "size",
+      "id" : 1,
+      "url" : "url"
+    }, {
+      "size" : "size",
+      "id" : 1,
+      "url" : "url"
+    } ],
+    "completionDate" : "completionDate",
+    "id" : 5,
+    "publishedDate" : "publishedDate",
+    "title" : "title",
+    "type" : "type"
+  }, {
+    "externalUrl" : "externalUrl",
+    "publishedBy" : "publishedBy",
+    "description" : "description",
+    "files" : [ {
+      "size" : "size",
+      "id" : 1,
+      "url" : "url"
+    }, {
+      "size" : "size",
+      "id" : 1,
+      "url" : "url"
+    } ],
+    "completionDate" : "completionDate",
+    "id" : 5,
+    "publishedDate" : "publishedDate",
+    "title" : "title",
+    "type" : "type"
+  } ],
+  "coFundingPartners" : [ {
+    "acronym" : "acronym",
+    "city" : "city",
+    "name" : "name",
+    "state" : "state"
+  }, {
+    "acronym" : "acronym",
+    "city" : "city",
+    "name" : "name",
+    "state" : "state"
+  } ],
+  "destinations" : [ null, null ],
+  "projectManagers" : [ null, null ],
+  "principalInvestigators" : [ null, null ],
+  "closeoutDocuments" : [ null, null ],
+  "startDate" : "startDate",
+  "status" : "status"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/xml</div>
+    <pre class="example"><code><null>
+  <acronym>aeiou</acronym>
+  <benefits>aeiou</benefits>
+  <closeoutSummary>aeiou</closeoutSummary>
+  <description>aeiou</description>
+  <endDate>aeiou</endDate>
+  <id>123456789</id>
+  <lastUpdated>2000-01-23</lastUpdated>
+  <responsibleMissionDirectorateOrOffice>aeiou</responsibleMissionDirectorateOrOffice>
+  <responsibleProgram>aeiou</responsibleProgram>
+  <startDate>aeiou</startDate>
+  <status>aeiou</status>
+  <supportedMissionType>aeiou</supportedMissionType>
+  <technologyMaturityCurrent>aeiou</technologyMaturityCurrent>
+  <technologyMaturityEnd>aeiou</technologyMaturityEnd>
+  <technologyMaturityStart>aeiou</technologyMaturityStart>
+  <title>aeiou</title>
+  <website>aeiou</website>
+</null></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#project">project</a>
+    <h4 class="field-label">default</h4>
+    Object not found.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#_api_projects__format__get_200_response"><code>_api_projects__format__get_200_response</code> - </a></li>
+    <li><a href="#file"><code>file</code> - </a></li>
+    <li><a href="#libraryItem"><code>libraryItem</code> - </a></li>
+    <li><a href="#organization"><code>organization</code> - </a></li>
+    <li><a href="#project"><code>project</code> - </a></li>
+    <li><a href="#technologyArea"><code>technologyArea</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="_api_projects__format__get_200_response"><code>_api_projects__format__get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">lastUpdated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="file"><code>file</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents a file associated with a library item.</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier for the file. format: int64</div>
+<div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The size of the file in bytes. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The TechPort URL at which the file is accessible for download. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="libraryItem"><code>libraryItem</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents a specific library item that is part of this project.</div>
+    <div class="field-items">
+      <div class="param">completionDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Date the library item was completed. </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Description of the library item. </div>
+<div class="param">externalUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> External URL for the library item. </div>
+<div class="param">files (optional)</div><div class="param-desc"><span class="param-type"><a href="#file">array[File]</a></span> List of files associated with the library item. </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier for the library item. format: int64</div>
+<div class="param">publishedBy (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Publisher of the library item. </div>
+<div class="param">publishedDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Date the library item was published. </div>
+<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Title of the library item </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifies the type of library item, e.g. Image </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="organization"><code>organization</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A NASA center/facility associated with an project.</div>
+    <div class="field-items">
+      <div class="param">acronym (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The acronym of the organization. </div>
+<div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The city in which the organization is located. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the organization. </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The state in which the organization is located. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="project"><code>project</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Top-level TechPort object representing a NASA technology project and its associated data.</div>
+    <div class="field-items">
+      <div class="param">acronym (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Abbreviated name of the project. </div>
+<div class="param">additionalTas (optional)</div><div class="param-desc"><span class="param-type"><a href="#technologyArea">array[technologyArea]</a></span> List of additional and cross-cutting technology areas associated with the project. </div>
+<div class="param">benefits (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Describes the benefits offered to NASA funded and planned missions, unfunded or planned missions, commercial space industry, and to the nation. </div>
+<div class="param">closeoutDocuments (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> List of document files or links to the project final report closeout documentation. </div>
+<div class="param">closeoutSummary (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The project closeout summary excerpt. </div>
+<div class="param">coFundingPartners (optional)</div><div class="param-desc"><span class="param-type"><a href="#organization">array[organization]</a></span> Other government agencies, NASA Mission Directoratres, universities, or commercial entities performing contributing resources to this project. </div>
+<div class="param">coInvestigators (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Names of the additional investigators who are scientists or engineers for this project. </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A detailed description of the project. </div>
+<div class="param">destinations (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> List of the NASA destinations the technology on this project helps achieve. </div>
+<div class="param">endDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The month and year the project is expected to complete its work. </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier for the project. format: int64</div>
+<div class="param">lastUpdated (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> ISO 8601 full-date in the format YYYY-MM-DD describing the last time this project was updated. format: date</div>
+<div class="param">leadOrganization (optional)</div><div class="param-desc"><span class="param-type"><a href="#organization">organization</a></span>  </div>
+<div class="param">libraryItems (optional)</div><div class="param-desc"><span class="param-type"><a href="#libraryItem">array[libraryItem]</a></span> List of library items in the project library. </div>
+<div class="param">primaryTas (optional)</div><div class="param-desc"><span class="param-type"><a href="#technologyArea">array[technologyArea]</a></span> List of primary technolgy areas (from the NASA Technology Roadmap) associated with the project. </div>
+<div class="param">principalInvestigators (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Names of the Principal Investigators who are the lead scientists or engineers for this project. </div>
+<div class="param">programDirectors (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Names of the Program Directors responsible for the management of this project. </div>
+<div class="param">programManagers (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Names of the Program Managers responsible for the management of this project. </div>
+<div class="param">projectManagers (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Names of the Project Managers responsible for the management of this project. </div>
+<div class="param">responsibleMissionDirectorateOrOffice (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The NASA Mission Directorate or Office that is the primary funding source for this project. </div>
+<div class="param">responsibleProgram (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The NASA program that is the primary funding source for this project. </div>
+<div class="param">startDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The month and year the project was authorized to proceed. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Indicates whether the project is currently active, completed, or canceled. </div>
+<div class="param">supportedMissionType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The supported mission type (Projected Mission, Planned Mission, or Pull). </div>
+<div class="param">supportingOrganizations (optional)</div><div class="param-desc"><span class="param-type"><a href="#organization">array[organization]</a></span> The supporting organizations for this project that are conducting work on the project. </div>
+<div class="param">technologyMaturityCurrent (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The current technology maturity (technology readiness level) of the project. </div>
+<div class="param">technologyMaturityEnd (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The estimated technology maturity (technology readiness level) of the project at its end. </div>
+<div class="param">technologyMaturityStart (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The technology maturity (technology readiness level) of the project at its beginning. </div>
+<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Title of the project. </div>
+<div class="param">website (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The URL for the associated website. </div>
+<div class="param">workLocations (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> States and territories with people performing work on this project. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="technologyArea"><code>technologyArea</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The Technology Area for a given technology that corresponds to the NASA Technology Roadmap.</div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code identifier for the Technology Area. </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Unique identifier for the Technology Area. format: int64</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the Technology Area. </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
