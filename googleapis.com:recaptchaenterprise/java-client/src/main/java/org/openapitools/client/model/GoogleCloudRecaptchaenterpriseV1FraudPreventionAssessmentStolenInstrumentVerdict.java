@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Information about stolen instrument fraud, where the user is not the legitimate owner of the instrument being used for the purchase.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:54.758298-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:37.006704-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict {
   public static final String SERIALIZED_NAME_RISK = "risk";
   @SerializedName(SERIALIZED_NAME_RISK)

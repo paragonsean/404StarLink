@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Settings specific to keys that can be used by websites.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:54.758298-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:37.006704-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleCloudRecaptchaenterpriseV1WebKeySettings {
   public static final String SERIALIZED_NAME_ALLOW_ALL_DOMAINS = "allowAllDomains";
   @SerializedName(SERIALIZED_NAME_ALLOW_ALL_DOMAINS)

@@ -2,7 +2,7 @@
 
 reCAPTCHA Enterprise API
 - API version: v1
-  - Build date: 2024-10-11T01:56:54.758298-04:00[America/New_York]
+  - Build date: 2024-10-11T02:04:37.006704-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Help protect your website from fraudulent activity, spam, and abuse without creating friction.

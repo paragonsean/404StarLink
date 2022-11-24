@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Secret key is used only in legacy reCAPTCHA. It must be used in a 3rd party integration with legacy reCAPTCHA.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:54.758298-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:37.006704-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse {
   public static final String SERIALIZED_NAME_LEGACY_SECRET_KEY = "legacySecretKey";
   @SerializedName(SERIALIZED_NAME_LEGACY_SECRET_KEY)
