@@ -1,6 +1,6 @@
 /*
- * Serverless VPC Access API
- * API for managing VPC access connectors.
+ * reCAPTCHA Enterprise API
+ * Help protect your website from fraudulent activity, spam, and abuse without creating friction.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -66,10 +66,10 @@ import org.openapitools.client.auth.OAuthFlow;
  */
 public class ApiClient {
 
-    private String basePath = "https://vpcaccess.googleapis.com";
+    private String basePath = "https://recaptchaenterprise.googleapis.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://vpcaccess.googleapis.com",
+      "https://recaptchaenterprise.googleapis.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -231,7 +231,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://vpcaccess.googleapis.com
+     * @param basePath Base path of the URL (e.g https://recaptchaenterprise.googleapis.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

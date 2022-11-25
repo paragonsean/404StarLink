@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Serverless VPC Access API</title>
+    <title>reCAPTCHA Enterprise API</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,8 +179,8 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>Serverless VPC Access API</h1>
-    <div class="app-desc">API for managing VPC access connectors.</div>
+  <h1>reCAPTCHA Enterprise API</h1>
+    <div class="app-desc">Help protect your website from fraudulent activity, spam, and abuse without creating friction.</div>
     <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
     <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
     <div class="app-desc">Version: v1</div>
@@ -200,28 +200,35 @@ font-style: italic;
   <div class="method-summary"></div>
   <h4><a href="#Projects">Projects</a></h4>
   <ul>
-  <li><a href="#vpcaccess.projects.locations.connectors.create"><code><span class="http-method">post</span> /v1/{parent}/connectors</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.connectors.delete"><code><span class="http-method">delete</span> /v1/{name}</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.connectors.list"><code><span class="http-method">get</span> /v1/{parent}/connectors</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.connectors.patch"><code><span class="http-method">patch</span> /v1/{name}</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.list"><code><span class="http-method">get</span> /v1/{name}/locations</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.operations.get"><code><span class="http-method">get</span> /v1/{name}</code></a></li>
-  <li><a href="#vpcaccess.projects.locations.operations.list"><code><span class="http-method">get</span> /v1/{name}/operations</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.assessments.annotate"><code><span class="http-method">post</span> /v1/{name}:annotate</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.assessments.create"><code><span class="http-method">post</span> /v1/{parent}/assessments</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.firewallpolicies.create"><code><span class="http-method">post</span> /v1/{parent}/firewallpolicies</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.firewallpolicies.list"><code><span class="http-method">get</span> /v1/{parent}/firewallpolicies</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.keys.create"><code><span class="http-method">post</span> /v1/{parent}/keys</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.keys.delete"><code><span class="http-method">delete</span> /v1/{name}</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.keys.getMetrics"><code><span class="http-method">get</span> /v1/{name}</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.keys.list"><code><span class="http-method">get</span> /v1/{parent}/keys</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.keys.migrate"><code><span class="http-method">post</span> /v1/{name}:migrate</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.keys.patch"><code><span class="http-method">patch</span> /v1/{name}</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.keys.retrieveLegacySecretKey"><code><span class="http-method">get</span> /v1/{key}:retrieveLegacySecretKey</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.relatedaccountgroupmemberships.search"><code><span class="http-method">post</span> /v1/{project}/relatedaccountgroupmemberships:search</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.relatedaccountgroups.list"><code><span class="http-method">get</span> /v1/{parent}/relatedaccountgroups</code></a></li>
+  <li><a href="#recaptchaenterprise.projects.relatedaccountgroups.memberships.list"><code><span class="http-method">get</span> /v1/{parent}/memberships</code></a></li>
   </ul>
 
   <h1><a name="Projects">Projects</a></h1>
-  <div class="method"><a name="vpcaccess.projects.locations.connectors.create"/>
+  <div class="method"><a name="recaptchaenterprise.projects.assessments.annotate"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}/connectors</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.create</span>)</div>
-    <div class="method-notes">Creates a Serverless VPC Access connector, returns an operation.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{name}:annotate</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.assessments.annotate</span>)</div>
+    <div class="method-notes">Annotates a previously created Assessment to provide additional information on whether the event turned out to be authentic or fraudulent.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">parent (required)</div>
+      <div class="param">name (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The project and location in which the configuration should be created, specified in the format <code>projects/*/locations/*</code>. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The resource name of the Assessment, in the format &quot;projects/{project}/assessments/{assessment}&quot;. default: null </div>
     </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
@@ -232,7 +239,7 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">Connector <a href="#Connector">Connector</a> (optional)</div>
+      <div class="param">GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest <a href="#GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest">GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest</a> (optional)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
@@ -263,15 +270,92 @@ font-style: italic;
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">connectorId (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Required. The ID to use for this connector. default: null </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Operation">Operation</a>
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="recaptchaenterprise.projects.assessments.create"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}/assessments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.assessments.create</span>)</div>
+    <div class="method-notes">Creates an Assessment of the likelihood an event is legitimate.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the project in which the assessment will be created, in the format &quot;projects/{project}&quot;. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GoogleCloudRecaptchaenterpriseV1Assessment <a href="#GoogleCloudRecaptchaenterpriseV1Assessment">GoogleCloudRecaptchaenterpriseV1Assessment</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleCloudRecaptchaenterpriseV1Assessment">GoogleCloudRecaptchaenterpriseV1Assessment</a>
       
     </div>
 
@@ -280,23 +364,177 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "metadata" : {
-    "key" : ""
+  "riskAnalysis" : {
+    "score" : 3.6160767,
+    "reasons" : [ "CLASSIFICATION_REASON_UNSPECIFIED", "CLASSIFICATION_REASON_UNSPECIFIED" ],
+    "extendedVerdictReasons" : [ "extendedVerdictReasons", "extendedVerdictReasons" ]
   },
-  "response" : {
-    "key" : ""
+  "accountVerification" : {
+    "endpoints" : [ {
+      "emailAddress" : "emailAddress",
+      "phoneNumber" : "phoneNumber",
+      "lastVerificationTime" : "lastVerificationTime",
+      "requestToken" : "requestToken"
+    }, {
+      "emailAddress" : "emailAddress",
+      "phoneNumber" : "phoneNumber",
+      "lastVerificationTime" : "lastVerificationTime",
+      "requestToken" : "requestToken"
+    } ],
+    "latestVerificationResult" : "RESULT_UNSPECIFIED",
+    "languageCode" : "languageCode",
+    "username" : "username"
+  },
+  "firewallPolicyAssessment" : {
+    "firewallPolicy" : {
+      "path" : "path",
+      "condition" : "condition",
+      "name" : "name",
+      "description" : "description",
+      "actions" : [ {
+        "allow" : "{}",
+        "redirect" : "{}",
+        "block" : "{}",
+        "setHeader" : {
+          "value" : "value",
+          "key" : "key"
+        },
+        "substitute" : {
+          "path" : "path"
+        }
+      }, {
+        "allow" : "{}",
+        "redirect" : "{}",
+        "block" : "{}",
+        "setHeader" : {
+          "value" : "value",
+          "key" : "key"
+        },
+        "substitute" : {
+          "path" : "path"
+        }
+      } ]
+    },
+    "error" : {
+      "code" : 5,
+      "details" : [ {
+        "key" : ""
+      }, {
+        "key" : ""
+      } ],
+      "message" : "message"
+    }
+  },
+  "accountDefenderAssessment" : {
+    "labels" : [ "ACCOUNT_DEFENDER_LABEL_UNSPECIFIED", "ACCOUNT_DEFENDER_LABEL_UNSPECIFIED" ]
   },
   "name" : "name",
-  "error" : {
-    "code" : 0,
-    "details" : [ {
-      "key" : ""
-    }, {
-      "key" : ""
-    } ],
-    "message" : "message"
+  "tokenProperties" : {
+    "valid" : true,
+    "hostname" : "hostname",
+    "createTime" : "createTime",
+    "androidPackageName" : "androidPackageName",
+    "iosBundleId" : "iosBundleId",
+    "action" : "action",
+    "invalidReason" : "INVALID_REASON_UNSPECIFIED"
   },
-  "done" : true
+  "event" : {
+    "headers" : [ "headers", "headers" ],
+    "firewallPolicyEvaluation" : true,
+    "requestedUri" : "requestedUri",
+    "wafTokenAssessment" : true,
+    "transactionData" : {
+      "cardLastFour" : "cardLastFour",
+      "transactionId" : "transactionId",
+      "cardBin" : "cardBin",
+      "paymentMethod" : "paymentMethod",
+      "shippingAddress" : {
+        "regionCode" : "regionCode",
+        "address" : [ "address", "address" ],
+        "postalCode" : "postalCode",
+        "locality" : "locality",
+        "recipient" : "recipient",
+        "administrativeArea" : "administrativeArea"
+      },
+      "gatewayInfo" : {
+        "cvvResponseCode" : "cvvResponseCode",
+        "name" : "name",
+        "gatewayResponseCode" : "gatewayResponseCode",
+        "avsResponseCode" : "avsResponseCode"
+      },
+      "billingAddress" : {
+        "regionCode" : "regionCode",
+        "address" : [ "address", "address" ],
+        "postalCode" : "postalCode",
+        "locality" : "locality",
+        "recipient" : "recipient",
+        "administrativeArea" : "administrativeArea"
+      },
+      "merchants" : [ {
+        "accountId" : "accountId",
+        "emailVerified" : true,
+        "phoneNumber" : "phoneNumber",
+        "creationMs" : "creationMs",
+        "phoneVerified" : true,
+        "email" : "email"
+      }, {
+        "accountId" : "accountId",
+        "emailVerified" : true,
+        "phoneNumber" : "phoneNumber",
+        "creationMs" : "creationMs",
+        "phoneVerified" : true,
+        "email" : "email"
+      } ],
+      "currencyCode" : "currencyCode",
+      "items" : [ {
+        "quantity" : "quantity",
+        "name" : "name",
+        "merchantAccountId" : "merchantAccountId",
+        "value" : 0.8008281904610115
+      }, {
+        "quantity" : "quantity",
+        "name" : "name",
+        "merchantAccountId" : "merchantAccountId",
+        "value" : 0.8008281904610115
+      } ],
+      "user" : {
+        "accountId" : "accountId",
+        "emailVerified" : true,
+        "phoneNumber" : "phoneNumber",
+        "creationMs" : "creationMs",
+        "phoneVerified" : true,
+        "email" : "email"
+      },
+      "value" : 1.4658129805029452,
+      "shippingValue" : 6.027456183070403
+    },
+    "express" : true,
+    "userAgent" : "userAgent",
+    "expectedAction" : "expectedAction",
+    "token" : "token",
+    "hashedAccountId" : "hashedAccountId",
+    "siteKey" : "siteKey",
+    "userIpAddress" : "userIpAddress",
+    "ja3" : "ja3"
+  },
+  "fraudPreventionAssessment" : {
+    "stolenInstrumentVerdict" : {
+      "risk" : 7.0614014
+    },
+    "cardTestingVerdict" : {
+      "risk" : 2.302136
+    },
+    "behavioralTrustVerdict" : {
+      "trust" : 5.637377
+    },
+    "transactionRisk" : 9.301444
+  },
+  "privatePasswordLeakVerification" : {
+    "lookupHashPrefix" : "lookupHashPrefix",
+    "reencryptedUserCredentialsHash" : "reencryptedUserCredentialsHash",
+    "encryptedUserCredentialsHash" : "encryptedUserCredentialsHash",
+    "encryptedLeakMatchPrefixes" : [ "encryptedLeakMatchPrefixes", "encryptedLeakMatchPrefixes" ]
+  }
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -309,21 +547,377 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#Operation">Operation</a>
+        <a href="#GoogleCloudRecaptchaenterpriseV1Assessment">GoogleCloudRecaptchaenterpriseV1Assessment</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.connectors.delete"/>
+  <div class="method"><a name="recaptchaenterprise.projects.firewallpolicies.create"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}/firewallpolicies</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.firewallpolicies.create</span>)</div>
+    <div class="method-notes">Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA Enterprise actions can be executed. A project may have a maximum of 1000 policies.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the project this policy will apply to, in the format &quot;projects/{project}&quot;. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GoogleCloudRecaptchaenterpriseV1FirewallPolicy <a href="#GoogleCloudRecaptchaenterpriseV1FirewallPolicy">GoogleCloudRecaptchaenterpriseV1FirewallPolicy</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleCloudRecaptchaenterpriseV1FirewallPolicy">GoogleCloudRecaptchaenterpriseV1FirewallPolicy</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "path" : "path",
+  "condition" : "condition",
+  "name" : "name",
+  "description" : "description",
+  "actions" : [ {
+    "allow" : "{}",
+    "redirect" : "{}",
+    "block" : "{}",
+    "setHeader" : {
+      "value" : "value",
+      "key" : "key"
+    },
+    "substitute" : {
+      "path" : "path"
+    }
+  }, {
+    "allow" : "{}",
+    "redirect" : "{}",
+    "block" : "{}",
+    "setHeader" : {
+      "value" : "value",
+      "key" : "key"
+    },
+    "substitute" : {
+      "path" : "path"
+    }
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GoogleCloudRecaptchaenterpriseV1FirewallPolicy">GoogleCloudRecaptchaenterpriseV1FirewallPolicy</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="recaptchaenterprise.projects.firewallpolicies.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/firewallpolicies</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.firewallpolicies.list</span>)</div>
+    <div class="method-notes">Returns the list of all firewall policies that belong to a project.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the project to list the policies for, in the format &quot;projects/{project}&quot;. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The maximum number of policies to return. Default is 10. Max limit is 1000. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The next_page_token value returned from a previous. ListFirewallPoliciesRequest, if any. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse">GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "firewallPolicies" : [ {
+    "path" : "path",
+    "condition" : "condition",
+    "name" : "name",
+    "description" : "description",
+    "actions" : [ {
+      "allow" : "{}",
+      "redirect" : "{}",
+      "block" : "{}",
+      "setHeader" : {
+        "value" : "value",
+        "key" : "key"
+      },
+      "substitute" : {
+        "path" : "path"
+      }
+    }, {
+      "allow" : "{}",
+      "redirect" : "{}",
+      "block" : "{}",
+      "setHeader" : {
+        "value" : "value",
+        "key" : "key"
+      },
+      "substitute" : {
+        "path" : "path"
+      }
+    } ]
+  }, {
+    "path" : "path",
+    "condition" : "condition",
+    "name" : "name",
+    "description" : "description",
+    "actions" : [ {
+      "allow" : "{}",
+      "redirect" : "{}",
+      "block" : "{}",
+      "setHeader" : {
+        "value" : "value",
+        "key" : "key"
+      },
+      "substitute" : {
+        "path" : "path"
+      }
+    }, {
+      "allow" : "{}",
+      "redirect" : "{}",
+      "block" : "{}",
+      "setHeader" : {
+        "value" : "value",
+        "key" : "key"
+      },
+      "substitute" : {
+        "path" : "path"
+      }
+    } ]
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse">GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="recaptchaenterprise.projects.keys.create"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}/keys</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.keys.create</span>)</div>
+    <div class="method-notes">Creates a new reCAPTCHA Enterprise key.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the project in which the key will be created, in the format &quot;projects/{project}&quot;. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GoogleCloudRecaptchaenterpriseV1Key <a href="#GoogleCloudRecaptchaenterpriseV1Key">GoogleCloudRecaptchaenterpriseV1Key</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleCloudRecaptchaenterpriseV1Key">GoogleCloudRecaptchaenterpriseV1Key</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "iosSettings" : {
+    "allowAllBundleIds" : true,
+    "allowedBundleIds" : [ "allowedBundleIds", "allowedBundleIds" ]
+  },
+  "testingOptions" : {
+    "testingChallenge" : "TESTING_CHALLENGE_UNSPECIFIED",
+    "testingScore" : 0.8008282
+  },
+  "createTime" : "createTime",
+  "displayName" : "displayName",
+  "name" : "name",
+  "androidSettings" : {
+    "supportNonGoogleAppStoreDistribution" : true,
+    "allowedPackageNames" : [ "allowedPackageNames", "allowedPackageNames" ],
+    "allowAllPackageNames" : true
+  },
+  "wafSettings" : {
+    "wafService" : "WAF_SERVICE_UNSPECIFIED",
+    "wafFeature" : "WAF_FEATURE_UNSPECIFIED"
+  },
+  "labels" : {
+    "key" : "labels"
+  },
+  "webSettings" : {
+    "integrationType" : "INTEGRATION_TYPE_UNSPECIFIED",
+    "allowAllDomains" : true,
+    "allowedDomains" : [ "allowedDomains", "allowedDomains" ],
+    "allowAmpTraffic" : true,
+    "challengeSecurityPreference" : "CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GoogleCloudRecaptchaenterpriseV1Key">GoogleCloudRecaptchaenterpriseV1Key</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="recaptchaenterprise.projects.keys.delete"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/{name}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.delete</span>)</div>
-    <div class="method-notes">Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist.</div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.keys.delete</span>)</div>
+    <div class="method-notes">Deletes the specified key.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">name (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Name of a Serverless VPC Access connector to delete. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the key to be deleted, in the format &quot;projects/{project}/keys/{key}&quot;. default: null </div>
     </div>  <!-- field-items -->
 
 
@@ -359,7 +953,74 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Operation">Operation</a>
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="recaptchaenterprise.projects.keys.getMetrics"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.keys.getMetrics</span>)</div>
+    <div class="method-notes">Get some aggregated metrics for a Key. This data can be used to build dashboards.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the requested metrics, in the format &quot;projects/{project}/keys/{key}/metrics&quot;. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleCloudRecaptchaenterpriseV1Metrics">GoogleCloudRecaptchaenterpriseV1Metrics</a>
       
     </div>
 
@@ -368,23 +1029,46 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "metadata" : {
-    "key" : ""
-  },
-  "response" : {
-    "key" : ""
-  },
+  "scoreMetrics" : [ {
+    "overallMetrics" : {
+      "scoreBuckets" : {
+        "key" : "scoreBuckets"
+      }
+    },
+    "actionMetrics" : {
+      "key" : {
+        "scoreBuckets" : {
+          "key" : "scoreBuckets"
+        }
+      }
+    }
+  }, {
+    "overallMetrics" : {
+      "scoreBuckets" : {
+        "key" : "scoreBuckets"
+      }
+    },
+    "actionMetrics" : {
+      "key" : {
+        "scoreBuckets" : {
+          "key" : "scoreBuckets"
+        }
+      }
+    }
+  } ],
+  "challengeMetrics" : [ {
+    "failedCount" : "failedCount",
+    "nocaptchaCount" : "nocaptchaCount",
+    "passedCount" : "passedCount",
+    "pageloadCount" : "pageloadCount"
+  }, {
+    "failedCount" : "failedCount",
+    "nocaptchaCount" : "nocaptchaCount",
+    "passedCount" : "passedCount",
+    "pageloadCount" : "pageloadCount"
+  } ],
   "name" : "name",
-  "error" : {
-    "code" : 0,
-    "details" : [ {
-      "key" : ""
-    }, {
-      "key" : ""
-    } ],
-    "message" : "message"
-  },
-  "done" : true
+  "startTime" : "startTime"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -397,21 +1081,21 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#Operation">Operation</a>
+        <a href="#GoogleCloudRecaptchaenterpriseV1Metrics">GoogleCloudRecaptchaenterpriseV1Metrics</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.connectors.list"/>
+  <div class="method"><a name="recaptchaenterprise.projects.keys.list"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/connectors</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.list</span>)</div>
-    <div class="method-notes">Lists Serverless VPC Access connectors.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/keys</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.keys.list</span>)</div>
+    <div class="method-notes">Returns the list of all keys that belong to a project.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">parent (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The project and location from which the routes should be listed. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the project that contains the keys that will be listed, in the format &quot;projects/{project}&quot;. default: null </div>
     </div>  <!-- field-items -->
 
 
@@ -443,15 +1127,15 @@ font-style: italic;
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum number of functions to return per call. default: null </div><div class="param">pageToken (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The maximum number of keys to return. Default is 10. Max limit is 1000. default: null </div><div class="param">pageToken (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Continuation token. default: null </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The next_page_token value returned from a previous. ListKeysRequest, if any. default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ListConnectorsResponse">ListConnectorsResponse</a>
+      <a href="#GoogleCloudRecaptchaenterpriseV1ListKeysResponse">GoogleCloudRecaptchaenterpriseV1ListKeysResponse</a>
       
     </div>
 
@@ -460,36 +1144,68 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "connectors" : [ {
-    "connectedProjects" : [ "connectedProjects", "connectedProjects" ],
-    "minInstances" : 1,
-    "subnet" : {
-      "name" : "name",
-      "projectId" : "projectId"
+  "keys" : [ {
+    "iosSettings" : {
+      "allowAllBundleIds" : true,
+      "allowedBundleIds" : [ "allowedBundleIds", "allowedBundleIds" ]
     },
-    "minThroughput" : 5,
+    "testingOptions" : {
+      "testingChallenge" : "TESTING_CHALLENGE_UNSPECIFIED",
+      "testingScore" : 0.8008282
+    },
+    "createTime" : "createTime",
+    "displayName" : "displayName",
     "name" : "name",
-    "state" : "STATE_UNSPECIFIED",
-    "maxInstances" : 0,
-    "ipCidrRange" : "ipCidrRange",
-    "machineType" : "machineType",
-    "maxThroughput" : 6,
-    "network" : "network"
+    "androidSettings" : {
+      "supportNonGoogleAppStoreDistribution" : true,
+      "allowedPackageNames" : [ "allowedPackageNames", "allowedPackageNames" ],
+      "allowAllPackageNames" : true
+    },
+    "wafSettings" : {
+      "wafService" : "WAF_SERVICE_UNSPECIFIED",
+      "wafFeature" : "WAF_FEATURE_UNSPECIFIED"
+    },
+    "labels" : {
+      "key" : "labels"
+    },
+    "webSettings" : {
+      "integrationType" : "INTEGRATION_TYPE_UNSPECIFIED",
+      "allowAllDomains" : true,
+      "allowedDomains" : [ "allowedDomains", "allowedDomains" ],
+      "allowAmpTraffic" : true,
+      "challengeSecurityPreference" : "CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED"
+    }
   }, {
-    "connectedProjects" : [ "connectedProjects", "connectedProjects" ],
-    "minInstances" : 1,
-    "subnet" : {
-      "name" : "name",
-      "projectId" : "projectId"
+    "iosSettings" : {
+      "allowAllBundleIds" : true,
+      "allowedBundleIds" : [ "allowedBundleIds", "allowedBundleIds" ]
     },
-    "minThroughput" : 5,
+    "testingOptions" : {
+      "testingChallenge" : "TESTING_CHALLENGE_UNSPECIFIED",
+      "testingScore" : 0.8008282
+    },
+    "createTime" : "createTime",
+    "displayName" : "displayName",
     "name" : "name",
-    "state" : "STATE_UNSPECIFIED",
-    "maxInstances" : 0,
-    "ipCidrRange" : "ipCidrRange",
-    "machineType" : "machineType",
-    "maxThroughput" : 6,
-    "network" : "network"
+    "androidSettings" : {
+      "supportNonGoogleAppStoreDistribution" : true,
+      "allowedPackageNames" : [ "allowedPackageNames", "allowedPackageNames" ],
+      "allowAllPackageNames" : true
+    },
+    "wafSettings" : {
+      "wafService" : "WAF_SERVICE_UNSPECIFIED",
+      "wafFeature" : "WAF_FEATURE_UNSPECIFIED"
+    },
+    "labels" : {
+      "key" : "labels"
+    },
+    "webSettings" : {
+      "integrationType" : "INTEGRATION_TYPE_UNSPECIFIED",
+      "allowAllDomains" : true,
+      "allowedDomains" : [ "allowedDomains", "allowedDomains" ],
+      "allowAmpTraffic" : true,
+      "challengeSecurityPreference" : "CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED"
+    }
   } ],
   "nextPageToken" : "nextPageToken"
 }</code></pre>
@@ -504,21 +1220,21 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#ListConnectorsResponse">ListConnectorsResponse</a>
+        <a href="#GoogleCloudRecaptchaenterpriseV1ListKeysResponse">GoogleCloudRecaptchaenterpriseV1ListKeysResponse</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.connectors.patch"/>
+  <div class="method"><a name="recaptchaenterprise.projects.keys.migrate"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /v1/{name}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.connectors.patch</span>)</div>
-    <div class="method-notes">Updates a Serverless VPC Access connector, returns an operation.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{name}:migrate</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.keys.migrate</span>)</div>
+    <div class="method-notes">Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment calls. You must be authenticated as one of the current owners of the reCAPTCHA Site Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">name (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource name in the format <code>projects/*/locations/*/connectors/*</code>. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the key to be migrated, in the format &quot;projects/{project}/keys/{key}&quot;. default: null </div>
     </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
@@ -529,7 +1245,120 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">Connector <a href="#Connector">Connector</a> (optional)</div>
+      <div class="param">GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest <a href="#GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest">GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleCloudRecaptchaenterpriseV1Key">GoogleCloudRecaptchaenterpriseV1Key</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "iosSettings" : {
+    "allowAllBundleIds" : true,
+    "allowedBundleIds" : [ "allowedBundleIds", "allowedBundleIds" ]
+  },
+  "testingOptions" : {
+    "testingChallenge" : "TESTING_CHALLENGE_UNSPECIFIED",
+    "testingScore" : 0.8008282
+  },
+  "createTime" : "createTime",
+  "displayName" : "displayName",
+  "name" : "name",
+  "androidSettings" : {
+    "supportNonGoogleAppStoreDistribution" : true,
+    "allowedPackageNames" : [ "allowedPackageNames", "allowedPackageNames" ],
+    "allowAllPackageNames" : true
+  },
+  "wafSettings" : {
+    "wafService" : "WAF_SERVICE_UNSPECIFIED",
+    "wafFeature" : "WAF_FEATURE_UNSPECIFIED"
+  },
+  "labels" : {
+    "key" : "labels"
+  },
+  "webSettings" : {
+    "integrationType" : "INTEGRATION_TYPE_UNSPECIFIED",
+    "allowAllDomains" : true,
+    "allowedDomains" : [ "allowedDomains", "allowedDomains" ],
+    "allowAmpTraffic" : true,
+    "challengeSecurityPreference" : "CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GoogleCloudRecaptchaenterpriseV1Key">GoogleCloudRecaptchaenterpriseV1Key</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="recaptchaenterprise.projects.keys.patch"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /v1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.keys.patch</span>)</div>
+    <div class="method-notes">Updates the specified key.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource name for the Key in the format &quot;projects/{project}/keys/{key}&quot;. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GoogleCloudRecaptchaenterpriseV1Key <a href="#GoogleCloudRecaptchaenterpriseV1Key">GoogleCloudRecaptchaenterpriseV1Key</a> (optional)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
@@ -562,13 +1391,13 @@ font-style: italic;
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">updateMask (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The fields to update on the entry group. If absent or empty, all modifiable fields are updated. default: null </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The mask to control which fields of the key get updated. If the mask is not present, all fields will be updated. default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Operation">Operation</a>
+      <a href="#GoogleCloudRecaptchaenterpriseV1Key">GoogleCloudRecaptchaenterpriseV1Key</a>
       
     </div>
 
@@ -577,23 +1406,36 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "metadata" : {
-    "key" : ""
+  "iosSettings" : {
+    "allowAllBundleIds" : true,
+    "allowedBundleIds" : [ "allowedBundleIds", "allowedBundleIds" ]
   },
-  "response" : {
-    "key" : ""
+  "testingOptions" : {
+    "testingChallenge" : "TESTING_CHALLENGE_UNSPECIFIED",
+    "testingScore" : 0.8008282
   },
+  "createTime" : "createTime",
+  "displayName" : "displayName",
   "name" : "name",
-  "error" : {
-    "code" : 0,
-    "details" : [ {
-      "key" : ""
-    }, {
-      "key" : ""
-    } ],
-    "message" : "message"
+  "androidSettings" : {
+    "supportNonGoogleAppStoreDistribution" : true,
+    "allowedPackageNames" : [ "allowedPackageNames", "allowedPackageNames" ],
+    "allowAllPackageNames" : true
   },
-  "done" : true
+  "wafSettings" : {
+    "wafService" : "WAF_SERVICE_UNSPECIFIED",
+    "wafFeature" : "WAF_FEATURE_UNSPECIFIED"
+  },
+  "labels" : {
+    "key" : "labels"
+  },
+  "webSettings" : {
+    "integrationType" : "INTEGRATION_TYPE_UNSPECIFIED",
+    "allowAllDomains" : true,
+    "allowedDomains" : [ "allowedDomains", "allowedDomains" ],
+    "allowAmpTraffic" : true,
+    "challengeSecurityPreference" : "CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED"
+  }
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -606,22 +1448,16 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#Operation">Operation</a>
+        <a href="#GoogleCloudRecaptchaenterpriseV1Key">GoogleCloudRecaptchaenterpriseV1Key</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.list"/>
+  <div class="method"><a name="recaptchaenterprise.projects.keys.retrieveLegacySecretKey"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{name}/locations</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.list</span>)</div>
-    <div class="method-notes">Lists information about the supported locations for this service.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{key}:retrieveLegacySecretKey</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.keys.retrieveLegacySecretKey</span>)</div>
+    <div class="method-notes">Returns the secret key related to the specified public key. You must use the legacy secret key only in a 3rd party integration with legacy reCAPTCHA.</div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">name (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource that owns the locations collection, if applicable. default: null </div>
-    </div>  <!-- field-items -->
 
 
 
@@ -638,9 +1474,7 @@ font-style: italic;
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">oauth_token (optional)</div>
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
 
@@ -650,19 +1484,15 @@ font-style: italic;
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">key (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A filter to narrow down results to a preferred subset. The filtering language accepts strings like <code>&quot;displayName=tokyo&quot;</code>, and is documented in more detail in <a href="https://google.aip.dev/160">AIP-160</a>. default: null </div><div class="param">pageSize (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of results to return. If not set, the service selects a default. default: null </div><div class="param">pageToken (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A page token received from the <code>next_page_token</code> field in the response. Send that page token to receive the subsequent page. default: null </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ListLocationsResponse">ListLocationsResponse</a>
+      <a href="#GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse">GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse</a>
       
     </div>
 
@@ -671,28 +1501,7 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "nextPageToken" : "nextPageToken",
-  "locations" : [ {
-    "metadata" : {
-      "key" : ""
-    },
-    "displayName" : "displayName",
-    "locationId" : "locationId",
-    "name" : "name",
-    "labels" : {
-      "key" : "labels"
-    }
-  }, {
-    "metadata" : {
-      "key" : ""
-    },
-    "displayName" : "displayName",
-    "locationId" : "locationId",
-    "name" : "name",
-    "labels" : {
-      "key" : "labels"
-    }
-  } ]
+  "legacySecretKey" : "legacySecretKey"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -705,24 +1514,36 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#ListLocationsResponse">ListLocationsResponse</a>
+        <a href="#GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse">GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.operations.get"/>
+  <div class="method"><a name="recaptchaenterprise.projects.relatedaccountgroupmemberships.search"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{name}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.operations.get</span>)</div>
-    <div class="method-notes">Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{project}/relatedaccountgroupmemberships:search</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.relatedaccountgroupmemberships.search</span>)</div>
+    <div class="method-notes">Search group memberships related to a given account.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">name (required)</div>
+      <div class="param">project (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation resource. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the project to search related account group memberships from. Specify the project name in the following format: &quot;projects/{project}&quot;. default: null </div>
     </div>  <!-- field-items -->
 
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
 
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest <a href="#GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest">GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Query parameters</h3>
@@ -755,7 +1576,7 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Operation">Operation</a>
+      <a href="#GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse">GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse</a>
       
     </div>
 
@@ -764,23 +1585,14 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "metadata" : {
-    "key" : ""
-  },
-  "response" : {
-    "key" : ""
-  },
-  "name" : "name",
-  "error" : {
-    "code" : 0,
-    "details" : [ {
-      "key" : ""
-    }, {
-      "key" : ""
-    } ],
-    "message" : "message"
-  },
-  "done" : true
+  "nextPageToken" : "nextPageToken",
+  "relatedAccountGroupMemberships" : [ {
+    "hashedAccountId" : "hashedAccountId",
+    "name" : "name"
+  }, {
+    "hashedAccountId" : "hashedAccountId",
+    "name" : "name"
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -793,21 +1605,21 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#Operation">Operation</a>
+        <a href="#GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse">GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="vpcaccess.projects.locations.operations.list"/>
+  <div class="method"><a name="recaptchaenterprise.projects.relatedaccountgroups.list"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{name}/operations</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">vpcaccess.projects.locations.operations.list</span>)</div>
-    <div class="method-notes">Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns <code>UNIMPLEMENTED</code>.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/relatedaccountgroups</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.relatedaccountgroups.list</span>)</div>
+    <div class="method-notes">List groups of related accounts.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">name (required)</div>
+      <div class="param">parent (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation's parent resource. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the project to list related account groups from, in the format &quot;projects/{project}&quot;. default: null </div>
     </div>  <!-- field-items -->
 
 
@@ -837,19 +1649,17 @@ font-style: italic;
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list filter. default: null </div><div class="param">pageSize (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The maximum number of groups to return. The service might return fewer than this value. If unspecified, at most 50 groups are returned. The maximum value is 1000; values above 1000 are coerced to 1000. default: null </div><div class="param">pageToken (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list page size. default: null </div><div class="param">pageToken (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list page token. default: null </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. A page token, received from a previous <code>ListRelatedAccountGroups</code> call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to <code>ListRelatedAccountGroups</code> must match the call that provided the page token. default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ListOperationsResponse">ListOperationsResponse</a>
+      <a href="#GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse">GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse</a>
       
     </div>
 
@@ -858,44 +1668,12 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "operations" : [ {
-    "metadata" : {
-      "key" : ""
-    },
-    "response" : {
-      "key" : ""
-    },
-    "name" : "name",
-    "error" : {
-      "code" : 0,
-      "details" : [ {
-        "key" : ""
-      }, {
-        "key" : ""
-      } ],
-      "message" : "message"
-    },
-    "done" : true
+  "nextPageToken" : "nextPageToken",
+  "relatedAccountGroups" : [ {
+    "name" : "name"
   }, {
-    "metadata" : {
-      "key" : ""
-    },
-    "response" : {
-      "key" : ""
-    },
-    "name" : "name",
-    "error" : {
-      "code" : 0,
-      "details" : [ {
-        "key" : ""
-      }, {
-        "key" : ""
-      } ],
-      "message" : "message"
-    },
-    "done" : true
-  } ],
-  "nextPageToken" : "nextPageToken"
+    "name" : "name"
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -908,7 +1686,90 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#ListOperationsResponse">ListOperationsResponse</a>
+        <a href="#GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse">GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="recaptchaenterprise.projects.relatedaccountgroups.memberships.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/memberships</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">recaptchaenterprise.projects.relatedaccountgroups.memberships.list</span>)</div>
+    <div class="method-notes">Get memberships in a group of related accounts.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The resource name for the related account group in the format <code>projects/{project}/relatedaccountgroups/{relatedaccountgroup}</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The maximum number of accounts to return. The service might return fewer than this value. If unspecified, at most 50 accounts are returned. The maximum value is 1000; values above 1000 are coerced to 1000. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. A page token, received from a previous <code>ListRelatedAccountGroupMemberships</code> call. When paginating, all other parameters provided to <code>ListRelatedAccountGroupMemberships</code> must match the call that provided the page token. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse">GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "relatedAccountGroupMemberships" : [ {
+    "hashedAccountId" : "hashedAccountId",
+    "name" : "name"
+  }, {
+    "hashedAccountId" : "hashedAccountId",
+    "name" : "name"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse">GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse</a>
   </div> <!-- method -->
   <hr/>
 
@@ -917,129 +1778,508 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#Connector"><code>Connector</code> - </a></li>
-    <li><a href="#ListConnectorsResponse"><code>ListConnectorsResponse</code> - </a></li>
-    <li><a href="#ListLocationsResponse"><code>ListLocationsResponse</code> - </a></li>
-    <li><a href="#ListOperationsResponse"><code>ListOperationsResponse</code> - </a></li>
-    <li><a href="#Location"><code>Location</code> - </a></li>
-    <li><a href="#Operation"><code>Operation</code> - </a></li>
-    <li><a href="#OperationMetadata"><code>OperationMetadata</code> - </a></li>
-    <li><a href="#OperationMetadataV1Alpha1"><code>OperationMetadataV1Alpha1</code> - </a></li>
-    <li><a href="#OperationMetadataV1Beta1"><code>OperationMetadataV1Beta1</code> - </a></li>
-    <li><a href="#Status"><code>Status</code> - </a></li>
-    <li><a href="#Subnet"><code>Subnet</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment"><code>GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo"><code>GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1AndroidKeySettings"><code>GoogleCloudRecaptchaenterpriseV1AndroidKeySettings</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest"><code>GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1Assessment"><code>GoogleCloudRecaptchaenterpriseV1Assessment</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1ChallengeMetrics"><code>GoogleCloudRecaptchaenterpriseV1ChallengeMetrics</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo"><code>GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1Event"><code>GoogleCloudRecaptchaenterpriseV1Event</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1FirewallAction"><code>GoogleCloudRecaptchaenterpriseV1FirewallAction</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction"><code>GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction"><code>GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1FirewallPolicy"><code>GoogleCloudRecaptchaenterpriseV1FirewallPolicy</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment"><code>GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment"><code>GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict"><code>GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict"><code>GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict"><code>GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1IOSKeySettings"><code>GoogleCloudRecaptchaenterpriseV1IOSKeySettings</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1Key"><code>GoogleCloudRecaptchaenterpriseV1Key</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse"><code>GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1ListKeysResponse"><code>GoogleCloudRecaptchaenterpriseV1ListKeysResponse</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse"><code>GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse"><code>GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1Metrics"><code>GoogleCloudRecaptchaenterpriseV1Metrics</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest"><code>GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification"><code>GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup"><code>GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership"><code>GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse"><code>GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1RiskAnalysis"><code>GoogleCloudRecaptchaenterpriseV1RiskAnalysis</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1ScoreDistribution"><code>GoogleCloudRecaptchaenterpriseV1ScoreDistribution</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1ScoreMetrics"><code>GoogleCloudRecaptchaenterpriseV1ScoreMetrics</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest"><code>GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse"><code>GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1TestingOptions"><code>GoogleCloudRecaptchaenterpriseV1TestingOptions</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1TokenProperties"><code>GoogleCloudRecaptchaenterpriseV1TokenProperties</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1TransactionData"><code>GoogleCloudRecaptchaenterpriseV1TransactionData</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1TransactionDataAddress"><code>GoogleCloudRecaptchaenterpriseV1TransactionDataAddress</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo"><code>GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1TransactionDataItem"><code>GoogleCloudRecaptchaenterpriseV1TransactionDataItem</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1TransactionDataUser"><code>GoogleCloudRecaptchaenterpriseV1TransactionDataUser</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1TransactionEvent"><code>GoogleCloudRecaptchaenterpriseV1TransactionEvent</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1WafSettings"><code>GoogleCloudRecaptchaenterpriseV1WafSettings</code> - </a></li>
+    <li><a href="#GoogleCloudRecaptchaenterpriseV1WebKeySettings"><code>GoogleCloudRecaptchaenterpriseV1WebKeySettings</code> - </a></li>
+    <li><a href="#GoogleRpcStatus"><code>GoogleRpcStatus</code> - </a></li>
   </ol>
 
   <div class="model">
-    <h3><a name="Connector"><code>Connector</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Definition of a Serverless VPC Access connector.</div>
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment"><code>GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Account defender risk assessment.</div>
     <div class="field-items">
-      <div class="param">connectedProjects (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Output only. List of projects using the connector. </div>
-<div class="param">ipCidrRange (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The range of internal addresses that follows RFC 4632 notation. Example: <code>10.132.0.0/28</code>. </div>
-<div class="param">machineType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Machine type of VM Instance underlying connector. Default is e2-micro </div>
-<div class="param">maxInstances (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Maximum value of instances in autoscaling group underlying the connector. format: int32</div>
-<div class="param">maxThroughput (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Maximum throughput of the connector in Mbps. Default is 300, max is 1000. format: int32</div>
-<div class="param">minInstances (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Minimum value of instances in autoscaling group underlying the connector. format: int32</div>
-<div class="param">minThroughput (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Minimum throughput of the connector in Mbps. Default and min is 200. format: int32</div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource name in the format <code>projects/*/locations/*/connectors/*</code>. </div>
-<div class="param">network (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of a VPC network. </div>
-<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. State of the VPC access connector. </div>
+      <div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Labels for this request. </div>
         <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">STATE_UNSPECIFIED</div><div class="param-enum">READY</div><div class="param-enum">CREATING</div><div class="param-enum">DELETING</div><div class="param-enum">ERROR</div><div class="param-enum">UPDATING</div>
-<div class="param">subnet (optional)</div><div class="param-desc"><span class="param-type"><a href="#Subnet">Subnet</a></span>  </div>
+        
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ListConnectorsResponse"><code>ListConnectorsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Response for listing Serverless VPC Access connectors.</div>
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo"><code>GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information about account verification, used for identity verification.</div>
     <div class="field-items">
-      <div class="param">connectors (optional)</div><div class="param-desc"><span class="param-type"><a href="#Connector">array[Connector]</a></span> List of Serverless VPC Access connectors. </div>
-<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Continuation token. </div>
+      <div class="param">endpoints (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo">array[GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo]</a></span> Endpoints that can be used for identity verification. </div>
+<div class="param">languageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Language code preference for the verification message, set as a IETF BCP 47 language code. </div>
+<div class="param">latestVerificationResult (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Result of the latest account verification challenge. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">RESULT_UNSPECIFIED</div><div class="param-enum">SUCCESS_USER_VERIFIED</div><div class="param-enum">ERROR_USER_NOT_VERIFIED</div><div class="param-enum">ERROR_SITE_ONBOARDING_INCOMPLETE</div><div class="param-enum">ERROR_RECIPIENT_NOT_ALLOWED</div><div class="param-enum">ERROR_RECIPIENT_ABUSE_LIMIT_EXHAUSTED</div><div class="param-enum">ERROR_CRITICAL_INTERNAL</div><div class="param-enum">ERROR_CUSTOMER_QUOTA_EXHAUSTED</div><div class="param-enum">ERROR_VERIFICATION_BYPASSED</div><div class="param-enum">ERROR_VERDICT_MISMATCH</div>
+<div class="param">username (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Username of the account that is being verified. Deprecated. Customers should now provide the hashed account ID field in Event. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ListLocationsResponse"><code>ListLocationsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>The response message for Locations.ListLocations.</div>
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1AndroidKeySettings"><code>GoogleCloudRecaptchaenterpriseV1AndroidKeySettings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Settings specific to keys that can be used by Android apps.</div>
     <div class="field-items">
-      <div class="param">locations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Location">array[Location]</a></span> A list of locations that matches the specified filter in the request. </div>
-<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The standard List next-page token. </div>
+      <div class="param">allowAllPackageNames (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If set to true, allowed_package_names are not enforced. </div>
+<div class="param">allowedPackageNames (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Android package names of apps allowed to use the key. Example: 'com.companyname.appname' </div>
+<div class="param">supportNonGoogleAppStoreDistribution (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Set to true for keys that are used in an Android application that is available for download in app stores in addition to the Google Play Store. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ListOperationsResponse"><code>ListOperationsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>The response message for Operations.ListOperations.</div>
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest"><code>GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The request message to annotate an Assessment.</div>
     <div class="field-items">
-      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The standard List next-page token. </div>
-<div class="param">operations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Operation">array[Operation]</a></span> A list of operations that matches the specified filter in the request. </div>
+      <div class="param">annotation (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The annotation that will be assigned to the Event. This field can be left empty to provide reasons that apply to an event without concluding whether the event is legitimate or fraudulent. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">ANNOTATION_UNSPECIFIED</div><div class="param-enum">LEGITIMATE</div><div class="param-enum">FRAUDULENT</div><div class="param-enum">PASSWORD_CORRECT</div><div class="param-enum">PASSWORD_INCORRECT</div>
+<div class="param">hashedAccountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> Optional. Unique stable hashed user identifier to apply to the assessment. This is an alternative to setting the hashed_account_id in CreateAssessment, for example when the account identifier is not yet known in the initial request. It is recommended that the identifier is hashed using hmac-sha256 with stable secret. format: byte</div>
+<div class="param">reasons (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Optional. Optional reasons for the annotation that will be assigned to the Event. </div>
+        <div class="param-enum-header">Enum:</div>
+        
+<div class="param">transactionEvent (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1TransactionEvent">GoogleCloudRecaptchaenterpriseV1TransactionEvent</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Location"><code>Location</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>A resource that represents Google Cloud Platform location.</div>
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1Assessment"><code>GoogleCloudRecaptchaenterpriseV1Assessment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A reCAPTCHA Enterprise assessment resource.</div>
     <div class="field-items">
-      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The friendly name for this location, typically a nearby city name. For example, &quot;Tokyo&quot;. </div>
-<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Cross-service attributes for the location. For example {&quot;cloud.googleapis.com/region&quot;: &quot;us-east1&quot;} </div>
-<div class="param">locationId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The canonical id for this location. For example: <code>&quot;us-east1&quot;</code>. </div>
-<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Service-specific metadata. For example the available capacity at the given location. </div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Resource name for the location, which may vary between implementations. For example: <code>&quot;projects/example-project/locations/us-east1&quot;</code> </div>
+      <div class="param">accountDefenderAssessment (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment">GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment</a></span>  </div>
+<div class="param">accountVerification (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo">GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo</a></span>  </div>
+<div class="param">event (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1Event">GoogleCloudRecaptchaenterpriseV1Event</a></span>  </div>
+<div class="param">firewallPolicyAssessment (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment">GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment</a></span>  </div>
+<div class="param">fraudPreventionAssessment (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment">GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The resource name for the Assessment in the format &quot;projects/{project}/assessments/{assessment}&quot;. </div>
+<div class="param">privatePasswordLeakVerification (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification">GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification</a></span>  </div>
+<div class="param">riskAnalysis (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1RiskAnalysis">GoogleCloudRecaptchaenterpriseV1RiskAnalysis</a></span>  </div>
+<div class="param">tokenProperties (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1TokenProperties">GoogleCloudRecaptchaenterpriseV1TokenProperties</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Operation"><code>Operation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>This resource represents a long-running operation that is the result of a network API call.</div>
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1ChallengeMetrics"><code>GoogleCloudRecaptchaenterpriseV1ChallengeMetrics</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Metrics related to challenges.</div>
     <div class="field-items">
-      <div class="param">done (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If the value is <code>false</code>, it means the operation is still in progress. If <code>true</code>, the operation is completed, and either <code>error</code> or <code>response</code> is available. </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#Status">Status</a></span>  </div>
-<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. </div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the <code>name</code> should be a resource name ending with <code>operations/{unique_id}</code>. </div>
-<div class="param">response (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The normal response of the operation in case of success. If the original method returns no data on success, such as <code>Delete</code>, the response is <code>google.protobuf.Empty</code>. If the original method is standard <code>Get</code>/<code>Create</code>/<code>Update</code>, the response should be the resource. For other methods, the response should have the type <code>XxxResponse</code>, where <code>Xxx</code> is the original method name. For example, if the original method name is <code>TakeSnapshot()</code>, the inferred response type is <code>TakeSnapshotResponse</code>. </div>
+      <div class="param">failedCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Count of submitted challenge solutions that were incorrect or otherwise deemed suspicious such that a subsequent challenge was triggered. format: int64</div>
+<div class="param">nocaptchaCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Count of nocaptchas (successful verification without a challenge) issued. format: int64</div>
+<div class="param">pageloadCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Count of reCAPTCHA checkboxes or badges rendered. This is mostly equivalent to a count of pageloads for pages that include reCAPTCHA. format: int64</div>
+<div class="param">passedCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Count of nocaptchas (successful verification without a challenge) plus submitted challenge solutions that were correct and resulted in verification. format: int64</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="OperationMetadata"><code>OperationMetadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Metadata for google.longrunning.Operation.</div>
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo"><code>GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information about a verification endpoint that can be used for 2FA.</div>
     <div class="field-items">
-      <div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation was created. format: google-datetime</div>
-<div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation completed. format: google-datetime</div>
-<div class="param">method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1.Connectors.CreateConnector. </div>
-<div class="param">target (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1. </div>
+      <div class="param">emailAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Email address for which to trigger a verification request. </div>
+<div class="param">lastVerificationTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Timestamp of the last successful verification for the endpoint, if any. format: google-datetime</div>
+<div class="param">phoneNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Phone number for which to trigger a verification request. Should be given in E.164 format. </div>
+<div class="param">requestToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Token to provide to the client to trigger endpoint verification. It must be used within 15 minutes. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="OperationMetadataV1Alpha1"><code>OperationMetadataV1Alpha1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Metadata for google.longrunning.Operation.</div>
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1Event"><code>GoogleCloudRecaptchaenterpriseV1Event</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The event being assessed.</div>
     <div class="field-items">
-      <div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation completed. format: google-datetime</div>
-<div class="param">insertTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation was created. format: google-datetime</div>
-<div class="param">method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1alpha1.Connectors.CreateConnector. </div>
-<div class="param">target (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1. </div>
+      <div class="param">expectedAction (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The expected action for this type of event. This should be the same action provided at token generation time on client-side platforms already integrated with recaptcha enterprise. </div>
+<div class="param">express (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Optional. Flag for a reCAPTCHA express request for an assessment without a token. If enabled, <code>site_key</code> must reference a SCORE key with WAF feature set to EXPRESS. </div>
+<div class="param">firewallPolicyEvaluation (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Optional. Flag for enabling firewall policy config assessment. If this flag is enabled, the firewall policy will be evaluated and a suggested firewall action will be returned in the response. </div>
+<div class="param">hashedAccountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> Optional. Unique stable hashed user identifier for the request. The identifier must be hashed using hmac-sha256 with stable secret. format: byte</div>
+<div class="param">headers (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Optional. HTTP header information about the request. </div>
+<div class="param">ja3 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Optional JA3 fingerprint for SSL clients. </div>
+<div class="param">requestedUri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The URI resource the user requested that triggered an assessment. </div>
+<div class="param">siteKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The site key that was used to invoke reCAPTCHA Enterprise on your site and generate the token. </div>
+<div class="param">token (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The user response token provided by the reCAPTCHA Enterprise client-side integration on your site. </div>
+<div class="param">transactionData (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1TransactionData">GoogleCloudRecaptchaenterpriseV1TransactionData</a></span>  </div>
+<div class="param">userAgent (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The user agent present in the request from the user's device related to this event. </div>
+<div class="param">userIpAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The IP address in the request from the user's device related to this event. </div>
+<div class="param">wafTokenAssessment (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Optional. Flag for running WAF token assessment. If enabled, the token must be specified, and have been created by a WAF-enabled key. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="OperationMetadataV1Beta1"><code>OperationMetadataV1Beta1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Metadata for google.longrunning.Operation.</div>
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1FirewallAction"><code>GoogleCloudRecaptchaenterpriseV1FirewallAction</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An individual action. Each action represents what to do if a policy matches.</div>
     <div class="field-items">
-      <div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation was created. format: google-datetime</div>
-<div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Time when the operation completed. format: google-datetime</div>
-<div class="param">method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1beta1.Connectors.CreateConnector. </div>
-<div class="param">target (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1. </div>
+      <div class="param">allow (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span> An allow action continues processing a request unimpeded. </div>
+<div class="param">block (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span> A block action serves an HTTP error code a prevents the request from hitting the backend. </div>
+<div class="param">redirect (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span> A redirect action returns a 307 (temporary redirect) response, pointing the user to a ReCaptcha interstitial page to attach a token. </div>
+<div class="param">setHeader (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction">GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction</a></span>  </div>
+<div class="param">substitute (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction">GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Status"><code>Status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction"><code>GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A set header action sets a header and forwards the request to the backend. This can be used to trigger custom protection implemented on the backend.</div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The header key to set in the request to the backend server. </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The header value to set in the request to the backend server. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction"><code>GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A substitute action transparently serves a different page than the one requested.</div>
+    <div class="field-items">
+      <div class="param">path (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The address to redirect to. The target is a relative path in the current host. Example: &quot;/blog/404.html&quot;. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1FirewallPolicy"><code>GoogleCloudRecaptchaenterpriseV1FirewallPolicy</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A FirewallPolicy represents a single matching pattern and resulting actions to take.</div>
+    <div class="field-items">
+      <div class="param">actions (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1FirewallAction">array[GoogleCloudRecaptchaenterpriseV1FirewallAction]</a></span> The actions that the caller should take regarding user access. There should be at most one terminal action. A terminal action is any action that forces a response, such as AllowAction, BlockAction or SubstituteAction. Zero or more non-terminal actions such as SetHeader might be specified. A single policy can contain up to 16 actions. </div>
+<div class="param">condition (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A CEL (Common Expression Language) conditional expression that specifies if this policy applies to an incoming user request. If this condition evaluates to true and the requested path matched the path pattern, the associated actions should be executed by the caller. The condition string is checked for CEL syntax correctness on creation. For more information, see the <a href="https://github.com/google/cel-spec">CEL spec</a> and its <a href="https://github.com/google/cel-spec/blob/master/doc/langdef.md">language definition</a>. A condition has a max length of 500 characters. </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A description of what this policy aims to achieve, for convenience purposes. The description can at most include 256 UTF-8 characters. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource name for the FirewallPolicy in the format &quot;projects/{project}/firewallpolicies/{firewallpolicy}&quot;. </div>
+<div class="param">path (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The path for which this policy applies, specified as a glob pattern. For more information on glob, see the <a href="https://man7.org/linux/man-pages/man7/glob.7.html">manual page</a>. A path has a max length of 200 characters. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment"><code>GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Policy config assessment.</div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleRpcStatus">GoogleRpcStatus</a></span>  </div>
+<div class="param">firewallPolicy (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1FirewallPolicy">GoogleCloudRecaptchaenterpriseV1FirewallPolicy</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment"><code>GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Assessment for Fraud Prevention.</div>
+    <div class="field-items">
+      <div class="param">behavioralTrustVerdict (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict">GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict</a></span>  </div>
+<div class="param">cardTestingVerdict (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict">GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict</a></span>  </div>
+<div class="param">stolenInstrumentVerdict (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict">GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict</a></span>  </div>
+<div class="param">transactionRisk (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span> Probability (0-1) of this transaction being fraudulent. Summarizes the combined risk of attack vectors below. format: float</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict"><code>GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information about behavioral trust of the transaction.</div>
+    <div class="field-items">
+      <div class="param">trust (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span> Probability (0-1) of this transaction attempt being executed in a behaviorally trustworthy way. format: float</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict"><code>GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information about card testing fraud, where an adversary is testing fraudulently obtained cards or brute forcing their details.</div>
+    <div class="field-items">
+      <div class="param">risk (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span> Probability (0-1) of this transaction attempt being part of a card testing attack. format: float</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict"><code>GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information about stolen instrument fraud, where the user is not the legitimate owner of the instrument being used for the purchase.</div>
+    <div class="field-items">
+      <div class="param">risk (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span> Probability (0-1) of this transaction being executed with a stolen instrument. format: float</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1IOSKeySettings"><code>GoogleCloudRecaptchaenterpriseV1IOSKeySettings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Settings specific to keys that can be used by iOS apps.</div>
+    <div class="field-items">
+      <div class="param">allowAllBundleIds (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If set to true, allowed_bundle_ids are not enforced. </div>
+<div class="param">allowedBundleIds (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> iOS bundle ids of apps allowed to use the key. Example: 'com.companyname.productname.appname' </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1Key"><code>GoogleCloudRecaptchaenterpriseV1Key</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A key used to identify and configure applications (web and/or mobile) that use reCAPTCHA Enterprise.</div>
+    <div class="field-items">
+      <div class="param">androidSettings (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1AndroidKeySettings">GoogleCloudRecaptchaenterpriseV1AndroidKeySettings</a></span>  </div>
+<div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp corresponding to the creation of this key. format: google-datetime</div>
+<div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Human-readable display name of this key. Modifiable by user. </div>
+<div class="param">iosSettings (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1IOSKeySettings">GoogleCloudRecaptchaenterpriseV1IOSKeySettings</a></span>  </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> See Creating and managing labels. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The resource name for the Key in the format &quot;projects/{project}/keys/{key}&quot;. </div>
+<div class="param">testingOptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1TestingOptions">GoogleCloudRecaptchaenterpriseV1TestingOptions</a></span>  </div>
+<div class="param">wafSettings (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1WafSettings">GoogleCloudRecaptchaenterpriseV1WafSettings</a></span>  </div>
+<div class="param">webSettings (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1WebKeySettings">GoogleCloudRecaptchaenterpriseV1WebKeySettings</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse"><code>GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response to request to list firewall policies belonging to a key.</div>
+    <div class="field-items">
+      <div class="param">firewallPolicies (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1FirewallPolicy">array[GoogleCloudRecaptchaenterpriseV1FirewallPolicy]</a></span> Policy details. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Token to retrieve the next page of results. It is set to empty if no policies remain in results. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1ListKeysResponse"><code>GoogleCloudRecaptchaenterpriseV1ListKeysResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response to request to list keys in a project.</div>
+    <div class="field-items">
+      <div class="param">keys (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1Key">array[GoogleCloudRecaptchaenterpriseV1Key]</a></span> Key details. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Token to retrieve the next page of results. It is set to empty if no keys remain in results. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse"><code>GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response to a <code>ListRelatedAccountGroupMemberships</code> call.</div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A token, which can be sent as <code>page_token</code> to retrieve the next page. If this field is omitted, there are no subsequent pages. </div>
+<div class="param">relatedAccountGroupMemberships (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership">array[GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership]</a></span> The memberships listed by the query. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse"><code>GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response to a <code>ListRelatedAccountGroups</code> call.</div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A token, which can be sent as <code>page_token</code> to retrieve the next page. If this field is omitted, there are no subsequent pages. </div>
+<div class="param">relatedAccountGroups (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup">array[GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup]</a></span> The groups of related accounts listed by the query. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1Metrics"><code>GoogleCloudRecaptchaenterpriseV1Metrics</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Metrics for a single Key.</div>
+    <div class="field-items">
+      <div class="param">challengeMetrics (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1ChallengeMetrics">array[GoogleCloudRecaptchaenterpriseV1ChallengeMetrics]</a></span> Metrics will be continuous and in order by dates, and in the granularity of day. Only challenge-based keys (CHECKBOX, INVISIBLE), will have challenge-based data. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The name of the metrics, in the format &quot;projects/{project}/keys/{key}/metrics&quot;. </div>
+<div class="param">scoreMetrics (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1ScoreMetrics">array[GoogleCloudRecaptchaenterpriseV1ScoreMetrics]</a></span> Metrics will be continuous and in order by dates, and in the granularity of day. All Key types should have score-based data. </div>
+<div class="param">startTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Inclusive start time aligned to a day (UTC). format: google-datetime</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest"><code>GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The migrate key request message.</div>
+    <div class="field-items">
+      <div class="param">skipBillingCheck (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Optional. If true, skips the billing check. A reCAPTCHA Enterprise key or migrated key behaves differently than a reCAPTCHA (non-Enterprise version) key when you reach a quota limit (see https://cloud.google.com/recaptcha-enterprise/quotas#quota_limit). To avoid any disruption of your usage, we check that a billing account is present. If your usage of reCAPTCHA is under the free quota, you can safely skip the billing check and proceed with the migration. See https://cloud.google.com/recaptcha-enterprise/docs/billing-information. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification"><code>GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Private password leak verification info.</div>
+    <div class="field-items">
+      <div class="param">encryptedLeakMatchPrefixes (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">array[byte[]]</a></span> Output only. List of prefixes of the encrypted potential password leaks that matched the given parameters. They must be compared with the client-side decryption prefix of <code>reencrypted_user_credentials_hash</code> format: byte</div>
+<div class="param">encryptedUserCredentialsHash (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> Optional. Encrypted Scrypt hash of the canonicalized username+password. It is re-encrypted by the server and returned through <code>reencrypted_user_credentials_hash</code>. format: byte</div>
+<div class="param">lookupHashPrefix (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> Optional. Exactly 26-bit prefix of the SHA-256 hash of the canonicalized username. It is used to look up password leaks associated with that hash prefix. format: byte</div>
+<div class="param">reencryptedUserCredentialsHash (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> Output only. Corresponds to the re-encryption of the <code>encrypted_user_credentials_hash</code> field. It is used to match potential password leaks within <code>encrypted_leak_match_prefixes</code>. format: byte</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup"><code>GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A group of related accounts.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The resource name for the related account group in the format <code>projects/{project}/relatedaccountgroups/{related_account_group}</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership"><code>GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A membership in a group of related accounts.</div>
+    <div class="field-items">
+      <div class="param">hashedAccountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> The unique stable hashed user identifier of the member. The identifier corresponds to a <code>hashed_account_id</code> provided in a previous <code>CreateAssessment</code> or <code>AnnotateAssessment</code> call. format: byte</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The resource name for this membership in the format <code>projects/{project}/relatedaccountgroups/{relatedaccountgroup}/memberships/{membership}</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse"><code>GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Secret key is used only in legacy reCAPTCHA. It must be used in a 3rd party integration with legacy reCAPTCHA.</div>
+    <div class="field-items">
+      <div class="param">legacySecretKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The secret key (also known as shared secret) authorizes communication between your application backend and the reCAPTCHA Enterprise server to create an assessment. The secret key needs to be kept safe for security purposes. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1RiskAnalysis"><code>GoogleCloudRecaptchaenterpriseV1RiskAnalysis</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Risk analysis result for an event.</div>
+    <div class="field-items">
+      <div class="param">extendedVerdictReasons (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Extended verdict reasons to be used for experimentation only. The set of possible reasons is subject to change. </div>
+<div class="param">reasons (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Reasons contributing to the risk analysis verdict. </div>
+        <div class="param-enum-header">Enum:</div>
+        
+<div class="param">score (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span> Legitimate event score from 0.0 to 1.0. (1.0 means very likely legitimate traffic while 0.0 means very likely non-legitimate traffic). format: float</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1ScoreDistribution"><code>GoogleCloudRecaptchaenterpriseV1ScoreDistribution</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Score distribution.</div>
+    <div class="field-items">
+      <div class="param">scoreBuckets (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Map key is score value multiplied by 100. The scores are discrete values between [0, 1]. The maximum number of buckets is on order of a few dozen, but typically much lower (ie. 10). format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1ScoreMetrics"><code>GoogleCloudRecaptchaenterpriseV1ScoreMetrics</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Metrics related to scoring.</div>
+    <div class="field-items">
+      <div class="param">actionMetrics (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1ScoreDistribution">map[String, GoogleCloudRecaptchaenterpriseV1ScoreDistribution]</a></span> Action-based metrics. The map key is the action name which specified by the site owners at time of the &quot;execute&quot; client-side call. </div>
+<div class="param">overallMetrics (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1ScoreDistribution">GoogleCloudRecaptchaenterpriseV1ScoreDistribution</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest"><code>GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The request message to search related account group memberships.</div>
+    <div class="field-items">
+      <div class="param">hashedAccountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> Optional. The unique stable hashed user identifier we should search connections to. The identifier should correspond to a <code>hashed_account_id</code> provided in a previous <code>CreateAssessment</code> or <code>AnnotateAssessment</code> call. format: byte</div>
+<div class="param">pageSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Optional. The maximum number of groups to return. The service might return fewer than this value. If unspecified, at most 50 groups are returned. The maximum value is 1000; values above 1000 are coerced to 1000. format: int32</div>
+<div class="param">pageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. A page token, received from a previous <code>SearchRelatedAccountGroupMemberships</code> call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to <code>SearchRelatedAccountGroupMemberships</code> must match the call that provided the page token. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse"><code>GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response to a <code>SearchRelatedAccountGroupMemberships</code> call.</div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A token, which can be sent as <code>page_token</code> to retrieve the next page. If this field is omitted, there are no subsequent pages. </div>
+<div class="param">relatedAccountGroupMemberships (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership">array[GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership]</a></span> The queried memberships. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1TestingOptions"><code>GoogleCloudRecaptchaenterpriseV1TestingOptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Options for user acceptance testing.</div>
+    <div class="field-items">
+      <div class="param">testingChallenge (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge requests for this site will return nocaptcha if NOCAPTCHA, or an unsolvable challenge if CHALLENGE. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">TESTING_CHALLENGE_UNSPECIFIED</div><div class="param-enum">NOCAPTCHA</div><div class="param-enum">UNSOLVABLE_CHALLENGE</div>
+<div class="param">testingScore (optional)</div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span> All assessments for this Key will return this score. Must be between 0 (likely not legitimate) and 1 (likely legitimate) inclusive. format: float</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1TokenProperties"><code>GoogleCloudRecaptchaenterpriseV1TokenProperties</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Properties of the provided event token.</div>
+    <div class="field-items">
+      <div class="param">action (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Action name provided at token generation. </div>
+<div class="param">androidPackageName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the Android package with which the token was generated (Android keys only). </div>
+<div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The timestamp corresponding to the generation of the token. format: google-datetime</div>
+<div class="param">hostname (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The hostname of the page on which the token was generated (Web keys only). </div>
+<div class="param">invalidReason (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Reason associated with the response when valid = false. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INVALID_REASON_UNSPECIFIED</div><div class="param-enum">UNKNOWN_INVALID_REASON</div><div class="param-enum">MALFORMED</div><div class="param-enum">EXPIRED</div><div class="param-enum">DUPE</div><div class="param-enum">MISSING</div><div class="param-enum">BROWSER_ERROR</div>
+<div class="param">iosBundleId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the iOS bundle with which the token was generated (iOS keys only). </div>
+<div class="param">valid (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether the provided user response token is valid. When valid = false, the reason could be specified in invalid_reason or it could also be due to a user failing to solve a challenge or a sitekey mismatch (i.e the sitekey used to generate the token was different than the one specified in the assessment). </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1TransactionData"><code>GoogleCloudRecaptchaenterpriseV1TransactionData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Transaction data associated with a payment protected by reCAPTCHA Enterprise. All fields are optional.</div>
+    <div class="field-items">
+      <div class="param">billingAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1TransactionDataAddress">GoogleCloudRecaptchaenterpriseV1TransactionDataAddress</a></span>  </div>
+<div class="param">cardBin (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Bank Identification Number - generally the first 6 or 8 digits of the card. </div>
+<div class="param">cardLastFour (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The last four digits of the card. </div>
+<div class="param">currencyCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The currency code in ISO-4217 format. </div>
+<div class="param">gatewayInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo">GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo</a></span>  </div>
+<div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1TransactionDataItem">array[GoogleCloudRecaptchaenterpriseV1TransactionDataItem]</a></span> Items purchased in this transaction. </div>
+<div class="param">merchants (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1TransactionDataUser">array[GoogleCloudRecaptchaenterpriseV1TransactionDataUser]</a></span> Information about the user or users fulfilling the transaction. </div>
+<div class="param">paymentMethod (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The payment method for the transaction. The allowed values are: * credit-card * debit-card * gift-card * processor-{name} (If a third-party is used, for example, processor-paypal) * custom-{name} (If an alternative method is used, for example, custom-crypto) </div>
+<div class="param">shippingAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1TransactionDataAddress">GoogleCloudRecaptchaenterpriseV1TransactionDataAddress</a></span>  </div>
+<div class="param">shippingValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> The value of shipping in the specified currency. 0 for free or no shipping. format: double</div>
+<div class="param">transactionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique identifier for the transaction. This custom identifier can be used to reference this transaction in the future, for example, labeling a refund or chargeback event. Two attempts at the same transaction should use the same transaction id. </div>
+<div class="param">user (optional)</div><div class="param-desc"><span class="param-type"><a href="#GoogleCloudRecaptchaenterpriseV1TransactionDataUser">GoogleCloudRecaptchaenterpriseV1TransactionDataUser</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> The decimal value of the transaction in the specified currency. format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1TransactionDataAddress"><code>GoogleCloudRecaptchaenterpriseV1TransactionDataAddress</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Structured address format for billing and shipping addresses.</div>
+    <div class="field-items">
+      <div class="param">address (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The first lines of the address. The first line generally contains the street name and number, and further lines may include information such as an apartment number. </div>
+<div class="param">administrativeArea (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The state, province, or otherwise administrative area of the address. </div>
+<div class="param">locality (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The town/city of the address. </div>
+<div class="param">postalCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The postal or ZIP code of the address. </div>
+<div class="param">recipient (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The recipient name, potentially including information such as &quot;care of&quot;. </div>
+<div class="param">regionCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The CLDR country/region of the address. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo"><code>GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Details about the transaction from the gateway.</div>
+    <div class="field-items">
+      <div class="param">avsResponseCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> AVS response code from the gateway (available only when reCAPTCHA Enterprise is called after authorization). </div>
+<div class="param">cvvResponseCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> CVV response code from the gateway (available only when reCAPTCHA Enterprise is called after authorization). </div>
+<div class="param">gatewayResponseCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Gateway response code describing the state of the transaction. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the gateway service (for example, stripe, square, paypal). </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1TransactionDataItem"><code>GoogleCloudRecaptchaenterpriseV1TransactionDataItem</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Line items being purchased in this transaction.</div>
+    <div class="field-items">
+      <div class="param">merchantAccountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> When a merchant is specified, its corresponding account_id. Necessary to populate marketplace-style transactions. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The full name of the item. </div>
+<div class="param">quantity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The quantity of this item that is being purchased. format: int64</div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> The value per item that the user is paying, in the transaction currency, after discounts. format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1TransactionDataUser"><code>GoogleCloudRecaptchaenterpriseV1TransactionDataUser</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Details about a user's account involved in the transaction.</div>
+    <div class="field-items">
+      <div class="param">accountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique account identifier for this user. If using account defender, this should match the hashed_account_id field. Otherwise, a unique and persistent identifier for this account. </div>
+<div class="param">creationMs (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The epoch milliseconds of the user's account creation. format: int64</div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The email address of the user. </div>
+<div class="param">emailVerified (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether the email has been verified to be accessible by the user (OTP or similar). </div>
+<div class="param">phoneNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number of the user, with country code. </div>
+<div class="param">phoneVerified (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether the phone number has been verified to be accessible by the user (OTP or similar). </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1TransactionEvent"><code>GoogleCloudRecaptchaenterpriseV1TransactionEvent</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Describes an event in the lifecycle of a payment transaction.</div>
+    <div class="field-items">
+      <div class="param">eventTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Timestamp when this transaction event occurred; otherwise assumed to be the time of the API call. format: google-datetime</div>
+<div class="param">eventType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The type of this transaction event. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">TRANSACTION_EVENT_TYPE_UNSPECIFIED</div><div class="param-enum">MERCHANT_APPROVE</div><div class="param-enum">MERCHANT_DENY</div><div class="param-enum">MANUAL_REVIEW</div><div class="param-enum">AUTHORIZATION</div><div class="param-enum">AUTHORIZATION_DECLINE</div><div class="param-enum">PAYMENT_CAPTURE</div><div class="param-enum">PAYMENT_CAPTURE_DECLINE</div><div class="param-enum">CANCEL</div><div class="param-enum">CHARGEBACK_INQUIRY</div><div class="param-enum">CHARGEBACK_ALERT</div><div class="param-enum">FRAUD_NOTIFICATION</div><div class="param-enum">CHARGEBACK</div><div class="param-enum">CHARGEBACK_REPRESENTMENT</div><div class="param-enum">CHARGEBACK_REVERSE</div><div class="param-enum">REFUND_REQUEST</div><div class="param-enum">REFUND_DECLINE</div><div class="param-enum">REFUND</div><div class="param-enum">REFUND_REVERSE</div>
+<div class="param">reason (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. The reason or standardized code that corresponds with this transaction event, if one exists. For example, a CHARGEBACK event with code 6005. </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Optional. The value that corresponds with this transaction event, if one exists. For example, a refund event where $5.00 was refunded. Currency is obtained from the original transaction data. format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1WafSettings"><code>GoogleCloudRecaptchaenterpriseV1WafSettings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Settings specific to keys that can be used for WAF (Web Application Firewall).</div>
+    <div class="field-items">
+      <div class="param">wafFeature (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The WAF feature for which this key is enabled. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">WAF_FEATURE_UNSPECIFIED</div><div class="param-enum">CHALLENGE_PAGE</div><div class="param-enum">SESSION_TOKEN</div><div class="param-enum">ACTION_TOKEN</div><div class="param-enum">EXPRESS</div>
+<div class="param">wafService (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The WAF service that uses this key. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">WAF_SERVICE_UNSPECIFIED</div><div class="param-enum">CA</div><div class="param-enum">FASTLY</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleCloudRecaptchaenterpriseV1WebKeySettings"><code>GoogleCloudRecaptchaenterpriseV1WebKeySettings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Settings specific to keys that can be used by websites.</div>
+    <div class="field-items">
+      <div class="param">allowAllDomains (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If set to true, it means allowed_domains will not be enforced. </div>
+<div class="param">allowAmpTraffic (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If set to true, the key can be used on AMP (Accelerated Mobile Pages) websites. This is supported only for the SCORE integration type. </div>
+<div class="param">allowedDomains (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Domains or subdomains of websites allowed to use the key. All subdomains of an allowed domain are automatically allowed. A valid domain requires a host and must not include any path, port, query or fragment. Examples: 'example.com' or 'subdomain.example.com' </div>
+<div class="param">challengeSecurityPreference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Settings for the frequency and difficulty at which this key triggers captcha challenges. This should only be specified for IntegrationTypes CHECKBOX and INVISIBLE. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED</div><div class="param-enum">USABILITY</div><div class="param-enum">BALANCE</div><div class="param-enum">SECURITY</div>
+<div class="param">integrationType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. Describes how this key is integrated with the website. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INTEGRATION_TYPE_UNSPECIFIED</div><div class="param-enum">SCORE</div><div class="param-enum">CHECKBOX</div><div class="param-enum">INVISIBLE</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GoogleRpcStatus"><code>GoogleRpcStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'>The <code>Status</code> type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by <a href="https://github.com/grpc">gRPC</a>. Each <code>Status</code> message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the <a href="https://cloud.google.com/apis/design/errors">API Design Guide</a>.</div>
     <div class="field-items">
       <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The status code, which should be an enum value of google.rpc.Code. format: int32</div>
 <div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">array[map[String, oas_any_type_not_mapped]]</a></span> A list of messages that carry the error details. There is a common set of message types for APIs to use. </div>
 <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="Subnet"><code>Subnet</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>The subnet in which to house the connector</div>
-    <div class="field-items">
-      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Subnet name (relative, not fully qualified). E.g. if the full subnet selfLink is https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetName} the correct input for this field would be {subnetName} </div>
-<div class="param">projectId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Project in which the subnet exists. If not set, this project is assumed to be the project for which the connector create request was issued. </div>
     </div>  <!-- field-items -->
   </div>
   </body>

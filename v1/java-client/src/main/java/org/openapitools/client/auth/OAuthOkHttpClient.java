@@ -1,6 +1,6 @@
 /*
- * Serverless VPC Access API
- * API for managing VPC access connectors.
+ * reCAPTCHA Enterprise API
+ * Help protect your website from fraudulent activity, spam, and abuse without creating friction.
  *
  * The version of the OpenAPI document: v1
  * 
