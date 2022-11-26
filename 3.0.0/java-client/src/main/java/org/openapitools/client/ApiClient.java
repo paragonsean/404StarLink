@@ -1,6 +1,6 @@
 /*
- * Transport Department, Daman & Diu
- * Driving License (DL) and Vehicle Registration Certificate (RC) of the State, as available on Parivahan Sewa (http://parivahan.co.in/) of Ministry of Road Transport and Highways, are available on DigiLocker. Citizens can pull these documents into their DigiLocker accounts.
+ * KERALA PUBLIC SERVICE COMMISSION, Kerala
+ * The following issued documents can be integrated with DigiLocker and get used by candidates for service delivery - 1.One Time Verification -OTV certificate � issued to candidates qualified for appointment for posts in Govt. Sector to produce to the concerned dept. after scrutinizing their the relevant documents to prove their qualifications, age, etc.2. Admission Tickets for appearing Online, OMR Exams, Physical Test, Interview etc. 3.Departmental Test Certificates- is issued to employees in Govt. sector
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -61,10 +61,10 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "https://apisetu.gov.in/transportdd/v3";
+    private String basePath = "https://apisetu.gov.in/keralapsc/v3";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://apisetu.gov.in/transportdd/v3",
+      "https://apisetu.gov.in/keralapsc/v3",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -160,7 +160,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://apisetu.gov.in/transportdd/v3
+     * @param basePath Base path of the URL (e.g https://apisetu.gov.in/keralapsc/v3
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
