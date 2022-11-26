@@ -1,0 +1,780 @@
+<!doctype html>
+<html>
+  <head>
+    <title>AWSMarketplace Metering</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>AWSMarketplace Metering</h1>
+    <div class="app-desc"><p><fullname>AWS Marketplace Metering Service</fullname> <p>This reference provides descriptions of the low-level AWS Marketplace Metering Service API.</p> <p>AWS Marketplace sellers can use this API to submit usage data for custom usage dimensions.</p> <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/iam-user-policy-for-aws-marketplace-actions.html">AWS Marketplace metering and entitlement API permissions</a> in the <i>AWS Marketplace Seller Guide.</i> </p> <p> <b>Submitting Metering Records</b> </p> <ul> <li> <p> <i>MeterUsage</i> - Submits the metering record for an AWS Marketplace product. <code>MeterUsage</code> is called from an EC2 instance or a container running on EKS or ECS.</p> </li> <li> <p> <i>BatchMeterUsage</i> - Submits the metering record for a set of customers. <code>BatchMeterUsage</code> is called from a software-as-a-service (SaaS) application.</p> </li> </ul> <p> <b>Accepting New Customers</b> </p> <ul> <li> <p> <i>ResolveCustomer</i> - Called by a SaaS application during the registration process. When a buyer visits your website during the registration process, the buyer submits a Registration Token through the browser. The Registration Token is resolved through this API to obtain a <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code> and <code>ProductCode</code>.</p> </li> </ul> <p> <b>Entitlement and Metering for Paid Container Products</b> </p> <ul> <li> <p>Paid container software products sold through AWS Marketplace must integrate with the AWS Marketplace Metering Service and call the <code>RegisterUsage</code> operation for software entitlement and metering. Free and BYOL products for Amazon ECS or Amazon EKS aren't required to call <code>RegisterUsage</code>, but you can do so if you want to receive usage data in your seller reports. For more information on using the <code>RegisterUsage</code> operation, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/container-based-products.html">Container-Based Products</a>. </p> </li> </ul> <p> <code>BatchMeterUsage</code> API calls are captured by AWS CloudTrail. You can use Cloudtrail to verify that the SaaS metering records that you sent are accurate by searching for records with the <code>eventName</code> of <code>BatchMeterUsage</code>. You can also use CloudTrail to audit records over time. For more information, see the <i> <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html">AWS CloudTrail User Guide</a>.</i> </p></p>
+</div>
+    <div class="app-desc">More information: <a href="https://github.com/mermade/aws2openapi">https://github.com/mermade/aws2openapi</a></div>
+    <div class="app-desc">Contact Info: <a href="mike.ralphson@gmail.com">mike.ralphson@gmail.com</a></div>
+    <div class="app-desc">Version: 2016-01-14</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0 License</div>
+    <div class="license-url">http://www.apache.org/licenses/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:Authorization KeyInQuery:false KeyInHeader:true</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#batchMeterUsage"><code><span class="http-method">post</span> /#X-Amz-Target=AWSMPMeteringService.BatchMeterUsage</code></a></li>
+  <li><a href="#meterUsage"><code><span class="http-method">post</span> /#X-Amz-Target=AWSMPMeteringService.MeterUsage</code></a></li>
+  <li><a href="#registerUsage"><code><span class="http-method">post</span> /#X-Amz-Target=AWSMPMeteringService.RegisterUsage</code></a></li>
+  <li><a href="#resolveCustomer"><code><span class="http-method">post</span> /#X-Amz-Target=AWSMPMeteringService.ResolveCustomer</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="batchMeterUsage"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSMPMeteringService.BatchMeterUsage</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">batchMeterUsage</span>)</div>
+    <div class="method-notes"><p> <code>BatchMeterUsage</code> is called from a SaaS application listed on AWS Marketplace to post metering records for a set of customers.</p> <p>For identical requests, the API is idempotent; requests can be retried with the same records or a subset of the input records.</p> <p>Every request to <code>BatchMeterUsage</code> is for one product. If you need to meter usage for multiple products, you must make multiple calls to <code>BatchMeterUsage</code>.</p> <p>Usage records are expected to be submitted as quickly as possible after the event that is being recorded, and are not accepted more than 6 hours after the event.</p> <p> <code>BatchMeterUsage</code> can process up to 25 <code>UsageRecords</code> at a time.</p> <p>A <code>UsageRecord</code> can optionally include multiple usage allocations, to provide customers with usage data split into buckets by tags that you define (or allow the customer to define).</p> <p> <code>BatchMeterUsage</code> returns a list of <code>UsageRecordResult</code> objects, showing the result for each <code>UsageRecord</code>, as well as a list of <code>UnprocessedRecords</code>, indicating errors in the service side that you should retry.</p> <p> <code>BatchMeterUsage</code> requests must be less than 1MB in size.</p> <note> <p>For an example of using <code>BatchMeterUsage</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-example"> BatchMeterUsage code example</a> in the <i>AWS Marketplace Seller Guide</i>.</p> </note>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">BatchMeterUsageRequest <a href="#BatchMeterUsageRequest">BatchMeterUsageRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#BatchMeterUsageResult">BatchMeterUsageResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "UnprocessedRecords" : "",
+  "Results" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#BatchMeterUsageResult">BatchMeterUsageResult</a>
+    <h4 class="field-label">480</h4>
+    InternalServiceErrorException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InvalidProductCodeException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    InvalidUsageDimensionException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InvalidTagException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    InvalidUsageAllocationsException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    InvalidCustomerIdentifierException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    TimestampOutOfBoundsException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">487</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">488</h4>
+    DisabledApiException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="meterUsage"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSMPMeteringService.MeterUsage</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">meterUsage</span>)</div>
+    <div class="method-notes"><p>API to emit metering records. For identical requests, the API is idempotent. It simply returns the metering record ID.</p> <p> <code>MeterUsage</code> is authenticated on the buyer's AWS account using credentials from the EC2 instance, ECS task, or EKS pod.</p> <p> <code>MeterUsage</code> can optionally include multiple usage allocations, to provide customers with usage data split into buckets by tags that you define (or allow the customer to define).</p> <p>Usage records are expected to be submitted as quickly as possible after the event that is being recorded, and are not accepted more than 6 hours after the event.</p>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">MeterUsageRequest <a href="#MeterUsageRequest">MeterUsageRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#MeterUsageResult">MeterUsageResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "MeteringRecordId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#MeterUsageResult">MeterUsageResult</a>
+    <h4 class="field-label">480</h4>
+    InternalServiceErrorException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InvalidProductCodeException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    InvalidUsageDimensionException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InvalidTagException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    InvalidUsageAllocationsException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    InvalidEndpointRegionException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    TimestampOutOfBoundsException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">487</h4>
+    DuplicateRequestException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">488</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">489</h4>
+    CustomerNotEntitledException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="registerUsage"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSMPMeteringService.RegisterUsage</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">registerUsage</span>)</div>
+    <div class="method-notes"><p>Paid container software products sold through AWS Marketplace must integrate with the AWS Marketplace Metering Service and call the <code>RegisterUsage</code> operation for software entitlement and metering. Free and BYOL products for Amazon ECS or Amazon EKS aren't required to call <code>RegisterUsage</code>, but you may choose to do so if you would like to receive usage data in your seller reports. The sections below explain the behavior of <code>RegisterUsage</code>. <code>RegisterUsage</code> performs two primary functions: metering and entitlement.</p> <ul> <li> <p> <i>Entitlement</i>: <code>RegisterUsage</code> allows you to verify that the customer running your paid software is subscribed to your product on AWS Marketplace, enabling you to guard against unauthorized use. Your container image that integrates with <code>RegisterUsage</code> is only required to guard against unauthorized use at container startup, as such a <code>CustomerNotSubscribedException</code> or <code>PlatformNotSupportedException</code> will only be thrown on the initial call to <code>RegisterUsage</code>. Subsequent calls from the same Amazon ECS task instance (e.g. task-id) or Amazon EKS pod will not throw a <code>CustomerNotSubscribedException</code>, even if the customer unsubscribes while the Amazon ECS task or Amazon EKS pod is still running.</p> </li> <li> <p> <i>Metering</i>: <code>RegisterUsage</code> meters software use per ECS task, per hour, or per pod for Amazon EKS with usage prorated to the second. A minimum of 1 minute of usage applies to tasks that are short lived. For example, if a customer has a 10 node Amazon ECS or Amazon EKS cluster and a service configured as a Daemon Set, then Amazon ECS or Amazon EKS will launch a task on all 10 cluster nodes and the customer will be charged: (10 * hourly_rate). Metering for software use is automatically handled by the AWS Marketplace Metering Control Plane -- your software is not required to perform any metering specific actions, other than call <code>RegisterUsage</code> once for metering of software use to commence. The AWS Marketplace Metering Control Plane will also continue to bill customers for running ECS tasks and Amazon EKS pods, regardless of the customers subscription state, removing the need for your software to perform entitlement checks at runtime.</p> </li> </ul>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">RegisterUsageRequest <a href="#RegisterUsageRequest">RegisterUsageRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#RegisterUsageResult">RegisterUsageResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "PublicKeyRotationTimestamp" : "",
+  "Signature" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#RegisterUsageResult">RegisterUsageResult</a>
+    <h4 class="field-label">480</h4>
+    InvalidProductCodeException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InvalidRegionException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    InvalidPublicKeyVersionException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    PlatformNotSupportedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    CustomerNotEntitledException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">486</h4>
+    InternalServiceErrorException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">487</h4>
+    DisabledApiException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="resolveCustomer"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSMPMeteringService.ResolveCustomer</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">resolveCustomer</span>)</div>
+    <div class="method-notes"><p> <code>ResolveCustomer</code> is called by a SaaS application during the registration process. When a buyer visits your website during the registration process, the buyer submits a registration token through their browser. The registration token is resolved through this API to obtain a <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code> and <code>ProductCode</code>.</p> <note> <p>The API needs to called from the seller account id used to publish the SaaS application to successfully resolve the token.</p> <p>For an example of using <code>ResolveCustomer</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example"> ResolveCustomer code example</a> in the <i>AWS Marketplace Seller Guide</i>.</p> </note>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ResolveCustomerRequest <a href="#ResolveCustomerRequest">ResolveCustomerRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ResolveCustomerResult">ResolveCustomerResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ProductCode" : "",
+  "CustomerAWSAccountId" : "",
+  "CustomerIdentifier" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ResolveCustomerResult">ResolveCustomerResult</a>
+    <h4 class="field-label">480</h4>
+    InvalidTokenException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ExpiredTokenException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ThrottlingException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InternalServiceErrorException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    DisabledApiException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#BatchMeterUsageRequest"><code>BatchMeterUsageRequest</code> - BatchMeterUsageRequest</a></li>
+    <li><a href="#BatchMeterUsageResult"><code>BatchMeterUsageResult</code> - </a></li>
+    <li><a href="#MeterUsageRequest"><code>MeterUsageRequest</code> - MeterUsageRequest</a></li>
+    <li><a href="#MeterUsageResult"><code>MeterUsageResult</code> - </a></li>
+    <li><a href="#RegisterUsageRequest"><code>RegisterUsageRequest</code> - RegisterUsageRequest</a></li>
+    <li><a href="#RegisterUsageResult"><code>RegisterUsageResult</code> - </a></li>
+    <li><a href="#ResolveCustomerRequest"><code>ResolveCustomerRequest</code> - ResolveCustomerRequest</a></li>
+    <li><a href="#ResolveCustomerResult"><code>ResolveCustomerResult</code> - </a></li>
+    <li><a href="#Tag"><code>Tag</code> - </a></li>
+    <li><a href="#UsageAllocation"><code>UsageAllocation</code> - </a></li>
+    <li><a href="#UsageRecord"><code>UsageRecord</code> - </a></li>
+    <li><a href="#UsageRecordResult"><code>UsageRecordResult</code> - </a></li>
+    <li><a href="#UsageRecordResultStatus"><code>UsageRecordResultStatus</code> - </a></li>
+    <li><a href="#UsageRecordResult_UsageRecord"><code>UsageRecordResult_UsageRecord</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="BatchMeterUsageRequest"><code>BatchMeterUsageRequest</code> - BatchMeterUsageRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A <code>BatchMeterUsageRequest</code> contains <code>UsageRecords</code>, which indicate quantities of usage within your application.</div>
+    <div class="field-items">
+      <div class="param">UsageRecords </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">ProductCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BatchMeterUsageResult"><code>BatchMeterUsageResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Contains the <code>UsageRecords</code> processed by <code>BatchMeterUsage</code> and any records that have failed due to transient error.</div>
+    <div class="field-items">
+      <div class="param">Results (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">UnprocessedRecords (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MeterUsageRequest"><code>MeterUsageRequest</code> - MeterUsageRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ProductCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Timestamp </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">UsageDimension </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UsageQuantity (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">DryRun (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">UsageAllocations (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MeterUsageResult"><code>MeterUsageResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">MeteringRecordId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RegisterUsageRequest"><code>RegisterUsageRequest</code> - RegisterUsageRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ProductCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PublicKeyVersion </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Nonce (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RegisterUsageResult"><code>RegisterUsageResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">PublicKeyRotationTimestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">Signature (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ResolveCustomerRequest"><code>ResolveCustomerRequest</code> - ResolveCustomerRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Contains input to the <code>ResolveCustomer</code> operation.</div>
+    <div class="field-items">
+      <div class="param">RegistrationToken </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ResolveCustomerResult"><code>ResolveCustomerResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The result of the <code>ResolveCustomer</code> operation. Contains the <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code> and <code>ProductCode</code>.</div>
+    <div class="field-items">
+      <div class="param">CustomerIdentifier (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ProductCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CustomerAWSAccountId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Tag"><code>Tag</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Metadata assigned to an allocation. Each tag is made up of a <code>key</code> and a <code>value</code>.</div>
+    <div class="field-items">
+      <div class="param">Key </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Value </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UsageAllocation"><code>UsageAllocation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p>Usage allocations allow you to split usage into buckets by tags.</p> <p>Each <code>UsageAllocation</code> indicates the usage quantity for a specific set of tags.</p>
+</div>
+    <div class="field-items">
+      <div class="param">AllocatedUsageQuantity </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Tags (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UsageRecord"><code>UsageRecord</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p>A <code>UsageRecord</code> indicates a quantity of usage for a given product, customer, dimension and time.</p> <p>Multiple requests with the same <code>UsageRecords</code> as input will be de-duplicated to prevent double charges.</p>
+</div>
+    <div class="field-items">
+      <div class="param">Timestamp </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">CustomerIdentifier </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Dimension </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Quantity (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">UsageAllocations (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UsageRecordResult"><code>UsageRecordResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A <code>UsageRecordResult</code> indicates the status of a given <code>UsageRecord</code> processed by <code>BatchMeterUsage</code>.</div>
+    <div class="field-items">
+      <div class="param">UsageRecord (optional)</div><div class="param-desc"><span class="param-type"><a href="#UsageRecordResult_UsageRecord">UsageRecordResult_UsageRecord</a></span>  </div>
+<div class="param">MeteringRecordId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Status (optional)</div><div class="param-desc"><span class="param-type"><a href="#UsageRecordResultStatus">UsageRecordResultStatus</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UsageRecordResultStatus"><code>UsageRecordResultStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UsageRecordResult_UsageRecord"><code>UsageRecordResult_UsageRecord</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Timestamp </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">CustomerIdentifier </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Dimension </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Quantity (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">UsageAllocations (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
