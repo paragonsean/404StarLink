@@ -1,6 +1,6 @@
 /*
- * Transport Department, Daman & Diu
- * Driving License (DL) and Vehicle Registration Certificate (RC) of the State, as available on Parivahan Sewa (http://parivahan.co.in/) of Ministry of Road Transport and Highways, are available on DigiLocker. Citizens can pull these documents into their DigiLocker accounts.
+ * KERALA PUBLIC SERVICE COMMISSION, Kerala
+ * The following issued documents can be integrated with DigiLocker and get used by candidates for service delivery - 1.One Time Verification -OTV certificate � issued to candidates qualified for appointment for posts in Govt. Sector to produce to the concerned dept. after scrutinizing their the relevant documents to prove their qualifications, age, etc.2. Admission Tickets for appearing Online, OMR Exams, Physical Test, Interview etc. 3.Departmental Test Certificates- is issued to employees in Govt. sector
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -27,17 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.DrivingLicenseSchema;
-import org.openapitools.client.model.Drvlc400Response;
-import org.openapitools.client.model.Drvlc401Response;
-import org.openapitools.client.model.Drvlc404Response;
-import org.openapitools.client.model.Drvlc500Response;
-import org.openapitools.client.model.Drvlc502Response;
-import org.openapitools.client.model.Drvlc503Response;
-import org.openapitools.client.model.Drvlc504Response;
-import org.openapitools.client.model.DrvlcRequest;
-import org.openapitools.client.model.RvcerRequest;
-import org.openapitools.client.model.VehicleRegistrationSchema;
+import org.openapitools.client.model.Otcer400Response;
+import org.openapitools.client.model.Otcer401Response;
+import org.openapitools.client.model.Otcer404Response;
+import org.openapitools.client.model.Otcer500Response;
+import org.openapitools.client.model.Otcer502Response;
+import org.openapitools.client.model.Otcer503Response;
+import org.openapitools.client.model.Otcer504Response;
+import org.openapitools.client.model.OtcerRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -83,8 +80,8 @@ public class ApisApi {
     }
 
     /**
-     * Build call for drvlc
-     * @param drvlcRequest Request format (optional)
+     * Build call for otcer
+     * @param otcerRequest Request format (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -101,7 +98,7 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call drvlcCall(DrvlcRequest drvlcRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call otcerCall(OtcerRequest otcerRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -115,10 +112,10 @@ public class ApisApi {
             basePath = null;
         }
 
-        Object localVarPostBody = drvlcRequest;
+        Object localVarPostBody = otcerRequest;
 
         // create path and map variables
-        String localVarPath = "/drvlc/certificate";
+        String localVarPath = "/otcer/certificate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -128,7 +125,6 @@ public class ApisApi {
 
         final String[] localVarAccepts = {
             "application/pdf",
-            "application/xml",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -149,15 +145,15 @@ public class ApisApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call drvlcValidateBeforeCall(DrvlcRequest drvlcRequest, final ApiCallback _callback) throws ApiException {
-        return drvlcCall(drvlcRequest, _callback);
+    private okhttp3.Call otcerValidateBeforeCall(OtcerRequest otcerRequest, final ApiCallback _callback) throws ApiException {
+        return otcerCall(otcerRequest, _callback);
 
     }
 
     /**
-     * Driving License
-     * API to verify Driving License.
-     * @param drvlcRequest Request format (optional)
+     * OTV Certificate
+     * API to verify OTV Certificate.
+     * @param otcerRequest Request format (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -172,14 +168,14 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public void drvlc(DrvlcRequest drvlcRequest) throws ApiException {
-        drvlcWithHttpInfo(drvlcRequest);
+    public void otcer(OtcerRequest otcerRequest) throws ApiException {
+        otcerWithHttpInfo(otcerRequest);
     }
 
     /**
-     * Driving License
-     * API to verify Driving License.
-     * @param drvlcRequest Request format (optional)
+     * OTV Certificate
+     * API to verify OTV Certificate.
+     * @param otcerRequest Request format (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -195,15 +191,15 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> drvlcWithHttpInfo(DrvlcRequest drvlcRequest) throws ApiException {
-        okhttp3.Call localVarCall = drvlcValidateBeforeCall(drvlcRequest, null);
+    public ApiResponse<Void> otcerWithHttpInfo(OtcerRequest otcerRequest) throws ApiException {
+        okhttp3.Call localVarCall = otcerValidateBeforeCall(otcerRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * Driving License (asynchronously)
-     * API to verify Driving License.
-     * @param drvlcRequest Request format (optional)
+     * OTV Certificate (asynchronously)
+     * API to verify OTV Certificate.
+     * @param otcerRequest Request format (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -220,153 +216,9 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call drvlcAsync(DrvlcRequest drvlcRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call otcerAsync(OtcerRequest otcerRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = drvlcValidateBeforeCall(drvlcRequest, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for rvcer
-     * @param rvcerRequest Request format (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call rvcerCall(RvcerRequest rvcerRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = rvcerRequest;
-
-        // create path and map variables
-        String localVarPath = "/rvcer/certificate";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/pdf",
-            "application/xml",
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "clientId", "apiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call rvcerValidateBeforeCall(RvcerRequest rvcerRequest, final ApiCallback _callback) throws ApiException {
-        return rvcerCall(rvcerRequest, _callback);
-
-    }
-
-    /**
-     * Registration of Vehicles
-     * API to verify Registration of Vehicles.
-     * @param rvcerRequest Request format (optional)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public void rvcer(RvcerRequest rvcerRequest) throws ApiException {
-        rvcerWithHttpInfo(rvcerRequest);
-    }
-
-    /**
-     * Registration of Vehicles
-     * API to verify Registration of Vehicles.
-     * @param rvcerRequest Request format (optional)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> rvcerWithHttpInfo(RvcerRequest rvcerRequest) throws ApiException {
-        okhttp3.Call localVarCall = rvcerValidateBeforeCall(rvcerRequest, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Registration of Vehicles (asynchronously)
-     * API to verify Registration of Vehicles.
-     * @param rvcerRequest Request format (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
-        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
-        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call rvcerAsync(RvcerRequest rvcerRequest, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = rvcerValidateBeforeCall(rvcerRequest, _callback);
+        okhttp3.Call localVarCall = otcerValidateBeforeCall(otcerRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

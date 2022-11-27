@@ -1,6 +1,6 @@
 /*
- * Transport Department, Daman & Diu
- * Driving License (DL) and Vehicle Registration Certificate (RC) of the State, as available on Parivahan Sewa (http://parivahan.co.in/) of Ministry of Road Transport and Highways, are available on DigiLocker. Citizens can pull these documents into their DigiLocker accounts.
+ * KERALA PUBLIC SERVICE COMMISSION, Kerala
+ * The following issued documents can be integrated with DigiLocker and get used by candidates for service delivery - 1.One Time Verification -OTV certificate � issued to candidates qualified for appointment for posts in Govt. Sector to produce to the concerned dept. after scrutinizing their the relevant documents to prove their qualifications, age, etc.2. Admission Tickets for appearing Online, OMR Exams, Physical Test, Interview etc. 3.Departmental Test Certificates- is issued to employees in Govt. sector
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * AcademicCertificateSchemaCertificateDataExamination
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:27.520622-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:56:57.471596-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AcademicCertificateSchemaCertificateDataExamination {
   public static final String SERIALIZED_NAME_MONTH = "month";
   @SerializedName(SERIALIZED_NAME_MONTH)
