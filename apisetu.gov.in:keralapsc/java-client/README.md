@@ -2,7 +2,7 @@
 
 KERALA PUBLIC SERVICE COMMISSION, Kerala
 - API version: 3.0.0
-  - Build date: 2024-10-11T01:56:59.864269-04:00[America/New_York]
+  - Build date: 2024-10-11T02:04:44.850910-04:00[America/New_York]
   - Generator version: 7.9.0
 
 The following issued documents can be integrated with DigiLocker and get used by candidates for service delivery - 1.One Time Verification -OTV certificate � issued to candidates qualified for appointment for posts in Govt. Sector to produce to the concerned dept. after scrutinizing their the relevant documents to prove their qualifications, age, etc.2. Admission Tickets for appearing Online, OMR Exams, Physical Test, Interview etc. 3.Departmental Test Certificates- is issued to employees in Govt. sector
