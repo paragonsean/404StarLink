@@ -1,0 +1,30 @@
+# SegmentLocationCountry
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**dimension_type** | [**DimensionType**](DimensionType.md) |  | [optional] 
+**values** | **List** |  | 
+
+## Example
+
+```python
+from openapi_client.models.segment_location_country import SegmentLocationCountry
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of SegmentLocationCountry from a JSON string
+segment_location_country_instance = SegmentLocationCountry.from_json(json)
+# print the JSON string representation of the object
+print(SegmentLocationCountry.to_json())
+
+# convert the object into a dict
+segment_location_country_dict = segment_location_country_instance.to_dict()
+# create an instance of SegmentLocationCountry from a dict
+segment_location_country_from_dict = SegmentLocationCountry.from_dict(segment_location_country_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
