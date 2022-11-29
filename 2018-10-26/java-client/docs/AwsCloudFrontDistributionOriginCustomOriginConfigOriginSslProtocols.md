@@ -1,0 +1,14 @@
+
+
+# AwsCloudFrontDistributionOriginCustomOriginConfigOriginSslProtocols
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**items** | [**List**](List.md) |  |  [optional] |
+|**quantity** | [**Integer**](Integer.md) |  |  [optional] |
+
+
+
