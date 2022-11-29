@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * In a &lt;code&gt;BatchImportFindings&lt;/code&gt; request, finding providers use &lt;code&gt;FindingProviderFields&lt;/code&gt; to provide and update values for confidence, criticality, related findings, severity, and types.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class FindingProviderFields {
   public static final String SERIALIZED_NAME_CONFIDENCE = "Confidence";
   @SerializedName(SERIALIZED_NAME_CONFIDENCE)

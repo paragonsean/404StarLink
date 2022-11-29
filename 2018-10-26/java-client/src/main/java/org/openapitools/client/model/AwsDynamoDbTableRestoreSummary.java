@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Information about the restore for the table.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsDynamoDbTableRestoreSummary {
   public static final String SERIALIZED_NAME_SOURCE_BACKUP_ARN = "SourceBackupArn";
   @SerializedName(SERIALIZED_NAME_SOURCE_BACKUP_ARN)

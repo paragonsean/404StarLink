@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Details about a rate-based rule for global resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsWafRateBasedRuleDetails {
   public static final String SERIALIZED_NAME_METRIC_NAME = "MetricName";
   @SerializedName(SERIALIZED_NAME_METRIC_NAME)

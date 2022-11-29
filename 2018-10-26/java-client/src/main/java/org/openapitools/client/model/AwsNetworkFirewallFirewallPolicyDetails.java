@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Details about a firewall policy. A firewall policy defines the behavior of a network firewall.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsNetworkFirewallFirewallPolicyDetails {
   public static final String SERIALIZED_NAME_FIREWALL_POLICY = "FirewallPolicy";
   @SerializedName(SERIALIZED_NAME_FIREWALL_POLICY)

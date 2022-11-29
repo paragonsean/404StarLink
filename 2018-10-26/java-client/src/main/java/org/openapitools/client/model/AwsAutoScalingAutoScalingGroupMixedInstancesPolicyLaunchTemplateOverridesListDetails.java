@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Property values to use to override the values in the launch template.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails {
   public static final String SERIALIZED_NAME_INSTANCE_TYPE = "InstanceType";
   @SerializedName(SERIALIZED_NAME_INSTANCE_TYPE)

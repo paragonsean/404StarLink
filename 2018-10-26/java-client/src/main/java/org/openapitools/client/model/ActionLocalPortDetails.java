@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * For &lt;code&gt;NetworkConnectionAction&lt;/code&gt; and &lt;code&gt;PortProbeDetails&lt;/code&gt;, &lt;code&gt;LocalPortDetails&lt;/code&gt; provides information about the local port that was involved in the action.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ActionLocalPortDetails {
   public static final String SERIALIZED_NAME_PORT = "Port";
   @SerializedName(SERIALIZED_NAME_PORT)

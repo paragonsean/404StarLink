@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * AwsNetworkFirewallRuleGroupDetailsRuleGroup
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsNetworkFirewallRuleGroupDetailsRuleGroup {
   public static final String SERIALIZED_NAME_RULE_VARIABLES = "RuleVariables";
   @SerializedName(SERIALIZED_NAME_RULE_VARIABLES)

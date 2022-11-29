@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A range of IPv6 addresses.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsEc2SecurityGroupIpv6Range {
   public static final String SERIALIZED_NAME_CIDR_IPV6 = "CidrIpv6";
   @SerializedName(SERIALIZED_NAME_CIDR_IPV6)

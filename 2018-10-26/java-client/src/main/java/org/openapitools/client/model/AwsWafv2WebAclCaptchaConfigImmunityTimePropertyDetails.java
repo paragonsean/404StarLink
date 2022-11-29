@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  *  Used for CAPTCHA and challenge token settings. Determines how long a CAPTCHA or challenge timestamp remains valid after WAF updates it for a successful CAPTCHA or challenge response. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails {
   public static final String SERIALIZED_NAME_IMMUNITY_TIME = "ImmunityTime";
   @SerializedName(SERIALIZED_NAME_IMMUNITY_TIME)

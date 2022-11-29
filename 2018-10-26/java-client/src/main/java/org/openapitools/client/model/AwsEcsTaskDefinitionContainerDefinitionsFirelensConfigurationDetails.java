@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * The FireLens configuration for the container. The configuration specifies and configures a log router for container logs.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails {
   public static final String SERIALIZED_NAME_OPTIONS = "Options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)

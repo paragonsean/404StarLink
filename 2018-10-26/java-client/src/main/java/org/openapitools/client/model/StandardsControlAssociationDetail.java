@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  *  Provides details about a control&#39;s enablement status in a specified standard. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class StandardsControlAssociationDetail {
   public static final String SERIALIZED_NAME_STANDARDS_ARN = "StandardsArn";
   @SerializedName(SERIALIZED_NAME_STANDARDS_ARN)

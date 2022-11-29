@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Contains information about a subnet in Amazon EC2.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsEc2SubnetDetails {
   public static final String SERIALIZED_NAME_ASSIGN_IPV6_ADDRESS_ON_CREATION = "AssignIpv6AddressOnCreation";
   @SerializedName(SERIALIZED_NAME_ASSIGN_IPV6_ADDRESS_ON_CREATION)

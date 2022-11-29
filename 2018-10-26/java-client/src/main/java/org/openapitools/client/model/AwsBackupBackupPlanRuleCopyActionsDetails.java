@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * An array of &lt;code&gt;CopyAction&lt;/code&gt; objects, each of which contains details of the copy operation. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsBackupBackupPlanRuleCopyActionsDetails {
   public static final String SERIALIZED_NAME_DESTINATION_BACKUP_VAULT_ARN = "DestinationBackupVaultArn";
   @SerializedName(SERIALIZED_NAME_DESTINATION_BACKUP_VAULT_ARN)

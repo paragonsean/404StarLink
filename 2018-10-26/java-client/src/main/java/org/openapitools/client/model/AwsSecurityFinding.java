@@ -63,7 +63,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Provides a consistent format for Security Hub findings. &lt;code&gt;AwsSecurityFinding&lt;/code&gt; format allows you to share findings between Amazon Web Services security services and third-party solutions.&lt;/p&gt; &lt;note&gt; &lt;p&gt;A finding is a potential security issue generated either by Amazon Web Services services or by the integrated third-party solutions and standards checks.&lt;/p&gt; &lt;/note&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsSecurityFinding {
   public static final String SERIALIZED_NAME_SCHEMA_VERSION = "SchemaVersion";
   @SerializedName(SERIALIZED_NAME_SCHEMA_VERSION)

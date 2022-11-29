@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsLambdaFunctionCode {
   public static final String SERIALIZED_NAME_S3_BUCKET = "S3Bucket";
   @SerializedName(SERIALIZED_NAME_S3_BUCKET)

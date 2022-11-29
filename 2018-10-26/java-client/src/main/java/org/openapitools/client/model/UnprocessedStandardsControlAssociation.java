@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  *  Provides details about which control&#39;s enablement status couldn&#39;t be retrieved in a specified standard when calling &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html\&quot;&gt;BatchUpdateStandardsControlAssociations&lt;/a&gt;. This parameter also provides details about why the request was unprocessed. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class UnprocessedStandardsControlAssociation {
   public static final String SERIALIZED_NAME_STANDARDS_CONTROL_ASSOCIATION_ID = "StandardsControlAssociationId";
   @SerializedName(SERIALIZED_NAME_STANDARDS_CONTROL_ASSOCIATION_ID)

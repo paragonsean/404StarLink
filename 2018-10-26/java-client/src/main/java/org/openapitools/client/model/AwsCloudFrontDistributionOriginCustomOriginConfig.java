@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * A custom origin. A custom origin is any origin that is not an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html\&quot;&gt;configured with static website hosting&lt;/a&gt; is a custom origin. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsCloudFrontDistributionOriginCustomOriginConfig {
   public static final String SERIALIZED_NAME_HTTP_PORT = "HttpPort";
   @SerializedName(SERIALIZED_NAME_HTTP_PORT)

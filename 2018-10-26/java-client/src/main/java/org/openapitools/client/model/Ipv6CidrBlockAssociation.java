@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * An IPV6 CIDR block association.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Ipv6CidrBlockAssociation {
   public static final String SERIALIZED_NAME_ASSOCIATION_ID = "AssociationId";
   @SerializedName(SERIALIZED_NAME_ASSOCIATION_ID)

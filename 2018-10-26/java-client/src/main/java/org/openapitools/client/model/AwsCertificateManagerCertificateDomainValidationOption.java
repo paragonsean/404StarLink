@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Contains information about one of the following:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;The initial validation of each domain name that occurs as a result of the &lt;code&gt;RequestCertificate&lt;/code&gt; request&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;The validation of each domain name in the certificate, as it pertains to Certificate Manager managed renewal&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsCertificateManagerCertificateDomainValidationOption {
   public static final String SERIALIZED_NAME_DOMAIN_NAME = "DomainName";
   @SerializedName(SERIALIZED_NAME_DOMAIN_NAME)

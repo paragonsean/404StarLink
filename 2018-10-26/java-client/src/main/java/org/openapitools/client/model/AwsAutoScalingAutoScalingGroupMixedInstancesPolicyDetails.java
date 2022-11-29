@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * The mixed instances policy for the automatic scaling group.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails {
   public static final String SERIALIZED_NAME_INSTANCES_DISTRIBUTION = "InstancesDistribution";
   @SerializedName(SERIALIZED_NAME_INSTANCES_DISTRIBUTION)

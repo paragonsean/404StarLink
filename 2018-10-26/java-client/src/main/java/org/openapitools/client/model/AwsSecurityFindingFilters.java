@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;A collection of attributes that are applied to all active Security Hub-aggregated findings and that result in a subset of findings that are included in this insight.&lt;/p&gt; &lt;p&gt;You can filter by up to 10 finding attributes. For each attribute, you can provide up to 20 filter values.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsSecurityFindingFilters {
   public static final String SERIALIZED_NAME_PRODUCT_ARN = "ProductArn";
   @SerializedName(SERIALIZED_NAME_PRODUCT_ARN)

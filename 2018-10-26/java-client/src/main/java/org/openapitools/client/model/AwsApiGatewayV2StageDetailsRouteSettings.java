@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * AwsApiGatewayV2StageDetailsRouteSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:02.717661-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:58.462265-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsApiGatewayV2StageDetailsRouteSettings {
   public static final String SERIALIZED_NAME_DETAILED_METRICS_ENABLED = "DetailedMetricsEnabled";
   @SerializedName(SERIALIZED_NAME_DETAILED_METRICS_ENABLED)
