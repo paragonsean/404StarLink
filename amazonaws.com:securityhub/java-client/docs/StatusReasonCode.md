@@ -1,0 +1,13 @@
+
+
+# StatusReasonCode
+
+## Enum
+
+
+* `NO_AVAILABLE_CONFIGURATION_RECORDER` (value: `"NO_AVAILABLE_CONFIGURATION_RECORDER"`)
+
+* `INTERNAL_ERROR` (value: `"INTERNAL_ERROR"`)
+
+
+

@@ -1,0 +1,15 @@
+
+
+# AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails
+
+ The minimum and maximum number of network interfaces to be attached to an Amazon EC2 instance. 
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**max** | [**Integer**](Integer.md) |  |  [optional] |
+|**min** | [**Integer**](Integer.md) |  |  [optional] |
+
+
+
