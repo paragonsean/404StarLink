@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Provides details about the &lt;code&gt;ByteMatchSet&lt;/code&gt;, &lt;code&gt;IPSet&lt;/code&gt;, &lt;code&gt;SqlInjectionMatchSet&lt;/code&gt;, &lt;code&gt;XssMatchSet&lt;/code&gt;, &lt;code&gt;RegexMatchSet&lt;/code&gt;, &lt;code&gt;GeoMatchSet&lt;/code&gt;, and &lt;code&gt;SizeConstraintSet&lt;/code&gt; objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsWafRegionalRulePredicateListDetails {
   public static final String SERIALIZED_NAME_DATA_ID = "DataId";
   @SerializedName(SERIALIZED_NAME_DATA_ID)

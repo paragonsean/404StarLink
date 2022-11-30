@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * An IAM role that the cluster can use to access other Amazon Web Services services.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsRedshiftClusterIamRole {
   public static final String SERIALIZED_NAME_APPLY_STATUS = "ApplyStatus";
   @SerializedName(SERIALIZED_NAME_APPLY_STATUS)

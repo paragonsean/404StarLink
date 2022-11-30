@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Information about an origin that is an Amazon S3 bucket that is not configured with static website hosting.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsCloudFrontDistributionOriginS3OriginConfig {
   public static final String SERIALIZED_NAME_ORIGIN_ACCESS_IDENTITY = "OriginAccessIdentity";
   @SerializedName(SERIALIZED_NAME_ORIGIN_ACCESS_IDENTITY)

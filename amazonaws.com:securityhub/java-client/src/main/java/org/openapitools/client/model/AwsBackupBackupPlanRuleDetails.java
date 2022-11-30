@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Provides details about an array of &lt;code&gt;BackupRule&lt;/code&gt; objects, each of which specifies a scheduled task that is used to back up a selection of resources. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsBackupBackupPlanRuleDetails {
   public static final String SERIALIZED_NAME_TARGET_BACKUP_VAULT = "TargetBackupVault";
   @SerializedName(SERIALIZED_NAME_TARGET_BACKUP_VAULT)

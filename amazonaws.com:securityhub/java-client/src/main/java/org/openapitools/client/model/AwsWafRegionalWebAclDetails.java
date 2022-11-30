@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Provides information about the web access control list (web ACL). The web ACL contains the rules that identify the requests that you want to allow, block, or count. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsWafRegionalWebAclDetails {
   public static final String SERIALIZED_NAME_DEFAULT_ACTION = "DefaultAction";
   @SerializedName(SERIALIZED_NAME_DEFAULT_ACTION)

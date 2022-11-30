@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  *  Describes the options for Amazon EC2 instance hostnames. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails {
   public static final String SERIALIZED_NAME_ENABLE_RESOURCE_NAME_DNS_A_A_A_A_RECORD = "EnableResourceNameDnsAAAARecord";
   @SerializedName(SERIALIZED_NAME_ENABLE_RESOURCE_NAME_DNS_A_A_A_A_RECORD)

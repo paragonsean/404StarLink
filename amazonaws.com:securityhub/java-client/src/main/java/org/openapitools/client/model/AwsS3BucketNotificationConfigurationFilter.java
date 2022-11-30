@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Filtering information for the notifications. The filtering is based on Amazon S3 key names.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsS3BucketNotificationConfigurationFilter {
   public static final String SERIALIZED_NAME_S3_KEY_FILTER = "S3KeyFilter";
   @SerializedName(SERIALIZED_NAME_S3_KEY_FILTER)

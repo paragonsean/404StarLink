@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  *  Specifies that WAF should block the request and optionally defines additional custom handling for the response to the web request. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsWafv2ActionBlockDetails {
   public static final String SERIALIZED_NAME_CUSTOM_RESPONSE = "CustomResponse";
   @SerializedName(SERIALIZED_NAME_CUSTOM_RESPONSE)

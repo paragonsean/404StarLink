@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  *  One or more network interfaces to attach to an Amazon EC2 instance. If you specify a network interface, you must specify security groups and subnets as part of the network interface. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
   public static final String SERIALIZED_NAME_ASSOCIATE_CARRIER_IP_ADDRESS = "AssociateCarrierIpAddress";
   @SerializedName(SERIALIZED_NAME_ASSOCIATE_CARRIER_IP_ADDRESS)

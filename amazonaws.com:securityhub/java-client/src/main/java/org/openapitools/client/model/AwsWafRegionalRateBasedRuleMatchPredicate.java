@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Details for a match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsWafRegionalRateBasedRuleMatchPredicate {
   public static final String SERIALIZED_NAME_DATA_ID = "DataId";
   @SerializedName(SERIALIZED_NAME_DATA_ID)

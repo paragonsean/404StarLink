@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  *  Specifies the properties for creating an Amazon Elastic Compute Cloud (Amazon EC2) launch template. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsEc2LaunchTemplateDetails {
   public static final String SERIALIZED_NAME_LAUNCH_TEMPLATE_NAME = "LaunchTemplateName";
   @SerializedName(SERIALIZED_NAME_LAUNCH_TEMPLATE_NAME)

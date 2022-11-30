@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * An array of requested updates to the enablement status of controls in specified standards. The objects in the array include a security control ID, the Amazon Resource Name (ARN) of the standard, the requested enablement status, and the reason for updating the enablement status.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class StandardsControlAssociationUpdate {
   public static final String SERIALIZED_NAME_STANDARDS_ARN = "StandardsArn";
   @SerializedName(SERIALIZED_NAME_STANDARDS_ARN)

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Configures the CloudWatch Logs to publish for the OpenSearch domain.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
   public static final String SERIALIZED_NAME_INDEX_SLOW_LOGS = "IndexSlowLogs";
   @SerializedName(SERIALIZED_NAME_INDEX_SLOW_LOGS)

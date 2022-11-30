@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Provided if &lt;code&gt;ActionType&lt;/code&gt; is &lt;code&gt;AWS_API_CALL&lt;/code&gt;. It provides details about the API call that was detected.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsApiCallAction {
   public static final String SERIALIZED_NAME_API = "Api";
   @SerializedName(SERIALIZED_NAME_API)

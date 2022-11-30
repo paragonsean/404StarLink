@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Details about a network path component that occurs before or after the current component.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class NetworkHeader {
   public static final String SERIALIZED_NAME_PROTOCOL = "Protocol";
   @SerializedName(SERIALIZED_NAME_PROTOCOL)

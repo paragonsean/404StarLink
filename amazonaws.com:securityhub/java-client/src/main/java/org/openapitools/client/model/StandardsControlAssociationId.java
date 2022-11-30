@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  *  An array with one or more objects that includes a security control (identified with &lt;code&gt;SecurityControlId&lt;/code&gt;, &lt;code&gt;SecurityControlArn&lt;/code&gt;, or a mix of both parameters) and the Amazon Resource Name (ARN) of a standard. The security control ID or ARN is the same across standards. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class StandardsControlAssociationId {
   public static final String SERIALIZED_NAME_SECURITY_CONTROL_ID = "SecurityControlId";
   @SerializedName(SERIALIZED_NAME_SECURITY_CONTROL_ID)

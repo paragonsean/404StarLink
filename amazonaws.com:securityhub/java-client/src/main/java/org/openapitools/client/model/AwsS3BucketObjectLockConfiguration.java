@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  *  The container element for S3 Object Lock configuration parameters. In Amazon S3, Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsS3BucketObjectLockConfiguration {
   public static final String SERIALIZED_NAME_OBJECT_LOCK_ENABLED = "ObjectLockEnabled";
   @SerializedName(SERIALIZED_NAME_OBJECT_LOCK_ENABLED)

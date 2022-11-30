@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Configuration for a lifecycle rule.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsS3BucketBucketLifecycleConfigurationRulesDetails {
   public static final String SERIALIZED_NAME_ABORT_INCOMPLETE_MULTIPART_UPLOAD = "AbortIncompleteMultipartUpload";
   @SerializedName(SERIALIZED_NAME_ABORT_INCOMPLETE_MULTIPART_UPLOAD)

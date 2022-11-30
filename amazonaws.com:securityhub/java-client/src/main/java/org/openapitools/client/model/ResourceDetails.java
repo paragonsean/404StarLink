@@ -132,7 +132,7 @@ import org.openapitools.client.JSON;
 /**
  * ResourceDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ResourceDetails {
   public static final String SERIALIZED_NAME_AWS_AUTO_SCALING_AUTO_SCALING_GROUP = "AwsAutoScalingAutoScalingGroup";
   @SerializedName(SERIALIZED_NAME_AWS_AUTO_SCALING_AUTO_SCALING_GROUP)

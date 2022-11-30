@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * The insight result values returned by the &lt;code&gt;GetInsightResults&lt;/code&gt; operation.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class InsightResultValue {
   public static final String SERIALIZED_NAME_GROUP_BY_ATTRIBUTE_VALUE = "GroupByAttributeValue";
   @SerializedName(SERIALIZED_NAME_GROUP_BY_ATTRIBUTE_VALUE)

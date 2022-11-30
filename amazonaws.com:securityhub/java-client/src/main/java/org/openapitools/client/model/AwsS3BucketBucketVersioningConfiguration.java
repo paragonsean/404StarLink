@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes the versioning state of an S3 bucket.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsS3BucketBucketVersioningConfiguration {
   public static final String SERIALIZED_NAME_IS_MFA_DELETE_ENABLED = "IsMfaDeleteEnabled";
   @SerializedName(SERIALIZED_NAME_IS_MFA_DELETE_ENABLED)

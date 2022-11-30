@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Determines whether a service deployment fails if a service cannot reach a steady state.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails {
   public static final String SERIALIZED_NAME_ENABLE = "Enable";
   @SerializedName(SERIALIZED_NAME_ENABLE)

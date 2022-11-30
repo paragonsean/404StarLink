@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  *  Information about an enabled security standard in which a security control is enabled. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AssociatedStandard {
   public static final String SERIALIZED_NAME_STANDARDS_ID = "StandardsId";
   @SerializedName(SERIALIZED_NAME_STANDARDS_ID)

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsWafRuleGroupDetails {
   public static final String SERIALIZED_NAME_METRIC_NAME = "MetricName";
   @SerializedName(SERIALIZED_NAME_METRIC_NAME)

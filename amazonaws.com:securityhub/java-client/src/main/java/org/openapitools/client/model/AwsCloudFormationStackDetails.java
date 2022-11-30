@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Nests a stack as a resource in a top-level template. Nested stacks are stacks created as resources for another stack.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsCloudFormationStackDetails {
   public static final String SERIALIZED_NAME_CAPABILITIES = "Capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)

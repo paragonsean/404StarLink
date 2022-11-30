@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  *  The minimum and maximum baseline bandwidth to Amazon Elastic Block Store (Amazon EBS), in Mbps. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html\&quot;&gt;Amazon EBS–optimized instances &lt;/a&gt; in the &lt;i&gt;Amazon EC2 User Guide&lt;/i&gt;. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails {
   public static final String SERIALIZED_NAME_MAX = "Max";
   @SerializedName(SERIALIZED_NAME_MAX)

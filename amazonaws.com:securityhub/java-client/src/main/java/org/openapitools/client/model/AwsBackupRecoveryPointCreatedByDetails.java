@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Contains information about the backup plan and rule that Backup used to initiate the recovery point backup. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:13.081466-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:07.848040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsBackupRecoveryPointCreatedByDetails {
   public static final String SERIALIZED_NAME_BACKUP_PLAN_ARN = "BackupPlanArn";
   @SerializedName(SERIALIZED_NAME_BACKUP_PLAN_ARN)
