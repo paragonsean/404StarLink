@@ -1,0 +1,875 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Color Name API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Color Name API</h1>
+    <div class="app-desc">An API that provides names for colors based on their hex value</div>
+    <div class="app-desc">More information: <a href="https://elastiq.ch/">https://elastiq.ch/</a></div>
+    <div class="app-desc">Contact Info: <a href="color-name-api@elastiq.click">color-name-api@elastiq.click</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:/v1</div>
+    <div class="license-info">MIT</div>
+    <div class="license-url">https://github.com/meodai/color-name-api/blob/main/LICENSE</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#listsGet"><code><span class="http-method">get</span> /lists/</code></a></li>
+  <li><a href="#namesGet"><code><span class="http-method">get</span> /names/</code></a></li>
+  <li><a href="#rootGet"><code><span class="http-method">get</span> /</code></a></li>
+  <li><a href="#swatchGet"><code><span class="http-method">get</span> /swatch/</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="listsGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /lists/</code></pre></div>
+    <div class="method-summary">Get all colors of the default color name list (<span class="nickname">listsGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#_lists__get_200_response">_lists__get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "listDescriptions" : {
+    "werner" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "chineseTraditional" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "thesaurus" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "leCorbusier" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "sanzoWadaI" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "windows" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "xkcd" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "ridgway" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "default" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "japaneseTraditional" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "nbsIscc" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "risograph" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "x11" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "html" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "osxcrayons" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "bestOf" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "wikipedia" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "basic" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "ntc" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "ral" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    },
+    "french" : {
+      "license" : "license",
+      "description" : "description",
+      "source" : "source",
+      "title" : "title",
+      "colorCount" : 0,
+      "key" : "key",
+      "url" : "url"
+    }
+  },
+  "localAvailableColorNameLists" : [ "localAvailableColorNameLists", "localAvailableColorNameLists" ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "message",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#_lists__get_200_response">_lists__get_200_response</a>
+    <h4 class="field-label">404</h4>
+    NOT FOUND
+        <a href="#error">error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="namesGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /names/</code></pre></div>
+    <div class="method-summary">Get all colors of the default color name list (<span class="nickname">namesGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The name of the color to retrieve (min 3 characters) default: null </div><div class="param">list (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The name of the color name list to use default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#__get_200_response">__get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "paletteTitle" : "paletteTitle",
+  "colors" : [ {
+    "hsl" : {
+      "s" : 5.962133916683182,
+      "h" : 6.027456183070403,
+      "l" : 1.4658129805029452
+    },
+    "luminance" : 9.301444243932576,
+    "distance" : 0.8008281904610115,
+    "svg" : "svg",
+    "requestedHex" : "requestedHex",
+    "svgNamed" : "svgNamed",
+    "name" : "name",
+    "hex" : "hex",
+    "lab" : {
+      "a" : 5.637376656633329,
+      "b" : 2.3021358869347655,
+      "l" : 7.061401241503109
+    },
+    "rgb" : {
+      "b" : 2,
+      "r" : 7,
+      "g" : 4
+    },
+    "swatchImg" : "{}",
+    "luminanceWCAG" : 3.616076749251911
+  }, {
+    "hsl" : {
+      "s" : 5.962133916683182,
+      "h" : 6.027456183070403,
+      "l" : 1.4658129805029452
+    },
+    "luminance" : 9.301444243932576,
+    "distance" : 0.8008281904610115,
+    "svg" : "svg",
+    "requestedHex" : "requestedHex",
+    "svgNamed" : "svgNamed",
+    "name" : "name",
+    "hex" : "hex",
+    "lab" : {
+      "a" : 5.637376656633329,
+      "b" : 2.3021358869347655,
+      "l" : 7.061401241503109
+    },
+    "rgb" : {
+      "b" : 2,
+      "r" : 7,
+      "g" : 4
+    },
+    "swatchImg" : "{}",
+    "luminanceWCAG" : 3.616076749251911
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "message",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#__get_200_response">__get_200_response</a>
+    <h4 class="field-label">404</h4>
+    NOT FOUND
+        <a href="#error">error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="rootGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /</code></pre></div>
+    <div class="method-summary">Get all colors of the default color name list (<span class="nickname">rootGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">list (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The name of the color name list to use default: null </div><div class="param">values (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The hex values of the colors to retrieve without '#' default: null </div><div class="param">noduplicates (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Allow duplicate names or not default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#__get_200_response">__get_200_response</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "paletteTitle" : "paletteTitle",
+  "colors" : [ {
+    "hsl" : {
+      "s" : 5.962133916683182,
+      "h" : 6.027456183070403,
+      "l" : 1.4658129805029452
+    },
+    "luminance" : 9.301444243932576,
+    "distance" : 0.8008281904610115,
+    "svg" : "svg",
+    "requestedHex" : "requestedHex",
+    "svgNamed" : "svgNamed",
+    "name" : "name",
+    "hex" : "hex",
+    "lab" : {
+      "a" : 5.637376656633329,
+      "b" : 2.3021358869347655,
+      "l" : 7.061401241503109
+    },
+    "rgb" : {
+      "b" : 2,
+      "r" : 7,
+      "g" : 4
+    },
+    "swatchImg" : "{}",
+    "luminanceWCAG" : 3.616076749251911
+  }, {
+    "hsl" : {
+      "s" : 5.962133916683182,
+      "h" : 6.027456183070403,
+      "l" : 1.4658129805029452
+    },
+    "luminance" : 9.301444243932576,
+    "distance" : 0.8008281904610115,
+    "svg" : "svg",
+    "requestedHex" : "requestedHex",
+    "svgNamed" : "svgNamed",
+    "name" : "name",
+    "hex" : "hex",
+    "lab" : {
+      "a" : 5.637376656633329,
+      "b" : 2.3021358869347655,
+      "l" : 7.061401241503109
+    },
+    "rgb" : {
+      "b" : 2,
+      "r" : 7,
+      "g" : 4
+    },
+    "swatchImg" : "{}",
+    "luminanceWCAG" : 3.616076749251911
+  } ]
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "message",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#__get_200_response">__get_200_response</a>
+    <h4 class="field-label">404</h4>
+    NOT FOUND
+        <a href="#error">error</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="swatchGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /swatch/</code></pre></div>
+    <div class="method-summary">Generate a color swatch for any color (<span class="nickname">swatchGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">color (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The hex value of the color to retrieve without '#' default: null </div><div class="param">name (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The name of the color default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "message" : "message",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>image/svg+xml</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#String">String</a>
+    <h4 class="field-label">404</h4>
+    NOT FOUND
+        <a href="#error">error</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#__get_200_response"><code>__get_200_response</code> - </a></li>
+    <li><a href="#_lists__get_200_response"><code>_lists__get_200_response</code> - </a></li>
+    <li><a href="#_lists__get_200_response_listDescriptions"><code>_lists__get_200_response_listDescriptions</code> - </a></li>
+    <li><a href="#color"><code>color</code> - </a></li>
+    <li><a href="#colorBase"><code>colorBase</code> - </a></li>
+    <li><a href="#colorBase_swatchImg"><code>colorBase_swatchImg</code> - </a></li>
+    <li><a href="#color_hsl"><code>color_hsl</code> - </a></li>
+    <li><a href="#color_lab"><code>color_lab</code> - </a></li>
+    <li><a href="#color_rgb"><code>color_rgb</code> - </a></li>
+    <li><a href="#error"><code>error</code> - </a></li>
+    <li><a href="#listDescription"><code>listDescription</code> - </a></li>
+    <li><a href="#possibleLists"><code>possibleLists</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="__get_200_response"><code>__get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">colors (optional)</div><div class="param-desc"><span class="param-type"><a href="#color">array[color]</a></span>  </div>
+<div class="param">paletteTitle (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_lists__get_200_response"><code>_lists__get_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">listDescriptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#_lists__get_200_response_listDescriptions">_lists__get_200_response_listDescriptions</a></span>  </div>
+<div class="param">localAvailableColorNameLists (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="_lists__get_200_response_listDescriptions"><code>_lists__get_200_response_listDescriptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">basic (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">bestOf (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">chineseTraditional (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">default (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">french (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">html (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">japaneseTraditional (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">leCorbusier (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">nbsIscc (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">ntc (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">osxcrayons (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">ral (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">ridgway (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">risograph (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">sanzoWadaI (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">thesaurus (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">werner (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">wikipedia (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">windows (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">x11 (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+<div class="param">xkcd (optional)</div><div class="param-desc"><span class="param-type"><a href="#listDescription">listDescription</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="color"><code>color</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">distance (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">hex (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">hsl (optional)</div><div class="param-desc"><span class="param-type"><a href="#color_hsl">color_hsl</a></span>  </div>
+<div class="param">lab (optional)</div><div class="param-desc"><span class="param-type"><a href="#color_lab">color_lab</a></span>  </div>
+<div class="param">luminance (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">luminanceWCAG (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">requestedHex (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">rgb (optional)</div><div class="param-desc"><span class="param-type"><a href="#color_rgb">color_rgb</a></span>  </div>
+<div class="param">svg (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">svgNamed (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">swatchImg (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="colorBase"><code>colorBase</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">hex (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">hsl (optional)</div><div class="param-desc"><span class="param-type"><a href="#color_hsl">color_hsl</a></span>  </div>
+<div class="param">lab (optional)</div><div class="param-desc"><span class="param-type"><a href="#color_lab">color_lab</a></span>  </div>
+<div class="param">luminance (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">luminanceWCAG (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">rgb (optional)</div><div class="param-desc"><span class="param-type"><a href="#color_rgb">color_rgb</a></span>  </div>
+<div class="param">swatchImg (optional)</div><div class="param-desc"><span class="param-type"><a href="#colorBase_swatchImg">colorBase_swatchImg</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="colorBase_swatchImg"><code>colorBase_swatchImg</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">svg (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">svgNamed (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="color_hsl"><code>color_hsl</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">h (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">l (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">s (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="color_lab"><code>color_lab</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">a (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">b (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">l (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="color_rgb"><code>color_rgb</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">b (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">g (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">r (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="error"><code>error</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="listDescription"><code>listDescription</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">colorCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">license (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">source (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="possibleLists"><code>possibleLists</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
