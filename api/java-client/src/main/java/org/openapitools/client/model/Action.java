@@ -1,8 +1,8 @@
 /*
- * AWS SecurityHub
- * <p>Security Hub provides you with a comprehensive view of the security state of your Amazon Web Services environment and resources. It also provides you with the readiness status of your environment based on controls from supported security standards. Security Hub collects security data from Amazon Web Services accounts, services, and integrated third-party products and helps you analyze security trends in your environment to identify the highest priority security issues. For more information about Security Hub, see the <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html\">Security HubUser Guide</a>.</p> <p>When you use operations in the Security Hub API, the requests are executed only in the Amazon Web Services Region that is currently active or in the specific Amazon Web Services Region that you specify in your request. Any configuration or settings change that results from the operation is applied only to that Region. To make the same change in other Regions, run the same command for each Region in which you want to apply the change.</p> <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account to Security Hub, the association of the member account with the administrator account is created only in the <code>us-west-2</code> Region. Security Hub must be enabled for the member account in the same Region that the invitation was sent from.</p> <p>The following throttling limits apply to using Security Hub API operations.</p> <ul> <li> <p> <code>BatchEnableStandards</code> - <code>RateLimit</code> of 1 request per second. <code>BurstLimit</code> of 1 request per second.</p> </li> <li> <p> <code>GetFindings</code> - <code>RateLimit</code> of 3 requests per second. <code>BurstLimit</code> of 6 requests per second.</p> </li> <li> <p> <code>BatchImportFindings</code> - <code>RateLimit</code> of 10 requests per second. <code>BurstLimit</code> of 30 requests per second.</p> </li> <li> <p> <code>BatchUpdateFindings</code> - <code>RateLimit</code> of 10 requests per second. <code>BurstLimit</code> of 30 requests per second.</p> </li> <li> <p> <code>UpdateStandardsControl</code> - <code>RateLimit</code> of 1 request per second. <code>BurstLimit</code> of 5 requests per second.</p> </li> <li> <p>All other operations - <code>RateLimit</code> of 10 requests per second. <code>BurstLimit</code> of 30 requests per second.</p> </li> </ul>
+ * Amazon Route 53 Resolver
+ * <p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC from Route 53 Resolver. By default, Resolver answers DNS queries for VPC domain names such as domain names for EC2 instances or Elastic Load Balancing load balancers. Resolver performs recursive lookups against public name servers for all other domain names.</p> <p>You can also configure DNS resolution between your VPC and your network over a Direct Connect or VPN connection:</p> <p> <b>Forward DNS queries from resolvers on your network to Route 53 Resolver</b> </p> <p>DNS resolvers on your network can forward DNS queries to Resolver in a specified VPC. This allows your DNS resolvers to easily resolve domain names for Amazon Web Services resources such as EC2 instances or records in a Route 53 private hosted zone. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-network-to-vpc\">How DNS Resolvers on Your Network Forward DNS Queries to Route 53 Resolver</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p> <b>Conditionally forward queries from a VPC to resolvers on your network</b> </p> <p>You can configure Resolver to forward queries that it receives from EC2 instances in your VPCs to DNS resolvers on your network. To forward selected queries, you create Resolver rules that specify the domain names for the DNS queries that you want to forward (such as example.com), and the IP addresses of the DNS resolvers on your network that you want to forward the queries to. If a query matches multiple rules (example.com, acme.example.com), Resolver chooses the rule with the most specific match (acme.example.com) and forwards the query to the IP addresses that you specified in that rule. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-vpc-to-network\">How Route 53 Resolver Forwards DNS Queries from Your VPCs to Your Network</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>Like Amazon VPC, Resolver is Regional. In each Region where you have VPCs, you can choose whether to forward queries from your VPCs to your network (outbound queries), from your network to your VPCs (inbound queries), or both.</p>
  *
- * The version of the OpenAPI document: 2018-10-26
+ * The version of the OpenAPI document: 2018-04-01
  * Contact: mike.ralphson@gmail.com
  *
  * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
@@ -14,317 +14,67 @@
 package org.openapitools.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import java.util.Arrays;
-import org.openapitools.client.model.ActionAwsApiCallAction;
-import org.openapitools.client.model.ActionDnsRequestAction;
-import org.openapitools.client.model.ActionNetworkConnectionAction;
-import org.openapitools.client.model.ActionPortProbeAction;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
+import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.openapitools.client.JSON;
 
 /**
- * &lt;p&gt;Provides details about one of the following actions that affects or that was taken on a resource:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;A remote IP address issued an Amazon Web Services API call&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;A DNS request was received&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;A remote IP address attempted to connect to an EC2 instance&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;A remote IP address attempted a port probe on an EC2 instance&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+ * Gets or Sets Action
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:47.881442-04:00[America/New_York]", comments = "Generator version: 7.9.0")
-public class Action {
-  public static final String SERIALIZED_NAME_ACTION_TYPE = "ActionType";
-  @SerializedName(SERIALIZED_NAME_ACTION_TYPE)
-  private String actionType;
+@JsonAdapter(Action.Adapter.class)
+public enum Action {
+  
+  ALLOW("ALLOW"),
+  
+  BLOCK("BLOCK"),
+  
+  ALERT("ALERT");
 
-  public static final String SERIALIZED_NAME_NETWORK_CONNECTION_ACTION = "NetworkConnectionAction";
-  @SerializedName(SERIALIZED_NAME_NETWORK_CONNECTION_ACTION)
-  private ActionNetworkConnectionAction networkConnectionAction;
+  private String value;
 
-  public static final String SERIALIZED_NAME_AWS_API_CALL_ACTION = "AwsApiCallAction";
-  @SerializedName(SERIALIZED_NAME_AWS_API_CALL_ACTION)
-  private ActionAwsApiCallAction awsApiCallAction;
-
-  public static final String SERIALIZED_NAME_DNS_REQUEST_ACTION = "DnsRequestAction";
-  @SerializedName(SERIALIZED_NAME_DNS_REQUEST_ACTION)
-  private ActionDnsRequestAction dnsRequestAction;
-
-  public static final String SERIALIZED_NAME_PORT_PROBE_ACTION = "PortProbeAction";
-  @SerializedName(SERIALIZED_NAME_PORT_PROBE_ACTION)
-  private ActionPortProbeAction portProbeAction;
-
-  public Action() {
+  Action(String value) {
+    this.value = value;
   }
 
-  public Action actionType(String actionType) {
-    this.actionType = actionType;
-    return this;
-  }
-
-  /**
-   * Get actionType
-   * @return actionType
-   */
-  @javax.annotation.Nullable
-  public String getActionType() {
-    return actionType;
-  }
-
-  public void setActionType(String actionType) {
-    this.actionType = actionType;
-  }
-
-
-  public Action networkConnectionAction(ActionNetworkConnectionAction networkConnectionAction) {
-    this.networkConnectionAction = networkConnectionAction;
-    return this;
-  }
-
-  /**
-   * Get networkConnectionAction
-   * @return networkConnectionAction
-   */
-  @javax.annotation.Nullable
-  public ActionNetworkConnectionAction getNetworkConnectionAction() {
-    return networkConnectionAction;
-  }
-
-  public void setNetworkConnectionAction(ActionNetworkConnectionAction networkConnectionAction) {
-    this.networkConnectionAction = networkConnectionAction;
-  }
-
-
-  public Action awsApiCallAction(ActionAwsApiCallAction awsApiCallAction) {
-    this.awsApiCallAction = awsApiCallAction;
-    return this;
-  }
-
-  /**
-   * Get awsApiCallAction
-   * @return awsApiCallAction
-   */
-  @javax.annotation.Nullable
-  public ActionAwsApiCallAction getAwsApiCallAction() {
-    return awsApiCallAction;
-  }
-
-  public void setAwsApiCallAction(ActionAwsApiCallAction awsApiCallAction) {
-    this.awsApiCallAction = awsApiCallAction;
-  }
-
-
-  public Action dnsRequestAction(ActionDnsRequestAction dnsRequestAction) {
-    this.dnsRequestAction = dnsRequestAction;
-    return this;
-  }
-
-  /**
-   * Get dnsRequestAction
-   * @return dnsRequestAction
-   */
-  @javax.annotation.Nullable
-  public ActionDnsRequestAction getDnsRequestAction() {
-    return dnsRequestAction;
-  }
-
-  public void setDnsRequestAction(ActionDnsRequestAction dnsRequestAction) {
-    this.dnsRequestAction = dnsRequestAction;
-  }
-
-
-  public Action portProbeAction(ActionPortProbeAction portProbeAction) {
-    this.portProbeAction = portProbeAction;
-    return this;
-  }
-
-  /**
-   * Get portProbeAction
-   * @return portProbeAction
-   */
-  @javax.annotation.Nullable
-  public ActionPortProbeAction getPortProbeAction() {
-    return portProbeAction;
-  }
-
-  public void setPortProbeAction(ActionPortProbeAction portProbeAction) {
-    this.portProbeAction = portProbeAction;
-  }
-
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Action action = (Action) o;
-    return Objects.equals(this.actionType, action.actionType) &&
-        Objects.equals(this.networkConnectionAction, action.networkConnectionAction) &&
-        Objects.equals(this.awsApiCallAction, action.awsApiCallAction) &&
-        Objects.equals(this.dnsRequestAction, action.dnsRequestAction) &&
-        Objects.equals(this.portProbeAction, action.portProbeAction);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(actionType, networkConnectionAction, awsApiCallAction, dnsRequestAction, portProbeAction);
+  public String getValue() {
+    return value;
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Action {\n");
-    sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
-    sb.append("    networkConnectionAction: ").append(toIndentedString(networkConnectionAction)).append("\n");
-    sb.append("    awsApiCallAction: ").append(toIndentedString(awsApiCallAction)).append("\n");
-    sb.append("    dnsRequestAction: ").append(toIndentedString(dnsRequestAction)).append("\n");
-    sb.append("    portProbeAction: ").append(toIndentedString(portProbeAction)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return String.valueOf(value);
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  public static Action fromValue(String value) {
+    for (Action b : Action.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-    return o.toString().replace("\n", "\n    ");
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("ActionType");
-    openapiFields.add("NetworkConnectionAction");
-    openapiFields.add("AwsApiCallAction");
-    openapiFields.add("DnsRequestAction");
-    openapiFields.add("PortProbeAction");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Action
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!Action.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Action is not found in the empty JSON string", Action.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!Action.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Action` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `ActionType`
-      if (jsonObj.get("ActionType") != null && !jsonObj.get("ActionType").isJsonNull()) {
-        String.validateJsonElement(jsonObj.get("ActionType"));
-      }
-      // validate the optional field `NetworkConnectionAction`
-      if (jsonObj.get("NetworkConnectionAction") != null && !jsonObj.get("NetworkConnectionAction").isJsonNull()) {
-        ActionNetworkConnectionAction.validateJsonElement(jsonObj.get("NetworkConnectionAction"));
-      }
-      // validate the optional field `AwsApiCallAction`
-      if (jsonObj.get("AwsApiCallAction") != null && !jsonObj.get("AwsApiCallAction").isJsonNull()) {
-        ActionAwsApiCallAction.validateJsonElement(jsonObj.get("AwsApiCallAction"));
-      }
-      // validate the optional field `DnsRequestAction`
-      if (jsonObj.get("DnsRequestAction") != null && !jsonObj.get("DnsRequestAction").isJsonNull()) {
-        ActionDnsRequestAction.validateJsonElement(jsonObj.get("DnsRequestAction"));
-      }
-      // validate the optional field `PortProbeAction`
-      if (jsonObj.get("PortProbeAction") != null && !jsonObj.get("PortProbeAction").isJsonNull()) {
-        ActionPortProbeAction.validateJsonElement(jsonObj.get("PortProbeAction"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
+  public static class Adapter extends TypeAdapter<Action> {
     @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Action.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Action' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Action> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Action.class));
+    public void write(final JsonWriter jsonWriter, final Action enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
+    }
 
-       return (TypeAdapter<T>) new TypeAdapter<Action>() {
-           @Override
-           public void write(JsonWriter out, Action value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Action read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+    @Override
+    public Action read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return Action.fromValue(value);
     }
   }
 
-  /**
-   * Create an instance of Action given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of Action
-   * @throws IOException if the JSON string is invalid with respect to Action
-   */
-  public static Action fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Action.class);
-  }
-
-  /**
-   * Convert an instance of Action to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    Action.fromValue(value);
   }
 }
 

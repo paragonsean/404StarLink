@@ -1,8 +1,8 @@
 /*
- * AWS SecurityHub
- * <p>Security Hub provides you with a comprehensive view of the security state of your Amazon Web Services environment and resources. It also provides you with the readiness status of your environment based on controls from supported security standards. Security Hub collects security data from Amazon Web Services accounts, services, and integrated third-party products and helps you analyze security trends in your environment to identify the highest priority security issues. For more information about Security Hub, see the <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html\">Security HubUser Guide</a>.</p> <p>When you use operations in the Security Hub API, the requests are executed only in the Amazon Web Services Region that is currently active or in the specific Amazon Web Services Region that you specify in your request. Any configuration or settings change that results from the operation is applied only to that Region. To make the same change in other Regions, run the same command for each Region in which you want to apply the change.</p> <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account to Security Hub, the association of the member account with the administrator account is created only in the <code>us-west-2</code> Region. Security Hub must be enabled for the member account in the same Region that the invitation was sent from.</p> <p>The following throttling limits apply to using Security Hub API operations.</p> <ul> <li> <p> <code>BatchEnableStandards</code> - <code>RateLimit</code> of 1 request per second. <code>BurstLimit</code> of 1 request per second.</p> </li> <li> <p> <code>GetFindings</code> - <code>RateLimit</code> of 3 requests per second. <code>BurstLimit</code> of 6 requests per second.</p> </li> <li> <p> <code>BatchImportFindings</code> - <code>RateLimit</code> of 10 requests per second. <code>BurstLimit</code> of 30 requests per second.</p> </li> <li> <p> <code>BatchUpdateFindings</code> - <code>RateLimit</code> of 10 requests per second. <code>BurstLimit</code> of 30 requests per second.</p> </li> <li> <p> <code>UpdateStandardsControl</code> - <code>RateLimit</code> of 1 request per second. <code>BurstLimit</code> of 5 requests per second.</p> </li> <li> <p>All other operations - <code>RateLimit</code> of 10 requests per second. <code>BurstLimit</code> of 30 requests per second.</p> </li> </ul>
+ * Amazon Route 53 Resolver
+ * <p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC from Route 53 Resolver. By default, Resolver answers DNS queries for VPC domain names such as domain names for EC2 instances or Elastic Load Balancing load balancers. Resolver performs recursive lookups against public name servers for all other domain names.</p> <p>You can also configure DNS resolution between your VPC and your network over a Direct Connect or VPN connection:</p> <p> <b>Forward DNS queries from resolvers on your network to Route 53 Resolver</b> </p> <p>DNS resolvers on your network can forward DNS queries to Resolver in a specified VPC. This allows your DNS resolvers to easily resolve domain names for Amazon Web Services resources such as EC2 instances or records in a Route 53 private hosted zone. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-network-to-vpc\">How DNS Resolvers on Your Network Forward DNS Queries to Route 53 Resolver</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p> <b>Conditionally forward queries from a VPC to resolvers on your network</b> </p> <p>You can configure Resolver to forward queries that it receives from EC2 instances in your VPCs to DNS resolvers on your network. To forward selected queries, you create Resolver rules that specify the domain names for the DNS queries that you want to forward (such as example.com), and the IP addresses of the DNS resolvers on your network that you want to forward the queries to. If a query matches multiple rules (example.com, acme.example.com), Resolver chooses the rule with the most specific match (acme.example.com) and forwards the query to the IP addresses that you specified in that rule. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-vpc-to-network\">How Route 53 Resolver Forwards DNS Queries from Your VPCs to Your Network</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>Like Amazon VPC, Resolver is Regional. In each Region where you have VPCs, you can choose whether to forward queries from your VPCs to your network (outbound queries), from your network to your VPCs (inbound queries), or both.</p>
  *
- * The version of the OpenAPI document: 2018-10-26
+ * The version of the OpenAPI document: 2018-04-01
  * Contact: mike.ralphson@gmail.com
  *
  * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
@@ -61,11 +61,11 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "http://securityhub.us-east-1.amazonaws.com";
+    private String basePath = "http://route53resolver.us-east-1.amazonaws.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "http://securityhub.{region}.amazonaws.com",
-      "The AWS SecurityHub multi-region endpoint",
+      "http://route53resolver.{region}.amazonaws.com",
+      "The Route53Resolver multi-region endpoint",
       new HashMap<String, ServerVariable>() {{
         put("region", new ServerVariable(
           "The AWS region",
@@ -101,8 +101,8 @@ public class ApiClient {
       }}
     ),
     new ServerConfiguration(
-      "https://securityhub.{region}.amazonaws.com",
-      "The AWS SecurityHub multi-region endpoint",
+      "https://route53resolver.{region}.amazonaws.com",
+      "The Route53Resolver multi-region endpoint",
       new HashMap<String, ServerVariable>() {{
         put("region", new ServerVariable(
           "The AWS region",
@@ -138,8 +138,8 @@ public class ApiClient {
       }}
     ),
     new ServerConfiguration(
-      "http://securityhub.{region}.amazonaws.com.cn",
-      "The AWS SecurityHub endpoint for China (Beijing) and China (Ningxia)",
+      "http://route53resolver.{region}.amazonaws.com.cn",
+      "The Route53Resolver endpoint for China (Beijing) and China (Ningxia)",
       new HashMap<String, ServerVariable>() {{
         put("region", new ServerVariable(
           "The AWS region",
@@ -154,8 +154,8 @@ public class ApiClient {
       }}
     ),
     new ServerConfiguration(
-      "https://securityhub.{region}.amazonaws.com.cn",
-      "The AWS SecurityHub endpoint for China (Beijing) and China (Ningxia)",
+      "https://route53resolver.{region}.amazonaws.com.cn",
+      "The Route53Resolver endpoint for China (Beijing) and China (Ningxia)",
       new HashMap<String, ServerVariable>() {{
         put("region", new ServerVariable(
           "The AWS region",
@@ -242,7 +242,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/2018-10-26/java");
+        setUserAgent("OpenAPI-Generator/2018-04-01/java");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -259,7 +259,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g http://securityhub.us-east-1.amazonaws.com
+     * @param basePath Base path of the URL (e.g http://route53resolver.us-east-1.amazonaws.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
