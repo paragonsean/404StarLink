@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;High-level information about a list of firewall domains for use in a &lt;a&gt;FirewallRule&lt;/a&gt;. This is returned by &lt;a&gt;GetFirewallDomainList&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;To retrieve the domains that are defined for this domain list, call &lt;a&gt;ListFirewallDomains&lt;/a&gt;.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:22.540130-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:22.281937-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class FirewallDomainList {
   public static final String SERIALIZED_NAME_ID = "Id";
   @SerializedName(SERIALIZED_NAME_ID)

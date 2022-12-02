@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * UpdateResolverDnssecConfigResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:22.540130-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:22.281937-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class UpdateResolverDnssecConfigResponse {
   public static final String SERIALIZED_NAME_RESOLVER_D_N_S_S_E_C_CONFIG = "ResolverDNSSECConfig";
   @SerializedName(SERIALIZED_NAME_RESOLVER_D_N_S_S_E_C_CONFIG)

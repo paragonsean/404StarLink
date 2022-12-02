@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * UpdateResolverRuleRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:22.540130-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:22.281937-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class UpdateResolverRuleRequest {
   public static final String SERIALIZED_NAME_RESOLVER_RULE_ID = "ResolverRuleId";
   @SerializedName(SERIALIZED_NAME_RESOLVER_RULE_ID)
