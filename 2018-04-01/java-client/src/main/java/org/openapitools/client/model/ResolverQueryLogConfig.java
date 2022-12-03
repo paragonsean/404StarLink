@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * In the response to a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverQueryLogConfig.html\&quot;&gt;CreateResolverQueryLogConfig&lt;/a&gt;, &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverQueryLogConfig.html\&quot;&gt;DeleteResolverQueryLogConfig&lt;/a&gt;, &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverQueryLogConfig.html\&quot;&gt;GetResolverQueryLogConfig&lt;/a&gt;, or &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigs.html\&quot;&gt;ListResolverQueryLogConfigs&lt;/a&gt; request, a complex type that contains settings for one query logging configuration.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:27.024022-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:26.887120-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ResolverQueryLogConfig {
   public static final String SERIALIZED_NAME_ID = "Id";
   @SerializedName(SERIALIZED_NAME_ID)

@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * For queries that originate in your VPC, detailed information about a Resolver rule, which specifies how to route DNS queries out of the VPC. The &lt;code&gt;ResolverRule&lt;/code&gt; parameter appears in the response to a &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html\&quot;&gt;CreateResolverRule&lt;/a&gt;, &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverRule.html\&quot;&gt;DeleteResolverRule&lt;/a&gt;, &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html\&quot;&gt;GetResolverRule&lt;/a&gt;, &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html\&quot;&gt;ListResolverRules&lt;/a&gt;, or &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverRule.html\&quot;&gt;UpdateResolverRule&lt;/a&gt; request.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:27.024022-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:26.887120-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ResolverRule {
   public static final String SERIALIZED_NAME_ID = "Id";
   @SerializedName(SERIALIZED_NAME_ID)

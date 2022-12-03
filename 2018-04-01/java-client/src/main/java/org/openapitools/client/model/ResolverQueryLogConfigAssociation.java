@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * In the response to an &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html\&quot;&gt;AssociateResolverQueryLogConfig&lt;/a&gt;, &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html\&quot;&gt;DisassociateResolverQueryLogConfig&lt;/a&gt;, &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverQueryLogConfigAssociation.html\&quot;&gt;GetResolverQueryLogConfigAssociation&lt;/a&gt;, or &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigAssociations.html\&quot;&gt;ListResolverQueryLogConfigAssociations&lt;/a&gt;, request, a complex type that contains settings for a specified association between an Amazon VPC and a query logging configuration.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:27.024022-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:26.887120-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ResolverQueryLogConfigAssociation {
   public static final String SERIALIZED_NAME_ID = "Id";
   @SerializedName(SERIALIZED_NAME_ID)
