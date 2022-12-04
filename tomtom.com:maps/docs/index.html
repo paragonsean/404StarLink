@@ -1,0 +1,953 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Maps</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Maps</h1>
+    <div class="app-desc"><p>The Maps API web services suite offers the following APIs:</p>
+<ul>
+<li>Raster
+The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.</li>
+<li>Vector
+Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.
+The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.</li>
+</ul>
+</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:key KeyInQuery:true KeyInHeader:false</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Copyrights">Copyrights</a></h4>
+  <ul>
+  <li><a href="#mapVersionNumberCopyrightsCaptionFormatGet"><code><span class="http-method">get</span> /map/{versionNumber}/copyrights/caption.{format}</code></a></li>
+  <li><a href="#mapVersionNumberCopyrightsFormatGet"><code><span class="http-method">get</span> /map/{versionNumber}/copyrights.{format}</code></a></li>
+  <li><a href="#mapVersionNumberCopyrightsMinLonMinLatMaxLonMaxLatFormatGet"><code><span class="http-method">get</span> /map/{versionNumber}/copyrights/{minLon}/{minLat}/{maxLon}/{maxLat}.{format}</code></a></li>
+  <li><a href="#mapVersionNumberCopyrightsZoomXYFormatGet"><code><span class="http-method">get</span> /map/{versionNumber}/copyrights/{zoom}/{X}/{Y}.{format}</code></a></li>
+  </ul>
+  <h4><a href="#Raster">Raster</a></h4>
+  <ul>
+  <li><a href="#mapVersionNumberStaticimageGet"><code><span class="http-method">get</span> /map/{versionNumber}/staticimage</code></a></li>
+  <li><a href="#mapVersionNumberTileLayerStyleZoomXYFormatGet"><code><span class="http-method">get</span> /map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.{format}</code></a></li>
+  </ul>
+  <h4><a href="#Vector">Vector</a></h4>
+  <ul>
+  <li><a href="#mapVersionNumberTileLayerStyleZoomXYPbfGet"><code><span class="http-method">get</span> /map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.pbf</code></a></li>
+  </ul>
+  <h4><a href="#WMSWMTS">WMSWMTS</a></h4>
+  <ul>
+  <li><a href="#getCapabilities"><code><span class="http-method">get</span> /map/{versionNumber}/wms//</code></a></li>
+  <li><a href="#getMap"><code><span class="http-method">get</span> /map/{versionNumber}/wms/</code></a></li>
+  <li><a href="#mapVersionNumberWmtsKeyWmtsVersionWMTSCapabilitiesXmlGet"><code><span class="http-method">get</span> /map/{versionNumber}/wmts/{key}/{wmtsVersion}/WMTSCapabilities.xml</code></a></li>
+  </ul>
+
+  <h1><a name="Copyrights">Copyrights</a></h1>
+  <div class="method"><a name="mapVersionNumberCopyrightsCaptionFormatGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/copyrights/caption.{format}</code></pre></div>
+    <div class="method-summary">Captions (<span class="nickname">mapVersionNumberCopyrightsCaptionFormatGet</span>)</div>
+    <div class="method-notes">This API returns copyright captions for the map service.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1. default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Format of the response default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. Only used when format is jsonp default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">304</h4>
+    <b>Not Modified</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Malformed request</b>: malformed syntax. Possible causes include:</p>
+<ul>
+<li>requested syntax is not available</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <b>Forbidden</b>: Supplied API key is not valid for this request
+        <a href="#"></a>
+    <h4 class="field-label">410</h4>
+    <b>Gone</b>: Request for unsupported format
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
+API service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mapVersionNumberCopyrightsFormatGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/copyrights.{format}</code></pre></div>
+    <div class="method-summary">Copyrights whole world (<span class="nickname">mapVersionNumberCopyrightsFormatGet</span>)</div>
+    <div class="method-notes">The Copyrights API returns copyright information for
+the Maps API Raster Tile Service in JSON, JSONP, or XML format.
+This call returns copyright information for the whole world.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Format of the response default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. Only used when format is jsonp default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">304</h4>
+    <b>Not Modified</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Malformed request</b>: malformed syntax. Possible causes include:</p>
+<ul>
+<li>requested syntax is not available</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <b>Forbidden</b>: Supplied API key is not valid for this request
+        <a href="#"></a>
+    <h4 class="field-label">410</h4>
+    <b>Gone</b>: Request for unsupported format
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
+API service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mapVersionNumberCopyrightsMinLonMinLatMaxLonMaxLatFormatGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/copyrights/{minLon}/{minLat}/{maxLon}/{maxLat}.{format}</code></pre></div>
+    <div class="method-summary">Copyrights bounding box (<span class="nickname">mapVersionNumberCopyrightsMinLonMinLatMaxLonMaxLatFormatGet</span>)</div>
+    <div class="method-notes">The Copyrights API returns copyright information for
+the Maps API Raster Tile Service in JSON, JSONP, or XML format.
+This call returns copyright information for a specific bounding box.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Format of the response default: xml </div><div class="param">minLon (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Minimum longitude coordinate of bounding box defined in terms of latitude/longitude. default: null </div><div class="param">minLat (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Minimum latitude coordinate of bounding box defined in terms of latitude/longitude. default: null </div><div class="param">maxLon (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Maximum longitude coordinate of bounding box defined in terms of latitude/longitude. default: null </div><div class="param">maxLat (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Maximum latitude coordinate of bounding box defined in terms of latitude/longitude. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. Only used when format is jsonp. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">304</h4>
+    <b>Not Modified</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Malformed request</b>: malformed syntax. Possible causes include:</p>
+<ul>
+<li>requested syntax is not available</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    <p><b>Bad request</b>: Parameters out of range. Possible causes include:</p>
+<ul>
+<li>minLon n is out of range [-180,180]: the requested minimum longitude coordinate is out of possible range</li>
+<li>minLat n is out of range [-90,90]: the requested minimum latitude coordinate is out of possible range</li>
+<li>maxLon n is out of range [-180,180]: the requested maximum longitude coordinate is out of possible range</li>
+<li>maxLat n is out of range [-90,90]: the requested minimum latitude coordinate is out of possible range</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <b>Forbidden</b>: Supplied API key is not valid for this request
+        <a href="#"></a>
+    <h4 class="field-label">410</h4>
+    <b>Gone</b>: Request for unsupported format
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
+API service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mapVersionNumberCopyrightsZoomXYFormatGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/copyrights/{zoom}/{X}/{Y}.{format}</code></pre></div>
+    <div class="method-summary">Copyrights tile (<span class="nickname">mapVersionNumberCopyrightsZoomXYFormatGet</span>)</div>
+    <div class="method-notes">The Copyrights API returns copyright information for
+the Maps API Raster Tile Service in JSON, JSONP, or XML format.
+This call returns copyright information for the a specific map tile.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Format of the response default: xml </div><div class="param">zoom (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Zoom level of tile to be rendered. Only used for tile-level
+copyright calls. default: null </div><div class="param">X (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; X coordinate of the tile on zoom grid. Only used for tile-level
+copyright calls. default: null </div><div class="param">Y (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Y coordinate of the tile on zoom grid. Only used for tile-level
+copyright calls. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. Only used when format is jsonp. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">304</h4>
+    <b>Not Modified</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Malformed request</b>: malformed syntax. Possible causes include:</p>
+<ul>
+<li>requested syntax is not available</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    <p><b>Bad request</b>: Parameters out of range. Possible causes include:</p>
+<ul>
+<li>zoom n is out of range 0 &lt;= zoom &lt; 19: the requested zoom level is out of the possible range</li>
+<li>x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+<li>y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <b>Forbidden</b>: Supplied API key is not valid for this request
+        <a href="#"></a>
+    <h4 class="field-label">410</h4>
+    <b>Gone</b>: Request for unsupported format
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
+API service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Raster">Raster</a></h1>
+  <div class="method"><a name="mapVersionNumberStaticimageGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/staticimage</code></pre></div>
+    <div class="method-summary">Static Image (<span class="nickname">mapVersionNumberStaticimageGet</span>)</div>
+    <div class="method-notes">The Static Image service renders a rectangular raster image
+in the style, size, and zoom level specified. The image can be requested
+using either a center point plus width and height or a bounding box.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">layer (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Layer of image to be rendered. <em>Hybrid</em> and <em>labels</em>
+are intended for layering with other data and are only available in <em>png</em> format. default: basic </div><div class="param">style (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Map style to be returned default: main </div><div class="param">format (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Image format to be returned default: png </div><div class="param">zoom (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Zoom level of map image to be returned. default: 12 </div><div class="param">center (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Coordinates for the center point of the image.
+Must be used with the <strong>width</strong> and
+<strong>height</strong> parameters; cannot be used with <strong>bbox</strong>.
+Uses EPSG:3857 projection (functionally equivalent to EPSG:900910). default: null </div><div class="param">width (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Width of the resulting image in pixels. Width must be a positive integer between 1 and 8192. default: 512 </div><div class="param">height (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Height of the resulting image in pixels. Height must be a positive integer between 1 and 8192. default: 512 </div><div class="param">bbox (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Bounding box for the image, using EPSG:3857 projection (functionally equivalent to EPSG:900910).
+Values <strong>must</strong> be in the order of minLon, minLat, maxLon, maxLat.
+MaxLat must be greater than minLat. Longitude values can be on both sides of the 180th meridian.
+Cannot be used with <strong>center</strong>, <strong>width</strong>, or <strong>height</strong> parameters. default: null </div><div class="param">view (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Geopolitical view. Determines rendering of disputed areas. See the <a href="/maps-api/maps-api-documentation-raster/raster-tile">documentation</a> for an explanation of how this works in live services. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Bad Request</b>: Received by the interface, but there is an error
+in the request, such as:</p>
+<ul>
+<li>one or more of the required parameters is missing</li>
+<li>unsupported or unrecognized parameter value</li>
+<li>two or more mutually exclusive parameters are used in the same query (e.g. mixing center/width/height and bbox.)</li>
+<li>minimum latitude is greater than maximum latitude in a bbox call</li>
+<li>layer containing alpha channel is requested in format not supporting the alpha channel
+This code is returned if the required parameters of the request were
+malformed. A detailed exception explanation is returned in a
+response in form of Service Exception Report.</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <p><b>Forbidden</b>:</p>
+<ul>
+<li>supplied API key is not valid for the request</li>
+<li>the requested view is not available in the country where the request was sent from</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the Static Map
+Service.
+        <a href="#"></a>
+    <h4 class="field-label">503</h4>
+    <b>Service currently unavailable.</b>
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mapVersionNumberTileLayerStyleZoomXYFormatGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.{format}</code></pre></div>
+    <div class="method-summary">Tile (<span class="nickname">mapVersionNumberTileLayerStyleZoomXYFormatGet</span>)</div>
+    <div class="method-notes">The Maps API Raster Service delivers raster tiles, which are representations of square sections of map data.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1. default: null </div><div class="param">layer (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Layer of tile to be rendered. <em>Hybrid</em> and <em>labels</em> are intended for layering with other data and are only available in <em>png</em> format. default: null </div><div class="param">style (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Style of tile to be rendered default: null </div><div class="param">zoom (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Zoom level of tile to be rendered default: null </div><div class="param">X (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; x coordinate of tile on zoom grid default: null </div><div class="param">Y (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; y coordinate of tile on zoom grid default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Format of the response. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">tileSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Tile dimensions in pixels. <em>512</em> is only available for the <em>main</em> style and <em>basic</em> or <em>labels</em> layers. default: 256 </div><div class="param">view (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Geopolitical view. Determines rendering of disputed areas. See the <a href="/maps-sdk-web/functional-examples#geopolitical-views">documentation</a> for an explanation of how this works in live services. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">302</h4>
+    <b>Found</b>: URL redirection
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Bad request</b>: Usually the result of malformed syntax:</p>
+<ul>
+<li>the given combination of layer, style, and query parameters is not supported</li>
+<li>zoom n is out of range 0 &lt;= zoom &lt; 19: the requested zoom level is out of the possible range</li>
+<li>x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+<li>y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+<li>the requested view is not supported</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <p><b>Forbidden</b>:</p>
+<ul>
+<li>the supplied API key is not valid for this request</li>
+<li>the requested view is not available in the country where the request was sent from</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">410</h4>
+    <b>Gone</b>: Request for unsupported format
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom
+Maps API Raster Tile service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Vector">Vector</a></h1>
+  <div class="method"><a name="mapVersionNumberTileLayerStyleZoomXYPbfGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.pbf</code></pre></div>
+    <div class="method-summary">Tile (<span class="nickname">mapVersionNumberTileLayerStyleZoomXYPbfGet</span>)</div>
+    <div class="method-notes">The Maps API Vector Service delivers vector tiles, which are representations of square sections of map data.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div><div class="param">layer (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Layer of tile to be rendered default: null </div><div class="param">style (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Style of tile to be rendered default: null </div><div class="param">zoom (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Zoom level of tile to be rendered default: null </div><div class="param">X (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; x coordinate of tile on zoom grid default: null </div><div class="param">Y (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; y coordinate of tile on zoom grid default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">view (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Geopolitical view. Determines rendering of disputed areas. See the <a href="/maps-api/maps-api-documentation-vector/tile">documentation</a> for an explanation of how this works in live services. default: null </div><div class="param">language (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Language to be used for labels in the response. The default is NGT: Neutral Ground Truth, which uses each place's local official language and script (where available). See the <a href="/maps-api/maps-api-documentation-vector/tile">documentation</a> for a full list of options. default: NGT </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Bad request</b>: Usually the result of malformed syntax:</p>
+<ul>
+<li>the given combination of layer, style, and query parameters is not supported</li>
+<li>zoom n is out of range 0 &lt;= zoom &lt;= 22: the requested zoom level is out of the possible range</li>
+<li>x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+<li>y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+<li>the requested view is not supported</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <p><b>Forbidden</b>:</p>
+<ul>
+<li>the supplied API key is not valid for this request</li>
+<li>the requested view is not available in your country</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom
+Maps API Vector Tile service
+        <a href="#"></a>
+    <h4 class="field-label">503</h4>
+    <b>Service currently unavailable</b>.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="WMSWMTS">WMSWMTS</a></h1>
+  <div class="method"><a name="getCapabilities"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/wms//</code></pre></div>
+    <div class="method-summary">GetCapabilities (<span class="nickname">getCapabilities</span>)</div>
+    <div class="method-notes">The GetCapabilities call is part of TomTom's implementation of version 1.1.1
+the Web Map Service (WMS). It provides descriptions of the other calls
+that are available in the implementation.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">service (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">request (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">version (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; WMS service version default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">202</h4>
+    <p><b>Accepted</b>: Received by the interface, but there is a WMS exception in
+processing it. Possible causes include:</p>
+<ul>
+<li>one or more required parameters is missing</li>
+<li>unsupported or unrecognized parameter value</li>
+<li>malformed bounding box requested</li>
+<li>invalid map dimensions requested</li>
+</ul>
+<p>This code is returned if the parameters of the request were malformed.
+The response includes a detailed explanation in the Service Exception Report.</p>
+
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    <b>Unauthorized</b>: Supplied API key is not valid for the request
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom WMS
+service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getMap"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/wms/</code></pre></div>
+    <div class="method-summary">GetMap (<span class="nickname">getMap</span>)</div>
+    <div class="method-notes">The GetMap call implements the Web Map Service 1.1.1 standard
+to access TomTom raster map tiles. This service is described
+in the response to the GetCapabilities API call.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">request (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Request type default: null </div><div class="param">srs (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Projection used in describing the <b>bbox</b> EPSG:3857 is
+recommended, particularly at higher zoom levels. (Note that
+EPSG:3857 is functionally equivalent to EPSG:900913/EPSG:3785) default: null </div><div class="param">bbox (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Bounding box in the projection stated in <b>srs</b>
+(minLon,minLat,maxLon,maxLat) default: null </div><div class="param">width (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Width of the resulting image, in pixels Maximum value is 2048 default: null </div><div class="param">height (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Height of the resulting image, in pixels Maximum value is 2048 default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Image format to be returned default: null </div><div class="param">layers (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Map layers requested Currently only the basic layer is available default: null </div><div class="param">styles (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Map styles to be returned. Currently, no styles are available. This
+parameter is present for forward compatibility; it must be used and
+left blank. default: null </div><div class="param">service (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Service type default: null </div><div class="param">version (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; WMS service version default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">202</h4>
+    <p><b>Accepted</b>: Received by the interface, but there is a WMS exception in
+processing it. Possible causes include:</p>
+<ul>
+<li>one or more required parameters is missing</li>
+<li>unsupported or unrecognized parameter value</li>
+<li>malformed bounding box requested</li>
+<li>invalid map dimensions requested</li>
+</ul>
+<p>This code is returned if the parameters of the request were malformed.
+The response includes a detailed explanation in the Service Exception Report.</p>
+
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    <b>Unauthorized</b>: Supplied API key is not valid for the request
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom WMS
+service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mapVersionNumberWmtsKeyWmtsVersionWMTSCapabilitiesXmlGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/wmts/{key}/{wmtsVersion}/WMTSCapabilities.xml</code></pre></div>
+    <div class="method-summary">WMTS (<span class="nickname">mapVersionNumberWmtsKeyWmtsVersionWMTSCapabilitiesXmlGet</span>)</div>
+    <div class="method-notes">The WMTS GetCapabilities call implements version 1.0.0 of
+the <a href="http://www.opengeospatial.org/standards/wmts">Web Map Tile Service</a>
+(WMTS) standard. It returns metadata that allows compatible calling systems to construct
+calls to TomTom's raster map tile service. See the
+<a href="/maps-api/maps-api-documentation-raster/wmts">documentation</a>
+for more information on WMTS.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div><div class="param">key (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Your API key for calling this service. default: null </div><div class="param">wmtsVersion (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <b>Bad request</b>: Probably malformed syntax
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    <b>Unauthorized</b>: Supplied API key is not valid for this request
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom WMTS service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+  </ol>
+
+  </body>
+</html>
