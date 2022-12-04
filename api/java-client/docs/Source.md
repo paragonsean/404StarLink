@@ -2,29 +2,18 @@
 
 # Source
 
-Represents display or publishing preferences of user's own account. Returned as an additional entity when verifying and updated credentials, as an attribute of Account.
+Contains the information required to retrieve an app or cookbook from a repository. For more information, see <a href=\"https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html\">Creating Apps</a> or <a href=\"https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html\">Custom Recipes and Cookbooks</a>.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**fields** | [**List&lt;Field&gt;**](Field.md) | Metadata about the account. |  [optional] |
-|**followRequestsCount** | **Integer** | The number of pending follow requests |  [optional] |
-|**language** | **String** | The default posting language for new statuses, ISO 639-1 language two-letter code. |  [optional] |
-|**note** | **String** | Profile bio |  [optional] |
-|**privacy** | [**PrivacyEnum**](#PrivacyEnum) | The default post privacy to be used for new statuses. |  [optional] |
-|**sensitive** | **Boolean** | Whether new statuses should be marked sensitive by default. |  [optional] |
-
-
-
-## Enum: PrivacyEnum
-
-| Name | Value |
-|---- | -----|
-| PUBLIC | &quot;public&quot; |
-| UNLISTED | &quot;unlisted&quot; |
-| PRIVATE | &quot;private&quot; |
-| DIRECT | &quot;direct&quot; |
+|**type** | [**SourceType**](SourceType.md) |  |  [optional] |
+|**url** | [**String**](String.md) |  |  [optional] |
+|**username** | [**String**](String.md) |  |  [optional] |
+|**password** | [**String**](String.md) |  |  [optional] |
+|**sshKey** | [**String**](String.md) |  |  [optional] |
+|**revision** | [**String**](String.md) |  |  [optional] |
 
 
 

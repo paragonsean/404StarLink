@@ -2,26 +2,53 @@
 
 # Instance
 
-Represents the software instance of Mastodon running on this domain.
+Describes an instance.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**approvalRequired** | **Boolean** | Whether registrations require moderator approval. |  |
-|**contactAccount** | [**Account**](Account.md) |  |  [optional] |
-|**description** | **String** | Admin-defined description of the Mastodon site. |  |
-|**email** | **String** | An email that may be contacted for any inquiries. |  |
-|**invitesEnabled** | **Boolean** | Whether invites are enabled. |  |
-|**languages** | **List&lt;String&gt;** | Primary languages of the website and its staff. ISO 639 Part 1-5 language codes. |  |
-|**registrations** | **Boolean** | Whether registrations are enabled. |  |
-|**shortDescription** | **String** | A shorter description defined by the admin. |  |
-|**stats** | **Object** | Statistics about how much information the instance contains. |  |
-|**thumbnail** | **String** | Banner image for the website. |  [optional] |
-|**title** | **String** | The title of the website. |  |
-|**uri** | **String** | The domain name of the instance. |  |
-|**urls** | **Object** | URLs of interest for clients apps. |  |
-|**version** | **String** | The version of Mastodon installed on the instance. |  |
+|**agentVersion** | [**String**](String.md) |  |  [optional] |
+|**amiId** | [**String**](String.md) |  |  [optional] |
+|**architecture** | [**Architecture**](Architecture.md) |  |  [optional] |
+|**arn** | [**String**](String.md) |  |  [optional] |
+|**autoScalingType** | [**AutoScalingType**](AutoScalingType.md) |  |  [optional] |
+|**availabilityZone** | [**String**](String.md) |  |  [optional] |
+|**blockDeviceMappings** | [**List**](List.md) |  |  [optional] |
+|**createdAt** | [**String**](String.md) |  |  [optional] |
+|**ebsOptimized** | [**Boolean**](Boolean.md) |  |  [optional] |
+|**ec2InstanceId** | [**String**](String.md) |  |  [optional] |
+|**ecsClusterArn** | [**String**](String.md) |  |  [optional] |
+|**ecsContainerInstanceArn** | [**String**](String.md) |  |  [optional] |
+|**elasticIp** | [**String**](String.md) |  |  [optional] |
+|**hostname** | [**String**](String.md) |  |  [optional] |
+|**infrastructureClass** | [**String**](String.md) |  |  [optional] |
+|**installUpdatesOnBoot** | [**Boolean**](Boolean.md) |  |  [optional] |
+|**instanceId** | [**String**](String.md) |  |  [optional] |
+|**instanceProfileArn** | [**String**](String.md) |  |  [optional] |
+|**instanceType** | [**String**](String.md) |  |  [optional] |
+|**lastServiceErrorId** | [**String**](String.md) |  |  [optional] |
+|**layerIds** | [**List**](List.md) |  |  [optional] |
+|**os** | [**String**](String.md) |  |  [optional] |
+|**platform** | [**String**](String.md) |  |  [optional] |
+|**privateDns** | [**String**](String.md) |  |  [optional] |
+|**privateIp** | [**String**](String.md) |  |  [optional] |
+|**publicDns** | [**String**](String.md) |  |  [optional] |
+|**publicIp** | [**String**](String.md) |  |  [optional] |
+|**registeredBy** | [**String**](String.md) |  |  [optional] |
+|**reportedAgentVersion** | [**String**](String.md) |  |  [optional] |
+|**reportedOs** | [**InstanceReportedOs**](InstanceReportedOs.md) |  |  [optional] |
+|**rootDeviceType** | [**RootDeviceType**](RootDeviceType.md) |  |  [optional] |
+|**rootDeviceVolumeId** | [**String**](String.md) |  |  [optional] |
+|**securityGroupIds** | [**List**](List.md) |  |  [optional] |
+|**sshHostDsaKeyFingerprint** | [**String**](String.md) |  |  [optional] |
+|**sshHostRsaKeyFingerprint** | [**String**](String.md) |  |  [optional] |
+|**sshKeyName** | [**String**](String.md) |  |  [optional] |
+|**stackId** | [**String**](String.md) |  |  [optional] |
+|**status** | [**String**](String.md) |  |  [optional] |
+|**subnetId** | [**String**](String.md) |  |  [optional] |
+|**tenancy** | [**String**](String.md) |  |  [optional] |
+|**virtualizationType** | [**VirtualizationType**](VirtualizationType.md) |  |  [optional] |
 
 
 

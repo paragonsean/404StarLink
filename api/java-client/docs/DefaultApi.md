@@ -1,173 +1,92 @@
 # DefaultApi
 
-All URIs are relative to *http://route53resolver.us-east-1.amazonaws.com*
+All URIs are relative to *http://opsworks.us-east-1.amazonaws.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**associateFirewallRuleGroup**](DefaultApi.md#associateFirewallRuleGroup) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.AssociateFirewallRuleGroup |  |
-| [**associateResolverEndpointIpAddress**](DefaultApi.md#associateResolverEndpointIpAddress) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.AssociateResolverEndpointIpAddress |  |
-| [**associateResolverQueryLogConfig**](DefaultApi.md#associateResolverQueryLogConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.AssociateResolverQueryLogConfig |  |
-| [**associateResolverRule**](DefaultApi.md#associateResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.AssociateResolverRule |  |
-| [**createFirewallDomainList**](DefaultApi.md#createFirewallDomainList) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateFirewallDomainList |  |
-| [**createFirewallRule**](DefaultApi.md#createFirewallRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateFirewallRule |  |
-| [**createFirewallRuleGroup**](DefaultApi.md#createFirewallRuleGroup) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateFirewallRuleGroup |  |
-| [**createResolverEndpoint**](DefaultApi.md#createResolverEndpoint) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateResolverEndpoint |  |
-| [**createResolverQueryLogConfig**](DefaultApi.md#createResolverQueryLogConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateResolverQueryLogConfig |  |
-| [**createResolverRule**](DefaultApi.md#createResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateResolverRule |  |
-| [**deleteFirewallDomainList**](DefaultApi.md#deleteFirewallDomainList) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteFirewallDomainList |  |
-| [**deleteFirewallRule**](DefaultApi.md#deleteFirewallRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteFirewallRule |  |
-| [**deleteFirewallRuleGroup**](DefaultApi.md#deleteFirewallRuleGroup) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteFirewallRuleGroup |  |
-| [**deleteResolverEndpoint**](DefaultApi.md#deleteResolverEndpoint) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteResolverEndpoint |  |
-| [**deleteResolverQueryLogConfig**](DefaultApi.md#deleteResolverQueryLogConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteResolverQueryLogConfig |  |
-| [**deleteResolverRule**](DefaultApi.md#deleteResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteResolverRule |  |
-| [**disassociateFirewallRuleGroup**](DefaultApi.md#disassociateFirewallRuleGroup) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DisassociateFirewallRuleGroup |  |
-| [**disassociateResolverEndpointIpAddress**](DefaultApi.md#disassociateResolverEndpointIpAddress) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DisassociateResolverEndpointIpAddress |  |
-| [**disassociateResolverQueryLogConfig**](DefaultApi.md#disassociateResolverQueryLogConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DisassociateResolverQueryLogConfig |  |
-| [**disassociateResolverRule**](DefaultApi.md#disassociateResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DisassociateResolverRule |  |
-| [**getFirewallConfig**](DefaultApi.md#getFirewallConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetFirewallConfig |  |
-| [**getFirewallDomainList**](DefaultApi.md#getFirewallDomainList) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetFirewallDomainList |  |
-| [**getFirewallRuleGroup**](DefaultApi.md#getFirewallRuleGroup) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetFirewallRuleGroup |  |
-| [**getFirewallRuleGroupAssociation**](DefaultApi.md#getFirewallRuleGroupAssociation) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetFirewallRuleGroupAssociation |  |
-| [**getFirewallRuleGroupPolicy**](DefaultApi.md#getFirewallRuleGroupPolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetFirewallRuleGroupPolicy |  |
-| [**getResolverConfig**](DefaultApi.md#getResolverConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverConfig |  |
-| [**getResolverDnssecConfig**](DefaultApi.md#getResolverDnssecConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverDnssecConfig |  |
-| [**getResolverEndpoint**](DefaultApi.md#getResolverEndpoint) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverEndpoint |  |
-| [**getResolverQueryLogConfig**](DefaultApi.md#getResolverQueryLogConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverQueryLogConfig |  |
-| [**getResolverQueryLogConfigAssociation**](DefaultApi.md#getResolverQueryLogConfigAssociation) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverQueryLogConfigAssociation |  |
-| [**getResolverQueryLogConfigPolicy**](DefaultApi.md#getResolverQueryLogConfigPolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverQueryLogConfigPolicy |  |
-| [**getResolverRule**](DefaultApi.md#getResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverRule |  |
-| [**getResolverRuleAssociation**](DefaultApi.md#getResolverRuleAssociation) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverRuleAssociation |  |
-| [**getResolverRulePolicy**](DefaultApi.md#getResolverRulePolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverRulePolicy |  |
-| [**importFirewallDomains**](DefaultApi.md#importFirewallDomains) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ImportFirewallDomains |  |
-| [**listFirewallConfigs**](DefaultApi.md#listFirewallConfigs) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallConfigs |  |
-| [**listFirewallDomainLists**](DefaultApi.md#listFirewallDomainLists) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallDomainLists |  |
-| [**listFirewallDomains**](DefaultApi.md#listFirewallDomains) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallDomains |  |
-| [**listFirewallRuleGroupAssociations**](DefaultApi.md#listFirewallRuleGroupAssociations) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallRuleGroupAssociations |  |
-| [**listFirewallRuleGroups**](DefaultApi.md#listFirewallRuleGroups) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallRuleGroups |  |
-| [**listFirewallRules**](DefaultApi.md#listFirewallRules) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallRules |  |
-| [**listResolverConfigs**](DefaultApi.md#listResolverConfigs) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverConfigs |  |
-| [**listResolverDnssecConfigs**](DefaultApi.md#listResolverDnssecConfigs) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverDnssecConfigs |  |
-| [**listResolverEndpointIpAddresses**](DefaultApi.md#listResolverEndpointIpAddresses) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverEndpointIpAddresses |  |
-| [**listResolverEndpoints**](DefaultApi.md#listResolverEndpoints) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverEndpoints |  |
-| [**listResolverQueryLogConfigAssociations**](DefaultApi.md#listResolverQueryLogConfigAssociations) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverQueryLogConfigAssociations |  |
-| [**listResolverQueryLogConfigs**](DefaultApi.md#listResolverQueryLogConfigs) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverQueryLogConfigs |  |
-| [**listResolverRuleAssociations**](DefaultApi.md#listResolverRuleAssociations) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverRuleAssociations |  |
-| [**listResolverRules**](DefaultApi.md#listResolverRules) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverRules |  |
-| [**listTagsForResource**](DefaultApi.md#listTagsForResource) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListTagsForResource |  |
-| [**putFirewallRuleGroupPolicy**](DefaultApi.md#putFirewallRuleGroupPolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.PutFirewallRuleGroupPolicy |  |
-| [**putResolverQueryLogConfigPolicy**](DefaultApi.md#putResolverQueryLogConfigPolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.PutResolverQueryLogConfigPolicy |  |
-| [**putResolverRulePolicy**](DefaultApi.md#putResolverRulePolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.PutResolverRulePolicy |  |
-| [**tagResource**](DefaultApi.md#tagResource) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.TagResource |  |
-| [**untagResource**](DefaultApi.md#untagResource) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UntagResource |  |
-| [**updateFirewallConfig**](DefaultApi.md#updateFirewallConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateFirewallConfig |  |
-| [**updateFirewallDomains**](DefaultApi.md#updateFirewallDomains) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateFirewallDomains |  |
-| [**updateFirewallRule**](DefaultApi.md#updateFirewallRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateFirewallRule |  |
-| [**updateFirewallRuleGroupAssociation**](DefaultApi.md#updateFirewallRuleGroupAssociation) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateFirewallRuleGroupAssociation |  |
-| [**updateResolverConfig**](DefaultApi.md#updateResolverConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateResolverConfig |  |
-| [**updateResolverDnssecConfig**](DefaultApi.md#updateResolverDnssecConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateResolverDnssecConfig |  |
-| [**updateResolverEndpoint**](DefaultApi.md#updateResolverEndpoint) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateResolverEndpoint |  |
-| [**updateResolverRule**](DefaultApi.md#updateResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateResolverRule |  |
+| [**assignInstance**](DefaultApi.md#assignInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.AssignInstance |  |
+| [**assignVolume**](DefaultApi.md#assignVolume) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.AssignVolume |  |
+| [**associateElasticIp**](DefaultApi.md#associateElasticIp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.AssociateElasticIp |  |
+| [**attachElasticLoadBalancer**](DefaultApi.md#attachElasticLoadBalancer) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.AttachElasticLoadBalancer |  |
+| [**cloneStack**](DefaultApi.md#cloneStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CloneStack |  |
+| [**createApp**](DefaultApi.md#createApp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateApp |  |
+| [**createDeployment**](DefaultApi.md#createDeployment) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateDeployment |  |
+| [**createInstance**](DefaultApi.md#createInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateInstance |  |
+| [**createLayer**](DefaultApi.md#createLayer) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateLayer |  |
+| [**createStack**](DefaultApi.md#createStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateStack |  |
+| [**createUserProfile**](DefaultApi.md#createUserProfile) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateUserProfile |  |
+| [**deleteApp**](DefaultApi.md#deleteApp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeleteApp |  |
+| [**deleteInstance**](DefaultApi.md#deleteInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeleteInstance |  |
+| [**deleteLayer**](DefaultApi.md#deleteLayer) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeleteLayer |  |
+| [**deleteStack**](DefaultApi.md#deleteStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeleteStack |  |
+| [**deleteUserProfile**](DefaultApi.md#deleteUserProfile) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeleteUserProfile |  |
+| [**deregisterEcsCluster**](DefaultApi.md#deregisterEcsCluster) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeregisterEcsCluster |  |
+| [**deregisterElasticIp**](DefaultApi.md#deregisterElasticIp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeregisterElasticIp |  |
+| [**deregisterInstance**](DefaultApi.md#deregisterInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeregisterInstance |  |
+| [**deregisterRdsDbInstance**](DefaultApi.md#deregisterRdsDbInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeregisterRdsDbInstance |  |
+| [**deregisterVolume**](DefaultApi.md#deregisterVolume) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeregisterVolume |  |
+| [**describeAgentVersions**](DefaultApi.md#describeAgentVersions) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeAgentVersions |  |
+| [**describeApps**](DefaultApi.md#describeApps) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeApps |  |
+| [**describeCommands**](DefaultApi.md#describeCommands) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeCommands |  |
+| [**describeDeployments**](DefaultApi.md#describeDeployments) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeDeployments |  |
+| [**describeEcsClusters**](DefaultApi.md#describeEcsClusters) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeEcsClusters |  |
+| [**describeElasticIps**](DefaultApi.md#describeElasticIps) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeElasticIps |  |
+| [**describeElasticLoadBalancers**](DefaultApi.md#describeElasticLoadBalancers) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeElasticLoadBalancers |  |
+| [**describeInstances**](DefaultApi.md#describeInstances) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeInstances |  |
+| [**describeLayers**](DefaultApi.md#describeLayers) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeLayers |  |
+| [**describeLoadBasedAutoScaling**](DefaultApi.md#describeLoadBasedAutoScaling) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeLoadBasedAutoScaling |  |
+| [**describeMyUserProfile**](DefaultApi.md#describeMyUserProfile) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeMyUserProfile |  |
+| [**describeOperatingSystems**](DefaultApi.md#describeOperatingSystems) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeOperatingSystems |  |
+| [**describePermissions**](DefaultApi.md#describePermissions) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribePermissions |  |
+| [**describeRaidArrays**](DefaultApi.md#describeRaidArrays) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeRaidArrays |  |
+| [**describeRdsDbInstances**](DefaultApi.md#describeRdsDbInstances) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeRdsDbInstances |  |
+| [**describeServiceErrors**](DefaultApi.md#describeServiceErrors) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeServiceErrors |  |
+| [**describeStackProvisioningParameters**](DefaultApi.md#describeStackProvisioningParameters) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeStackProvisioningParameters |  |
+| [**describeStackSummary**](DefaultApi.md#describeStackSummary) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeStackSummary |  |
+| [**describeStacks**](DefaultApi.md#describeStacks) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeStacks |  |
+| [**describeTimeBasedAutoScaling**](DefaultApi.md#describeTimeBasedAutoScaling) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeTimeBasedAutoScaling |  |
+| [**describeUserProfiles**](DefaultApi.md#describeUserProfiles) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeUserProfiles |  |
+| [**describeVolumes**](DefaultApi.md#describeVolumes) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeVolumes |  |
+| [**detachElasticLoadBalancer**](DefaultApi.md#detachElasticLoadBalancer) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DetachElasticLoadBalancer |  |
+| [**disassociateElasticIp**](DefaultApi.md#disassociateElasticIp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DisassociateElasticIp |  |
+| [**getHostnameSuggestion**](DefaultApi.md#getHostnameSuggestion) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.GetHostnameSuggestion |  |
+| [**grantAccess**](DefaultApi.md#grantAccess) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.GrantAccess |  |
+| [**listTags**](DefaultApi.md#listTags) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.ListTags |  |
+| [**rebootInstance**](DefaultApi.md#rebootInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RebootInstance |  |
+| [**registerEcsCluster**](DefaultApi.md#registerEcsCluster) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RegisterEcsCluster |  |
+| [**registerElasticIp**](DefaultApi.md#registerElasticIp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RegisterElasticIp |  |
+| [**registerInstance**](DefaultApi.md#registerInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RegisterInstance |  |
+| [**registerRdsDbInstance**](DefaultApi.md#registerRdsDbInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RegisterRdsDbInstance |  |
+| [**registerVolume**](DefaultApi.md#registerVolume) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RegisterVolume |  |
+| [**setLoadBasedAutoScaling**](DefaultApi.md#setLoadBasedAutoScaling) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.SetLoadBasedAutoScaling |  |
+| [**setPermission**](DefaultApi.md#setPermission) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.SetPermission |  |
+| [**setTimeBasedAutoScaling**](DefaultApi.md#setTimeBasedAutoScaling) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.SetTimeBasedAutoScaling |  |
+| [**startInstance**](DefaultApi.md#startInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.StartInstance |  |
+| [**startStack**](DefaultApi.md#startStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.StartStack |  |
+| [**stopInstance**](DefaultApi.md#stopInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.StopInstance |  |
+| [**stopStack**](DefaultApi.md#stopStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.StopStack |  |
+| [**tagResource**](DefaultApi.md#tagResource) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.TagResource |  |
+| [**unassignInstance**](DefaultApi.md#unassignInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UnassignInstance |  |
+| [**unassignVolume**](DefaultApi.md#unassignVolume) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UnassignVolume |  |
+| [**untagResource**](DefaultApi.md#untagResource) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UntagResource |  |
+| [**updateApp**](DefaultApi.md#updateApp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateApp |  |
+| [**updateElasticIp**](DefaultApi.md#updateElasticIp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateElasticIp |  |
+| [**updateInstance**](DefaultApi.md#updateInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateInstance |  |
+| [**updateLayer**](DefaultApi.md#updateLayer) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateLayer |  |
+| [**updateMyUserProfile**](DefaultApi.md#updateMyUserProfile) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateMyUserProfile |  |
+| [**updateRdsDbInstance**](DefaultApi.md#updateRdsDbInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateRdsDbInstance |  |
+| [**updateStack**](DefaultApi.md#updateStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateStack |  |
+| [**updateUserProfile**](DefaultApi.md#updateUserProfile) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateUserProfile |  |
+| [**updateVolume**](DefaultApi.md#updateVolume) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateVolume |  |
 
 
-<a id="associateFirewallRuleGroup"></a>
-# **associateFirewallRuleGroup**
-> AssociateFirewallRuleGroupResponse associateFirewallRuleGroup(xAmzTarget, associateFirewallRuleGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Associates a &lt;a&gt;FirewallRuleGroup&lt;/a&gt; with a VPC, to provide DNS filtering for the VPC. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.AssociateFirewallRuleGroup"; // String | 
-    AssociateFirewallRuleGroupRequest associateFirewallRuleGroupRequest = new AssociateFirewallRuleGroupRequest(); // AssociateFirewallRuleGroupRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      AssociateFirewallRuleGroupResponse result = apiInstance.associateFirewallRuleGroup(xAmzTarget, associateFirewallRuleGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#associateFirewallRuleGroup");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.AssociateFirewallRuleGroup] |
-| **associateFirewallRuleGroupRequest** | [**AssociateFirewallRuleGroupRequest**](AssociateFirewallRuleGroupRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**AssociateFirewallRuleGroupResponse**](AssociateFirewallRuleGroupResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | ValidationException |  -  |
-| **482** | LimitExceededException |  -  |
-| **483** | ConflictException |  -  |
-| **484** | AccessDeniedException |  -  |
-| **485** | InternalServiceErrorException |  -  |
-| **486** | ThrottlingException |  -  |
-
-<a id="associateResolverEndpointIpAddress"></a>
-# **associateResolverEndpointIpAddress**
-> AssociateResolverEndpointIpAddressResponse associateResolverEndpointIpAddress(xAmzTarget, associateResolverEndpointIpAddressRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+<a id="assignInstance"></a>
+# **assignInstance**
+> assignInstance(xAmzTarget, assignInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
 
 
 
-&lt;p&gt;Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add more than one IP address, submit one &lt;code&gt;AssociateResolverEndpointIpAddress&lt;/code&gt; request for each IP address.&lt;/p&gt; &lt;p&gt;To remove an IP address from an endpoint, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverEndpointIpAddress.html\&quot;&gt;DisassociateResolverEndpointIpAddress&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Assign a registered instance to a layer.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;You can assign registered on-premises instances to any layer type.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;You can assign registered Amazon EC2 instances only to custom layers.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;You cannot use this action with instances that were created with AWS OpsWorks Stacks.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an AWS Identity and Access Management (IAM) user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
 
 ### Example
 ```java
@@ -182,7 +101,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -191,8 +110,8 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.AssociateResolverEndpointIpAddress"; // String | 
-    AssociateResolverEndpointIpAddressRequest associateResolverEndpointIpAddressRequest = new AssociateResolverEndpointIpAddressRequest(); // AssociateResolverEndpointIpAddressRequest | 
+    String xAmzTarget = "OpsWorks_20130218.AssignInstance"; // String | 
+    AssignInstanceRequest assignInstanceRequest = new AssignInstanceRequest(); // AssignInstanceRequest | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
     String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
@@ -201,10 +120,9 @@ public class Example {
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
     try {
-      AssociateResolverEndpointIpAddressResponse result = apiInstance.associateResolverEndpointIpAddress(xAmzTarget, associateResolverEndpointIpAddressRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
+      apiInstance.assignInstance(xAmzTarget, assignInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#associateResolverEndpointIpAddress");
+      System.err.println("Exception when calling DefaultApi#assignInstance");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -218,8 +136,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.AssociateResolverEndpointIpAddress] |
-| **associateResolverEndpointIpAddressRequest** | [**AssociateResolverEndpointIpAddressRequest**](AssociateResolverEndpointIpAddressRequest.md)|  | |
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.AssignInstance] |
+| **assignInstanceRequest** | [**AssignInstanceRequest**](AssignInstanceRequest.md)|  | |
 | **xAmzContentSha256** | **String**|  | [optional] |
 | **xAmzDate** | **String**|  | [optional] |
 | **xAmzAlgorithm** | **String**|  | [optional] |
@@ -230,2094 +148,7 @@ public class Example {
 
 ### Return type
 
-[**AssociateResolverEndpointIpAddressResponse**](AssociateResolverEndpointIpAddressResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | ResourceExistsException |  -  |
-| **484** | InternalServiceErrorException |  -  |
-| **485** | LimitExceededException |  -  |
-| **486** | ThrottlingException |  -  |
-
-<a id="associateResolverQueryLogConfig"></a>
-# **associateResolverQueryLogConfig**
-> AssociateResolverQueryLogConfigResponse associateResolverQueryLogConfig(xAmzTarget, associateResolverQueryLogConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-&lt;p&gt;Associates an Amazon VPC with a specified query logging configuration. Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs that are associated with a specified query logging configuration. To associate more than one VPC with a configuration, submit one &lt;code&gt;AssociateResolverQueryLogConfig&lt;/code&gt; request for each VPC.&lt;/p&gt; &lt;note&gt; &lt;p&gt;The VPCs that you associate with a query logging configuration must be in the same Region as the configuration.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;To remove a VPC from a query logging configuration, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html\&quot;&gt;DisassociateResolverQueryLogConfig&lt;/a&gt;. &lt;/p&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.AssociateResolverQueryLogConfig"; // String | 
-    AssociateResolverQueryLogConfigRequest associateResolverQueryLogConfigRequest = new AssociateResolverQueryLogConfigRequest(); // AssociateResolverQueryLogConfigRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      AssociateResolverQueryLogConfigResponse result = apiInstance.associateResolverQueryLogConfig(xAmzTarget, associateResolverQueryLogConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#associateResolverQueryLogConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.AssociateResolverQueryLogConfig] |
-| **associateResolverQueryLogConfigRequest** | [**AssociateResolverQueryLogConfigRequest**](AssociateResolverQueryLogConfigRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**AssociateResolverQueryLogConfigResponse**](AssociateResolverQueryLogConfigResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidParameterException |  -  |
-| **481** | ResourceNotFoundException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | ResourceExistsException |  -  |
-| **484** | LimitExceededException |  -  |
-| **485** | InternalServiceErrorException |  -  |
-| **486** | ThrottlingException |  -  |
-| **487** | AccessDeniedException |  -  |
-
-<a id="associateResolverRule"></a>
-# **associateResolverRule**
-> AssociateResolverRuleResponse associateResolverRule(xAmzTarget, associateResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html\&quot;&gt;CreateResolverRule&lt;/a&gt;. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.AssociateResolverRule"; // String | 
-    AssociateResolverRuleRequest associateResolverRuleRequest = new AssociateResolverRuleRequest(); // AssociateResolverRuleRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      AssociateResolverRuleResponse result = apiInstance.associateResolverRule(xAmzTarget, associateResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#associateResolverRule");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.AssociateResolverRule] |
-| **associateResolverRuleRequest** | [**AssociateResolverRuleRequest**](AssociateResolverRuleRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**AssociateResolverRuleResponse**](AssociateResolverRuleResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidRequestException |  -  |
-| **482** | LimitExceededException |  -  |
-| **483** | InvalidParameterException |  -  |
-| **484** | ResourceUnavailableException |  -  |
-| **485** | ResourceExistsException |  -  |
-| **486** | InternalServiceErrorException |  -  |
-| **487** | ThrottlingException |  -  |
-
-<a id="createFirewallDomainList"></a>
-# **createFirewallDomainList**
-> CreateFirewallDomainListResponse createFirewallDomainList(xAmzTarget, createFirewallDomainListRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Creates an empty firewall domain list for use in DNS Firewall rules. You can populate the domains for the new list with a file, using &lt;a&gt;ImportFirewallDomains&lt;/a&gt;, or with domain strings, using &lt;a&gt;UpdateFirewallDomains&lt;/a&gt;. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.CreateFirewallDomainList"; // String | 
-    CreateFirewallDomainListRequest createFirewallDomainListRequest = new CreateFirewallDomainListRequest(); // CreateFirewallDomainListRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      CreateFirewallDomainListResponse result = apiInstance.createFirewallDomainList(xAmzTarget, createFirewallDomainListRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createFirewallDomainList");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.CreateFirewallDomainList] |
-| **createFirewallDomainListRequest** | [**CreateFirewallDomainListRequest**](CreateFirewallDomainListRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**CreateFirewallDomainListResponse**](CreateFirewallDomainListResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | LimitExceededException |  -  |
-| **481** | ValidationException |  -  |
-| **482** | AccessDeniedException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="createFirewallRule"></a>
-# **createFirewallRule**
-> CreateFirewallRuleResponse createFirewallRule(xAmzTarget, createFirewallRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Creates a single DNS Firewall rule in the specified rule group, using the specified domain list.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.CreateFirewallRule"; // String | 
-    CreateFirewallRuleRequest createFirewallRuleRequest = new CreateFirewallRuleRequest(); // CreateFirewallRuleRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      CreateFirewallRuleResponse result = apiInstance.createFirewallRule(xAmzTarget, createFirewallRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createFirewallRule");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.CreateFirewallRule] |
-| **createFirewallRuleRequest** | [**CreateFirewallRuleRequest**](CreateFirewallRuleRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**CreateFirewallRuleResponse**](CreateFirewallRuleResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | ValidationException |  -  |
-| **482** | LimitExceededException |  -  |
-| **483** | AccessDeniedException |  -  |
-| **484** | InternalServiceErrorException |  -  |
-| **485** | ThrottlingException |  -  |
-
-<a id="createFirewallRuleGroup"></a>
-# **createFirewallRuleGroup**
-> CreateFirewallRuleGroupResponse createFirewallRuleGroup(xAmzTarget, createFirewallRuleGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Creates an empty DNS Firewall rule group for filtering DNS network traffic in a VPC. You can add rules to the new rule group by calling &lt;a&gt;CreateFirewallRule&lt;/a&gt;. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.CreateFirewallRuleGroup"; // String | 
-    CreateFirewallRuleGroupRequest createFirewallRuleGroupRequest = new CreateFirewallRuleGroupRequest(); // CreateFirewallRuleGroupRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      CreateFirewallRuleGroupResponse result = apiInstance.createFirewallRuleGroup(xAmzTarget, createFirewallRuleGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createFirewallRuleGroup");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.CreateFirewallRuleGroup] |
-| **createFirewallRuleGroupRequest** | [**CreateFirewallRuleGroupRequest**](CreateFirewallRuleGroupRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**CreateFirewallRuleGroupResponse**](CreateFirewallRuleGroupResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | LimitExceededException |  -  |
-| **481** | ValidationException |  -  |
-| **482** | AccessDeniedException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="createResolverEndpoint"></a>
-# **createResolverEndpoint**
-> CreateResolverEndpointResponse createResolverEndpoint(xAmzTarget, createResolverEndpointRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-&lt;p&gt;Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;An &lt;i&gt;inbound Resolver endpoint&lt;/i&gt; forwards DNS queries to the DNS service for a VPC from your network.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;An &lt;i&gt;outbound Resolver endpoint&lt;/i&gt; forwards DNS queries from the DNS service for a VPC to your network.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.CreateResolverEndpoint"; // String | 
-    CreateResolverEndpointRequest createResolverEndpointRequest = new CreateResolverEndpointRequest(); // CreateResolverEndpointRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      CreateResolverEndpointResponse result = apiInstance.createResolverEndpoint(xAmzTarget, createResolverEndpointRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createResolverEndpoint");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.CreateResolverEndpoint] |
-| **createResolverEndpointRequest** | [**CreateResolverEndpointRequest**](CreateResolverEndpointRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**CreateResolverEndpointResponse**](CreateResolverEndpointResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidParameterException |  -  |
-| **481** | ResourceNotFoundException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | ResourceExistsException |  -  |
-| **484** | LimitExceededException |  -  |
-| **485** | InternalServiceErrorException |  -  |
-| **486** | ThrottlingException |  -  |
-
-<a id="createResolverQueryLogConfig"></a>
-# **createResolverQueryLogConfig**
-> CreateResolverQueryLogConfigResponse createResolverQueryLogConfig(xAmzTarget, createResolverQueryLogConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-&lt;p&gt;Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs. Resolver can log queries only for VPCs that are in the same Region as the query logging configuration.&lt;/p&gt; &lt;p&gt;To specify which VPCs you want to log queries for, you use &lt;code&gt;AssociateResolverQueryLogConfig&lt;/code&gt;. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html\&quot;&gt;AssociateResolverQueryLogConfig&lt;/a&gt;. &lt;/p&gt; &lt;p&gt;You can optionally use Resource Access Manager (RAM) to share a query logging configuration with other Amazon Web Services accounts. The other accounts can then associate VPCs with the configuration. The query logs that Resolver creates for a configuration include all DNS queries that originate in all VPCs that are associated with the configuration.&lt;/p&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.CreateResolverQueryLogConfig"; // String | 
-    CreateResolverQueryLogConfigRequest createResolverQueryLogConfigRequest = new CreateResolverQueryLogConfigRequest(); // CreateResolverQueryLogConfigRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      CreateResolverQueryLogConfigResponse result = apiInstance.createResolverQueryLogConfig(xAmzTarget, createResolverQueryLogConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createResolverQueryLogConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.CreateResolverQueryLogConfig] |
-| **createResolverQueryLogConfigRequest** | [**CreateResolverQueryLogConfigRequest**](CreateResolverQueryLogConfigRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**CreateResolverQueryLogConfigResponse**](CreateResolverQueryLogConfigResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidParameterException |  -  |
-| **481** | ResourceNotFoundException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | ResourceExistsException |  -  |
-| **484** | LimitExceededException |  -  |
-| **485** | InternalServiceErrorException |  -  |
-| **486** | ThrottlingException |  -  |
-| **487** | AccessDeniedException |  -  |
-
-<a id="createResolverRule"></a>
-# **createResolverRule**
-> CreateResolverRuleResponse createResolverRule(xAmzTarget, createResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through, one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.CreateResolverRule"; // String | 
-    CreateResolverRuleRequest createResolverRuleRequest = new CreateResolverRuleRequest(); // CreateResolverRuleRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      CreateResolverRuleResponse result = apiInstance.createResolverRule(xAmzTarget, createResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createResolverRule");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.CreateResolverRule] |
-| **createResolverRuleRequest** | [**CreateResolverRuleRequest**](CreateResolverRuleRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**CreateResolverRuleResponse**](CreateResolverRuleResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidParameterException |  -  |
-| **481** | InvalidRequestException |  -  |
-| **482** | LimitExceededException |  -  |
-| **483** | ResourceNotFoundException |  -  |
-| **484** | ResourceExistsException |  -  |
-| **485** | ResourceUnavailableException |  -  |
-| **486** | InternalServiceErrorException |  -  |
-| **487** | ThrottlingException |  -  |
-
-<a id="deleteFirewallDomainList"></a>
-# **deleteFirewallDomainList**
-> DeleteFirewallDomainListResponse deleteFirewallDomainList(xAmzTarget, deleteFirewallDomainListRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Deletes the specified domain list. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.DeleteFirewallDomainList"; // String | 
-    DeleteFirewallDomainListRequest deleteFirewallDomainListRequest = new DeleteFirewallDomainListRequest(); // DeleteFirewallDomainListRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      DeleteFirewallDomainListResponse result = apiInstance.deleteFirewallDomainList(xAmzTarget, deleteFirewallDomainListRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteFirewallDomainList");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.DeleteFirewallDomainList] |
-| **deleteFirewallDomainListRequest** | [**DeleteFirewallDomainListRequest**](DeleteFirewallDomainListRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**DeleteFirewallDomainListResponse**](DeleteFirewallDomainListResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | ConflictException |  -  |
-| **482** | AccessDeniedException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="deleteFirewallRule"></a>
-# **deleteFirewallRule**
-> DeleteFirewallRuleResponse deleteFirewallRule(xAmzTarget, deleteFirewallRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Deletes the specified firewall rule.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.DeleteFirewallRule"; // String | 
-    DeleteFirewallRuleRequest deleteFirewallRuleRequest = new DeleteFirewallRuleRequest(); // DeleteFirewallRuleRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      DeleteFirewallRuleResponse result = apiInstance.deleteFirewallRule(xAmzTarget, deleteFirewallRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteFirewallRule");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.DeleteFirewallRule] |
-| **deleteFirewallRuleRequest** | [**DeleteFirewallRuleRequest**](DeleteFirewallRuleRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**DeleteFirewallRuleResponse**](DeleteFirewallRuleResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | AccessDeniedException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="deleteFirewallRuleGroup"></a>
-# **deleteFirewallRuleGroup**
-> DeleteFirewallRuleGroupResponse deleteFirewallRuleGroup(xAmzTarget, deleteFirewallRuleGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Deletes the specified firewall rule group. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.DeleteFirewallRuleGroup"; // String | 
-    DeleteFirewallRuleGroupRequest deleteFirewallRuleGroupRequest = new DeleteFirewallRuleGroupRequest(); // DeleteFirewallRuleGroupRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      DeleteFirewallRuleGroupResponse result = apiInstance.deleteFirewallRuleGroup(xAmzTarget, deleteFirewallRuleGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteFirewallRuleGroup");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.DeleteFirewallRuleGroup] |
-| **deleteFirewallRuleGroupRequest** | [**DeleteFirewallRuleGroupRequest**](DeleteFirewallRuleGroupRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**DeleteFirewallRuleGroupResponse**](DeleteFirewallRuleGroupResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | ConflictException |  -  |
-| **482** | ValidationException |  -  |
-| **483** | AccessDeniedException |  -  |
-| **484** | InternalServiceErrorException |  -  |
-| **485** | ThrottlingException |  -  |
-
-<a id="deleteResolverEndpoint"></a>
-# **deleteResolverEndpoint**
-> DeleteResolverEndpointResponse deleteResolverEndpoint(xAmzTarget, deleteResolverEndpointRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-&lt;p&gt;Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it&#39;s an inbound or an outbound Resolver endpoint:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;b&gt;Inbound&lt;/b&gt;: DNS queries from your network are no longer routed to the DNS service for the specified VPC.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;b&gt;Outbound&lt;/b&gt;: DNS queries from a VPC are no longer routed to your network.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.DeleteResolverEndpoint"; // String | 
-    DeleteResolverEndpointRequest deleteResolverEndpointRequest = new DeleteResolverEndpointRequest(); // DeleteResolverEndpointRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      DeleteResolverEndpointResponse result = apiInstance.deleteResolverEndpoint(xAmzTarget, deleteResolverEndpointRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteResolverEndpoint");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.DeleteResolverEndpoint] |
-| **deleteResolverEndpointRequest** | [**DeleteResolverEndpointRequest**](DeleteResolverEndpointRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**DeleteResolverEndpointResponse**](DeleteResolverEndpointResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="deleteResolverQueryLogConfig"></a>
-# **deleteResolverQueryLogConfig**
-> DeleteResolverQueryLogConfigResponse deleteResolverQueryLogConfig(xAmzTarget, deleteResolverQueryLogConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-&lt;p&gt;Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are associated with the configuration. This also applies if the query logging configuration is shared with other Amazon Web Services accounts, and the other accounts have associated VPCs with the shared configuration.&lt;/p&gt; &lt;p&gt;Before you can delete a query logging configuration, you must first disassociate all VPCs from the configuration. See &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html\&quot;&gt;DisassociateResolverQueryLogConfig&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;If you used Resource Access Manager (RAM) to share a query logging configuration with other accounts, you must stop sharing the configuration before you can delete a configuration. The accounts that you shared the configuration with can first disassociate VPCs that they associated with the configuration, but that&#39;s not necessary. If you stop sharing the configuration, those VPCs are automatically disassociated from the configuration.&lt;/p&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.DeleteResolverQueryLogConfig"; // String | 
-    DeleteResolverQueryLogConfigRequest deleteResolverQueryLogConfigRequest = new DeleteResolverQueryLogConfigRequest(); // DeleteResolverQueryLogConfigRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      DeleteResolverQueryLogConfigResponse result = apiInstance.deleteResolverQueryLogConfig(xAmzTarget, deleteResolverQueryLogConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteResolverQueryLogConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.DeleteResolverQueryLogConfig] |
-| **deleteResolverQueryLogConfigRequest** | [**DeleteResolverQueryLogConfigRequest**](DeleteResolverQueryLogConfigRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**DeleteResolverQueryLogConfigResponse**](DeleteResolverQueryLogConfigResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-| **485** | AccessDeniedException |  -  |
-
-<a id="deleteResolverRule"></a>
-# **deleteResolverRule**
-> DeleteResolverRuleResponse deleteResolverRule(xAmzTarget, deleteResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Deletes a Resolver rule. Before you can delete a Resolver rule, you must disassociate it from all the VPCs that you associated the Resolver rule with. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html\&quot;&gt;DisassociateResolverRule&lt;/a&gt;.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.DeleteResolverRule"; // String | 
-    DeleteResolverRuleRequest deleteResolverRuleRequest = new DeleteResolverRuleRequest(); // DeleteResolverRuleRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      DeleteResolverRuleResponse result = apiInstance.deleteResolverRule(xAmzTarget, deleteResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteResolverRule");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.DeleteResolverRule] |
-| **deleteResolverRuleRequest** | [**DeleteResolverRuleRequest**](DeleteResolverRuleRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**DeleteResolverRuleResponse**](DeleteResolverRuleResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidParameterException |  -  |
-| **481** | ResourceNotFoundException |  -  |
-| **482** | ResourceInUseException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="disassociateFirewallRuleGroup"></a>
-# **disassociateFirewallRuleGroup**
-> DisassociateFirewallRuleGroupResponse disassociateFirewallRuleGroup(xAmzTarget, disassociateFirewallRuleGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Disassociates a &lt;a&gt;FirewallRuleGroup&lt;/a&gt; from a VPC, to remove DNS filtering from the VPC. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.DisassociateFirewallRuleGroup"; // String | 
-    DisassociateFirewallRuleGroupRequest disassociateFirewallRuleGroupRequest = new DisassociateFirewallRuleGroupRequest(); // DisassociateFirewallRuleGroupRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      DisassociateFirewallRuleGroupResponse result = apiInstance.disassociateFirewallRuleGroup(xAmzTarget, disassociateFirewallRuleGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#disassociateFirewallRuleGroup");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.DisassociateFirewallRuleGroup] |
-| **disassociateFirewallRuleGroupRequest** | [**DisassociateFirewallRuleGroupRequest**](DisassociateFirewallRuleGroupRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**DisassociateFirewallRuleGroupResponse**](DisassociateFirewallRuleGroupResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | ValidationException |  -  |
-| **482** | AccessDeniedException |  -  |
-| **483** | ConflictException |  -  |
-| **484** | InternalServiceErrorException |  -  |
-| **485** | ThrottlingException |  -  |
-
-<a id="disassociateResolverEndpointIpAddress"></a>
-# **disassociateResolverEndpointIpAddress**
-> DisassociateResolverEndpointIpAddressResponse disassociateResolverEndpointIpAddress(xAmzTarget, disassociateResolverEndpointIpAddressRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-&lt;p&gt;Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address, submit one &lt;code&gt;DisassociateResolverEndpointIpAddress&lt;/code&gt; request for each IP address.&lt;/p&gt; &lt;p&gt;To add an IP address to an endpoint, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html\&quot;&gt;AssociateResolverEndpointIpAddress&lt;/a&gt;. &lt;/p&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.DisassociateResolverEndpointIpAddress"; // String | 
-    DisassociateResolverEndpointIpAddressRequest disassociateResolverEndpointIpAddressRequest = new DisassociateResolverEndpointIpAddressRequest(); // DisassociateResolverEndpointIpAddressRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      DisassociateResolverEndpointIpAddressResponse result = apiInstance.disassociateResolverEndpointIpAddress(xAmzTarget, disassociateResolverEndpointIpAddressRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#disassociateResolverEndpointIpAddress");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.DisassociateResolverEndpointIpAddress] |
-| **disassociateResolverEndpointIpAddressRequest** | [**DisassociateResolverEndpointIpAddressRequest**](DisassociateResolverEndpointIpAddressRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**DisassociateResolverEndpointIpAddressResponse**](DisassociateResolverEndpointIpAddressResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | ResourceExistsException |  -  |
-| **484** | InternalServiceErrorException |  -  |
-| **485** | ThrottlingException |  -  |
-
-<a id="disassociateResolverQueryLogConfig"></a>
-# **disassociateResolverQueryLogConfig**
-> DisassociateResolverQueryLogConfigResponse disassociateResolverQueryLogConfig(xAmzTarget, disassociateResolverQueryLogConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-&lt;p&gt;Disassociates a VPC from a query logging configuration.&lt;/p&gt; &lt;note&gt; &lt;p&gt;Before you can delete a query logging configuration, you must first disassociate all VPCs from the configuration. If you used Resource Access Manager (RAM) to share a query logging configuration with other accounts, VPCs can be disassociated from the configuration in the following ways:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;The accounts that you shared the configuration with can disassociate VPCs from the configuration.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;You can stop sharing the configuration.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/note&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.DisassociateResolverQueryLogConfig"; // String | 
-    DisassociateResolverQueryLogConfigRequest disassociateResolverQueryLogConfigRequest = new DisassociateResolverQueryLogConfigRequest(); // DisassociateResolverQueryLogConfigRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      DisassociateResolverQueryLogConfigResponse result = apiInstance.disassociateResolverQueryLogConfig(xAmzTarget, disassociateResolverQueryLogConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#disassociateResolverQueryLogConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.DisassociateResolverQueryLogConfig] |
-| **disassociateResolverQueryLogConfigRequest** | [**DisassociateResolverQueryLogConfigRequest**](DisassociateResolverQueryLogConfigRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**DisassociateResolverQueryLogConfigResponse**](DisassociateResolverQueryLogConfigResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-| **485** | AccessDeniedException |  -  |
-
-<a id="disassociateResolverRule"></a>
-# **disassociateResolverRule**
-> DisassociateResolverRuleResponse disassociateResolverRule(xAmzTarget, disassociateResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-&lt;p&gt;Removes the association between a specified Resolver rule and a specified VPC.&lt;/p&gt; &lt;important&gt; &lt;p&gt;If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the domain name that you specified in the Resolver rule. &lt;/p&gt; &lt;/important&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.DisassociateResolverRule"; // String | 
-    DisassociateResolverRuleRequest disassociateResolverRuleRequest = new DisassociateResolverRuleRequest(); // DisassociateResolverRuleRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      DisassociateResolverRuleResponse result = apiInstance.disassociateResolverRule(xAmzTarget, disassociateResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#disassociateResolverRule");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.DisassociateResolverRule] |
-| **disassociateResolverRuleRequest** | [**DisassociateResolverRuleRequest**](DisassociateResolverRuleRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**DisassociateResolverRuleResponse**](DisassociateResolverRuleResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="getFirewallConfig"></a>
-# **getFirewallConfig**
-> GetFirewallConfigResponse getFirewallConfig(xAmzTarget, getFirewallConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Retrieves the configuration of the firewall behavior provided by DNS Firewall for a single VPC from Amazon Virtual Private Cloud (Amazon VPC). 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetFirewallConfig"; // String | 
-    GetFirewallConfigRequest getFirewallConfigRequest = new GetFirewallConfigRequest(); // GetFirewallConfigRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetFirewallConfigResponse result = apiInstance.getFirewallConfig(xAmzTarget, getFirewallConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getFirewallConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetFirewallConfig] |
-| **getFirewallConfigRequest** | [**GetFirewallConfigRequest**](GetFirewallConfigRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetFirewallConfigResponse**](GetFirewallConfigResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | AccessDeniedException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-| **484** | ValidationException |  -  |
-
-<a id="getFirewallDomainList"></a>
-# **getFirewallDomainList**
-> GetFirewallDomainListResponse getFirewallDomainList(xAmzTarget, getFirewallDomainListRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Retrieves the specified firewall domain list.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetFirewallDomainList"; // String | 
-    GetFirewallDomainListRequest getFirewallDomainListRequest = new GetFirewallDomainListRequest(); // GetFirewallDomainListRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetFirewallDomainListResponse result = apiInstance.getFirewallDomainList(xAmzTarget, getFirewallDomainListRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getFirewallDomainList");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetFirewallDomainList] |
-| **getFirewallDomainListRequest** | [**GetFirewallDomainListRequest**](GetFirewallDomainListRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetFirewallDomainListResponse**](GetFirewallDomainListResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | AccessDeniedException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="getFirewallRuleGroup"></a>
-# **getFirewallRuleGroup**
-> GetFirewallRuleGroupResponse getFirewallRuleGroup(xAmzTarget, getFirewallRuleGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Retrieves the specified firewall rule group. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetFirewallRuleGroup"; // String | 
-    GetFirewallRuleGroupRequest getFirewallRuleGroupRequest = new GetFirewallRuleGroupRequest(); // GetFirewallRuleGroupRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetFirewallRuleGroupResponse result = apiInstance.getFirewallRuleGroup(xAmzTarget, getFirewallRuleGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getFirewallRuleGroup");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetFirewallRuleGroup] |
-| **getFirewallRuleGroupRequest** | [**GetFirewallRuleGroupRequest**](GetFirewallRuleGroupRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetFirewallRuleGroupResponse**](GetFirewallRuleGroupResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | AccessDeniedException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="getFirewallRuleGroupAssociation"></a>
-# **getFirewallRuleGroupAssociation**
-> GetFirewallRuleGroupAssociationResponse getFirewallRuleGroupAssociation(xAmzTarget, getFirewallRuleGroupAssociationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Retrieves a firewall rule group association, which enables DNS filtering for a VPC with one rule group. A VPC can have more than one firewall rule group association, and a rule group can be associated with more than one VPC.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetFirewallRuleGroupAssociation"; // String | 
-    GetFirewallRuleGroupAssociationRequest getFirewallRuleGroupAssociationRequest = new GetFirewallRuleGroupAssociationRequest(); // GetFirewallRuleGroupAssociationRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetFirewallRuleGroupAssociationResponse result = apiInstance.getFirewallRuleGroupAssociation(xAmzTarget, getFirewallRuleGroupAssociationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getFirewallRuleGroupAssociation");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetFirewallRuleGroupAssociation] |
-| **getFirewallRuleGroupAssociationRequest** | [**GetFirewallRuleGroupAssociationRequest**](GetFirewallRuleGroupAssociationRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetFirewallRuleGroupAssociationResponse**](GetFirewallRuleGroupAssociationResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | AccessDeniedException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="getFirewallRuleGroupPolicy"></a>
-# **getFirewallRuleGroupPolicy**
-> GetFirewallRuleGroupPolicyResponse getFirewallRuleGroupPolicy(xAmzTarget, getFirewallRuleGroupPolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Returns the Identity and Access Management (Amazon Web Services IAM) policy for sharing the specified rule group. You can use the policy to share the rule group using Resource Access Manager (RAM). 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetFirewallRuleGroupPolicy"; // String | 
-    GetFirewallRuleGroupPolicyRequest getFirewallRuleGroupPolicyRequest = new GetFirewallRuleGroupPolicyRequest(); // GetFirewallRuleGroupPolicyRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetFirewallRuleGroupPolicyResponse result = apiInstance.getFirewallRuleGroupPolicy(xAmzTarget, getFirewallRuleGroupPolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getFirewallRuleGroupPolicy");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetFirewallRuleGroupPolicy] |
-| **getFirewallRuleGroupPolicyRequest** | [**GetFirewallRuleGroupPolicyRequest**](GetFirewallRuleGroupPolicyRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetFirewallRuleGroupPolicyResponse**](GetFirewallRuleGroupPolicyResponse.md)
+null (empty response body)
 
 ### Authorization
 
@@ -2334,17 +165,14 @@ public class Example {
 | **200** | Success |  -  |
 | **480** | ValidationException |  -  |
 | **481** | ResourceNotFoundException |  -  |
-| **482** | AccessDeniedException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
 
-<a id="getResolverConfig"></a>
-# **getResolverConfig**
-> GetResolverConfigResponse getResolverConfig(xAmzTarget, getResolverConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+<a id="assignVolume"></a>
+# **assignVolume**
+> assignVolume(xAmzTarget, assignVolumeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
 
 
 
-Retrieves the behavior configuration of Route 53 Resolver behavior for a single VPC from Amazon Virtual Private Cloud.
+&lt;p&gt;Assigns one of the stack&#39;s registered Amazon EBS volumes to a specified instance. The volume must first be registered with the stack by calling &lt;a&gt;RegisterVolume&lt;/a&gt;. After you register the volume, you must call &lt;a&gt;UpdateVolume&lt;/a&gt; to specify a mount point before calling &lt;code&gt;AssignVolume&lt;/code&gt;. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\&quot;&gt;Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
 
 ### Example
 ```java
@@ -2359,7 +187,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -2368,8 +196,8 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetResolverConfig"; // String | 
-    GetResolverConfigRequest getResolverConfigRequest = new GetResolverConfigRequest(); // GetResolverConfigRequest | 
+    String xAmzTarget = "OpsWorks_20130218.AssignVolume"; // String | 
+    AssignVolumeRequest assignVolumeRequest = new AssignVolumeRequest(); // AssignVolumeRequest | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
     String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
@@ -2378,10 +206,9 @@ public class Example {
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
     try {
-      GetResolverConfigResponse result = apiInstance.getResolverConfig(xAmzTarget, getResolverConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
+      apiInstance.assignVolume(xAmzTarget, assignVolumeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getResolverConfig");
+      System.err.println("Exception when calling DefaultApi#assignVolume");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2395,8 +222,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetResolverConfig] |
-| **getResolverConfigRequest** | [**GetResolverConfigRequest**](GetResolverConfigRequest.md)|  | |
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.AssignVolume] |
+| **assignVolumeRequest** | [**AssignVolumeRequest**](AssignVolumeRequest.md)|  | |
 | **xAmzContentSha256** | **String**|  | [optional] |
 | **xAmzDate** | **String**|  | [optional] |
 | **xAmzAlgorithm** | **String**|  | [optional] |
@@ -2407,2321 +234,7 @@ public class Example {
 
 ### Return type
 
-[**GetResolverConfigResponse**](GetResolverConfigResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-| **484** | AccessDeniedException |  -  |
-| **485** | ValidationException |  -  |
-
-<a id="getResolverDnssecConfig"></a>
-# **getResolverDnssecConfig**
-> GetResolverDnssecConfigResponse getResolverDnssecConfig(xAmzTarget, getResolverDnssecConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Gets DNSSEC validation information for a specified resource.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetResolverDnssecConfig"; // String | 
-    GetResolverDnssecConfigRequest getResolverDnssecConfigRequest = new GetResolverDnssecConfigRequest(); // GetResolverDnssecConfigRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetResolverDnssecConfigResponse result = apiInstance.getResolverDnssecConfig(xAmzTarget, getResolverDnssecConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getResolverDnssecConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetResolverDnssecConfig] |
-| **getResolverDnssecConfigRequest** | [**GetResolverDnssecConfigRequest**](GetResolverDnssecConfigRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetResolverDnssecConfigResponse**](GetResolverDnssecConfigResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidParameterException |  -  |
-| **481** | ResourceNotFoundException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-| **485** | AccessDeniedException |  -  |
-
-<a id="getResolverEndpoint"></a>
-# **getResolverEndpoint**
-> GetResolverEndpointResponse getResolverEndpoint(xAmzTarget, getResolverEndpointRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Gets information about a specified Resolver endpoint, such as whether it&#39;s an inbound or an outbound Resolver endpoint, and the current status of the endpoint.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetResolverEndpoint"; // String | 
-    GetResolverEndpointRequest getResolverEndpointRequest = new GetResolverEndpointRequest(); // GetResolverEndpointRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetResolverEndpointResponse result = apiInstance.getResolverEndpoint(xAmzTarget, getResolverEndpointRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getResolverEndpoint");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetResolverEndpoint] |
-| **getResolverEndpointRequest** | [**GetResolverEndpointRequest**](GetResolverEndpointRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetResolverEndpointResponse**](GetResolverEndpointResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="getResolverQueryLogConfig"></a>
-# **getResolverQueryLogConfig**
-> GetResolverQueryLogConfigResponse getResolverQueryLogConfig(xAmzTarget, getResolverQueryLogConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Gets information about a specified Resolver query logging configuration, such as the number of VPCs that the configuration is logging queries for and the location that logs are sent to. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetResolverQueryLogConfig"; // String | 
-    GetResolverQueryLogConfigRequest getResolverQueryLogConfigRequest = new GetResolverQueryLogConfigRequest(); // GetResolverQueryLogConfigRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetResolverQueryLogConfigResponse result = apiInstance.getResolverQueryLogConfig(xAmzTarget, getResolverQueryLogConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getResolverQueryLogConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetResolverQueryLogConfig] |
-| **getResolverQueryLogConfigRequest** | [**GetResolverQueryLogConfigRequest**](GetResolverQueryLogConfigRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetResolverQueryLogConfigResponse**](GetResolverQueryLogConfigResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidRequestException |  -  |
-| **482** | InvalidParameterException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-| **485** | AccessDeniedException |  -  |
-
-<a id="getResolverQueryLogConfigAssociation"></a>
-# **getResolverQueryLogConfigAssociation**
-> GetResolverQueryLogConfigAssociationResponse getResolverQueryLogConfigAssociation(xAmzTarget, getResolverQueryLogConfigAssociationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Gets information about a specified association between a Resolver query logging configuration and an Amazon VPC. When you associate a VPC with a query logging configuration, Resolver logs DNS queries that originate in that VPC.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetResolverQueryLogConfigAssociation"; // String | 
-    GetResolverQueryLogConfigAssociationRequest getResolverQueryLogConfigAssociationRequest = new GetResolverQueryLogConfigAssociationRequest(); // GetResolverQueryLogConfigAssociationRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetResolverQueryLogConfigAssociationResponse result = apiInstance.getResolverQueryLogConfigAssociation(xAmzTarget, getResolverQueryLogConfigAssociationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getResolverQueryLogConfigAssociation");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetResolverQueryLogConfigAssociation] |
-| **getResolverQueryLogConfigAssociationRequest** | [**GetResolverQueryLogConfigAssociationRequest**](GetResolverQueryLogConfigAssociationRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetResolverQueryLogConfigAssociationResponse**](GetResolverQueryLogConfigAssociationResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidRequestException |  -  |
-| **482** | InvalidParameterException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-| **485** | AccessDeniedException |  -  |
-
-<a id="getResolverQueryLogConfigPolicy"></a>
-# **getResolverQueryLogConfigPolicy**
-> GetResolverQueryLogConfigPolicyResponse getResolverQueryLogConfigPolicy(xAmzTarget, getResolverQueryLogConfigPolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Gets information about a query logging policy. A query logging policy specifies the Resolver query logging operations and resources that you want to allow another Amazon Web Services account to be able to use.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetResolverQueryLogConfigPolicy"; // String | 
-    GetResolverQueryLogConfigPolicyRequest getResolverQueryLogConfigPolicyRequest = new GetResolverQueryLogConfigPolicyRequest(); // GetResolverQueryLogConfigPolicyRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetResolverQueryLogConfigPolicyResponse result = apiInstance.getResolverQueryLogConfigPolicy(xAmzTarget, getResolverQueryLogConfigPolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getResolverQueryLogConfigPolicy");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetResolverQueryLogConfigPolicy] |
-| **getResolverQueryLogConfigPolicyRequest** | [**GetResolverQueryLogConfigPolicyRequest**](GetResolverQueryLogConfigPolicyRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetResolverQueryLogConfigPolicyResponse**](GetResolverQueryLogConfigPolicyResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidParameterException |  -  |
-| **481** | InvalidRequestException |  -  |
-| **482** | UnknownResourceException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | AccessDeniedException |  -  |
-
-<a id="getResolverRule"></a>
-# **getResolverRule**
-> GetResolverRuleResponse getResolverRule(xAmzTarget, getResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Gets information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the outbound Resolver endpoint that the rule is associated with.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetResolverRule"; // String | 
-    GetResolverRuleRequest getResolverRuleRequest = new GetResolverRuleRequest(); // GetResolverRuleRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetResolverRuleResponse result = apiInstance.getResolverRule(xAmzTarget, getResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getResolverRule");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetResolverRule] |
-| **getResolverRuleRequest** | [**GetResolverRuleRequest**](GetResolverRuleRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetResolverRuleResponse**](GetResolverRuleResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="getResolverRuleAssociation"></a>
-# **getResolverRuleAssociation**
-> GetResolverRuleAssociationResponse getResolverRuleAssociation(xAmzTarget, getResolverRuleAssociationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Gets information about an association between a specified Resolver rule and a VPC. You associate a Resolver rule and a VPC using &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html\&quot;&gt;AssociateResolverRule&lt;/a&gt;. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetResolverRuleAssociation"; // String | 
-    GetResolverRuleAssociationRequest getResolverRuleAssociationRequest = new GetResolverRuleAssociationRequest(); // GetResolverRuleAssociationRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetResolverRuleAssociationResponse result = apiInstance.getResolverRuleAssociation(xAmzTarget, getResolverRuleAssociationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getResolverRuleAssociation");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetResolverRuleAssociation] |
-| **getResolverRuleAssociationRequest** | [**GetResolverRuleAssociationRequest**](GetResolverRuleAssociationRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetResolverRuleAssociationResponse**](GetResolverRuleAssociationResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="getResolverRulePolicy"></a>
-# **getResolverRulePolicy**
-> GetResolverRulePolicyResponse getResolverRulePolicy(xAmzTarget, getResolverRulePolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Gets information about the Resolver rule policy for a specified rule. A Resolver rule policy includes the rule that you want to share with another account, the account that you want to share the rule with, and the Resolver operations that you want to allow the account to use. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.GetResolverRulePolicy"; // String | 
-    GetResolverRulePolicyRequest getResolverRulePolicyRequest = new GetResolverRulePolicyRequest(); // GetResolverRulePolicyRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      GetResolverRulePolicyResponse result = apiInstance.getResolverRulePolicy(xAmzTarget, getResolverRulePolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getResolverRulePolicy");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.GetResolverRulePolicy] |
-| **getResolverRulePolicyRequest** | [**GetResolverRulePolicyRequest**](GetResolverRulePolicyRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**GetResolverRulePolicyResponse**](GetResolverRulePolicyResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidParameterException |  -  |
-| **481** | UnknownResourceException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | AccessDeniedException |  -  |
-
-<a id="importFirewallDomains"></a>
-# **importFirewallDomains**
-> ImportFirewallDomainsResponse importFirewallDomains(xAmzTarget, importFirewallDomainsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-&lt;p&gt;Imports domain names from a file into a domain list, for use in a DNS firewall rule group. &lt;/p&gt; &lt;p&gt;Each domain specification in your domain list must satisfy the following requirements: &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;It can optionally start with &lt;code&gt;*&lt;/code&gt; (asterisk).&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;With the exception of the optional starting asterisk, it must only contain the following characters: &lt;code&gt;A-Z&lt;/code&gt;, &lt;code&gt;a-z&lt;/code&gt;, &lt;code&gt;0-9&lt;/code&gt;, &lt;code&gt;-&lt;/code&gt; (hyphen).&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;It must be from 1-255 characters in length. &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ImportFirewallDomains"; // String | 
-    ImportFirewallDomainsRequest importFirewallDomainsRequest = new ImportFirewallDomainsRequest(); // ImportFirewallDomainsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      ImportFirewallDomainsResponse result = apiInstance.importFirewallDomains(xAmzTarget, importFirewallDomainsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#importFirewallDomains");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ImportFirewallDomains] |
-| **importFirewallDomainsRequest** | [**ImportFirewallDomainsRequest**](ImportFirewallDomainsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**ImportFirewallDomainsResponse**](ImportFirewallDomainsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ValidationException |  -  |
-| **481** | AccessDeniedException |  -  |
-| **482** | ResourceNotFoundException |  -  |
-| **483** | LimitExceededException |  -  |
-| **484** | ConflictException |  -  |
-| **485** | InternalServiceErrorException |  -  |
-| **486** | ThrottlingException |  -  |
-
-<a id="listFirewallConfigs"></a>
-# **listFirewallConfigs**
-> ListFirewallConfigsResponse listFirewallConfigs(xAmzTarget, listFirewallConfigsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-&lt;p&gt;Retrieves the firewall configurations that you have defined. DNS Firewall uses the configurations to manage firewall behavior for your VPCs. &lt;/p&gt; &lt;p&gt;A single call might return only a partial list of the configurations. For information, see &lt;code&gt;MaxResults&lt;/code&gt;. &lt;/p&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListFirewallConfigs"; // String | 
-    ListFirewallConfigsRequest listFirewallConfigsRequest = new ListFirewallConfigsRequest(); // ListFirewallConfigsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListFirewallConfigsResponse result = apiInstance.listFirewallConfigs(xAmzTarget, listFirewallConfigsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listFirewallConfigs");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListFirewallConfigs] |
-| **listFirewallConfigsRequest** | [**ListFirewallConfigsRequest**](ListFirewallConfigsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListFirewallConfigsResponse**](ListFirewallConfigsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ValidationException |  -  |
-| **481** | AccessDeniedException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="listFirewallDomainLists"></a>
-# **listFirewallDomainLists**
-> ListFirewallDomainListsResponse listFirewallDomainLists(xAmzTarget, listFirewallDomainListsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-&lt;p&gt;Retrieves the firewall domain lists that you have defined. For each firewall domain list, you can retrieve the domains that are defined for a list by calling &lt;a&gt;ListFirewallDomains&lt;/a&gt;. &lt;/p&gt; &lt;p&gt;A single call to this list operation might return only a partial list of the domain lists. For information, see &lt;code&gt;MaxResults&lt;/code&gt;. &lt;/p&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListFirewallDomainLists"; // String | 
-    ListFirewallDomainListsRequest listFirewallDomainListsRequest = new ListFirewallDomainListsRequest(); // ListFirewallDomainListsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListFirewallDomainListsResponse result = apiInstance.listFirewallDomainLists(xAmzTarget, listFirewallDomainListsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listFirewallDomainLists");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListFirewallDomainLists] |
-| **listFirewallDomainListsRequest** | [**ListFirewallDomainListsRequest**](ListFirewallDomainListsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListFirewallDomainListsResponse**](ListFirewallDomainListsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ValidationException |  -  |
-| **481** | AccessDeniedException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="listFirewallDomains"></a>
-# **listFirewallDomains**
-> ListFirewallDomainsResponse listFirewallDomains(xAmzTarget, listFirewallDomainsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-&lt;p&gt;Retrieves the domains that you have defined for the specified firewall domain list. &lt;/p&gt; &lt;p&gt;A single call might return only a partial list of the domains. For information, see &lt;code&gt;MaxResults&lt;/code&gt;. &lt;/p&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListFirewallDomains"; // String | 
-    ListFirewallDomainsRequest listFirewallDomainsRequest = new ListFirewallDomainsRequest(); // ListFirewallDomainsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListFirewallDomainsResponse result = apiInstance.listFirewallDomains(xAmzTarget, listFirewallDomainsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listFirewallDomains");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListFirewallDomains] |
-| **listFirewallDomainsRequest** | [**ListFirewallDomainsRequest**](ListFirewallDomainsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListFirewallDomainsResponse**](ListFirewallDomainsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | ValidationException |  -  |
-| **482** | AccessDeniedException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="listFirewallRuleGroupAssociations"></a>
-# **listFirewallRuleGroupAssociations**
-> ListFirewallRuleGroupAssociationsResponse listFirewallRuleGroupAssociations(xAmzTarget, listFirewallRuleGroupAssociationsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-&lt;p&gt;Retrieves the firewall rule group associations that you have defined. Each association enables DNS filtering for a VPC with one rule group. &lt;/p&gt; &lt;p&gt;A single call might return only a partial list of the associations. For information, see &lt;code&gt;MaxResults&lt;/code&gt;. &lt;/p&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListFirewallRuleGroupAssociations"; // String | 
-    ListFirewallRuleGroupAssociationsRequest listFirewallRuleGroupAssociationsRequest = new ListFirewallRuleGroupAssociationsRequest(); // ListFirewallRuleGroupAssociationsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListFirewallRuleGroupAssociationsResponse result = apiInstance.listFirewallRuleGroupAssociations(xAmzTarget, listFirewallRuleGroupAssociationsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listFirewallRuleGroupAssociations");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListFirewallRuleGroupAssociations] |
-| **listFirewallRuleGroupAssociationsRequest** | [**ListFirewallRuleGroupAssociationsRequest**](ListFirewallRuleGroupAssociationsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListFirewallRuleGroupAssociationsResponse**](ListFirewallRuleGroupAssociationsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ValidationException |  -  |
-| **481** | AccessDeniedException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="listFirewallRuleGroups"></a>
-# **listFirewallRuleGroups**
-> ListFirewallRuleGroupsResponse listFirewallRuleGroups(xAmzTarget, listFirewallRuleGroupsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-&lt;p&gt;Retrieves the minimal high-level information for the rule groups that you have defined. &lt;/p&gt; &lt;p&gt;A single call might return only a partial list of the rule groups. For information, see &lt;code&gt;MaxResults&lt;/code&gt;. &lt;/p&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListFirewallRuleGroups"; // String | 
-    ListFirewallRuleGroupsRequest listFirewallRuleGroupsRequest = new ListFirewallRuleGroupsRequest(); // ListFirewallRuleGroupsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListFirewallRuleGroupsResponse result = apiInstance.listFirewallRuleGroups(xAmzTarget, listFirewallRuleGroupsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listFirewallRuleGroups");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListFirewallRuleGroups] |
-| **listFirewallRuleGroupsRequest** | [**ListFirewallRuleGroupsRequest**](ListFirewallRuleGroupsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListFirewallRuleGroupsResponse**](ListFirewallRuleGroupsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ValidationException |  -  |
-| **481** | AccessDeniedException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | ThrottlingException |  -  |
-
-<a id="listFirewallRules"></a>
-# **listFirewallRules**
-> ListFirewallRulesResponse listFirewallRules(xAmzTarget, listFirewallRulesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-&lt;p&gt;Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC. &lt;/p&gt; &lt;p&gt;A single call might return only a partial list of the rules. For information, see &lt;code&gt;MaxResults&lt;/code&gt;. &lt;/p&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListFirewallRules"; // String | 
-    ListFirewallRulesRequest listFirewallRulesRequest = new ListFirewallRulesRequest(); // ListFirewallRulesRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListFirewallRulesResponse result = apiInstance.listFirewallRules(xAmzTarget, listFirewallRulesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listFirewallRules");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListFirewallRules] |
-| **listFirewallRulesRequest** | [**ListFirewallRulesRequest**](ListFirewallRulesRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListFirewallRulesResponse**](ListFirewallRulesResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | ValidationException |  -  |
-| **482** | AccessDeniedException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="listResolverConfigs"></a>
-# **listResolverConfigs**
-> ListResolverConfigsResponse listResolverConfigs(xAmzTarget, listResolverConfigsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-Retrieves the Resolver configurations that you have defined. Route 53 Resolver uses the configurations to manage DNS resolution behavior for your VPCs.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListResolverConfigs"; // String | 
-    ListResolverConfigsRequest listResolverConfigsRequest = new ListResolverConfigsRequest(); // ListResolverConfigsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListResolverConfigsResponse result = apiInstance.listResolverConfigs(xAmzTarget, listResolverConfigsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listResolverConfigs");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListResolverConfigs] |
-| **listResolverConfigsRequest** | [**ListResolverConfigsRequest**](ListResolverConfigsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListResolverConfigsResponse**](ListResolverConfigsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidNextTokenException |  -  |
-| **481** | InvalidRequestException |  -  |
-| **482** | InvalidParameterException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-| **485** | AccessDeniedException |  -  |
-| **486** | ValidationException |  -  |
-
-<a id="listResolverDnssecConfigs"></a>
-# **listResolverDnssecConfigs**
-> ListResolverDnssecConfigsResponse listResolverDnssecConfigs(xAmzTarget, listResolverDnssecConfigsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-Lists the configurations for DNSSEC validation that are associated with the current Amazon Web Services account.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListResolverDnssecConfigs"; // String | 
-    ListResolverDnssecConfigsRequest listResolverDnssecConfigsRequest = new ListResolverDnssecConfigsRequest(); // ListResolverDnssecConfigsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListResolverDnssecConfigsResponse result = apiInstance.listResolverDnssecConfigs(xAmzTarget, listResolverDnssecConfigsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listResolverDnssecConfigs");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListResolverDnssecConfigs] |
-| **listResolverDnssecConfigsRequest** | [**ListResolverDnssecConfigsRequest**](ListResolverDnssecConfigsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListResolverDnssecConfigsResponse**](ListResolverDnssecConfigsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidNextTokenException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-| **485** | AccessDeniedException |  -  |
-
-<a id="listResolverEndpointIpAddresses"></a>
-# **listResolverEndpointIpAddresses**
-> ListResolverEndpointIpAddressesResponse listResolverEndpointIpAddresses(xAmzTarget, listResolverEndpointIpAddressesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-Gets the IP addresses for a specified Resolver endpoint.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListResolverEndpointIpAddresses"; // String | 
-    ListResolverEndpointIpAddressesRequest listResolverEndpointIpAddressesRequest = new ListResolverEndpointIpAddressesRequest(); // ListResolverEndpointIpAddressesRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListResolverEndpointIpAddressesResponse result = apiInstance.listResolverEndpointIpAddresses(xAmzTarget, listResolverEndpointIpAddressesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listResolverEndpointIpAddresses");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListResolverEndpointIpAddresses] |
-| **listResolverEndpointIpAddressesRequest** | [**ListResolverEndpointIpAddressesRequest**](ListResolverEndpointIpAddressesRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListResolverEndpointIpAddressesResponse**](ListResolverEndpointIpAddressesResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InternalServiceErrorException |  -  |
-| **483** | InvalidNextTokenException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="listResolverEndpoints"></a>
-# **listResolverEndpoints**
-> ListResolverEndpointsResponse listResolverEndpoints(xAmzTarget, listResolverEndpointsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-Lists all the Resolver endpoints that were created using the current Amazon Web Services account.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListResolverEndpoints"; // String | 
-    ListResolverEndpointsRequest listResolverEndpointsRequest = new ListResolverEndpointsRequest(); // ListResolverEndpointsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListResolverEndpointsResponse result = apiInstance.listResolverEndpoints(xAmzTarget, listResolverEndpointsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listResolverEndpoints");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListResolverEndpoints] |
-| **listResolverEndpointsRequest** | [**ListResolverEndpointsRequest**](ListResolverEndpointsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListResolverEndpointsResponse**](ListResolverEndpointsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidNextTokenException |  -  |
-| **481** | InvalidRequestException |  -  |
-| **482** | InvalidParameterException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="listResolverQueryLogConfigAssociations"></a>
-# **listResolverQueryLogConfigAssociations**
-> ListResolverQueryLogConfigAssociationsResponse listResolverQueryLogConfigAssociations(xAmzTarget, listResolverQueryLogConfigAssociationsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-Lists information about associations between Amazon VPCs and query logging configurations.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListResolverQueryLogConfigAssociations"; // String | 
-    ListResolverQueryLogConfigAssociationsRequest listResolverQueryLogConfigAssociationsRequest = new ListResolverQueryLogConfigAssociationsRequest(); // ListResolverQueryLogConfigAssociationsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListResolverQueryLogConfigAssociationsResponse result = apiInstance.listResolverQueryLogConfigAssociations(xAmzTarget, listResolverQueryLogConfigAssociationsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listResolverQueryLogConfigAssociations");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListResolverQueryLogConfigAssociations] |
-| **listResolverQueryLogConfigAssociationsRequest** | [**ListResolverQueryLogConfigAssociationsRequest**](ListResolverQueryLogConfigAssociationsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListResolverQueryLogConfigAssociationsResponse**](ListResolverQueryLogConfigAssociationsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidParameterException |  -  |
-| **481** | InvalidRequestException |  -  |
-| **482** | LimitExceededException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-| **485** | AccessDeniedException |  -  |
-
-<a id="listResolverQueryLogConfigs"></a>
-# **listResolverQueryLogConfigs**
-> ListResolverQueryLogConfigsResponse listResolverQueryLogConfigs(xAmzTarget, listResolverQueryLogConfigsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save DNS query logs and specifies the VPCs that you want to log queries for.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListResolverQueryLogConfigs"; // String | 
-    ListResolverQueryLogConfigsRequest listResolverQueryLogConfigsRequest = new ListResolverQueryLogConfigsRequest(); // ListResolverQueryLogConfigsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListResolverQueryLogConfigsResponse result = apiInstance.listResolverQueryLogConfigs(xAmzTarget, listResolverQueryLogConfigsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listResolverQueryLogConfigs");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListResolverQueryLogConfigs] |
-| **listResolverQueryLogConfigsRequest** | [**ListResolverQueryLogConfigsRequest**](ListResolverQueryLogConfigsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListResolverQueryLogConfigsResponse**](ListResolverQueryLogConfigsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidNextTokenException |  -  |
-| **481** | InvalidRequestException |  -  |
-| **482** | InvalidParameterException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-| **485** | AccessDeniedException |  -  |
-
-<a id="listResolverRuleAssociations"></a>
-# **listResolverRuleAssociations**
-> ListResolverRuleAssociationsResponse listResolverRuleAssociations(xAmzTarget, listResolverRuleAssociationsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-Lists the associations that were created between Resolver rules and VPCs using the current Amazon Web Services account.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListResolverRuleAssociations"; // String | 
-    ListResolverRuleAssociationsRequest listResolverRuleAssociationsRequest = new ListResolverRuleAssociationsRequest(); // ListResolverRuleAssociationsRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListResolverRuleAssociationsResponse result = apiInstance.listResolverRuleAssociations(xAmzTarget, listResolverRuleAssociationsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listResolverRuleAssociations");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListResolverRuleAssociations] |
-| **listResolverRuleAssociationsRequest** | [**ListResolverRuleAssociationsRequest**](ListResolverRuleAssociationsRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListResolverRuleAssociationsResponse**](ListResolverRuleAssociationsResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidNextTokenException |  -  |
-| **481** | InvalidRequestException |  -  |
-| **482** | InvalidParameterException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="listResolverRules"></a>
-# **listResolverRules**
-> ListResolverRulesResponse listResolverRules(xAmzTarget, listResolverRulesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-Lists the Resolver rules that were created using the current Amazon Web Services account.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListResolverRules"; // String | 
-    ListResolverRulesRequest listResolverRulesRequest = new ListResolverRulesRequest(); // ListResolverRulesRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListResolverRulesResponse result = apiInstance.listResolverRules(xAmzTarget, listResolverRulesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listResolverRules");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListResolverRules] |
-| **listResolverRulesRequest** | [**ListResolverRulesRequest**](ListResolverRulesRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListResolverRulesResponse**](ListResolverRulesResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidNextTokenException |  -  |
-| **481** | InvalidRequestException |  -  |
-| **482** | InvalidParameterException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="listTagsForResource"></a>
-# **listTagsForResource**
-> ListTagsForResourceResponse listTagsForResource(xAmzTarget, listTagsForResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
-
-
-
-Lists the tags that you associated with the specified resource.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.ListTagsForResource"; // String | 
-    ListTagsForResourceRequest listTagsForResourceRequest = new ListTagsForResourceRequest(); // ListTagsForResourceRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    String maxResults = "maxResults_example"; // String | Pagination limit
-    String nextToken = "nextToken_example"; // String | Pagination token
-    try {
-      ListTagsForResourceResponse result = apiInstance.listTagsForResource(xAmzTarget, listTagsForResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listTagsForResource");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.ListTagsForResource] |
-| **listTagsForResourceRequest** | [**ListTagsForResourceRequest**](ListTagsForResourceRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-| **maxResults** | **String**| Pagination limit | [optional] |
-| **nextToken** | **String**| Pagination token | [optional] |
-
-### Return type
-
-[**ListTagsForResourceResponse**](ListTagsForResourceResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InvalidNextTokenException |  -  |
-| **483** | InvalidRequestException |  -  |
-| **484** | InternalServiceErrorException |  -  |
-| **485** | ThrottlingException |  -  |
-
-<a id="putFirewallRuleGroupPolicy"></a>
-# **putFirewallRuleGroupPolicy**
-> PutFirewallRuleGroupPolicyResponse putFirewallRuleGroupPolicy(xAmzTarget, putFirewallRuleGroupPolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Attaches an Identity and Access Management (Amazon Web Services IAM) policy for sharing the rule group. You can use the policy to share the rule group using Resource Access Manager (RAM). 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.PutFirewallRuleGroupPolicy"; // String | 
-    PutFirewallRuleGroupPolicyRequest putFirewallRuleGroupPolicyRequest = new PutFirewallRuleGroupPolicyRequest(); // PutFirewallRuleGroupPolicyRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      PutFirewallRuleGroupPolicyResponse result = apiInstance.putFirewallRuleGroupPolicy(xAmzTarget, putFirewallRuleGroupPolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#putFirewallRuleGroupPolicy");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.PutFirewallRuleGroupPolicy] |
-| **putFirewallRuleGroupPolicyRequest** | [**PutFirewallRuleGroupPolicyRequest**](PutFirewallRuleGroupPolicyRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**PutFirewallRuleGroupPolicyResponse**](PutFirewallRuleGroupPolicyResponse.md)
+null (empty response body)
 
 ### Authorization
 
@@ -4738,17 +251,14 @@ public class Example {
 | **200** | Success |  -  |
 | **480** | ValidationException |  -  |
 | **481** | ResourceNotFoundException |  -  |
-| **482** | AccessDeniedException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
 
-<a id="putResolverQueryLogConfigPolicy"></a>
-# **putResolverQueryLogConfigPolicy**
-> PutResolverQueryLogConfigPolicyResponse putResolverQueryLogConfigPolicy(xAmzTarget, putResolverQueryLogConfigPolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+<a id="associateElasticIp"></a>
+# **associateElasticIp**
+> associateElasticIp(xAmzTarget, associateElasticIpRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
 
 
 
-Specifies an Amazon Web Services account that you want to share a query logging configuration with, the query logging configuration that you want to share, and the operations that you want the account to be able to perform on the configuration.
+&lt;p&gt;Associates one of the stack&#39;s registered Elastic IP addresses with a specified instance. The address must first be registered with the stack by calling &lt;a&gt;RegisterElasticIp&lt;/a&gt;. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\&quot;&gt;Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
 
 ### Example
 ```java
@@ -4763,7 +273,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -4772,8 +282,8 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.PutResolverQueryLogConfigPolicy"; // String | 
-    PutResolverQueryLogConfigPolicyRequest putResolverQueryLogConfigPolicyRequest = new PutResolverQueryLogConfigPolicyRequest(); // PutResolverQueryLogConfigPolicyRequest | 
+    String xAmzTarget = "OpsWorks_20130218.AssociateElasticIp"; // String | 
+    AssociateElasticIpRequest associateElasticIpRequest = new AssociateElasticIpRequest(); // AssociateElasticIpRequest | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
     String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
@@ -4782,10 +292,9 @@ public class Example {
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
     try {
-      PutResolverQueryLogConfigPolicyResponse result = apiInstance.putResolverQueryLogConfigPolicy(xAmzTarget, putResolverQueryLogConfigPolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
+      apiInstance.associateElasticIp(xAmzTarget, associateElasticIpRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#putResolverQueryLogConfigPolicy");
+      System.err.println("Exception when calling DefaultApi#associateElasticIp");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -4799,8 +308,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.PutResolverQueryLogConfigPolicy] |
-| **putResolverQueryLogConfigPolicyRequest** | [**PutResolverQueryLogConfigPolicyRequest**](PutResolverQueryLogConfigPolicyRequest.md)|  | |
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.AssociateElasticIp] |
+| **associateElasticIpRequest** | [**AssociateElasticIpRequest**](AssociateElasticIpRequest.md)|  | |
 | **xAmzContentSha256** | **String**|  | [optional] |
 | **xAmzDate** | **String**|  | [optional] |
 | **xAmzAlgorithm** | **String**|  | [optional] |
@@ -4811,7 +320,7 @@ public class Example {
 
 ### Return type
 
-[**PutResolverQueryLogConfigPolicyResponse**](PutResolverQueryLogConfigPolicyResponse.md)
+null (empty response body)
 
 ### Authorization
 
@@ -4826,20 +335,16 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **480** | InvalidPolicyDocument |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | UnknownResourceException |  -  |
-| **484** | InternalServiceErrorException |  -  |
-| **485** | AccessDeniedException |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
 
-<a id="putResolverRulePolicy"></a>
-# **putResolverRulePolicy**
-> PutResolverRulePolicyResponse putResolverRulePolicy(xAmzTarget, putResolverRulePolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+<a id="attachElasticLoadBalancer"></a>
+# **attachElasticLoadBalancer**
+> attachElasticLoadBalancer(xAmzTarget, attachElasticLoadBalancerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
 
 
 
-Specifies an Amazon Web Services rule that you want to share with another account, the account that you want to share the rule with, and the operations that you want the account to be able to perform on the rule.
+&lt;p&gt;Attaches an Elastic Load Balancing load balancer to a specified layer. AWS OpsWorks Stacks does not support Application Load Balancer. You can only use Classic Load Balancer with AWS OpsWorks Stacks. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/layers-elb.html\&quot;&gt;Elastic Load Balancing&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;You must create the Elastic Load Balancing instance separately, by using the Elastic Load Balancing console, API, or CLI. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/Welcome.html\&quot;&gt; Elastic Load Balancing Developer Guide&lt;/a&gt;.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
 
 ### Example
 ```java
@@ -4854,7 +359,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -4863,8 +368,8 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.PutResolverRulePolicy"; // String | 
-    PutResolverRulePolicyRequest putResolverRulePolicyRequest = new PutResolverRulePolicyRequest(); // PutResolverRulePolicyRequest | 
+    String xAmzTarget = "OpsWorks_20130218.AttachElasticLoadBalancer"; // String | 
+    AttachElasticLoadBalancerRequest attachElasticLoadBalancerRequest = new AttachElasticLoadBalancerRequest(); // AttachElasticLoadBalancerRequest | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
     String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
@@ -4873,10 +378,9 @@ public class Example {
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
     try {
-      PutResolverRulePolicyResponse result = apiInstance.putResolverRulePolicy(xAmzTarget, putResolverRulePolicyRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
+      apiInstance.attachElasticLoadBalancer(xAmzTarget, attachElasticLoadBalancerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#putResolverRulePolicy");
+      System.err.println("Exception when calling DefaultApi#attachElasticLoadBalancer");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -4890,8 +394,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.PutResolverRulePolicy] |
-| **putResolverRulePolicyRequest** | [**PutResolverRulePolicyRequest**](PutResolverRulePolicyRequest.md)|  | |
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.AttachElasticLoadBalancer] |
+| **attachElasticLoadBalancerRequest** | [**AttachElasticLoadBalancerRequest**](AttachElasticLoadBalancerRequest.md)|  | |
 | **xAmzContentSha256** | **String**|  | [optional] |
 | **xAmzDate** | **String**|  | [optional] |
 | **xAmzAlgorithm** | **String**|  | [optional] |
@@ -4902,7 +406,7 @@ public class Example {
 
 ### Return type
 
-[**PutResolverRulePolicyResponse**](PutResolverRulePolicyResponse.md)
+null (empty response body)
 
 ### Authorization
 
@@ -4917,19 +421,4947 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **480** | InvalidPolicyDocument |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | UnknownResourceException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | AccessDeniedException |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="cloneStack"></a>
+# **cloneStack**
+> CloneStackResult cloneStack(xAmzTarget, cloneStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Creates a clone of a specified stack. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html\&quot;&gt;Clone a Stack&lt;/a&gt;. By default, all parameters are set to the values used by the parent stack.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.CloneStack"; // String | 
+    CloneStackRequest cloneStackRequest = new CloneStackRequest(); // CloneStackRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      CloneStackResult result = apiInstance.cloneStack(xAmzTarget, cloneStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#cloneStack");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.CloneStack] |
+| **cloneStackRequest** | [**CloneStackRequest**](CloneStackRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**CloneStackResult**](CloneStackResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="createApp"></a>
+# **createApp**
+> CreateAppResult createApp(xAmzTarget, createAppRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Creates an app for a specified stack. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html\&quot;&gt;Creating Apps&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.CreateApp"; // String | 
+    CreateAppRequest createAppRequest = new CreateAppRequest(); // CreateAppRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      CreateAppResult result = apiInstance.createApp(xAmzTarget, createAppRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createApp");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.CreateApp] |
+| **createAppRequest** | [**CreateAppRequest**](CreateAppRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**CreateAppResult**](CreateAppResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="createDeployment"></a>
+# **createDeployment**
+> CreateDeploymentResult createDeployment(xAmzTarget, createDeploymentRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Runs deployment or stack commands. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html\&quot;&gt;Deploying Apps&lt;/a&gt; and &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html\&quot;&gt;Run Stack Commands&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.CreateDeployment"; // String | 
+    CreateDeploymentRequest createDeploymentRequest = new CreateDeploymentRequest(); // CreateDeploymentRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      CreateDeploymentResult result = apiInstance.createDeployment(xAmzTarget, createDeploymentRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createDeployment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.CreateDeployment] |
+| **createDeploymentRequest** | [**CreateDeploymentRequest**](CreateDeploymentRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**CreateDeploymentResult**](CreateDeploymentResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="createInstance"></a>
+# **createInstance**
+> CreateInstanceResult createInstance(xAmzTarget, createInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Creates an instance in a specified stack. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html\&quot;&gt;Adding an Instance to a Layer&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.CreateInstance"; // String | 
+    CreateInstanceRequest createInstanceRequest = new CreateInstanceRequest(); // CreateInstanceRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      CreateInstanceResult result = apiInstance.createInstance(xAmzTarget, createInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createInstance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.CreateInstance] |
+| **createInstanceRequest** | [**CreateInstanceRequest**](CreateInstanceRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**CreateInstanceResult**](CreateInstanceResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="createLayer"></a>
+# **createLayer**
+> CreateLayerResult createLayer(xAmzTarget, createLayerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Creates a layer. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html\&quot;&gt;How to Create a Layer&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;You should use &lt;b&gt;CreateLayer&lt;/b&gt; for noncustom layer types such as PHP App Server only if the stack does not have an existing layer of that type. A stack can have at most one instance of each noncustom layer; if you attempt to create a second instance, &lt;b&gt;CreateLayer&lt;/b&gt; fails. A stack can have an arbitrary number of custom layers, so you can call &lt;b&gt;CreateLayer&lt;/b&gt; as many times as you like for that layer type.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.CreateLayer"; // String | 
+    CreateLayerRequest createLayerRequest = new CreateLayerRequest(); // CreateLayerRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      CreateLayerResult result = apiInstance.createLayer(xAmzTarget, createLayerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createLayer");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.CreateLayer] |
+| **createLayerRequest** | [**CreateLayerRequest**](CreateLayerRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**CreateLayerResult**](CreateLayerResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="createStack"></a>
+# **createStack**
+> CreateStackResult createStack(xAmzTarget, createStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Creates a new stack. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html\&quot;&gt;Create a New Stack&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.CreateStack"; // String | 
+    CreateStackRequest createStackRequest = new CreateStackRequest(); // CreateStackRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      CreateStackResult result = apiInstance.createStack(xAmzTarget, createStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createStack");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.CreateStack] |
+| **createStackRequest** | [**CreateStackRequest**](CreateStackRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**CreateStackResult**](CreateStackResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+
+<a id="createUserProfile"></a>
+# **createUserProfile**
+> CreateUserProfileResult createUserProfile(xAmzTarget, createUserProfileRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Creates a new user profile.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.CreateUserProfile"; // String | 
+    CreateUserProfileRequest createUserProfileRequest = new CreateUserProfileRequest(); // CreateUserProfileRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      CreateUserProfileResult result = apiInstance.createUserProfile(xAmzTarget, createUserProfileRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createUserProfile");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.CreateUserProfile] |
+| **createUserProfileRequest** | [**CreateUserProfileRequest**](CreateUserProfileRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**CreateUserProfileResult**](CreateUserProfileResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+
+<a id="deleteApp"></a>
+# **deleteApp**
+> deleteApp(xAmzTarget, deleteAppRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Deletes a specified app.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DeleteApp"; // String | 
+    DeleteAppRequest deleteAppRequest = new DeleteAppRequest(); // DeleteAppRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.deleteApp(xAmzTarget, deleteAppRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteApp");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DeleteApp] |
+| **deleteAppRequest** | [**DeleteAppRequest**](DeleteAppRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="deleteInstance"></a>
+# **deleteInstance**
+> deleteInstance(xAmzTarget, deleteInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Deletes a specified instance, which terminates the associated Amazon EC2 instance. You must stop an instance before you can delete it.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html\&quot;&gt;Deleting Instances&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DeleteInstance"; // String | 
+    DeleteInstanceRequest deleteInstanceRequest = new DeleteInstanceRequest(); // DeleteInstanceRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.deleteInstance(xAmzTarget, deleteInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteInstance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DeleteInstance] |
+| **deleteInstanceRequest** | [**DeleteInstanceRequest**](DeleteInstanceRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="deleteLayer"></a>
+# **deleteLayer**
+> deleteLayer(xAmzTarget, deleteLayerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Deletes a specified layer. You must first stop and then delete all associated instances or unassign registered instances. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html\&quot;&gt;How to Delete a Layer&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DeleteLayer"; // String | 
+    DeleteLayerRequest deleteLayerRequest = new DeleteLayerRequest(); // DeleteLayerRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.deleteLayer(xAmzTarget, deleteLayerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteLayer");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DeleteLayer] |
+| **deleteLayerRequest** | [**DeleteLayerRequest**](DeleteLayerRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="deleteStack"></a>
+# **deleteStack**
+> deleteStack(xAmzTarget, deleteStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Deletes a specified stack. You must first delete all instances, layers, and apps or deregister registered instances. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html\&quot;&gt;Shut Down a Stack&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DeleteStack"; // String | 
+    DeleteStackRequest deleteStackRequest = new DeleteStackRequest(); // DeleteStackRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.deleteStack(xAmzTarget, deleteStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteStack");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DeleteStack] |
+| **deleteStackRequest** | [**DeleteStackRequest**](DeleteStackRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="deleteUserProfile"></a>
+# **deleteUserProfile**
+> deleteUserProfile(xAmzTarget, deleteUserProfileRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Deletes a user profile.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DeleteUserProfile"; // String | 
+    DeleteUserProfileRequest deleteUserProfileRequest = new DeleteUserProfileRequest(); // DeleteUserProfileRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.deleteUserProfile(xAmzTarget, deleteUserProfileRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteUserProfile");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DeleteUserProfile] |
+| **deleteUserProfileRequest** | [**DeleteUserProfileRequest**](DeleteUserProfileRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="deregisterEcsCluster"></a>
+# **deregisterEcsCluster**
+> deregisterEcsCluster(xAmzTarget, deregisterEcsClusterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Deregisters a specified Amazon ECS cluster from a stack. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete\&quot;&gt; Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DeregisterEcsCluster"; // String | 
+    DeregisterEcsClusterRequest deregisterEcsClusterRequest = new DeregisterEcsClusterRequest(); // DeregisterEcsClusterRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.deregisterEcsCluster(xAmzTarget, deregisterEcsClusterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deregisterEcsCluster");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DeregisterEcsCluster] |
+| **deregisterEcsClusterRequest** | [**DeregisterEcsClusterRequest**](DeregisterEcsClusterRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="deregisterElasticIp"></a>
+# **deregisterElasticIp**
+> deregisterElasticIp(xAmzTarget, deregisterElasticIpRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Deregisters a specified Elastic IP address. The address can then be registered by another stack. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\&quot;&gt;Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DeregisterElasticIp"; // String | 
+    DeregisterElasticIpRequest deregisterElasticIpRequest = new DeregisterElasticIpRequest(); // DeregisterElasticIpRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.deregisterElasticIp(xAmzTarget, deregisterElasticIpRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deregisterElasticIp");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DeregisterElasticIp] |
+| **deregisterElasticIpRequest** | [**DeregisterElasticIpRequest**](DeregisterElasticIpRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="deregisterInstance"></a>
+# **deregisterInstance**
+> deregisterInstance(xAmzTarget, deregisterInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Deregister a registered Amazon EC2 or on-premises instance. This action removes the instance from the stack and returns it to your control. This action cannot be used with instances that were created with AWS OpsWorks Stacks.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DeregisterInstance"; // String | 
+    DeregisterInstanceRequest deregisterInstanceRequest = new DeregisterInstanceRequest(); // DeregisterInstanceRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.deregisterInstance(xAmzTarget, deregisterInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deregisterInstance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DeregisterInstance] |
+| **deregisterInstanceRequest** | [**DeregisterInstanceRequest**](DeregisterInstanceRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="deregisterRdsDbInstance"></a>
+# **deregisterRdsDbInstance**
+> deregisterRdsDbInstance(xAmzTarget, deregisterRdsDbInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Deregisters an Amazon RDS instance.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DeregisterRdsDbInstance"; // String | 
+    DeregisterRdsDbInstanceRequest deregisterRdsDbInstanceRequest = new DeregisterRdsDbInstanceRequest(); // DeregisterRdsDbInstanceRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.deregisterRdsDbInstance(xAmzTarget, deregisterRdsDbInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deregisterRdsDbInstance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DeregisterRdsDbInstance] |
+| **deregisterRdsDbInstanceRequest** | [**DeregisterRdsDbInstanceRequest**](DeregisterRdsDbInstanceRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="deregisterVolume"></a>
+# **deregisterVolume**
+> deregisterVolume(xAmzTarget, deregisterVolumeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\&quot;&gt;Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DeregisterVolume"; // String | 
+    DeregisterVolumeRequest deregisterVolumeRequest = new DeregisterVolumeRequest(); // DeregisterVolumeRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.deregisterVolume(xAmzTarget, deregisterVolumeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deregisterVolume");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DeregisterVolume] |
+| **deregisterVolumeRequest** | [**DeregisterVolumeRequest**](DeregisterVolumeRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeAgentVersions"></a>
+# **describeAgentVersions**
+> DescribeAgentVersionsResult describeAgentVersions(xAmzTarget, describeAgentVersionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+Describes the available AWS OpsWorks Stacks agent versions. You must specify a stack ID or a configuration manager. &lt;code&gt;DescribeAgentVersions&lt;/code&gt; returns a list of available agent versions for the specified stack or configuration manager.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeAgentVersions"; // String | 
+    DescribeAgentVersionsRequest describeAgentVersionsRequest = new DescribeAgentVersionsRequest(); // DescribeAgentVersionsRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeAgentVersionsResult result = apiInstance.describeAgentVersions(xAmzTarget, describeAgentVersionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeAgentVersions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeAgentVersions] |
+| **describeAgentVersionsRequest** | [**DescribeAgentVersionsRequest**](DescribeAgentVersionsRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeAgentVersionsResult**](DescribeAgentVersionsResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeApps"></a>
+# **describeApps**
+> DescribeAppsResult describeApps(xAmzTarget, describeAppsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Requests a description of a specified set of apps.&lt;/p&gt; &lt;note&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeApps"; // String | 
+    DescribeAppsRequest describeAppsRequest = new DescribeAppsRequest(); // DescribeAppsRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeAppsResult result = apiInstance.describeApps(xAmzTarget, describeAppsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeApps");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeApps] |
+| **describeAppsRequest** | [**DescribeAppsRequest**](DescribeAppsRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeAppsResult**](DescribeAppsResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeCommands"></a>
+# **describeCommands**
+> DescribeCommandsResult describeCommands(xAmzTarget, describeCommandsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describes the results of specified commands.&lt;/p&gt; &lt;note&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeCommands"; // String | 
+    DescribeCommandsRequest describeCommandsRequest = new DescribeCommandsRequest(); // DescribeCommandsRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeCommandsResult result = apiInstance.describeCommands(xAmzTarget, describeCommandsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeCommands");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeCommands] |
+| **describeCommandsRequest** | [**DescribeCommandsRequest**](DescribeCommandsRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeCommandsResult**](DescribeCommandsResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeDeployments"></a>
+# **describeDeployments**
+> DescribeDeploymentsResult describeDeployments(xAmzTarget, describeDeploymentsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Requests a description of a specified set of deployments.&lt;/p&gt; &lt;note&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeDeployments"; // String | 
+    DescribeDeploymentsRequest describeDeploymentsRequest = new DescribeDeploymentsRequest(); // DescribeDeploymentsRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeDeploymentsResult result = apiInstance.describeDeployments(xAmzTarget, describeDeploymentsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeDeployments");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeDeployments] |
+| **describeDeploymentsRequest** | [**DescribeDeploymentsRequest**](DescribeDeploymentsRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeDeploymentsResult**](DescribeDeploymentsResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeEcsClusters"></a>
+# **describeEcsClusters**
+> DescribeEcsClustersResult describeEcsClusters(xAmzTarget, describeEcsClustersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken)
+
+
+
+&lt;p&gt;Describes Amazon ECS clusters that are registered with a stack. If you specify only a stack ID, you can use the &lt;code&gt;MaxResults&lt;/code&gt; and &lt;code&gt;NextToken&lt;/code&gt; parameters to paginate the response. However, AWS OpsWorks Stacks currently supports only one cluster per layer, so the result set has a maximum of one element.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack or an attached policy that explicitly grants permission. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeEcsClusters"; // String | 
+    DescribeEcsClustersRequest describeEcsClustersRequest = new DescribeEcsClustersRequest(); // DescribeEcsClustersRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    String maxResults = "maxResults_example"; // String | Pagination limit
+    String nextToken = "nextToken_example"; // String | Pagination token
+    try {
+      DescribeEcsClustersResult result = apiInstance.describeEcsClusters(xAmzTarget, describeEcsClustersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders, maxResults, nextToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeEcsClusters");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeEcsClusters] |
+| **describeEcsClustersRequest** | [**DescribeEcsClustersRequest**](DescribeEcsClustersRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+| **maxResults** | **String**| Pagination limit | [optional] |
+| **nextToken** | **String**| Pagination token | [optional] |
+
+### Return type
+
+[**DescribeEcsClustersResult**](DescribeEcsClustersResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeElasticIps"></a>
+# **describeElasticIps**
+> DescribeElasticIpsResult describeElasticIps(xAmzTarget, describeElasticIpsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describes &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\&quot;&gt;Elastic IP addresses&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeElasticIps"; // String | 
+    DescribeElasticIpsRequest describeElasticIpsRequest = new DescribeElasticIpsRequest(); // DescribeElasticIpsRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeElasticIpsResult result = apiInstance.describeElasticIps(xAmzTarget, describeElasticIpsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeElasticIps");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeElasticIps] |
+| **describeElasticIpsRequest** | [**DescribeElasticIpsRequest**](DescribeElasticIpsRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeElasticIpsResult**](DescribeElasticIpsResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeElasticLoadBalancers"></a>
+# **describeElasticLoadBalancers**
+> DescribeElasticLoadBalancersResult describeElasticLoadBalancers(xAmzTarget, describeElasticLoadBalancersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describes a stack&#39;s Elastic Load Balancing instances.&lt;/p&gt; &lt;note&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeElasticLoadBalancers"; // String | 
+    DescribeElasticLoadBalancersRequest describeElasticLoadBalancersRequest = new DescribeElasticLoadBalancersRequest(); // DescribeElasticLoadBalancersRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeElasticLoadBalancersResult result = apiInstance.describeElasticLoadBalancers(xAmzTarget, describeElasticLoadBalancersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeElasticLoadBalancers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeElasticLoadBalancers] |
+| **describeElasticLoadBalancersRequest** | [**DescribeElasticLoadBalancersRequest**](DescribeElasticLoadBalancersRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeElasticLoadBalancersResult**](DescribeElasticLoadBalancersResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeInstances"></a>
+# **describeInstances**
+> DescribeInstancesResult describeInstances(xAmzTarget, describeInstancesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Requests a description of a set of instances.&lt;/p&gt; &lt;note&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeInstances"; // String | 
+    DescribeInstancesRequest describeInstancesRequest = new DescribeInstancesRequest(); // DescribeInstancesRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeInstancesResult result = apiInstance.describeInstances(xAmzTarget, describeInstancesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeInstances");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeInstances] |
+| **describeInstancesRequest** | [**DescribeInstancesRequest**](DescribeInstancesRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeInstancesResult**](DescribeInstancesResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeLayers"></a>
+# **describeLayers**
+> DescribeLayersResult describeLayers(xAmzTarget, describeLayersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Requests a description of one or more layers in a specified stack.&lt;/p&gt; &lt;note&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeLayers"; // String | 
+    DescribeLayersRequest describeLayersRequest = new DescribeLayersRequest(); // DescribeLayersRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeLayersResult result = apiInstance.describeLayers(xAmzTarget, describeLayersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeLayers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeLayers] |
+| **describeLayersRequest** | [**DescribeLayersRequest**](DescribeLayersRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeLayersResult**](DescribeLayersResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeLoadBasedAutoScaling"></a>
+# **describeLoadBasedAutoScaling**
+> DescribeLoadBasedAutoScalingResult describeLoadBasedAutoScaling(xAmzTarget, describeLoadBasedAutoScalingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describes load-based auto scaling configurations for specified layers.&lt;/p&gt; &lt;note&gt; &lt;p&gt;You must specify at least one of the parameters.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeLoadBasedAutoScaling"; // String | 
+    DescribeLoadBasedAutoScalingRequest describeLoadBasedAutoScalingRequest = new DescribeLoadBasedAutoScalingRequest(); // DescribeLoadBasedAutoScalingRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeLoadBasedAutoScalingResult result = apiInstance.describeLoadBasedAutoScaling(xAmzTarget, describeLoadBasedAutoScalingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeLoadBasedAutoScaling");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeLoadBasedAutoScaling] |
+| **describeLoadBasedAutoScalingRequest** | [**DescribeLoadBasedAutoScalingRequest**](DescribeLoadBasedAutoScalingRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeLoadBasedAutoScalingResult**](DescribeLoadBasedAutoScalingResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeMyUserProfile"></a>
+# **describeMyUserProfile**
+> DescribeMyUserProfileResult describeMyUserProfile(xAmzTarget, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describes a user&#39;s SSH information.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeMyUserProfile"; // String | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeMyUserProfileResult result = apiInstance.describeMyUserProfile(xAmzTarget, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeMyUserProfile");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeMyUserProfile] |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeMyUserProfileResult**](DescribeMyUserProfileResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+<a id="describeOperatingSystems"></a>
+# **describeOperatingSystems**
+> DescribeOperatingSystemsResponse describeOperatingSystems(xAmzTarget, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+Describes the operating systems that are supported by AWS OpsWorks Stacks.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeOperatingSystems"; // String | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeOperatingSystemsResponse result = apiInstance.describeOperatingSystems(xAmzTarget, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeOperatingSystems");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeOperatingSystems] |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeOperatingSystemsResponse**](DescribeOperatingSystemsResponse.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+<a id="describePermissions"></a>
+# **describePermissions**
+> DescribePermissionsResult describePermissions(xAmzTarget, describePermissionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describes the permissions for a specified stack.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribePermissions"; // String | 
+    DescribePermissionsRequest describePermissionsRequest = new DescribePermissionsRequest(); // DescribePermissionsRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribePermissionsResult result = apiInstance.describePermissions(xAmzTarget, describePermissionsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describePermissions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribePermissions] |
+| **describePermissionsRequest** | [**DescribePermissionsRequest**](DescribePermissionsRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribePermissionsResult**](DescribePermissionsResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeRaidArrays"></a>
+# **describeRaidArrays**
+> DescribeRaidArraysResult describeRaidArrays(xAmzTarget, describeRaidArraysRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describe an instance&#39;s RAID arrays.&lt;/p&gt; &lt;note&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeRaidArrays"; // String | 
+    DescribeRaidArraysRequest describeRaidArraysRequest = new DescribeRaidArraysRequest(); // DescribeRaidArraysRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeRaidArraysResult result = apiInstance.describeRaidArrays(xAmzTarget, describeRaidArraysRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeRaidArrays");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeRaidArrays] |
+| **describeRaidArraysRequest** | [**DescribeRaidArraysRequest**](DescribeRaidArraysRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeRaidArraysResult**](DescribeRaidArraysResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeRdsDbInstances"></a>
+# **describeRdsDbInstances**
+> DescribeRdsDbInstancesResult describeRdsDbInstances(xAmzTarget, describeRdsDbInstancesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describes Amazon RDS instances.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeRdsDbInstances"; // String | 
+    DescribeRdsDbInstancesRequest describeRdsDbInstancesRequest = new DescribeRdsDbInstancesRequest(); // DescribeRdsDbInstancesRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeRdsDbInstancesResult result = apiInstance.describeRdsDbInstances(xAmzTarget, describeRdsDbInstancesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeRdsDbInstances");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeRdsDbInstances] |
+| **describeRdsDbInstancesRequest** | [**DescribeRdsDbInstancesRequest**](DescribeRdsDbInstancesRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeRdsDbInstancesResult**](DescribeRdsDbInstancesResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeServiceErrors"></a>
+# **describeServiceErrors**
+> DescribeServiceErrorsResult describeServiceErrors(xAmzTarget, describeServiceErrorsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describes AWS OpsWorks Stacks service errors.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeServiceErrors"; // String | 
+    DescribeServiceErrorsRequest describeServiceErrorsRequest = new DescribeServiceErrorsRequest(); // DescribeServiceErrorsRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeServiceErrorsResult result = apiInstance.describeServiceErrors(xAmzTarget, describeServiceErrorsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeServiceErrors");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeServiceErrors] |
+| **describeServiceErrorsRequest** | [**DescribeServiceErrorsRequest**](DescribeServiceErrorsRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeServiceErrorsResult**](DescribeServiceErrorsResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeStackProvisioningParameters"></a>
+# **describeStackProvisioningParameters**
+> DescribeStackProvisioningParametersResult describeStackProvisioningParameters(xAmzTarget, describeStackProvisioningParametersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Requests a description of a stack&#39;s provisioning parameters.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeStackProvisioningParameters"; // String | 
+    DescribeStackProvisioningParametersRequest describeStackProvisioningParametersRequest = new DescribeStackProvisioningParametersRequest(); // DescribeStackProvisioningParametersRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeStackProvisioningParametersResult result = apiInstance.describeStackProvisioningParameters(xAmzTarget, describeStackProvisioningParametersRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeStackProvisioningParameters");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeStackProvisioningParameters] |
+| **describeStackProvisioningParametersRequest** | [**DescribeStackProvisioningParametersRequest**](DescribeStackProvisioningParametersRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeStackProvisioningParametersResult**](DescribeStackProvisioningParametersResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeStackSummary"></a>
+# **describeStackSummary**
+> DescribeStackSummaryResult describeStackSummary(xAmzTarget, describeStackSummaryRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describes the number of layers and apps in a specified stack, and the number of instances in each state, such as &lt;code&gt;running_setup&lt;/code&gt; or &lt;code&gt;online&lt;/code&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeStackSummary"; // String | 
+    DescribeStackSummaryRequest describeStackSummaryRequest = new DescribeStackSummaryRequest(); // DescribeStackSummaryRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeStackSummaryResult result = apiInstance.describeStackSummary(xAmzTarget, describeStackSummaryRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeStackSummary");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeStackSummary] |
+| **describeStackSummaryRequest** | [**DescribeStackSummaryRequest**](DescribeStackSummaryRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeStackSummaryResult**](DescribeStackSummaryResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeStacks"></a>
+# **describeStacks**
+> DescribeStacksResult describeStacks(xAmzTarget, describeStacksRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Requests a description of one or more stacks.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeStacks"; // String | 
+    DescribeStacksRequest describeStacksRequest = new DescribeStacksRequest(); // DescribeStacksRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeStacksResult result = apiInstance.describeStacks(xAmzTarget, describeStacksRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeStacks");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeStacks] |
+| **describeStacksRequest** | [**DescribeStacksRequest**](DescribeStacksRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeStacksResult**](DescribeStacksResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeTimeBasedAutoScaling"></a>
+# **describeTimeBasedAutoScaling**
+> DescribeTimeBasedAutoScalingResult describeTimeBasedAutoScaling(xAmzTarget, describeTimeBasedAutoScalingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describes time-based auto scaling configurations for specified instances.&lt;/p&gt; &lt;note&gt; &lt;p&gt;You must specify at least one of the parameters.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeTimeBasedAutoScaling"; // String | 
+    DescribeTimeBasedAutoScalingRequest describeTimeBasedAutoScalingRequest = new DescribeTimeBasedAutoScalingRequest(); // DescribeTimeBasedAutoScalingRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeTimeBasedAutoScalingResult result = apiInstance.describeTimeBasedAutoScaling(xAmzTarget, describeTimeBasedAutoScalingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeTimeBasedAutoScaling");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeTimeBasedAutoScaling] |
+| **describeTimeBasedAutoScalingRequest** | [**DescribeTimeBasedAutoScalingRequest**](DescribeTimeBasedAutoScalingRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeTimeBasedAutoScalingResult**](DescribeTimeBasedAutoScalingResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeUserProfiles"></a>
+# **describeUserProfiles**
+> DescribeUserProfilesResult describeUserProfiles(xAmzTarget, describeUserProfilesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describe specified users.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeUserProfiles"; // String | 
+    DescribeUserProfilesRequest describeUserProfilesRequest = new DescribeUserProfilesRequest(); // DescribeUserProfilesRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeUserProfilesResult result = apiInstance.describeUserProfiles(xAmzTarget, describeUserProfilesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeUserProfiles");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeUserProfiles] |
+| **describeUserProfilesRequest** | [**DescribeUserProfilesRequest**](DescribeUserProfilesRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeUserProfilesResult**](DescribeUserProfilesResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="describeVolumes"></a>
+# **describeVolumes**
+> DescribeVolumesResult describeVolumes(xAmzTarget, describeVolumesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Describes an instance&#39;s Amazon EBS volumes.&lt;/p&gt; &lt;note&gt; &lt;p&gt;This call accepts only one resource-identifying parameter.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DescribeVolumes"; // String | 
+    DescribeVolumesRequest describeVolumesRequest = new DescribeVolumesRequest(); // DescribeVolumesRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      DescribeVolumesResult result = apiInstance.describeVolumes(xAmzTarget, describeVolumesRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#describeVolumes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DescribeVolumes] |
+| **describeVolumesRequest** | [**DescribeVolumesRequest**](DescribeVolumesRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**DescribeVolumesResult**](DescribeVolumesResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="detachElasticLoadBalancer"></a>
+# **detachElasticLoadBalancer**
+> detachElasticLoadBalancer(xAmzTarget, detachElasticLoadBalancerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Detaches a specified Elastic Load Balancing instance from its layer.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DetachElasticLoadBalancer"; // String | 
+    DetachElasticLoadBalancerRequest detachElasticLoadBalancerRequest = new DetachElasticLoadBalancerRequest(); // DetachElasticLoadBalancerRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.detachElasticLoadBalancer(xAmzTarget, detachElasticLoadBalancerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#detachElasticLoadBalancer");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DetachElasticLoadBalancer] |
+| **detachElasticLoadBalancerRequest** | [**DetachElasticLoadBalancerRequest**](DetachElasticLoadBalancerRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ResourceNotFoundException |  -  |
+
+<a id="disassociateElasticIp"></a>
+# **disassociateElasticIp**
+> disassociateElasticIp(xAmzTarget, disassociateElasticIpRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Disassociates an Elastic IP address from its instance. The address remains registered with the stack. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\&quot;&gt;Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.DisassociateElasticIp"; // String | 
+    DisassociateElasticIpRequest disassociateElasticIpRequest = new DisassociateElasticIpRequest(); // DisassociateElasticIpRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.disassociateElasticIp(xAmzTarget, disassociateElasticIpRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#disassociateElasticIp");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.DisassociateElasticIp] |
+| **disassociateElasticIpRequest** | [**DisassociateElasticIpRequest**](DisassociateElasticIpRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="getHostnameSuggestion"></a>
+# **getHostnameSuggestion**
+> GetHostnameSuggestionResult getHostnameSuggestion(xAmzTarget, getHostnameSuggestionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Gets a generated host name for the specified layer, based on the current host name theme.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.GetHostnameSuggestion"; // String | 
+    GetHostnameSuggestionRequest getHostnameSuggestionRequest = new GetHostnameSuggestionRequest(); // GetHostnameSuggestionRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      GetHostnameSuggestionResult result = apiInstance.getHostnameSuggestion(xAmzTarget, getHostnameSuggestionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getHostnameSuggestion");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.GetHostnameSuggestion] |
+| **getHostnameSuggestionRequest** | [**GetHostnameSuggestionRequest**](GetHostnameSuggestionRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**GetHostnameSuggestionResult**](GetHostnameSuggestionResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="grantAccess"></a>
+# **grantAccess**
+> GrantAccessResult grantAccess(xAmzTarget, grantAccessRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;note&gt; &lt;p&gt;This action can be used only with Windows stacks.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;Grants RDP access to a Windows instance for a specified time period.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.GrantAccess"; // String | 
+    GrantAccessRequest grantAccessRequest = new GrantAccessRequest(); // GrantAccessRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      GrantAccessResult result = apiInstance.grantAccess(xAmzTarget, grantAccessRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#grantAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.GrantAccess] |
+| **grantAccessRequest** | [**GrantAccessRequest**](GrantAccessRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**GrantAccessResult**](GrantAccessResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="listTags"></a>
+# **listTags**
+> ListTagsResult listTags(xAmzTarget, listTagsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+Returns a list of tags that are applied to the specified stack or layer.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.ListTags"; // String | 
+    ListTagsRequest listTagsRequest = new ListTagsRequest(); // ListTagsRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      ListTagsResult result = apiInstance.listTags(xAmzTarget, listTagsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listTags");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.ListTags] |
+| **listTagsRequest** | [**ListTagsRequest**](ListTagsRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**ListTagsResult**](ListTagsResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="rebootInstance"></a>
+# **rebootInstance**
+> rebootInstance(xAmzTarget, rebootInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Reboots a specified instance. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html\&quot;&gt;Starting, Stopping, and Rebooting Instances&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.RebootInstance"; // String | 
+    RebootInstanceRequest rebootInstanceRequest = new RebootInstanceRequest(); // RebootInstanceRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.rebootInstance(xAmzTarget, rebootInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#rebootInstance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.RebootInstance] |
+| **rebootInstanceRequest** | [**RebootInstanceRequest**](RebootInstanceRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="registerEcsCluster"></a>
+# **registerEcsCluster**
+> RegisterEcsClusterResult registerEcsCluster(xAmzTarget, registerEcsClusterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Registers a specified Amazon ECS cluster with a stack. You can register only one cluster with a stack. A cluster can be registered with only one stack. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html\&quot;&gt; Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt; Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.RegisterEcsCluster"; // String | 
+    RegisterEcsClusterRequest registerEcsClusterRequest = new RegisterEcsClusterRequest(); // RegisterEcsClusterRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      RegisterEcsClusterResult result = apiInstance.registerEcsCluster(xAmzTarget, registerEcsClusterRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#registerEcsCluster");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.RegisterEcsCluster] |
+| **registerEcsClusterRequest** | [**RegisterEcsClusterRequest**](RegisterEcsClusterRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**RegisterEcsClusterResult**](RegisterEcsClusterResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="registerElasticIp"></a>
+# **registerElasticIp**
+> RegisterElasticIpResult registerElasticIp(xAmzTarget, registerElasticIpRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Registers an Elastic IP address with a specified stack. An address can be registered with only one stack at a time. If the address is already registered, you must first deregister it by calling &lt;a&gt;DeregisterElasticIp&lt;/a&gt;. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\&quot;&gt;Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.RegisterElasticIp"; // String | 
+    RegisterElasticIpRequest registerElasticIpRequest = new RegisterElasticIpRequest(); // RegisterElasticIpRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      RegisterElasticIpResult result = apiInstance.registerElasticIp(xAmzTarget, registerElasticIpRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#registerElasticIp");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.RegisterElasticIp] |
+| **registerElasticIpRequest** | [**RegisterElasticIpRequest**](RegisterElasticIpRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**RegisterElasticIpResult**](RegisterElasticIpResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="registerInstance"></a>
+# **registerInstance**
+> RegisterInstanceResult registerInstance(xAmzTarget, registerInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.&lt;/p&gt; &lt;note&gt; &lt;p&gt;We do not recommend using this action to register instances. The complete registration operation includes two tasks: installing the AWS OpsWorks Stacks agent on the instance, and registering the instance with the stack. &lt;code&gt;RegisterInstance&lt;/code&gt; handles only the second step. You should instead use the AWS CLI &lt;code&gt;register&lt;/code&gt; command, which performs the entire registration operation. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html\&quot;&gt; Registering an Instance with an AWS OpsWorks Stacks Stack&lt;/a&gt;.&lt;/p&gt; &lt;/note&gt; &lt;p&gt;Registered instances have the same requirements as instances that are created by using the &lt;a&gt;CreateInstance&lt;/a&gt; API. For example, registered instances must be running a supported Linux-based operating system, and they must have a supported instance type. For more information about requirements for instances that you want to register, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register-registering-preparer.html\&quot;&gt; Preparing the Instance&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.RegisterInstance"; // String | 
+    RegisterInstanceRequest registerInstanceRequest = new RegisterInstanceRequest(); // RegisterInstanceRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      RegisterInstanceResult result = apiInstance.registerInstance(xAmzTarget, registerInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#registerInstance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.RegisterInstance] |
+| **registerInstanceRequest** | [**RegisterInstanceRequest**](RegisterInstanceRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**RegisterInstanceResult**](RegisterInstanceResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="registerRdsDbInstance"></a>
+# **registerRdsDbInstance**
+> registerRdsDbInstance(xAmzTarget, registerRdsDbInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Registers an Amazon RDS instance with a stack.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.RegisterRdsDbInstance"; // String | 
+    RegisterRdsDbInstanceRequest registerRdsDbInstanceRequest = new RegisterRdsDbInstanceRequest(); // RegisterRdsDbInstanceRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.registerRdsDbInstance(xAmzTarget, registerRdsDbInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#registerRdsDbInstance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.RegisterRdsDbInstance] |
+| **registerRdsDbInstanceRequest** | [**RegisterRdsDbInstanceRequest**](RegisterRdsDbInstanceRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="registerVolume"></a>
+# **registerVolume**
+> RegisterVolumeResult registerVolume(xAmzTarget, registerVolumeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one stack at a time. If the volume is already registered, you must first deregister it by calling &lt;a&gt;DeregisterVolume&lt;/a&gt;. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\&quot;&gt;Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.RegisterVolume"; // String | 
+    RegisterVolumeRequest registerVolumeRequest = new RegisterVolumeRequest(); // RegisterVolumeRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      RegisterVolumeResult result = apiInstance.registerVolume(xAmzTarget, registerVolumeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#registerVolume");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.RegisterVolume] |
+| **registerVolumeRequest** | [**RegisterVolumeRequest**](RegisterVolumeRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+[**RegisterVolumeResult**](RegisterVolumeResult.md)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="setLoadBasedAutoScaling"></a>
+# **setLoadBasedAutoScaling**
+> setLoadBasedAutoScaling(xAmzTarget, setLoadBasedAutoScalingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Specify the load-based auto scaling configuration for a specified layer. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html\&quot;&gt;Managing Load with Time-based and Load-based Instances&lt;/a&gt;.&lt;/p&gt; &lt;note&gt; &lt;p&gt;To use load-based auto scaling, you must create a set of load-based auto scaling instances. Load-based auto scaling operates only on the instances from that set, so you must ensure that you have created enough instances to handle the maximum anticipated load.&lt;/p&gt; &lt;/note&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.SetLoadBasedAutoScaling"; // String | 
+    SetLoadBasedAutoScalingRequest setLoadBasedAutoScalingRequest = new SetLoadBasedAutoScalingRequest(); // SetLoadBasedAutoScalingRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.setLoadBasedAutoScaling(xAmzTarget, setLoadBasedAutoScalingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#setLoadBasedAutoScaling");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.SetLoadBasedAutoScaling] |
+| **setLoadBasedAutoScalingRequest** | [**SetLoadBasedAutoScalingRequest**](SetLoadBasedAutoScalingRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="setPermission"></a>
+# **setPermission**
+> setPermission(xAmzTarget, setPermissionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Specifies a user&#39;s permissions. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html\&quot;&gt;Security and Permissions&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.SetPermission"; // String | 
+    SetPermissionRequest setPermissionRequest = new SetPermissionRequest(); // SetPermissionRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.setPermission(xAmzTarget, setPermissionRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#setPermission");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.SetPermission] |
+| **setPermissionRequest** | [**SetPermissionRequest**](SetPermissionRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="setTimeBasedAutoScaling"></a>
+# **setTimeBasedAutoScaling**
+> setTimeBasedAutoScaling(xAmzTarget, setTimeBasedAutoScalingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Specify the time-based auto scaling configuration for a specified instance. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html\&quot;&gt;Managing Load with Time-based and Load-based Instances&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.SetTimeBasedAutoScaling"; // String | 
+    SetTimeBasedAutoScalingRequest setTimeBasedAutoScalingRequest = new SetTimeBasedAutoScalingRequest(); // SetTimeBasedAutoScalingRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.setTimeBasedAutoScaling(xAmzTarget, setTimeBasedAutoScalingRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#setTimeBasedAutoScaling");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.SetTimeBasedAutoScaling] |
+| **setTimeBasedAutoScalingRequest** | [**SetTimeBasedAutoScalingRequest**](SetTimeBasedAutoScalingRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="startInstance"></a>
+# **startInstance**
+> startInstance(xAmzTarget, startInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Starts a specified instance. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html\&quot;&gt;Starting, Stopping, and Rebooting Instances&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.StartInstance"; // String | 
+    StartInstanceRequest startInstanceRequest = new StartInstanceRequest(); // StartInstanceRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.startInstance(xAmzTarget, startInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#startInstance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.StartInstance] |
+| **startInstanceRequest** | [**StartInstanceRequest**](StartInstanceRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="startStack"></a>
+# **startStack**
+> startStack(xAmzTarget, startStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Starts a stack&#39;s instances.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.StartStack"; // String | 
+    StartStackRequest startStackRequest = new StartStackRequest(); // StartStackRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.startStack(xAmzTarget, startStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#startStack");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.StartStack] |
+| **startStackRequest** | [**StartStackRequest**](StartStackRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="stopInstance"></a>
+# **stopInstance**
+> stopInstance(xAmzTarget, stopInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Stops a specified instance. When you stop a standard instance, the data disappears and must be reinstalled when you restart the instance. You can stop an Amazon EBS-backed instance without losing data. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html\&quot;&gt;Starting, Stopping, and Rebooting Instances&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.StopInstance"; // String | 
+    StopInstanceRequest stopInstanceRequest = new StopInstanceRequest(); // StopInstanceRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.stopInstance(xAmzTarget, stopInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#stopInstance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.StopInstance] |
+| **stopInstanceRequest** | [**StopInstanceRequest**](StopInstanceRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="stopStack"></a>
+# **stopStack**
+> stopStack(xAmzTarget, stopStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Stops a specified stack.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.StopStack"; // String | 
+    StopStackRequest stopStackRequest = new StopStackRequest(); // StopStackRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.stopStack(xAmzTarget, stopStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#stopStack");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.StopStack] |
+| **stopStackRequest** | [**StopStackRequest**](StopStackRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
 
 <a id="tagResource"></a>
 # **tagResource**
-> Object tagResource(xAmzTarget, tagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+> tagResource(xAmzTarget, tagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
 
 
 
-Adds one or more tags to a specified resource.
+Apply cost-allocation tags to a specified stack or layer in AWS OpsWorks Stacks. For more information about how tagging works, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html\&quot;&gt;Tags&lt;/a&gt; in the AWS OpsWorks User Guide.
 
 ### Example
 ```java
@@ -4944,7 +5376,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -4953,7 +5385,7 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.TagResource"; // String | 
+    String xAmzTarget = "OpsWorks_20130218.TagResource"; // String | 
     TagResourceRequest tagResourceRequest = new TagResourceRequest(); // TagResourceRequest | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
@@ -4963,8 +5395,7 @@ public class Example {
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
     try {
-      Object result = apiInstance.tagResource(xAmzTarget, tagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
+      apiInstance.tagResource(xAmzTarget, tagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#tagResource");
       System.err.println("Status code: " + e.getCode());
@@ -4980,7 +5411,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.TagResource] |
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.TagResource] |
 | **tagResourceRequest** | [**TagResourceRequest**](TagResourceRequest.md)|  | |
 | **xAmzContentSha256** | **String**|  | [optional] |
 | **xAmzDate** | **String**|  | [optional] |
@@ -4992,7 +5423,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+null (empty response body)
 
 ### Authorization
 
@@ -5007,21 +5438,16 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **480** | LimitExceededException |  -  |
+| **480** | ValidationException |  -  |
 | **481** | ResourceNotFoundException |  -  |
-| **482** | InvalidParameterException |  -  |
-| **483** | InvalidRequestException |  -  |
-| **484** | InvalidTagException |  -  |
-| **485** | InternalServiceErrorException |  -  |
-| **486** | ThrottlingException |  -  |
 
-<a id="untagResource"></a>
-# **untagResource**
-> Object untagResource(xAmzTarget, untagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+<a id="unassignInstance"></a>
+# **unassignInstance**
+> unassignInstance(xAmzTarget, unassignInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
 
 
 
-Removes one or more tags from a specified resource.
+&lt;p&gt;Unassigns a registered instance from all layers that are using the instance. The instance remains in the stack as an unassigned instance, and can be assigned to another layer as needed. You cannot use this action with instances that were created with AWS OpsWorks Stacks.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
 
 ### Example
 ```java
@@ -5036,7 +5462,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -5045,7 +5471,179 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.UntagResource"; // String | 
+    String xAmzTarget = "OpsWorks_20130218.UnassignInstance"; // String | 
+    UnassignInstanceRequest unassignInstanceRequest = new UnassignInstanceRequest(); // UnassignInstanceRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.unassignInstance(xAmzTarget, unassignInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#unassignInstance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UnassignInstance] |
+| **unassignInstanceRequest** | [**UnassignInstanceRequest**](UnassignInstanceRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="unassignVolume"></a>
+# **unassignVolume**
+> unassignVolume(xAmzTarget, unassignVolumeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Unassigns an assigned Amazon EBS volume. The volume remains registered with the stack. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\&quot;&gt;Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.UnassignVolume"; // String | 
+    UnassignVolumeRequest unassignVolumeRequest = new UnassignVolumeRequest(); // UnassignVolumeRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.unassignVolume(xAmzTarget, unassignVolumeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#unassignVolume");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UnassignVolume] |
+| **unassignVolumeRequest** | [**UnassignVolumeRequest**](UnassignVolumeRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="untagResource"></a>
+# **untagResource**
+> untagResource(xAmzTarget, untagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+Removes tags from a specified stack or layer.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.UntagResource"; // String | 
     UntagResourceRequest untagResourceRequest = new UntagResourceRequest(); // UntagResourceRequest | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
@@ -5055,8 +5653,7 @@ public class Example {
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
     try {
-      Object result = apiInstance.untagResource(xAmzTarget, untagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
+      apiInstance.untagResource(xAmzTarget, untagResourceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#untagResource");
       System.err.println("Status code: " + e.getCode());
@@ -5072,7 +5669,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.UntagResource] |
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UntagResource] |
 | **untagResourceRequest** | [**UntagResourceRequest**](UntagResourceRequest.md)|  | |
 | **xAmzContentSha256** | **String**|  | [optional] |
 | **xAmzDate** | **String**|  | [optional] |
@@ -5084,97 +5681,7 @@ public class Example {
 
 ### Return type
 
-**Object**
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-
-<a id="updateFirewallConfig"></a>
-# **updateFirewallConfig**
-> UpdateFirewallConfigResponse updateFirewallConfig(xAmzTarget, updateFirewallConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Updates the configuration of the firewall behavior provided by DNS Firewall for a single VPC from Amazon Virtual Private Cloud (Amazon VPC). 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.UpdateFirewallConfig"; // String | 
-    UpdateFirewallConfigRequest updateFirewallConfigRequest = new UpdateFirewallConfigRequest(); // UpdateFirewallConfigRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      UpdateFirewallConfigResponse result = apiInstance.updateFirewallConfig(xAmzTarget, updateFirewallConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateFirewallConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.UpdateFirewallConfig] |
-| **updateFirewallConfigRequest** | [**UpdateFirewallConfigRequest**](UpdateFirewallConfigRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**UpdateFirewallConfigResponse**](UpdateFirewallConfigResponse.md)
+null (empty response body)
 
 ### Authorization
 
@@ -5191,17 +5698,14 @@ public class Example {
 | **200** | Success |  -  |
 | **480** | ValidationException |  -  |
 | **481** | ResourceNotFoundException |  -  |
-| **482** | AccessDeniedException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
 
-<a id="updateFirewallDomains"></a>
-# **updateFirewallDomains**
-> UpdateFirewallDomainsResponse updateFirewallDomains(xAmzTarget, updateFirewallDomainsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+<a id="updateApp"></a>
+# **updateApp**
+> updateApp(xAmzTarget, updateAppRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
 
 
 
-Updates the firewall domain list from an array of domain specifications. 
+&lt;p&gt;Updates a specified app.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
 
 ### Example
 ```java
@@ -5216,7 +5720,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -5225,8 +5729,8 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.UpdateFirewallDomains"; // String | 
-    UpdateFirewallDomainsRequest updateFirewallDomainsRequest = new UpdateFirewallDomainsRequest(); // UpdateFirewallDomainsRequest | 
+    String xAmzTarget = "OpsWorks_20130218.UpdateApp"; // String | 
+    UpdateAppRequest updateAppRequest = new UpdateAppRequest(); // UpdateAppRequest | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
     String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
@@ -5235,10 +5739,9 @@ public class Example {
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
     try {
-      UpdateFirewallDomainsResponse result = apiInstance.updateFirewallDomains(xAmzTarget, updateFirewallDomainsRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
+      apiInstance.updateApp(xAmzTarget, updateAppRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateFirewallDomains");
+      System.err.println("Exception when calling DefaultApi#updateApp");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -5252,8 +5755,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.UpdateFirewallDomains] |
-| **updateFirewallDomainsRequest** | [**UpdateFirewallDomainsRequest**](UpdateFirewallDomainsRequest.md)|  | |
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UpdateApp] |
+| **updateAppRequest** | [**UpdateAppRequest**](UpdateAppRequest.md)|  | |
 | **xAmzContentSha256** | **String**|  | [optional] |
 | **xAmzDate** | **String**|  | [optional] |
 | **xAmzAlgorithm** | **String**|  | [optional] |
@@ -5264,7 +5767,7 @@ public class Example {
 
 ### Return type
 
-[**UpdateFirewallDomainsResponse**](UpdateFirewallDomainsResponse.md)
+null (empty response body)
 
 ### Authorization
 
@@ -5280,387 +5783,15 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 | **480** | ValidationException |  -  |
-| **481** | AccessDeniedException |  -  |
-| **482** | ResourceNotFoundException |  -  |
-| **483** | LimitExceededException |  -  |
-| **484** | ConflictException |  -  |
-| **485** | InternalServiceErrorException |  -  |
-| **486** | ThrottlingException |  -  |
-
-<a id="updateFirewallRule"></a>
-# **updateFirewallRule**
-> UpdateFirewallRuleResponse updateFirewallRule(xAmzTarget, updateFirewallRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Updates the specified firewall rule. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.UpdateFirewallRule"; // String | 
-    UpdateFirewallRuleRequest updateFirewallRuleRequest = new UpdateFirewallRuleRequest(); // UpdateFirewallRuleRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      UpdateFirewallRuleResponse result = apiInstance.updateFirewallRule(xAmzTarget, updateFirewallRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateFirewallRule");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.UpdateFirewallRule] |
-| **updateFirewallRuleRequest** | [**UpdateFirewallRuleRequest**](UpdateFirewallRuleRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**UpdateFirewallRuleResponse**](UpdateFirewallRuleResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | ValidationException |  -  |
-| **482** | ConflictException |  -  |
-| **483** | AccessDeniedException |  -  |
-| **484** | InternalServiceErrorException |  -  |
-| **485** | ThrottlingException |  -  |
-
-<a id="updateFirewallRuleGroupAssociation"></a>
-# **updateFirewallRuleGroupAssociation**
-> UpdateFirewallRuleGroupAssociationResponse updateFirewallRuleGroupAssociation(xAmzTarget, updateFirewallRuleGroupAssociationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Changes the association of a &lt;a&gt;FirewallRuleGroup&lt;/a&gt; with a VPC. The association enables DNS filtering for the VPC. 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.UpdateFirewallRuleGroupAssociation"; // String | 
-    UpdateFirewallRuleGroupAssociationRequest updateFirewallRuleGroupAssociationRequest = new UpdateFirewallRuleGroupAssociationRequest(); // UpdateFirewallRuleGroupAssociationRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      UpdateFirewallRuleGroupAssociationResponse result = apiInstance.updateFirewallRuleGroupAssociation(xAmzTarget, updateFirewallRuleGroupAssociationRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateFirewallRuleGroupAssociation");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.UpdateFirewallRuleGroupAssociation] |
-| **updateFirewallRuleGroupAssociationRequest** | [**UpdateFirewallRuleGroupAssociationRequest**](UpdateFirewallRuleGroupAssociationRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**UpdateFirewallRuleGroupAssociationResponse**](UpdateFirewallRuleGroupAssociationResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | ValidationException |  -  |
-| **482** | ConflictException |  -  |
-| **483** | AccessDeniedException |  -  |
-| **484** | InternalServiceErrorException |  -  |
-| **485** | ThrottlingException |  -  |
-
-<a id="updateResolverConfig"></a>
-# **updateResolverConfig**
-> UpdateResolverConfigResponse updateResolverConfig(xAmzTarget, updateResolverConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Updates the behavior configuration of Route 53 Resolver behavior for a single VPC from Amazon Virtual Private Cloud.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.UpdateResolverConfig"; // String | 
-    UpdateResolverConfigRequest updateResolverConfigRequest = new UpdateResolverConfigRequest(); // UpdateResolverConfigRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      UpdateResolverConfigResponse result = apiInstance.updateResolverConfig(xAmzTarget, updateResolverConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateResolverConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.UpdateResolverConfig] |
-| **updateResolverConfigRequest** | [**UpdateResolverConfigRequest**](UpdateResolverConfigRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**UpdateResolverConfigResponse**](UpdateResolverConfigResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidRequestException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | ResourceNotFoundException |  -  |
-| **483** | ResourceUnavailableException |  -  |
-| **484** | LimitExceededException |  -  |
-| **485** | InternalServiceErrorException |  -  |
-| **486** | ThrottlingException |  -  |
-| **487** | AccessDeniedException |  -  |
-| **488** | ValidationException |  -  |
-
-<a id="updateResolverDnssecConfig"></a>
-# **updateResolverDnssecConfig**
-> UpdateResolverDnssecConfigResponse updateResolverDnssecConfig(xAmzTarget, updateResolverDnssecConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
-
-
-
-Updates an existing DNSSEC validation configuration. If there is no existing DNSSEC validation configuration, one is created.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
-    
-    // Configure API key authorization: hmac
-    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
-    hmac.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //hmac.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.UpdateResolverDnssecConfig"; // String | 
-    UpdateResolverDnssecConfigRequest updateResolverDnssecConfigRequest = new UpdateResolverDnssecConfigRequest(); // UpdateResolverDnssecConfigRequest | 
-    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
-    String xAmzDate = "xAmzDate_example"; // String | 
-    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
-    String xAmzCredential = "xAmzCredential_example"; // String | 
-    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
-    String xAmzSignature = "xAmzSignature_example"; // String | 
-    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
-    try {
-      UpdateResolverDnssecConfigResponse result = apiInstance.updateResolverDnssecConfig(xAmzTarget, updateResolverDnssecConfigRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateResolverDnssecConfig");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.UpdateResolverDnssecConfig] |
-| **updateResolverDnssecConfigRequest** | [**UpdateResolverDnssecConfigRequest**](UpdateResolverDnssecConfigRequest.md)|  | |
-| **xAmzContentSha256** | **String**|  | [optional] |
-| **xAmzDate** | **String**|  | [optional] |
-| **xAmzAlgorithm** | **String**|  | [optional] |
-| **xAmzCredential** | **String**|  | [optional] |
-| **xAmzSecurityToken** | **String**|  | [optional] |
-| **xAmzSignature** | **String**|  | [optional] |
-| **xAmzSignedHeaders** | **String**|  | [optional] |
-
-### Return type
-
-[**UpdateResolverDnssecConfigResponse**](UpdateResolverDnssecConfigResponse.md)
-
-### Authorization
-
-[hmac](../README.md#hmac)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **480** | InvalidParameterException |  -  |
 | **481** | ResourceNotFoundException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
-| **485** | AccessDeniedException |  -  |
 
-<a id="updateResolverEndpoint"></a>
-# **updateResolverEndpoint**
-> UpdateResolverEndpointResponse updateResolverEndpoint(xAmzTarget, updateResolverEndpointRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+<a id="updateElasticIp"></a>
+# **updateElasticIp**
+> updateElasticIp(xAmzTarget, updateElasticIpRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
 
 
 
-Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint. You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can&#39;t be updated to other type. 
+&lt;p&gt;Updates a registered Elastic IP address&#39;s name. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\&quot;&gt;Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
 
 ### Example
 ```java
@@ -5675,7 +5806,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -5684,8 +5815,8 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.UpdateResolverEndpoint"; // String | 
-    UpdateResolverEndpointRequest updateResolverEndpointRequest = new UpdateResolverEndpointRequest(); // UpdateResolverEndpointRequest | 
+    String xAmzTarget = "OpsWorks_20130218.UpdateElasticIp"; // String | 
+    UpdateElasticIpRequest updateElasticIpRequest = new UpdateElasticIpRequest(); // UpdateElasticIpRequest | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
     String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
@@ -5694,10 +5825,9 @@ public class Example {
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
     try {
-      UpdateResolverEndpointResponse result = apiInstance.updateResolverEndpoint(xAmzTarget, updateResolverEndpointRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
+      apiInstance.updateElasticIp(xAmzTarget, updateElasticIpRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateResolverEndpoint");
+      System.err.println("Exception when calling DefaultApi#updateElasticIp");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -5711,8 +5841,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.UpdateResolverEndpoint] |
-| **updateResolverEndpointRequest** | [**UpdateResolverEndpointRequest**](UpdateResolverEndpointRequest.md)|  | |
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UpdateElasticIp] |
+| **updateElasticIpRequest** | [**UpdateElasticIpRequest**](UpdateElasticIpRequest.md)|  | |
 | **xAmzContentSha256** | **String**|  | [optional] |
 | **xAmzDate** | **String**|  | [optional] |
 | **xAmzAlgorithm** | **String**|  | [optional] |
@@ -5723,7 +5853,7 @@ public class Example {
 
 ### Return type
 
-[**UpdateResolverEndpointResponse**](UpdateResolverEndpointResponse.md)
+null (empty response body)
 
 ### Authorization
 
@@ -5738,19 +5868,16 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **480** | ResourceNotFoundException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | InvalidRequestException |  -  |
-| **483** | InternalServiceErrorException |  -  |
-| **484** | ThrottlingException |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
 
-<a id="updateResolverRule"></a>
-# **updateResolverRule**
-> UpdateResolverRuleResponse updateResolverRule(xAmzTarget, updateResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+<a id="updateInstance"></a>
+# **updateInstance**
+> updateInstance(xAmzTarget, updateInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
 
 
 
-Updates settings for a specified Resolver rule. &lt;code&gt;ResolverRuleId&lt;/code&gt; is required, and all other parameters are optional. If you don&#39;t specify a parameter, it retains its current value.
+&lt;p&gt;Updates a specified instance.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
 
 ### Example
 ```java
@@ -5765,7 +5892,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -5774,8 +5901,8 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.UpdateResolverRule"; // String | 
-    UpdateResolverRuleRequest updateResolverRuleRequest = new UpdateResolverRuleRequest(); // UpdateResolverRuleRequest | 
+    String xAmzTarget = "OpsWorks_20130218.UpdateInstance"; // String | 
+    UpdateInstanceRequest updateInstanceRequest = new UpdateInstanceRequest(); // UpdateInstanceRequest | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
     String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
@@ -5784,10 +5911,9 @@ public class Example {
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
     try {
-      UpdateResolverRuleResponse result = apiInstance.updateResolverRule(xAmzTarget, updateResolverRuleRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
+      apiInstance.updateInstance(xAmzTarget, updateInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateResolverRule");
+      System.err.println("Exception when calling DefaultApi#updateInstance");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -5801,8 +5927,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **xAmzTarget** | **String**|  | [enum: Route53Resolver.UpdateResolverRule] |
-| **updateResolverRuleRequest** | [**UpdateResolverRuleRequest**](UpdateResolverRuleRequest.md)|  | |
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UpdateInstance] |
+| **updateInstanceRequest** | [**UpdateInstanceRequest**](UpdateInstanceRequest.md)|  | |
 | **xAmzContentSha256** | **String**|  | [optional] |
 | **xAmzDate** | **String**|  | [optional] |
 | **xAmzAlgorithm** | **String**|  | [optional] |
@@ -5813,7 +5939,7 @@ public class Example {
 
 ### Return type
 
-[**UpdateResolverRuleResponse**](UpdateResolverRuleResponse.md)
+null (empty response body)
 
 ### Authorization
 
@@ -5828,11 +5954,521 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **480** | InvalidRequestException |  -  |
-| **481** | InvalidParameterException |  -  |
-| **482** | ResourceNotFoundException |  -  |
-| **483** | ResourceUnavailableException |  -  |
-| **484** | LimitExceededException |  -  |
-| **485** | InternalServiceErrorException |  -  |
-| **486** | ThrottlingException |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="updateLayer"></a>
+# **updateLayer**
+> updateLayer(xAmzTarget, updateLayerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Updates a specified layer.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.UpdateLayer"; // String | 
+    UpdateLayerRequest updateLayerRequest = new UpdateLayerRequest(); // UpdateLayerRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.updateLayer(xAmzTarget, updateLayerRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateLayer");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UpdateLayer] |
+| **updateLayerRequest** | [**UpdateLayerRequest**](UpdateLayerRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="updateMyUserProfile"></a>
+# **updateMyUserProfile**
+> updateMyUserProfile(xAmzTarget, updateMyUserProfileRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Updates a user&#39;s SSH public key.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.UpdateMyUserProfile"; // String | 
+    UpdateMyUserProfileRequest updateMyUserProfileRequest = new UpdateMyUserProfileRequest(); // UpdateMyUserProfileRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.updateMyUserProfile(xAmzTarget, updateMyUserProfileRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateMyUserProfile");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UpdateMyUserProfile] |
+| **updateMyUserProfileRequest** | [**UpdateMyUserProfileRequest**](UpdateMyUserProfileRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+
+<a id="updateRdsDbInstance"></a>
+# **updateRdsDbInstance**
+> updateRdsDbInstance(xAmzTarget, updateRdsDbInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Updates an Amazon RDS instance.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.UpdateRdsDbInstance"; // String | 
+    UpdateRdsDbInstanceRequest updateRdsDbInstanceRequest = new UpdateRdsDbInstanceRequest(); // UpdateRdsDbInstanceRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.updateRdsDbInstance(xAmzTarget, updateRdsDbInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateRdsDbInstance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UpdateRdsDbInstance] |
+| **updateRdsDbInstanceRequest** | [**UpdateRdsDbInstanceRequest**](UpdateRdsDbInstanceRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="updateStack"></a>
+# **updateStack**
+> updateStack(xAmzTarget, updateStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Updates a specified stack.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.UpdateStack"; // String | 
+    UpdateStackRequest updateStackRequest = new UpdateStackRequest(); // UpdateStackRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.updateStack(xAmzTarget, updateStackRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateStack");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UpdateStack] |
+| **updateStackRequest** | [**UpdateStackRequest**](UpdateStackRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="updateUserProfile"></a>
+# **updateUserProfile**
+> updateUserProfile(xAmzTarget, updateUserProfileRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Updates a specified user profile.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information about user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.UpdateUserProfile"; // String | 
+    UpdateUserProfileRequest updateUserProfileRequest = new UpdateUserProfileRequest(); // UpdateUserProfileRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.updateUserProfile(xAmzTarget, updateUserProfileRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateUserProfile");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UpdateUserProfile] |
+| **updateUserProfileRequest** | [**UpdateUserProfileRequest**](UpdateUserProfileRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
+
+<a id="updateVolume"></a>
+# **updateVolume**
+> updateVolume(xAmzTarget, updateVolumeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders)
+
+
+
+&lt;p&gt;Updates an Amazon EBS volume&#39;s name or mount point. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html\&quot;&gt;Resource Management&lt;/a&gt;.&lt;/p&gt; &lt;p&gt; &lt;b&gt;Required Permissions&lt;/b&gt;: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html\&quot;&gt;Managing User Permissions&lt;/a&gt;.&lt;/p&gt;
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
+    
+    // Configure API key authorization: hmac
+    ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
+    hmac.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //hmac.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String xAmzTarget = "OpsWorks_20130218.UpdateVolume"; // String | 
+    UpdateVolumeRequest updateVolumeRequest = new UpdateVolumeRequest(); // UpdateVolumeRequest | 
+    String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
+    String xAmzDate = "xAmzDate_example"; // String | 
+    String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
+    String xAmzCredential = "xAmzCredential_example"; // String | 
+    String xAmzSecurityToken = "xAmzSecurityToken_example"; // String | 
+    String xAmzSignature = "xAmzSignature_example"; // String | 
+    String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
+    try {
+      apiInstance.updateVolume(xAmzTarget, updateVolumeRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateVolume");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **xAmzTarget** | **String**|  | [enum: OpsWorks_20130218.UpdateVolume] |
+| **updateVolumeRequest** | [**UpdateVolumeRequest**](UpdateVolumeRequest.md)|  | |
+| **xAmzContentSha256** | **String**|  | [optional] |
+| **xAmzDate** | **String**|  | [optional] |
+| **xAmzAlgorithm** | **String**|  | [optional] |
+| **xAmzCredential** | **String**|  | [optional] |
+| **xAmzSecurityToken** | **String**|  | [optional] |
+| **xAmzSignature** | **String**|  | [optional] |
+| **xAmzSignedHeaders** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[hmac](../README.md#hmac)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **480** | ValidationException |  -  |
+| **481** | ResourceNotFoundException |  -  |
 

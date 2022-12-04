@@ -2,13 +2,15 @@
 
 # DataSource
 
-Describes the data source that contains the data to upload to a dataset.
+Describes an app's data source.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dataLocation** | [**String**](String.md) |  |  [optional] |
+|**type** | [**String**](String.md) |  |  [optional] |
+|**arn** | [**String**](String.md) |  |  [optional] |
+|**databaseName** | [**String**](String.md) |  |  [optional] |
 
 
 

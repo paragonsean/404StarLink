@@ -5,19 +5,13 @@
 ## Enum
 
 
-* `CACHE_CLUSTER` (value: `"cache-cluster"`)
+* `GIT` (value: `"git"`)
 
-* `CACHE_PARAMETER_GROUP` (value: `"cache-parameter-group"`)
+* `SVN` (value: `"svn"`)
 
-* `CACHE_SECURITY_GROUP` (value: `"cache-security-group"`)
+* `ARCHIVE` (value: `"archive"`)
 
-* `CACHE_SUBNET_GROUP` (value: `"cache-subnet-group"`)
-
-* `REPLICATION_GROUP` (value: `"replication-group"`)
-
-* `USER` (value: `"user"`)
-
-* `USER_GROUP` (value: `"user-group"`)
+* `S3` (value: `"s3"`)
 
 
 

@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Amazon Route 53 Resolver
-- API version: 2018-04-01
-  - Build date: 2024-10-11T02:05:17.414717-04:00[America/New_York]
+AWS OpsWorks
+- API version: 2013-02-18
+  - Build date: 2024-10-11T02:05:31.623912-04:00[America/New_York]
   - Generator version: 7.9.0
 
-<p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC from Route 53 Resolver. By default, Resolver answers DNS queries for VPC domain names such as domain names for EC2 instances or Elastic Load Balancing load balancers. Resolver performs recursive lookups against public name servers for all other domain names.</p> <p>You can also configure DNS resolution between your VPC and your network over a Direct Connect or VPN connection:</p> <p> <b>Forward DNS queries from resolvers on your network to Route 53 Resolver</b> </p> <p>DNS resolvers on your network can forward DNS queries to Resolver in a specified VPC. This allows your DNS resolvers to easily resolve domain names for Amazon Web Services resources such as EC2 instances or records in a Route 53 private hosted zone. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-network-to-vpc\">How DNS Resolvers on Your Network Forward DNS Queries to Route 53 Resolver</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p> <b>Conditionally forward queries from a VPC to resolvers on your network</b> </p> <p>You can configure Resolver to forward queries that it receives from EC2 instances in your VPCs to DNS resolvers on your network. To forward selected queries, you create Resolver rules that specify the domain names for the DNS queries that you want to forward (such as example.com), and the IP addresses of the DNS resolvers on your network that you want to forward the queries to. If a query matches multiple rules (example.com, acme.example.com), Resolver chooses the rule with the most specific match (acme.example.com) and forwards the query to the IP addresses that you specified in that rule. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-vpc-to-network\">How Route 53 Resolver Forwards DNS Queries from Your VPCs to Your Network</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>Like Amazon VPC, Resolver is Regional. In each Region where you have VPCs, you can choose whether to forward queries from your VPCs to your network (outbound queries), from your network to your VPCs (inbound queries), or both.</p>
+<fullname>AWS OpsWorks</fullname> <p>Welcome to the <i>AWS OpsWorks Stacks API Reference</i>. This guide provides descriptions, syntax, and usage examples for AWS OpsWorks Stacks actions and data types, including common parameters and error codes. </p> <p>AWS OpsWorks Stacks is an application management service that provides an integrated experience for overseeing the complete application lifecycle. For information about this product, go to the <a href=\"http://aws.amazon.com/opsworks/\">AWS OpsWorks</a> details page. </p> <p> <b>SDKs and CLI</b> </p> <p>The most common way to use the AWS OpsWorks Stacks API is by using the AWS Command Line Interface (CLI) or by using one of the AWS SDKs to implement applications in your preferred language. For more information, see:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html\">AWS CLI</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html\">AWS SDK for Java</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm\">AWS SDK for .NET</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html\">AWS SDK for PHP 2</a> </p> </li> <li> <p> <a href=\"http://docs.aws.amazon.com/sdkforruby/api/\">AWS SDK for Ruby</a> </p> </li> <li> <p> <a href=\"http://aws.amazon.com/documentation/sdkforjavascript/\">AWS SDK for Node.js</a> </p> </li> <li> <p> <a href=\"http://docs.pythonboto.org/en/latest/ref/opsworks.html\">AWS SDK for Python(Boto)</a> </p> </li> </ul> <p> <b>Endpoints</b> </p> <p>AWS OpsWorks Stacks supports the following endpoints, all HTTPS. You must connect to one of the following endpoints. Stacks can only be accessed or managed within the endpoint in which they are created.</p> <ul> <li> <p>opsworks.us-east-1.amazonaws.com</p> </li> <li> <p>opsworks.us-east-2.amazonaws.com</p> </li> <li> <p>opsworks.us-west-1.amazonaws.com</p> </li> <li> <p>opsworks.us-west-2.amazonaws.com</p> </li> <li> <p>opsworks.ca-central-1.amazonaws.com (API only; not available in the AWS console)</p> </li> <li> <p>opsworks.eu-west-1.amazonaws.com</p> </li> <li> <p>opsworks.eu-west-2.amazonaws.com</p> </li> <li> <p>opsworks.eu-west-3.amazonaws.com</p> </li> <li> <p>opsworks.eu-central-1.amazonaws.com</p> </li> <li> <p>opsworks.ap-northeast-1.amazonaws.com</p> </li> <li> <p>opsworks.ap-northeast-2.amazonaws.com</p> </li> <li> <p>opsworks.ap-south-1.amazonaws.com</p> </li> <li> <p>opsworks.ap-southeast-1.amazonaws.com</p> </li> <li> <p>opsworks.ap-southeast-2.amazonaws.com</p> </li> <li> <p>opsworks.sa-east-1.amazonaws.com</p> </li> </ul> <p> <b>Chef Versions</b> </p> <p>When you call <a>CreateStack</a>, <a>CloneStack</a>, or <a>UpdateStack</a> we recommend you use the <code>ConfigurationManager</code> parameter to specify the Chef version. The recommended and default value for Linux stacks is currently 12. Windows stacks use Chef 12.2. For more information, see <a href=\"https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html\">Chef Versions</a>.</p> <note> <p>You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We recommend migrating your existing Linux stacks to Chef 12 as soon as possible.</p> </note>
 
   For more information, please visit [https://github.com/mermade/aws2openapi](https://github.com/mermade/aws2openapi)
 
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2018-04-01</version>
+  <version>2013-02-18</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -58,7 +58,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2018-04-01"
+     implementation "org.openapitools:openapi-java-client:2013-02-18"
   }
 ```
 
@@ -72,7 +72,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2018-04-01.jar`
+* `target/openapi-java-client-2013-02-18.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -92,7 +92,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://route53resolver.us-east-1.amazonaws.com");
+    defaultClient.setBasePath("http://opsworks.us-east-1.amazonaws.com");
     
     // Configure API key authorization: hmac
     ApiKeyAuth hmac = (ApiKeyAuth) defaultClient.getAuthentication("hmac");
@@ -101,8 +101,8 @@ public class Example {
     //hmac.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String xAmzTarget = "Route53Resolver.AssociateFirewallRuleGroup"; // String | 
-    AssociateFirewallRuleGroupRequest associateFirewallRuleGroupRequest = new AssociateFirewallRuleGroupRequest(); // AssociateFirewallRuleGroupRequest | 
+    String xAmzTarget = "OpsWorks_20130218.AssignInstance"; // String | 
+    AssignInstanceRequest assignInstanceRequest = new AssignInstanceRequest(); // AssignInstanceRequest | 
     String xAmzContentSha256 = "xAmzContentSha256_example"; // String | 
     String xAmzDate = "xAmzDate_example"; // String | 
     String xAmzAlgorithm = "xAmzAlgorithm_example"; // String | 
@@ -111,10 +111,9 @@ public class Example {
     String xAmzSignature = "xAmzSignature_example"; // String | 
     String xAmzSignedHeaders = "xAmzSignedHeaders_example"; // String | 
     try {
-      AssociateFirewallRuleGroupResponse result = apiInstance.associateFirewallRuleGroup(xAmzTarget, associateFirewallRuleGroupRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
-      System.out.println(result);
+      apiInstance.assignInstance(xAmzTarget, assignInstanceRequest, xAmzContentSha256, xAmzDate, xAmzAlgorithm, xAmzCredential, xAmzSecurityToken, xAmzSignature, xAmzSignedHeaders);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#associateFirewallRuleGroup");
+      System.err.println("Exception when calling DefaultApi#assignInstance");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -127,288 +126,287 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://route53resolver.us-east-1.amazonaws.com*
+All URIs are relative to *http://opsworks.us-east-1.amazonaws.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**associateFirewallRuleGroup**](docs/DefaultApi.md#associateFirewallRuleGroup) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.AssociateFirewallRuleGroup | 
-*DefaultApi* | [**associateResolverEndpointIpAddress**](docs/DefaultApi.md#associateResolverEndpointIpAddress) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.AssociateResolverEndpointIpAddress | 
-*DefaultApi* | [**associateResolverQueryLogConfig**](docs/DefaultApi.md#associateResolverQueryLogConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.AssociateResolverQueryLogConfig | 
-*DefaultApi* | [**associateResolverRule**](docs/DefaultApi.md#associateResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.AssociateResolverRule | 
-*DefaultApi* | [**createFirewallDomainList**](docs/DefaultApi.md#createFirewallDomainList) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateFirewallDomainList | 
-*DefaultApi* | [**createFirewallRule**](docs/DefaultApi.md#createFirewallRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateFirewallRule | 
-*DefaultApi* | [**createFirewallRuleGroup**](docs/DefaultApi.md#createFirewallRuleGroup) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateFirewallRuleGroup | 
-*DefaultApi* | [**createResolverEndpoint**](docs/DefaultApi.md#createResolverEndpoint) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateResolverEndpoint | 
-*DefaultApi* | [**createResolverQueryLogConfig**](docs/DefaultApi.md#createResolverQueryLogConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateResolverQueryLogConfig | 
-*DefaultApi* | [**createResolverRule**](docs/DefaultApi.md#createResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.CreateResolverRule | 
-*DefaultApi* | [**deleteFirewallDomainList**](docs/DefaultApi.md#deleteFirewallDomainList) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteFirewallDomainList | 
-*DefaultApi* | [**deleteFirewallRule**](docs/DefaultApi.md#deleteFirewallRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteFirewallRule | 
-*DefaultApi* | [**deleteFirewallRuleGroup**](docs/DefaultApi.md#deleteFirewallRuleGroup) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteFirewallRuleGroup | 
-*DefaultApi* | [**deleteResolverEndpoint**](docs/DefaultApi.md#deleteResolverEndpoint) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteResolverEndpoint | 
-*DefaultApi* | [**deleteResolverQueryLogConfig**](docs/DefaultApi.md#deleteResolverQueryLogConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteResolverQueryLogConfig | 
-*DefaultApi* | [**deleteResolverRule**](docs/DefaultApi.md#deleteResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DeleteResolverRule | 
-*DefaultApi* | [**disassociateFirewallRuleGroup**](docs/DefaultApi.md#disassociateFirewallRuleGroup) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DisassociateFirewallRuleGroup | 
-*DefaultApi* | [**disassociateResolverEndpointIpAddress**](docs/DefaultApi.md#disassociateResolverEndpointIpAddress) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DisassociateResolverEndpointIpAddress | 
-*DefaultApi* | [**disassociateResolverQueryLogConfig**](docs/DefaultApi.md#disassociateResolverQueryLogConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DisassociateResolverQueryLogConfig | 
-*DefaultApi* | [**disassociateResolverRule**](docs/DefaultApi.md#disassociateResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.DisassociateResolverRule | 
-*DefaultApi* | [**getFirewallConfig**](docs/DefaultApi.md#getFirewallConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetFirewallConfig | 
-*DefaultApi* | [**getFirewallDomainList**](docs/DefaultApi.md#getFirewallDomainList) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetFirewallDomainList | 
-*DefaultApi* | [**getFirewallRuleGroup**](docs/DefaultApi.md#getFirewallRuleGroup) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetFirewallRuleGroup | 
-*DefaultApi* | [**getFirewallRuleGroupAssociation**](docs/DefaultApi.md#getFirewallRuleGroupAssociation) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetFirewallRuleGroupAssociation | 
-*DefaultApi* | [**getFirewallRuleGroupPolicy**](docs/DefaultApi.md#getFirewallRuleGroupPolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetFirewallRuleGroupPolicy | 
-*DefaultApi* | [**getResolverConfig**](docs/DefaultApi.md#getResolverConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverConfig | 
-*DefaultApi* | [**getResolverDnssecConfig**](docs/DefaultApi.md#getResolverDnssecConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverDnssecConfig | 
-*DefaultApi* | [**getResolverEndpoint**](docs/DefaultApi.md#getResolverEndpoint) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverEndpoint | 
-*DefaultApi* | [**getResolverQueryLogConfig**](docs/DefaultApi.md#getResolverQueryLogConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverQueryLogConfig | 
-*DefaultApi* | [**getResolverQueryLogConfigAssociation**](docs/DefaultApi.md#getResolverQueryLogConfigAssociation) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverQueryLogConfigAssociation | 
-*DefaultApi* | [**getResolverQueryLogConfigPolicy**](docs/DefaultApi.md#getResolverQueryLogConfigPolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverQueryLogConfigPolicy | 
-*DefaultApi* | [**getResolverRule**](docs/DefaultApi.md#getResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverRule | 
-*DefaultApi* | [**getResolverRuleAssociation**](docs/DefaultApi.md#getResolverRuleAssociation) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverRuleAssociation | 
-*DefaultApi* | [**getResolverRulePolicy**](docs/DefaultApi.md#getResolverRulePolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.GetResolverRulePolicy | 
-*DefaultApi* | [**importFirewallDomains**](docs/DefaultApi.md#importFirewallDomains) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ImportFirewallDomains | 
-*DefaultApi* | [**listFirewallConfigs**](docs/DefaultApi.md#listFirewallConfigs) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallConfigs | 
-*DefaultApi* | [**listFirewallDomainLists**](docs/DefaultApi.md#listFirewallDomainLists) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallDomainLists | 
-*DefaultApi* | [**listFirewallDomains**](docs/DefaultApi.md#listFirewallDomains) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallDomains | 
-*DefaultApi* | [**listFirewallRuleGroupAssociations**](docs/DefaultApi.md#listFirewallRuleGroupAssociations) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallRuleGroupAssociations | 
-*DefaultApi* | [**listFirewallRuleGroups**](docs/DefaultApi.md#listFirewallRuleGroups) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallRuleGroups | 
-*DefaultApi* | [**listFirewallRules**](docs/DefaultApi.md#listFirewallRules) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListFirewallRules | 
-*DefaultApi* | [**listResolverConfigs**](docs/DefaultApi.md#listResolverConfigs) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverConfigs | 
-*DefaultApi* | [**listResolverDnssecConfigs**](docs/DefaultApi.md#listResolverDnssecConfigs) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverDnssecConfigs | 
-*DefaultApi* | [**listResolverEndpointIpAddresses**](docs/DefaultApi.md#listResolverEndpointIpAddresses) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverEndpointIpAddresses | 
-*DefaultApi* | [**listResolverEndpoints**](docs/DefaultApi.md#listResolverEndpoints) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverEndpoints | 
-*DefaultApi* | [**listResolverQueryLogConfigAssociations**](docs/DefaultApi.md#listResolverQueryLogConfigAssociations) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverQueryLogConfigAssociations | 
-*DefaultApi* | [**listResolverQueryLogConfigs**](docs/DefaultApi.md#listResolverQueryLogConfigs) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverQueryLogConfigs | 
-*DefaultApi* | [**listResolverRuleAssociations**](docs/DefaultApi.md#listResolverRuleAssociations) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverRuleAssociations | 
-*DefaultApi* | [**listResolverRules**](docs/DefaultApi.md#listResolverRules) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListResolverRules | 
-*DefaultApi* | [**listTagsForResource**](docs/DefaultApi.md#listTagsForResource) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.ListTagsForResource | 
-*DefaultApi* | [**putFirewallRuleGroupPolicy**](docs/DefaultApi.md#putFirewallRuleGroupPolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.PutFirewallRuleGroupPolicy | 
-*DefaultApi* | [**putResolverQueryLogConfigPolicy**](docs/DefaultApi.md#putResolverQueryLogConfigPolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.PutResolverQueryLogConfigPolicy | 
-*DefaultApi* | [**putResolverRulePolicy**](docs/DefaultApi.md#putResolverRulePolicy) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.PutResolverRulePolicy | 
-*DefaultApi* | [**tagResource**](docs/DefaultApi.md#tagResource) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.TagResource | 
-*DefaultApi* | [**untagResource**](docs/DefaultApi.md#untagResource) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UntagResource | 
-*DefaultApi* | [**updateFirewallConfig**](docs/DefaultApi.md#updateFirewallConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateFirewallConfig | 
-*DefaultApi* | [**updateFirewallDomains**](docs/DefaultApi.md#updateFirewallDomains) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateFirewallDomains | 
-*DefaultApi* | [**updateFirewallRule**](docs/DefaultApi.md#updateFirewallRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateFirewallRule | 
-*DefaultApi* | [**updateFirewallRuleGroupAssociation**](docs/DefaultApi.md#updateFirewallRuleGroupAssociation) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateFirewallRuleGroupAssociation | 
-*DefaultApi* | [**updateResolverConfig**](docs/DefaultApi.md#updateResolverConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateResolverConfig | 
-*DefaultApi* | [**updateResolverDnssecConfig**](docs/DefaultApi.md#updateResolverDnssecConfig) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateResolverDnssecConfig | 
-*DefaultApi* | [**updateResolverEndpoint**](docs/DefaultApi.md#updateResolverEndpoint) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateResolverEndpoint | 
-*DefaultApi* | [**updateResolverRule**](docs/DefaultApi.md#updateResolverRule) | **POST** /#X-Amz-Target&#x3D;Route53Resolver.UpdateResolverRule | 
+*DefaultApi* | [**assignInstance**](docs/DefaultApi.md#assignInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.AssignInstance | 
+*DefaultApi* | [**assignVolume**](docs/DefaultApi.md#assignVolume) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.AssignVolume | 
+*DefaultApi* | [**associateElasticIp**](docs/DefaultApi.md#associateElasticIp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.AssociateElasticIp | 
+*DefaultApi* | [**attachElasticLoadBalancer**](docs/DefaultApi.md#attachElasticLoadBalancer) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.AttachElasticLoadBalancer | 
+*DefaultApi* | [**cloneStack**](docs/DefaultApi.md#cloneStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CloneStack | 
+*DefaultApi* | [**createApp**](docs/DefaultApi.md#createApp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateApp | 
+*DefaultApi* | [**createDeployment**](docs/DefaultApi.md#createDeployment) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateDeployment | 
+*DefaultApi* | [**createInstance**](docs/DefaultApi.md#createInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateInstance | 
+*DefaultApi* | [**createLayer**](docs/DefaultApi.md#createLayer) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateLayer | 
+*DefaultApi* | [**createStack**](docs/DefaultApi.md#createStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateStack | 
+*DefaultApi* | [**createUserProfile**](docs/DefaultApi.md#createUserProfile) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.CreateUserProfile | 
+*DefaultApi* | [**deleteApp**](docs/DefaultApi.md#deleteApp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeleteApp | 
+*DefaultApi* | [**deleteInstance**](docs/DefaultApi.md#deleteInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeleteInstance | 
+*DefaultApi* | [**deleteLayer**](docs/DefaultApi.md#deleteLayer) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeleteLayer | 
+*DefaultApi* | [**deleteStack**](docs/DefaultApi.md#deleteStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeleteStack | 
+*DefaultApi* | [**deleteUserProfile**](docs/DefaultApi.md#deleteUserProfile) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeleteUserProfile | 
+*DefaultApi* | [**deregisterEcsCluster**](docs/DefaultApi.md#deregisterEcsCluster) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeregisterEcsCluster | 
+*DefaultApi* | [**deregisterElasticIp**](docs/DefaultApi.md#deregisterElasticIp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeregisterElasticIp | 
+*DefaultApi* | [**deregisterInstance**](docs/DefaultApi.md#deregisterInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeregisterInstance | 
+*DefaultApi* | [**deregisterRdsDbInstance**](docs/DefaultApi.md#deregisterRdsDbInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeregisterRdsDbInstance | 
+*DefaultApi* | [**deregisterVolume**](docs/DefaultApi.md#deregisterVolume) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DeregisterVolume | 
+*DefaultApi* | [**describeAgentVersions**](docs/DefaultApi.md#describeAgentVersions) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeAgentVersions | 
+*DefaultApi* | [**describeApps**](docs/DefaultApi.md#describeApps) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeApps | 
+*DefaultApi* | [**describeCommands**](docs/DefaultApi.md#describeCommands) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeCommands | 
+*DefaultApi* | [**describeDeployments**](docs/DefaultApi.md#describeDeployments) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeDeployments | 
+*DefaultApi* | [**describeEcsClusters**](docs/DefaultApi.md#describeEcsClusters) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeEcsClusters | 
+*DefaultApi* | [**describeElasticIps**](docs/DefaultApi.md#describeElasticIps) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeElasticIps | 
+*DefaultApi* | [**describeElasticLoadBalancers**](docs/DefaultApi.md#describeElasticLoadBalancers) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeElasticLoadBalancers | 
+*DefaultApi* | [**describeInstances**](docs/DefaultApi.md#describeInstances) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeInstances | 
+*DefaultApi* | [**describeLayers**](docs/DefaultApi.md#describeLayers) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeLayers | 
+*DefaultApi* | [**describeLoadBasedAutoScaling**](docs/DefaultApi.md#describeLoadBasedAutoScaling) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeLoadBasedAutoScaling | 
+*DefaultApi* | [**describeMyUserProfile**](docs/DefaultApi.md#describeMyUserProfile) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeMyUserProfile | 
+*DefaultApi* | [**describeOperatingSystems**](docs/DefaultApi.md#describeOperatingSystems) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeOperatingSystems | 
+*DefaultApi* | [**describePermissions**](docs/DefaultApi.md#describePermissions) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribePermissions | 
+*DefaultApi* | [**describeRaidArrays**](docs/DefaultApi.md#describeRaidArrays) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeRaidArrays | 
+*DefaultApi* | [**describeRdsDbInstances**](docs/DefaultApi.md#describeRdsDbInstances) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeRdsDbInstances | 
+*DefaultApi* | [**describeServiceErrors**](docs/DefaultApi.md#describeServiceErrors) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeServiceErrors | 
+*DefaultApi* | [**describeStackProvisioningParameters**](docs/DefaultApi.md#describeStackProvisioningParameters) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeStackProvisioningParameters | 
+*DefaultApi* | [**describeStackSummary**](docs/DefaultApi.md#describeStackSummary) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeStackSummary | 
+*DefaultApi* | [**describeStacks**](docs/DefaultApi.md#describeStacks) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeStacks | 
+*DefaultApi* | [**describeTimeBasedAutoScaling**](docs/DefaultApi.md#describeTimeBasedAutoScaling) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeTimeBasedAutoScaling | 
+*DefaultApi* | [**describeUserProfiles**](docs/DefaultApi.md#describeUserProfiles) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeUserProfiles | 
+*DefaultApi* | [**describeVolumes**](docs/DefaultApi.md#describeVolumes) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DescribeVolumes | 
+*DefaultApi* | [**detachElasticLoadBalancer**](docs/DefaultApi.md#detachElasticLoadBalancer) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DetachElasticLoadBalancer | 
+*DefaultApi* | [**disassociateElasticIp**](docs/DefaultApi.md#disassociateElasticIp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.DisassociateElasticIp | 
+*DefaultApi* | [**getHostnameSuggestion**](docs/DefaultApi.md#getHostnameSuggestion) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.GetHostnameSuggestion | 
+*DefaultApi* | [**grantAccess**](docs/DefaultApi.md#grantAccess) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.GrantAccess | 
+*DefaultApi* | [**listTags**](docs/DefaultApi.md#listTags) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.ListTags | 
+*DefaultApi* | [**rebootInstance**](docs/DefaultApi.md#rebootInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RebootInstance | 
+*DefaultApi* | [**registerEcsCluster**](docs/DefaultApi.md#registerEcsCluster) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RegisterEcsCluster | 
+*DefaultApi* | [**registerElasticIp**](docs/DefaultApi.md#registerElasticIp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RegisterElasticIp | 
+*DefaultApi* | [**registerInstance**](docs/DefaultApi.md#registerInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RegisterInstance | 
+*DefaultApi* | [**registerRdsDbInstance**](docs/DefaultApi.md#registerRdsDbInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RegisterRdsDbInstance | 
+*DefaultApi* | [**registerVolume**](docs/DefaultApi.md#registerVolume) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.RegisterVolume | 
+*DefaultApi* | [**setLoadBasedAutoScaling**](docs/DefaultApi.md#setLoadBasedAutoScaling) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.SetLoadBasedAutoScaling | 
+*DefaultApi* | [**setPermission**](docs/DefaultApi.md#setPermission) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.SetPermission | 
+*DefaultApi* | [**setTimeBasedAutoScaling**](docs/DefaultApi.md#setTimeBasedAutoScaling) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.SetTimeBasedAutoScaling | 
+*DefaultApi* | [**startInstance**](docs/DefaultApi.md#startInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.StartInstance | 
+*DefaultApi* | [**startStack**](docs/DefaultApi.md#startStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.StartStack | 
+*DefaultApi* | [**stopInstance**](docs/DefaultApi.md#stopInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.StopInstance | 
+*DefaultApi* | [**stopStack**](docs/DefaultApi.md#stopStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.StopStack | 
+*DefaultApi* | [**tagResource**](docs/DefaultApi.md#tagResource) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.TagResource | 
+*DefaultApi* | [**unassignInstance**](docs/DefaultApi.md#unassignInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UnassignInstance | 
+*DefaultApi* | [**unassignVolume**](docs/DefaultApi.md#unassignVolume) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UnassignVolume | 
+*DefaultApi* | [**untagResource**](docs/DefaultApi.md#untagResource) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UntagResource | 
+*DefaultApi* | [**updateApp**](docs/DefaultApi.md#updateApp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateApp | 
+*DefaultApi* | [**updateElasticIp**](docs/DefaultApi.md#updateElasticIp) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateElasticIp | 
+*DefaultApi* | [**updateInstance**](docs/DefaultApi.md#updateInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateInstance | 
+*DefaultApi* | [**updateLayer**](docs/DefaultApi.md#updateLayer) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateLayer | 
+*DefaultApi* | [**updateMyUserProfile**](docs/DefaultApi.md#updateMyUserProfile) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateMyUserProfile | 
+*DefaultApi* | [**updateRdsDbInstance**](docs/DefaultApi.md#updateRdsDbInstance) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateRdsDbInstance | 
+*DefaultApi* | [**updateStack**](docs/DefaultApi.md#updateStack) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateStack | 
+*DefaultApi* | [**updateUserProfile**](docs/DefaultApi.md#updateUserProfile) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateUserProfile | 
+*DefaultApi* | [**updateVolume**](docs/DefaultApi.md#updateVolume) | **POST** /#X-Amz-Target&#x3D;OpsWorks_20130218.UpdateVolume | 
 
 
 ## Documentation for Models
 
- - [Action](docs/Action.md)
- - [AssociateFirewallRuleGroupRequest](docs/AssociateFirewallRuleGroupRequest.md)
- - [AssociateFirewallRuleGroupResponse](docs/AssociateFirewallRuleGroupResponse.md)
- - [AssociateFirewallRuleGroupResponseFirewallRuleGroupAssociation](docs/AssociateFirewallRuleGroupResponseFirewallRuleGroupAssociation.md)
- - [AssociateResolverEndpointIpAddressRequest](docs/AssociateResolverEndpointIpAddressRequest.md)
- - [AssociateResolverEndpointIpAddressRequestIpAddress](docs/AssociateResolverEndpointIpAddressRequestIpAddress.md)
- - [AssociateResolverEndpointIpAddressResponse](docs/AssociateResolverEndpointIpAddressResponse.md)
- - [AssociateResolverEndpointIpAddressResponseResolverEndpoint](docs/AssociateResolverEndpointIpAddressResponseResolverEndpoint.md)
- - [AssociateResolverQueryLogConfigRequest](docs/AssociateResolverQueryLogConfigRequest.md)
- - [AssociateResolverQueryLogConfigResponse](docs/AssociateResolverQueryLogConfigResponse.md)
- - [AssociateResolverQueryLogConfigResponseResolverQueryLogConfigAssociation](docs/AssociateResolverQueryLogConfigResponseResolverQueryLogConfigAssociation.md)
- - [AssociateResolverRuleRequest](docs/AssociateResolverRuleRequest.md)
- - [AssociateResolverRuleResponse](docs/AssociateResolverRuleResponse.md)
- - [AssociateResolverRuleResponseResolverRuleAssociation](docs/AssociateResolverRuleResponseResolverRuleAssociation.md)
- - [AutodefinedReverseFlag](docs/AutodefinedReverseFlag.md)
- - [BlockOverrideDnsType](docs/BlockOverrideDnsType.md)
- - [BlockResponse](docs/BlockResponse.md)
- - [CreateFirewallDomainListRequest](docs/CreateFirewallDomainListRequest.md)
- - [CreateFirewallDomainListResponse](docs/CreateFirewallDomainListResponse.md)
- - [CreateFirewallDomainListResponseFirewallDomainList](docs/CreateFirewallDomainListResponseFirewallDomainList.md)
- - [CreateFirewallRuleGroupRequest](docs/CreateFirewallRuleGroupRequest.md)
- - [CreateFirewallRuleGroupResponse](docs/CreateFirewallRuleGroupResponse.md)
- - [CreateFirewallRuleGroupResponseFirewallRuleGroup](docs/CreateFirewallRuleGroupResponseFirewallRuleGroup.md)
- - [CreateFirewallRuleRequest](docs/CreateFirewallRuleRequest.md)
- - [CreateFirewallRuleResponse](docs/CreateFirewallRuleResponse.md)
- - [CreateFirewallRuleResponseFirewallRule](docs/CreateFirewallRuleResponseFirewallRule.md)
- - [CreateResolverEndpointRequest](docs/CreateResolverEndpointRequest.md)
- - [CreateResolverEndpointResponse](docs/CreateResolverEndpointResponse.md)
- - [CreateResolverEndpointResponseResolverEndpoint](docs/CreateResolverEndpointResponseResolverEndpoint.md)
- - [CreateResolverQueryLogConfigRequest](docs/CreateResolverQueryLogConfigRequest.md)
- - [CreateResolverQueryLogConfigResponse](docs/CreateResolverQueryLogConfigResponse.md)
- - [CreateResolverQueryLogConfigResponseResolverQueryLogConfig](docs/CreateResolverQueryLogConfigResponseResolverQueryLogConfig.md)
- - [CreateResolverRuleRequest](docs/CreateResolverRuleRequest.md)
- - [CreateResolverRuleResponse](docs/CreateResolverRuleResponse.md)
- - [CreateResolverRuleResponseResolverRule](docs/CreateResolverRuleResponseResolverRule.md)
- - [DeleteFirewallDomainListRequest](docs/DeleteFirewallDomainListRequest.md)
- - [DeleteFirewallDomainListResponse](docs/DeleteFirewallDomainListResponse.md)
- - [DeleteFirewallDomainListResponseFirewallDomainList](docs/DeleteFirewallDomainListResponseFirewallDomainList.md)
- - [DeleteFirewallRuleGroupRequest](docs/DeleteFirewallRuleGroupRequest.md)
- - [DeleteFirewallRuleGroupResponse](docs/DeleteFirewallRuleGroupResponse.md)
- - [DeleteFirewallRuleRequest](docs/DeleteFirewallRuleRequest.md)
- - [DeleteFirewallRuleResponse](docs/DeleteFirewallRuleResponse.md)
- - [DeleteFirewallRuleResponseFirewallRule](docs/DeleteFirewallRuleResponseFirewallRule.md)
- - [DeleteResolverEndpointRequest](docs/DeleteResolverEndpointRequest.md)
- - [DeleteResolverEndpointResponse](docs/DeleteResolverEndpointResponse.md)
- - [DeleteResolverEndpointResponseResolverEndpoint](docs/DeleteResolverEndpointResponseResolverEndpoint.md)
- - [DeleteResolverQueryLogConfigRequest](docs/DeleteResolverQueryLogConfigRequest.md)
- - [DeleteResolverQueryLogConfigResponse](docs/DeleteResolverQueryLogConfigResponse.md)
- - [DeleteResolverQueryLogConfigResponseResolverQueryLogConfig](docs/DeleteResolverQueryLogConfigResponseResolverQueryLogConfig.md)
- - [DeleteResolverRuleRequest](docs/DeleteResolverRuleRequest.md)
- - [DeleteResolverRuleResponse](docs/DeleteResolverRuleResponse.md)
- - [DeleteResolverRuleResponseResolverRule](docs/DeleteResolverRuleResponseResolverRule.md)
- - [DisassociateFirewallRuleGroupRequest](docs/DisassociateFirewallRuleGroupRequest.md)
- - [DisassociateFirewallRuleGroupResponse](docs/DisassociateFirewallRuleGroupResponse.md)
- - [DisassociateFirewallRuleGroupResponseFirewallRuleGroupAssociation](docs/DisassociateFirewallRuleGroupResponseFirewallRuleGroupAssociation.md)
- - [DisassociateResolverEndpointIpAddressRequest](docs/DisassociateResolverEndpointIpAddressRequest.md)
- - [DisassociateResolverEndpointIpAddressRequestIpAddress](docs/DisassociateResolverEndpointIpAddressRequestIpAddress.md)
- - [DisassociateResolverEndpointIpAddressResponse](docs/DisassociateResolverEndpointIpAddressResponse.md)
- - [DisassociateResolverEndpointIpAddressResponseResolverEndpoint](docs/DisassociateResolverEndpointIpAddressResponseResolverEndpoint.md)
- - [DisassociateResolverQueryLogConfigRequest](docs/DisassociateResolverQueryLogConfigRequest.md)
- - [DisassociateResolverQueryLogConfigResponse](docs/DisassociateResolverQueryLogConfigResponse.md)
- - [DisassociateResolverQueryLogConfigResponseResolverQueryLogConfigAssociation](docs/DisassociateResolverQueryLogConfigResponseResolverQueryLogConfigAssociation.md)
- - [DisassociateResolverRuleRequest](docs/DisassociateResolverRuleRequest.md)
- - [DisassociateResolverRuleResponse](docs/DisassociateResolverRuleResponse.md)
- - [DisassociateResolverRuleResponseResolverRuleAssociation](docs/DisassociateResolverRuleResponseResolverRuleAssociation.md)
- - [Filter](docs/Filter.md)
- - [FirewallConfig](docs/FirewallConfig.md)
- - [FirewallDomainImportOperation](docs/FirewallDomainImportOperation.md)
- - [FirewallDomainList](docs/FirewallDomainList.md)
- - [FirewallDomainListMetadata](docs/FirewallDomainListMetadata.md)
- - [FirewallDomainListStatus](docs/FirewallDomainListStatus.md)
- - [FirewallDomainUpdateOperation](docs/FirewallDomainUpdateOperation.md)
- - [FirewallFailOpenStatus](docs/FirewallFailOpenStatus.md)
- - [FirewallRule](docs/FirewallRule.md)
- - [FirewallRuleGroup](docs/FirewallRuleGroup.md)
- - [FirewallRuleGroupAssociation](docs/FirewallRuleGroupAssociation.md)
- - [FirewallRuleGroupAssociationStatus](docs/FirewallRuleGroupAssociationStatus.md)
- - [FirewallRuleGroupMetadata](docs/FirewallRuleGroupMetadata.md)
- - [FirewallRuleGroupStatus](docs/FirewallRuleGroupStatus.md)
- - [GetFirewallConfigRequest](docs/GetFirewallConfigRequest.md)
- - [GetFirewallConfigResponse](docs/GetFirewallConfigResponse.md)
- - [GetFirewallConfigResponseFirewallConfig](docs/GetFirewallConfigResponseFirewallConfig.md)
- - [GetFirewallDomainListRequest](docs/GetFirewallDomainListRequest.md)
- - [GetFirewallDomainListResponse](docs/GetFirewallDomainListResponse.md)
- - [GetFirewallDomainListResponseFirewallDomainList](docs/GetFirewallDomainListResponseFirewallDomainList.md)
- - [GetFirewallRuleGroupAssociationRequest](docs/GetFirewallRuleGroupAssociationRequest.md)
- - [GetFirewallRuleGroupAssociationResponse](docs/GetFirewallRuleGroupAssociationResponse.md)
- - [GetFirewallRuleGroupAssociationResponseFirewallRuleGroupAssociation](docs/GetFirewallRuleGroupAssociationResponseFirewallRuleGroupAssociation.md)
- - [GetFirewallRuleGroupPolicyRequest](docs/GetFirewallRuleGroupPolicyRequest.md)
- - [GetFirewallRuleGroupPolicyResponse](docs/GetFirewallRuleGroupPolicyResponse.md)
- - [GetFirewallRuleGroupRequest](docs/GetFirewallRuleGroupRequest.md)
- - [GetFirewallRuleGroupResponse](docs/GetFirewallRuleGroupResponse.md)
- - [GetResolverConfigRequest](docs/GetResolverConfigRequest.md)
- - [GetResolverConfigResponse](docs/GetResolverConfigResponse.md)
- - [GetResolverConfigResponseResolverConfig](docs/GetResolverConfigResponseResolverConfig.md)
- - [GetResolverDnssecConfigRequest](docs/GetResolverDnssecConfigRequest.md)
- - [GetResolverDnssecConfigResponse](docs/GetResolverDnssecConfigResponse.md)
- - [GetResolverDnssecConfigResponseResolverDNSSECConfig](docs/GetResolverDnssecConfigResponseResolverDNSSECConfig.md)
- - [GetResolverEndpointRequest](docs/GetResolverEndpointRequest.md)
- - [GetResolverEndpointResponse](docs/GetResolverEndpointResponse.md)
- - [GetResolverEndpointResponseResolverEndpoint](docs/GetResolverEndpointResponseResolverEndpoint.md)
- - [GetResolverQueryLogConfigAssociationRequest](docs/GetResolverQueryLogConfigAssociationRequest.md)
- - [GetResolverQueryLogConfigAssociationResponse](docs/GetResolverQueryLogConfigAssociationResponse.md)
- - [GetResolverQueryLogConfigAssociationResponseResolverQueryLogConfigAssociation](docs/GetResolverQueryLogConfigAssociationResponseResolverQueryLogConfigAssociation.md)
- - [GetResolverQueryLogConfigPolicyRequest](docs/GetResolverQueryLogConfigPolicyRequest.md)
- - [GetResolverQueryLogConfigPolicyResponse](docs/GetResolverQueryLogConfigPolicyResponse.md)
- - [GetResolverQueryLogConfigRequest](docs/GetResolverQueryLogConfigRequest.md)
- - [GetResolverQueryLogConfigResponse](docs/GetResolverQueryLogConfigResponse.md)
- - [GetResolverQueryLogConfigResponseResolverQueryLogConfig](docs/GetResolverQueryLogConfigResponseResolverQueryLogConfig.md)
- - [GetResolverRuleAssociationRequest](docs/GetResolverRuleAssociationRequest.md)
- - [GetResolverRuleAssociationResponse](docs/GetResolverRuleAssociationResponse.md)
- - [GetResolverRuleAssociationResponseResolverRuleAssociation](docs/GetResolverRuleAssociationResponseResolverRuleAssociation.md)
- - [GetResolverRulePolicyRequest](docs/GetResolverRulePolicyRequest.md)
- - [GetResolverRulePolicyResponse](docs/GetResolverRulePolicyResponse.md)
- - [GetResolverRuleRequest](docs/GetResolverRuleRequest.md)
- - [GetResolverRuleResponse](docs/GetResolverRuleResponse.md)
- - [GetResolverRuleResponseResolverRule](docs/GetResolverRuleResponseResolverRule.md)
- - [ImportFirewallDomainsRequest](docs/ImportFirewallDomainsRequest.md)
- - [ImportFirewallDomainsResponse](docs/ImportFirewallDomainsResponse.md)
- - [IpAddressRequest](docs/IpAddressRequest.md)
- - [IpAddressResponse](docs/IpAddressResponse.md)
- - [IpAddressStatus](docs/IpAddressStatus.md)
- - [IpAddressUpdate](docs/IpAddressUpdate.md)
- - [ListFirewallConfigsRequest](docs/ListFirewallConfigsRequest.md)
- - [ListFirewallConfigsResponse](docs/ListFirewallConfigsResponse.md)
- - [ListFirewallDomainListsRequest](docs/ListFirewallDomainListsRequest.md)
- - [ListFirewallDomainListsResponse](docs/ListFirewallDomainListsResponse.md)
- - [ListFirewallDomainsRequest](docs/ListFirewallDomainsRequest.md)
- - [ListFirewallDomainsResponse](docs/ListFirewallDomainsResponse.md)
- - [ListFirewallRuleGroupAssociationsRequest](docs/ListFirewallRuleGroupAssociationsRequest.md)
- - [ListFirewallRuleGroupAssociationsResponse](docs/ListFirewallRuleGroupAssociationsResponse.md)
- - [ListFirewallRuleGroupsRequest](docs/ListFirewallRuleGroupsRequest.md)
- - [ListFirewallRuleGroupsResponse](docs/ListFirewallRuleGroupsResponse.md)
- - [ListFirewallRulesRequest](docs/ListFirewallRulesRequest.md)
- - [ListFirewallRulesResponse](docs/ListFirewallRulesResponse.md)
- - [ListResolverConfigsRequest](docs/ListResolverConfigsRequest.md)
- - [ListResolverConfigsResponse](docs/ListResolverConfigsResponse.md)
- - [ListResolverDnssecConfigsRequest](docs/ListResolverDnssecConfigsRequest.md)
- - [ListResolverDnssecConfigsResponse](docs/ListResolverDnssecConfigsResponse.md)
- - [ListResolverEndpointIpAddressesRequest](docs/ListResolverEndpointIpAddressesRequest.md)
- - [ListResolverEndpointIpAddressesResponse](docs/ListResolverEndpointIpAddressesResponse.md)
- - [ListResolverEndpointsRequest](docs/ListResolverEndpointsRequest.md)
- - [ListResolverEndpointsResponse](docs/ListResolverEndpointsResponse.md)
- - [ListResolverQueryLogConfigAssociationsRequest](docs/ListResolverQueryLogConfigAssociationsRequest.md)
- - [ListResolverQueryLogConfigAssociationsResponse](docs/ListResolverQueryLogConfigAssociationsResponse.md)
- - [ListResolverQueryLogConfigsRequest](docs/ListResolverQueryLogConfigsRequest.md)
- - [ListResolverQueryLogConfigsResponse](docs/ListResolverQueryLogConfigsResponse.md)
- - [ListResolverRuleAssociationsRequest](docs/ListResolverRuleAssociationsRequest.md)
- - [ListResolverRuleAssociationsResponse](docs/ListResolverRuleAssociationsResponse.md)
- - [ListResolverRulesRequest](docs/ListResolverRulesRequest.md)
- - [ListResolverRulesResponse](docs/ListResolverRulesResponse.md)
- - [ListTagsForResourceRequest](docs/ListTagsForResourceRequest.md)
- - [ListTagsForResourceResponse](docs/ListTagsForResourceResponse.md)
- - [MutationProtectionStatus](docs/MutationProtectionStatus.md)
- - [PutFirewallRuleGroupPolicyRequest](docs/PutFirewallRuleGroupPolicyRequest.md)
- - [PutFirewallRuleGroupPolicyResponse](docs/PutFirewallRuleGroupPolicyResponse.md)
- - [PutResolverQueryLogConfigPolicyRequest](docs/PutResolverQueryLogConfigPolicyRequest.md)
- - [PutResolverQueryLogConfigPolicyResponse](docs/PutResolverQueryLogConfigPolicyResponse.md)
- - [PutResolverRulePolicyRequest](docs/PutResolverRulePolicyRequest.md)
- - [PutResolverRulePolicyResponse](docs/PutResolverRulePolicyResponse.md)
- - [ResolverAutodefinedReverseStatus](docs/ResolverAutodefinedReverseStatus.md)
- - [ResolverConfig](docs/ResolverConfig.md)
- - [ResolverDNSSECValidationStatus](docs/ResolverDNSSECValidationStatus.md)
- - [ResolverDnssecConfig](docs/ResolverDnssecConfig.md)
- - [ResolverEndpoint](docs/ResolverEndpoint.md)
- - [ResolverEndpointDirection](docs/ResolverEndpointDirection.md)
- - [ResolverEndpointStatus](docs/ResolverEndpointStatus.md)
- - [ResolverEndpointType](docs/ResolverEndpointType.md)
- - [ResolverQueryLogConfig](docs/ResolverQueryLogConfig.md)
- - [ResolverQueryLogConfigAssociation](docs/ResolverQueryLogConfigAssociation.md)
- - [ResolverQueryLogConfigAssociationError](docs/ResolverQueryLogConfigAssociationError.md)
- - [ResolverQueryLogConfigAssociationStatus](docs/ResolverQueryLogConfigAssociationStatus.md)
- - [ResolverQueryLogConfigStatus](docs/ResolverQueryLogConfigStatus.md)
- - [ResolverRule](docs/ResolverRule.md)
- - [ResolverRuleAssociation](docs/ResolverRuleAssociation.md)
- - [ResolverRuleAssociationStatus](docs/ResolverRuleAssociationStatus.md)
- - [ResolverRuleConfig](docs/ResolverRuleConfig.md)
- - [ResolverRuleStatus](docs/ResolverRuleStatus.md)
- - [RuleTypeOption](docs/RuleTypeOption.md)
- - [ShareStatus](docs/ShareStatus.md)
- - [SortOrder](docs/SortOrder.md)
- - [Tag](docs/Tag.md)
+ - [AgentVersion](docs/AgentVersion.md)
+ - [App](docs/App.md)
+ - [AppAppSource](docs/AppAppSource.md)
+ - [AppAttributesKeys](docs/AppAttributesKeys.md)
+ - [AppType](docs/AppType.md)
+ - [Architecture](docs/Architecture.md)
+ - [AssignInstanceRequest](docs/AssignInstanceRequest.md)
+ - [AssignVolumeRequest](docs/AssignVolumeRequest.md)
+ - [AssociateElasticIpRequest](docs/AssociateElasticIpRequest.md)
+ - [AttachElasticLoadBalancerRequest](docs/AttachElasticLoadBalancerRequest.md)
+ - [AutoScalingThresholds](docs/AutoScalingThresholds.md)
+ - [AutoScalingType](docs/AutoScalingType.md)
+ - [BlockDeviceMapping](docs/BlockDeviceMapping.md)
+ - [BlockDeviceMappingEbs](docs/BlockDeviceMappingEbs.md)
+ - [ChefConfiguration](docs/ChefConfiguration.md)
+ - [CloneStackRequest](docs/CloneStackRequest.md)
+ - [CloneStackRequestChefConfiguration](docs/CloneStackRequestChefConfiguration.md)
+ - [CloneStackRequestConfigurationManager](docs/CloneStackRequestConfigurationManager.md)
+ - [CloneStackRequestCustomCookbooksSource](docs/CloneStackRequestCustomCookbooksSource.md)
+ - [CloneStackResult](docs/CloneStackResult.md)
+ - [CloudWatchLogsConfiguration](docs/CloudWatchLogsConfiguration.md)
+ - [CloudWatchLogsEncoding](docs/CloudWatchLogsEncoding.md)
+ - [CloudWatchLogsInitialPosition](docs/CloudWatchLogsInitialPosition.md)
+ - [CloudWatchLogsLogStream](docs/CloudWatchLogsLogStream.md)
+ - [CloudWatchLogsTimeZone](docs/CloudWatchLogsTimeZone.md)
+ - [Command](docs/Command.md)
+ - [CreateAppRequest](docs/CreateAppRequest.md)
+ - [CreateAppRequestAppSource](docs/CreateAppRequestAppSource.md)
+ - [CreateAppRequestSslConfiguration](docs/CreateAppRequestSslConfiguration.md)
+ - [CreateAppResult](docs/CreateAppResult.md)
+ - [CreateDeploymentRequest](docs/CreateDeploymentRequest.md)
+ - [CreateDeploymentRequestCommand](docs/CreateDeploymentRequestCommand.md)
+ - [CreateDeploymentResult](docs/CreateDeploymentResult.md)
+ - [CreateInstanceRequest](docs/CreateInstanceRequest.md)
+ - [CreateInstanceResult](docs/CreateInstanceResult.md)
+ - [CreateLayerRequest](docs/CreateLayerRequest.md)
+ - [CreateLayerRequestCloudWatchLogsConfiguration](docs/CreateLayerRequestCloudWatchLogsConfiguration.md)
+ - [CreateLayerRequestCustomRecipes](docs/CreateLayerRequestCustomRecipes.md)
+ - [CreateLayerRequestLifecycleEventConfiguration](docs/CreateLayerRequestLifecycleEventConfiguration.md)
+ - [CreateLayerResult](docs/CreateLayerResult.md)
+ - [CreateStackRequest](docs/CreateStackRequest.md)
+ - [CreateStackRequestConfigurationManager](docs/CreateStackRequestConfigurationManager.md)
+ - [CreateStackResult](docs/CreateStackResult.md)
+ - [CreateUserProfileRequest](docs/CreateUserProfileRequest.md)
+ - [CreateUserProfileResult](docs/CreateUserProfileResult.md)
+ - [DataSource](docs/DataSource.md)
+ - [DeleteAppRequest](docs/DeleteAppRequest.md)
+ - [DeleteInstanceRequest](docs/DeleteInstanceRequest.md)
+ - [DeleteLayerRequest](docs/DeleteLayerRequest.md)
+ - [DeleteStackRequest](docs/DeleteStackRequest.md)
+ - [DeleteUserProfileRequest](docs/DeleteUserProfileRequest.md)
+ - [Deployment](docs/Deployment.md)
+ - [DeploymentCommand](docs/DeploymentCommand.md)
+ - [DeploymentCommandName](docs/DeploymentCommandName.md)
+ - [DeregisterEcsClusterRequest](docs/DeregisterEcsClusterRequest.md)
+ - [DeregisterElasticIpRequest](docs/DeregisterElasticIpRequest.md)
+ - [DeregisterInstanceRequest](docs/DeregisterInstanceRequest.md)
+ - [DeregisterRdsDbInstanceRequest](docs/DeregisterRdsDbInstanceRequest.md)
+ - [DeregisterVolumeRequest](docs/DeregisterVolumeRequest.md)
+ - [DescribeAgentVersionsRequest](docs/DescribeAgentVersionsRequest.md)
+ - [DescribeAgentVersionsRequestConfigurationManager](docs/DescribeAgentVersionsRequestConfigurationManager.md)
+ - [DescribeAgentVersionsResult](docs/DescribeAgentVersionsResult.md)
+ - [DescribeAppsRequest](docs/DescribeAppsRequest.md)
+ - [DescribeAppsResult](docs/DescribeAppsResult.md)
+ - [DescribeCommandsRequest](docs/DescribeCommandsRequest.md)
+ - [DescribeCommandsResult](docs/DescribeCommandsResult.md)
+ - [DescribeDeploymentsRequest](docs/DescribeDeploymentsRequest.md)
+ - [DescribeDeploymentsResult](docs/DescribeDeploymentsResult.md)
+ - [DescribeEcsClustersRequest](docs/DescribeEcsClustersRequest.md)
+ - [DescribeEcsClustersResult](docs/DescribeEcsClustersResult.md)
+ - [DescribeElasticIpsRequest](docs/DescribeElasticIpsRequest.md)
+ - [DescribeElasticIpsResult](docs/DescribeElasticIpsResult.md)
+ - [DescribeElasticLoadBalancersRequest](docs/DescribeElasticLoadBalancersRequest.md)
+ - [DescribeElasticLoadBalancersResult](docs/DescribeElasticLoadBalancersResult.md)
+ - [DescribeInstancesRequest](docs/DescribeInstancesRequest.md)
+ - [DescribeInstancesResult](docs/DescribeInstancesResult.md)
+ - [DescribeLayersRequest](docs/DescribeLayersRequest.md)
+ - [DescribeLayersResult](docs/DescribeLayersResult.md)
+ - [DescribeLoadBasedAutoScalingRequest](docs/DescribeLoadBasedAutoScalingRequest.md)
+ - [DescribeLoadBasedAutoScalingResult](docs/DescribeLoadBasedAutoScalingResult.md)
+ - [DescribeMyUserProfileResult](docs/DescribeMyUserProfileResult.md)
+ - [DescribeMyUserProfileResultUserProfile](docs/DescribeMyUserProfileResultUserProfile.md)
+ - [DescribeOperatingSystemsResponse](docs/DescribeOperatingSystemsResponse.md)
+ - [DescribePermissionsRequest](docs/DescribePermissionsRequest.md)
+ - [DescribePermissionsResult](docs/DescribePermissionsResult.md)
+ - [DescribeRaidArraysRequest](docs/DescribeRaidArraysRequest.md)
+ - [DescribeRaidArraysResult](docs/DescribeRaidArraysResult.md)
+ - [DescribeRdsDbInstancesRequest](docs/DescribeRdsDbInstancesRequest.md)
+ - [DescribeRdsDbInstancesResult](docs/DescribeRdsDbInstancesResult.md)
+ - [DescribeServiceErrorsRequest](docs/DescribeServiceErrorsRequest.md)
+ - [DescribeServiceErrorsResult](docs/DescribeServiceErrorsResult.md)
+ - [DescribeStackProvisioningParametersRequest](docs/DescribeStackProvisioningParametersRequest.md)
+ - [DescribeStackProvisioningParametersResult](docs/DescribeStackProvisioningParametersResult.md)
+ - [DescribeStackSummaryRequest](docs/DescribeStackSummaryRequest.md)
+ - [DescribeStackSummaryResult](docs/DescribeStackSummaryResult.md)
+ - [DescribeStackSummaryResultStackSummary](docs/DescribeStackSummaryResultStackSummary.md)
+ - [DescribeStacksRequest](docs/DescribeStacksRequest.md)
+ - [DescribeStacksResult](docs/DescribeStacksResult.md)
+ - [DescribeTimeBasedAutoScalingRequest](docs/DescribeTimeBasedAutoScalingRequest.md)
+ - [DescribeTimeBasedAutoScalingResult](docs/DescribeTimeBasedAutoScalingResult.md)
+ - [DescribeUserProfilesRequest](docs/DescribeUserProfilesRequest.md)
+ - [DescribeUserProfilesResult](docs/DescribeUserProfilesResult.md)
+ - [DescribeVolumesRequest](docs/DescribeVolumesRequest.md)
+ - [DescribeVolumesResult](docs/DescribeVolumesResult.md)
+ - [DetachElasticLoadBalancerRequest](docs/DetachElasticLoadBalancerRequest.md)
+ - [DisassociateElasticIpRequest](docs/DisassociateElasticIpRequest.md)
+ - [EbsBlockDevice](docs/EbsBlockDevice.md)
+ - [EcsCluster](docs/EcsCluster.md)
+ - [ElasticIp](docs/ElasticIp.md)
+ - [ElasticLoadBalancer](docs/ElasticLoadBalancer.md)
+ - [EnvironmentVariable](docs/EnvironmentVariable.md)
+ - [GetHostnameSuggestionRequest](docs/GetHostnameSuggestionRequest.md)
+ - [GetHostnameSuggestionResult](docs/GetHostnameSuggestionResult.md)
+ - [GrantAccessRequest](docs/GrantAccessRequest.md)
+ - [GrantAccessResult](docs/GrantAccessResult.md)
+ - [GrantAccessResultTemporaryCredential](docs/GrantAccessResultTemporaryCredential.md)
+ - [Instance](docs/Instance.md)
+ - [InstanceIdentity](docs/InstanceIdentity.md)
+ - [InstanceReportedOs](docs/InstanceReportedOs.md)
+ - [InstancesCount](docs/InstancesCount.md)
+ - [Layer](docs/Layer.md)
+ - [LayerAttributesKeys](docs/LayerAttributesKeys.md)
+ - [LayerCloudWatchLogsConfiguration](docs/LayerCloudWatchLogsConfiguration.md)
+ - [LayerDefaultRecipes](docs/LayerDefaultRecipes.md)
+ - [LayerLifecycleEventConfiguration](docs/LayerLifecycleEventConfiguration.md)
+ - [LayerType](docs/LayerType.md)
+ - [LifecycleEventConfiguration](docs/LifecycleEventConfiguration.md)
+ - [LifecycleEventConfigurationShutdown](docs/LifecycleEventConfigurationShutdown.md)
+ - [ListTagsRequest](docs/ListTagsRequest.md)
+ - [ListTagsResult](docs/ListTagsResult.md)
+ - [LoadBasedAutoScalingConfiguration](docs/LoadBasedAutoScalingConfiguration.md)
+ - [LoadBasedAutoScalingConfigurationDownScaling](docs/LoadBasedAutoScalingConfigurationDownScaling.md)
+ - [LoadBasedAutoScalingConfigurationUpScaling](docs/LoadBasedAutoScalingConfigurationUpScaling.md)
+ - [OperatingSystem](docs/OperatingSystem.md)
+ - [OperatingSystemConfigurationManager](docs/OperatingSystemConfigurationManager.md)
+ - [Permission](docs/Permission.md)
+ - [RaidArray](docs/RaidArray.md)
+ - [RdsDbInstance](docs/RdsDbInstance.md)
+ - [RebootInstanceRequest](docs/RebootInstanceRequest.md)
+ - [Recipes](docs/Recipes.md)
+ - [RegisterEcsClusterRequest](docs/RegisterEcsClusterRequest.md)
+ - [RegisterEcsClusterResult](docs/RegisterEcsClusterResult.md)
+ - [RegisterElasticIpRequest](docs/RegisterElasticIpRequest.md)
+ - [RegisterElasticIpResult](docs/RegisterElasticIpResult.md)
+ - [RegisterInstanceRequest](docs/RegisterInstanceRequest.md)
+ - [RegisterInstanceRequestInstanceIdentity](docs/RegisterInstanceRequestInstanceIdentity.md)
+ - [RegisterInstanceResult](docs/RegisterInstanceResult.md)
+ - [RegisterRdsDbInstanceRequest](docs/RegisterRdsDbInstanceRequest.md)
+ - [RegisterVolumeRequest](docs/RegisterVolumeRequest.md)
+ - [RegisterVolumeResult](docs/RegisterVolumeResult.md)
+ - [ReportedOs](docs/ReportedOs.md)
+ - [RootDeviceType](docs/RootDeviceType.md)
+ - [SelfUserProfile](docs/SelfUserProfile.md)
+ - [ServiceError](docs/ServiceError.md)
+ - [SetLoadBasedAutoScalingRequest](docs/SetLoadBasedAutoScalingRequest.md)
+ - [SetLoadBasedAutoScalingRequestDownScaling](docs/SetLoadBasedAutoScalingRequestDownScaling.md)
+ - [SetLoadBasedAutoScalingRequestUpScaling](docs/SetLoadBasedAutoScalingRequestUpScaling.md)
+ - [SetPermissionRequest](docs/SetPermissionRequest.md)
+ - [SetTimeBasedAutoScalingRequest](docs/SetTimeBasedAutoScalingRequest.md)
+ - [SetTimeBasedAutoScalingRequestAutoScalingSchedule](docs/SetTimeBasedAutoScalingRequestAutoScalingSchedule.md)
+ - [ShutdownEventConfiguration](docs/ShutdownEventConfiguration.md)
+ - [Source](docs/Source.md)
+ - [SourceType](docs/SourceType.md)
+ - [SslConfiguration](docs/SslConfiguration.md)
+ - [Stack](docs/Stack.md)
+ - [StackAttributesKeys](docs/StackAttributesKeys.md)
+ - [StackChefConfiguration](docs/StackChefConfiguration.md)
+ - [StackConfigurationManager](docs/StackConfigurationManager.md)
+ - [StackSummary](docs/StackSummary.md)
+ - [StackSummaryInstancesCount](docs/StackSummaryInstancesCount.md)
+ - [StartInstanceRequest](docs/StartInstanceRequest.md)
+ - [StartStackRequest](docs/StartStackRequest.md)
+ - [StopInstanceRequest](docs/StopInstanceRequest.md)
+ - [StopStackRequest](docs/StopStackRequest.md)
  - [TagResourceRequest](docs/TagResourceRequest.md)
- - [TargetAddress](docs/TargetAddress.md)
+ - [TemporaryCredential](docs/TemporaryCredential.md)
+ - [TimeBasedAutoScalingConfiguration](docs/TimeBasedAutoScalingConfiguration.md)
+ - [TimeBasedAutoScalingConfigurationAutoScalingSchedule](docs/TimeBasedAutoScalingConfigurationAutoScalingSchedule.md)
+ - [UnassignInstanceRequest](docs/UnassignInstanceRequest.md)
+ - [UnassignVolumeRequest](docs/UnassignVolumeRequest.md)
  - [UntagResourceRequest](docs/UntagResourceRequest.md)
- - [UpdateFirewallConfigRequest](docs/UpdateFirewallConfigRequest.md)
- - [UpdateFirewallConfigResponse](docs/UpdateFirewallConfigResponse.md)
- - [UpdateFirewallConfigResponseFirewallConfig](docs/UpdateFirewallConfigResponseFirewallConfig.md)
- - [UpdateFirewallDomainsRequest](docs/UpdateFirewallDomainsRequest.md)
- - [UpdateFirewallDomainsResponse](docs/UpdateFirewallDomainsResponse.md)
- - [UpdateFirewallRuleGroupAssociationRequest](docs/UpdateFirewallRuleGroupAssociationRequest.md)
- - [UpdateFirewallRuleGroupAssociationResponse](docs/UpdateFirewallRuleGroupAssociationResponse.md)
- - [UpdateFirewallRuleGroupAssociationResponseFirewallRuleGroupAssociation](docs/UpdateFirewallRuleGroupAssociationResponseFirewallRuleGroupAssociation.md)
- - [UpdateFirewallRuleRequest](docs/UpdateFirewallRuleRequest.md)
- - [UpdateFirewallRuleResponse](docs/UpdateFirewallRuleResponse.md)
- - [UpdateFirewallRuleResponseFirewallRule](docs/UpdateFirewallRuleResponseFirewallRule.md)
- - [UpdateIpAddress](docs/UpdateIpAddress.md)
- - [UpdateResolverConfigRequest](docs/UpdateResolverConfigRequest.md)
- - [UpdateResolverConfigResponse](docs/UpdateResolverConfigResponse.md)
- - [UpdateResolverConfigResponseResolverConfig](docs/UpdateResolverConfigResponseResolverConfig.md)
- - [UpdateResolverDnssecConfigRequest](docs/UpdateResolverDnssecConfigRequest.md)
- - [UpdateResolverDnssecConfigResponse](docs/UpdateResolverDnssecConfigResponse.md)
- - [UpdateResolverDnssecConfigResponseResolverDNSSECConfig](docs/UpdateResolverDnssecConfigResponseResolverDNSSECConfig.md)
- - [UpdateResolverEndpointRequest](docs/UpdateResolverEndpointRequest.md)
- - [UpdateResolverEndpointResponse](docs/UpdateResolverEndpointResponse.md)
- - [UpdateResolverEndpointResponseResolverEndpoint](docs/UpdateResolverEndpointResponseResolverEndpoint.md)
- - [UpdateResolverRuleRequest](docs/UpdateResolverRuleRequest.md)
- - [UpdateResolverRuleRequestConfig](docs/UpdateResolverRuleRequestConfig.md)
- - [UpdateResolverRuleResponse](docs/UpdateResolverRuleResponse.md)
- - [UpdateResolverRuleResponseResolverRule](docs/UpdateResolverRuleResponseResolverRule.md)
- - [Validation](docs/Validation.md)
+ - [UpdateAppRequest](docs/UpdateAppRequest.md)
+ - [UpdateElasticIpRequest](docs/UpdateElasticIpRequest.md)
+ - [UpdateInstanceRequest](docs/UpdateInstanceRequest.md)
+ - [UpdateLayerRequest](docs/UpdateLayerRequest.md)
+ - [UpdateLayerRequestCustomRecipes](docs/UpdateLayerRequestCustomRecipes.md)
+ - [UpdateLayerRequestLifecycleEventConfiguration](docs/UpdateLayerRequestLifecycleEventConfiguration.md)
+ - [UpdateMyUserProfileRequest](docs/UpdateMyUserProfileRequest.md)
+ - [UpdateRdsDbInstanceRequest](docs/UpdateRdsDbInstanceRequest.md)
+ - [UpdateStackRequest](docs/UpdateStackRequest.md)
+ - [UpdateStackRequestConfigurationManager](docs/UpdateStackRequestConfigurationManager.md)
+ - [UpdateUserProfileRequest](docs/UpdateUserProfileRequest.md)
+ - [UpdateVolumeRequest](docs/UpdateVolumeRequest.md)
+ - [UserProfile](docs/UserProfile.md)
+ - [VirtualizationType](docs/VirtualizationType.md)
+ - [Volume](docs/Volume.md)
+ - [VolumeConfiguration](docs/VolumeConfiguration.md)
+ - [VolumeType](docs/VolumeType.md)
+ - [WeeklyAutoScalingSchedule](docs/WeeklyAutoScalingSchedule.md)
 
 
 <a id="documentation-for-authorization"></a>
