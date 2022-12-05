@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A registered instance&#39;s reported operating system.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:31.585098-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:36.435440-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ReportedOs {
   public static final String SERIALIZED_NAME_FAMILY = "Family";
   @SerializedName(SERIALIZED_NAME_FAMILY)

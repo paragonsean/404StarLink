@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes an Amazon EBS volume. This data type maps directly to the Amazon EC2 &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html\&quot;&gt;EbsBlockDevice&lt;/a&gt; data type.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:31.585098-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:36.435440-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class EbsBlockDevice {
   public static final String SERIALIZED_NAME_SNAPSHOT_ID = "SnapshotId";
   @SerializedName(SERIALIZED_NAME_SNAPSHOT_ID)

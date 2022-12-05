@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;AWS OpsWorks Stacks supports five lifecycle events: &lt;b&gt;setup&lt;/b&gt;, &lt;b&gt;configuration&lt;/b&gt;, &lt;b&gt;deploy&lt;/b&gt;, &lt;b&gt;undeploy&lt;/b&gt;, and &lt;b&gt;shutdown&lt;/b&gt;. For each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event. In addition, you can provide custom recipes for any or all layers and events. AWS OpsWorks Stacks runs custom event recipes after the standard recipes. &lt;code&gt;LayerCustomRecipes&lt;/code&gt; specifies the custom recipes for a particular layer to be run in response to each of the five events. &lt;/p&gt; &lt;p&gt;To specify a recipe, use the cookbook&#39;s directory name in the repository followed by two colons and the recipe name, which is the recipe&#39;s file name without the .rb extension. For example: phpapp2::dbsetup specifies the dbsetup.rb recipe in the repository&#39;s phpapp2 folder.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:31.585098-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:36.435440-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Recipes {
   public static final String SERIALIZED_NAME_SETUP = "Setup";
   @SerializedName(SERIALIZED_NAME_SETUP)

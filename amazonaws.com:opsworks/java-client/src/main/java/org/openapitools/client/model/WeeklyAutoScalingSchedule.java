@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes a time-based instance&#39;s auto scaling schedule. The schedule consists of a set of key-value pairs.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;The key is the time period (a UTC hour) and must be an integer from 0 - 23.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;The value indicates whether the instance should be online or offline for the specified period, and must be set to \&quot;on\&quot; or \&quot;off\&quot;&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;The default setting for all time periods is off, so you use the following parameters primarily to specify the online periods. You don&#39;t have to explicitly specify offline periods unless you want to change an online period to an offline period.&lt;/p&gt; &lt;p&gt;The following example specifies that the instance should be online for four hours, from UTC 1200 - 1600. It will be off for the remainder of the day.&lt;/p&gt; &lt;p&gt; &lt;code&gt; { \&quot;12\&quot;:\&quot;on\&quot;, \&quot;13\&quot;:\&quot;on\&quot;, \&quot;14\&quot;:\&quot;on\&quot;, \&quot;15\&quot;:\&quot;on\&quot; } &lt;/code&gt; &lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:31.585098-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:36.435440-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class WeeklyAutoScalingSchedule {
   public static final String SERIALIZED_NAME_MONDAY = "Monday";
   @SerializedName(SERIALIZED_NAME_MONDAY)

@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * StackChefConfiguration
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:31.585098-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:36.435440-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class StackChefConfiguration {
   public static final String SERIALIZED_NAME_MANAGE_BERKSHELF = "ManageBerkshelf";
   @SerializedName(SERIALIZED_NAME_MANAGE_BERKSHELF)
