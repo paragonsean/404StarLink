@@ -1,0 +1,1233 @@
+<!doctype html>
+<html>
+  <head>
+    <title>AdMob API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>AdMob API</h1>
+    <div class="app-desc">The AdMob API allows publishers to programmatically get information about their AdMob account.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v1beta</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Accounts">Accounts</a></h4>
+  <ul>
+  <li><a href="#admob.accounts.adSources.list"><code><span class="http-method">get</span> /v1beta/{parent}/adSources</code></a></li>
+  <li><a href="#admob.accounts.adUnits.list"><code><span class="http-method">get</span> /v1beta/{parent}/adUnits</code></a></li>
+  <li><a href="#admob.accounts.apps.list"><code><span class="http-method">get</span> /v1beta/{parent}/apps</code></a></li>
+  <li><a href="#admob.accounts.get"><code><span class="http-method">get</span> /v1beta/{name}</code></a></li>
+  <li><a href="#admob.accounts.list"><code><span class="http-method">get</span> /v1beta/accounts</code></a></li>
+  <li><a href="#admob.accounts.mediationReport.generate"><code><span class="http-method">post</span> /v1beta/{parent}/mediationReport:generate</code></a></li>
+  <li><a href="#admob.accounts.networkReport.generate"><code><span class="http-method">post</span> /v1beta/{parent}/networkReport:generate</code></a></li>
+  </ul>
+
+  <h1><a name="Accounts">Accounts</a></h1>
+  <div class="method"><a name="admob.accounts.adSources.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta/{parent}/adSources</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">admob.accounts.adSources.list</span>)</div>
+    <div class="method-notes">List the ad sources.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The parent which owns this collection of ad sources. Format: accounts/{publisher_id} default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of ad sources to return. If unspecified or 0, at most 10,000 ad sources will be returned. The maximum value is 20,000; values above 10,000 will be coerced to 20,000. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A page token, received from a previous <code>ListAdSources</code> call. Provide this to retrieve the subsequent page. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListAdSourcesResponse">ListAdSourcesResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "adSources" : [ {
+    "name" : "name",
+    "adSourceId" : "adSourceId",
+    "title" : "title"
+  }, {
+    "name" : "name",
+    "adSourceId" : "adSourceId",
+    "title" : "title"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListAdSourcesResponse">ListAdSourcesResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="admob.accounts.adUnits.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta/{parent}/adUnits</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">admob.accounts.adUnits.list</span>)</div>
+    <div class="method-notes">List the ad units under the specified AdMob account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Resource name of the account to list ad units for. Example: accounts/pub-9876543210987654 default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of ad units to return. If unspecified or 0, at most 10,000 ad units will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The value returned by the last <code>ListAdUnitsResponse</code>; indicates that this is a continuation of a prior <code>ListAdUnits</code> call, and that the system should return the next page of data. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListAdUnitsResponse">ListAdUnitsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "adUnits" : [ {
+    "displayName" : "displayName",
+    "appId" : "appId",
+    "name" : "name",
+    "adFormat" : "adFormat",
+    "adUnitId" : "adUnitId",
+    "adTypes" : [ "adTypes", "adTypes" ]
+  }, {
+    "displayName" : "displayName",
+    "appId" : "appId",
+    "name" : "name",
+    "adFormat" : "adFormat",
+    "adUnitId" : "adUnitId",
+    "adTypes" : [ "adTypes", "adTypes" ]
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListAdUnitsResponse">ListAdUnitsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="admob.accounts.apps.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta/{parent}/apps</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">admob.accounts.apps.list</span>)</div>
+    <div class="method-notes">List the apps under the specified AdMob account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. Resource name of the account to list apps for. Example: accounts/pub-9876543210987654 default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of apps to return. If unspecified or 0, at most 10,000 apps will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The value returned by the last <code>ListAppsResponse</code>; indicates that this is a continuation of a prior <code>ListApps</code> call, and that the system should return the next page of data. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListAppsResponse">ListAppsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "apps" : [ {
+    "manualAppInfo" : {
+      "displayName" : "displayName"
+    },
+    "linkedAppInfo" : {
+      "displayName" : "displayName",
+      "appStoreId" : "appStoreId"
+    },
+    "appId" : "appId",
+    "name" : "name",
+    "appApprovalState" : "APP_APPROVAL_STATE_UNSPECIFIED",
+    "platform" : "platform"
+  }, {
+    "manualAppInfo" : {
+      "displayName" : "displayName"
+    },
+    "linkedAppInfo" : {
+      "displayName" : "displayName",
+      "appStoreId" : "appStoreId"
+    },
+    "appId" : "appId",
+    "name" : "name",
+    "appApprovalState" : "APP_APPROVAL_STATE_UNSPECIFIED",
+    "platform" : "platform"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListAppsResponse">ListAppsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="admob.accounts.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">admob.accounts.get</span>)</div>
+    <div class="method-notes">Gets information about the specified AdMob publisher account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Resource name of the publisher account to retrieve. Example: accounts/pub-9876543210987654 default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PublisherAccount">PublisherAccount</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "publisherId" : "publisherId",
+  "reportingTimeZone" : "reportingTimeZone",
+  "name" : "name",
+  "currencyCode" : "currencyCode"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#PublisherAccount">PublisherAccount</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="admob.accounts.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1beta/accounts</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">admob.accounts.list</span>)</div>
+    <div class="method-notes">Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https://support.google.com/admob/answer/10243672.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum number of accounts to return. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The value returned by the last <code>ListPublisherAccountsResponse</code>; indicates that this is a continuation of a prior <code>ListPublisherAccounts</code> call, and that the system should return the next page of data. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListPublisherAccountsResponse">ListPublisherAccountsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "account" : [ {
+    "publisherId" : "publisherId",
+    "reportingTimeZone" : "reportingTimeZone",
+    "name" : "name",
+    "currencyCode" : "currencyCode"
+  }, {
+    "publisherId" : "publisherId",
+    "reportingTimeZone" : "reportingTimeZone",
+    "name" : "name",
+    "currencyCode" : "currencyCode"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListPublisherAccountsResponse">ListPublisherAccountsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="admob.accounts.mediationReport.generate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1beta/{parent}/mediationReport:generate</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">admob.accounts.mediationReport.generate</span>)</div>
+    <div class="method-notes">Generates an AdMob mediation report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654 default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GenerateMediationReportRequest <a href="#GenerateMediationReportRequest">GenerateMediationReportRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GenerateMediationReportResponse">GenerateMediationReportResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "footer" : {
+    "matchingRowCount" : "matchingRowCount",
+    "warnings" : [ {
+      "description" : "description",
+      "type" : "TYPE_UNSPECIFIED"
+    }, {
+      "description" : "description",
+      "type" : "TYPE_UNSPECIFIED"
+    } ]
+  },
+  "header" : {
+    "dateRange" : {
+      "endDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "startDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      }
+    },
+    "reportingTimeZone" : "reportingTimeZone",
+    "localizationSettings" : {
+      "languageCode" : "languageCode",
+      "currencyCode" : "currencyCode"
+    }
+  },
+  "row" : {
+    "dimensionValues" : {
+      "key" : {
+        "displayLabel" : "displayLabel",
+        "value" : "value"
+      }
+    },
+    "metricValues" : {
+      "key" : {
+        "microsValue" : "microsValue",
+        "integerValue" : "integerValue",
+        "doubleValue" : 5.962133916683182
+      }
+    }
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GenerateMediationReportResponse">GenerateMediationReportResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="admob.accounts.networkReport.generate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1beta/{parent}/networkReport:generate</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">admob.accounts.networkReport.generate</span>)</div>
+    <div class="method-notes">Generates an AdMob Network report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654 default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GenerateNetworkReportRequest <a href="#GenerateNetworkReportRequest">GenerateNetworkReportRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GenerateNetworkReportResponse">GenerateNetworkReportResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "footer" : {
+    "matchingRowCount" : "matchingRowCount",
+    "warnings" : [ {
+      "description" : "description",
+      "type" : "TYPE_UNSPECIFIED"
+    }, {
+      "description" : "description",
+      "type" : "TYPE_UNSPECIFIED"
+    } ]
+  },
+  "header" : {
+    "dateRange" : {
+      "endDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "startDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      }
+    },
+    "reportingTimeZone" : "reportingTimeZone",
+    "localizationSettings" : {
+      "languageCode" : "languageCode",
+      "currencyCode" : "currencyCode"
+    }
+  },
+  "row" : {
+    "dimensionValues" : {
+      "key" : {
+        "displayLabel" : "displayLabel",
+        "value" : "value"
+      }
+    },
+    "metricValues" : {
+      "key" : {
+        "microsValue" : "microsValue",
+        "integerValue" : "integerValue",
+        "doubleValue" : 5.962133916683182
+      }
+    }
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#GenerateNetworkReportResponse">GenerateNetworkReportResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#AdSource"><code>AdSource</code> - </a></li>
+    <li><a href="#AdUnit"><code>AdUnit</code> - </a></li>
+    <li><a href="#App"><code>App</code> - </a></li>
+    <li><a href="#AppLinkedAppInfo"><code>AppLinkedAppInfo</code> - </a></li>
+    <li><a href="#AppManualAppInfo"><code>AppManualAppInfo</code> - </a></li>
+    <li><a href="#Date"><code>Date</code> - </a></li>
+    <li><a href="#DateRange"><code>DateRange</code> - </a></li>
+    <li><a href="#GenerateMediationReportRequest"><code>GenerateMediationReportRequest</code> - </a></li>
+    <li><a href="#GenerateMediationReportResponse"><code>GenerateMediationReportResponse</code> - </a></li>
+    <li><a href="#GenerateNetworkReportRequest"><code>GenerateNetworkReportRequest</code> - </a></li>
+    <li><a href="#GenerateNetworkReportResponse"><code>GenerateNetworkReportResponse</code> - </a></li>
+    <li><a href="#ListAdSourcesResponse"><code>ListAdSourcesResponse</code> - </a></li>
+    <li><a href="#ListAdUnitsResponse"><code>ListAdUnitsResponse</code> - </a></li>
+    <li><a href="#ListAppsResponse"><code>ListAppsResponse</code> - </a></li>
+    <li><a href="#ListPublisherAccountsResponse"><code>ListPublisherAccountsResponse</code> - </a></li>
+    <li><a href="#LocalizationSettings"><code>LocalizationSettings</code> - </a></li>
+    <li><a href="#MediationReportSpec"><code>MediationReportSpec</code> - </a></li>
+    <li><a href="#MediationReportSpecDimensionFilter"><code>MediationReportSpecDimensionFilter</code> - </a></li>
+    <li><a href="#MediationReportSpecSortCondition"><code>MediationReportSpecSortCondition</code> - </a></li>
+    <li><a href="#NetworkReportSpec"><code>NetworkReportSpec</code> - </a></li>
+    <li><a href="#NetworkReportSpecDimensionFilter"><code>NetworkReportSpecDimensionFilter</code> - </a></li>
+    <li><a href="#NetworkReportSpecSortCondition"><code>NetworkReportSpecSortCondition</code> - </a></li>
+    <li><a href="#PublisherAccount"><code>PublisherAccount</code> - </a></li>
+    <li><a href="#ReportFooter"><code>ReportFooter</code> - </a></li>
+    <li><a href="#ReportHeader"><code>ReportHeader</code> - </a></li>
+    <li><a href="#ReportRow"><code>ReportRow</code> - </a></li>
+    <li><a href="#ReportRowDimensionValue"><code>ReportRowDimensionValue</code> - </a></li>
+    <li><a href="#ReportRowMetricValue"><code>ReportRowMetricValue</code> - </a></li>
+    <li><a href="#ReportWarning"><code>ReportWarning</code> - </a></li>
+    <li><a href="#StringList"><code>StringList</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="AdSource"><code>AdSource</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Definition of a mediation ad source.</div>
+    <div class="field-items">
+      <div class="param">adSourceId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> ID of this ad source. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Resource name of this ad source. Format is: accounts/{publisher_id}/adSources/{ad_source_id} </div>
+<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Display name of this ad source. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AdUnit"><code>AdUnit</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Describes an AdMob ad unit.</div>
+    <div class="field-items">
+      <div class="param">adFormat (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> AdFormat of the ad unit. Possible values are as follows: &quot;APP_OPEN&quot; - App Open ad format. &quot;BANNER&quot; - Banner ad format. &quot;BANNER_INTERSTITIAL&quot; - Legacy format that can be used as either banner or interstitial. This format can no longer be created but can be targeted by mediation groups. &quot;INTERSTITIAL&quot; - A full screen ad. Supported ad types are &quot;RICH_MEDIA&quot; and &quot;VIDEO&quot;. &quot;NATIVE&quot; - Native ad format. &quot;REWARDED&quot; - An ad that, once viewed, gets a callback verifying the view so that a reward can be given to the user. Supported ad types are &quot;RICH_MEDIA&quot; (interactive) and video where video can not be excluded. &quot;REWARDED_INTERSTITIAL&quot; - Rewarded Interstitial ad format. Only supports video ad type. See https://support.google.com/admob/answer/9884467. </div>
+<div class="param">adTypes (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Ad media type supported by this ad unit. Possible values as follows: &quot;RICH_MEDIA&quot; - Text, image, and other non-video media. &quot;VIDEO&quot; - Video media. </div>
+<div class="param">adUnitId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The externally visible ID of the ad unit which can be used to integrate with the AdMob SDK. This is a read only property. Example: ca-app-pub-9876543210987654/0123456789 </div>
+<div class="param">appId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The externally visible ID of the app this ad unit is associated with. Example: ca-app-pub-9876543210987654~0123456789 </div>
+<div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The display name of the ad unit as shown in the AdMob UI, which is provided by the user. The maximum length allowed is 80 characters. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Resource name for this ad unit. Format is accounts/{publisher_id}/adUnits/{ad_unit_id_fragment} Example: accounts/pub-9876543210987654/adUnits/0123456789 </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="App"><code>App</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Describes an AdMob app for a specific platform (For example: Android or iOS).</div>
+    <div class="field-items">
+      <div class="param">appApprovalState (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The approval state for the app. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">APP_APPROVAL_STATE_UNSPECIFIED</div><div class="param-enum">ACTION_REQUIRED</div><div class="param-enum">IN_REVIEW</div><div class="param-enum">APPROVED</div>
+<div class="param">appId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The externally visible ID of the app which can be used to integrate with the AdMob SDK. This is a read only property. Example: ca-app-pub-9876543210987654~0123456789 </div>
+<div class="param">linkedAppInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#AppLinkedAppInfo">AppLinkedAppInfo</a></span>  </div>
+<div class="param">manualAppInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#AppManualAppInfo">AppManualAppInfo</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Resource name for this app. Format is accounts/{publisher_id}/apps/{app_id_fragment} Example: accounts/pub-9876543210987654/apps/0123456789 </div>
+<div class="param">platform (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Describes the platform of the app. Limited to &quot;IOS&quot; and &quot;ANDROID&quot;. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AppLinkedAppInfo"><code>AppLinkedAppInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information from the app store if the app is linked to an app store.</div>
+    <div class="field-items">
+      <div class="param">appStoreId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The app store ID of the app; present if and only if the app is linked to an app store. If the app is added to the Google Play store, it will be the application ID of the app. For example: &quot;com.example.myapp&quot;. See https://developer.android.com/studio/build/application-id. If the app is added to the Apple App Store, it will be app store ID. For example &quot;105169111&quot;. Note that setting the app store id is considered an irreversible action. Once an app is linked, it cannot be unlinked. </div>
+<div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Display name of the app as it appears in the app store. This is an output-only field, and may be empty if the app cannot be found in the store. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AppManualAppInfo"><code>AppManualAppInfo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information provided for manual apps which are not linked to an application store (Example: Google Play, App Store).</div>
+    <div class="field-items">
+      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The display name of the app as shown in the AdMob UI, which is provided by the user. The maximum length allowed is 80 characters. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Date"><code>Date</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own, with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp</div>
+    <div class="field-items">
+      <div class="param">day (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. format: int32</div>
+<div class="param">month (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. format: int32</div>
+<div class="param">year (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DateRange"><code>DateRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specification of a single date range. Both dates are inclusive.</div>
+    <div class="field-items">
+      <div class="param">endDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Date">Date</a></span>  </div>
+<div class="param">startDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Date">Date</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GenerateMediationReportRequest"><code>GenerateMediationReportRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Request to generate an AdMob mediation report.</div>
+    <div class="field-items">
+      <div class="param">reportSpec (optional)</div><div class="param-desc"><span class="param-type"><a href="#MediationReportSpec">MediationReportSpec</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GenerateMediationReportResponse"><code>GenerateMediationReportResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The streaming response for the AdMob mediation report where the first response contains the report header, then a stream of row responses, and finally a footer as the last response message. For example: [{ &quot;header&quot;: { &quot;date_range&quot;: { &quot;start_date&quot;: {&quot;year&quot;: 2018, &quot;month&quot;: 9, &quot;day&quot;: 1}, &quot;end_date&quot;: {&quot;year&quot;: 2018, &quot;month&quot;: 9, &quot;day&quot;: 1} }, &quot;localization_settings&quot;: { &quot;currency_code&quot;: &quot;USD&quot;, &quot;language_code&quot;: &quot;en-US&quot; } } }, { &quot;row&quot;: { &quot;dimension_values&quot;: { &quot;DATE&quot;: {&quot;value&quot;: &quot;20180918&quot;}, &quot;APP&quot;: { &quot;value&quot;: &quot;ca-app-pub-8123415297019784~1001342552&quot;, &quot;display_label&quot;: &quot;My app name!&quot; } }, &quot;metric_values&quot;: { &quot;ESTIMATED_EARNINGS&quot;: {&quot;decimal_value&quot;: &quot;1324746&quot;} } } }, { &quot;footer&quot;: {&quot;matching_row_count&quot;: 1} }]</div>
+    <div class="field-items">
+      <div class="param">footer (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportFooter">ReportFooter</a></span>  </div>
+<div class="param">header (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportHeader">ReportHeader</a></span>  </div>
+<div class="param">row (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportRow">ReportRow</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GenerateNetworkReportRequest"><code>GenerateNetworkReportRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Request to generate an AdMob Network report.</div>
+    <div class="field-items">
+      <div class="param">reportSpec (optional)</div><div class="param-desc"><span class="param-type"><a href="#NetworkReportSpec">NetworkReportSpec</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GenerateNetworkReportResponse"><code>GenerateNetworkReportResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The streaming response for the AdMob Network report where the first response contains the report header, then a stream of row responses, and finally a footer as the last response message. For example: [{ &quot;header&quot;: { &quot;dateRange&quot;: { &quot;startDate&quot;: {&quot;year&quot;: 2018, &quot;month&quot;: 9, &quot;day&quot;: 1}, &quot;endDate&quot;: {&quot;year&quot;: 2018, &quot;month&quot;: 9, &quot;day&quot;: 1} }, &quot;localizationSettings&quot;: { &quot;currencyCode&quot;: &quot;USD&quot;, &quot;languageCode&quot;: &quot;en-US&quot; } } }, { &quot;row&quot;: { &quot;dimensionValues&quot;: { &quot;DATE&quot;: {&quot;value&quot;: &quot;20180918&quot;}, &quot;APP&quot;: { &quot;value&quot;: &quot;ca-app-pub-8123415297019784~1001342552&quot;, displayLabel: &quot;My app name!&quot; } }, &quot;metricValues&quot;: { &quot;ESTIMATED_EARNINGS&quot;: {&quot;microsValue&quot;: 6500000} } } }, { &quot;footer&quot;: {&quot;matchingRowCount&quot;: 1} }]</div>
+    <div class="field-items">
+      <div class="param">footer (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportFooter">ReportFooter</a></span>  </div>
+<div class="param">header (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportHeader">ReportHeader</a></span>  </div>
+<div class="param">row (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportRow">ReportRow</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListAdSourcesResponse"><code>ListAdSourcesResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response for the ListAdSourcesRequest.</div>
+    <div class="field-items">
+      <div class="param">adSources (optional)</div><div class="param-desc"><span class="param-type"><a href="#AdSource">array[AdSource]</a></span> The ad sources. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Used to set the <code>page_token</code> in the <code>ListAdSourcesRequest</code> to retrieve the next page. If this field is omitted, there are no subsequent pages. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListAdUnitsResponse"><code>ListAdUnitsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response for the ad units list request.</div>
+    <div class="field-items">
+      <div class="param">adUnits (optional)</div><div class="param-desc"><span class="param-type"><a href="#AdUnit">array[AdUnit]</a></span> The resulting ad units for the requested account. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If not empty, indicates that there may be more ad units for the request; this value should be passed in a new <code>ListAdUnitsRequest</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListAppsResponse"><code>ListAppsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response for the apps list request.</div>
+    <div class="field-items">
+      <div class="param">apps (optional)</div><div class="param-desc"><span class="param-type"><a href="#App">array[App]</a></span> The resulting apps for the requested account. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If not empty, indicates that there may be more apps for the request; this value should be passed in a new <code>ListAppsRequest</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListPublisherAccountsResponse"><code>ListPublisherAccountsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response for the publisher account list request.</div>
+    <div class="field-items">
+      <div class="param">account (optional)</div><div class="param-desc"><span class="param-type"><a href="#PublisherAccount">array[PublisherAccount]</a></span> Publisher that the client credentials can access. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If not empty, indicates that there might be more accounts for the request; you must pass this value in a new <code>ListPublisherAccountsRequest</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LocalizationSettings"><code>LocalizationSettings</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Localization settings for reports, such as currency and language. It affects how metrics are calculated.</div>
+    <div class="field-items">
+      <div class="param">currencyCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Currency code of the earning related metrics, which is the 3-letter code defined in ISO 4217. The daily average rate is used for the currency conversion. Defaults to the account currency code if unspecified. </div>
+<div class="param">languageCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Language used for any localized text, such as some dimension value display labels. The language tag defined in the IETF BCP47. Defaults to 'en-US' if unspecified. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MediationReportSpec"><code>MediationReportSpec</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The specification for generating an AdMob Mediation report. For example, the specification to get observed ECPM sliced by ad source and app for the 'US' and 'CN' countries can look like the following example: { &quot;date_range&quot;: { &quot;start_date&quot;: {&quot;year&quot;: 2021, &quot;month&quot;: 9, &quot;day&quot;: 1}, &quot;end_date&quot;: {&quot;year&quot;: 2021, &quot;month&quot;: 9, &quot;day&quot;: 30} }, &quot;dimensions&quot;: [&quot;AD_SOURCE&quot;, &quot;APP&quot;, &quot;COUNTRY&quot;], &quot;metrics&quot;: [&quot;OBSERVED_ECPM&quot;], &quot;dimension_filters&quot;: [ { &quot;dimension&quot;: &quot;COUNTRY&quot;, &quot;matches_any&quot;: {&quot;values&quot;: [{&quot;value&quot;: &quot;US&quot;, &quot;value&quot;: &quot;CN&quot;}]} } ], &quot;sort_conditions&quot;: [ {&quot;dimension&quot;:&quot;APP&quot;, order: &quot;ASCENDING&quot;} ], &quot;localization_settings&quot;: { &quot;currency_code&quot;: &quot;USD&quot;, &quot;language_code&quot;: &quot;en-US&quot; } } For a better understanding, you can treat the preceding specification like the following pseudo SQL: SELECT AD_SOURCE, APP, COUNTRY, OBSERVED_ECPM FROM MEDIATION_REPORT WHERE DATE &gt;= '2021-09-01' AND DATE &lt;= '2021-09-30' AND COUNTRY IN ('US', 'CN') GROUP BY AD_SOURCE, APP, COUNTRY ORDER BY APP ASC;</div>
+    <div class="field-items">
+      <div class="param">dateRange (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateRange">DateRange</a></span>  </div>
+<div class="param">dimensionFilters (optional)</div><div class="param-desc"><span class="param-type"><a href="#MediationReportSpecDimensionFilter">array[MediationReportSpecDimensionFilter]</a></span> Describes which report rows to match based on their dimension values. </div>
+<div class="param">dimensions (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> List of dimensions of the report. The value combination of these dimensions determines the row of the report. If no dimensions are specified, the report returns a single row of requested metrics for the entire account. </div>
+        <div class="param-enum-header">Enum:</div>
+        
+<div class="param">localizationSettings (optional)</div><div class="param-desc"><span class="param-type"><a href="#LocalizationSettings">LocalizationSettings</a></span>  </div>
+<div class="param">maxReportRows (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Maximum number of report data rows to return. If the value is not set, the API returns as many rows as possible, up to 100000. Acceptable values are 1-100000, inclusive. Values larger than 100000 return an error. format: int32</div>
+<div class="param">metrics (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> List of metrics of the report. A report must specify at least one metric. </div>
+        <div class="param-enum-header">Enum:</div>
+        
+<div class="param">sortConditions (optional)</div><div class="param-desc"><span class="param-type"><a href="#MediationReportSpecSortCondition">array[MediationReportSpecSortCondition]</a></span> Describes the sorting of report rows. The order of the condition in the list defines its precedence; the earlier the condition, the higher its precedence. If no sort conditions are specified, the row ordering is undefined. </div>
+<div class="param">timeZone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A report time zone. Accepts an IANA TZ name values, such as &quot;America/Los_Angeles.&quot; If no time zone is defined, the account default takes effect. Check default value by the get account action. <strong>Warning:</strong> The &quot;America/Los_Angeles&quot; is the only supported value at the moment. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MediationReportSpecDimensionFilter"><code>MediationReportSpecDimensionFilter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Describes which report rows to match based on their dimension values.</div>
+    <div class="field-items">
+      <div class="param">dimension (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Applies the filter criterion to the specified dimension. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">DIMENSION_UNSPECIFIED</div><div class="param-enum">DATE</div><div class="param-enum">MONTH</div><div class="param-enum">WEEK</div><div class="param-enum">AD_SOURCE</div><div class="param-enum">AD_SOURCE_INSTANCE</div><div class="param-enum">AD_UNIT</div><div class="param-enum">APP</div><div class="param-enum">MEDIATION_GROUP</div><div class="param-enum">COUNTRY</div><div class="param-enum">FORMAT</div><div class="param-enum">PLATFORM</div><div class="param-enum">MOBILE_OS_VERSION</div><div class="param-enum">GMA_SDK_VERSION</div><div class="param-enum">APP_VERSION_NAME</div><div class="param-enum">SERVING_RESTRICTION</div>
+<div class="param">matchesAny (optional)</div><div class="param-desc"><span class="param-type"><a href="#StringList">StringList</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MediationReportSpecSortCondition"><code>MediationReportSpecSortCondition</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Sorting direction to be applied on a dimension or a metric.</div>
+    <div class="field-items">
+      <div class="param">dimension (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Sort by the specified dimension. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">DIMENSION_UNSPECIFIED</div><div class="param-enum">DATE</div><div class="param-enum">MONTH</div><div class="param-enum">WEEK</div><div class="param-enum">AD_SOURCE</div><div class="param-enum">AD_SOURCE_INSTANCE</div><div class="param-enum">AD_UNIT</div><div class="param-enum">APP</div><div class="param-enum">MEDIATION_GROUP</div><div class="param-enum">COUNTRY</div><div class="param-enum">FORMAT</div><div class="param-enum">PLATFORM</div><div class="param-enum">MOBILE_OS_VERSION</div><div class="param-enum">GMA_SDK_VERSION</div><div class="param-enum">APP_VERSION_NAME</div><div class="param-enum">SERVING_RESTRICTION</div>
+<div class="param">metric (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Sort by the specified metric. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">METRIC_UNSPECIFIED</div><div class="param-enum">AD_REQUESTS</div><div class="param-enum">CLICKS</div><div class="param-enum">ESTIMATED_EARNINGS</div><div class="param-enum">IMPRESSIONS</div><div class="param-enum">IMPRESSION_CTR</div><div class="param-enum">MATCHED_REQUESTS</div><div class="param-enum">MATCH_RATE</div><div class="param-enum">OBSERVED_ECPM</div>
+<div class="param">order (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Sorting order of the dimension or metric. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">SORT_ORDER_UNSPECIFIED</div><div class="param-enum">ASCENDING</div><div class="param-enum">DESCENDING</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NetworkReportSpec"><code>NetworkReportSpec</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The specification for generating an AdMob Network report. For example, the specification to get clicks and estimated earnings for only the 'US' and 'CN' countries can look like the following example: { 'date_range': { 'start_date': {'year': 2021, 'month': 9, 'day': 1}, 'end_date': {'year': 2021, 'month': 9, 'day': 30} }, 'dimensions': ['DATE', 'APP', 'COUNTRY'], 'metrics': ['CLICKS', 'ESTIMATED_EARNINGS'], 'dimension_filters': [ { 'dimension': 'COUNTRY', 'matches_any': {'values': [{'value': 'US', 'value': 'CN'}]} } ], 'sort_conditions': [ {'dimension':'APP', order: 'ASCENDING'}, {'metric':'CLICKS', order: 'DESCENDING'} ], 'localization_settings': { 'currency_code': 'USD', 'language_code': 'en-US' } } For a better understanding, you can treat the preceding specification like the following pseudo SQL: SELECT DATE, APP, COUNTRY, CLICKS, ESTIMATED_EARNINGS FROM NETWORK_REPORT WHERE DATE &gt;= '2021-09-01' AND DATE &lt;= '2021-09-30' AND COUNTRY IN ('US', 'CN') GROUP BY DATE, APP, COUNTRY ORDER BY APP ASC, CLICKS DESC;</div>
+    <div class="field-items">
+      <div class="param">dateRange (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateRange">DateRange</a></span>  </div>
+<div class="param">dimensionFilters (optional)</div><div class="param-desc"><span class="param-type"><a href="#NetworkReportSpecDimensionFilter">array[NetworkReportSpecDimensionFilter]</a></span> Describes which report rows to match based on their dimension values. </div>
+<div class="param">dimensions (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> List of dimensions of the report. The value combination of these dimensions determines the row of the report. If no dimensions are specified, the report returns a single row of requested metrics for the entire account. </div>
+        <div class="param-enum-header">Enum:</div>
+        
+<div class="param">localizationSettings (optional)</div><div class="param-desc"><span class="param-type"><a href="#LocalizationSettings">LocalizationSettings</a></span>  </div>
+<div class="param">maxReportRows (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Maximum number of report data rows to return. If the value is not set, the API returns as many rows as possible, up to 100000. Acceptable values are 1-100000, inclusive. Values larger than 100000 return an error. format: int32</div>
+<div class="param">metrics (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> List of metrics of the report. A report must specify at least one metric. </div>
+        <div class="param-enum-header">Enum:</div>
+        
+<div class="param">sortConditions (optional)</div><div class="param-desc"><span class="param-type"><a href="#NetworkReportSpecSortCondition">array[NetworkReportSpecSortCondition]</a></span> Describes the sorting of report rows. The order of the condition in the list defines its precedence; the earlier the condition, the higher its precedence. If no sort conditions are specified, the row ordering is undefined. </div>
+<div class="param">timeZone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A report time zone. Accepts an IANA TZ name values, such as &quot;America/Los_Angeles.&quot; If no time zone is defined, the account default takes effect. Check default value by the get account action. <strong>Warning:</strong> The &quot;America/Los_Angeles&quot; is the only supported value at the moment. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NetworkReportSpecDimensionFilter"><code>NetworkReportSpecDimensionFilter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Describes which report rows to match based on their dimension values.</div>
+    <div class="field-items">
+      <div class="param">dimension (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Applies the filter criterion to the specified dimension. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">DIMENSION_UNSPECIFIED</div><div class="param-enum">DATE</div><div class="param-enum">MONTH</div><div class="param-enum">WEEK</div><div class="param-enum">AD_UNIT</div><div class="param-enum">APP</div><div class="param-enum">AD_TYPE</div><div class="param-enum">COUNTRY</div><div class="param-enum">FORMAT</div><div class="param-enum">PLATFORM</div><div class="param-enum">MOBILE_OS_VERSION</div><div class="param-enum">GMA_SDK_VERSION</div><div class="param-enum">APP_VERSION_NAME</div><div class="param-enum">SERVING_RESTRICTION</div>
+<div class="param">matchesAny (optional)</div><div class="param-desc"><span class="param-type"><a href="#StringList">StringList</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NetworkReportSpecSortCondition"><code>NetworkReportSpecSortCondition</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Sorting direction to be applied on a dimension or a metric.</div>
+    <div class="field-items">
+      <div class="param">dimension (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Sort by the specified dimension. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">DIMENSION_UNSPECIFIED</div><div class="param-enum">DATE</div><div class="param-enum">MONTH</div><div class="param-enum">WEEK</div><div class="param-enum">AD_UNIT</div><div class="param-enum">APP</div><div class="param-enum">AD_TYPE</div><div class="param-enum">COUNTRY</div><div class="param-enum">FORMAT</div><div class="param-enum">PLATFORM</div><div class="param-enum">MOBILE_OS_VERSION</div><div class="param-enum">GMA_SDK_VERSION</div><div class="param-enum">APP_VERSION_NAME</div><div class="param-enum">SERVING_RESTRICTION</div>
+<div class="param">metric (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Sort by the specified metric. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">METRIC_UNSPECIFIED</div><div class="param-enum">AD_REQUESTS</div><div class="param-enum">CLICKS</div><div class="param-enum">ESTIMATED_EARNINGS</div><div class="param-enum">IMPRESSIONS</div><div class="param-enum">IMPRESSION_CTR</div><div class="param-enum">IMPRESSION_RPM</div><div class="param-enum">MATCHED_REQUESTS</div><div class="param-enum">MATCH_RATE</div><div class="param-enum">SHOW_RATE</div>
+<div class="param">order (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Sorting order of the dimension or metric. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">SORT_ORDER_UNSPECIFIED</div><div class="param-enum">ASCENDING</div><div class="param-enum">DESCENDING</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PublisherAccount"><code>PublisherAccount</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A publisher account contains information relevant to the use of this API, such as the time zone used for the reports.</div>
+    <div class="field-items">
+      <div class="param">currencyCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Currency code of the earning-related metrics, which is the 3-letter code defined in ISO 4217. The daily average rate is used for the currency conversion. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Resource name of this account. Format is accounts/{publisher_id}. </div>
+<div class="param">publisherId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique ID by which this publisher account can be identified in the API requests (for example, pub-1234567890). </div>
+<div class="param">reportingTimeZone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The time zone that is used in reports that are generated for this account. The value is a time-zone ID as specified by the CLDR project, for example, &quot;America/Los_Angeles&quot;. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportFooter"><code>ReportFooter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Groups data available after report generation, for example, warnings and row counts. Always sent as the last message in the stream response.</div>
+    <div class="field-items">
+      <div class="param">matchingRowCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Total number of rows that matched the request. Warning: This count does NOT always match the number of rows in the response. Do not make that assumption when processing the response. format: int64</div>
+<div class="param">warnings (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportWarning">array[ReportWarning]</a></span> Warnings associated with generation of the report. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportHeader"><code>ReportHeader</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Groups data helps to treat the generated report. Always sent as a first message in the stream response.</div>
+    <div class="field-items">
+      <div class="param">dateRange (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateRange">DateRange</a></span>  </div>
+<div class="param">localizationSettings (optional)</div><div class="param-desc"><span class="param-type"><a href="#LocalizationSettings">LocalizationSettings</a></span>  </div>
+<div class="param">reportingTimeZone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The report time zone. The value is a time-zone ID as specified by the CLDR project, for example, &quot;America/Los_Angeles&quot;. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportRow"><code>ReportRow</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A row of the returning report.</div>
+    <div class="field-items">
+      <div class="param">dimensionValues (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportRowDimensionValue">map[String, ReportRowDimensionValue]</a></span> Map of dimension values in a row, with keys as enum name of the dimensions. </div>
+<div class="param">metricValues (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportRowMetricValue">map[String, ReportRowMetricValue]</a></span> Map of metric values in a row, with keys as enum name of the metrics. If a metric being requested has no value returned, the map will not include it. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportRowDimensionValue"><code>ReportRowDimensionValue</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Representation of a dimension value.</div>
+    <div class="field-items">
+      <div class="param">displayLabel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The localized string representation of the value. If unspecified, the display label should be derived from the value. </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Dimension value in the format specified in the report's spec Dimension enum. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportRowMetricValue"><code>ReportRowMetricValue</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Representation of a metric value.</div>
+    <div class="field-items">
+      <div class="param">doubleValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Double precision (approximate) decimal values. Rates are from 0 to 1. format: double</div>
+<div class="param">integerValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Metric integer value. format: int64</div>
+<div class="param">microsValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Amount in micros. One million is equivalent to one unit. Currency value is in the unit (USD, EUR or other) specified by the request. For example, $6.50 whould be represented as 6500000 micros. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportWarning"><code>ReportWarning</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Warnings associated with generation of the report.</div>
+    <div class="field-items">
+      <div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Describes the details of the warning message, in English. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Type of the warning. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">TYPE_UNSPECIFIED</div><div class="param-enum">DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE</div><div class="param-enum">DATA_DELAYED</div><div class="param-enum">OTHER</div><div class="param-enum">REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StringList"><code>StringList</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>List of string values.</div>
+    <div class="field-items">
+      <div class="param">values (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The string values. </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
