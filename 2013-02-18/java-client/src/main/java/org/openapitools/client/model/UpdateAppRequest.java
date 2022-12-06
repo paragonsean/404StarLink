@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * UpdateAppRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:35.959952-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:40.935644-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class UpdateAppRequest {
   public static final String SERIALIZED_NAME_APP_ID = "AppId";
   @SerializedName(SERIALIZED_NAME_APP_ID)

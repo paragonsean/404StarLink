@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Contains a description of an Amazon EC2 instance from the Amazon EC2 metadata service. For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html\&quot;&gt;Instance Metadata and User Data&lt;/a&gt;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:35.959952-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:40.935644-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class InstanceIdentity {
   public static final String SERIALIZED_NAME_DOCUMENT = "Document";
   @SerializedName(SERIALIZED_NAME_DOCUMENT)

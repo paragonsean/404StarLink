@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes a load-based auto scaling upscaling or downscaling threshold configuration, which specifies when AWS OpsWorks Stacks starts or stops load-based instances.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:35.959952-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:40.935644-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AutoScalingThresholds {
   public static final String SERIALIZED_NAME_INSTANCE_COUNT = "InstanceCount";
   @SerializedName(SERIALIZED_NAME_INSTANCE_COUNT)

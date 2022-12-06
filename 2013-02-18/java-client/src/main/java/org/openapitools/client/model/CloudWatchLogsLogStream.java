@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes the Amazon CloudWatch logs configuration for a layer. For detailed information about members of this data type, see the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html\&quot;&gt;CloudWatch Logs Agent Reference&lt;/a&gt;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:35.959952-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:40.935644-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CloudWatchLogsLogStream {
   public static final String SERIALIZED_NAME_LOG_GROUP_NAME = "LogGroupName";
   @SerializedName(SERIALIZED_NAME_LOG_GROUP_NAME)
