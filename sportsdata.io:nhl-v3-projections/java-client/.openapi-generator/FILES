@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -59,16 +58,3 @@ src/main/java/org/openapitools/client/model/PlayerGameProjection.java
 src/main/java/org/openapitools/client/model/ScoringPlay.java
 src/main/java/org/openapitools/client/model/Series.java
 src/main/java/org/openapitools/client/model/StartingGoaltenders.java
-src/test/java/org/openapitools/client/api/DefaultApiTest.java
-src/test/java/org/openapitools/client/model/DfsSlateGameTest.java
-src/test/java/org/openapitools/client/model/DfsSlatePlayerTest.java
-src/test/java/org/openapitools/client/model/DfsSlateTest.java
-src/test/java/org/openapitools/client/model/GameTest.java
-src/test/java/org/openapitools/client/model/GoaltenderTest.java
-src/test/java/org/openapitools/client/model/PenaltyTest.java
-src/test/java/org/openapitools/client/model/PeriodTest.java
-src/test/java/org/openapitools/client/model/PlayerGameProjectionTest.java
-src/test/java/org/openapitools/client/model/PlayerTest.java
-src/test/java/org/openapitools/client/model/ScoringPlayTest.java
-src/test/java/org/openapitools/client/model/SeriesTest.java
-src/test/java/org/openapitools/client/model/StartingGoaltendersTest.java

@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * Game
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:40.021521-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:47.818286-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Game {
   public static final String SERIALIZED_NAME_ATTENDANCE = "Attendance";
   @SerializedName(SERIALIZED_NAME_ATTENDANCE)
