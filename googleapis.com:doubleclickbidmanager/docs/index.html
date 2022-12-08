@@ -1,0 +1,2113 @@
+<!doctype html>
+<html>
+  <head>
+    <title>DoubleClick Bid Manager API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>DoubleClick Bid Manager API</h1>
+    <div class="app-desc">DoubleClick Bid Manager API allows users to manage and create campaigns and reports.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v2</div>
+    <div class="app-desc">BasePath:/v2</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Queries">Queries</a></h4>
+  <ul>
+  <li><a href="#doubleclickbidmanager.queries.create"><code><span class="http-method">post</span> /queries</code></a></li>
+  <li><a href="#doubleclickbidmanager.queries.delete"><code><span class="http-method">delete</span> /queries/{queryId}</code></a></li>
+  <li><a href="#doubleclickbidmanager.queries.get"><code><span class="http-method">get</span> /queries/{queryId}</code></a></li>
+  <li><a href="#doubleclickbidmanager.queries.list"><code><span class="http-method">get</span> /queries</code></a></li>
+  <li><a href="#doubleclickbidmanager.queries.reports.get"><code><span class="http-method">get</span> /queries/{queryId}/reports/{reportId}</code></a></li>
+  <li><a href="#doubleclickbidmanager.queries.reports.list"><code><span class="http-method">get</span> /queries/{queryId}/reports</code></a></li>
+  <li><a href="#doubleclickbidmanager.queries.run"><code><span class="http-method">post</span> /queries/{queryId}:run</code></a></li>
+  </ul>
+
+  <h1><a name="Queries">Queries</a></h1>
+  <div class="method"><a name="doubleclickbidmanager.queries.create"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /queries</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclickbidmanager.queries.create</span>)</div>
+    <div class="method-notes">Creates a query.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Query <a href="#Query">Query</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Query">Query</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "schedule" : {
+    "endDate" : {
+      "month" : 6,
+      "year" : 1,
+      "day" : 0
+    },
+    "nextRunTimezoneCode" : "nextRunTimezoneCode",
+    "startDate" : {
+      "month" : 6,
+      "year" : 1,
+      "day" : 0
+    },
+    "frequency" : "FREQUENCY_UNSPECIFIED"
+  },
+  "metadata" : {
+    "dataRange" : {
+      "customEndDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "range" : "RANGE_UNSPECIFIED",
+      "customStartDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      }
+    },
+    "format" : "FORMAT_UNSPECIFIED",
+    "shareEmailAddress" : [ "shareEmailAddress", "shareEmailAddress" ],
+    "sendNotification" : true,
+    "title" : "title"
+  },
+  "params" : {
+    "groupBys" : [ "groupBys", "groupBys" ],
+    "options" : {
+      "pathQueryOptions" : {
+        "pathFilters" : [ {
+          "eventFilters" : [ {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          }, {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          } ],
+          "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+        }, {
+          "eventFilters" : [ {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          }, {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          } ],
+          "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+        } ],
+        "channelGrouping" : {
+          "name" : "name",
+          "rules" : [ {
+            "disjunctiveMatchStatements" : [ {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            }, {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            } ],
+            "name" : "name"
+          }, {
+            "disjunctiveMatchStatements" : [ {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            }, {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            } ],
+            "name" : "name"
+          } ],
+          "fallbackName" : "fallbackName"
+        }
+      },
+      "includeOnlyTargetedUserLists" : true
+    },
+    "filters" : [ {
+      "type" : "type",
+      "value" : "value"
+    }, {
+      "type" : "type",
+      "value" : "value"
+    } ],
+    "metrics" : [ "metrics", "metrics" ],
+    "type" : "REPORT_TYPE_UNSPECIFIED"
+  },
+  "queryId" : "queryId"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Query">Query</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclickbidmanager.queries.delete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /queries/{queryId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclickbidmanager.queries.delete</span>)</div>
+    <div class="method-notes">Deletes a query as well as the associated reports.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">queryId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. ID of query to delete. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclickbidmanager.queries.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /queries/{queryId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclickbidmanager.queries.get</span>)</div>
+    <div class="method-notes">Retrieves a query.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">queryId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. ID of query to retrieve. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Query">Query</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "schedule" : {
+    "endDate" : {
+      "month" : 6,
+      "year" : 1,
+      "day" : 0
+    },
+    "nextRunTimezoneCode" : "nextRunTimezoneCode",
+    "startDate" : {
+      "month" : 6,
+      "year" : 1,
+      "day" : 0
+    },
+    "frequency" : "FREQUENCY_UNSPECIFIED"
+  },
+  "metadata" : {
+    "dataRange" : {
+      "customEndDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "range" : "RANGE_UNSPECIFIED",
+      "customStartDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      }
+    },
+    "format" : "FORMAT_UNSPECIFIED",
+    "shareEmailAddress" : [ "shareEmailAddress", "shareEmailAddress" ],
+    "sendNotification" : true,
+    "title" : "title"
+  },
+  "params" : {
+    "groupBys" : [ "groupBys", "groupBys" ],
+    "options" : {
+      "pathQueryOptions" : {
+        "pathFilters" : [ {
+          "eventFilters" : [ {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          }, {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          } ],
+          "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+        }, {
+          "eventFilters" : [ {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          }, {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          } ],
+          "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+        } ],
+        "channelGrouping" : {
+          "name" : "name",
+          "rules" : [ {
+            "disjunctiveMatchStatements" : [ {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            }, {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            } ],
+            "name" : "name"
+          }, {
+            "disjunctiveMatchStatements" : [ {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            }, {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            } ],
+            "name" : "name"
+          } ],
+          "fallbackName" : "fallbackName"
+        }
+      },
+      "includeOnlyTargetedUserLists" : true
+    },
+    "filters" : [ {
+      "type" : "type",
+      "value" : "value"
+    }, {
+      "type" : "type",
+      "value" : "value"
+    } ],
+    "metrics" : [ "metrics", "metrics" ],
+    "type" : "REPORT_TYPE_UNSPECIFIED"
+  },
+  "queryId" : "queryId"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Query">Query</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclickbidmanager.queries.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /queries</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclickbidmanager.queries.list</span>)</div>
+    <div class="method-notes">Lists queries created by the current user.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">orderBy (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of a field used to order results. The default sorting order is ascending. To specify descending order for a field, append a &quot; desc&quot; suffix. For example &quot;metadata.title desc&quot;. Sorting is only supported for the following fields: * <code>queryId</code> * <code>metadata.title</code> default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum number of results per page. Must be between <code>1</code> and <code>100</code>. Defaults to <code>100</code> if unspecified. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A page token, received from a previous list call. Provide this to retrieve the subsequent page of queries. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListQueriesResponse">ListQueriesResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "queries" : [ {
+    "schedule" : {
+      "endDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "nextRunTimezoneCode" : "nextRunTimezoneCode",
+      "startDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "frequency" : "FREQUENCY_UNSPECIFIED"
+    },
+    "metadata" : {
+      "dataRange" : {
+        "customEndDate" : {
+          "month" : 6,
+          "year" : 1,
+          "day" : 0
+        },
+        "range" : "RANGE_UNSPECIFIED",
+        "customStartDate" : {
+          "month" : 6,
+          "year" : 1,
+          "day" : 0
+        }
+      },
+      "format" : "FORMAT_UNSPECIFIED",
+      "shareEmailAddress" : [ "shareEmailAddress", "shareEmailAddress" ],
+      "sendNotification" : true,
+      "title" : "title"
+    },
+    "params" : {
+      "groupBys" : [ "groupBys", "groupBys" ],
+      "options" : {
+        "pathQueryOptions" : {
+          "pathFilters" : [ {
+            "eventFilters" : [ {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            }, {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            } ],
+            "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+          }, {
+            "eventFilters" : [ {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            }, {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            } ],
+            "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+          } ],
+          "channelGrouping" : {
+            "name" : "name",
+            "rules" : [ {
+              "disjunctiveMatchStatements" : [ {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              }, {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              } ],
+              "name" : "name"
+            }, {
+              "disjunctiveMatchStatements" : [ {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              }, {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              } ],
+              "name" : "name"
+            } ],
+            "fallbackName" : "fallbackName"
+          }
+        },
+        "includeOnlyTargetedUserLists" : true
+      },
+      "filters" : [ {
+        "type" : "type",
+        "value" : "value"
+      }, {
+        "type" : "type",
+        "value" : "value"
+      } ],
+      "metrics" : [ "metrics", "metrics" ],
+      "type" : "REPORT_TYPE_UNSPECIFIED"
+    },
+    "queryId" : "queryId"
+  }, {
+    "schedule" : {
+      "endDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "nextRunTimezoneCode" : "nextRunTimezoneCode",
+      "startDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "frequency" : "FREQUENCY_UNSPECIFIED"
+    },
+    "metadata" : {
+      "dataRange" : {
+        "customEndDate" : {
+          "month" : 6,
+          "year" : 1,
+          "day" : 0
+        },
+        "range" : "RANGE_UNSPECIFIED",
+        "customStartDate" : {
+          "month" : 6,
+          "year" : 1,
+          "day" : 0
+        }
+      },
+      "format" : "FORMAT_UNSPECIFIED",
+      "shareEmailAddress" : [ "shareEmailAddress", "shareEmailAddress" ],
+      "sendNotification" : true,
+      "title" : "title"
+    },
+    "params" : {
+      "groupBys" : [ "groupBys", "groupBys" ],
+      "options" : {
+        "pathQueryOptions" : {
+          "pathFilters" : [ {
+            "eventFilters" : [ {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            }, {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            } ],
+            "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+          }, {
+            "eventFilters" : [ {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            }, {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            } ],
+            "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+          } ],
+          "channelGrouping" : {
+            "name" : "name",
+            "rules" : [ {
+              "disjunctiveMatchStatements" : [ {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              }, {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              } ],
+              "name" : "name"
+            }, {
+              "disjunctiveMatchStatements" : [ {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              }, {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              } ],
+              "name" : "name"
+            } ],
+            "fallbackName" : "fallbackName"
+          }
+        },
+        "includeOnlyTargetedUserLists" : true
+      },
+      "filters" : [ {
+        "type" : "type",
+        "value" : "value"
+      }, {
+        "type" : "type",
+        "value" : "value"
+      } ],
+      "metrics" : [ "metrics", "metrics" ],
+      "type" : "REPORT_TYPE_UNSPECIFIED"
+    },
+    "queryId" : "queryId"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListQueriesResponse">ListQueriesResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclickbidmanager.queries.reports.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /queries/{queryId}/reports/{reportId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclickbidmanager.queries.reports.get</span>)</div>
+    <div class="method-notes">Retrieves a report.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">queryId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. ID of the query the report is associated with. default: null </div><div class="param">reportId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. ID of the report to retrieve. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Report">Report</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "reportDataEndDate" : {
+      "month" : 6,
+      "year" : 1,
+      "day" : 0
+    },
+    "reportDataStartDate" : {
+      "month" : 6,
+      "year" : 1,
+      "day" : 0
+    },
+    "googleCloudStoragePath" : "googleCloudStoragePath",
+    "status" : {
+      "finishTime" : "finishTime",
+      "format" : "FORMAT_UNSPECIFIED",
+      "state" : "STATE_UNSPECIFIED"
+    }
+  },
+  "params" : {
+    "groupBys" : [ "groupBys", "groupBys" ],
+    "options" : {
+      "pathQueryOptions" : {
+        "pathFilters" : [ {
+          "eventFilters" : [ {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          }, {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          } ],
+          "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+        }, {
+          "eventFilters" : [ {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          }, {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          } ],
+          "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+        } ],
+        "channelGrouping" : {
+          "name" : "name",
+          "rules" : [ {
+            "disjunctiveMatchStatements" : [ {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            }, {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            } ],
+            "name" : "name"
+          }, {
+            "disjunctiveMatchStatements" : [ {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            }, {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            } ],
+            "name" : "name"
+          } ],
+          "fallbackName" : "fallbackName"
+        }
+      },
+      "includeOnlyTargetedUserLists" : true
+    },
+    "filters" : [ {
+      "type" : "type",
+      "value" : "value"
+    }, {
+      "type" : "type",
+      "value" : "value"
+    } ],
+    "metrics" : [ "metrics", "metrics" ],
+    "type" : "REPORT_TYPE_UNSPECIFIED"
+  },
+  "key" : {
+    "reportId" : "reportId",
+    "queryId" : "queryId"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Report">Report</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclickbidmanager.queries.reports.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /queries/{queryId}/reports</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclickbidmanager.queries.reports.list</span>)</div>
+    <div class="method-notes">Lists reports associated with a query.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">queryId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. ID of the query with which the reports are associated. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">orderBy (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Name of a field used to order results. The default sorting order is ascending. To specify descending order for a field, append a &quot; desc&quot; suffix. For example &quot;key.reportId desc&quot;. Sorting is only supported for the following fields: * <code>key.reportId</code> default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum number of results per page. Must be between <code>1</code> and <code>100</code>. Defaults to <code>100</code> if unspecified. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A page token, received from a previous list call. Provide this to retrieve the subsequent page of reports. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListReportsResponse">ListReportsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "reports" : [ {
+    "metadata" : {
+      "reportDataEndDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "reportDataStartDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "googleCloudStoragePath" : "googleCloudStoragePath",
+      "status" : {
+        "finishTime" : "finishTime",
+        "format" : "FORMAT_UNSPECIFIED",
+        "state" : "STATE_UNSPECIFIED"
+      }
+    },
+    "params" : {
+      "groupBys" : [ "groupBys", "groupBys" ],
+      "options" : {
+        "pathQueryOptions" : {
+          "pathFilters" : [ {
+            "eventFilters" : [ {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            }, {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            } ],
+            "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+          }, {
+            "eventFilters" : [ {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            }, {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            } ],
+            "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+          } ],
+          "channelGrouping" : {
+            "name" : "name",
+            "rules" : [ {
+              "disjunctiveMatchStatements" : [ {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              }, {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              } ],
+              "name" : "name"
+            }, {
+              "disjunctiveMatchStatements" : [ {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              }, {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              } ],
+              "name" : "name"
+            } ],
+            "fallbackName" : "fallbackName"
+          }
+        },
+        "includeOnlyTargetedUserLists" : true
+      },
+      "filters" : [ {
+        "type" : "type",
+        "value" : "value"
+      }, {
+        "type" : "type",
+        "value" : "value"
+      } ],
+      "metrics" : [ "metrics", "metrics" ],
+      "type" : "REPORT_TYPE_UNSPECIFIED"
+    },
+    "key" : {
+      "reportId" : "reportId",
+      "queryId" : "queryId"
+    }
+  }, {
+    "metadata" : {
+      "reportDataEndDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "reportDataStartDate" : {
+        "month" : 6,
+        "year" : 1,
+        "day" : 0
+      },
+      "googleCloudStoragePath" : "googleCloudStoragePath",
+      "status" : {
+        "finishTime" : "finishTime",
+        "format" : "FORMAT_UNSPECIFIED",
+        "state" : "STATE_UNSPECIFIED"
+      }
+    },
+    "params" : {
+      "groupBys" : [ "groupBys", "groupBys" ],
+      "options" : {
+        "pathQueryOptions" : {
+          "pathFilters" : [ {
+            "eventFilters" : [ {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            }, {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            } ],
+            "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+          }, {
+            "eventFilters" : [ {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            }, {
+              "dimensionFilter" : {
+                "filter" : "filter",
+                "values" : [ "values", "values" ],
+                "match" : "UNKNOWN"
+              }
+            } ],
+            "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+          } ],
+          "channelGrouping" : {
+            "name" : "name",
+            "rules" : [ {
+              "disjunctiveMatchStatements" : [ {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              }, {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              } ],
+              "name" : "name"
+            }, {
+              "disjunctiveMatchStatements" : [ {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              }, {
+                "eventFilters" : [ {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                }, {
+                  "dimensionFilter" : {
+                    "filter" : "filter",
+                    "values" : [ "values", "values" ],
+                    "match" : "UNKNOWN"
+                  }
+                } ]
+              } ],
+              "name" : "name"
+            } ],
+            "fallbackName" : "fallbackName"
+          }
+        },
+        "includeOnlyTargetedUserLists" : true
+      },
+      "filters" : [ {
+        "type" : "type",
+        "value" : "value"
+      }, {
+        "type" : "type",
+        "value" : "value"
+      } ],
+      "metrics" : [ "metrics", "metrics" ],
+      "type" : "REPORT_TYPE_UNSPECIFIED"
+    },
+    "key" : {
+      "reportId" : "reportId",
+      "queryId" : "queryId"
+    }
+  } ],
+  "nextPageToken" : "nextPageToken"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListReportsResponse">ListReportsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="doubleclickbidmanager.queries.run"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /queries/{queryId}:run</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">doubleclickbidmanager.queries.run</span>)</div>
+    <div class="method-notes">Runs a stored query to generate a report.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">queryId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. ID of query to run. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">RunQueryRequest <a href="#RunQueryRequest">RunQueryRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">synchronous (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Whether the query should be run synchronously. When true, this method will not return until the query has finished running. When false or not specified, this method will return immediately. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Report">Report</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "reportDataEndDate" : {
+      "month" : 6,
+      "year" : 1,
+      "day" : 0
+    },
+    "reportDataStartDate" : {
+      "month" : 6,
+      "year" : 1,
+      "day" : 0
+    },
+    "googleCloudStoragePath" : "googleCloudStoragePath",
+    "status" : {
+      "finishTime" : "finishTime",
+      "format" : "FORMAT_UNSPECIFIED",
+      "state" : "STATE_UNSPECIFIED"
+    }
+  },
+  "params" : {
+    "groupBys" : [ "groupBys", "groupBys" ],
+    "options" : {
+      "pathQueryOptions" : {
+        "pathFilters" : [ {
+          "eventFilters" : [ {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          }, {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          } ],
+          "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+        }, {
+          "eventFilters" : [ {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          }, {
+            "dimensionFilter" : {
+              "filter" : "filter",
+              "values" : [ "values", "values" ],
+              "match" : "UNKNOWN"
+            }
+          } ],
+          "pathMatchPosition" : "PATH_MATCH_POSITION_UNSPECIFIED"
+        } ],
+        "channelGrouping" : {
+          "name" : "name",
+          "rules" : [ {
+            "disjunctiveMatchStatements" : [ {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            }, {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            } ],
+            "name" : "name"
+          }, {
+            "disjunctiveMatchStatements" : [ {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            }, {
+              "eventFilters" : [ {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              }, {
+                "dimensionFilter" : {
+                  "filter" : "filter",
+                  "values" : [ "values", "values" ],
+                  "match" : "UNKNOWN"
+                }
+              } ]
+            } ],
+            "name" : "name"
+          } ],
+          "fallbackName" : "fallbackName"
+        }
+      },
+      "includeOnlyTargetedUserLists" : true
+    },
+    "filters" : [ {
+      "type" : "type",
+      "value" : "value"
+    }, {
+      "type" : "type",
+      "value" : "value"
+    } ],
+    "metrics" : [ "metrics", "metrics" ],
+    "type" : "REPORT_TYPE_UNSPECIFIED"
+  },
+  "key" : {
+    "reportId" : "reportId",
+    "queryId" : "queryId"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Report">Report</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ChannelGrouping"><code>ChannelGrouping</code> - </a></li>
+    <li><a href="#DataRange"><code>DataRange</code> - </a></li>
+    <li><a href="#Date"><code>Date</code> - </a></li>
+    <li><a href="#DisjunctiveMatchStatement"><code>DisjunctiveMatchStatement</code> - </a></li>
+    <li><a href="#EventFilter"><code>EventFilter</code> - </a></li>
+    <li><a href="#FilterPair"><code>FilterPair</code> - </a></li>
+    <li><a href="#ListQueriesResponse"><code>ListQueriesResponse</code> - </a></li>
+    <li><a href="#ListReportsResponse"><code>ListReportsResponse</code> - </a></li>
+    <li><a href="#Options"><code>Options</code> - </a></li>
+    <li><a href="#Parameters"><code>Parameters</code> - </a></li>
+    <li><a href="#PathFilter"><code>PathFilter</code> - </a></li>
+    <li><a href="#PathQueryOptions"><code>PathQueryOptions</code> - </a></li>
+    <li><a href="#PathQueryOptionsFilter"><code>PathQueryOptionsFilter</code> - </a></li>
+    <li><a href="#Query"><code>Query</code> - </a></li>
+    <li><a href="#QueryMetadata"><code>QueryMetadata</code> - </a></li>
+    <li><a href="#QuerySchedule"><code>QuerySchedule</code> - </a></li>
+    <li><a href="#Report"><code>Report</code> - </a></li>
+    <li><a href="#ReportKey"><code>ReportKey</code> - </a></li>
+    <li><a href="#ReportMetadata"><code>ReportMetadata</code> - </a></li>
+    <li><a href="#ReportStatus"><code>ReportStatus</code> - </a></li>
+    <li><a href="#Rule"><code>Rule</code> - </a></li>
+    <li><a href="#RunQueryRequest"><code>RunQueryRequest</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="ChannelGrouping"><code>ChannelGrouping</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A channel grouping defines a set of rules that can be used to categorize events in a path report.</div>
+    <div class="field-items">
+      <div class="param">fallbackName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name to apply to an event that does not match any of the rules in the channel grouping. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Channel Grouping name. </div>
+<div class="param">rules (optional)</div><div class="param-desc"><span class="param-type"><a href="#Rule">array[Rule]</a></span> Rules within Channel Grouping. There is a limit of 100 rules that can be set per channel grouping. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DataRange"><code>DataRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Report data range.</div>
+    <div class="field-items">
+      <div class="param">customEndDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Date">Date</a></span>  </div>
+<div class="param">customStartDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Date">Date</a></span>  </div>
+<div class="param">range (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Report data range used to generate the report. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">RANGE_UNSPECIFIED</div><div class="param-enum">CUSTOM_DATES</div><div class="param-enum">CURRENT_DAY</div><div class="param-enum">PREVIOUS_DAY</div><div class="param-enum">WEEK_TO_DATE</div><div class="param-enum">MONTH_TO_DATE</div><div class="param-enum">QUARTER_TO_DATE</div><div class="param-enum">YEAR_TO_DATE</div><div class="param-enum">PREVIOUS_WEEK</div><div class="param-enum">PREVIOUS_MONTH</div><div class="param-enum">PREVIOUS_QUARTER</div><div class="param-enum">PREVIOUS_YEAR</div><div class="param-enum">LAST_7_DAYS</div><div class="param-enum">LAST_30_DAYS</div><div class="param-enum">LAST_90_DAYS</div><div class="param-enum">LAST_365_DAYS</div><div class="param-enum">ALL_TIME</div><div class="param-enum">LAST_14_DAYS</div><div class="param-enum">LAST_60_DAYS</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Date"><code>Date</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own, with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp</div>
+    <div class="field-items">
+      <div class="param">day (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. format: int32</div>
+<div class="param">month (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. format: int32</div>
+<div class="param">year (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DisjunctiveMatchStatement"><code>DisjunctiveMatchStatement</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>DisjunctiveMatchStatement that OR's all contained filters.</div>
+    <div class="field-items">
+      <div class="param">eventFilters (optional)</div><div class="param-desc"><span class="param-type"><a href="#EventFilter">array[EventFilter]</a></span> Filters. There is a limit of 100 filters that can be set per disjunctive match statement. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EventFilter"><code>EventFilter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Defines the type of filter to be applied to the path, a DV360 event dimension filter.</div>
+    <div class="field-items">
+      <div class="param">dimensionFilter (optional)</div><div class="param-desc"><span class="param-type"><a href="#PathQueryOptionsFilter">PathQueryOptionsFilter</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="FilterPair"><code>FilterPair</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Filter used to match traffic data in your report.</div>
+    <div class="field-items">
+      <div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Filter type. </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Filter value. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListQueriesResponse"><code>ListQueriesResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A token, which can be sent as page_token to retrieve the next page of queries. If this field is omitted, there are no subsequent pages. </div>
+<div class="param">queries (optional)</div><div class="param-desc"><span class="param-type"><a href="#Query">array[Query]</a></span> The list of queries. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListReportsResponse"><code>ListReportsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A token, which can be sent as page_token to retrieve the next page of reports. If this field is omitted, there are no subsequent pages. </div>
+<div class="param">reports (optional)</div><div class="param-desc"><span class="param-type"><a href="#Report">array[Report]</a></span> Retrieved reports. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Options"><code>Options</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Additional query options.</div>
+    <div class="field-items">
+      <div class="param">includeOnlyTargetedUserLists (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Set to true and filter your report by <code>FILTER_INSERTION_ORDER</code> or <code>FILTER_LINE_ITEM</code> to include data for audience lists specifically targeted by those items. </div>
+<div class="param">pathQueryOptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#PathQueryOptions">PathQueryOptions</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Parameters"><code>Parameters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Parameters of a query or report.</div>
+    <div class="field-items">
+      <div class="param">filters (optional)</div><div class="param-desc"><span class="param-type"><a href="#FilterPair">array[FilterPair]</a></span> Filters used to match traffic data in your report. </div>
+<div class="param">groupBys (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Data is grouped by the filters listed in this field. </div>
+<div class="param">metrics (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Metrics to include as columns in your report. </div>
+<div class="param">options (optional)</div><div class="param-desc"><span class="param-type"><a href="#Options">Options</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of the report. The type of the report will dictate what dimesions, filters, and metrics can be used. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">REPORT_TYPE_UNSPECIFIED</div><div class="param-enum">STANDARD</div><div class="param-enum">INVENTORY_AVAILABILITY</div><div class="param-enum">AUDIENCE_COMPOSITION</div><div class="param-enum">FLOODLIGHT</div><div class="param-enum">YOUTUBE</div><div class="param-enum">GRP</div><div class="param-enum">YOUTUBE_PROGRAMMATIC_GUARANTEED</div><div class="param-enum">REACH</div><div class="param-enum">UNIQUE_REACH_AUDIENCE</div><div class="param-enum">FULL_PATH</div><div class="param-enum">PATH_ATTRIBUTION</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PathFilter"><code>PathFilter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Path filters specify which paths to include in a report. A path is the result of combining DV360 events based on User ID to create a workflow of users' actions. When a path filter is set, the resulting report will only include paths that match the specified event at the specified position. All other paths will be excluded.</div>
+    <div class="field-items">
+      <div class="param">eventFilters (optional)</div><div class="param-desc"><span class="param-type"><a href="#EventFilter">array[EventFilter]</a></span> Filter on an event to be applied to some part of the path. </div>
+<div class="param">pathMatchPosition (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The position of the path the filter should match to (first, last, or any event in path). </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">PATH_MATCH_POSITION_UNSPECIFIED</div><div class="param-enum">ANY</div><div class="param-enum">FIRST</div><div class="param-enum">LAST</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PathQueryOptions"><code>PathQueryOptions</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Path Query Options for Report Options.</div>
+    <div class="field-items">
+      <div class="param">channelGrouping (optional)</div><div class="param-desc"><span class="param-type"><a href="#ChannelGrouping">ChannelGrouping</a></span>  </div>
+<div class="param">pathFilters (optional)</div><div class="param-desc"><span class="param-type"><a href="#PathFilter">array[PathFilter]</a></span> Path Filters. There is a limit of 100 path filters that can be set per report. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PathQueryOptionsFilter"><code>PathQueryOptionsFilter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Dimension filter on path events.</div>
+    <div class="field-items">
+      <div class="param">filter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Dimension the filter is applied to. </div>
+<div class="param">match (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Match logic of the filter. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">UNKNOWN</div><div class="param-enum">EXACT</div><div class="param-enum">PARTIAL</div><div class="param-enum">BEGINS_WITH</div><div class="param-enum">WILDCARD_EXPRESSION</div>
+<div class="param">values (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Values to filter on. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Query"><code>Query</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents a query.</div>
+    <div class="field-items">
+      <div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#QueryMetadata">QueryMetadata</a></span>  </div>
+<div class="param">params (optional)</div><div class="param-desc"><span class="param-type"><a href="#Parameters">Parameters</a></span>  </div>
+<div class="param">queryId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Query ID. format: int64</div>
+<div class="param">schedule (optional)</div><div class="param-desc"><span class="param-type"><a href="#QuerySchedule">QuerySchedule</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="QueryMetadata"><code>QueryMetadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Query metadata.</div>
+    <div class="field-items">
+      <div class="param">dataRange (optional)</div><div class="param-desc"><span class="param-type"><a href="#DataRange">DataRange</a></span>  </div>
+<div class="param">format (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Format of the generated report. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">FORMAT_UNSPECIFIED</div><div class="param-enum">CSV</div><div class="param-enum">XLSX</div>
+<div class="param">sendNotification (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether to send an email notification when a report is ready. Defaults to false. </div>
+<div class="param">shareEmailAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> List of email addresses which are sent email notifications when the report is finished. Separate from send_notification. </div>
+<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Query title. It is used to name the reports generated from this query. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="QuerySchedule"><code>QuerySchedule</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Information on when and how frequently to run a query.</div>
+    <div class="field-items">
+      <div class="param">endDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Date">Date</a></span>  </div>
+<div class="param">frequency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> How often the query is run. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">FREQUENCY_UNSPECIFIED</div><div class="param-enum">ONE_TIME</div><div class="param-enum">DAILY</div><div class="param-enum">WEEKLY</div><div class="param-enum">SEMI_MONTHLY</div><div class="param-enum">MONTHLY</div><div class="param-enum">QUARTERLY</div><div class="param-enum">YEARLY</div>
+<div class="param">nextRunTimezoneCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Canonical timezone code for report generation time. Defaults to <code>America/New_York</code>. </div>
+<div class="param">startDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Date">Date</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Report"><code>Report</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents a report.</div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportKey">ReportKey</a></span>  </div>
+<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportMetadata">ReportMetadata</a></span>  </div>
+<div class="param">params (optional)</div><div class="param-desc"><span class="param-type"><a href="#Parameters">Parameters</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportKey"><code>ReportKey</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Key used to identify a report.</div>
+    <div class="field-items">
+      <div class="param">queryId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Query ID. format: int64</div>
+<div class="param">reportId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Report ID. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportMetadata"><code>ReportMetadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Report metadata.</div>
+    <div class="field-items">
+      <div class="param">googleCloudStoragePath (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The path to the location in Google Cloud Storage where the report is stored. </div>
+<div class="param">reportDataEndDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Date">Date</a></span>  </div>
+<div class="param">reportDataStartDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#Date">Date</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReportStatus">ReportStatus</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReportStatus"><code>ReportStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Report status.</div>
+    <div class="field-items">
+      <div class="param">finishTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The time when this report either completed successfully or failed. format: google-datetime</div>
+<div class="param">format (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The file type of the report. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">FORMAT_UNSPECIFIED</div><div class="param-enum">CSV</div><div class="param-enum">XLSX</div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The state of the report. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">STATE_UNSPECIFIED</div><div class="param-enum">QUEUED</div><div class="param-enum">RUNNING</div><div class="param-enum">DONE</div><div class="param-enum">FAILED</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Rule"><code>Rule</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A Rule defines a name, and a boolean expression in [conjunctive normal form] (http://mathworld.wolfram.com/ConjunctiveNormalForm.html){.external} that can be applied to a path event to determine if that name should be applied.</div>
+    <div class="field-items">
+      <div class="param">disjunctiveMatchStatements (optional)</div><div class="param-desc"><span class="param-type"><a href="#DisjunctiveMatchStatement">array[DisjunctiveMatchStatement]</a></span> DisjunctiveMatchStatements within a Rule. DisjunctiveMatchStatement OR's all contained filters. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Rule name. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RunQueryRequest"><code>RunQueryRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Request to run a stored query to generate a report.</div>
+    <div class="field-items">
+      <div class="param">dataRange (optional)</div><div class="param-desc"><span class="param-type"><a href="#DataRange">DataRange</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
