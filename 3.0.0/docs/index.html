@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>KERALA PUBLIC SERVICE COMMISSION, Kerala</title>
+    <title>Karnataka Secondary Education Examination Board, Karnataka</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,12 +179,12 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>KERALA PUBLIC SERVICE COMMISSION, Kerala</h1>
-    <div class="app-desc">The following issued documents can be integrated with DigiLocker and get used by candidates for service delivery - 1.One Time Verification -OTV certificate � issued to candidates qualified for appointment for posts in Govt. Sector to produce to the concerned dept. after scrutinizing their the relevant documents to prove their qualifications, age, etc.2. Admission Tickets for appearing Online, OMR Exams, Physical Test, Interview etc. 3.Departmental Test Certificates- is issued to employees in Govt. sector</div>
+  <h1>Karnataka Secondary Education Examination Board, Karnataka</h1>
+    <div class="app-desc">Karnataka Secondary Education Examination Board (http://kseeb.kar.nic.in) is providing passing certificates of  SSLC(10th Std) of April and June-2018 Examinations.</div>
     <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
     <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
     <div class="app-desc">Version: 3.0.0</div>
-    <div class="app-desc">BasePath:/keralapsc/v3</div>
+    <div class="app-desc">BasePath:/kseebkr/v3</div>
     <div class="license-info">All rights reserved</div>
     <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
   <h2>Access</h2>
@@ -200,16 +200,16 @@ font-style: italic;
   <div class="method-summary"></div>
   <h4><a href="#APIs">APIs</a></h4>
   <ul>
-  <li><a href="#otcer"><code><span class="http-method">post</span> /otcer/certificate</code></a></li>
+  <li><a href="#sscer"><code><span class="http-method">post</span> /sscer/certificate</code></a></li>
   </ul>
 
   <h1><a name="APIs">APIs</a></h1>
-  <div class="method"><a name="otcer"/>
+  <div class="method"><a name="sscer"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /otcer/certificate</code></pre></div>
-    <div class="method-summary">OTV Certificate (<span class="nickname">otcer</span>)</div>
-    <div class="method-notes">API to verify OTV Certificate.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /sscer/certificate</code></pre></div>
+    <div class="method-summary">Class X Marksheet (<span class="nickname">sscer</span>)</div>
+    <div class="method-notes">API to verify Class X Marksheet.</div>
 
 
     <h3 class="field-label">Consumes</h3>
@@ -220,7 +220,7 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">otcer_request <a href="#otcer_request">otcer_request</a> (optional)</div>
+      <div class="param">sscer_request <a href="#sscer_request">sscer_request</a> (optional)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
@@ -289,25 +289,25 @@ font-style: italic;
         <a href="#"></a>
     <h4 class="field-label">400</h4>
     Bad request
-        <a href="#otcer_400_response">otcer_400_response</a>
+        <a href="#sscer_400_response">sscer_400_response</a>
     <h4 class="field-label">401</h4>
     Unauthorized access
-        <a href="#otcer_401_response">otcer_401_response</a>
+        <a href="#sscer_401_response">sscer_401_response</a>
     <h4 class="field-label">404</h4>
     No record found
-        <a href="#otcer_404_response">otcer_404_response</a>
+        <a href="#sscer_404_response">sscer_404_response</a>
     <h4 class="field-label">500</h4>
     Internal server error
-        <a href="#otcer_500_response">otcer_500_response</a>
+        <a href="#sscer_500_response">sscer_500_response</a>
     <h4 class="field-label">502</h4>
     Bad gateway
-        <a href="#otcer_502_response">otcer_502_response</a>
+        <a href="#sscer_502_response">sscer_502_response</a>
     <h4 class="field-label">503</h4>
     Service unavailable
-        <a href="#otcer_503_response">otcer_503_response</a>
+        <a href="#sscer_503_response">sscer_503_response</a>
     <h4 class="field-label">504</h4>
     Gateway timeout
-        <a href="#otcer_504_response">otcer_504_response</a>
+        <a href="#sscer_504_response">sscer_504_response</a>
   </div> <!-- method -->
   <hr/>
 
@@ -338,15 +338,15 @@ font-style: italic;
     <li><a href="#ConsentArtifactSchema_consent_purpose"><code>ConsentArtifactSchema_consent_purpose</code> - </a></li>
     <li><a href="#ConsentArtifactSchema_consent_user"><code>ConsentArtifactSchema_consent_user</code> - </a></li>
     <li><a href="#ConsentArtifactSchema_signature"><code>ConsentArtifactSchema_signature</code> - </a></li>
-    <li><a href="#otcer_400_response"><code>otcer_400_response</code> - </a></li>
-    <li><a href="#otcer_401_response"><code>otcer_401_response</code> - </a></li>
-    <li><a href="#otcer_404_response"><code>otcer_404_response</code> - </a></li>
-    <li><a href="#otcer_500_response"><code>otcer_500_response</code> - </a></li>
-    <li><a href="#otcer_502_response"><code>otcer_502_response</code> - </a></li>
-    <li><a href="#otcer_503_response"><code>otcer_503_response</code> - </a></li>
-    <li><a href="#otcer_504_response"><code>otcer_504_response</code> - </a></li>
-    <li><a href="#otcer_request"><code>otcer_request</code> - </a></li>
-    <li><a href="#otcer_request_certificateParameters"><code>otcer_request_certificateParameters</code> - </a></li>
+    <li><a href="#sscer_400_response"><code>sscer_400_response</code> - </a></li>
+    <li><a href="#sscer_401_response"><code>sscer_401_response</code> - </a></li>
+    <li><a href="#sscer_404_response"><code>sscer_404_response</code> - </a></li>
+    <li><a href="#sscer_500_response"><code>sscer_500_response</code> - </a></li>
+    <li><a href="#sscer_502_response"><code>sscer_502_response</code> - </a></li>
+    <li><a href="#sscer_503_response"><code>sscer_503_response</code> - </a></li>
+    <li><a href="#sscer_504_response"><code>sscer_504_response</code> - </a></li>
+    <li><a href="#sscer_request"><code>sscer_request</code> - </a></li>
+    <li><a href="#sscer_request_certificateParameters"><code>sscer_request_certificateParameters</code> - </a></li>
   </ol>
 
   <div class="model">
@@ -594,7 +594,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="otcer_400_response"><code>otcer_400_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="sscer_400_response"><code>sscer_400_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -606,7 +606,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="otcer_401_response"><code>otcer_401_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="sscer_401_response"><code>sscer_401_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -618,7 +618,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="otcer_404_response"><code>otcer_404_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="sscer_404_response"><code>sscer_404_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -630,7 +630,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="otcer_500_response"><code>otcer_500_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="sscer_500_response"><code>sscer_500_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -642,7 +642,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="otcer_502_response"><code>otcer_502_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="sscer_502_response"><code>sscer_502_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -654,7 +654,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="otcer_503_response"><code>otcer_503_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="sscer_503_response"><code>sscer_503_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -666,7 +666,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="otcer_504_response"><code>otcer_504_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="sscer_504_response"><code>sscer_504_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -678,10 +678,10 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="otcer_request"><code>otcer_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="sscer_request"><code>sscer_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">certificateParameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#otcer_request_certificateParameters">otcer_request_certificateParameters</a></span>  </div>
+      <div class="param">certificateParameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#sscer_request_certificateParameters">sscer_request_certificateParameters</a></span>  </div>
 <div class="param">consentArtifact (optional)</div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema">ConsentArtifactSchema</a></span>  </div>
 <div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The format of the certificate in response. </div>
         <div class="param-enum-header">Enum:</div>
@@ -690,11 +690,12 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="otcer_request_certificateParameters"><code>otcer_request_certificateParameters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="sscer_request_certificateParameters"><code>sscer_request_certificateParameters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">DOB </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Date of birth in DD-MM-YYYY format </div>
 <div class="param">FullName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Full name </div>
+<div class="param">REGNO </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enter RegNo </div>
 <div class="param">UID </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Aadhaar number </div>
     </div>  <!-- field-items -->
   </div>

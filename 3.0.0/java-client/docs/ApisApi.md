@@ -1,19 +1,19 @@
 # ApisApi
 
-All URIs are relative to *https://apisetu.gov.in/keralapsc/v3*
+All URIs are relative to *https://apisetu.gov.in/kseebkr/v3*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**otcer**](ApisApi.md#otcer) | **POST** /otcer/certificate | OTV Certificate |
+| [**sscer**](ApisApi.md#sscer) | **POST** /sscer/certificate | Class X Marksheet |
 
 
-<a id="otcer"></a>
-# **otcer**
-> otcer(otcerRequest)
+<a id="sscer"></a>
+# **sscer**
+> sscer(sscerRequest)
 
-OTV Certificate
+Class X Marksheet
 
-API to verify OTV Certificate.
+API to verify Class X Marksheet.
 
 ### Example
 ```java
@@ -28,7 +28,7 @@ import org.openapitools.client.api.ApisApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://apisetu.gov.in/keralapsc/v3");
+    defaultClient.setBasePath("https://apisetu.gov.in/kseebkr/v3");
     
     // Configure API key authorization: clientId
     ApiKeyAuth clientId = (ApiKeyAuth) defaultClient.getAuthentication("clientId");
@@ -43,11 +43,11 @@ public class Example {
     //apiKey.setApiKeyPrefix("Token");
 
     ApisApi apiInstance = new ApisApi(defaultClient);
-    OtcerRequest otcerRequest = new OtcerRequest(); // OtcerRequest | Request format
+    SscerRequest sscerRequest = new SscerRequest(); // SscerRequest | Request format
     try {
-      apiInstance.otcer(otcerRequest);
+      apiInstance.sscer(sscerRequest);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ApisApi#otcer");
+      System.err.println("Exception when calling ApisApi#sscer");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -61,7 +61,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **otcerRequest** | [**OtcerRequest**](OtcerRequest.md)| Request format | [optional] |
+| **sscerRequest** | [**SscerRequest**](SscerRequest.md)| Request format | [optional] |
 
 ### Return type
 
