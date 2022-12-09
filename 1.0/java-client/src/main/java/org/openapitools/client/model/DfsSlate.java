@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * DfsSlate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:42.422352-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:50.409343-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DfsSlate {
   public static final String SERIALIZED_NAME_DFS_SLATE_GAMES = "DfsSlateGames";
   @SerializedName(SERIALIZED_NAME_DFS_SLATE_GAMES)
