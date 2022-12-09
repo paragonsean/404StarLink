@@ -1,0 +1,1299 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Xero Files API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Xero Files API</h1>
+    <div class="app-desc">These endpoints are specific to Xero Files API</div>
+    <div class="app-desc">More information: <a href="https://developer.xero.com">https://developer.xero.com</a></div>
+    <div class="app-desc">Contact Info: <a href="api@xero.com">api@xero.com</a></div>
+    <div class="app-desc">Version: 2.9.4</div>
+    <div class="app-desc">BasePath:/files.xro/1.0</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://login.xero.com/identity/connect/authorizeTokenUrl:https://identity.xero.com/connect/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Files">Files</a></h4>
+  <ul>
+  <li><a href="#createFileAssociation"><code><span class="http-method">post</span> /Files/{FileId}/Associations</code></a></li>
+  <li><a href="#createFolder"><code><span class="http-method">post</span> /Folders</code></a></li>
+  <li><a href="#deleteFile"><code><span class="http-method">delete</span> /Files/{FileId}</code></a></li>
+  <li><a href="#deleteFileAssociation"><code><span class="http-method">delete</span> /Files/{FileId}/Associations/{ObjectId}</code></a></li>
+  <li><a href="#deleteFolder"><code><span class="http-method">delete</span> /Folders/{FolderId}</code></a></li>
+  <li><a href="#getAssociationsByObject"><code><span class="http-method">get</span> /Associations/{ObjectId}</code></a></li>
+  <li><a href="#getFile"><code><span class="http-method">get</span> /Files/{FileId}</code></a></li>
+  <li><a href="#getFileAssociations"><code><span class="http-method">get</span> /Files/{FileId}/Associations</code></a></li>
+  <li><a href="#getFileContent"><code><span class="http-method">get</span> /Files/{FileId}/Content</code></a></li>
+  <li><a href="#getFiles"><code><span class="http-method">get</span> /Files</code></a></li>
+  <li><a href="#getFolder"><code><span class="http-method">get</span> /Folders/{FolderId}</code></a></li>
+  <li><a href="#getFolders"><code><span class="http-method">get</span> /Folders</code></a></li>
+  <li><a href="#getInbox"><code><span class="http-method">get</span> /Inbox</code></a></li>
+  <li><a href="#updateFile"><code><span class="http-method">put</span> /Files/{FileId}</code></a></li>
+  <li><a href="#updateFolder"><code><span class="http-method">put</span> /Folders/{FolderId}</code></a></li>
+  <li><a href="#uploadFile"><code><span class="http-method">post</span> /Files</code></a></li>
+  </ul>
+
+  <h1><a name="Files">Files</a></h1>
+  <div class="method"><a name="createFileAssociation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /Files/{FileId}/Associations</code></pre></div>
+    <div class="method-summary">Creates a new file association (<span class="nickname">createFileAssociation</span>)</div>
+    <div class="method-notes">By passing in the appropriate options, you can create a new folder</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">FileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; File id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Association <a href="#Association">Association</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Association">Association</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ObjectType" : "Unknown",
+  "ObjectId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "ObjectGroup" : "Account",
+  "FileId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    A successful request
+        <a href="#Association">Association</a>
+    <h4 class="field-label">400</h4>
+    invalid input, object invalid
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createFolder"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /Folders</code></pre></div>
+    <div class="method-summary">Creates a new folder (<span class="nickname">createFolder</span>)</div>
+    <div class="method-notes">By passing in the appropriate properties, you can create a new folder</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Folder <a href="#Folder">Folder</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Folder">Folder</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "IsInbox" : true,
+  "Email" : "foo@bar.com",
+  "FileCount" : 5,
+  "Id" : "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
+  "Name" : "assets"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    search results matching criteria
+        <a href="#Folder">Folder</a>
+    <h4 class="field-label">400</h4>
+    invalid input, object invalid
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteFile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /Files/{FileId}</code></pre></div>
+    <div class="method-summary">Deletes a specific file (<span class="nickname">deleteFile</span>)</div>
+    <div class="method-notes">Delete a specific file</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">FileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; File id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    Successful deletion - return response 204 no content
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteFileAssociation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /Files/{FileId}/Associations/{ObjectId}</code></pre></div>
+    <div class="method-summary">Deletes an existing file association (<span class="nickname">deleteFileAssociation</span>)</div>
+    <div class="method-notes">By passing in the appropriate options, you can create a new folder</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">FileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; File id for single object default: null format: uuid</div><div class="param">ObjectId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Object id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    Successful deletion - return response 204 no content
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteFolder"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /Folders/{FolderId}</code></pre></div>
+    <div class="method-summary">Deletes a folder (<span class="nickname">deleteFolder</span>)</div>
+    <div class="method-notes">By passing in the appropriate ID, you can delete a folder</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">FolderId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Folder id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    Successful deletion - return response 204 no content
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getAssociationsByObject"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Associations/{ObjectId}</code></pre></div>
+    <div class="method-summary">Retrieves an association object using a unique object ID (<span class="nickname">getAssociationsByObject</span>)</div>
+    <div class="method-notes">By passing in the appropriate options,</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">ObjectId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Object id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Association">Association</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "ObjectType" : "Unknown",
+  "ObjectId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "ObjectGroup" : "Account",
+  "FileId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+}, {
+  "ObjectType" : "Unknown",
+  "ObjectId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "ObjectGroup" : "Account",
+  "FileId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    search results matching criteria
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getFile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Files/{FileId}</code></pre></div>
+    <div class="method-summary">Retrieves a file by a unique file ID (<span class="nickname">getFile</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">FileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; File id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#FileObject">FileObject</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "CreatedDateUtc" : "2020-12-03T19:04:58.6970000",
+  "User" : {
+    "FirstName" : "John",
+    "FullName" : "Smith",
+    "Id" : "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
+    "LastName" : "Smith",
+    "Name" : "john.smith@mail.com"
+  },
+  "UpdatedDateUtc" : "2020-12-03T19:04:58.6970000",
+  "Size" : 3615,
+  "FolderId" : "0f8ccf21-7267-4268-9167-a1e2c40c84c8",
+  "Id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "MimeType" : "image/jpeg",
+  "Name" : "File2.jpg"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    search results matching criteria
+        <a href="#FileObject">FileObject</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getFileAssociations"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Files/{FileId}/Associations</code></pre></div>
+    <div class="method-summary">Retrieves a specific file associations (<span class="nickname">getFileAssociations</span>)</div>
+    <div class="method-notes">By passing in the appropriate options,</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">FileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; File id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Association">Association</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "ObjectType" : "Unknown",
+  "ObjectId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "ObjectGroup" : "Account",
+  "FileId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+}, {
+  "ObjectType" : "Unknown",
+  "ObjectId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "ObjectGroup" : "Account",
+  "FileId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    search results matching criteria
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getFileContent"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Files/{FileId}/Content</code></pre></div>
+    <div class="method-summary">Retrieves the content of a specific file (<span class="nickname">getFileContent</span>)</div>
+    <div class="method-notes">By passing in the appropriate options, retrieve data for specific file</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">FileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; File id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      File
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/octet-stream</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    returns the byte array of the specific file based on id
+        <a href="#File">File</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getFiles"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Files</code></pre></div>
+    <div class="method-summary">Retrieves files (<span class="nickname">getFiles</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">pagesize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; pass an optional page size value default: null </div><div class="param">page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; number of records to skip for pagination default: null </div><div class="param">sort (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; values to sort by default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Files">Files</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "TotalCount" : 2,
+  "PerPage" : 50,
+  "Items" : [ {
+    "CreatedDateUtc" : "2020-12-03T19:04:58.6970000",
+    "User" : {
+      "FirstName" : "John",
+      "FullName" : "Smith",
+      "Id" : "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
+      "LastName" : "Smith",
+      "Name" : "john.smith@mail.com"
+    },
+    "UpdatedDateUtc" : "2020-12-03T19:04:58.6970000",
+    "Size" : 3615,
+    "FolderId" : "0f8ccf21-7267-4268-9167-a1e2c40c84c8",
+    "Id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+    "MimeType" : "image/jpeg",
+    "Name" : "File2.jpg"
+  }, {
+    "CreatedDateUtc" : "2020-12-03T19:04:58.6970000",
+    "User" : {
+      "FirstName" : "John",
+      "FullName" : "Smith",
+      "Id" : "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
+      "LastName" : "Smith",
+      "Name" : "john.smith@mail.com"
+    },
+    "UpdatedDateUtc" : "2020-12-03T19:04:58.6970000",
+    "Size" : 3615,
+    "FolderId" : "0f8ccf21-7267-4268-9167-a1e2c40c84c8",
+    "Id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+    "MimeType" : "image/jpeg",
+    "Name" : "File2.jpg"
+  } ],
+  "Page" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    search results matching criteria
+        <a href="#Files">Files</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getFolder"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Folders/{FolderId}</code></pre></div>
+    <div class="method-summary">Retrieves specific folder by using a unique folder ID (<span class="nickname">getFolder</span>)</div>
+    <div class="method-notes">By passing in the appropriate ID, you can search for specific folder</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">FolderId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Folder id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Folder">Folder</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "IsInbox" : true,
+  "Email" : "foo@bar.com",
+  "FileCount" : 5,
+  "Id" : "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
+  "Name" : "assets"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    search results matching criteria
+        <a href="#Folder">Folder</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getFolders"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Folders</code></pre></div>
+    <div class="method-summary">Retrieves folders (<span class="nickname">getFolders</span>)</div>
+    <div class="method-notes">By passing in the appropriate options, you can search for available folders</div>
+
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">sort (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; values to sort by default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Folder">Folder</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "IsInbox" : true,
+  "Email" : "foo@bar.com",
+  "FileCount" : 5,
+  "Id" : "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
+  "Name" : "assets"
+}, {
+  "IsInbox" : true,
+  "Email" : "foo@bar.com",
+  "FileCount" : 5,
+  "Id" : "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
+  "Name" : "assets"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    search results matching criteria
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getInbox"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Inbox</code></pre></div>
+    <div class="method-summary">Retrieves inbox folder (<span class="nickname">getInbox</span>)</div>
+    <div class="method-notes">Search for the user inbox</div>
+
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Folder">Folder</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "IsInbox" : true,
+  "Email" : "foo@bar.com",
+  "FileCount" : 5,
+  "Id" : "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
+  "Name" : "assets"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    search results matching criteria
+        <a href="#Folder">Folder</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateFile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /Files/{FileId}</code></pre></div>
+    <div class="method-summary">Update a file (<span class="nickname">updateFile</span>)</div>
+    <div class="method-notes">Updates file properties of a single file</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">FileId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; File id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">FileObject <a href="#FileObject">FileObject</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#FileObject">FileObject</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "CreatedDateUtc" : "2020-12-03T19:04:58.6970000",
+  "User" : {
+    "FirstName" : "John",
+    "FullName" : "Smith",
+    "Id" : "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
+    "LastName" : "Smith",
+    "Name" : "john.smith@mail.com"
+  },
+  "UpdatedDateUtc" : "2020-12-03T19:04:58.6970000",
+  "Size" : 3615,
+  "FolderId" : "0f8ccf21-7267-4268-9167-a1e2c40c84c8",
+  "Id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "MimeType" : "image/jpeg",
+  "Name" : "File2.jpg"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A successful request
+        <a href="#FileObject">FileObject</a>
+    <h4 class="field-label">400</h4>
+    invalid input, object invalid
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateFolder"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /Folders/{FolderId}</code></pre></div>
+    <div class="method-summary">Updates an existing folder (<span class="nickname">updateFolder</span>)</div>
+    <div class="method-notes">By passing in the appropriate ID and properties, you can update a folder</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">FolderId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Folder id for single object default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Folder <a href="#Folder">Folder</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Folder">Folder</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "IsInbox" : true,
+  "Email" : "foo@bar.com",
+  "FileCount" : 5,
+  "Id" : "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
+  "Name" : "assets"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    return the updated object
+        <a href="#Folder">Folder</a>
+    <h4 class="field-label">400</h4>
+    invalid input, object invalid
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="uploadFile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /Files</code></pre></div>
+    <div class="method-summary">Uploads a File (<span class="nickname">uploadFile</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>multipart/form-data</code></li>
+    </ul>
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">xero-tenant-id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Xero identifier for Tenant default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">FolderId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; pass an optional folder id to save file to specific folder default: null format: uuid</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">body (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null format: byte</div><div class="param">filename (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null </div><div class="param">mimeType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null </div><div class="param">name (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; exact name of the file you are uploading default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#FileObject">FileObject</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "CreatedDateUtc" : "2020-12-03T19:04:58.6970000",
+  "User" : {
+    "FirstName" : "John",
+    "FullName" : "Smith",
+    "Id" : "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
+    "LastName" : "Smith",
+    "Name" : "john.smith@mail.com"
+  },
+  "UpdatedDateUtc" : "2020-12-03T19:04:58.6970000",
+  "Size" : 3615,
+  "FolderId" : "0f8ccf21-7267-4268-9167-a1e2c40c84c8",
+  "Id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "MimeType" : "image/jpeg",
+  "Name" : "File2.jpg"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    A successful request
+        <a href="#FileObject">FileObject</a>
+    <h4 class="field-label">400</h4>
+    invalid input, object invalid
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Association"><code>Association</code> - </a></li>
+    <li><a href="#FileObject"><code>FileObject</code> - </a></li>
+    <li><a href="#Files"><code>Files</code> - </a></li>
+    <li><a href="#Folder"><code>Folder</code> - </a></li>
+    <li><a href="#Folders"><code>Folders</code> - </a></li>
+    <li><a href="#ObjectGroup"><code>ObjectGroup</code> - </a></li>
+    <li><a href="#ObjectType"><code>ObjectType</code> - </a></li>
+    <li><a href="#User"><code>User</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Association"><code>Association</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">FileId (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The unique identifier of the file format: uuid</div>
+<div class="param">ObjectGroup (optional)</div><div class="param-desc"><span class="param-type"><a href="#ObjectGroup">ObjectGroup</a></span>  </div>
+<div class="param">ObjectId (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> The identifier of the object that the file is being associated with (e.g. InvoiceID, BankTransactionID, ContactID) format: uuid</div>
+<div class="param">ObjectType (optional)</div><div class="param-desc"><span class="param-type"><a href="#ObjectType">ObjectType</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="FileObject"><code>FileObject</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">CreatedDateUtc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Created date in UTC </div>
+<div class="param">FolderId (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> Folder relation object's UUID format: uuid</div>
+<div class="param">Id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> File object's UUID format: uuid</div>
+<div class="param">MimeType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> MimeType of the file (image/png, image/jpeg, application/pdf, etc..) </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> File Name </div>
+<div class="param">Size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Numeric value in bytes </div>
+<div class="param">UpdatedDateUtc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Updated date in UTC </div>
+<div class="param">User (optional)</div><div class="param-desc"><span class="param-type"><a href="#User">User</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Files"><code>Files</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Items (optional)</div><div class="param-desc"><span class="param-type"><a href="#FileObject">array[FileObject]</a></span>  </div>
+<div class="param">Page (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">PerPage (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TotalCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Folder"><code>Folder</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The email address used to email files to the inbox. Only the inbox will have this element. </div>
+<div class="param">FileCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of files in the folder </div>
+<div class="param">Id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> Xero unique identifier for a folder  Files format: uuid</div>
+<div class="param">IsInbox (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> to indicate if the folder is the Inbox. The Inbox cannot be renamed or deleted. </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the folder </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Folders"><code>Folders</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Folders (optional)</div><div class="param-desc"><span class="param-type"><a href="#Folder">array[Folder]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ObjectGroup"><code>ObjectGroup</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The Object Group that the object is in. These roughly correlate to the endpoints that can be used to retrieve the object via the core accounting API.</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ObjectType"><code>ObjectType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The Object Type</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="User"><code>User</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">FirstName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> First name of user </div>
+<div class="param">FullName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Last name of user </div>
+<div class="param">Id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> Xero identifier format: uuid</div>
+<div class="param">LastName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Last name of user </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Key is Name, but returns Email address of user who created the file </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
