@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * CheckSpellingRussianRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:44.782398-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:52.926826-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CheckSpellingRussianRequest {
   public static final String SERIALIZED_NAME_LANG_CODE = "lang_code";
   @SerializedName(SERIALIZED_NAME_LANG_CODE)
