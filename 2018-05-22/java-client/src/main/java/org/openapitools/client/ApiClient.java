@@ -1,6 +1,6 @@
 /*
- * Amazon Personalize
- * Amazon Personalize is a machine learning service that makes it easy to add individualized recommendations to customers.
+ * Amazon Personalize Runtime
+ * <p/>
  *
  * The version of the OpenAPI document: 2018-05-22
  * Contact: mike.ralphson@gmail.com
@@ -61,11 +61,11 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "http://personalize.us-east-1.amazonaws.com";
+    private String basePath = "http://personalize-runtime.us-east-1.amazonaws.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "http://personalize.{region}.amazonaws.com",
-      "The Amazon Personalize multi-region endpoint",
+      "http://personalize-runtime.{region}.amazonaws.com",
+      "The Amazon Personalize Runtime multi-region endpoint",
       new HashMap<String, ServerVariable>() {{
         put("region", new ServerVariable(
           "The AWS region",
@@ -101,8 +101,8 @@ public class ApiClient {
       }}
     ),
     new ServerConfiguration(
-      "https://personalize.{region}.amazonaws.com",
-      "The Amazon Personalize multi-region endpoint",
+      "https://personalize-runtime.{region}.amazonaws.com",
+      "The Amazon Personalize Runtime multi-region endpoint",
       new HashMap<String, ServerVariable>() {{
         put("region", new ServerVariable(
           "The AWS region",
@@ -138,8 +138,8 @@ public class ApiClient {
       }}
     ),
     new ServerConfiguration(
-      "http://personalize.{region}.amazonaws.com.cn",
-      "The Amazon Personalize endpoint for China (Beijing) and China (Ningxia)",
+      "http://personalize-runtime.{region}.amazonaws.com.cn",
+      "The Amazon Personalize Runtime endpoint for China (Beijing) and China (Ningxia)",
       new HashMap<String, ServerVariable>() {{
         put("region", new ServerVariable(
           "The AWS region",
@@ -154,8 +154,8 @@ public class ApiClient {
       }}
     ),
     new ServerConfiguration(
-      "https://personalize.{region}.amazonaws.com.cn",
-      "The Amazon Personalize endpoint for China (Beijing) and China (Ningxia)",
+      "https://personalize-runtime.{region}.amazonaws.com.cn",
+      "The Amazon Personalize Runtime endpoint for China (Beijing) and China (Ningxia)",
       new HashMap<String, ServerVariable>() {{
         put("region", new ServerVariable(
           "The AWS region",
@@ -259,7 +259,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g http://personalize.us-east-1.amazonaws.com
+     * @param basePath Base path of the URL (e.g http://personalize-runtime.us-east-1.amazonaws.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
