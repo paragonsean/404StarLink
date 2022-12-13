@@ -1,0 +1,809 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Meghalaya Board of School Education, Tura, Meghalaya</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Meghalaya Board of School Education, Tura, Meghalaya</h1>
+    <div class="app-desc">Meghalaya Board of School Education (MBOSE) with Marksheets of Class Xth and Class XIIth (Arts , Science, Commerce and Vocational), is availablke on DigiLocker for the students of 2015-2019.</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 3.0.0</div>
+    <div class="app-desc">BasePath:/mbose/v3</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:X-APISETU-APIKEY KeyInQuery:false KeyInHeader:true</li>
+      <li>APIKey KeyParamName:X-APISETU-CLIENTID KeyInQuery:false KeyInHeader:true</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#APIs">APIs</a></h4>
+  <ul>
+  <li><a href="#hscer"><code><span class="http-method">post</span> /hscer/certificate</code></a></li>
+  <li><a href="#sscer"><code><span class="http-method">post</span> /sscer/certificate</code></a></li>
+  </ul>
+
+  <h1><a name="APIs">APIs</a></h1>
+  <div class="method"><a name="hscer"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /hscer/certificate</code></pre></div>
+    <div class="method-summary">Class XII Marksheet (<span class="nickname">hscer</span>)</div>
+    <div class="method-notes">API to verify Class XII Marksheet.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">hscer_request <a href="#hscer_request">hscer_request</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Please provide all mandatory parameters",
+  "error" : "missing_parameter"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Authentication failed",
+  "error" : "invalid_authentication"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "No record found",
+  "error" : "record_not_found"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Internal server error",
+  "error" : "internal_server_error"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Publisher service returned an invalid response",
+  "error" : "bad_gatewy"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Publisher service is temporarily unavailable",
+  "error" : "service_unavailable"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Publisher service did not respond in time",
+  "error" : "gateway_timeout"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/pdf</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad request
+        <a href="#hscer_400_response">hscer_400_response</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized access
+        <a href="#hscer_401_response">hscer_401_response</a>
+    <h4 class="field-label">404</h4>
+    No record found
+        <a href="#hscer_404_response">hscer_404_response</a>
+    <h4 class="field-label">500</h4>
+    Internal server error
+        <a href="#hscer_500_response">hscer_500_response</a>
+    <h4 class="field-label">502</h4>
+    Bad gateway
+        <a href="#hscer_502_response">hscer_502_response</a>
+    <h4 class="field-label">503</h4>
+    Service unavailable
+        <a href="#hscer_503_response">hscer_503_response</a>
+    <h4 class="field-label">504</h4>
+    Gateway timeout
+        <a href="#hscer_504_response">hscer_504_response</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="sscer"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /sscer/certificate</code></pre></div>
+    <div class="method-summary">Class X Marksheet (<span class="nickname">sscer</span>)</div>
+    <div class="method-notes">API to verify Class X Marksheet.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">hscer_request <a href="#hscer_request">hscer_request</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Please provide all mandatory parameters",
+  "error" : "missing_parameter"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Authentication failed",
+  "error" : "invalid_authentication"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "No record found",
+  "error" : "record_not_found"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Internal server error",
+  "error" : "internal_server_error"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Publisher service returned an invalid response",
+  "error" : "bad_gatewy"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Publisher service is temporarily unavailable",
+  "error" : "service_unavailable"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorDescription" : "Publisher service did not respond in time",
+  "error" : "gateway_timeout"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/pdf</code></li>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad request
+        <a href="#hscer_400_response">hscer_400_response</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized access
+        <a href="#hscer_401_response">hscer_401_response</a>
+    <h4 class="field-label">404</h4>
+    No record found
+        <a href="#hscer_404_response">hscer_404_response</a>
+    <h4 class="field-label">500</h4>
+    Internal server error
+        <a href="#hscer_500_response">hscer_500_response</a>
+    <h4 class="field-label">502</h4>
+    Bad gateway
+        <a href="#hscer_502_response">hscer_502_response</a>
+    <h4 class="field-label">503</h4>
+    Service unavailable
+        <a href="#hscer_503_response">hscer_503_response</a>
+    <h4 class="field-label">504</h4>
+    Gateway timeout
+        <a href="#hscer_504_response">hscer_504_response</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#AcademicCertificateSchema"><code>AcademicCertificateSchema</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_CertificateData"><code>AcademicCertificateSchema_CertificateData</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_CertificateData_Examination"><code>AcademicCertificateSchema_CertificateData_Examination</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_CertificateData_Performance"><code>AcademicCertificateSchema_CertificateData_Performance</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_CertificateData_Performance_Subjects_inner"><code>AcademicCertificateSchema_CertificateData_Performance_Subjects_inner</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_CertificateData_School"><code>AcademicCertificateSchema_CertificateData_School</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedBy"><code>AcademicCertificateSchema_IssuedBy</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedBy_Organization"><code>AcademicCertificateSchema_IssuedBy_Organization</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedBy_Organization_Address"><code>AcademicCertificateSchema_IssuedBy_Organization_Address</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedTo"><code>AcademicCertificateSchema_IssuedTo</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedTo_Person"><code>AcademicCertificateSchema_IssuedTo_Person</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedTo_Person_Address"><code>AcademicCertificateSchema_IssuedTo_Person_Address</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedTo_Person_Photo"><code>AcademicCertificateSchema_IssuedTo_Person_Photo</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema"><code>ConsentArtifactSchema</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent"><code>ConsentArtifactSchema_consent</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_data"><code>ConsentArtifactSchema_consent_data</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_permission"><code>ConsentArtifactSchema_consent_permission</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_permission_dateRange"><code>ConsentArtifactSchema_consent_permission_dateRange</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_permission_frequency"><code>ConsentArtifactSchema_consent_permission_frequency</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_purpose"><code>ConsentArtifactSchema_consent_purpose</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_user"><code>ConsentArtifactSchema_consent_user</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_signature"><code>ConsentArtifactSchema_signature</code> - </a></li>
+    <li><a href="#hscer_400_response"><code>hscer_400_response</code> - </a></li>
+    <li><a href="#hscer_401_response"><code>hscer_401_response</code> - </a></li>
+    <li><a href="#hscer_404_response"><code>hscer_404_response</code> - </a></li>
+    <li><a href="#hscer_500_response"><code>hscer_500_response</code> - </a></li>
+    <li><a href="#hscer_502_response"><code>hscer_502_response</code> - </a></li>
+    <li><a href="#hscer_503_response"><code>hscer_503_response</code> - </a></li>
+    <li><a href="#hscer_504_response"><code>hscer_504_response</code> - </a></li>
+    <li><a href="#hscer_request"><code>hscer_request</code> - </a></li>
+    <li><a href="#hscer_request_certificateParameters"><code>hscer_request_certificateParameters</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema"><code>AcademicCertificateSchema</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">CertificateData </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData">AcademicCertificateSchema_CertificateData</a></span>  </div>
+<div class="param">IssuedBy </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy">AcademicCertificateSchema_IssuedBy</a></span>  </div>
+<div class="param">IssuedTo </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo">AcademicCertificateSchema_IssuedTo</a></span>  </div>
+<div class="param">issueDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">issuedAt </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">language </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">number </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">validFromDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_CertificateData"><code>AcademicCertificateSchema_CertificateData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Examination </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Examination">AcademicCertificateSchema_CertificateData_Examination</a></span>  </div>
+<div class="param">Performance </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Performance">AcademicCertificateSchema_CertificateData_Performance</a></span>  </div>
+<div class="param">School </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_School">AcademicCertificateSchema_CertificateData_School</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_CertificateData_Examination"><code>AcademicCertificateSchema_CertificateData_Examination</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">month </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">year </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_CertificateData_Performance"><code>AcademicCertificateSchema_CertificateData_Performance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Subjects </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Performance_Subjects_inner">array[AcademicCertificateSchema_CertificateData_Performance_Subjects_inner]</a></span>  </div>
+<div class="param">cgpa </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">cgpaMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">grade </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">marksMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">marksTotal </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">percentage </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">result </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">resultDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">updateDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_CertificateData_Performance_Subjects_inner"><code>AcademicCertificateSchema_CertificateData_Performance_Subjects_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">gp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">gpMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">grade </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">marksMax </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">marksMaxPractical </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">marksMaxTheory </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">marksPractical </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">marksTheory </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">marksTotal </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_CertificateData_School"><code>AcademicCertificateSchema_CertificateData_School</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedBy"><code>AcademicCertificateSchema_IssuedBy</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Organization </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy_Organization">AcademicCertificateSchema_IssuedBy_Organization</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedBy_Organization"><code>AcademicCertificateSchema_IssuedBy_Organization</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Address </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy_Organization_Address">AcademicCertificateSchema_IssuedBy_Organization_Address</a></span>  </div>
+<div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">tin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">uid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedBy_Organization_Address"><code>AcademicCertificateSchema_IssuedBy_Organization_Address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">country </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">district </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">house </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">landmark </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">line1 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">line2 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">locality </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">vtc </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedTo"><code>AcademicCertificateSchema_IssuedTo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Person </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person">AcademicCertificateSchema_IssuedTo_Person</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedTo_Person"><code>AcademicCertificateSchema_IssuedTo_Person</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Address </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person_Address">AcademicCertificateSchema_IssuedTo_Person_Address</a></span>  </div>
+<div class="param">Photo </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person_Photo">AcademicCertificateSchema_IssuedTo_Person_Photo</a></span>  </div>
+<div class="param">category </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">disabilityStatus </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dob </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">gender </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">maritalStatus </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">motherName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">phone </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">religion </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">swd </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">swdIndicator </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">uid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedTo_Person_Address"><code>AcademicCertificateSchema_IssuedTo_Person_Address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">country </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">district </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">house </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">landmark </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">line1 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">line2 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">locality </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">vtc </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedTo_Person_Photo"><code>AcademicCertificateSchema_IssuedTo_Person_Photo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema"><code>ConsentArtifactSchema</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">consent </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent">ConsentArtifactSchema_consent</a></span>  </div>
+<div class="param">signature </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_signature">ConsentArtifactSchema_signature</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent"><code>ConsentArtifactSchema_consent</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">consentId </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> A unique consent id in UUID format. format: uuid</div>
+<div class="param">data </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
+<div class="param">dataConsumer </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
+<div class="param">dataProvider </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
+<div class="param">permission </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission">ConsentArtifactSchema_consent_permission</a></span>  </div>
+<div class="param">purpose </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_purpose">ConsentArtifactSchema_consent_purpose</a></span>  </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
+<div class="param">user </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_user">ConsentArtifactSchema_consent_user</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_data"><code>ConsentArtifactSchema_consent_data</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_permission"><code>ConsentArtifactSchema_consent_permission</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">access </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dateRange </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission_dateRange">ConsentArtifactSchema_consent_permission_dateRange</a></span>  </div>
+<div class="param">frequency </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission_frequency">ConsentArtifactSchema_consent_permission_frequency</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_permission_dateRange"><code>ConsentArtifactSchema_consent_permission_dateRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_permission_frequency"><code>ConsentArtifactSchema_consent_permission_frequency</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">repeats </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">unit </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_purpose"><code>ConsentArtifactSchema_consent_purpose</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">description </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_user"><code>ConsentArtifactSchema_consent_user</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">idNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">idType </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">mobile </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_signature"><code>ConsentArtifactSchema_signature</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">signature </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="hscer_400_response"><code>hscer_400_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">missing_parameter</div><div class="param-enum">invalid_parameter</div><div class="param-enum">invalid_format</div><div class="param-enum">invalid_txnid</div><div class="param-enum">invalid_consentid</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Please provide all mandatory parameters</div><div class="param-enum">Bad request</div><div class="param-enum">The format parameter is invalid</div><div class="param-enum">The txnId parameter must be in UUID format</div><div class="param-enum">The consentId parameter must be in UUID format</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="hscer_401_response"><code>hscer_401_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">invalid_authentication</div><div class="param-enum">invalid_authorization</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Authentication failed</div><div class="param-enum">You are not authorized to use this API</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="hscer_404_response"><code>hscer_404_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">record_not_found</div><div class="param-enum">url_not_found</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">No record found</div><div class="param-enum">Your API url or path is incorrect</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="hscer_500_response"><code>hscer_500_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">internal_server_error</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Internal server error</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="hscer_502_response"><code>hscer_502_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">bad_gatewy</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Publisher service returned an invalid response</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="hscer_503_response"><code>hscer_503_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">service_unavailable</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Publisher service is temporarily unavailable</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="hscer_504_response"><code>hscer_504_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">gateway_timeout</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Publisher service did not respond in time</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="hscer_request"><code>hscer_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">certificateParameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#hscer_request_certificateParameters">hscer_request_certificateParameters</a></span>  </div>
+<div class="param">consentArtifact (optional)</div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema">ConsentArtifactSchema</a></span>  </div>
+<div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The format of the certificate in response. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">pdf</div>
+<div class="param">txnId </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> A unique transaction id for this request in UUID format. It is used for tracking the request. format: uuid</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="hscer_request_certificateParameters"><code>hscer_request_certificateParameters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">FullName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Full name </div>
+<div class="param">RROLL </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Roll No </div>
+<div class="param">YEAR </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Year </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
