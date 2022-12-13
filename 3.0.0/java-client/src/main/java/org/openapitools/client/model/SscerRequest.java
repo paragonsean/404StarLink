@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * SscerRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:48.787077-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:05:59.260572-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SscerRequest {
   public static final String SERIALIZED_NAME_CERTIFICATE_PARAMETERS = "certificateParameters";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_PARAMETERS)

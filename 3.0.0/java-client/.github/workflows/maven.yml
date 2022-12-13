@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build KERALA PUBLIC SERVICE COMMISSION, Kerala
+    name: Build Karnataka Secondary Education Examination Board, Karnataka
     runs-on: ubuntu-latest
     strategy:
       matrix:
