@@ -1,205 +1,228 @@
 openapi: 3.0.0
 info:
-  contact:
-    x-twitter: nfldata
-  title: NHL v3 Projections
+  description: "A web service for near earth objects. All the data is from the <a\
+    \ href=\"http://neo.jpl.nasa.gov/\" target=\"_blank\">NASA JPL Asteroid team</a>.\
+    \ \n\n \n\nNeoWs is proud to power AsteroidTracker on <a href=\"https://itunes.apple.com/us/app/asteroid-tracker/id689684901?mt=8\"\
+    \ target=\"_blank\">iOS</a> and <a href=\"https://play.google.com/store/apps/details?id=com.vitruviussoftware.bunifish.asteroidtracker&feature\"\
+    \ target=\"_blank\">Android</a> as well as related apps. \n\n Follow us on <a\
+    \ href=\"https://twitter.com/AsteroidTracker\" target=\"_blank\">Twitter</a>"
+  title: NeoWs - (Near Earth Object Web Service)
   version: "1.0"
   x-apisguru-categories:
-  - entertainment
-  x-logo:
-    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_nfldata_profile_image.jpeg
+  - open_data
   x-origin:
-  - format: swagger
-    url: https://fantasydata.com/downloads/swagger/nhl-v3-projections.json
-    version: "2.0"
-  x-providerName: sportsdata.io
-  x-serviceName: nhl-v3-projections
+  - converter:
+      url: https://github.com/lucybot/api-spec-converter
+      version: 2.7.31
+    format: swagger
+    url: http://www.neowsapp.com/api-docs
+    version: "1.2"
+  x-providerName: neowsapp.com
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_apis.guru_assets_images_no-logo.svg
 servers:
-- url: http://azure-api.sportsdata.io/v3/nhl/projections
-- url: https://azure-api.sportsdata.io/v3/nhl/projections
-security:
-- apiKeyHeader: []
-- apiKeyQuery: []
+- url: http://www.neowsapp.com/
+tags:
+- description: Operations with NearEarthObjects
+  name: feed
+- description: Operations with NearEarthObjects
+  name: neo
+- description: Operations with Sentry NearEarthObjects
+  name: neosentry
+- description: Stats on Near Earth Object data sets
+  name: stats
 paths:
-  /{format}/DfsSlatesByDate/{date}:
+  /rest/v1/feed:
     get:
-      operationId: DfsSlatesByDate
+      deprecated: false
+      description: "Get a list of Near Earth Objects within a date range, The max\
+        \ range in one query is 7 days"
+      operationId: retrieveNearEarthObjectFeed
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
-        schema:
-          default: XML
-          enum:
-          - XML
-          - JSON
-          type: string
-        style: simple
-      - description: |-
-          The date of the game(s).
-          <br>Examples: <code>2017-DEC-01</code>, <code>2018-FEB-15</code>.
-        explode: false
-        in: path
-        name: date
-        required: true
+      - description: "Start of date range search, format: yyyy-MM-dd - (ex: 2015-04-28)"
+        explode: true
+        in: query
+        name: start_date
+        required: false
         schema:
           type: string
-        style: simple
+        style: form
+      - description: "End of date range search, format: yyyy-MM-dd - (ex: 2015-04-28).\
+          \ If left off search will extends 7 days from start_date"
+        explode: true
+        in: query
+        name: end_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: detailed
+        explode: true
+        in: query
+        name: detailed
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/DfsSlate'
-                type: array
-          description: ""
-      summary: DFS Slates by Date
+                $ref: '#/components/schemas/NearEarthObjectList'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Find Near Earth Objects by date
+      tags:
+      - feed
       x-accepts:
       - application/json
-  /{format}/InjuredPlayers:
+  /rest/v1/feed/today:
     get:
-      description: "This endpoint provides all currently injured NHL players, along\
-        \ with injury details."
-      operationId: InjuredPlayers
+      deprecated: false
+      description: Get a list of Near Earth Objects for today
+      operationId: retrieveNEOFeedToday
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
+      - description: detailed
+        explode: true
+        in: query
+        name: detailed
+        required: false
         schema:
-          default: XML
-          enum:
-          - XML
-          - JSON
-          type: string
-        style: simple
+          type: boolean
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Player'
-                type: array
-          description: ""
-      summary: Injured Players
+                $ref: '#/components/schemas/NearEarthObjectList'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Find Near Earth Objects for today
+      tags:
+      - feed
       x-accepts:
       - application/json
-  /{format}/PlayerGameProjectionStatsByDate/{date}:
+  /rest/v1/neo/browse:
     get:
-      operationId: ProjectedPlayerGameStatsByDateWInjuriesDfsSalaries
+      deprecated: false
+      description: Retieve a paginated list of Near Earth Objects
+      operationId: browseNearEarthObjects
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
+      - description: page
+        explode: true
+        in: query
+        name: page
+        required: false
         schema:
-          default: XML
-          enum:
-          - XML
-          - JSON
-          type: string
-        style: simple
-      - description: "The date of the game(s).\n <br>Examples: <code>2018-JAN-31</code>,\
-          \ <code>2017-OCT-01</code>.\n "
-        explode: false
-        in: path
-        name: date
-        required: true
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: size
+        explode: true
+        in: query
+        name: size
+        required: false
         schema:
-          type: string
-        style: simple
+          default: 20
+          format: int32
+          type: integer
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/PlayerGameProjection'
-                type: array
-          description: ""
-      summary: "Projected Player Game Stats by Date (w/ Injuries, DFS Salaries)"
+                $ref: '#/components/schemas/NearEarthObject'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Browse the Near Earth Objects service
+      tags:
+      - neo
       x-accepts:
       - application/json
-  /{format}/PlayerGameProjectionStatsByPlayer/{date}/{playerid}:
+  /rest/v1/neo/sentry:
     get:
-      operationId: ProjectedPlayerGameStatsByPlayerWInjuriesDfsSalaries
+      deprecated: false
+      description: Retrieves Near Earth Objects listed in the NASA sentry data set
+      operationId: retrieveSentryRiskData
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
+      - description: "show current list of Sentry objects, or show removed Sentry\
+          \ objects"
+        explode: true
+        in: query
+        name: is_active
+        required: false
         schema:
-          default: XML
-          enum:
-          - XML
-          - JSON
-          type: string
-        style: simple
-      - description: "The date of the game(s).\n <br>Examples: <code>2018-JAN-31</code>,\
-          \ <code>2017-OCT-01</code>.\n "
-        explode: false
-        in: path
-        name: date
-        required: true
+          default: true
+          type: boolean
+        style: form
+      - description: page
+        explode: true
+        in: query
+        name: page
+        required: false
         schema:
-          type: string
-        style: simple
-      - description: |-
-          Unique FantasyData Player ID.
-          Example:<code>30000378</code>.
-        explode: false
-        in: path
-        name: playerid
-        required: true
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: size
+        explode: true
+        in: query
+        name: size
+        required: false
         schema:
-          type: string
-        style: simple
+          default: 50
+          format: int32
+          type: integer
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PlayerGameProjection'
-          description: ""
-      summary: "Projected Player Game Stats by Player (w/ Injuries, DFS Salaries)"
+                $ref: '#/components/schemas/SentryObjectPagingDto'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Retrieve Sentry (Impact Risk ) Near Earth Objects
+      tags:
+      - neosentry
       x-accepts:
       - application/json
-  /{format}/StartingGoaltendersByDate/{date}:
+  /rest/v1/neo/sentry/{asteroid_id}:
     get:
-      description: This endpoint provides the projected & confirmed starting goaltenders
-        for NHL games on a given date.
-      operationId: StartingGoaltendersByDate
+      deprecated: false
+      description: Retrieves Sentry Near Earth Object by ID
+      operationId: retrieveSentryRiskDataById
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
+      - description: "ID of NearEarth object.  ID can be SPK_ID, Asteroid des (designation)\
+          \ or Sentry ID"
         explode: false
         in: path
-        name: format
-        required: true
-        schema:
-          default: XML
-          enum:
-          - XML
-          - JSON
-          type: string
-        style: simple
-      - description: |-
-          The date of the game(s).
-          <br>Examples: <code>2021-OCT-12</code>, <code>2021-DEC-09</code>.
-        explode: false
-        in: path
-        name: date
+        name: asteroid_id
         required: true
         schema:
           type: string
@@ -209,1802 +232,617 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/StartingGoaltenders'
-                type: array
-          description: ""
-      summary: Starting Goaltenders by Date
+                $ref: '#/components/schemas/SentryImpactRiskObject'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: 'Retrieve Sentry (Impact Risk ) Near Earth Objectby ID '
+      tags:
+      - neosentry
+      x-accepts:
+      - application/json
+  /rest/v1/neo/{asteroid_id}:
+    get:
+      deprecated: false
+      description: Retrieve a Near Earth Objects with a given id
+      operationId: retrieveNearEarthObjectById
+      parameters:
+      - description: "ID of Near Earth Object - (ex: 3729835)"
+        explode: false
+        in: path
+        name: asteroid_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NearEarthObject'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Find Near Earth Objects by id
+      tags:
+      - neo
+      x-accepts:
+      - application/json
+  /rest/v1/stats:
+    get:
+      deprecated: false
+      description: retrieveCurrentNeoStatistics
+      operationId: retrieveCurrentNeoStatistics
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statistics'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Get the Near Earth Object data set totals
+      tags:
+      - stats
       x-accepts:
       - application/json
 components:
   schemas:
-    DfsSlate:
+    CloseApproachData:
       example:
-        Operator: Operator
-        OperatorDay: OperatorDay
-        OperatorName: OperatorName
-        IsMultiDaySlate: true
-        SlateID: 1
-        DfsSlateGames:
-        - RemovedByOperator: true
-          Game:
-            AwayTeam: AwayTeam
-            GameEndDateTime: GameEndDateTime
-            HomeRotationNumber: 2
-            HomeTeamMoneyLine: 7
-            HomeTeamID: 4
-            AwayTeamID: 1
-            IsClosed: true
-            DateTime: DateTime
-            LastPlay: LastPlay
-            TimeRemainingSeconds: 1
-            UnderPayout: 4
-            GlobalHomeTeamID: 3
-            Season: 3
-            GameID: 2
-            GlobalGameID: 9
-            OverPayout: 1
-            Attendance: 0
-            Status: Status
-            HomeTeam: HomeTeam
-            Updated: Updated
-            TimeRemainingMinutes: 4
-            Channel: Channel
-            Period: Period
-            OverUnder: 1.4894159098541704
-            NeutralVenue: true
-            StadiumID: 6
-            Periods:
-            - HomeScore: 1
-              ScoringPlays:
-              - EmptyNet: true
-                ShortHanded: true
-                TimeRemainingMinutes: 0
-                PowerPlay: true
-                AssistedByPlayerID2: 5
-                AssistedByPlayerID1: 6
-                PeriodID: 3
-                Sequence: 6
-                TimeRemainingSeconds: 4
-                HomeTeamScore: 3
-                AwayTeamScore: 6
-                ScoringPlayID: 7
-                AllowedByTeamID: 6
-                ScoredByTeamID: 0
-                ScoredByPlayerID: 7
-              - EmptyNet: true
-                ShortHanded: true
-                TimeRemainingMinutes: 0
-                PowerPlay: true
-                AssistedByPlayerID2: 5
-                AssistedByPlayerID1: 6
-                PeriodID: 3
-                Sequence: 6
-                TimeRemainingSeconds: 4
-                HomeTeamScore: 3
-                AwayTeamScore: 6
-                ScoringPlayID: 7
-                AllowedByTeamID: 6
-                ScoredByTeamID: 0
-                ScoredByPlayerID: 7
-              Penalties:
-              - Description: Description
-                TimeRemainingMinutes: 6
-                DrawnByTeamID: 9
-                IsBenchPenalty: true
-                PeriodID: 6
-                Sequence: 3
-                PenaltyMinutes: 9
-                PenaltyID: 8
-                DrawnByPlayerID: 5
-                TimeRemainingSeconds: 1
-                PenalizedTeamID: 6
-                PenalizedPlayerID: 9
-                BenchPenaltyServedByPlayerID: 4
-              - Description: Description
-                TimeRemainingMinutes: 6
-                DrawnByTeamID: 9
-                IsBenchPenalty: true
-                PeriodID: 6
-                Sequence: 3
-                PenaltyMinutes: 9
-                PenaltyID: 8
-                DrawnByPlayerID: 5
-                TimeRemainingSeconds: 1
-                PenalizedTeamID: 6
-                PenalizedPlayerID: 9
-                BenchPenaltyServedByPlayerID: 4
-              AwayScore: 6
-              PeriodID: 2
-              GameID: 7
-              Name: Name
-            - HomeScore: 1
-              ScoringPlays:
-              - EmptyNet: true
-                ShortHanded: true
-                TimeRemainingMinutes: 0
-                PowerPlay: true
-                AssistedByPlayerID2: 5
-                AssistedByPlayerID1: 6
-                PeriodID: 3
-                Sequence: 6
-                TimeRemainingSeconds: 4
-                HomeTeamScore: 3
-                AwayTeamScore: 6
-                ScoringPlayID: 7
-                AllowedByTeamID: 6
-                ScoredByTeamID: 0
-                ScoredByPlayerID: 7
-              - EmptyNet: true
-                ShortHanded: true
-                TimeRemainingMinutes: 0
-                PowerPlay: true
-                AssistedByPlayerID2: 5
-                AssistedByPlayerID1: 6
-                PeriodID: 3
-                Sequence: 6
-                TimeRemainingSeconds: 4
-                HomeTeamScore: 3
-                AwayTeamScore: 6
-                ScoringPlayID: 7
-                AllowedByTeamID: 6
-                ScoredByTeamID: 0
-                ScoredByPlayerID: 7
-              Penalties:
-              - Description: Description
-                TimeRemainingMinutes: 6
-                DrawnByTeamID: 9
-                IsBenchPenalty: true
-                PeriodID: 6
-                Sequence: 3
-                PenaltyMinutes: 9
-                PenaltyID: 8
-                DrawnByPlayerID: 5
-                TimeRemainingSeconds: 1
-                PenalizedTeamID: 6
-                PenalizedPlayerID: 9
-                BenchPenaltyServedByPlayerID: 4
-              - Description: Description
-                TimeRemainingMinutes: 6
-                DrawnByTeamID: 9
-                IsBenchPenalty: true
-                PeriodID: 6
-                Sequence: 3
-                PenaltyMinutes: 9
-                PenaltyID: 8
-                DrawnByPlayerID: 5
-                TimeRemainingSeconds: 1
-                PenalizedTeamID: 6
-                PenalizedPlayerID: 9
-                BenchPenaltyServedByPlayerID: 4
-              AwayScore: 6
-              PeriodID: 2
-              GameID: 7
-              Name: Name
-            SeriesInfo:
-              GameNumber: 3
-              MaxLength: 0
-              AwayTeamWins: 5
-              HomeTeamWins: 4
-            SeasonType: 7
-            HomeTeamScore: 1
-            PointSpread: 8.969578798196912
-            AwayRotationNumber: 6
-            PointSpreadAwayTeamMoneyLine: 7
-            AwayTeamScore: 5
-            GlobalAwayTeamID: 7
-            DateTimeUTC: DateTimeUTC
-            PointSpreadHomeTeamMoneyLine: 3
-            AwayTeamMoneyLine: 5
-            Day: Day
-          OperatorGameID: 9
-          SlateGameID: 0
-          SlateID: 9
-          GameID: 7
-        - RemovedByOperator: true
-          Game:
-            AwayTeam: AwayTeam
-            GameEndDateTime: GameEndDateTime
-            HomeRotationNumber: 2
-            HomeTeamMoneyLine: 7
-            HomeTeamID: 4
-            AwayTeamID: 1
-            IsClosed: true
-            DateTime: DateTime
-            LastPlay: LastPlay
-            TimeRemainingSeconds: 1
-            UnderPayout: 4
-            GlobalHomeTeamID: 3
-            Season: 3
-            GameID: 2
-            GlobalGameID: 9
-            OverPayout: 1
-            Attendance: 0
-            Status: Status
-            HomeTeam: HomeTeam
-            Updated: Updated
-            TimeRemainingMinutes: 4
-            Channel: Channel
-            Period: Period
-            OverUnder: 1.4894159098541704
-            NeutralVenue: true
-            StadiumID: 6
-            Periods:
-            - HomeScore: 1
-              ScoringPlays:
-              - EmptyNet: true
-                ShortHanded: true
-                TimeRemainingMinutes: 0
-                PowerPlay: true
-                AssistedByPlayerID2: 5
-                AssistedByPlayerID1: 6
-                PeriodID: 3
-                Sequence: 6
-                TimeRemainingSeconds: 4
-                HomeTeamScore: 3
-                AwayTeamScore: 6
-                ScoringPlayID: 7
-                AllowedByTeamID: 6
-                ScoredByTeamID: 0
-                ScoredByPlayerID: 7
-              - EmptyNet: true
-                ShortHanded: true
-                TimeRemainingMinutes: 0
-                PowerPlay: true
-                AssistedByPlayerID2: 5
-                AssistedByPlayerID1: 6
-                PeriodID: 3
-                Sequence: 6
-                TimeRemainingSeconds: 4
-                HomeTeamScore: 3
-                AwayTeamScore: 6
-                ScoringPlayID: 7
-                AllowedByTeamID: 6
-                ScoredByTeamID: 0
-                ScoredByPlayerID: 7
-              Penalties:
-              - Description: Description
-                TimeRemainingMinutes: 6
-                DrawnByTeamID: 9
-                IsBenchPenalty: true
-                PeriodID: 6
-                Sequence: 3
-                PenaltyMinutes: 9
-                PenaltyID: 8
-                DrawnByPlayerID: 5
-                TimeRemainingSeconds: 1
-                PenalizedTeamID: 6
-                PenalizedPlayerID: 9
-                BenchPenaltyServedByPlayerID: 4
-              - Description: Description
-                TimeRemainingMinutes: 6
-                DrawnByTeamID: 9
-                IsBenchPenalty: true
-                PeriodID: 6
-                Sequence: 3
-                PenaltyMinutes: 9
-                PenaltyID: 8
-                DrawnByPlayerID: 5
-                TimeRemainingSeconds: 1
-                PenalizedTeamID: 6
-                PenalizedPlayerID: 9
-                BenchPenaltyServedByPlayerID: 4
-              AwayScore: 6
-              PeriodID: 2
-              GameID: 7
-              Name: Name
-            - HomeScore: 1
-              ScoringPlays:
-              - EmptyNet: true
-                ShortHanded: true
-                TimeRemainingMinutes: 0
-                PowerPlay: true
-                AssistedByPlayerID2: 5
-                AssistedByPlayerID1: 6
-                PeriodID: 3
-                Sequence: 6
-                TimeRemainingSeconds: 4
-                HomeTeamScore: 3
-                AwayTeamScore: 6
-                ScoringPlayID: 7
-                AllowedByTeamID: 6
-                ScoredByTeamID: 0
-                ScoredByPlayerID: 7
-              - EmptyNet: true
-                ShortHanded: true
-                TimeRemainingMinutes: 0
-                PowerPlay: true
-                AssistedByPlayerID2: 5
-                AssistedByPlayerID1: 6
-                PeriodID: 3
-                Sequence: 6
-                TimeRemainingSeconds: 4
-                HomeTeamScore: 3
-                AwayTeamScore: 6
-                ScoringPlayID: 7
-                AllowedByTeamID: 6
-                ScoredByTeamID: 0
-                ScoredByPlayerID: 7
-              Penalties:
-              - Description: Description
-                TimeRemainingMinutes: 6
-                DrawnByTeamID: 9
-                IsBenchPenalty: true
-                PeriodID: 6
-                Sequence: 3
-                PenaltyMinutes: 9
-                PenaltyID: 8
-                DrawnByPlayerID: 5
-                TimeRemainingSeconds: 1
-                PenalizedTeamID: 6
-                PenalizedPlayerID: 9
-                BenchPenaltyServedByPlayerID: 4
-              - Description: Description
-                TimeRemainingMinutes: 6
-                DrawnByTeamID: 9
-                IsBenchPenalty: true
-                PeriodID: 6
-                Sequence: 3
-                PenaltyMinutes: 9
-                PenaltyID: 8
-                DrawnByPlayerID: 5
-                TimeRemainingSeconds: 1
-                PenalizedTeamID: 6
-                PenalizedPlayerID: 9
-                BenchPenaltyServedByPlayerID: 4
-              AwayScore: 6
-              PeriodID: 2
-              GameID: 7
-              Name: Name
-            SeriesInfo:
-              GameNumber: 3
-              MaxLength: 0
-              AwayTeamWins: 5
-              HomeTeamWins: 4
-            SeasonType: 7
-            HomeTeamScore: 1
-            PointSpread: 8.969578798196912
-            AwayRotationNumber: 6
-            PointSpreadAwayTeamMoneyLine: 7
-            AwayTeamScore: 5
-            GlobalAwayTeamID: 7
-            DateTimeUTC: DateTimeUTC
-            PointSpreadHomeTeamMoneyLine: 3
-            AwayTeamMoneyLine: 5
-            Day: Day
-          OperatorGameID: 9
-          SlateGameID: 0
-          SlateID: 9
-          GameID: 7
-        SlateRosterSlots:
-        - SlateRosterSlots
-        - SlateRosterSlots
-        SalaryCap: 2
-        OperatorStartTime: OperatorStartTime
-        NumberOfGames: 3
-        RemovedByOperator: true
-        OperatorGameType: OperatorGameType
-        DfsSlatePlayers:
-        - PlayerID: 5
-          OperatorPosition: OperatorPosition
-          OperatorPlayerName: OperatorPlayerName
-          SlateID: 6
-          SlatePlayerID: 8
-          TeamID: 4
-          PlayerGameProjectionStatID: 7
-          OperatorSalary: 0
-          RemovedByOperator: true
-          OperatorRosterSlots:
-          - OperatorRosterSlots
-          - OperatorRosterSlots
-          OperatorSlatePlayerID: OperatorSlatePlayerID
-          SlateGameID: 4
-          Team: Team
-          OperatorPlayerID: OperatorPlayerID
-        - PlayerID: 5
-          OperatorPosition: OperatorPosition
-          OperatorPlayerName: OperatorPlayerName
-          SlateID: 6
-          SlatePlayerID: 8
-          TeamID: 4
-          PlayerGameProjectionStatID: 7
-          OperatorSalary: 0
-          RemovedByOperator: true
-          OperatorRosterSlots:
-          - OperatorRosterSlots
-          - OperatorRosterSlots
-          OperatorSlatePlayerID: OperatorSlatePlayerID
-          SlateGameID: 4
-          Team: Team
-          OperatorPlayerID: OperatorPlayerID
-        OperatorSlateID: 0
+        relative_velocity:
+          kilometers_per_hour: kilometers_per_hour
+          miles_per_hour: miles_per_hour
+        orbiting_body: orbiting_body
+        close_approach_date: close_approach_date
+        epoch_date_close_approach: 6
+        close_approach_date_full: close_approach_date_full
+        miss_distance:
+          astronomical: astronomical
+          kilometers: kilometers
+          lunar: lunar
+          miles: miles
       properties:
-        DfsSlateGames:
+        close_approach_date:
+          type: string
+        close_approach_date_full:
+          type: string
+        epoch_date_close_approach:
+          format: int64
+          type: integer
+        miss_distance:
+          $ref: '#/components/schemas/MissDistance'
+        orbiting_body:
+          type: string
+        relative_velocity:
+          $ref: '#/components/schemas/RelVelocity'
+      type: object
+    EstimatedDiameter:
+      example:
+        estimated_diameter_max: 1.4658129805029452
+        estimated_diameter_min: 5.962133916683182
+      properties:
+        estimated_diameter_max:
+          description: An estimate of the maximum size of the Asteroid - bases on
+            the abosolute magnitude
+          format: double
+          type: number
+        estimated_diameter_min:
+          description: An estimate of the minimum size of the Asteroid - bases on
+            the abosolute magnitude
+          format: double
+          type: number
+      type: object
+    EstimatedDiameterContainer:
+      example:
+        feet:
+          estimated_diameter_max: 1.4658129805029452
+          estimated_diameter_min: 5.962133916683182
+        kilometers:
+          estimated_diameter_max: 1.4658129805029452
+          estimated_diameter_min: 5.962133916683182
+        meters:
+          estimated_diameter_max: 1.4658129805029452
+          estimated_diameter_min: 5.962133916683182
+        miles:
+          estimated_diameter_max: 1.4658129805029452
+          estimated_diameter_min: 5.962133916683182
+      properties:
+        feet:
+          $ref: '#/components/schemas/EstimatedDiameter'
+        kilometers:
+          $ref: '#/components/schemas/EstimatedDiameter'
+        meters:
+          $ref: '#/components/schemas/EstimatedDiameter'
+        miles:
+          $ref: '#/components/schemas/EstimatedDiameter'
+      type: object
+    HashMap_string_List_NearEarthObject_: {}
+    MissDistance:
+      example:
+        astronomical: astronomical
+        kilometers: kilometers
+        lunar: lunar
+        miles: miles
+      properties:
+        astronomical:
+          type: string
+        kilometers:
+          type: string
+        lunar:
+          type: string
+        miles:
+          type: string
+      type: object
+    NearEarthObject:
+      example:
+        estimated_diameter:
+          feet:
+            estimated_diameter_max: 1.4658129805029452
+            estimated_diameter_min: 5.962133916683182
+          kilometers:
+            estimated_diameter_max: 1.4658129805029452
+            estimated_diameter_min: 5.962133916683182
+          meters:
+            estimated_diameter_max: 1.4658129805029452
+            estimated_diameter_min: 5.962133916683182
+          miles:
+            estimated_diameter_max: 1.4658129805029452
+            estimated_diameter_min: 5.962133916683182
+        is_potentially_hazardous_asteroid: true
+        nasa_jpl_url: nasa_jpl_url
+        neo_reference_id: neo_reference_id
+        orbital_data:
+          inclination: inclination
+          mean_anomaly: mean_anomaly
+          minimum_orbit_intersection: minimum_orbit_intersection
+          orbit_determination_date: orbit_determination_date
+          perihelion_argument: perihelion_argument
+          orbit_class:
+            orbit_class_description: orbit_class_description
+            orbit_class_range: orbit_class_range
+            orbit_class_type: IEO
+          aphelion_distance: aphelion_distance
+          eccentricity: eccentricity
+          last_observation_date: last_observation_date
+          perihelion_distance: perihelion_distance
+          perihelion_time: perihelion_time
+          first_observation_date: first_observation_date
+          data_arc_in_days: 5
+          orbit_id: orbit_id
+          jupiter_tisserand_invariant: jupiter_tisserand_invariant
+          orbital_period: orbital_period
+          semi_major_axis: semi_major_axis
+          epoch_osculation: epoch_osculation
+          orbit_uncertainty: orbit_uncertainty
+          ascending_node_longitude: ascending_node_longitude
+          mean_motion: mean_motion
+          equinox: equinox
+          observations_used: 2
+        is_sentry_object: true
+        name_limited: name_limited
+        name: name
+        absolute_magnitude_h: 0.8008281904610115
+        sentry_data: sentry_data
+        designation: designation
+        close_approach_data:
+        - relative_velocity:
+            kilometers_per_hour: kilometers_per_hour
+            miles_per_hour: miles_per_hour
+          orbiting_body: orbiting_body
+          close_approach_date: close_approach_date
+          epoch_date_close_approach: 6
+          close_approach_date_full: close_approach_date_full
+          miss_distance:
+            astronomical: astronomical
+            kilometers: kilometers
+            lunar: lunar
+            miles: miles
+        - relative_velocity:
+            kilometers_per_hour: kilometers_per_hour
+            miles_per_hour: miles_per_hour
+          orbiting_body: orbiting_body
+          close_approach_date: close_approach_date
+          epoch_date_close_approach: 6
+          close_approach_date_full: close_approach_date_full
+          miss_distance:
+            astronomical: astronomical
+            kilometers: kilometers
+            lunar: lunar
+            miles: miles
+      properties:
+        absolute_magnitude_h:
+          description: Is a measure of an asteroids brightness
+          format: double
+          type: number
+        close_approach_data:
+          description: Close approach information of the Asteroid
           items:
-            $ref: '#/components/schemas/DfsSlateGame'
+            $ref: '#/components/schemas/CloseApproachData'
           type: array
-        DfsSlatePlayers:
+        designation:
+          type: string
+        estimated_diameter:
+          $ref: '#/components/schemas/EstimatedDiameterContainer'
+        is_potentially_hazardous_asteroid:
+          type: boolean
+        is_sentry_object:
+          type: boolean
+        name:
+          type: string
+        name_limited:
+          type: string
+        nasa_jpl_url:
+          description: A Link to the NASA JPL Small-Body Database website
+          type: string
+        neo_reference_id:
+          description: The reference ID of the Asteroid - This correlates to the SPK
+            ID for the JPL NEO data
+          type: string
+        orbital_data:
+          $ref: '#/components/schemas/OrbitalData'
+        sentry_data:
+          type: string
+      type: object
+    NearEarthObjectList:
+      example:
+        near_earth_objects: ""
+        element_count: 0
+        links: "{}"
+      properties:
+        element_count:
+          description: Number of NEOs in list
+          format: int32
+          type: integer
+        links:
+          description: Hypermedia links to collection
+          type: object
+        near_earth_objects: {}
+      type: object
+    OrbitClass:
+      example:
+        orbit_class_description: orbit_class_description
+        orbit_class_range: orbit_class_range
+        orbit_class_type: IEO
+      properties:
+        orbit_class_description:
+          type: string
+        orbit_class_range:
+          type: string
+        orbit_class_type:
+          enum:
+          - IEO
+          - ATE
+          - APO
+          - AMO
+          - MCA
+          - IMB
+          - MBA
+          - OMB
+          - TJN
+          - CEN
+          - TNO
+          - PAA
+          - HYA
+          - HYP
+          - PAR
+          - COM
+          - JFC
+          - HTC
+          - ETC
+          - CTC
+          - JFc
+          type: string
+      type: object
+    OrbitalData:
+      example:
+        inclination: inclination
+        mean_anomaly: mean_anomaly
+        minimum_orbit_intersection: minimum_orbit_intersection
+        orbit_determination_date: orbit_determination_date
+        perihelion_argument: perihelion_argument
+        orbit_class:
+          orbit_class_description: orbit_class_description
+          orbit_class_range: orbit_class_range
+          orbit_class_type: IEO
+        aphelion_distance: aphelion_distance
+        eccentricity: eccentricity
+        last_observation_date: last_observation_date
+        perihelion_distance: perihelion_distance
+        perihelion_time: perihelion_time
+        first_observation_date: first_observation_date
+        data_arc_in_days: 5
+        orbit_id: orbit_id
+        jupiter_tisserand_invariant: jupiter_tisserand_invariant
+        orbital_period: orbital_period
+        semi_major_axis: semi_major_axis
+        epoch_osculation: epoch_osculation
+        orbit_uncertainty: orbit_uncertainty
+        ascending_node_longitude: ascending_node_longitude
+        mean_motion: mean_motion
+        equinox: equinox
+        observations_used: 2
+      properties:
+        aphelion_distance:
+          type: string
+        ascending_node_longitude:
+          type: string
+        data_arc_in_days:
+          format: int64
+          type: integer
+        eccentricity:
+          type: string
+        epoch_osculation:
+          type: string
+        equinox:
+          type: string
+        first_observation_date:
+          type: string
+        inclination:
+          type: string
+        jupiter_tisserand_invariant:
+          type: string
+        last_observation_date:
+          type: string
+        mean_anomaly:
+          type: string
+        mean_motion:
+          type: string
+        minimum_orbit_intersection:
+          type: string
+        observations_used:
+          format: int64
+          type: integer
+        orbit_class:
+          $ref: '#/components/schemas/OrbitClass'
+        orbit_determination_date:
+          type: string
+        orbit_id:
+          type: string
+        orbit_uncertainty:
+          type: string
+        orbital_period:
+          type: string
+        perihelion_argument:
+          type: string
+        perihelion_distance:
+          type: string
+        perihelion_time:
+          type: string
+        semi_major_axis:
+          type: string
+      type: object
+    PageMetaData:
+      example:
+        number: 0
+        size: 6
+        total_elements: 1
+        total_pages: 5
+      properties:
+        number:
+          format: int64
+          type: integer
+        size:
+          format: int64
+          type: integer
+        total_elements:
+          format: int64
+          type: integer
+        total_pages:
+          format: int64
+          type: integer
+      type: object
+    RelVelocity:
+      example:
+        kilometers_per_hour: kilometers_per_hour
+        miles_per_hour: miles_per_hour
+      properties:
+        kilometers_per_hour:
+          type: string
+        miles_per_hour:
+          type: string
+      type: object
+    SentryImpactRiskObject:
+      example:
+        estimated_diameter: estimated_diameter
+        is_active_sentry_object: true
+        v_infinity: v_infinity
+        palermo_scale_ave: palermo_scale_ave
+        removal_date: removal_date
+        year_range_max: year_range_max
+        absolute_magnitude: absolute_magnitude
+        last_obs_jd: last_obs_jd
+        year_range_min: year_range_min
+        Palermo_scale_max: Palermo_scale_max
+        potential_impacts: potential_impacts
+        sentryId: sentryId
+        average_lunar_distance: 5.637376656633329
+        designation: designation
+        fullname: fullname
+        torino_scale: torino_scale
+        impact_probability: impact_probability
+        last_obs: last_obs
+      properties:
+        Palermo_scale_max:
+          type: string
+        absolute_magnitude:
+          type: string
+        average_lunar_distance:
+          format: double
+          type: number
+        designation:
+          type: string
+        estimated_diameter:
+          type: string
+        fullname:
+          type: string
+        impact_probability:
+          type: string
+        is_active_sentry_object:
+          type: boolean
+        last_obs:
+          type: string
+        last_obs_jd:
+          type: string
+        palermo_scale_ave:
+          type: string
+        potential_impacts:
+          type: string
+        removal_date:
+          type: string
+        sentryId:
+          type: string
+        torino_scale:
+          type: string
+        v_infinity:
+          type: string
+        year_range_max:
+          type: string
+        year_range_min:
+          type: string
+      type: object
+    SentryObjectPagingDto:
+      example:
+        links: "{}"
+        page:
+          number: 0
+          size: 6
+          total_elements: 1
+          total_pages: 5
+        sentry_objects:
+        - estimated_diameter: estimated_diameter
+          is_active_sentry_object: true
+          v_infinity: v_infinity
+          palermo_scale_ave: palermo_scale_ave
+          removal_date: removal_date
+          year_range_max: year_range_max
+          absolute_magnitude: absolute_magnitude
+          last_obs_jd: last_obs_jd
+          year_range_min: year_range_min
+          Palermo_scale_max: Palermo_scale_max
+          potential_impacts: potential_impacts
+          sentryId: sentryId
+          average_lunar_distance: 5.637376656633329
+          designation: designation
+          fullname: fullname
+          torino_scale: torino_scale
+          impact_probability: impact_probability
+          last_obs: last_obs
+        - estimated_diameter: estimated_diameter
+          is_active_sentry_object: true
+          v_infinity: v_infinity
+          palermo_scale_ave: palermo_scale_ave
+          removal_date: removal_date
+          year_range_max: year_range_max
+          absolute_magnitude: absolute_magnitude
+          last_obs_jd: last_obs_jd
+          year_range_min: year_range_min
+          Palermo_scale_max: Palermo_scale_max
+          potential_impacts: potential_impacts
+          sentryId: sentryId
+          average_lunar_distance: 5.637376656633329
+          designation: designation
+          fullname: fullname
+          torino_scale: torino_scale
+          impact_probability: impact_probability
+          last_obs: last_obs
+      properties:
+        links:
+          type: object
+        page:
+          $ref: '#/components/schemas/PageMetaData'
+        sentry_objects:
           items:
-            $ref: '#/components/schemas/DfsSlatePlayer'
+            $ref: '#/components/schemas/SentryImpactRiskObject'
           type: array
-        IsMultiDaySlate:
-          nullable: true
-          type: boolean
-        NumberOfGames:
-          nullable: true
-          type: integer
-        Operator:
-          nullable: true
-          type: string
-        OperatorDay:
-          nullable: true
-          type: string
-        OperatorGameType:
-          nullable: true
-          type: string
-        OperatorName:
-          nullable: true
-          type: string
-        OperatorSlateID:
-          nullable: true
-          type: integer
-        OperatorStartTime:
-          nullable: true
-          type: string
-        RemovedByOperator:
-          nullable: true
-          type: boolean
-        SalaryCap:
-          nullable: true
-          type: integer
-        SlateID:
-          nullable: false
-          type: integer
-        SlateRosterSlots:
-          items:
-            nullable: true
-            type: string
-          type: array
-    DfsSlateGame:
+      type: object
+    Statistics:
       example:
-        RemovedByOperator: true
-        Game:
-          AwayTeam: AwayTeam
-          GameEndDateTime: GameEndDateTime
-          HomeRotationNumber: 2
-          HomeTeamMoneyLine: 7
-          HomeTeamID: 4
-          AwayTeamID: 1
-          IsClosed: true
-          DateTime: DateTime
-          LastPlay: LastPlay
-          TimeRemainingSeconds: 1
-          UnderPayout: 4
-          GlobalHomeTeamID: 3
-          Season: 3
-          GameID: 2
-          GlobalGameID: 9
-          OverPayout: 1
-          Attendance: 0
-          Status: Status
-          HomeTeam: HomeTeam
-          Updated: Updated
-          TimeRemainingMinutes: 4
-          Channel: Channel
-          Period: Period
-          OverUnder: 1.4894159098541704
-          NeutralVenue: true
-          StadiumID: 6
-          Periods:
-          - HomeScore: 1
-            ScoringPlays:
-            - EmptyNet: true
-              ShortHanded: true
-              TimeRemainingMinutes: 0
-              PowerPlay: true
-              AssistedByPlayerID2: 5
-              AssistedByPlayerID1: 6
-              PeriodID: 3
-              Sequence: 6
-              TimeRemainingSeconds: 4
-              HomeTeamScore: 3
-              AwayTeamScore: 6
-              ScoringPlayID: 7
-              AllowedByTeamID: 6
-              ScoredByTeamID: 0
-              ScoredByPlayerID: 7
-            - EmptyNet: true
-              ShortHanded: true
-              TimeRemainingMinutes: 0
-              PowerPlay: true
-              AssistedByPlayerID2: 5
-              AssistedByPlayerID1: 6
-              PeriodID: 3
-              Sequence: 6
-              TimeRemainingSeconds: 4
-              HomeTeamScore: 3
-              AwayTeamScore: 6
-              ScoringPlayID: 7
-              AllowedByTeamID: 6
-              ScoredByTeamID: 0
-              ScoredByPlayerID: 7
-            Penalties:
-            - Description: Description
-              TimeRemainingMinutes: 6
-              DrawnByTeamID: 9
-              IsBenchPenalty: true
-              PeriodID: 6
-              Sequence: 3
-              PenaltyMinutes: 9
-              PenaltyID: 8
-              DrawnByPlayerID: 5
-              TimeRemainingSeconds: 1
-              PenalizedTeamID: 6
-              PenalizedPlayerID: 9
-              BenchPenaltyServedByPlayerID: 4
-            - Description: Description
-              TimeRemainingMinutes: 6
-              DrawnByTeamID: 9
-              IsBenchPenalty: true
-              PeriodID: 6
-              Sequence: 3
-              PenaltyMinutes: 9
-              PenaltyID: 8
-              DrawnByPlayerID: 5
-              TimeRemainingSeconds: 1
-              PenalizedTeamID: 6
-              PenalizedPlayerID: 9
-              BenchPenaltyServedByPlayerID: 4
-            AwayScore: 6
-            PeriodID: 2
-            GameID: 7
-            Name: Name
-          - HomeScore: 1
-            ScoringPlays:
-            - EmptyNet: true
-              ShortHanded: true
-              TimeRemainingMinutes: 0
-              PowerPlay: true
-              AssistedByPlayerID2: 5
-              AssistedByPlayerID1: 6
-              PeriodID: 3
-              Sequence: 6
-              TimeRemainingSeconds: 4
-              HomeTeamScore: 3
-              AwayTeamScore: 6
-              ScoringPlayID: 7
-              AllowedByTeamID: 6
-              ScoredByTeamID: 0
-              ScoredByPlayerID: 7
-            - EmptyNet: true
-              ShortHanded: true
-              TimeRemainingMinutes: 0
-              PowerPlay: true
-              AssistedByPlayerID2: 5
-              AssistedByPlayerID1: 6
-              PeriodID: 3
-              Sequence: 6
-              TimeRemainingSeconds: 4
-              HomeTeamScore: 3
-              AwayTeamScore: 6
-              ScoringPlayID: 7
-              AllowedByTeamID: 6
-              ScoredByTeamID: 0
-              ScoredByPlayerID: 7
-            Penalties:
-            - Description: Description
-              TimeRemainingMinutes: 6
-              DrawnByTeamID: 9
-              IsBenchPenalty: true
-              PeriodID: 6
-              Sequence: 3
-              PenaltyMinutes: 9
-              PenaltyID: 8
-              DrawnByPlayerID: 5
-              TimeRemainingSeconds: 1
-              PenalizedTeamID: 6
-              PenalizedPlayerID: 9
-              BenchPenaltyServedByPlayerID: 4
-            - Description: Description
-              TimeRemainingMinutes: 6
-              DrawnByTeamID: 9
-              IsBenchPenalty: true
-              PeriodID: 6
-              Sequence: 3
-              PenaltyMinutes: 9
-              PenaltyID: 8
-              DrawnByPlayerID: 5
-              TimeRemainingSeconds: 1
-              PenalizedTeamID: 6
-              PenalizedPlayerID: 9
-              BenchPenaltyServedByPlayerID: 4
-            AwayScore: 6
-            PeriodID: 2
-            GameID: 7
-            Name: Name
-          SeriesInfo:
-            GameNumber: 3
-            MaxLength: 0
-            AwayTeamWins: 5
-            HomeTeamWins: 4
-          SeasonType: 7
-          HomeTeamScore: 1
-          PointSpread: 8.969578798196912
-          AwayRotationNumber: 6
-          PointSpreadAwayTeamMoneyLine: 7
-          AwayTeamScore: 5
-          GlobalAwayTeamID: 7
-          DateTimeUTC: DateTimeUTC
-          PointSpreadHomeTeamMoneyLine: 3
-          AwayTeamMoneyLine: 5
-          Day: Day
-        OperatorGameID: 9
-        SlateGameID: 0
-        SlateID: 9
-        GameID: 7
+        last_updated: last_updated
+        nasa_jpl_url:
+          defaultPort: 6
+          path: path
+          userInfo: userInfo
+          protocol: protocol
+          ref: ref
+          file: file
+          port: 1
+          authority: authority
+          query: query
+          host: host
+          content: "{}"
+        near_earth_object_count: 5
+        source: source
+        close_approach_count: 0
       properties:
-        Game:
-          $ref: '#/components/schemas/Game'
-        GameID:
-          nullable: true
+        close_approach_count:
+          description: Number of Close Approach listings across all NEOs listed in
+            NeoWs
+          format: int64
           type: integer
-        OperatorGameID:
-          nullable: true
+        last_updated:
+          description: TimeStamp the last time the DB was updated
+          type: string
+        nasa_jpl_url:
+          $ref: '#/components/schemas/URL'
+        near_earth_object_count:
+          description: Number of NearEarthObjects listed in NeoWs
+          format: int64
           type: integer
-        RemovedByOperator:
-          nullable: true
-          type: boolean
-        SlateGameID:
-          nullable: false
-          type: integer
-        SlateID:
-          nullable: false
-          type: integer
-    DfsSlatePlayer:
+        source:
+          type: string
+      type: object
+    URL:
       example:
-        PlayerID: 5
-        OperatorPosition: OperatorPosition
-        OperatorPlayerName: OperatorPlayerName
-        SlateID: 6
-        SlatePlayerID: 8
-        TeamID: 4
-        PlayerGameProjectionStatID: 7
-        OperatorSalary: 0
-        RemovedByOperator: true
-        OperatorRosterSlots:
-        - OperatorRosterSlots
-        - OperatorRosterSlots
-        OperatorSlatePlayerID: OperatorSlatePlayerID
-        SlateGameID: 4
-        Team: Team
-        OperatorPlayerID: OperatorPlayerID
+        defaultPort: 6
+        path: path
+        userInfo: userInfo
+        protocol: protocol
+        ref: ref
+        file: file
+        port: 1
+        authority: authority
+        query: query
+        host: host
+        content: "{}"
       properties:
-        OperatorPlayerID:
-          nullable: true
+        authority:
           type: string
-        OperatorPlayerName:
-          nullable: true
-          type: string
-        OperatorPosition:
-          nullable: true
-          type: string
-        OperatorRosterSlots:
-          items:
-            nullable: true
-            type: string
-          type: array
-        OperatorSalary:
-          nullable: true
-          type: integer
-        OperatorSlatePlayerID:
-          nullable: true
-          type: string
-        PlayerGameProjectionStatID:
-          nullable: true
-          type: integer
-        PlayerID:
-          nullable: true
-          type: integer
-        RemovedByOperator:
-          nullable: true
-          type: boolean
-        SlateGameID:
-          nullable: true
-          type: integer
-        SlateID:
-          nullable: false
-          type: integer
-        SlatePlayerID:
-          nullable: false
-          type: integer
-        Team:
-          nullable: true
-          type: string
-        TeamID:
-          nullable: true
-          type: integer
-    Game:
-      example:
-        AwayTeam: AwayTeam
-        GameEndDateTime: GameEndDateTime
-        HomeRotationNumber: 2
-        HomeTeamMoneyLine: 7
-        HomeTeamID: 4
-        AwayTeamID: 1
-        IsClosed: true
-        DateTime: DateTime
-        LastPlay: LastPlay
-        TimeRemainingSeconds: 1
-        UnderPayout: 4
-        GlobalHomeTeamID: 3
-        Season: 3
-        GameID: 2
-        GlobalGameID: 9
-        OverPayout: 1
-        Attendance: 0
-        Status: Status
-        HomeTeam: HomeTeam
-        Updated: Updated
-        TimeRemainingMinutes: 4
-        Channel: Channel
-        Period: Period
-        OverUnder: 1.4894159098541704
-        NeutralVenue: true
-        StadiumID: 6
-        Periods:
-        - HomeScore: 1
-          ScoringPlays:
-          - EmptyNet: true
-            ShortHanded: true
-            TimeRemainingMinutes: 0
-            PowerPlay: true
-            AssistedByPlayerID2: 5
-            AssistedByPlayerID1: 6
-            PeriodID: 3
-            Sequence: 6
-            TimeRemainingSeconds: 4
-            HomeTeamScore: 3
-            AwayTeamScore: 6
-            ScoringPlayID: 7
-            AllowedByTeamID: 6
-            ScoredByTeamID: 0
-            ScoredByPlayerID: 7
-          - EmptyNet: true
-            ShortHanded: true
-            TimeRemainingMinutes: 0
-            PowerPlay: true
-            AssistedByPlayerID2: 5
-            AssistedByPlayerID1: 6
-            PeriodID: 3
-            Sequence: 6
-            TimeRemainingSeconds: 4
-            HomeTeamScore: 3
-            AwayTeamScore: 6
-            ScoringPlayID: 7
-            AllowedByTeamID: 6
-            ScoredByTeamID: 0
-            ScoredByPlayerID: 7
-          Penalties:
-          - Description: Description
-            TimeRemainingMinutes: 6
-            DrawnByTeamID: 9
-            IsBenchPenalty: true
-            PeriodID: 6
-            Sequence: 3
-            PenaltyMinutes: 9
-            PenaltyID: 8
-            DrawnByPlayerID: 5
-            TimeRemainingSeconds: 1
-            PenalizedTeamID: 6
-            PenalizedPlayerID: 9
-            BenchPenaltyServedByPlayerID: 4
-          - Description: Description
-            TimeRemainingMinutes: 6
-            DrawnByTeamID: 9
-            IsBenchPenalty: true
-            PeriodID: 6
-            Sequence: 3
-            PenaltyMinutes: 9
-            PenaltyID: 8
-            DrawnByPlayerID: 5
-            TimeRemainingSeconds: 1
-            PenalizedTeamID: 6
-            PenalizedPlayerID: 9
-            BenchPenaltyServedByPlayerID: 4
-          AwayScore: 6
-          PeriodID: 2
-          GameID: 7
-          Name: Name
-        - HomeScore: 1
-          ScoringPlays:
-          - EmptyNet: true
-            ShortHanded: true
-            TimeRemainingMinutes: 0
-            PowerPlay: true
-            AssistedByPlayerID2: 5
-            AssistedByPlayerID1: 6
-            PeriodID: 3
-            Sequence: 6
-            TimeRemainingSeconds: 4
-            HomeTeamScore: 3
-            AwayTeamScore: 6
-            ScoringPlayID: 7
-            AllowedByTeamID: 6
-            ScoredByTeamID: 0
-            ScoredByPlayerID: 7
-          - EmptyNet: true
-            ShortHanded: true
-            TimeRemainingMinutes: 0
-            PowerPlay: true
-            AssistedByPlayerID2: 5
-            AssistedByPlayerID1: 6
-            PeriodID: 3
-            Sequence: 6
-            TimeRemainingSeconds: 4
-            HomeTeamScore: 3
-            AwayTeamScore: 6
-            ScoringPlayID: 7
-            AllowedByTeamID: 6
-            ScoredByTeamID: 0
-            ScoredByPlayerID: 7
-          Penalties:
-          - Description: Description
-            TimeRemainingMinutes: 6
-            DrawnByTeamID: 9
-            IsBenchPenalty: true
-            PeriodID: 6
-            Sequence: 3
-            PenaltyMinutes: 9
-            PenaltyID: 8
-            DrawnByPlayerID: 5
-            TimeRemainingSeconds: 1
-            PenalizedTeamID: 6
-            PenalizedPlayerID: 9
-            BenchPenaltyServedByPlayerID: 4
-          - Description: Description
-            TimeRemainingMinutes: 6
-            DrawnByTeamID: 9
-            IsBenchPenalty: true
-            PeriodID: 6
-            Sequence: 3
-            PenaltyMinutes: 9
-            PenaltyID: 8
-            DrawnByPlayerID: 5
-            TimeRemainingSeconds: 1
-            PenalizedTeamID: 6
-            PenalizedPlayerID: 9
-            BenchPenaltyServedByPlayerID: 4
-          AwayScore: 6
-          PeriodID: 2
-          GameID: 7
-          Name: Name
-        SeriesInfo:
-          GameNumber: 3
-          MaxLength: 0
-          AwayTeamWins: 5
-          HomeTeamWins: 4
-        SeasonType: 7
-        HomeTeamScore: 1
-        PointSpread: 8.969578798196912
-        AwayRotationNumber: 6
-        PointSpreadAwayTeamMoneyLine: 7
-        AwayTeamScore: 5
-        GlobalAwayTeamID: 7
-        DateTimeUTC: DateTimeUTC
-        PointSpreadHomeTeamMoneyLine: 3
-        AwayTeamMoneyLine: 5
-        Day: Day
-      properties:
-        Attendance:
-          nullable: true
-          type: integer
-        AwayRotationNumber:
-          nullable: true
-          type: integer
-        AwayTeam:
-          nullable: true
-          type: string
-        AwayTeamID:
-          nullable: false
-          type: integer
-        AwayTeamMoneyLine:
-          nullable: true
-          type: integer
-        AwayTeamScore:
-          nullable: true
-          type: integer
-        Channel:
-          nullable: true
-          type: string
-        DateTime:
-          nullable: true
-          type: string
-        DateTimeUTC:
-          nullable: true
-          type: string
-        Day:
-          nullable: true
-          type: string
-        GameEndDateTime:
-          nullable: true
-          type: string
-        GameID:
-          nullable: false
-          type: integer
-        GlobalAwayTeamID:
-          nullable: false
-          type: integer
-        GlobalGameID:
-          nullable: false
-          type: integer
-        GlobalHomeTeamID:
-          nullable: false
-          type: integer
-        HomeRotationNumber:
-          nullable: true
-          type: integer
-        HomeTeam:
-          nullable: true
-          type: string
-        HomeTeamID:
-          nullable: false
-          type: integer
-        HomeTeamMoneyLine:
-          nullable: true
-          type: integer
-        HomeTeamScore:
-          nullable: true
-          type: integer
-        IsClosed:
-          nullable: true
-          type: boolean
-        LastPlay:
-          nullable: true
-          type: string
-        NeutralVenue:
-          nullable: true
-          type: boolean
-        OverPayout:
-          nullable: true
-          type: integer
-        OverUnder:
-          nullable: true
-          type: number
-        Period:
-          nullable: true
-          type: string
-        Periods:
-          items:
-            $ref: '#/components/schemas/Period'
-          type: array
-        PointSpread:
-          nullable: true
-          type: number
-        PointSpreadAwayTeamMoneyLine:
-          nullable: true
-          type: integer
-        PointSpreadHomeTeamMoneyLine:
-          nullable: true
-          type: integer
-        Season:
-          nullable: false
-          type: integer
-        SeasonType:
-          nullable: false
-          type: integer
-        SeriesInfo:
-          $ref: '#/components/schemas/Series'
-        StadiumID:
-          nullable: true
-          type: integer
-        Status:
-          nullable: true
-          type: string
-        TimeRemainingMinutes:
-          nullable: true
-          type: integer
-        TimeRemainingSeconds:
-          nullable: true
-          type: integer
-        UnderPayout:
-          nullable: true
-          type: integer
-        Updated:
-          nullable: true
-          type: string
-    Goaltender:
-      example:
-        PlayerID: 6
-        FirstName: FirstName
-        Team: Team
-        Confirmed: true
-        Jersey: 0
-        LastName: LastName
-        TeamID: 1
-      properties:
-        Confirmed:
-          nullable: false
-          type: boolean
-        FirstName:
-          nullable: true
-          type: string
-        Jersey:
-          nullable: true
-          type: integer
-        LastName:
-          nullable: true
-          type: string
-        PlayerID:
-          nullable: false
-          type: integer
-        Team:
-          nullable: true
-          type: string
-        TeamID:
-          nullable: false
-          type: integer
-    Penalty:
-      example:
-        Description: Description
-        TimeRemainingMinutes: 6
-        DrawnByTeamID: 9
-        IsBenchPenalty: true
-        PeriodID: 6
-        Sequence: 3
-        PenaltyMinutes: 9
-        PenaltyID: 8
-        DrawnByPlayerID: 5
-        TimeRemainingSeconds: 1
-        PenalizedTeamID: 6
-        PenalizedPlayerID: 9
-        BenchPenaltyServedByPlayerID: 4
-      properties:
-        BenchPenaltyServedByPlayerID:
-          nullable: true
-          type: integer
-        Description:
-          nullable: true
-          type: string
-        DrawnByPlayerID:
-          nullable: true
-          type: integer
-        DrawnByTeamID:
-          nullable: true
-          type: integer
-        IsBenchPenalty:
-          nullable: true
-          type: boolean
-        PenalizedPlayerID:
-          nullable: true
-          type: integer
-        PenalizedTeamID:
-          nullable: true
-          type: integer
-        PenaltyID:
-          nullable: false
-          type: integer
-        PenaltyMinutes:
-          nullable: true
-          type: integer
-        PeriodID:
-          nullable: false
-          type: integer
-        Sequence:
-          nullable: true
-          type: integer
-        TimeRemainingMinutes:
-          nullable: true
-          type: integer
-        TimeRemainingSeconds:
-          nullable: true
-          type: integer
-    Period:
-      example:
-        HomeScore: 1
-        ScoringPlays:
-        - EmptyNet: true
-          ShortHanded: true
-          TimeRemainingMinutes: 0
-          PowerPlay: true
-          AssistedByPlayerID2: 5
-          AssistedByPlayerID1: 6
-          PeriodID: 3
-          Sequence: 6
-          TimeRemainingSeconds: 4
-          HomeTeamScore: 3
-          AwayTeamScore: 6
-          ScoringPlayID: 7
-          AllowedByTeamID: 6
-          ScoredByTeamID: 0
-          ScoredByPlayerID: 7
-        - EmptyNet: true
-          ShortHanded: true
-          TimeRemainingMinutes: 0
-          PowerPlay: true
-          AssistedByPlayerID2: 5
-          AssistedByPlayerID1: 6
-          PeriodID: 3
-          Sequence: 6
-          TimeRemainingSeconds: 4
-          HomeTeamScore: 3
-          AwayTeamScore: 6
-          ScoringPlayID: 7
-          AllowedByTeamID: 6
-          ScoredByTeamID: 0
-          ScoredByPlayerID: 7
-        Penalties:
-        - Description: Description
-          TimeRemainingMinutes: 6
-          DrawnByTeamID: 9
-          IsBenchPenalty: true
-          PeriodID: 6
-          Sequence: 3
-          PenaltyMinutes: 9
-          PenaltyID: 8
-          DrawnByPlayerID: 5
-          TimeRemainingSeconds: 1
-          PenalizedTeamID: 6
-          PenalizedPlayerID: 9
-          BenchPenaltyServedByPlayerID: 4
-        - Description: Description
-          TimeRemainingMinutes: 6
-          DrawnByTeamID: 9
-          IsBenchPenalty: true
-          PeriodID: 6
-          Sequence: 3
-          PenaltyMinutes: 9
-          PenaltyID: 8
-          DrawnByPlayerID: 5
-          TimeRemainingSeconds: 1
-          PenalizedTeamID: 6
-          PenalizedPlayerID: 9
-          BenchPenaltyServedByPlayerID: 4
-        AwayScore: 6
-        PeriodID: 2
-        GameID: 7
-        Name: Name
-      properties:
-        AwayScore:
-          nullable: true
-          type: integer
-        GameID:
-          nullable: false
-          type: integer
-        HomeScore:
-          nullable: true
-          type: integer
-        Name:
-          nullable: true
-          type: string
-        Penalties:
-          items:
-            $ref: '#/components/schemas/Penalty'
-          type: array
-        PeriodID:
-          nullable: false
-          type: integer
-        ScoringPlays:
-          items:
-            $ref: '#/components/schemas/ScoringPlay'
-          type: array
-    Player:
-      example:
-        PlayerID: 3
-        FantasyDraftPlayerID: 5
-        InjuryStartDate: InjuryStartDate
-        YahooName: YahooName
-        GlobalTeamID: 2
-        FanDuelName: FanDuelName
-        RotoworldPlayerID: 4
-        TeamID: 1
-        InjuryStatus: InjuryStatus
-        UsaTodayHeadshotUpdated: UsaTodayHeadshotUpdated
-        Catches: Catches
-        SportsDirectPlayerID: 7
-        DraftKingsPlayerID: 6
-        UsaTodayPlayerID: 1
-        DepthChartPosition: DepthChartPosition
-        UsaTodayHeadshotNoBackgroundUpdated: UsaTodayHeadshotNoBackgroundUpdated
-        Height: 7
-        Team: Team
-        Jersey: 9
-        PhotoUrl: PhotoUrl
-        Shoots: Shoots
-        YahooPlayerID: 1
-        FantasyDraftName: FantasyDraftName
-        StatsPlayerID: 1
-        Status: Status
-        Position: Position
-        FanDuelPlayerID: 1
-        FirstName: FirstName
-        UsaTodayHeadshotNoBackgroundUrl: UsaTodayHeadshotNoBackgroundUrl
-        UsaTodayHeadshotUrl: UsaTodayHeadshotUrl
-        BirthState: BirthState
-        XmlTeamPlayerID: 7
-        DraftKingsName: DraftKingsName
-        InjuryBodyPart: InjuryBodyPart
-        Weight: 6
-        InjuryNotes: InjuryNotes
-        RotoWirePlayerID: 2
-        DepthChartOrder: 0
-        FantasyAlarmPlayerID: 5
-        SportRadarPlayerID: SportRadarPlayerID
-        BirthCity: BirthCity
-        LastName: LastName
-        BirthDate: BirthDate
-      properties:
-        BirthCity:
-          nullable: true
-          type: string
-        BirthDate:
-          nullable: true
-          type: string
-        BirthState:
-          nullable: true
-          type: string
-        Catches:
-          nullable: true
-          type: string
-        DepthChartOrder:
-          nullable: true
-          type: integer
-        DepthChartPosition:
-          nullable: true
-          type: string
-        DraftKingsName:
-          nullable: true
-          type: string
-        DraftKingsPlayerID:
-          nullable: true
-          type: integer
-        FanDuelName:
-          nullable: true
-          type: string
-        FanDuelPlayerID:
-          nullable: true
-          type: integer
-        FantasyAlarmPlayerID:
-          nullable: true
-          type: integer
-        FantasyDraftName:
-          nullable: true
-          type: string
-        FantasyDraftPlayerID:
-          nullable: true
-          type: integer
-        FirstName:
-          nullable: true
-          type: string
-        GlobalTeamID:
-          nullable: true
-          type: integer
-        Height:
-          nullable: true
-          type: integer
-        InjuryBodyPart:
-          nullable: true
-          type: string
-        InjuryNotes:
-          nullable: true
-          type: string
-        InjuryStartDate:
-          nullable: true
-          type: string
-        InjuryStatus:
-          nullable: true
-          type: string
-        Jersey:
-          nullable: true
-          type: integer
-        LastName:
-          nullable: true
-          type: string
-        PhotoUrl:
-          nullable: true
-          type: string
-        PlayerID:
-          nullable: false
-          type: integer
-        Position:
-          nullable: true
-          type: string
-        RotoWirePlayerID:
-          nullable: true
-          type: integer
-        RotoworldPlayerID:
-          nullable: true
-          type: integer
-        Shoots:
-          nullable: true
-          type: string
-        SportRadarPlayerID:
-          nullable: true
-          type: string
-        SportsDirectPlayerID:
-          nullable: true
-          type: integer
-        StatsPlayerID:
-          nullable: true
-          type: integer
-        Status:
-          nullable: true
-          type: string
-        Team:
-          nullable: true
-          type: string
-        TeamID:
-          nullable: true
-          type: integer
-        UsaTodayHeadshotNoBackgroundUpdated:
-          nullable: true
-          type: string
-        UsaTodayHeadshotNoBackgroundUrl:
-          nullable: true
-          type: string
-        UsaTodayHeadshotUpdated:
-          nullable: true
-          type: string
-        UsaTodayHeadshotUrl:
-          nullable: true
-          type: string
-        UsaTodayPlayerID:
-          nullable: true
-          type: integer
-        Weight:
-          nullable: true
-          type: integer
-        XmlTeamPlayerID:
-          nullable: true
-          type: integer
-        YahooName:
-          nullable: true
-          type: string
-        YahooPlayerID:
-          nullable: true
-          type: integer
-    PlayerGameProjection:
-      example:
-        PlayerID: 7
-        FanDuelPosition: FanDuelPosition
-        InjuryStartDate: InjuryStartDate
-        ShootoutGoals: 7.04836565559697
-        GoaltendingShotsAgainst: 1.284659006116532
-        GlobalTeamID: 9
-        DateTime: DateTime
-        InjuryStatus: InjuryStatus
-        Minutes: 6
-        ShortHandedAssists: 5.533258397034986
-        DraftKingsSalary: 5
-        Name: Name
-        PlusMinus: 6.519180951018382
-        ShotsOnGoal: 4.078845849666752
-        GoaltendingMinutes: 9
-        PowerPlayAssists: 0.10263654006109402
-        Takeaways: 4.258773108174356
-        ShortHandedGoals: 3.2588565619047607
-        GameID: 6
-        FaceoffsLost: 2.3021358869347655
-        GoaltendingOvertimeLosses: 6.438423552598547
-        OpponentPositionRank: 3
-        Updated: Updated
-        Position: Position
-        FaceoffsWon: 7.061401241503109
-        FantasyDraftSalary: 2
-        FantasyPointsFanDuel: 1.2315135367772556
-        PenaltyMinutes: 0.8851374739011653
-        OpponentID: 3
-        Assists: 0.8008281904610115
-        GoaltendingWins: 6.778324963048013
-        FantasyPointsDraftKings: 7.386281948385884
-        GoaltendingGoalsAgainst: 6.683562403749608
-        Games: 7
-        Goals: 9.369310271410669
-        StatID: 6
-        Hits: 5.944895607614016
-        Started: 0
-        GoaltendingSeconds: 6
-        IsGameOver: true
-        GoaltendingLosses: 8.762042012749001
-        FantasyPointsYahoo: 1.4894159098541704
-        OpponentRank: 7
-        TeamID: 1
-        YahooSalary: 4
-        FantasyDataSalary: 3
-        EmptyNetGoals: 5.637376656633329
-        PowerPlayGoals: 4.652396432933246
-        DraftKingsPosition: DraftKingsPosition
-        FantasyPointsFantasyDraft: 1.0246457001441578
-        GlobalOpponentID: 5
-        GoaltendingSaves: 3.5571952270680973
-        Opponent: Opponent
-        Team: Team
-        Season: 8
-        Shifts: 3.0576100241049344
-        GlobalGameID: 4
-        YahooPosition: YahooPosition
-        FantasyDraftPosition: FantasyDraftPosition
-        FanDuelSalary: 9
-        FantasyPoints: 4.145608029883936
-        Blocks: 1.4658129805029452
-        BenchPenaltyMinutes: 6.027456183070403
-        Giveaways: 1.1730742509559433
-        HatTricks: 6.878052220127876
-        InjuryBodyPart: InjuryBodyPart
-        HomeOrAway: HomeOrAway
-        InjuryNotes: InjuryNotes
-        GoaltendingShutouts: 2.8841621266687802
-        SeasonType: 7
-        Seconds: 3
-        Day: Day
-      properties:
-        Assists:
-          nullable: true
-          type: number
-        BenchPenaltyMinutes:
-          nullable: true
-          type: number
-        Blocks:
-          nullable: true
-          type: number
-        DateTime:
-          nullable: true
-          type: string
-        Day:
-          nullable: true
-          type: string
-        DraftKingsPosition:
-          nullable: true
-          type: string
-        DraftKingsSalary:
-          nullable: true
-          type: integer
-        EmptyNetGoals:
-          nullable: true
-          type: number
-        FaceoffsLost:
-          nullable: true
-          type: number
-        FaceoffsWon:
-          nullable: true
-          type: number
-        FanDuelPosition:
-          nullable: true
-          type: string
-        FanDuelSalary:
-          nullable: true
-          type: integer
-        FantasyDataSalary:
-          nullable: true
-          type: integer
-        FantasyDraftPosition:
-          nullable: true
-          type: string
-        FantasyDraftSalary:
-          nullable: true
-          type: integer
-        FantasyPoints:
-          nullable: true
-          type: number
-        FantasyPointsDraftKings:
-          nullable: true
-          type: number
-        FantasyPointsFanDuel:
-          nullable: true
-          type: number
-        FantasyPointsFantasyDraft:
-          nullable: true
-          type: number
-        FantasyPointsYahoo:
-          nullable: true
-          type: number
-        GameID:
-          nullable: true
-          type: integer
-        Games:
-          nullable: true
-          type: integer
-        Giveaways:
-          nullable: true
-          type: number
-        GlobalGameID:
-          nullable: true
-          type: integer
-        GlobalOpponentID:
-          nullable: true
-          type: integer
-        GlobalTeamID:
-          nullable: true
-          type: integer
-        Goals:
-          nullable: true
-          type: number
-        GoaltendingGoalsAgainst:
-          nullable: true
-          type: number
-        GoaltendingLosses:
-          nullable: true
-          type: number
-        GoaltendingMinutes:
-          nullable: true
+        content:
+          type: object
+        defaultPort:
+          format: int32
           type: integer
-        GoaltendingOvertimeLosses:
-          nullable: true
-          type: number
-        GoaltendingSaves:
-          nullable: true
-          type: number
-        GoaltendingSeconds:
-          nullable: true
-          type: integer
-        GoaltendingShotsAgainst:
-          nullable: true
-          type: number
-        GoaltendingShutouts:
-          nullable: true
-          type: number
-        GoaltendingWins:
-          nullable: true
-          type: number
-        HatTricks:
-          nullable: true
-          type: number
-        Hits:
-          nullable: true
-          type: number
-        HomeOrAway:
-          nullable: true
-          type: string
-        InjuryBodyPart:
-          nullable: true
-          type: string
-        InjuryNotes:
-          nullable: true
-          type: string
-        InjuryStartDate:
-          nullable: true
-          type: string
-        InjuryStatus:
-          nullable: true
-          type: string
-        IsGameOver:
-          nullable: false
-          type: boolean
-        Minutes:
-          nullable: true
-          type: integer
-        Name:
-          nullable: true
-          type: string
-        Opponent:
-          nullable: true
-          type: string
-        OpponentID:
-          nullable: true
-          type: integer
-        OpponentPositionRank:
-          nullable: true
-          type: integer
-        OpponentRank:
-          nullable: true
-          type: integer
-        PenaltyMinutes:
-          nullable: true
-          type: number
-        PlayerID:
-          nullable: true
-          type: integer
-        PlusMinus:
-          nullable: true
-          type: number
-        Position:
-          nullable: true
-          type: string
-        PowerPlayAssists:
-          nullable: true
-          type: number
-        PowerPlayGoals:
-          nullable: true
-          type: number
-        Season:
-          nullable: true
-          type: integer
-        SeasonType:
-          nullable: true
-          type: integer
-        Seconds:
-          nullable: true
-          type: integer
-        Shifts:
-          nullable: true
-          type: number
-        ShootoutGoals:
-          nullable: true
-          type: number
-        ShortHandedAssists:
-          nullable: true
-          type: number
-        ShortHandedGoals:
-          nullable: true
-          type: number
-        ShotsOnGoal:
-          nullable: true
-          type: number
-        Started:
-          nullable: true
-          type: integer
-        StatID:
-          nullable: false
-          type: integer
-        Takeaways:
-          nullable: true
-          type: number
-        Team:
-          nullable: true
-          type: string
-        TeamID:
-          nullable: true
-          type: integer
-        Updated:
-          nullable: true
+        file:
           type: string
-        YahooPosition:
-          nullable: true
+        host:
           type: string
-        YahooSalary:
-          nullable: true
-          type: integer
-    ScoringPlay:
-      example:
-        EmptyNet: true
-        ShortHanded: true
-        TimeRemainingMinutes: 0
-        PowerPlay: true
-        AssistedByPlayerID2: 5
-        AssistedByPlayerID1: 6
-        PeriodID: 3
-        Sequence: 6
-        TimeRemainingSeconds: 4
-        HomeTeamScore: 3
-        AwayTeamScore: 6
-        ScoringPlayID: 7
-        AllowedByTeamID: 6
-        ScoredByTeamID: 0
-        ScoredByPlayerID: 7
-      properties:
-        AllowedByTeamID:
-          nullable: true
-          type: integer
-        AssistedByPlayerID1:
-          nullable: true
-          type: integer
-        AssistedByPlayerID2:
-          nullable: true
-          type: integer
-        AwayTeamScore:
-          nullable: true
-          type: integer
-        EmptyNet:
-          nullable: true
-          type: boolean
-        HomeTeamScore:
-          nullable: true
-          type: integer
-        PeriodID:
-          nullable: false
-          type: integer
-        PowerPlay:
-          nullable: true
-          type: boolean
-        ScoredByPlayerID:
-          nullable: true
-          type: integer
-        ScoredByTeamID:
-          nullable: true
-          type: integer
-        ScoringPlayID:
-          nullable: false
-          type: integer
-        Sequence:
-          nullable: true
-          type: integer
-        ShortHanded:
-          nullable: true
-          type: boolean
-        TimeRemainingMinutes:
-          nullable: true
-          type: integer
-        TimeRemainingSeconds:
-          nullable: true
-          type: integer
-    Series:
-      example:
-        GameNumber: 3
-        MaxLength: 0
-        AwayTeamWins: 5
-        HomeTeamWins: 4
-      properties:
-        AwayTeamWins:
-          nullable: false
-          type: integer
-        GameNumber:
-          nullable: false
-          type: integer
-        HomeTeamWins:
-          nullable: false
-          type: integer
-        MaxLength:
-          nullable: false
-          type: integer
-    StartingGoaltenders:
-      example:
-        Status: Status
-        AwayTeam: AwayTeam
-        HomeTeam: HomeTeam
-        SeasonType: 9
-        HomeGoaltender:
-          PlayerID: 6
-          FirstName: FirstName
-          Team: Team
-          Confirmed: true
-          Jersey: 0
-          LastName: LastName
-          TeamID: 1
-        AwayGoaltender:
-          PlayerID: 6
-          FirstName: FirstName
-          Team: Team
-          Confirmed: true
-          Jersey: 0
-          LastName: LastName
-          TeamID: 1
-        HomeTeamID: 2
-        AwayTeamID: 5
-        Season: 7
-        Day: Day
-        DateTime: DateTime
-        GameID: 5
-      properties:
-        AwayGoaltender:
-          $ref: '#/components/schemas/Goaltender'
-        AwayTeam:
-          nullable: true
+        path:
           type: string
-        AwayTeamID:
-          nullable: true
+        port:
+          format: int32
           type: integer
-        DateTime:
-          nullable: true
+        protocol:
           type: string
-        Day:
-          nullable: true
+        query:
           type: string
-        GameID:
-          nullable: false
-          type: integer
-        HomeGoaltender:
-          $ref: '#/components/schemas/Goaltender'
-        HomeTeam:
-          nullable: true
+        ref:
           type: string
-        HomeTeamID:
-          nullable: true
-          type: integer
-        Season:
-          nullable: false
-          type: integer
-        SeasonType:
-          nullable: false
-          type: integer
-        Status:
-          nullable: true
+        userInfo:
           type: string
-  securitySchemes:
-    apiKeyHeader:
-      in: header
-      name: Ocp-Apim-Subscription-Key
-      type: apiKey
-    apiKeyQuery:
-      in: query
-      name: key
-      type: apiKey
+      type: object
 
