@@ -1,0 +1,890 @@
+<!doctype html>
+<html>
+  <head>
+    <title>AWS Price List Service</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>AWS Price List Service</h1>
+    <div class="app-desc"><p>Amazon Web Services Price List API is a centralized and convenient way to programmatically query Amazon Web Services for services, products, and pricing information. The Amazon Web Services Price List uses standardized product attributes such as <code>Location</code>, <code>Storage Class</code>, and <code>Operating System</code>, and provides prices at the SKU level. You can use the Amazon Web Services Price List to build cost control and scenario planning tools, reconcile billing data, forecast future spend for budgeting purposes, and provide cost benefit analysis that compare your internal workloads with Amazon Web Services.</p> <p>Use <code>GetServices</code> without a service code to retrieve the service codes for all AWS services, then <code>GetServices</code> with a service code to retrieve the attribute names for that service. After you have the service code and attribute names, you can use <code>GetAttributeValues</code> to see what values are available for an attribute. With the service code and an attribute name and value, you can use <code>GetProducts</code> to find specific products that you're interested in, such as an <code>AmazonEC2</code> instance, with a <code>Provisioned IOPS</code> <code>volumeType</code>.</p> <p>Service Endpoint</p> <p>Amazon Web Services Price List service API provides the following two endpoints:</p> <ul> <li> <p>https://api.pricing.us-east-1.amazonaws.com</p> </li> <li> <p>https://api.pricing.ap-south-1.amazonaws.com</p> </li> </ul>
+</div>
+    <div class="app-desc">More information: <a href="https://github.com/mermade/aws2openapi">https://github.com/mermade/aws2openapi</a></div>
+    <div class="app-desc">Contact Info: <a href="mike.ralphson@gmail.com">mike.ralphson@gmail.com</a></div>
+    <div class="app-desc">Version: 2017-10-15</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0 License</div>
+    <div class="license-url">http://www.apache.org/licenses/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:Authorization KeyInQuery:false KeyInHeader:true</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#describeServices"><code><span class="http-method">post</span> /#X-Amz-Target=AWSPriceListService.DescribeServices</code></a></li>
+  <li><a href="#getAttributeValues"><code><span class="http-method">post</span> /#X-Amz-Target=AWSPriceListService.GetAttributeValues</code></a></li>
+  <li><a href="#getPriceListFileUrl"><code><span class="http-method">post</span> /#X-Amz-Target=AWSPriceListService.GetPriceListFileUrl</code></a></li>
+  <li><a href="#getProducts"><code><span class="http-method">post</span> /#X-Amz-Target=AWSPriceListService.GetProducts</code></a></li>
+  <li><a href="#listPriceLists"><code><span class="http-method">post</span> /#X-Amz-Target=AWSPriceListService.ListPriceLists</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="describeServices"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSPriceListService.DescribeServices</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">describeServices</span>)</div>
+    <div class="method-notes">Returns the metadata for one service or a list of the metadata for all services. Use this without a service code to get the service codes for all services. Use it with a service code, such as <code>AmazonEC2</code>, to get information specific to that service, such as the attribute names available for that service. For example, some of the attribute names available for EC2 are <code>volumeType</code>, <code>maxIopsVolume</code>, <code>operation</code>, <code>locationType</code>, and <code>instanceCapacity10xlarge</code>.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DescribeServicesRequest <a href="#DescribeServicesRequest">DescribeServicesRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DescribeServicesResponse">DescribeServicesResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "FormatVersion" : "aws_v1",
+  "NextToken" : "abcdefg123",
+  "Services" : [ {
+    "AttributeNames" : [ "volumeType", "maxIopsvolume", "instanceCapacity10xlarge", "locationType", "operation" ],
+    "ServiceCode" : "AmazonEC2"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#DescribeServicesResponse">DescribeServicesResponse</a>
+    <h4 class="field-label">480</h4>
+    InternalErrorException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    NotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InvalidNextTokenException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ExpiredNextTokenException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getAttributeValues"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSPriceListService.GetAttributeValues</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getAttributeValues</span>)</div>
+    <div class="method-notes">Returns a list of attribute values. Attributes are similar to the details in a Price List API offer file. For a list of available attributes, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs">Offer File Definitions</a> in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html">Billing and Cost Management User Guide</a>.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetAttributeValuesRequest <a href="#GetAttributeValuesRequest">GetAttributeValuesRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetAttributeValuesResponse">GetAttributeValuesResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "AttributeValues" : [ {
+    "Value" : "Throughput Optimized HDD"
+  }, {
+    "Value" : "Provisioned IOPS"
+  } ],
+  "NextToken" : "GpgauEXAMPLEezucl5LV0w==:7GzYJ0nw0DBTJ2J66EoTIIynE6O1uXwQtTRqioJzQadBnDVgHPzI1en4BUQnPCLpzeBk9RQQAWaFieA4+DapFAGLgk+Z/9/cTw9GldnPOHN98+FdmJP7wKU3QQpQ8MQr5KOeBkIsAqvAQYdL0DkL7tHwPtE5iCEByAmg9gcC/yBU1vAOsf7R3VaNN4M5jMDv3woSWqASSIlBVB6tgW78YL22KhssoItM/jWW+aP6Jqtq4mldxp/ct6DWAl+xLFwHU/CbketimPPXyqHF3/UXDw=="
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetAttributeValuesResponse">GetAttributeValuesResponse</a>
+    <h4 class="field-label">480</h4>
+    InternalErrorException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    NotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InvalidNextTokenException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ExpiredNextTokenException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getPriceListFileUrl"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSPriceListService.GetPriceListFileUrl</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getPriceListFileUrl</span>)</div>
+    <div class="method-notes"><p> <i> <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b> </i> </p> <p>This returns the URL that you can retrieve your Price List file from. This URL is based on the <code>PriceListArn</code> and <code>FileFormat</code> that you retrieve from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html"> <code>ListPriceLists</code> </a> response. </p>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetPriceListFileUrlRequest <a href="#GetPriceListFileUrlRequest">GetPriceListFileUrlRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetPriceListFileUrlResponse">GetPriceListFileUrlResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Url" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetPriceListFileUrlResponse">GetPriceListFileUrlResponse</a>
+    <h4 class="field-label">480</h4>
+    InternalErrorException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    NotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getProducts"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSPriceListService.GetProducts</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getProducts</span>)</div>
+    <div class="method-notes">Returns a list of all products that match the filter criteria.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetProductsRequest <a href="#GetProductsRequest">GetProductsRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetProductsResponse">GetProductsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "NextToken" : "",
+  "FormatVersion" : "",
+  "PriceList" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetProductsResponse">GetProductsResponse</a>
+    <h4 class="field-label">480</h4>
+    InternalErrorException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    NotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InvalidNextTokenException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ExpiredNextTokenException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listPriceLists"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=AWSPriceListService.ListPriceLists</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listPriceLists</span>)</div>
+    <div class="method-notes"><p> <i> <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b> </i> </p> <p>This returns a list of Price List references that the requester if authorized to view, given a <code>ServiceCode</code>, <code>CurrencyCode</code>, and an <code>EffectiveDate</code>. Use without a <code>RegionCode</code> filter to list Price List references from all available Amazon Web Services Regions. Use with a <code>RegionCode</code> filter to get the Price List reference that's specific to a specific Amazon Web Services Region. You can use the <code>PriceListArn</code> from the response to get your preferred Price List files through the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetPriceListFileUrl.html"> <code>GetPriceListFileUrl</code> </a> API.</p>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ListPriceListsRequest <a href="#ListPriceListsRequest">ListPriceListsRequest</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">MaxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination limit default: null </div><div class="param">NextToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Pagination token default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListPriceListsResponse">ListPriceListsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "NextToken" : "",
+  "PriceLists" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListPriceListsResponse">ListPriceListsResponse</a>
+    <h4 class="field-label">480</h4>
+    InternalErrorException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InvalidParameterException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    NotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    InvalidNextTokenException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    ExpiredNextTokenException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    AccessDeniedException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#AttributeValue"><code>AttributeValue</code> - </a></li>
+    <li><a href="#DescribeServicesRequest"><code>DescribeServicesRequest</code> - DescribeServicesRequest</a></li>
+    <li><a href="#DescribeServicesResponse"><code>DescribeServicesResponse</code> - </a></li>
+    <li><a href="#Filter"><code>Filter</code> - </a></li>
+    <li><a href="#FilterType"><code>FilterType</code> - </a></li>
+    <li><a href="#GetAttributeValuesRequest"><code>GetAttributeValuesRequest</code> - GetAttributeValuesRequest</a></li>
+    <li><a href="#GetAttributeValuesResponse"><code>GetAttributeValuesResponse</code> - </a></li>
+    <li><a href="#GetPriceListFileUrlRequest"><code>GetPriceListFileUrlRequest</code> - GetPriceListFileUrlRequest</a></li>
+    <li><a href="#GetPriceListFileUrlResponse"><code>GetPriceListFileUrlResponse</code> - </a></li>
+    <li><a href="#GetProductsRequest"><code>GetProductsRequest</code> - GetProductsRequest</a></li>
+    <li><a href="#GetProductsResponse"><code>GetProductsResponse</code> - </a></li>
+    <li><a href="#ListPriceListsRequest"><code>ListPriceListsRequest</code> - ListPriceListsRequest</a></li>
+    <li><a href="#ListPriceListsResponse"><code>ListPriceListsResponse</code> - </a></li>
+    <li><a href="#PriceList"><code>PriceList</code> - </a></li>
+    <li><a href="#Service"><code>Service</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="AttributeValue"><code>AttributeValue</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The values of a given attribute, such as <code>Throughput Optimized HDD</code> or <code>Provisioned IOPS</code> for the <code>Amazon EC2</code> <code>volumeType</code> attribute.</div>
+    <div class="field-items">
+      <div class="param">Value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeServicesRequest"><code>DescribeServicesRequest</code> - DescribeServicesRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ServiceCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">FormatVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MaxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeServicesResponse"><code>DescribeServicesResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Services (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">FormatVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Filter"><code>Filter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The constraints that you want all returned products to match.</div>
+    <div class="field-items">
+      <div class="param">Type </div><div class="param-desc"><span class="param-type"><a href="#FilterType">FilterType</a></span>  </div>
+<div class="param">Field </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Value </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="FilterType"><code>FilterType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetAttributeValuesRequest"><code>GetAttributeValuesRequest</code> - GetAttributeValuesRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ServiceCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AttributeName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MaxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetAttributeValuesResponse"><code>GetAttributeValuesResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">AttributeValues (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetPriceListFileUrlRequest"><code>GetPriceListFileUrlRequest</code> - GetPriceListFileUrlRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">PriceListArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">FileFormat </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetPriceListFileUrlResponse"><code>GetPriceListFileUrlResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetProductsRequest"><code>GetProductsRequest</code> - GetProductsRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ServiceCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Filters (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">FormatVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MaxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetProductsResponse"><code>GetProductsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">FormatVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PriceList (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListPriceListsRequest"><code>ListPriceListsRequest</code> - ListPriceListsRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ServiceCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">EffectiveDate </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">RegionCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CurrencyCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MaxResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListPriceListsResponse"><code>ListPriceListsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">PriceLists (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PriceList"><code>PriceList</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p> <i> <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b> </i> </p> <p>This is the type of price list references that match your request. </p>
+</div>
+    <div class="field-items">
+      <div class="param">PriceListArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">RegionCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CurrencyCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">FileFormats (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Service"><code>Service</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The metadata for a service, such as the service code and available attribute names.</div>
+    <div class="field-items">
+      <div class="param">ServiceCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AttributeNames (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
