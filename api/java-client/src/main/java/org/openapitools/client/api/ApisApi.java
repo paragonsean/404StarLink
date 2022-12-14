@@ -1,6 +1,6 @@
 /*
- * KERALA PUBLIC SERVICE COMMISSION, Kerala
- * The following issued documents can be integrated with DigiLocker and get used by candidates for service delivery - 1.One Time Verification -OTV certificate � issued to candidates qualified for appointment for posts in Govt. Sector to produce to the concerned dept. after scrutinizing their the relevant documents to prove their qualifications, age, etc.2. Admission Tickets for appearing Online, OMR Exams, Physical Test, Interview etc. 3.Departmental Test Certificates- is issued to employees in Govt. sector
+ * Karnataka Secondary Education Examination Board, Karnataka
+ * Karnataka Secondary Education Examination Board (http://kseeb.kar.nic.in) is providing passing certificates of  SSLC(10th Std) of April and June-2018 Examinations.
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -27,14 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.Otcer400Response;
-import org.openapitools.client.model.Otcer401Response;
-import org.openapitools.client.model.Otcer404Response;
-import org.openapitools.client.model.Otcer500Response;
-import org.openapitools.client.model.Otcer502Response;
-import org.openapitools.client.model.Otcer503Response;
-import org.openapitools.client.model.Otcer504Response;
-import org.openapitools.client.model.OtcerRequest;
+import org.openapitools.client.model.Sscer400Response;
+import org.openapitools.client.model.Sscer401Response;
+import org.openapitools.client.model.Sscer404Response;
+import org.openapitools.client.model.Sscer500Response;
+import org.openapitools.client.model.Sscer502Response;
+import org.openapitools.client.model.Sscer503Response;
+import org.openapitools.client.model.Sscer504Response;
+import org.openapitools.client.model.SscerRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -80,8 +80,8 @@ public class ApisApi {
     }
 
     /**
-     * Build call for otcer
-     * @param otcerRequest Request format (optional)
+     * Build call for sscer
+     * @param sscerRequest Request format (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -98,7 +98,7 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call otcerCall(OtcerRequest otcerRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sscerCall(SscerRequest sscerRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -112,10 +112,10 @@ public class ApisApi {
             basePath = null;
         }
 
-        Object localVarPostBody = otcerRequest;
+        Object localVarPostBody = sscerRequest;
 
         // create path and map variables
-        String localVarPath = "/otcer/certificate";
+        String localVarPath = "/sscer/certificate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -145,15 +145,15 @@ public class ApisApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call otcerValidateBeforeCall(OtcerRequest otcerRequest, final ApiCallback _callback) throws ApiException {
-        return otcerCall(otcerRequest, _callback);
+    private okhttp3.Call sscerValidateBeforeCall(SscerRequest sscerRequest, final ApiCallback _callback) throws ApiException {
+        return sscerCall(sscerRequest, _callback);
 
     }
 
     /**
-     * OTV Certificate
-     * API to verify OTV Certificate.
-     * @param otcerRequest Request format (optional)
+     * Class X Marksheet
+     * API to verify Class X Marksheet.
+     * @param sscerRequest Request format (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -168,14 +168,14 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public void otcer(OtcerRequest otcerRequest) throws ApiException {
-        otcerWithHttpInfo(otcerRequest);
+    public void sscer(SscerRequest sscerRequest) throws ApiException {
+        sscerWithHttpInfo(sscerRequest);
     }
 
     /**
-     * OTV Certificate
-     * API to verify OTV Certificate.
-     * @param otcerRequest Request format (optional)
+     * Class X Marksheet
+     * API to verify Class X Marksheet.
+     * @param sscerRequest Request format (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -191,15 +191,15 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> otcerWithHttpInfo(OtcerRequest otcerRequest) throws ApiException {
-        okhttp3.Call localVarCall = otcerValidateBeforeCall(otcerRequest, null);
+    public ApiResponse<Void> sscerWithHttpInfo(SscerRequest sscerRequest) throws ApiException {
+        okhttp3.Call localVarCall = sscerValidateBeforeCall(sscerRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * OTV Certificate (asynchronously)
-     * API to verify OTV Certificate.
-     * @param otcerRequest Request format (optional)
+     * Class X Marksheet (asynchronously)
+     * API to verify Class X Marksheet.
+     * @param sscerRequest Request format (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -216,9 +216,9 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call otcerAsync(OtcerRequest otcerRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call sscerAsync(SscerRequest sscerRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = otcerValidateBeforeCall(otcerRequest, _callback);
+        okhttp3.Call localVarCall = sscerValidateBeforeCall(sscerRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

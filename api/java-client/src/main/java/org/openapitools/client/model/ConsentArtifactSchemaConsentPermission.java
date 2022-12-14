@@ -1,6 +1,6 @@
 /*
- * KERALA PUBLIC SERVICE COMMISSION, Kerala
- * The following issued documents can be integrated with DigiLocker and get used by candidates for service delivery - 1.One Time Verification -OTV certificate � issued to candidates qualified for appointment for posts in Govt. Sector to produce to the concerned dept. after scrutinizing their the relevant documents to prove their qualifications, age, etc.2. Admission Tickets for appearing Online, OMR Exams, Physical Test, Interview etc. 3.Departmental Test Certificates- is issued to employees in Govt. sector
+ * Karnataka Secondary Education Examination Board, Karnataka
+ * Karnataka Secondary Education Examination Board (http://kseeb.kar.nic.in) is providing passing certificates of  SSLC(10th Std) of April and June-2018 Examinations.
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * ConsentArtifactSchemaConsentPermission
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:04:39.840634-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:01.791540-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ConsentArtifactSchemaConsentPermission {
   public static final String SERIALIZED_NAME_ACCESS = "access";
   @SerializedName(SERIALIZED_NAME_ACCESS)
