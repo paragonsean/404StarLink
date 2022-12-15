@@ -2,7 +2,7 @@
 
 Karnataka Secondary Education Examination Board, Karnataka
 - API version: 3.0.0
-  - Build date: 2024-10-11T01:57:51.171889-04:00[America/New_York]
+  - Build date: 2024-10-11T02:06:04.401034-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Karnataka Secondary Education Examination Board (http://kseeb.kar.nic.in) is providing passing certificates of  SSLC(10th Std) of April and June-2018 Examinations.
