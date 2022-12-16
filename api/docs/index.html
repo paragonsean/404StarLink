@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Karnataka Secondary Education Examination Board, Karnataka</title>
+    <title>Amazon Personalize Runtime</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,18 +179,18 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>Karnataka Secondary Education Examination Board, Karnataka</h1>
-    <div class="app-desc">Karnataka Secondary Education Examination Board (http://kseeb.kar.nic.in) is providing passing certificates of  SSLC(10th Std) of April and June-2018 Examinations.</div>
-    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
-    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
-    <div class="app-desc">Version: 3.0.0</div>
-    <div class="app-desc">BasePath:/kseebkr/v3</div>
-    <div class="license-info">All rights reserved</div>
-    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h1>Amazon Personalize Runtime</h1>
+    <div class="app-desc"><p/>
+</div>
+    <div class="app-desc">More information: <a href="https://github.com/mermade/aws2openapi">https://github.com/mermade/aws2openapi</a></div>
+    <div class="app-desc">Contact Info: <a href="mike.ralphson@gmail.com">mike.ralphson@gmail.com</a></div>
+    <div class="app-desc">Version: 2018-05-22</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0 License</div>
+    <div class="license-url">http://www.apache.org/licenses/</div>
   <h2>Access</h2>
     <ol>
-      <li>APIKey KeyParamName:X-APISETU-APIKEY KeyInQuery:false KeyInHeader:true</li>
-      <li>APIKey KeyParamName:X-APISETU-CLIENTID KeyInQuery:false KeyInHeader:true</li>
+      <li>APIKey KeyParamName:Authorization KeyInQuery:false KeyInHeader:true</li>
     </ol>
 
   <h2><a name="__Methods">Methods</a></h2>
@@ -198,18 +198,20 @@ font-style: italic;
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#APIs">APIs</a></h4>
+  <h4><a href="#Default">Default</a></h4>
   <ul>
-  <li><a href="#sscer"><code><span class="http-method">post</span> /sscer/certificate</code></a></li>
+  <li><a href="#getPersonalizedRanking"><code><span class="http-method">post</span> /personalize-ranking</code></a></li>
+  <li><a href="#getRecommendations"><code><span class="http-method">post</span> /recommendations</code></a></li>
   </ul>
 
-  <h1><a name="APIs">APIs</a></h1>
-  <div class="method"><a name="sscer"/>
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="getPersonalizedRanking"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /sscer/certificate</code></pre></div>
-    <div class="method-summary">Class X Marksheet (<span class="nickname">sscer</span>)</div>
-    <div class="method-notes">API to verify Class X Marksheet.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /personalize-ranking</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getPersonalizedRanking</span>)</div>
+    <div class="method-notes"><p>Re-ranks a list of recommended items for the given user. The first item in the list is deemed the most likely item to be of interest to the user.</p> <note> <p>The solution backing the campaign must have been created using a recipe of type PERSONALIZED_RANKING.</p> </note>
+</div>
 
 
     <h3 class="field-label">Consumes</h3>
@@ -220,94 +222,157 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">sscer_request <a href="#sscer_request">sscer_request</a> (optional)</div>
+      <div class="param">GetPersonalizedRanking_request <a href="#GetPersonalizedRanking_request">GetPersonalizedRanking_request</a> (required)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
     </div>  <!-- field-items -->
 
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
 
 
 
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetPersonalizedRankingResponse">GetPersonalizedRankingResponse</a>
+      
+    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "errorDescription" : "Please provide all mandatory parameters",
-  "error" : "missing_parameter"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Authentication failed",
-  "error" : "invalid_authentication"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "No record found",
-  "error" : "record_not_found"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Internal server error",
-  "error" : "internal_server_error"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service returned an invalid response",
-  "error" : "bad_gatewy"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service is temporarily unavailable",
-  "error" : "service_unavailable"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service did not respond in time",
-  "error" : "gateway_timeout"
+  "personalizedRanking" : "",
+  "recommendationId" : ""
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
-      <li><code>application/pdf</code></li>
       <li><code>application/json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
-        <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#sscer_400_response">sscer_400_response</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized access
-        <a href="#sscer_401_response">sscer_401_response</a>
-    <h4 class="field-label">404</h4>
-    No record found
-        <a href="#sscer_404_response">sscer_404_response</a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#sscer_500_response">sscer_500_response</a>
-    <h4 class="field-label">502</h4>
-    Bad gateway
-        <a href="#sscer_502_response">sscer_502_response</a>
-    <h4 class="field-label">503</h4>
-    Service unavailable
-        <a href="#sscer_503_response">sscer_503_response</a>
-    <h4 class="field-label">504</h4>
-    Gateway timeout
-        <a href="#sscer_504_response">sscer_504_response</a>
+    Success
+        <a href="#GetPersonalizedRankingResponse">GetPersonalizedRankingResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidInputException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getRecommendations"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /recommendations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getRecommendations</span>)</div>
+    <div class="method-notes"><p>Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to create the solution backing the campaign as follows:</p> <ul> <li> <p>USER_PERSONALIZATION - <code>userId</code> required, <code>itemId</code> not used</p> </li> <li> <p>RELATED_ITEMS - <code>itemId</code> required, <code>userId</code> not used</p> </li> </ul> <note> <p>Campaigns that are backed by a solution created using a recipe of type PERSONALIZED_RANKING use the API.</p> </note> <p> For recommenders, the recommender's ARN is required and the required item and user input depends on the use case (domain-based recipe) backing the recommender. For information on use case requirements see <a href="https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html">Choosing recommender use cases</a>. </p>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetRecommendations_request <a href="#GetRecommendations_request">GetRecommendations_request</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetRecommendationsResponse">GetRecommendationsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "itemList" : "",
+  "recommendationId" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetRecommendationsResponse">GetRecommendationsResponse</a>
+    <h4 class="field-label">480</h4>
+    InvalidInputException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
   </div> <!-- method -->
   <hr/>
 
@@ -316,387 +381,109 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#AcademicCertificateSchema"><code>AcademicCertificateSchema</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_CertificateData"><code>AcademicCertificateSchema_CertificateData</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_CertificateData_Examination"><code>AcademicCertificateSchema_CertificateData_Examination</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_CertificateData_Performance"><code>AcademicCertificateSchema_CertificateData_Performance</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_CertificateData_Performance_Subjects_inner"><code>AcademicCertificateSchema_CertificateData_Performance_Subjects_inner</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_CertificateData_School"><code>AcademicCertificateSchema_CertificateData_School</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedBy"><code>AcademicCertificateSchema_IssuedBy</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedBy_Organization"><code>AcademicCertificateSchema_IssuedBy_Organization</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedBy_Organization_Address"><code>AcademicCertificateSchema_IssuedBy_Organization_Address</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedTo"><code>AcademicCertificateSchema_IssuedTo</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedTo_Person"><code>AcademicCertificateSchema_IssuedTo_Person</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedTo_Person_Address"><code>AcademicCertificateSchema_IssuedTo_Person_Address</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedTo_Person_Photo"><code>AcademicCertificateSchema_IssuedTo_Person_Photo</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema"><code>ConsentArtifactSchema</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent"><code>ConsentArtifactSchema_consent</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_data"><code>ConsentArtifactSchema_consent_data</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_permission"><code>ConsentArtifactSchema_consent_permission</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_permission_dateRange"><code>ConsentArtifactSchema_consent_permission_dateRange</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_permission_frequency"><code>ConsentArtifactSchema_consent_permission_frequency</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_purpose"><code>ConsentArtifactSchema_consent_purpose</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_user"><code>ConsentArtifactSchema_consent_user</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_signature"><code>ConsentArtifactSchema_signature</code> - </a></li>
-    <li><a href="#sscer_400_response"><code>sscer_400_response</code> - </a></li>
-    <li><a href="#sscer_401_response"><code>sscer_401_response</code> - </a></li>
-    <li><a href="#sscer_404_response"><code>sscer_404_response</code> - </a></li>
-    <li><a href="#sscer_500_response"><code>sscer_500_response</code> - </a></li>
-    <li><a href="#sscer_502_response"><code>sscer_502_response</code> - </a></li>
-    <li><a href="#sscer_503_response"><code>sscer_503_response</code> - </a></li>
-    <li><a href="#sscer_504_response"><code>sscer_504_response</code> - </a></li>
-    <li><a href="#sscer_request"><code>sscer_request</code> - </a></li>
-    <li><a href="#sscer_request_certificateParameters"><code>sscer_request_certificateParameters</code> - </a></li>
+    <li><a href="#GetPersonalizedRankingRequest"><code>GetPersonalizedRankingRequest</code> - GetPersonalizedRankingRequest</a></li>
+    <li><a href="#GetPersonalizedRankingResponse"><code>GetPersonalizedRankingResponse</code> - </a></li>
+    <li><a href="#GetPersonalizedRanking_request"><code>GetPersonalizedRanking_request</code> - </a></li>
+    <li><a href="#GetRecommendationsRequest"><code>GetRecommendationsRequest</code> - GetRecommendationsRequest</a></li>
+    <li><a href="#GetRecommendationsResponse"><code>GetRecommendationsResponse</code> - </a></li>
+    <li><a href="#GetRecommendations_request"><code>GetRecommendations_request</code> - </a></li>
+    <li><a href="#PredictedItem"><code>PredictedItem</code> - </a></li>
+    <li><a href="#Promotion"><code>Promotion</code> - </a></li>
   </ol>
 
   <div class="model">
-    <h3><a name="AcademicCertificateSchema"><code>AcademicCertificateSchema</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="GetPersonalizedRankingRequest"><code>GetPersonalizedRankingRequest</code> - GetPersonalizedRankingRequest</a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">CertificateData </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData">AcademicCertificateSchema_CertificateData</a></span>  </div>
-<div class="param">IssuedBy </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy">AcademicCertificateSchema_IssuedBy</a></span>  </div>
-<div class="param">IssuedTo </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo">AcademicCertificateSchema_IssuedTo</a></span>  </div>
-<div class="param">issueDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">issuedAt </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">language </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">number </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">validFromDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">campaignArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">inputList </div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">userId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">context (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">filterArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">filterValues (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="AcademicCertificateSchema_CertificateData"><code>AcademicCertificateSchema_CertificateData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="GetPersonalizedRankingResponse"><code>GetPersonalizedRankingResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">Examination </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Examination">AcademicCertificateSchema_CertificateData_Examination</a></span>  </div>
-<div class="param">Performance </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Performance">AcademicCertificateSchema_CertificateData_Performance</a></span>  </div>
-<div class="param">School </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_School">AcademicCertificateSchema_CertificateData_School</a></span>  </div>
+      <div class="param">personalizedRanking (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">recommendationId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="AcademicCertificateSchema_CertificateData_Examination"><code>AcademicCertificateSchema_CertificateData_Examination</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="GetPersonalizedRanking_request"><code>GetPersonalizedRanking_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">month </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">year </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">campaignArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Amazon Resource Name (ARN) of the campaign to use for generating the personalized ranking. </div>
+<div class="param">inputList </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> A list of items (by <code>itemId</code>) to rank. If an item was not included in the training dataset, the item is appended to the end of the reranked list. The maximum is 500. </div>
+<div class="param">userId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The user for which you want the campaign to provide a personalized ranking. </div>
+<div class="param">context (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> The contextual metadata to use when getting recommendations. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type. format: password</div>
+<div class="param">filterArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Amazon Resource Name (ARN) of a filter you created to include items or exclude items from recommendations for a given user. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>. </div>
+<div class="param">filterValues (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> <p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case) as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code> element to include items, you must provide values for all parameters that are defined in the expression. For filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
+ format: password</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="AcademicCertificateSchema_CertificateData_Performance"><code>AcademicCertificateSchema_CertificateData_Performance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="GetRecommendationsRequest"><code>GetRecommendationsRequest</code> - GetRecommendationsRequest</a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">Subjects </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Performance_Subjects_inner">array[AcademicCertificateSchema_CertificateData_Performance_Subjects_inner]</a></span>  </div>
-<div class="param">cgpa </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">cgpaMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">grade </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">marksMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">marksTotal </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">percentage </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">result </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">resultDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">updateDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">campaignArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">itemId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">userId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">numResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">context (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">filterArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">filterValues (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">recommenderArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">promotions (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="AcademicCertificateSchema_CertificateData_Performance_Subjects_inner"><code>AcademicCertificateSchema_CertificateData_Performance_Subjects_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="GetRecommendationsResponse"><code>GetRecommendationsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">gp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">gpMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">grade </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">marksMax </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">marksMaxPractical </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">marksMaxTheory </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">marksPractical </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">marksTheory </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">marksTotal </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">itemList (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">recommendationId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="AcademicCertificateSchema_CertificateData_School"><code>AcademicCertificateSchema_CertificateData_School</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="GetRecommendations_request"><code>GetRecommendations_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">campaignArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Amazon Resource Name (ARN) of the campaign to use for getting recommendations. </div>
+<div class="param">itemId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The item ID to provide recommendations for.</p> <p>Required for <code>RELATED_ITEMS</code> recipe type.</p>
+ </div>
+<div class="param">userId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The user ID to provide recommendations for.</p> <p>Required for <code>USER_PERSONALIZATION</code> recipe type.</p>
+ </div>
+<div class="param">numResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of results to return. The default is 25. The maximum is 500. </div>
+<div class="param">context (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> The contextual metadata to use when getting recommendations. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type. format: password</div>
+<div class="param">filterArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The ARN of the filter to apply to the returned recommendations. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p> <p>When using this parameter, be sure the filter resource is <code>ACTIVE</code>.</p>
+ </div>
+<div class="param">filterValues (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> <p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case) as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code> element to include items, you must provide values for all parameters that are defined in the expression. For filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering recommendations and user segments</a>.</p>
+ format: password</div>
+<div class="param">recommenderArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Amazon Resource Name (ARN) of the recommender to use to get recommendations. Provide a recommender ARN if you created a Domain dataset group with a recommender for a domain use case. </div>
+<div class="param">promotions (optional)</div><div class="param-desc"><span class="param-type"><a href="#Promotion">array[Promotion]</a></span> The promotions to apply to the recommendation request. A promotion defines additional business rules that apply to a configurable subset of recommended items. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedBy"><code>AcademicCertificateSchema_IssuedBy</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
+    <h3><a name="PredictedItem"><code>PredictedItem</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p>An object that identifies an item.</p> <p>The and APIs return a list of <code>PredictedItem</code>s.</p>
+</div>
     <div class="field-items">
-      <div class="param">Organization </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy_Organization">AcademicCertificateSchema_IssuedBy_Organization</a></span>  </div>
+      <div class="param">itemId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">score (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  </div>
+<div class="param">promotionName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedBy_Organization"><code>AcademicCertificateSchema_IssuedBy_Organization</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
+    <h3><a name="Promotion"><code>Promotion</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Contains information on a promotion. A promotion defines additional business rules that apply to a configurable subset of recommended items.</div>
     <div class="field-items">
-      <div class="param">Address </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy_Organization_Address">AcademicCertificateSchema_IssuedBy_Organization_Address</a></span>  </div>
-<div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">tin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">uid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedBy_Organization_Address"><code>AcademicCertificateSchema_IssuedBy_Organization_Address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">country </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">district </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">house </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">landmark </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">line1 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">line2 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">locality </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">pin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">vtc </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedTo"><code>AcademicCertificateSchema_IssuedTo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">Person </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person">AcademicCertificateSchema_IssuedTo_Person</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedTo_Person"><code>AcademicCertificateSchema_IssuedTo_Person</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">Address </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person_Address">AcademicCertificateSchema_IssuedTo_Person_Address</a></span>  </div>
-<div class="param">Photo </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person_Photo">AcademicCertificateSchema_IssuedTo_Person_Photo</a></span>  </div>
-<div class="param">category </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">disabilityStatus </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">dob </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">gender </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">maritalStatus </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">motherName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">phone </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">religion </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">swd </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">swdIndicator </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">uid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedTo_Person_Address"><code>AcademicCertificateSchema_IssuedTo_Person_Address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">country </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">district </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">house </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">landmark </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">line1 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">line2 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">locality </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">pin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">vtc </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedTo_Person_Photo"><code>AcademicCertificateSchema_IssuedTo_Person_Photo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema"><code>ConsentArtifactSchema</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">consent </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent">ConsentArtifactSchema_consent</a></span>  </div>
-<div class="param">signature </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_signature">ConsentArtifactSchema_signature</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent"><code>ConsentArtifactSchema_consent</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">consentId </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> A unique consent id in UUID format. format: uuid</div>
-<div class="param">data </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
-<div class="param">dataConsumer </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
-<div class="param">dataProvider </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
-<div class="param">permission </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission">ConsentArtifactSchema_consent_permission</a></span>  </div>
-<div class="param">purpose </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_purpose">ConsentArtifactSchema_consent_purpose</a></span>  </div>
-<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
-<div class="param">user </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_user">ConsentArtifactSchema_consent_user</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_data"><code>ConsentArtifactSchema_consent_data</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_permission"><code>ConsentArtifactSchema_consent_permission</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">access </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">dateRange </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission_dateRange">ConsentArtifactSchema_consent_permission_dateRange</a></span>  </div>
-<div class="param">frequency </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission_frequency">ConsentArtifactSchema_consent_permission_frequency</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_permission_dateRange"><code>ConsentArtifactSchema_consent_permission_dateRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
-<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_permission_frequency"><code>ConsentArtifactSchema_consent_permission_frequency</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">repeats </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
-<div class="param">unit </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_purpose"><code>ConsentArtifactSchema_consent_purpose</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">description </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_user"><code>ConsentArtifactSchema_consent_user</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">idNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">idType </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">mobile </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_signature"><code>ConsentArtifactSchema_signature</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">signature </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="sscer_400_response"><code>sscer_400_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">missing_parameter</div><div class="param-enum">invalid_parameter</div><div class="param-enum">invalid_format</div><div class="param-enum">invalid_txnid</div><div class="param-enum">invalid_consentid</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Please provide all mandatory parameters</div><div class="param-enum">Bad request</div><div class="param-enum">The format parameter is invalid</div><div class="param-enum">The txnId parameter must be in UUID format</div><div class="param-enum">The consentId parameter must be in UUID format</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="sscer_401_response"><code>sscer_401_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">invalid_authentication</div><div class="param-enum">invalid_authorization</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Authentication failed</div><div class="param-enum">You are not authorized to use this API</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="sscer_404_response"><code>sscer_404_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">record_not_found</div><div class="param-enum">url_not_found</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">No record found</div><div class="param-enum">Your API url or path is incorrect</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="sscer_500_response"><code>sscer_500_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">internal_server_error</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Internal server error</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="sscer_502_response"><code>sscer_502_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">bad_gatewy</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Publisher service returned an invalid response</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="sscer_503_response"><code>sscer_503_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">service_unavailable</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Publisher service is temporarily unavailable</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="sscer_504_response"><code>sscer_504_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">gateway_timeout</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Publisher service did not respond in time</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="sscer_request"><code>sscer_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">certificateParameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#sscer_request_certificateParameters">sscer_request_certificateParameters</a></span>  </div>
-<div class="param">consentArtifact (optional)</div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema">ConsentArtifactSchema</a></span>  </div>
-<div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The format of the certificate in response. </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">pdf</div>
-<div class="param">txnId </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> A unique transaction id for this request in UUID format. It is used for tracking the request. format: uuid</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="sscer_request_certificateParameters"><code>sscer_request_certificateParameters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">DOB </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Date of birth in DD-MM-YYYY format </div>
-<div class="param">FullName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Full name </div>
-<div class="param">REGNO </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enter RegNo </div>
-<div class="param">UID </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Aadhaar number </div>
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">percentPromotedItems (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">filterArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">filterValues (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   </body>

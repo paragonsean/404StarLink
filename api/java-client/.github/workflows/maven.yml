@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build Karnataka Secondary Education Examination Board, Karnataka
+    name: Build Amazon Personalize Runtime
     runs-on: ubuntu-latest
     strategy:
       matrix:

@@ -1,998 +1,785 @@
 openapi: 3.0.0
 info:
-  description: Karnataka Secondary Education Examination Board (http://kseeb.kar.nic.in)
-    is providing passing certificates of  SSLC(10th Std) of April and June-2018 Examinations.
-  termsOfService: https://apisetu.gov.in/terms.php
-  title: "Karnataka Secondary Education Examination Board, Karnataka"
-  version: 3.0.0
-  x-apisguru-categories:
-  - open_data
-  x-origin:
-  - format: openapi
-    url: https://apisetu.gov.in/api_specification_v8/kseebkr.yaml
-    version: "3.0"
-  x-providerName: apisetu.gov.in
-  x-serviceName: kseebkr
+  contact:
+    email: mike.ralphson@gmail.com
+    name: Mike Ralphson
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  description: <p/>
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  termsOfService: https://aws.amazon.com/service-terms/
+  title: Amazon Personalize Runtime
+  version: 2018-05-22
+  x-release: v4
   x-logo:
-    url: https://api.apis.guru/v2/cache/logo/https_apis.guru_assets_images_no-logo.svg
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  x-providerName: amazonaws.com
+  x-serviceName: personalize-runtime
+  x-aws-signingName: personalize
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/personalize-runtime-2018-05-22.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/personalize-runtime/
 servers:
-- url: https://apisetu.gov.in/kseebkr/v3
+- description: The Amazon Personalize Runtime multi-region endpoint
+  url: "http://personalize-runtime.{region}.amazonaws.com"
+  variables:
+    region:
+      default: us-east-1
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+- description: The Amazon Personalize Runtime multi-region endpoint
+  url: "https://personalize-runtime.{region}.amazonaws.com"
+  variables:
+    region:
+      default: us-east-1
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+- description: The Amazon Personalize Runtime endpoint for China (Beijing) and China
+    (Ningxia)
+  url: "http://personalize-runtime.{region}.amazonaws.com.cn"
+  variables:
+    region:
+      default: cn-north-1
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+- description: The Amazon Personalize Runtime endpoint for China (Beijing) and China
+    (Ningxia)
+  url: "https://personalize-runtime.{region}.amazonaws.com.cn"
+  variables:
+    region:
+      default: cn-north-1
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+security:
+- hmac: []
 paths:
-  /sscer/certificate:
+  /personalize-ranking:
     post:
-      description: API to verify Class X Marksheet.
-      operationId: sscer
+      description: <p>Re-ranks a list of recommended items for the given user. The
+        first item in the list is deemed the most likely item to be of interest to
+        the user.</p> <note> <p>The solution backing the campaign must have been created
+        using a recipe of type PERSONALIZED_RANKING.</p> </note>
+      operationId: GetPersonalizedRanking
+      parameters:
+      - explode: false
+        in: header
+        name: X-Amz-Content-Sha256
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-Date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-Algorithm
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-Credential
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-Security-Token
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-Signature
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-SignedHeaders
+        required: false
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/sscer_request'
-        description: Request format
+              $ref: '#/components/schemas/GetPersonalizedRanking_request'
+        required: true
       responses:
         "200":
           content:
-            application/pdf:
-              example: Response body contains contents of the certificate in PDF format.
-          description: "The certificate data in response body in PDF, XML or JSON\
-            \ format as requested in format parameter."
-        "400":
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPersonalizedRankingResponse'
+          description: Success
+        "480":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/sscer_400_response'
-          description: Bad request
-        "401":
+                $ref: '#/components/schemas/InvalidInputException'
+          description: InvalidInputException
+        "481":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/sscer_401_response'
-          description: Unauthorized access
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/sscer_404_response'
-          description: No record found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/sscer_500_response'
-          description: Internal server error
-        "502":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/sscer_502_response'
-          description: Bad gateway
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/sscer_503_response'
-          description: Service unavailable
-        "504":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/sscer_504_response'
-          description: Gateway timeout
-      security:
-      - apiKey: []
-        clientId: []
-      summary: Class X Marksheet
-      tags:
-      - APIs
+                $ref: '#/components/schemas/ResourceNotFoundException'
+          description: ResourceNotFoundException
       x-content-type: application/json
       x-accepts:
       - application/json
-      - application/pdf
+  /recommendations:
+    post:
+      description: "<p>Returns a list of recommended items. For campaigns, the campaign's\
+        \ Amazon Resource Name (ARN) is required and the required user and item input\
+        \ depends on the recipe type used to create the solution backing the campaign\
+        \ as follows:</p> <ul> <li> <p>USER_PERSONALIZATION - <code>userId</code>\
+        \ required, <code>itemId</code> not used</p> </li> <li> <p>RELATED_ITEMS -\
+        \ <code>itemId</code> required, <code>userId</code> not used</p> </li> </ul>\
+        \ <note> <p>Campaigns that are backed by a solution created using a recipe\
+        \ of type PERSONALIZED_RANKING use the API.</p> </note> <p> For recommenders,\
+        \ the recommender's ARN is required and the required item and user input depends\
+        \ on the use case (domain-based recipe) backing the recommender. For information\
+        \ on use case requirements see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html\"\
+        >Choosing recommender use cases</a>. </p>"
+      operationId: GetRecommendations
+      parameters:
+      - explode: false
+        in: header
+        name: X-Amz-Content-Sha256
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-Date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-Algorithm
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-Credential
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-Security-Token
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-Signature
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: X-Amz-SignedHeaders
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetRecommendations_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRecommendationsResponse'
+          description: Success
+        "480":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidInputException'
+          description: InvalidInputException
+        "481":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+          description: ResourceNotFoundException
+      x-content-type: application/json
+      x-accepts:
+      - application/json
 components:
-  responses:
-    "400Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/sscer_400_response'
-      description: Bad request
-    "401Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/sscer_401_response'
-      description: Unauthorized access
-    "404Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/sscer_404_response'
-      description: No record found
-    "500Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/sscer_500_response'
-      description: Internal server error
-    "502Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/sscer_502_response'
-      description: Bad gateway
-    "503Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/sscer_503_response'
-      description: Service unavailable
-    "504Error":
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/sscer_504_response'
-      description: Gateway timeout
+  parameters:
+    X-Amz-Content-Sha256:
+      explode: false
+      in: header
+      name: X-Amz-Content-Sha256
+      required: false
+      schema:
+        type: string
+      style: simple
+    X-Amz-Date:
+      explode: false
+      in: header
+      name: X-Amz-Date
+      required: false
+      schema:
+        type: string
+      style: simple
+    X-Amz-Algorithm:
+      explode: false
+      in: header
+      name: X-Amz-Algorithm
+      required: false
+      schema:
+        type: string
+      style: simple
+    X-Amz-Credential:
+      explode: false
+      in: header
+      name: X-Amz-Credential
+      required: false
+      schema:
+        type: string
+      style: simple
+    X-Amz-Security-Token:
+      explode: false
+      in: header
+      name: X-Amz-Security-Token
+      required: false
+      schema:
+        type: string
+      style: simple
+    X-Amz-Signature:
+      explode: false
+      in: header
+      name: X-Amz-Signature
+      required: false
+      schema:
+        type: string
+      style: simple
+    X-Amz-SignedHeaders:
+      explode: false
+      in: header
+      name: X-Amz-SignedHeaders
+      required: false
+      schema:
+        type: string
+      style: simple
   schemas:
-    AcademicCertificateSchema:
+    GetPersonalizedRankingResponse:
+      example:
+        personalizedRanking: ""
+        recommendationId: ""
       properties:
-        CertificateData:
-          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData'
-        IssuedBy:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedBy'
-        IssuedTo:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo'
-        issueDate:
-          example: ' '
-          type: string
-          xml:
-            attribute: true
-        issuedAt:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        language:
-          example: "99"
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
+        personalizedRanking:
+          allOf:
+          - $ref: '#/components/schemas/ItemList'
+          - description: A list of items in order of most likely interest to the user.
+              The maximum is 500.
+        recommendationId:
+          allOf:
+          - $ref: '#/components/schemas/RecommendationID'
+          - description: The ID of the recommendation.
+      type: object
+    ItemID:
+      maxLength: 256
+      type: string
+    AttributeValue:
+      format: password
+      maxLength: 1000
+      type: string
+    FilterAttributeValue:
+      format: password
+      maxLength: 1000
+      type: string
+    InvalidInputException: {}
+    ResourceNotFoundException: {}
+    GetRecommendationsResponse:
+      example:
+        itemList: ""
+        recommendationId: ""
+      properties:
+        itemList:
+          allOf:
+          - $ref: '#/components/schemas/ItemList'
+          - description: A list of recommendations sorted in descending order by prediction
+              score. There can be a maximum of 500 items in the list.
+        recommendationId:
+          allOf:
+          - $ref: '#/components/schemas/RecommendationID'
+          - description: The ID of the recommendation.
+      type: object
+    Promotion:
+      description: Contains information on a promotion. A promotion defines additional
+        business rules that apply to a configurable subset of recommended items.
+      properties:
         name:
-          example: Secondary School Certificate
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        number:
-          example: 1100044
-          minLength: 1
-          type: integer
-          xml:
-            attribute: true
-        status:
-          example: A
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        type:
-          example: SSCER
-          type: string
-          xml:
-            attribute: true
-        validFromDate:
-          example: ' '
-          type: string
-          xml:
-            attribute: true
+          allOf:
+          - $ref: '#/components/schemas/Name'
+          - description: The name of the promotion.
+        percentPromotedItems:
+          allOf:
+          - $ref: '#/components/schemas/PercentPromotedItems'
+          - description: The percentage of recommended items to apply the promotion
+              to.
+        filterArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: "The Amazon Resource Name (ARN) of the filter used by the\
+              \ promotion. This filter defines the criteria for promoted items. For\
+              \ more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/promoting-items.html#promotion-filters\"\
+              >Promotion filters</a>."
+        filterValues:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: "<p>The values to use when promoting items. For each placeholder\
+              \ parameter in your promotion's filter expression, provide the parameter\
+              \ name (in matching case) as a key and the filter value(s) as the corresponding\
+              \ value. Separate multiple values for one parameter with a comma. </p>\
+              \ <p>For filter expressions that use an <code>INCLUDE</code> element\
+              \ to include items, you must provide values for all parameters that\
+              \ are defined in the expression. For filters with expressions that use\
+              \ an <code>EXCLUDE</code> element to exclude items, you can omit the\
+              \ <code>filter-values</code>. In this case, Amazon Personalize doesn't\
+              \ use that portion of the expression to filter recommendations.</p>\
+              \ <p>For more information on creating filters, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
+              >Filtering recommendations and user segments</a>.</p>"
+      type: object
+    Arn:
+      maxLength: 256
+      pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
+      type: string
+    AttributeName:
+      maxLength: 150
+      pattern: "[A-Za-z\\d_]+"
+      type: string
+    Context:
+      additionalProperties:
+        $ref: '#/components/schemas/AttributeValue'
+      maxProperties: 150
+      type: object
+    FilterAttributeName:
+      maxLength: 50
+      pattern: "[A-Za-z0-9_]+"
+      type: string
+    FilterValues:
+      additionalProperties:
+        $ref: '#/components/schemas/FilterAttributeValue'
+      maxProperties: 25
+      type: object
+    InputList:
+      items:
+        $ref: '#/components/schemas/ItemID'
+      type: array
+    UserID:
+      maxLength: 256
+      type: string
+    GetPersonalizedRankingRequest:
+      example:
+        filterValues: ""
+        inputList: ""
+        filterArn: ""
+        context: ""
+        userId: ""
+        campaignArn: ""
+      properties:
+        campaignArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The Amazon Resource Name (ARN) of the campaign to use for
+              generating the personalized ranking.
+        inputList:
+          allOf:
+          - $ref: '#/components/schemas/InputList'
+          - description: "A list of items (by <code>itemId</code>) to rank. If an\
+              \ item was not included in the training dataset, the item is appended\
+              \ to the end of the reranked list. The maximum is 500."
+        userId:
+          allOf:
+          - $ref: '#/components/schemas/UserID'
+          - description: The user for which you want the campaign to provide a personalized
+              ranking.
+        context:
+          allOf:
+          - $ref: '#/components/schemas/Context'
+          - description: "The contextual metadata to use when getting recommendations.\
+              \ Contextual metadata includes any interaction information that might\
+              \ be relevant when getting a user's recommendations, such as the user's\
+              \ current location or device type."
+        filterArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: "The Amazon Resource Name (ARN) of a filter you created to\
+              \ include items or exclude items from recommendations for a given user.\
+              \ For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
+              >Filtering Recommendations</a>."
+        filterValues:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: "<p>The values to use when filtering recommendations. For\
+              \ each placeholder parameter in your filter expression, provide the\
+              \ parameter name (in matching case) as a key and the filter value(s)\
+              \ as the corresponding value. Separate multiple values for one parameter\
+              \ with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code>\
+              \ element to include items, you must provide values for all parameters\
+              \ that are defined in the expression. For filters with expressions that\
+              \ use an <code>EXCLUDE</code> element to exclude items, you can omit\
+              \ the <code>filter-values</code>.In this case, Amazon Personalize doesn't\
+              \ use that portion of the expression to filter recommendations.</p>\
+              \ <p>For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
+              >Filtering Recommendations</a>.</p>"
       required:
-      - CertificateData
-      - IssuedBy
-      - IssuedTo
-      - issueDate
-      - issuedAt
-      - language
-      - name
-      - number
-      - status
-      - type
-      - validFromDate
+      - campaignArn
+      - inputList
+      - userId
+      title: GetPersonalizedRankingRequest
       type: object
-      xml:
-        name: Certificate
-    ConsentArtifactSchema:
-      properties:
-        consent:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent'
-        signature:
-          $ref: '#/components/schemas/ConsentArtifactSchema_signature'
-      required:
-      - consent
-      - signature
-    sscer_request_certificateParameters:
-      properties:
-        DOB:
-          description: Date of birth in DD-MM-YYYY format
-          example: 31-12-1980
-          type: string
-        FullName:
-          description: Full name
-          example: Sunil Kumar
-          type: string
-        REGNO:
-          description: Enter RegNo
-          example: "123456789"
-          type: string
-        UID:
-          description: Aadhaar number
-          example: "123412341234"
-          type: string
-      required:
-      - DOB
-      - FullName
-      - REGNO
-      - UID
-      type: object
-    sscer_request:
-      properties:
-        certificateParameters:
-          $ref: '#/components/schemas/sscer_request_certificateParameters'
-        consentArtifact:
-          $ref: '#/components/schemas/ConsentArtifactSchema'
-        format:
-          description: The format of the certificate in response.
-          enum:
-          - pdf
-          type: string
-        txnId:
-          description: A unique transaction id for this request in UUID format. It
-            is used for tracking the request.
-          example: f7f1469c-29b0-4325-9dfc-c567200a70f7
-          format: uuid
-          type: string
-      required:
-      - format
-      - txnId
-      type: object
-    sscer_400_response:
+    ItemList:
+      items:
+        $ref: '#/components/schemas/PredictedItem'
+      type: array
+    RecommendationID:
+      type: string
+    NumResults:
+      minimum: 0
+      type: integer
+    PromotionList:
+      items:
+        $ref: '#/components/schemas/Promotion'
+      maxItems: 1
+      type: array
+    GetRecommendationsRequest:
       example:
-        errorDescription: Please provide all mandatory parameters
-        error: missing_parameter
+        filterValues: ""
+        itemId: ""
+        promotions: ""
+        filterArn: ""
+        recommenderArn: ""
+        context: ""
+        numResults: ""
+        userId: ""
+        campaignArn: ""
       properties:
-        error:
-          enum:
-          - missing_parameter
-          - invalid_parameter
-          - invalid_format
-          - invalid_txnid
-          - invalid_consentid
-          type: string
-        errorDescription:
-          enum:
-          - Please provide all mandatory parameters
-          - Bad request
-          - The format parameter is invalid
-          - The txnId parameter must be in UUID format
-          - The consentId parameter must be in UUID format
-          type: string
+        campaignArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The Amazon Resource Name (ARN) of the campaign to use for
+              getting recommendations.
+        itemId:
+          allOf:
+          - $ref: '#/components/schemas/ItemID'
+          - description: <p>The item ID to provide recommendations for.</p> <p>Required
+              for <code>RELATED_ITEMS</code> recipe type.</p>
+        userId:
+          allOf:
+          - $ref: '#/components/schemas/UserID'
+          - description: <p>The user ID to provide recommendations for.</p> <p>Required
+              for <code>USER_PERSONALIZATION</code> recipe type.</p>
+        numResults:
+          allOf:
+          - $ref: '#/components/schemas/NumResults'
+          - description: The number of results to return. The default is 25. The maximum
+              is 500.
+        context:
+          allOf:
+          - $ref: '#/components/schemas/Context'
+          - description: "The contextual metadata to use when getting recommendations.\
+              \ Contextual metadata includes any interaction information that might\
+              \ be relevant when getting a user's recommendations, such as the user's\
+              \ current location or device type."
+        filterArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: "<p>The ARN of the filter to apply to the returned recommendations.\
+              \ For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
+              >Filtering Recommendations</a>.</p> <p>When using this parameter, be\
+              \ sure the filter resource is <code>ACTIVE</code>.</p>"
+        filterValues:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: "<p>The values to use when filtering recommendations. For\
+              \ each placeholder parameter in your filter expression, provide the\
+              \ parameter name (in matching case) as a key and the filter value(s)\
+              \ as the corresponding value. Separate multiple values for one parameter\
+              \ with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code>\
+              \ element to include items, you must provide values for all parameters\
+              \ that are defined in the expression. For filters with expressions that\
+              \ use an <code>EXCLUDE</code> element to exclude items, you can omit\
+              \ the <code>filter-values</code>.In this case, Amazon Personalize doesn't\
+              \ use that portion of the expression to filter recommendations.</p>\
+              \ <p>For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
+              >Filtering recommendations and user segments</a>.</p>"
+        recommenderArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The Amazon Resource Name (ARN) of the recommender to use
+              to get recommendations. Provide a recommender ARN if you created a Domain
+              dataset group with a recommender for a domain use case.
+        promotions:
+          allOf:
+          - $ref: '#/components/schemas/PromotionList'
+          - description: The promotions to apply to the recommendation request. A
+              promotion defines additional business rules that apply to a configurable
+              subset of recommended items.
+      title: GetRecommendationsRequest
       type: object
-    sscer_401_response:
-      example:
-        errorDescription: Authentication failed
-        error: invalid_authentication
+    PredictedItem:
+      description: <p>An object that identifies an item.</p> <p>The and APIs return
+        a list of <code>PredictedItem</code>s.</p>
       properties:
-        error:
-          enum:
-          - invalid_authentication
-          - invalid_authorization
-          type: string
-        errorDescription:
-          enum:
-          - Authentication failed
-          - You are not authorized to use this API
-          type: string
+        itemId:
+          allOf:
+          - $ref: '#/components/schemas/ItemID'
+          - description: The recommended item ID.
+        score:
+          allOf:
+          - $ref: '#/components/schemas/Score'
+          - description: "A numeric representation of the model's certainty that the\
+              \ item will be the next user selection. For more information on scoring\
+              \ logic, see <a>how-scores-work</a>."
+        promotionName:
+          allOf:
+          - $ref: '#/components/schemas/Name'
+          - description: The name of the promotion that included the predicted item.
       type: object
-    sscer_404_response:
-      example:
-        errorDescription: No record found
-        error: record_not_found
+    Name:
+      maxLength: 63
+      minLength: 1
+      pattern: "^[a-zA-Z0-9][a-zA-Z0-9\\-_]*"
+      type: string
+    PercentPromotedItems:
+      maximum: 100
+      minimum: 1
+      type: integer
+    Score:
+      format: double
+      type: number
+    GetPersonalizedRanking_request:
       properties:
-        error:
-          enum:
-          - record_not_found
-          - url_not_found
+        campaignArn:
+          description: The Amazon Resource Name (ARN) of the campaign to use for generating
+            the personalized ranking.
+          maxLength: 256
+          pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
           type: string
-        errorDescription:
-          enum:
-          - No record found
-          - Your API url or path is incorrect
-          type: string
-      type: object
-    sscer_500_response:
-      example:
-        errorDescription: Internal server error
-        error: internal_server_error
-      properties:
-        error:
-          enum:
-          - internal_server_error
-          type: string
-        errorDescription:
-          enum:
-          - Internal server error
-          type: string
-      type: object
-    sscer_502_response:
-      example:
-        errorDescription: Publisher service returned an invalid response
-        error: bad_gatewy
-      properties:
-        error:
-          enum:
-          - bad_gatewy
-          type: string
-        errorDescription:
-          enum:
-          - Publisher service returned an invalid response
-          type: string
-      type: object
-    sscer_503_response:
-      example:
-        errorDescription: Publisher service is temporarily unavailable
-        error: service_unavailable
-      properties:
-        error:
-          enum:
-          - service_unavailable
-          type: string
-        errorDescription:
-          enum:
-          - Publisher service is temporarily unavailable
-          type: string
-      type: object
-    sscer_504_response:
-      example:
-        errorDescription: Publisher service did not respond in time
-        error: gateway_timeout
-      properties:
-        error:
-          enum:
-          - gateway_timeout
-          type: string
-        errorDescription:
-          enum:
-          - Publisher service did not respond in time
-          type: string
-      type: object
-    AcademicCertificateSchema_CertificateData_Examination:
-      properties:
-        month:
-          example: MARCH
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        name:
-          example: SENION SCHOOL CERTIFICATE EXAMINATION
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        year:
-          example: "2019"
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-      required:
-      - month
-      - name
-      - year
-      type: object
-    AcademicCertificateSchema_CertificateData_Performance_Subjects_inner:
-      properties:
-        code:
-          example: "30"
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        gp:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        gpMax:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        grade:
-          example: A2
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        marksMax:
-          type: integer
-          xml:
-            attribute: true
-        marksMaxPractical:
-          type: integer
-          xml:
-            attribute: true
-        marksMaxTheory:
-          type: integer
-          xml:
-            attribute: true
-        marksPractical:
-          example: 17
-          type: integer
-          xml:
-            attribute: true
-        marksTheory:
-          example: 70
-          minLength: 1
-          type: integer
-          xml:
-            attribute: true
-        marksTotal:
-          example: 87
-          minLength: 1
-          type: integer
-          xml:
-            attribute: true
-        name:
-          example: ECONOMICS
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-      required:
-      - code
-      - gp
-      - gpMax
-      - grade
-      - marksMax
-      - marksMaxPractical
-      - marksMaxTheory
-      - marksPractical
-      - marksTheory
-      - marksTotal
-      - name
-      type: object
-      xml:
-        name: Subject
-    AcademicCertificateSchema_CertificateData_Performance:
-      properties:
-        Subjects:
+        inputList:
+          description: "A list of items (by <code>itemId</code>) to rank. If an item\
+            \ was not included in the training dataset, the item is appended to the\
+            \ end of the reranked list. The maximum is 500."
           items:
-            $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_Performance_Subjects_inner'
+            $ref: '#/components/schemas/ItemID'
           type: array
-          xml:
-            name: Subjects
-            wrapped: true
-        cgpa:
-          example: ""
+        userId:
+          description: The user for which you want the campaign to provide a personalized
+            ranking.
+          maxLength: 256
           type: string
-          xml:
-            attribute: true
-        cgpaMax:
-          example: ""
+        context:
+          additionalProperties:
+            $ref: '#/components/schemas/AttributeValue'
+          description: "The contextual metadata to use when getting recommendations.\
+            \ Contextual metadata includes any interaction information that might\
+            \ be relevant when getting a user's recommendations, such as the user's\
+            \ current location or device type."
+          maxProperties: 150
+          type: object
+        filterArn:
+          description: "The Amazon Resource Name (ARN) of a filter you created to\
+            \ include items or exclude items from recommendations for a given user.\
+            \ For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
+            >Filtering Recommendations</a>."
+          maxLength: 256
+          pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
           type: string
-          xml:
-            attribute: true
-        grade:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        marksMax:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        marksTotal:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        percentage:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        result:
-          example: PASS
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        resultDate:
-          example: 02-05-2019
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        updateDate:
-          example: ""
-          type: string
-          xml:
-            attribute: true
+        filterValues:
+          additionalProperties:
+            $ref: '#/components/schemas/FilterAttributeValue'
+          description: "<p>The values to use when filtering recommendations. For each\
+            \ placeholder parameter in your filter expression, provide the parameter\
+            \ name (in matching case) as a key and the filter value(s) as the corresponding\
+            \ value. Separate multiple values for one parameter with a comma. </p>\
+            \ <p>For filter expressions that use an <code>INCLUDE</code> element to\
+            \ include items, you must provide values for all parameters that are defined\
+            \ in the expression. For filters with expressions that use an <code>EXCLUDE</code>\
+            \ element to exclude items, you can omit the <code>filter-values</code>.In\
+            \ this case, Amazon Personalize doesn't use that portion of the expression\
+            \ to filter recommendations.</p> <p>For more information, see <a href=\"\
+            https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering\
+            \ Recommendations</a>.</p>"
+          maxProperties: 25
+          type: object
       required:
-      - Subjects
-      - cgpa
-      - cgpaMax
-      - grade
-      - marksMax
-      - marksTotal
-      - percentage
-      - result
-      - resultDate
-      - updateDate
+      - campaignArn
+      - inputList
+      - userId
       type: object
-    AcademicCertificateSchema_CertificateData_School:
+    GetRecommendations_request:
       properties:
-        code:
-          example: "20020"
-          minLength: 1
+        campaignArn:
+          description: The Amazon Resource Name (ARN) of the campaign to use for getting
+            recommendations.
+          maxLength: 256
+          pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
           type: string
-          xml:
-            attribute: true
-        name:
-          example: DELHI PUBLIC SCHOOL GURGAON
-          minLength: 1
+        itemId:
+          description: <p>The item ID to provide recommendations for.</p> <p>Required
+            for <code>RELATED_ITEMS</code> recipe type.</p>
+          maxLength: 256
           type: string
-          xml:
-            attribute: true
-      required:
-      - code
-      - name
-      type: object
-    AcademicCertificateSchema_CertificateData:
-      properties:
-        Examination:
-          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_Examination'
-        Performance:
-          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_Performance'
-        School:
-          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_School'
-      required:
-      - Examination
-      - Performance
-      - School
-      type: object
-    AcademicCertificateSchema_IssuedBy_Organization_Address:
-      properties:
-        country:
-          example: IN
-          minLength: 1
+        userId:
+          description: <p>The user ID to provide recommendations for.</p> <p>Required
+            for <code>USER_PERSONALIZATION</code> recipe type.</p>
+          maxLength: 256
           type: string
-          xml:
-            attribute: true
-        district:
-          example: ""
+        numResults:
+          description: The number of results to return. The default is 25. The maximum
+            is 500.
+          minimum: 0
+          type: integer
+        context:
+          additionalProperties:
+            $ref: '#/components/schemas/AttributeValue'
+          description: "The contextual metadata to use when getting recommendations.\
+            \ Contextual metadata includes any interaction information that might\
+            \ be relevant when getting a user's recommendations, such as the user's\
+            \ current location or device type."
+          maxProperties: 150
+          type: object
+        filterArn:
+          description: "<p>The ARN of the filter to apply to the returned recommendations.\
+            \ For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
+            >Filtering Recommendations</a>.</p> <p>When using this parameter, be sure\
+            \ the filter resource is <code>ACTIVE</code>.</p>"
+          maxLength: 256
+          pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
           type: string
-          xml:
-            attribute: true
-        house:
-          example: ""
+        filterValues:
+          additionalProperties:
+            $ref: '#/components/schemas/FilterAttributeValue'
+          description: "<p>The values to use when filtering recommendations. For each\
+            \ placeholder parameter in your filter expression, provide the parameter\
+            \ name (in matching case) as a key and the filter value(s) as the corresponding\
+            \ value. Separate multiple values for one parameter with a comma. </p>\
+            \ <p>For filter expressions that use an <code>INCLUDE</code> element to\
+            \ include items, you must provide values for all parameters that are defined\
+            \ in the expression. For filters with expressions that use an <code>EXCLUDE</code>\
+            \ element to exclude items, you can omit the <code>filter-values</code>.In\
+            \ this case, Amazon Personalize doesn't use that portion of the expression\
+            \ to filter recommendations.</p> <p>For more information, see <a href=\"\
+            https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering\
+            \ recommendations and user segments</a>.</p>"
+          maxProperties: 25
+          type: object
+        recommenderArn:
+          description: The Amazon Resource Name (ARN) of the recommender to use to
+            get recommendations. Provide a recommender ARN if you created a Domain
+            dataset group with a recommender for a domain use case.
+          maxLength: 256
+          pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
           type: string
-          xml:
-            attribute: true
-        landmark:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        line1:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        line2:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        locality:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        pin:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        state:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        type:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        vtc:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-      required:
-      - country
-      - district
-      - house
-      - landmark
-      - line1
-      - line2
-      - locality
-      - pin
-      - state
-      - type
-      - vtc
-      type: object
-    AcademicCertificateSchema_IssuedBy_Organization:
-      properties:
-        Address:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedBy_Organization_Address'
-        code:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        name:
-          example: Central Board of Secondary Education
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        tin:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        type:
-          example: CG
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        uid:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-      required:
-      - Address
-      - code
-      - name
-      - tin
-      - type
-      - uid
-      type: object
-    AcademicCertificateSchema_IssuedBy:
-      properties:
-        Organization:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedBy_Organization'
-      required:
-      - Organization
-      type: object
-    AcademicCertificateSchema_IssuedTo_Person_Address:
-      properties:
-        country:
-          example: IN
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        district:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        house:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        landmark:
-          type: string
-          xml:
-            attribute: true
-          example: null
-        line1:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        line2:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        locality:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        pin:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        state:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        type:
-          example: permanent
-          minLength: 1
-          type: string
-        vtc:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-      required:
-      - country
-      - district
-      - house
-      - landmark
-      - line1
-      - line2
-      - locality
-      - pin
-      - state
-      - type
-      - vtc
-      type: object
-    AcademicCertificateSchema_IssuedTo_Person_Photo:
-      properties:
-        format:
-          type: string
-          xml:
-            attribute: true
-      required:
-      - format
-      type: object
-    AcademicCertificateSchema_IssuedTo_Person:
-      properties:
-        Address:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo_Person_Address'
-        Photo:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo_Person_Photo'
-        category:
-          example: SC
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        disabilityStatus:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        dob:
-          example: 01-10-1988
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        email:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        gender:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        maritalStatus:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        motherName:
-          example: SUNITA DEVI
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        name:
-          example: ANAND KUMAR
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        phone:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        religion:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        swd:
-          example: PRAMOD KUMAR
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        swdIndicator:
-          example: S
-          minLength: 1
-          type: string
-          xml:
-            attribute: true
-        title:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-        uid:
-          example: ""
-          type: string
-          xml:
-            attribute: true
-      required:
-      - Address
-      - Photo
-      - category
-      - disabilityStatus
-      - dob
-      - email
-      - gender
-      - maritalStatus
-      - motherName
-      - name
-      - phone
-      - religion
-      - swd
-      - swdIndicator
-      - title
-      - uid
-      type: object
-    AcademicCertificateSchema_IssuedTo:
-      properties:
-        Person:
-          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo_Person'
-      required:
-      - Person
-      type: object
-    ConsentArtifactSchema_consent_data:
-      properties:
-        id:
-          minLength: 1
-          type: string
-      required:
-      - id
-      type: object
-    ConsentArtifactSchema_consent_permission_dateRange:
-      properties:
-        from:
-          description: "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ"
-          format: date-time
-          minLength: 1
-          type: string
-        to:
-          description: "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ"
-          format: date-time
-          minLength: 1
-          type: string
-      required:
-      - from
-      - to
-      type: object
-    ConsentArtifactSchema_consent_permission_frequency:
-      properties:
-        repeats:
-          type: number
-        unit:
-          minLength: 1
-          type: string
-        value:
-          type: number
-      required:
-      - repeats
-      - unit
-      - value
-      type: object
-    ConsentArtifactSchema_consent_permission:
-      properties:
-        access:
-          minLength: 1
-          type: string
-        dateRange:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_permission_dateRange'
-        frequency:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_permission_frequency'
-      required:
-      - access
-      - dateRange
-      - frequency
-      type: object
-    ConsentArtifactSchema_consent_purpose:
-      properties:
-        description:
-          minLength: 1
-          type: string
-      required:
-      - description
-      type: object
-    ConsentArtifactSchema_consent_user:
-      properties:
-        email:
-          minLength: 1
-          type: string
-        idNumber:
-          minLength: 1
-          type: string
-        idType:
-          minLength: 1
-          type: string
-        mobile:
-          minLength: 1
-          type: string
-      required:
-      - email
-      - idNumber
-      - idType
-      - mobile
-      type: object
-    ConsentArtifactSchema_consent:
-      properties:
-        consentId:
-          description: A unique consent id in UUID format.
-          example: ea9c43aa-7f5a-4bf3-a0be-e1caa24737ba
-          format: uuid
-          minLength: 1
-          type: string
-        data:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_data'
-        dataConsumer:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_data'
-        dataProvider:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_data'
-        permission:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_permission'
-        purpose:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_purpose'
-        timestamp:
-          description: "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ"
-          format: date-time
-          minLength: 1
-          type: string
-        user:
-          $ref: '#/components/schemas/ConsentArtifactSchema_consent_user'
-      required:
-      - consentId
-      - data
-      - dataConsumer
-      - dataProvider
-      - permission
-      - purpose
-      - timestamp
-      - user
-      type: object
-    ConsentArtifactSchema_signature:
-      properties:
-        signature:
-          type: string
-      required:
-      - signature
+        promotions:
+          description: The promotions to apply to the recommendation request. A promotion
+            defines additional business rules that apply to a configurable subset
+            of recommended items.
+          items:
+            $ref: '#/components/schemas/Promotion'
+          maxItems: 1
+          type: array
       type: object
   securitySchemes:
-    apiKey:
+    hmac:
+      description: Amazon Signature authorization v4
       in: header
-      name: X-APISETU-APIKEY
+      name: Authorization
       type: apiKey
-    clientId:
-      in: header
-      name: X-APISETU-CLIENTID
-      type: apiKey
+      x-amazon-apigateway-authtype: awsSigv4
 
