@@ -1,6 +1,6 @@
 /*
- * reCAPTCHA Enterprise API
- * Help protect your website from fraudulent activity, spam, and abuse without creating friction.
+ * OnSched Consumer API
+ * Build secure and scalable custom apps for Online Booking. Our flexible API provides many options for availability and booking.  <br><br>  Take the API for a test drive. Just click on the Authorize button below and authenticate.   You can access our demo company profile if you are not a customer, or your own profile by using your assigned ClientId and Secret.  <br><br>  The API has two interfaces, consumer and setup.   <ul>  <li>  The consumer interface provides all the endpoints required for implementing consumer booking flows.  </li>  <li>  The setup interface provides endpoints for profile configuration and setup.  </li>  </ul>  Toggle freely between the two interfaces using the swagger tool bar option labelled 'Select a definition'.  
  *
  * The version of the OpenAPI document: v1
  * 
@@ -66,10 +66,10 @@ import org.openapitools.client.auth.OAuthFlow;
  */
 public class ApiClient {
 
-    private String basePath = "https://recaptchaenterprise.googleapis.com";
+    private String basePath = "https://sandbox-api.onsched.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://recaptchaenterprise.googleapis.com",
+      "https://sandbox-api.onsched.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -105,8 +105,7 @@ public class ApiClient {
         initHttpClient();
 
         // Setup authentications (key: authentication name, value: authentication).
-        authentications.put("Oauth2", new OAuth());
-        authentications.put("Oauth2c", new OAuth());
+        authentications.put("oauth2", new OAuth());
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -122,8 +121,7 @@ public class ApiClient {
         httpClient = client;
 
         // Setup authentications (key: authentication name, value: authentication).
-        authentications.put("Oauth2", new OAuth());
-        authentications.put("Oauth2c", new OAuth());
+        authentications.put("oauth2", new OAuth());
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -172,7 +170,7 @@ public class ApiClient {
             this.basePath = basePath;
         }
 
-        String tokenUrl = "";
+        String tokenUrl = "https://sandbox-identity.onsched.com/connect/token";
         if (!"".equals(tokenUrl) && !URI.create(tokenUrl).isAbsolute()) {
             URI uri = URI.create(getBasePath());
             tokenUrl = uri.getScheme() + ":" +
@@ -182,9 +180,9 @@ public class ApiClient {
                 throw new IllegalArgumentException("OAuth2 token URL must be an absolute URL");
             }
         }
-        RetryingOAuth retryingOAuth = new RetryingOAuth(tokenUrl, clientId, OAuthFlow.IMPLICIT, clientSecret, parameters);
+        RetryingOAuth retryingOAuth = new RetryingOAuth(tokenUrl, clientId, OAuthFlow.APPLICATION, clientSecret, parameters);
         authentications.put(
-                "Oauth2",
+                "oauth2",
                 retryingOAuth
         );
         initHttpClient(Collections.<Interceptor>singletonList(retryingOAuth));
@@ -231,7 +229,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://recaptchaenterprise.googleapis.com
+     * @param basePath Base path of the URL (e.g https://sandbox-api.onsched.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
