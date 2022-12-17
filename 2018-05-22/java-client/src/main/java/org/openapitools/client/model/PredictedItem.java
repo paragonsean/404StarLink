@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;An object that identifies an item.&lt;/p&gt; &lt;p&gt;The and APIs return a list of &lt;code&gt;PredictedItem&lt;/code&gt;s.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:53.559734-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:09.362844-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class PredictedItem {
   public static final String SERIALIZED_NAME_ITEM_ID = "itemId";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
