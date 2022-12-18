@@ -2,7 +2,7 @@
 
 Amazon Personalize Runtime
 - API version: 2018-05-22
-  - Build date: 2024-10-11T01:57:55.811291-04:00[America/New_York]
+  - Build date: 2024-10-11T02:06:11.801241-04:00[America/New_York]
   - Generator version: 7.9.0
 
 <p/>

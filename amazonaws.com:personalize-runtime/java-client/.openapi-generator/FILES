@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -47,10 +46,3 @@ src/main/java/org/openapitools/client/model/GetRecommendationsRequest.java
 src/main/java/org/openapitools/client/model/GetRecommendationsResponse.java
 src/main/java/org/openapitools/client/model/PredictedItem.java
 src/main/java/org/openapitools/client/model/Promotion.java
-src/test/java/org/openapitools/client/api/DefaultApiTest.java
-src/test/java/org/openapitools/client/model/GetPersonalizedRankingRequestTest.java
-src/test/java/org/openapitools/client/model/GetPersonalizedRankingResponseTest.java
-src/test/java/org/openapitools/client/model/GetRecommendationsRequestTest.java
-src/test/java/org/openapitools/client/model/GetRecommendationsResponseTest.java
-src/test/java/org/openapitools/client/model/PredictedItemTest.java
-src/test/java/org/openapitools/client/model/PromotionTest.java

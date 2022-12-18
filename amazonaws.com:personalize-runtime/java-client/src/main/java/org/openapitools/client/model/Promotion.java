@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Contains information on a promotion. A promotion defines additional business rules that apply to a configurable subset of recommended items.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:57:55.811291-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:11.801241-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Promotion {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
