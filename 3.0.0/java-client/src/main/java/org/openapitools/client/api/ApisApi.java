@@ -1,6 +1,6 @@
 /*
- * Karnataka Secondary Education Examination Board, Karnataka
- * Karnataka Secondary Education Examination Board (http://kseeb.kar.nic.in) is providing passing certificates of  SSLC(10th Std) of April and June-2018 Examinations.
+ * Future Generali Total Insurance Solutions
+ * Two Wheeler, Car, Commercial Vehicle, Home and Travel Insurance policies issued by Future Generali are available on DigiLocker and can be pulled by citizens in their account.
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -27,14 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.Sscer400Response;
-import org.openapitools.client.model.Sscer401Response;
-import org.openapitools.client.model.Sscer404Response;
-import org.openapitools.client.model.Sscer500Response;
-import org.openapitools.client.model.Sscer502Response;
-import org.openapitools.client.model.Sscer503Response;
-import org.openapitools.client.model.Sscer504Response;
-import org.openapitools.client.model.SscerRequest;
+import org.openapitools.client.model.Cripc400Response;
+import org.openapitools.client.model.Cripc401Response;
+import org.openapitools.client.model.Cripc404Response;
+import org.openapitools.client.model.Cripc500Response;
+import org.openapitools.client.model.Cripc502Response;
+import org.openapitools.client.model.Cripc503Response;
+import org.openapitools.client.model.Cripc504Response;
+import org.openapitools.client.model.CripcRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -80,8 +80,8 @@ public class ApisApi {
     }
 
     /**
-     * Build call for sscer
-     * @param sscerRequest Request format (optional)
+     * Build call for cripc
+     * @param cripcRequest Request format (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -98,7 +98,7 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sscerCall(SscerRequest sscerRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cripcCall(CripcRequest cripcRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -112,10 +112,10 @@ public class ApisApi {
             basePath = null;
         }
 
-        Object localVarPostBody = sscerRequest;
+        Object localVarPostBody = cripcRequest;
 
         // create path and map variables
-        String localVarPath = "/sscer/certificate";
+        String localVarPath = "/cripc/certificate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -145,15 +145,15 @@ public class ApisApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call sscerValidateBeforeCall(SscerRequest sscerRequest, final ApiCallback _callback) throws ApiException {
-        return sscerCall(sscerRequest, _callback);
+    private okhttp3.Call cripcValidateBeforeCall(CripcRequest cripcRequest, final ApiCallback _callback) throws ApiException {
+        return cripcCall(cripcRequest, _callback);
 
     }
 
     /**
-     * Class X Marksheet
-     * API to verify Class X Marksheet.
-     * @param sscerRequest Request format (optional)
+     * Insurance Policy - Car
+     * API to verify Insurance Policy - Car.
+     * @param cripcRequest Request format (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -168,14 +168,14 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public void sscer(SscerRequest sscerRequest) throws ApiException {
-        sscerWithHttpInfo(sscerRequest);
+    public void cripc(CripcRequest cripcRequest) throws ApiException {
+        cripcWithHttpInfo(cripcRequest);
     }
 
     /**
-     * Class X Marksheet
-     * API to verify Class X Marksheet.
-     * @param sscerRequest Request format (optional)
+     * Insurance Policy - Car
+     * API to verify Insurance Policy - Car.
+     * @param cripcRequest Request format (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -191,15 +191,15 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> sscerWithHttpInfo(SscerRequest sscerRequest) throws ApiException {
-        okhttp3.Call localVarCall = sscerValidateBeforeCall(sscerRequest, null);
+    public ApiResponse<Void> cripcWithHttpInfo(CripcRequest cripcRequest) throws ApiException {
+        okhttp3.Call localVarCall = cripcValidateBeforeCall(cripcRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * Class X Marksheet (asynchronously)
-     * API to verify Class X Marksheet.
-     * @param sscerRequest Request format (optional)
+     * Insurance Policy - Car (asynchronously)
+     * API to verify Insurance Policy - Car.
+     * @param cripcRequest Request format (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -216,9 +216,581 @@ public class ApisApi {
         <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sscerAsync(SscerRequest sscerRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call cripcAsync(CripcRequest cripcRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = sscerValidateBeforeCall(sscerRequest, _callback);
+        okhttp3.Call localVarCall = cripcValidateBeforeCall(cripcRequest, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for cvipc
+     * @param cripcRequest Request format (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cvipcCall(CripcRequest cripcRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = cripcRequest;
+
+        // create path and map variables
+        String localVarPath = "/cvipc/certificate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/pdf",
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "clientId", "apiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cvipcValidateBeforeCall(CripcRequest cripcRequest, final ApiCallback _callback) throws ApiException {
+        return cvipcCall(cripcRequest, _callback);
+
+    }
+
+    /**
+     * Insurance Policy - Commercial Vehicle
+     * API to verify Insurance Policy - Commercial Vehicle.
+     * @param cripcRequest Request format (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public void cvipc(CripcRequest cripcRequest) throws ApiException {
+        cvipcWithHttpInfo(cripcRequest);
+    }
+
+    /**
+     * Insurance Policy - Commercial Vehicle
+     * API to verify Insurance Policy - Commercial Vehicle.
+     * @param cripcRequest Request format (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> cvipcWithHttpInfo(CripcRequest cripcRequest) throws ApiException {
+        okhttp3.Call localVarCall = cvipcValidateBeforeCall(cripcRequest, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Insurance Policy - Commercial Vehicle (asynchronously)
+     * API to verify Insurance Policy - Commercial Vehicle.
+     * @param cripcRequest Request format (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cvipcAsync(CripcRequest cripcRequest, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = cvipcValidateBeforeCall(cripcRequest, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for hmipc
+     * @param cripcRequest Request format (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call hmipcCall(CripcRequest cripcRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = cripcRequest;
+
+        // create path and map variables
+        String localVarPath = "/hmipc/certificate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/pdf",
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "clientId", "apiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call hmipcValidateBeforeCall(CripcRequest cripcRequest, final ApiCallback _callback) throws ApiException {
+        return hmipcCall(cripcRequest, _callback);
+
+    }
+
+    /**
+     * Insurance Policy - Home
+     * API to verify Insurance Policy - Home.
+     * @param cripcRequest Request format (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public void hmipc(CripcRequest cripcRequest) throws ApiException {
+        hmipcWithHttpInfo(cripcRequest);
+    }
+
+    /**
+     * Insurance Policy - Home
+     * API to verify Insurance Policy - Home.
+     * @param cripcRequest Request format (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> hmipcWithHttpInfo(CripcRequest cripcRequest) throws ApiException {
+        okhttp3.Call localVarCall = hmipcValidateBeforeCall(cripcRequest, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Insurance Policy - Home (asynchronously)
+     * API to verify Insurance Policy - Home.
+     * @param cripcRequest Request format (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call hmipcAsync(CripcRequest cripcRequest, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = hmipcValidateBeforeCall(cripcRequest, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for tripc
+     * @param cripcRequest Request format (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tripcCall(CripcRequest cripcRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = cripcRequest;
+
+        // create path and map variables
+        String localVarPath = "/tripc/certificate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/pdf",
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "clientId", "apiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call tripcValidateBeforeCall(CripcRequest cripcRequest, final ApiCallback _callback) throws ApiException {
+        return tripcCall(cripcRequest, _callback);
+
+    }
+
+    /**
+     * Insurance Policy - Travel
+     * API to verify Insurance Policy - Travel.
+     * @param cripcRequest Request format (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public void tripc(CripcRequest cripcRequest) throws ApiException {
+        tripcWithHttpInfo(cripcRequest);
+    }
+
+    /**
+     * Insurance Policy - Travel
+     * API to verify Insurance Policy - Travel.
+     * @param cripcRequest Request format (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> tripcWithHttpInfo(CripcRequest cripcRequest) throws ApiException {
+        okhttp3.Call localVarCall = tripcValidateBeforeCall(cripcRequest, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Insurance Policy - Travel (asynchronously)
+     * API to verify Insurance Policy - Travel.
+     * @param cripcRequest Request format (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tripcAsync(CripcRequest cripcRequest, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = tripcValidateBeforeCall(cripcRequest, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for twipc
+     * @param cripcRequest Request format (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call twipcCall(CripcRequest cripcRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = cripcRequest;
+
+        // create path and map variables
+        String localVarPath = "/twipc/certificate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/pdf",
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "clientId", "apiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call twipcValidateBeforeCall(CripcRequest cripcRequest, final ApiCallback _callback) throws ApiException {
+        return twipcCall(cripcRequest, _callback);
+
+    }
+
+    /**
+     * Insurance Policy - Two Wheeler
+     * API to verify Insurance Policy - Two Wheeler.
+     * @param cripcRequest Request format (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public void twipc(CripcRequest cripcRequest) throws ApiException {
+        twipcWithHttpInfo(cripcRequest);
+    }
+
+    /**
+     * Insurance Policy - Two Wheeler
+     * API to verify Insurance Policy - Two Wheeler.
+     * @param cripcRequest Request format (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> twipcWithHttpInfo(CripcRequest cripcRequest) throws ApiException {
+        okhttp3.Call localVarCall = twipcValidateBeforeCall(cripcRequest, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Insurance Policy - Two Wheeler (asynchronously)
+     * API to verify Insurance Policy - Two Wheeler.
+     * @param cripcRequest Request format (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The certificate data in response body in PDF, XML or JSON format as requested in format parameter. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No record found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 502 </td><td> Bad gateway </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service unavailable </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Gateway timeout </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call twipcAsync(CripcRequest cripcRequest, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = twipcValidateBeforeCall(cripcRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
