@@ -1,785 +1,848 @@
 openapi: 3.0.0
 info:
-  contact:
-    email: mike.ralphson@gmail.com
-    name: Mike Ralphson
-    url: https://github.com/mermade/aws2openapi
-    x-twitter: PermittedSoc
-  description: <p/>
-  license:
-    name: Apache 2.0 License
-    url: http://www.apache.org/licenses/
-  termsOfService: https://aws.amazon.com/service-terms/
-  title: Amazon Personalize Runtime
-  version: 2018-05-22
-  x-release: v4
-  x-logo:
-    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
-    backgroundColor: '#FFFFFF'
-  x-providerName: amazonaws.com
-  x-serviceName: personalize-runtime
-  x-aws-signingName: personalize
-  x-origin:
-  - contentType: application/json
-    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/personalize-runtime-2018-05-22.normal.json
-    converter:
-      url: https://github.com/mermade/aws2openapi
-      version: 1.0.0
-    x-apisguru-driver: external
-  x-apiClientRegistration:
-    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  description: "A web service for near earth objects. All the data is from the <a\
+    \ href=\"http://neo.jpl.nasa.gov/\" target=\"_blank\">NASA JPL Asteroid team</a>.\
+    \ \n\n \n\nNeoWs is proud to power AsteroidTracker on <a href=\"https://itunes.apple.com/us/app/asteroid-tracker/id689684901?mt=8\"\
+    \ target=\"_blank\">iOS</a> and <a href=\"https://play.google.com/store/apps/details?id=com.vitruviussoftware.bunifish.asteroidtracker&feature\"\
+    \ target=\"_blank\">Android</a> as well as related apps. \n\n Follow us on <a\
+    \ href=\"https://twitter.com/AsteroidTracker\" target=\"_blank\">Twitter</a>"
+  title: NeoWs - (Near Earth Object Web Service)
+  version: "1.0"
   x-apisguru-categories:
-  - cloud
-  x-preferred: true
-externalDocs:
-  description: Amazon Web Services documentation
-  url: https://docs.aws.amazon.com/personalize-runtime/
+  - open_data
+  x-origin:
+  - converter:
+      url: https://github.com/lucybot/api-spec-converter
+      version: 2.7.31
+    format: swagger
+    url: http://www.neowsapp.com/api-docs
+    version: "1.2"
+  x-providerName: neowsapp.com
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_apis.guru_assets_images_no-logo.svg
 servers:
-- description: The Amazon Personalize Runtime multi-region endpoint
-  url: "http://personalize-runtime.{region}.amazonaws.com"
-  variables:
-    region:
-      default: us-east-1
-      description: The AWS region
-      enum:
-      - us-east-1
-      - us-east-2
-      - us-west-1
-      - us-west-2
-      - us-gov-west-1
-      - us-gov-east-1
-      - ca-central-1
-      - eu-north-1
-      - eu-west-1
-      - eu-west-2
-      - eu-west-3
-      - eu-central-1
-      - eu-south-1
-      - af-south-1
-      - ap-northeast-1
-      - ap-northeast-2
-      - ap-northeast-3
-      - ap-southeast-1
-      - ap-southeast-2
-      - ap-east-1
-      - ap-south-1
-      - sa-east-1
-      - me-south-1
-- description: The Amazon Personalize Runtime multi-region endpoint
-  url: "https://personalize-runtime.{region}.amazonaws.com"
-  variables:
-    region:
-      default: us-east-1
-      description: The AWS region
-      enum:
-      - us-east-1
-      - us-east-2
-      - us-west-1
-      - us-west-2
-      - us-gov-west-1
-      - us-gov-east-1
-      - ca-central-1
-      - eu-north-1
-      - eu-west-1
-      - eu-west-2
-      - eu-west-3
-      - eu-central-1
-      - eu-south-1
-      - af-south-1
-      - ap-northeast-1
-      - ap-northeast-2
-      - ap-northeast-3
-      - ap-southeast-1
-      - ap-southeast-2
-      - ap-east-1
-      - ap-south-1
-      - sa-east-1
-      - me-south-1
-- description: The Amazon Personalize Runtime endpoint for China (Beijing) and China
-    (Ningxia)
-  url: "http://personalize-runtime.{region}.amazonaws.com.cn"
-  variables:
-    region:
-      default: cn-north-1
-      description: The AWS region
-      enum:
-      - cn-north-1
-      - cn-northwest-1
-- description: The Amazon Personalize Runtime endpoint for China (Beijing) and China
-    (Ningxia)
-  url: "https://personalize-runtime.{region}.amazonaws.com.cn"
-  variables:
-    region:
-      default: cn-north-1
-      description: The AWS region
-      enum:
-      - cn-north-1
-      - cn-northwest-1
-security:
-- hmac: []
+- url: http://www.neowsapp.com/
+tags:
+- description: Operations with NearEarthObjects
+  name: feed
+- description: Operations with NearEarthObjects
+  name: neo
+- description: Operations with Sentry NearEarthObjects
+  name: neosentry
+- description: Stats on Near Earth Object data sets
+  name: stats
 paths:
-  /personalize-ranking:
-    post:
-      description: <p>Re-ranks a list of recommended items for the given user. The
-        first item in the list is deemed the most likely item to be of interest to
-        the user.</p> <note> <p>The solution backing the campaign must have been created
-        using a recipe of type PERSONALIZED_RANKING.</p> </note>
-      operationId: GetPersonalizedRanking
+  /rest/v1/feed:
+    get:
+      deprecated: false
+      description: "Get a list of Near Earth Objects within a date range, The max\
+        \ range in one query is 7 days"
+      operationId: retrieveNearEarthObjectFeed
       parameters:
-      - explode: false
-        in: header
-        name: X-Amz-Content-Sha256
+      - description: "Start of date range search, format: yyyy-MM-dd - (ex: 2015-04-28)"
+        explode: true
+        in: query
+        name: start_date
         required: false
         schema:
           type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-Date
+        style: form
+      - description: "End of date range search, format: yyyy-MM-dd - (ex: 2015-04-28).\
+          \ If left off search will extends 7 days from start_date"
+        explode: true
+        in: query
+        name: end_date
         required: false
         schema:
           type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-Algorithm
+        style: form
+      - description: detailed
+        explode: true
+        in: query
+        name: detailed
         required: false
         schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-Credential
-        required: false
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-Security-Token
-        required: false
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-Signature
-        required: false
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-SignedHeaders
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GetPersonalizedRanking_request'
-        required: true
+          type: boolean
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetPersonalizedRankingResponse'
-          description: Success
-        "480":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InvalidInputException'
-          description: InvalidInputException
-        "481":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResourceNotFoundException'
-          description: ResourceNotFoundException
-      x-content-type: application/json
+                $ref: '#/components/schemas/NearEarthObjectList'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Find Near Earth Objects by date
+      tags:
+      - feed
       x-accepts:
       - application/json
-  /recommendations:
-    post:
-      description: "<p>Returns a list of recommended items. For campaigns, the campaign's\
-        \ Amazon Resource Name (ARN) is required and the required user and item input\
-        \ depends on the recipe type used to create the solution backing the campaign\
-        \ as follows:</p> <ul> <li> <p>USER_PERSONALIZATION - <code>userId</code>\
-        \ required, <code>itemId</code> not used</p> </li> <li> <p>RELATED_ITEMS -\
-        \ <code>itemId</code> required, <code>userId</code> not used</p> </li> </ul>\
-        \ <note> <p>Campaigns that are backed by a solution created using a recipe\
-        \ of type PERSONALIZED_RANKING use the API.</p> </note> <p> For recommenders,\
-        \ the recommender's ARN is required and the required item and user input depends\
-        \ on the use case (domain-based recipe) backing the recommender. For information\
-        \ on use case requirements see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html\"\
-        >Choosing recommender use cases</a>. </p>"
-      operationId: GetRecommendations
+  /rest/v1/feed/today:
+    get:
+      deprecated: false
+      description: Get a list of Near Earth Objects for today
+      operationId: retrieveNEOFeedToday
       parameters:
-      - explode: false
-        in: header
-        name: X-Amz-Content-Sha256
+      - description: detailed
+        explode: true
+        in: query
+        name: detailed
         required: false
         schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-Date
-        required: false
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-Algorithm
-        required: false
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-Credential
-        required: false
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-Security-Token
-        required: false
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-Signature
-        required: false
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: X-Amz-SignedHeaders
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GetRecommendations_request'
-        required: true
+          type: boolean
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetRecommendationsResponse'
-          description: Success
-        "480":
+                $ref: '#/components/schemas/NearEarthObjectList'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Find Near Earth Objects for today
+      tags:
+      - feed
+      x-accepts:
+      - application/json
+  /rest/v1/neo/browse:
+    get:
+      deprecated: false
+      description: Retieve a paginated list of Near Earth Objects
+      operationId: browseNearEarthObjects
+      parameters:
+      - description: page
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InvalidInputException'
-          description: InvalidInputException
-        "481":
+                $ref: '#/components/schemas/NearEarthObject'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Browse the Near Earth Objects service
+      tags:
+      - neo
+      x-accepts:
+      - application/json
+  /rest/v1/neo/sentry:
+    get:
+      deprecated: false
+      description: Retrieves Near Earth Objects listed in the NASA sentry data set
+      operationId: retrieveSentryRiskData
+      parameters:
+      - description: "show current list of Sentry objects, or show removed Sentry\
+          \ objects"
+        explode: true
+        in: query
+        name: is_active
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
+      - description: page
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResourceNotFoundException'
-          description: ResourceNotFoundException
-      x-content-type: application/json
+                $ref: '#/components/schemas/SentryObjectPagingDto'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Retrieve Sentry (Impact Risk ) Near Earth Objects
+      tags:
+      - neosentry
+      x-accepts:
+      - application/json
+  /rest/v1/neo/sentry/{asteroid_id}:
+    get:
+      deprecated: false
+      description: Retrieves Sentry Near Earth Object by ID
+      operationId: retrieveSentryRiskDataById
+      parameters:
+      - description: "ID of NearEarth object.  ID can be SPK_ID, Asteroid des (designation)\
+          \ or Sentry ID"
+        explode: false
+        in: path
+        name: asteroid_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SentryImpactRiskObject'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: 'Retrieve Sentry (Impact Risk ) Near Earth Objectby ID '
+      tags:
+      - neosentry
+      x-accepts:
+      - application/json
+  /rest/v1/neo/{asteroid_id}:
+    get:
+      deprecated: false
+      description: Retrieve a Near Earth Objects with a given id
+      operationId: retrieveNearEarthObjectById
+      parameters:
+      - description: "ID of Near Earth Object - (ex: 3729835)"
+        explode: false
+        in: path
+        name: asteroid_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NearEarthObject'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Find Near Earth Objects by id
+      tags:
+      - neo
+      x-accepts:
+      - application/json
+  /rest/v1/stats:
+    get:
+      deprecated: false
+      description: retrieveCurrentNeoStatistics
+      operationId: retrieveCurrentNeoStatistics
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statistics'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Get the Near Earth Object data set totals
+      tags:
+      - stats
       x-accepts:
       - application/json
 components:
-  parameters:
-    X-Amz-Content-Sha256:
-      explode: false
-      in: header
-      name: X-Amz-Content-Sha256
-      required: false
-      schema:
-        type: string
-      style: simple
-    X-Amz-Date:
-      explode: false
-      in: header
-      name: X-Amz-Date
-      required: false
-      schema:
-        type: string
-      style: simple
-    X-Amz-Algorithm:
-      explode: false
-      in: header
-      name: X-Amz-Algorithm
-      required: false
-      schema:
-        type: string
-      style: simple
-    X-Amz-Credential:
-      explode: false
-      in: header
-      name: X-Amz-Credential
-      required: false
-      schema:
-        type: string
-      style: simple
-    X-Amz-Security-Token:
-      explode: false
-      in: header
-      name: X-Amz-Security-Token
-      required: false
-      schema:
-        type: string
-      style: simple
-    X-Amz-Signature:
-      explode: false
-      in: header
-      name: X-Amz-Signature
-      required: false
-      schema:
-        type: string
-      style: simple
-    X-Amz-SignedHeaders:
-      explode: false
-      in: header
-      name: X-Amz-SignedHeaders
-      required: false
-      schema:
-        type: string
-      style: simple
   schemas:
-    GetPersonalizedRankingResponse:
+    CloseApproachData:
       example:
-        personalizedRanking: ""
-        recommendationId: ""
+        relative_velocity:
+          kilometers_per_hour: kilometers_per_hour
+          miles_per_hour: miles_per_hour
+        orbiting_body: orbiting_body
+        close_approach_date: close_approach_date
+        epoch_date_close_approach: 6
+        close_approach_date_full: close_approach_date_full
+        miss_distance:
+          astronomical: astronomical
+          kilometers: kilometers
+          lunar: lunar
+          miles: miles
       properties:
-        personalizedRanking:
-          allOf:
-          - $ref: '#/components/schemas/ItemList'
-          - description: A list of items in order of most likely interest to the user.
-              The maximum is 500.
-        recommendationId:
-          allOf:
-          - $ref: '#/components/schemas/RecommendationID'
-          - description: The ID of the recommendation.
-      type: object
-    ItemID:
-      maxLength: 256
-      type: string
-    AttributeValue:
-      format: password
-      maxLength: 1000
-      type: string
-    FilterAttributeValue:
-      format: password
-      maxLength: 1000
-      type: string
-    InvalidInputException: {}
-    ResourceNotFoundException: {}
-    GetRecommendationsResponse:
-      example:
-        itemList: ""
-        recommendationId: ""
-      properties:
-        itemList:
-          allOf:
-          - $ref: '#/components/schemas/ItemList'
-          - description: A list of recommendations sorted in descending order by prediction
-              score. There can be a maximum of 500 items in the list.
-        recommendationId:
-          allOf:
-          - $ref: '#/components/schemas/RecommendationID'
-          - description: The ID of the recommendation.
-      type: object
-    Promotion:
-      description: Contains information on a promotion. A promotion defines additional
-        business rules that apply to a configurable subset of recommended items.
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/Name'
-          - description: The name of the promotion.
-        percentPromotedItems:
-          allOf:
-          - $ref: '#/components/schemas/PercentPromotedItems'
-          - description: The percentage of recommended items to apply the promotion
-              to.
-        filterArn:
-          allOf:
-          - $ref: '#/components/schemas/Arn'
-          - description: "The Amazon Resource Name (ARN) of the filter used by the\
-              \ promotion. This filter defines the criteria for promoted items. For\
-              \ more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/promoting-items.html#promotion-filters\"\
-              >Promotion filters</a>."
-        filterValues:
-          allOf:
-          - $ref: '#/components/schemas/FilterValues'
-          - description: "<p>The values to use when promoting items. For each placeholder\
-              \ parameter in your promotion's filter expression, provide the parameter\
-              \ name (in matching case) as a key and the filter value(s) as the corresponding\
-              \ value. Separate multiple values for one parameter with a comma. </p>\
-              \ <p>For filter expressions that use an <code>INCLUDE</code> element\
-              \ to include items, you must provide values for all parameters that\
-              \ are defined in the expression. For filters with expressions that use\
-              \ an <code>EXCLUDE</code> element to exclude items, you can omit the\
-              \ <code>filter-values</code>. In this case, Amazon Personalize doesn't\
-              \ use that portion of the expression to filter recommendations.</p>\
-              \ <p>For more information on creating filters, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
-              >Filtering recommendations and user segments</a>.</p>"
-      type: object
-    Arn:
-      maxLength: 256
-      pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
-      type: string
-    AttributeName:
-      maxLength: 150
-      pattern: "[A-Za-z\\d_]+"
-      type: string
-    Context:
-      additionalProperties:
-        $ref: '#/components/schemas/AttributeValue'
-      maxProperties: 150
-      type: object
-    FilterAttributeName:
-      maxLength: 50
-      pattern: "[A-Za-z0-9_]+"
-      type: string
-    FilterValues:
-      additionalProperties:
-        $ref: '#/components/schemas/FilterAttributeValue'
-      maxProperties: 25
-      type: object
-    InputList:
-      items:
-        $ref: '#/components/schemas/ItemID'
-      type: array
-    UserID:
-      maxLength: 256
-      type: string
-    GetPersonalizedRankingRequest:
-      example:
-        filterValues: ""
-        inputList: ""
-        filterArn: ""
-        context: ""
-        userId: ""
-        campaignArn: ""
-      properties:
-        campaignArn:
-          allOf:
-          - $ref: '#/components/schemas/Arn'
-          - description: The Amazon Resource Name (ARN) of the campaign to use for
-              generating the personalized ranking.
-        inputList:
-          allOf:
-          - $ref: '#/components/schemas/InputList'
-          - description: "A list of items (by <code>itemId</code>) to rank. If an\
-              \ item was not included in the training dataset, the item is appended\
-              \ to the end of the reranked list. The maximum is 500."
-        userId:
-          allOf:
-          - $ref: '#/components/schemas/UserID'
-          - description: The user for which you want the campaign to provide a personalized
-              ranking.
-        context:
-          allOf:
-          - $ref: '#/components/schemas/Context'
-          - description: "The contextual metadata to use when getting recommendations.\
-              \ Contextual metadata includes any interaction information that might\
-              \ be relevant when getting a user's recommendations, such as the user's\
-              \ current location or device type."
-        filterArn:
-          allOf:
-          - $ref: '#/components/schemas/Arn'
-          - description: "The Amazon Resource Name (ARN) of a filter you created to\
-              \ include items or exclude items from recommendations for a given user.\
-              \ For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
-              >Filtering Recommendations</a>."
-        filterValues:
-          allOf:
-          - $ref: '#/components/schemas/FilterValues'
-          - description: "<p>The values to use when filtering recommendations. For\
-              \ each placeholder parameter in your filter expression, provide the\
-              \ parameter name (in matching case) as a key and the filter value(s)\
-              \ as the corresponding value. Separate multiple values for one parameter\
-              \ with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code>\
-              \ element to include items, you must provide values for all parameters\
-              \ that are defined in the expression. For filters with expressions that\
-              \ use an <code>EXCLUDE</code> element to exclude items, you can omit\
-              \ the <code>filter-values</code>.In this case, Amazon Personalize doesn't\
-              \ use that portion of the expression to filter recommendations.</p>\
-              \ <p>For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
-              >Filtering Recommendations</a>.</p>"
-      required:
-      - campaignArn
-      - inputList
-      - userId
-      title: GetPersonalizedRankingRequest
-      type: object
-    ItemList:
-      items:
-        $ref: '#/components/schemas/PredictedItem'
-      type: array
-    RecommendationID:
-      type: string
-    NumResults:
-      minimum: 0
-      type: integer
-    PromotionList:
-      items:
-        $ref: '#/components/schemas/Promotion'
-      maxItems: 1
-      type: array
-    GetRecommendationsRequest:
-      example:
-        filterValues: ""
-        itemId: ""
-        promotions: ""
-        filterArn: ""
-        recommenderArn: ""
-        context: ""
-        numResults: ""
-        userId: ""
-        campaignArn: ""
-      properties:
-        campaignArn:
-          allOf:
-          - $ref: '#/components/schemas/Arn'
-          - description: The Amazon Resource Name (ARN) of the campaign to use for
-              getting recommendations.
-        itemId:
-          allOf:
-          - $ref: '#/components/schemas/ItemID'
-          - description: <p>The item ID to provide recommendations for.</p> <p>Required
-              for <code>RELATED_ITEMS</code> recipe type.</p>
-        userId:
-          allOf:
-          - $ref: '#/components/schemas/UserID'
-          - description: <p>The user ID to provide recommendations for.</p> <p>Required
-              for <code>USER_PERSONALIZATION</code> recipe type.</p>
-        numResults:
-          allOf:
-          - $ref: '#/components/schemas/NumResults'
-          - description: The number of results to return. The default is 25. The maximum
-              is 500.
-        context:
-          allOf:
-          - $ref: '#/components/schemas/Context'
-          - description: "The contextual metadata to use when getting recommendations.\
-              \ Contextual metadata includes any interaction information that might\
-              \ be relevant when getting a user's recommendations, such as the user's\
-              \ current location or device type."
-        filterArn:
-          allOf:
-          - $ref: '#/components/schemas/Arn'
-          - description: "<p>The ARN of the filter to apply to the returned recommendations.\
-              \ For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
-              >Filtering Recommendations</a>.</p> <p>When using this parameter, be\
-              \ sure the filter resource is <code>ACTIVE</code>.</p>"
-        filterValues:
-          allOf:
-          - $ref: '#/components/schemas/FilterValues'
-          - description: "<p>The values to use when filtering recommendations. For\
-              \ each placeholder parameter in your filter expression, provide the\
-              \ parameter name (in matching case) as a key and the filter value(s)\
-              \ as the corresponding value. Separate multiple values for one parameter\
-              \ with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code>\
-              \ element to include items, you must provide values for all parameters\
-              \ that are defined in the expression. For filters with expressions that\
-              \ use an <code>EXCLUDE</code> element to exclude items, you can omit\
-              \ the <code>filter-values</code>.In this case, Amazon Personalize doesn't\
-              \ use that portion of the expression to filter recommendations.</p>\
-              \ <p>For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
-              >Filtering recommendations and user segments</a>.</p>"
-        recommenderArn:
-          allOf:
-          - $ref: '#/components/schemas/Arn'
-          - description: The Amazon Resource Name (ARN) of the recommender to use
-              to get recommendations. Provide a recommender ARN if you created a Domain
-              dataset group with a recommender for a domain use case.
-        promotions:
-          allOf:
-          - $ref: '#/components/schemas/PromotionList'
-          - description: The promotions to apply to the recommendation request. A
-              promotion defines additional business rules that apply to a configurable
-              subset of recommended items.
-      title: GetRecommendationsRequest
-      type: object
-    PredictedItem:
-      description: <p>An object that identifies an item.</p> <p>The and APIs return
-        a list of <code>PredictedItem</code>s.</p>
-      properties:
-        itemId:
-          allOf:
-          - $ref: '#/components/schemas/ItemID'
-          - description: The recommended item ID.
-        score:
-          allOf:
-          - $ref: '#/components/schemas/Score'
-          - description: "A numeric representation of the model's certainty that the\
-              \ item will be the next user selection. For more information on scoring\
-              \ logic, see <a>how-scores-work</a>."
-        promotionName:
-          allOf:
-          - $ref: '#/components/schemas/Name'
-          - description: The name of the promotion that included the predicted item.
-      type: object
-    Name:
-      maxLength: 63
-      minLength: 1
-      pattern: "^[a-zA-Z0-9][a-zA-Z0-9\\-_]*"
-      type: string
-    PercentPromotedItems:
-      maximum: 100
-      minimum: 1
-      type: integer
-    Score:
-      format: double
-      type: number
-    GetPersonalizedRanking_request:
-      properties:
-        campaignArn:
-          description: The Amazon Resource Name (ARN) of the campaign to use for generating
-            the personalized ranking.
-          maxLength: 256
-          pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
+        close_approach_date:
           type: string
-        inputList:
-          description: "A list of items (by <code>itemId</code>) to rank. If an item\
-            \ was not included in the training dataset, the item is appended to the\
-            \ end of the reranked list. The maximum is 500."
-          items:
-            $ref: '#/components/schemas/ItemID'
-          type: array
-        userId:
-          description: The user for which you want the campaign to provide a personalized
-            ranking.
-          maxLength: 256
+        close_approach_date_full:
           type: string
-        context:
-          additionalProperties:
-            $ref: '#/components/schemas/AttributeValue'
-          description: "The contextual metadata to use when getting recommendations.\
-            \ Contextual metadata includes any interaction information that might\
-            \ be relevant when getting a user's recommendations, such as the user's\
-            \ current location or device type."
-          maxProperties: 150
-          type: object
-        filterArn:
-          description: "The Amazon Resource Name (ARN) of a filter you created to\
-            \ include items or exclude items from recommendations for a given user.\
-            \ For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
-            >Filtering Recommendations</a>."
-          maxLength: 256
-          pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
-          type: string
-        filterValues:
-          additionalProperties:
-            $ref: '#/components/schemas/FilterAttributeValue'
-          description: "<p>The values to use when filtering recommendations. For each\
-            \ placeholder parameter in your filter expression, provide the parameter\
-            \ name (in matching case) as a key and the filter value(s) as the corresponding\
-            \ value. Separate multiple values for one parameter with a comma. </p>\
-            \ <p>For filter expressions that use an <code>INCLUDE</code> element to\
-            \ include items, you must provide values for all parameters that are defined\
-            \ in the expression. For filters with expressions that use an <code>EXCLUDE</code>\
-            \ element to exclude items, you can omit the <code>filter-values</code>.In\
-            \ this case, Amazon Personalize doesn't use that portion of the expression\
-            \ to filter recommendations.</p> <p>For more information, see <a href=\"\
-            https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering\
-            \ Recommendations</a>.</p>"
-          maxProperties: 25
-          type: object
-      required:
-      - campaignArn
-      - inputList
-      - userId
-      type: object
-    GetRecommendations_request:
-      properties:
-        campaignArn:
-          description: The Amazon Resource Name (ARN) of the campaign to use for getting
-            recommendations.
-          maxLength: 256
-          pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
-          type: string
-        itemId:
-          description: <p>The item ID to provide recommendations for.</p> <p>Required
-            for <code>RELATED_ITEMS</code> recipe type.</p>
-          maxLength: 256
-          type: string
-        userId:
-          description: <p>The user ID to provide recommendations for.</p> <p>Required
-            for <code>USER_PERSONALIZATION</code> recipe type.</p>
-          maxLength: 256
-          type: string
-        numResults:
-          description: The number of results to return. The default is 25. The maximum
-            is 500.
-          minimum: 0
+        epoch_date_close_approach:
+          format: int64
           type: integer
-        context:
-          additionalProperties:
-            $ref: '#/components/schemas/AttributeValue'
-          description: "The contextual metadata to use when getting recommendations.\
-            \ Contextual metadata includes any interaction information that might\
-            \ be relevant when getting a user's recommendations, such as the user's\
-            \ current location or device type."
-          maxProperties: 150
-          type: object
-        filterArn:
-          description: "<p>The ARN of the filter to apply to the returned recommendations.\
-            \ For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\"\
-            >Filtering Recommendations</a>.</p> <p>When using this parameter, be sure\
-            \ the filter resource is <code>ACTIVE</code>.</p>"
-          maxLength: 256
-          pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
+        miss_distance:
+          $ref: '#/components/schemas/MissDistance'
+        orbiting_body:
           type: string
-        filterValues:
-          additionalProperties:
-            $ref: '#/components/schemas/FilterAttributeValue'
-          description: "<p>The values to use when filtering recommendations. For each\
-            \ placeholder parameter in your filter expression, provide the parameter\
-            \ name (in matching case) as a key and the filter value(s) as the corresponding\
-            \ value. Separate multiple values for one parameter with a comma. </p>\
-            \ <p>For filter expressions that use an <code>INCLUDE</code> element to\
-            \ include items, you must provide values for all parameters that are defined\
-            \ in the expression. For filters with expressions that use an <code>EXCLUDE</code>\
-            \ element to exclude items, you can omit the <code>filter-values</code>.In\
-            \ this case, Amazon Personalize doesn't use that portion of the expression\
-            \ to filter recommendations.</p> <p>For more information, see <a href=\"\
-            https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering\
-            \ recommendations and user segments</a>.</p>"
-          maxProperties: 25
-          type: object
-        recommenderArn:
-          description: The Amazon Resource Name (ARN) of the recommender to use to
-            get recommendations. Provide a recommender ARN if you created a Domain
-            dataset group with a recommender for a domain use case.
-          maxLength: 256
-          pattern: "arn:([a-z\\d-]+):personalize:.*:.*:.+"
+        relative_velocity:
+          $ref: '#/components/schemas/RelVelocity'
+      type: object
+    EstimatedDiameter:
+      example:
+        estimated_diameter_max: 1.4658129805029452
+        estimated_diameter_min: 5.962133916683182
+      properties:
+        estimated_diameter_max:
+          description: An estimate of the maximum size of the Asteroid - bases on
+            the abosolute magnitude
+          format: double
+          type: number
+        estimated_diameter_min:
+          description: An estimate of the minimum size of the Asteroid - bases on
+            the abosolute magnitude
+          format: double
+          type: number
+      type: object
+    EstimatedDiameterContainer:
+      example:
+        feet:
+          estimated_diameter_max: 1.4658129805029452
+          estimated_diameter_min: 5.962133916683182
+        kilometers:
+          estimated_diameter_max: 1.4658129805029452
+          estimated_diameter_min: 5.962133916683182
+        meters:
+          estimated_diameter_max: 1.4658129805029452
+          estimated_diameter_min: 5.962133916683182
+        miles:
+          estimated_diameter_max: 1.4658129805029452
+          estimated_diameter_min: 5.962133916683182
+      properties:
+        feet:
+          $ref: '#/components/schemas/EstimatedDiameter'
+        kilometers:
+          $ref: '#/components/schemas/EstimatedDiameter'
+        meters:
+          $ref: '#/components/schemas/EstimatedDiameter'
+        miles:
+          $ref: '#/components/schemas/EstimatedDiameter'
+      type: object
+    HashMap_string_List_NearEarthObject_: {}
+    MissDistance:
+      example:
+        astronomical: astronomical
+        kilometers: kilometers
+        lunar: lunar
+        miles: miles
+      properties:
+        astronomical:
           type: string
-        promotions:
-          description: The promotions to apply to the recommendation request. A promotion
-            defines additional business rules that apply to a configurable subset
-            of recommended items.
+        kilometers:
+          type: string
+        lunar:
+          type: string
+        miles:
+          type: string
+      type: object
+    NearEarthObject:
+      example:
+        estimated_diameter:
+          feet:
+            estimated_diameter_max: 1.4658129805029452
+            estimated_diameter_min: 5.962133916683182
+          kilometers:
+            estimated_diameter_max: 1.4658129805029452
+            estimated_diameter_min: 5.962133916683182
+          meters:
+            estimated_diameter_max: 1.4658129805029452
+            estimated_diameter_min: 5.962133916683182
+          miles:
+            estimated_diameter_max: 1.4658129805029452
+            estimated_diameter_min: 5.962133916683182
+        is_potentially_hazardous_asteroid: true
+        nasa_jpl_url: nasa_jpl_url
+        neo_reference_id: neo_reference_id
+        orbital_data:
+          inclination: inclination
+          mean_anomaly: mean_anomaly
+          minimum_orbit_intersection: minimum_orbit_intersection
+          orbit_determination_date: orbit_determination_date
+          perihelion_argument: perihelion_argument
+          orbit_class:
+            orbit_class_description: orbit_class_description
+            orbit_class_range: orbit_class_range
+            orbit_class_type: IEO
+          aphelion_distance: aphelion_distance
+          eccentricity: eccentricity
+          last_observation_date: last_observation_date
+          perihelion_distance: perihelion_distance
+          perihelion_time: perihelion_time
+          first_observation_date: first_observation_date
+          data_arc_in_days: 5
+          orbit_id: orbit_id
+          jupiter_tisserand_invariant: jupiter_tisserand_invariant
+          orbital_period: orbital_period
+          semi_major_axis: semi_major_axis
+          epoch_osculation: epoch_osculation
+          orbit_uncertainty: orbit_uncertainty
+          ascending_node_longitude: ascending_node_longitude
+          mean_motion: mean_motion
+          equinox: equinox
+          observations_used: 2
+        is_sentry_object: true
+        name_limited: name_limited
+        name: name
+        absolute_magnitude_h: 0.8008281904610115
+        sentry_data: sentry_data
+        designation: designation
+        close_approach_data:
+        - relative_velocity:
+            kilometers_per_hour: kilometers_per_hour
+            miles_per_hour: miles_per_hour
+          orbiting_body: orbiting_body
+          close_approach_date: close_approach_date
+          epoch_date_close_approach: 6
+          close_approach_date_full: close_approach_date_full
+          miss_distance:
+            astronomical: astronomical
+            kilometers: kilometers
+            lunar: lunar
+            miles: miles
+        - relative_velocity:
+            kilometers_per_hour: kilometers_per_hour
+            miles_per_hour: miles_per_hour
+          orbiting_body: orbiting_body
+          close_approach_date: close_approach_date
+          epoch_date_close_approach: 6
+          close_approach_date_full: close_approach_date_full
+          miss_distance:
+            astronomical: astronomical
+            kilometers: kilometers
+            lunar: lunar
+            miles: miles
+      properties:
+        absolute_magnitude_h:
+          description: Is a measure of an asteroids brightness
+          format: double
+          type: number
+        close_approach_data:
+          description: Close approach information of the Asteroid
           items:
-            $ref: '#/components/schemas/Promotion'
-          maxItems: 1
+            $ref: '#/components/schemas/CloseApproachData'
+          type: array
+        designation:
+          type: string
+        estimated_diameter:
+          $ref: '#/components/schemas/EstimatedDiameterContainer'
+        is_potentially_hazardous_asteroid:
+          type: boolean
+        is_sentry_object:
+          type: boolean
+        name:
+          type: string
+        name_limited:
+          type: string
+        nasa_jpl_url:
+          description: A Link to the NASA JPL Small-Body Database website
+          type: string
+        neo_reference_id:
+          description: The reference ID of the Asteroid - This correlates to the SPK
+            ID for the JPL NEO data
+          type: string
+        orbital_data:
+          $ref: '#/components/schemas/OrbitalData'
+        sentry_data:
+          type: string
+      type: object
+    NearEarthObjectList:
+      example:
+        near_earth_objects: ""
+        element_count: 0
+        links: "{}"
+      properties:
+        element_count:
+          description: Number of NEOs in list
+          format: int32
+          type: integer
+        links:
+          description: Hypermedia links to collection
+          type: object
+        near_earth_objects: {}
+      type: object
+    OrbitClass:
+      example:
+        orbit_class_description: orbit_class_description
+        orbit_class_range: orbit_class_range
+        orbit_class_type: IEO
+      properties:
+        orbit_class_description:
+          type: string
+        orbit_class_range:
+          type: string
+        orbit_class_type:
+          enum:
+          - IEO
+          - ATE
+          - APO
+          - AMO
+          - MCA
+          - IMB
+          - MBA
+          - OMB
+          - TJN
+          - CEN
+          - TNO
+          - PAA
+          - HYA
+          - HYP
+          - PAR
+          - COM
+          - JFC
+          - HTC
+          - ETC
+          - CTC
+          - JFc
+          type: string
+      type: object
+    OrbitalData:
+      example:
+        inclination: inclination
+        mean_anomaly: mean_anomaly
+        minimum_orbit_intersection: minimum_orbit_intersection
+        orbit_determination_date: orbit_determination_date
+        perihelion_argument: perihelion_argument
+        orbit_class:
+          orbit_class_description: orbit_class_description
+          orbit_class_range: orbit_class_range
+          orbit_class_type: IEO
+        aphelion_distance: aphelion_distance
+        eccentricity: eccentricity
+        last_observation_date: last_observation_date
+        perihelion_distance: perihelion_distance
+        perihelion_time: perihelion_time
+        first_observation_date: first_observation_date
+        data_arc_in_days: 5
+        orbit_id: orbit_id
+        jupiter_tisserand_invariant: jupiter_tisserand_invariant
+        orbital_period: orbital_period
+        semi_major_axis: semi_major_axis
+        epoch_osculation: epoch_osculation
+        orbit_uncertainty: orbit_uncertainty
+        ascending_node_longitude: ascending_node_longitude
+        mean_motion: mean_motion
+        equinox: equinox
+        observations_used: 2
+      properties:
+        aphelion_distance:
+          type: string
+        ascending_node_longitude:
+          type: string
+        data_arc_in_days:
+          format: int64
+          type: integer
+        eccentricity:
+          type: string
+        epoch_osculation:
+          type: string
+        equinox:
+          type: string
+        first_observation_date:
+          type: string
+        inclination:
+          type: string
+        jupiter_tisserand_invariant:
+          type: string
+        last_observation_date:
+          type: string
+        mean_anomaly:
+          type: string
+        mean_motion:
+          type: string
+        minimum_orbit_intersection:
+          type: string
+        observations_used:
+          format: int64
+          type: integer
+        orbit_class:
+          $ref: '#/components/schemas/OrbitClass'
+        orbit_determination_date:
+          type: string
+        orbit_id:
+          type: string
+        orbit_uncertainty:
+          type: string
+        orbital_period:
+          type: string
+        perihelion_argument:
+          type: string
+        perihelion_distance:
+          type: string
+        perihelion_time:
+          type: string
+        semi_major_axis:
+          type: string
+      type: object
+    PageMetaData:
+      example:
+        number: 0
+        size: 6
+        total_elements: 1
+        total_pages: 5
+      properties:
+        number:
+          format: int64
+          type: integer
+        size:
+          format: int64
+          type: integer
+        total_elements:
+          format: int64
+          type: integer
+        total_pages:
+          format: int64
+          type: integer
+      type: object
+    RelVelocity:
+      example:
+        kilometers_per_hour: kilometers_per_hour
+        miles_per_hour: miles_per_hour
+      properties:
+        kilometers_per_hour:
+          type: string
+        miles_per_hour:
+          type: string
+      type: object
+    SentryImpactRiskObject:
+      example:
+        estimated_diameter: estimated_diameter
+        is_active_sentry_object: true
+        v_infinity: v_infinity
+        palermo_scale_ave: palermo_scale_ave
+        removal_date: removal_date
+        year_range_max: year_range_max
+        absolute_magnitude: absolute_magnitude
+        last_obs_jd: last_obs_jd
+        year_range_min: year_range_min
+        Palermo_scale_max: Palermo_scale_max
+        potential_impacts: potential_impacts
+        sentryId: sentryId
+        average_lunar_distance: 5.637376656633329
+        designation: designation
+        fullname: fullname
+        torino_scale: torino_scale
+        impact_probability: impact_probability
+        last_obs: last_obs
+      properties:
+        Palermo_scale_max:
+          type: string
+        absolute_magnitude:
+          type: string
+        average_lunar_distance:
+          format: double
+          type: number
+        designation:
+          type: string
+        estimated_diameter:
+          type: string
+        fullname:
+          type: string
+        impact_probability:
+          type: string
+        is_active_sentry_object:
+          type: boolean
+        last_obs:
+          type: string
+        last_obs_jd:
+          type: string
+        palermo_scale_ave:
+          type: string
+        potential_impacts:
+          type: string
+        removal_date:
+          type: string
+        sentryId:
+          type: string
+        torino_scale:
+          type: string
+        v_infinity:
+          type: string
+        year_range_max:
+          type: string
+        year_range_min:
+          type: string
+      type: object
+    SentryObjectPagingDto:
+      example:
+        links: "{}"
+        page:
+          number: 0
+          size: 6
+          total_elements: 1
+          total_pages: 5
+        sentry_objects:
+        - estimated_diameter: estimated_diameter
+          is_active_sentry_object: true
+          v_infinity: v_infinity
+          palermo_scale_ave: palermo_scale_ave
+          removal_date: removal_date
+          year_range_max: year_range_max
+          absolute_magnitude: absolute_magnitude
+          last_obs_jd: last_obs_jd
+          year_range_min: year_range_min
+          Palermo_scale_max: Palermo_scale_max
+          potential_impacts: potential_impacts
+          sentryId: sentryId
+          average_lunar_distance: 5.637376656633329
+          designation: designation
+          fullname: fullname
+          torino_scale: torino_scale
+          impact_probability: impact_probability
+          last_obs: last_obs
+        - estimated_diameter: estimated_diameter
+          is_active_sentry_object: true
+          v_infinity: v_infinity
+          palermo_scale_ave: palermo_scale_ave
+          removal_date: removal_date
+          year_range_max: year_range_max
+          absolute_magnitude: absolute_magnitude
+          last_obs_jd: last_obs_jd
+          year_range_min: year_range_min
+          Palermo_scale_max: Palermo_scale_max
+          potential_impacts: potential_impacts
+          sentryId: sentryId
+          average_lunar_distance: 5.637376656633329
+          designation: designation
+          fullname: fullname
+          torino_scale: torino_scale
+          impact_probability: impact_probability
+          last_obs: last_obs
+      properties:
+        links:
+          type: object
+        page:
+          $ref: '#/components/schemas/PageMetaData'
+        sentry_objects:
+          items:
+            $ref: '#/components/schemas/SentryImpactRiskObject'
           type: array
       type: object
-  securitySchemes:
-    hmac:
-      description: Amazon Signature authorization v4
-      in: header
-      name: Authorization
-      type: apiKey
-      x-amazon-apigateway-authtype: awsSigv4
+    Statistics:
+      example:
+        last_updated: last_updated
+        nasa_jpl_url:
+          defaultPort: 6
+          path: path
+          userInfo: userInfo
+          protocol: protocol
+          ref: ref
+          file: file
+          port: 1
+          authority: authority
+          query: query
+          host: host
+          content: "{}"
+        near_earth_object_count: 5
+        source: source
+        close_approach_count: 0
+      properties:
+        close_approach_count:
+          description: Number of Close Approach listings across all NEOs listed in
+            NeoWs
+          format: int64
+          type: integer
+        last_updated:
+          description: TimeStamp the last time the DB was updated
+          type: string
+        nasa_jpl_url:
+          $ref: '#/components/schemas/URL'
+        near_earth_object_count:
+          description: Number of NearEarthObjects listed in NeoWs
+          format: int64
+          type: integer
+        source:
+          type: string
+      type: object
+    URL:
+      example:
+        defaultPort: 6
+        path: path
+        userInfo: userInfo
+        protocol: protocol
+        ref: ref
+        file: file
+        port: 1
+        authority: authority
+        query: query
+        host: host
+        content: "{}"
+      properties:
+        authority:
+          type: string
+        content:
+          type: object
+        defaultPort:
+          format: int32
+          type: integer
+        file:
+          type: string
+        host:
+          type: string
+        path:
+          type: string
+        port:
+          format: int32
+          type: integer
+        protocol:
+          type: string
+        query:
+          type: string
+        ref:
+          type: string
+        userInfo:
+          type: string
+      type: object
 
