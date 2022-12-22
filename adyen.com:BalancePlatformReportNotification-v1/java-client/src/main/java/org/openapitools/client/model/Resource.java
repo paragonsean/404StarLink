@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Resource
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:02.753478-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:21.743015-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Resource {
   public static final String SERIALIZED_NAME_BALANCE_PLATFORM = "balancePlatform";
   @SerializedName(SERIALIZED_NAME_BALANCE_PLATFORM)

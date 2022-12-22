@@ -2,7 +2,7 @@
 
 Report webhooks
 - API version: 1
-  - Build date: 2024-10-11T01:58:02.753478-04:00[America/New_York]
+  - Build date: 2024-10-11T02:06:21.743015-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Adyen sends notifications through webhooks to inform your system that reports were generated and are ready to be downloaded.
