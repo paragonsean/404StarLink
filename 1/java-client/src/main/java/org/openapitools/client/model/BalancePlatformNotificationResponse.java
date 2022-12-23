@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * BalancePlatformNotificationResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:04.959607-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:23.956077-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BalancePlatformNotificationResponse {
   public static final String SERIALIZED_NAME_NOTIFICATION_RESPONSE = "notificationResponse";
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_RESPONSE)

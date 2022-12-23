@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -45,9 +44,3 @@ src/main/java/org/openapitools/client/model/ReportNotificationData.java
 src/main/java/org/openapitools/client/model/ReportNotificationRequest.java
 src/main/java/org/openapitools/client/model/Resource.java
 src/main/java/org/openapitools/client/model/ResourceReference.java
-src/test/java/org/openapitools/client/api/GeneralApiTest.java
-src/test/java/org/openapitools/client/model/BalancePlatformNotificationResponseTest.java
-src/test/java/org/openapitools/client/model/ReportNotificationDataTest.java
-src/test/java/org/openapitools/client/model/ReportNotificationRequestTest.java
-src/test/java/org/openapitools/client/model/ResourceReferenceTest.java
-src/test/java/org/openapitools/client/model/ResourceTest.java
