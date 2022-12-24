@@ -2,20 +2,14 @@
 
 # Resource
 
-A resource related to a finding.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | [**String**](String.md) |  |  |
-|**id** | [**String**](String.md) |  |  |
-|**partition** | [**Partition**](Partition.md) |  |  [optional] |
-|**region** | [**String**](String.md) |  |  [optional] |
-|**resourceRole** | [**String**](String.md) |  |  [optional] |
-|**tags** | [**Map**](Map.md) |  |  [optional] |
-|**dataClassification** | [**ResourceDataClassification**](ResourceDataClassification.md) |  |  [optional] |
-|**details** | [**ResourceDetails**](ResourceDetails.md) |  |  [optional] |
+|**balancePlatform** | **String** | The unique identifier of the balance platform. |  [optional] |
+|**creationDate** | **OffsetDateTime** | The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**. |  [optional] |
+|**id** | **String** | The ID of the resource. |  [optional] |
 
 
 

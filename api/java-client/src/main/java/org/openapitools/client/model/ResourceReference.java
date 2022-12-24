@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -47,70 +46,51 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * Resource
+ * ResourceReference
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:26.093808-04:00[America/New_York]", comments = "Generator version: 7.9.0")
-public class Resource {
-  public static final String SERIALIZED_NAME_BALANCE_PLATFORM = "balancePlatform";
-  @SerializedName(SERIALIZED_NAME_BALANCE_PLATFORM)
-  private String balancePlatform;
-
-  public static final String SERIALIZED_NAME_CREATION_DATE = "creationDate";
-  @SerializedName(SERIALIZED_NAME_CREATION_DATE)
-  private OffsetDateTime creationDate;
+public class ResourceReference {
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
-  public Resource() {
+  public static final String SERIALIZED_NAME_REFERENCE = "reference";
+  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  private String reference;
+
+  public ResourceReference() {
   }
 
-  public Resource balancePlatform(String balancePlatform) {
-    this.balancePlatform = balancePlatform;
+  public ResourceReference description(String description) {
+    this.description = description;
     return this;
   }
 
   /**
-   * The unique identifier of the balance platform.
-   * @return balancePlatform
+   * The description of the resource.
+   * @return description
    */
   @javax.annotation.Nullable
-  public String getBalancePlatform() {
-    return balancePlatform;
+  public String getDescription() {
+    return description;
   }
 
-  public void setBalancePlatform(String balancePlatform) {
-    this.balancePlatform = balancePlatform;
-  }
-
-
-  public Resource creationDate(OffsetDateTime creationDate) {
-    this.creationDate = creationDate;
-    return this;
-  }
-
-  /**
-   * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
-   * @return creationDate
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getCreationDate() {
-    return creationDate;
-  }
-
-  public void setCreationDate(OffsetDateTime creationDate) {
-    this.creationDate = creationDate;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
-  public Resource id(String id) {
+  public ResourceReference id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the resource.
+   * The unique identifier of the resource.
    * @return id
    */
   @javax.annotation.Nullable
@@ -123,6 +103,25 @@ public class Resource {
   }
 
 
+  public ResourceReference reference(String reference) {
+    this.reference = reference;
+    return this;
+  }
+
+  /**
+   * The reference for the resource.
+   * @return reference
+   */
+  @javax.annotation.Nullable
+  public String getReference() {
+    return reference;
+  }
+
+  public void setReference(String reference) {
+    this.reference = reference;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -132,24 +131,24 @@ public class Resource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Resource resource = (Resource) o;
-    return Objects.equals(this.balancePlatform, resource.balancePlatform) &&
-        Objects.equals(this.creationDate, resource.creationDate) &&
-        Objects.equals(this.id, resource.id);
+    ResourceReference resourceReference = (ResourceReference) o;
+    return Objects.equals(this.description, resourceReference.description) &&
+        Objects.equals(this.id, resourceReference.id) &&
+        Objects.equals(this.reference, resourceReference.reference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balancePlatform, creationDate, id);
+    return Objects.hash(description, id, reference);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Resource {\n");
-    sb.append("    balancePlatform: ").append(toIndentedString(balancePlatform)).append("\n");
-    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("class ResourceReference {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -172,9 +171,9 @@ public class Resource {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("balancePlatform");
-    openapiFields.add("creationDate");
+    openapiFields.add("description");
     openapiFields.add("id");
+    openapiFields.add("reference");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -184,28 +183,31 @@ public class Resource {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Resource
+   * @throws IOException if the JSON Element is invalid with respect to ResourceReference
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Resource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Resource is not found in the empty JSON string", Resource.openapiRequiredFields.toString()));
+        if (!ResourceReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ResourceReference is not found in the empty JSON string", ResourceReference.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!Resource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Resource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!ResourceReference.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResourceReference` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("balancePlatform") != null && !jsonObj.get("balancePlatform").isJsonNull()) && !jsonObj.get("balancePlatform").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `balancePlatform` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balancePlatform").toString()));
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonNull()) && !jsonObj.get("reference").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
   }
 
@@ -213,22 +215,22 @@ public class Resource {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Resource.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Resource' and its subtypes
+       if (!ResourceReference.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ResourceReference' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Resource> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Resource.class));
+       final TypeAdapter<ResourceReference> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ResourceReference.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Resource>() {
+       return (TypeAdapter<T>) new TypeAdapter<ResourceReference>() {
            @Override
-           public void write(JsonWriter out, Resource value) throws IOException {
+           public void write(JsonWriter out, ResourceReference value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public Resource read(JsonReader in) throws IOException {
+           public ResourceReference read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -239,18 +241,18 @@ public class Resource {
   }
 
   /**
-   * Create an instance of Resource given an JSON string
+   * Create an instance of ResourceReference given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Resource
-   * @throws IOException if the JSON string is invalid with respect to Resource
+   * @return An instance of ResourceReference
+   * @throws IOException if the JSON string is invalid with respect to ResourceReference
    */
-  public static Resource fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Resource.class);
+  public static ResourceReference fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ResourceReference.class);
   }
 
   /**
-   * Convert an instance of Resource to an JSON string
+   * Convert an instance of ResourceReference to an JSON string
    *
    * @return JSON string
    */
