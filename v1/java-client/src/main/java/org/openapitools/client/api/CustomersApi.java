@@ -1,6 +1,6 @@
 /*
- * Chrome Management API
- * The Chrome Management API is a suite of services that allows Chrome administrators to view, manage and gain insights on their Chrome OS and Chrome Browser devices.
+ * OnSched Consumer API
+ * Build secure and scalable custom apps for Online Booking. Our flexible API provides many options for availability and booking.  <br><br>  Take the API for a test drive. Just click on the Authorize button below and authenticate.   You can access our demo company profile if you are not a customer, or your own profile by using your assigned ClientId and Secret.  <br><br>  The API has two interfaces, consumer and setup.   <ul>  <li>  The consumer interface provides all the endpoints required for implementing consumer booking flows.  </li>  <li>  The setup interface provides endpoints for profile configuration and setup.  </li>  </ul>  Toggle freely between the two interfaces using the swagger tool bar option labelled 'Select a definition'.  
  *
  * The version of the OpenAPI document: v1
  * 
@@ -27,18 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.GoogleChromeManagementV1CountChromeAppRequestsResponse;
-import org.openapitools.client.model.GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse;
-import org.openapitools.client.model.GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse;
-import org.openapitools.client.model.GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse;
-import org.openapitools.client.model.GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse;
-import org.openapitools.client.model.GoogleChromeManagementV1CountChromeVersionsResponse;
-import org.openapitools.client.model.GoogleChromeManagementV1CountInstalledAppsResponse;
-import org.openapitools.client.model.GoogleChromeManagementV1FindInstalledAppDevicesResponse;
-import org.openapitools.client.model.GoogleChromeManagementV1ListTelemetryDevicesResponse;
-import org.openapitools.client.model.GoogleChromeManagementV1ListTelemetryEventsResponse;
-import org.openapitools.client.model.GoogleChromeManagementV1ListTelemetryUsersResponse;
-import org.openapitools.client.model.GoogleChromeManagementV1TelemetryUser;
+import org.openapitools.client.model.BookingFieldListViewModel;
+import org.openapitools.client.model.CountryViewModel;
+import org.openapitools.client.model.CustomFieldDefinitionListViewModel;
+import org.openapitools.client.model.CustomerInputModel;
+import org.openapitools.client.model.CustomerListViewModel;
+import org.openapitools.client.model.CustomerUpdateModel;
+import org.openapitools.client.model.CustomerViewModel;
+import org.openapitools.client.model.StateViewModel;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -84,33 +80,18 @@ public class CustomersApi {
     }
 
     /**
-     * Build call for chromemanagementCustomersAppsCountChromeAppRequests
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orderBy Field used to order results. Supported fields: * request_count * latest_request_time (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 50, anything above will be coerced to 50. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
+     * Build call for consumerV1CustomersBookingfieldsGet
+     * @param locationId id of business location, defaults to primary business location (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersAppsCountChromeAppRequestsCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orderBy, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersBookingfieldsGetCall(String locationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -127,8 +108,7 @@ public class CustomersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{customer}/apps:countChromeAppRequests"
-            .replace("{" + "customer" + "}", localVarApiClient.escapeString(customer.toString()));
+        String localVarPath = "/consumer/v1/customers/bookingfields";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -136,64 +116,8 @@ public class CustomersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (orderBy != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orderBy", orderBy));
-        }
-
-        if (orgUnitId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orgUnitId", orgUnitId));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
+        if (locationId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("locationId", locationId));
         }
 
         final String[] localVarAccepts = {
@@ -211,146 +135,83 @@ public class CustomersApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        String[] localVarAuthNames = new String[] { "oauth2" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersAppsCountChromeAppRequestsValidateBeforeCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orderBy, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customer' is set
-        if (customer == null) {
-            throw new ApiException("Missing the required parameter 'customer' when calling chromemanagementCustomersAppsCountChromeAppRequests(Async)");
-        }
-
-        return chromemanagementCustomersAppsCountChromeAppRequestsCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orderBy, orgUnitId, pageSize, pageToken, _callback);
+    private okhttp3.Call consumerV1CustomersBookingfieldsGetValidateBeforeCall(String locationId, final ApiCallback _callback) throws ApiException {
+        return consumerV1CustomersBookingfieldsGetCall(locationId, _callback);
 
     }
 
     /**
-     * 
-     * Generate summary of app installation requests.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orderBy Field used to order results. Supported fields: * request_count * latest_request_time (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 50, anything above will be coerced to 50. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
-     * @return GoogleChromeManagementV1CountChromeAppRequestsResponse
+     * Get Customer Booking Fields
+     * &lt;p&gt;Use this endpoint to return &lt;b&gt;Customer Booking Fields&lt;/b&gt;. Customer booking fields are stored with each customer object. They are used when the information collected during the booking is for a particular customer. Customer Booking Fields include any custom customer fields you define and want to capture with the Booking.&lt;/p&gt;
+     * @param locationId id of business location, defaults to primary business location (optional)
+     * @return BookingFieldListViewModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public GoogleChromeManagementV1CountChromeAppRequestsResponse chromemanagementCustomersAppsCountChromeAppRequests(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orderBy, String orgUnitId, Integer pageSize, String pageToken) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1CountChromeAppRequestsResponse> localVarResp = chromemanagementCustomersAppsCountChromeAppRequestsWithHttpInfo(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orderBy, orgUnitId, pageSize, pageToken);
+    public BookingFieldListViewModel consumerV1CustomersBookingfieldsGet(String locationId) throws ApiException {
+        ApiResponse<BookingFieldListViewModel> localVarResp = consumerV1CustomersBookingfieldsGetWithHttpInfo(locationId);
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * Generate summary of app installation requests.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orderBy Field used to order results. Supported fields: * request_count * latest_request_time (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 50, anything above will be coerced to 50. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1CountChromeAppRequestsResponse&gt;
+     * Get Customer Booking Fields
+     * &lt;p&gt;Use this endpoint to return &lt;b&gt;Customer Booking Fields&lt;/b&gt;. Customer booking fields are stored with each customer object. They are used when the information collected during the booking is for a particular customer. Customer Booking Fields include any custom customer fields you define and want to capture with the Booking.&lt;/p&gt;
+     * @param locationId id of business location, defaults to primary business location (optional)
+     * @return ApiResponse&lt;BookingFieldListViewModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GoogleChromeManagementV1CountChromeAppRequestsResponse> chromemanagementCustomersAppsCountChromeAppRequestsWithHttpInfo(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orderBy, String orgUnitId, Integer pageSize, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersAppsCountChromeAppRequestsValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orderBy, orgUnitId, pageSize, pageToken, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeAppRequestsResponse>(){}.getType();
+    public ApiResponse<BookingFieldListViewModel> consumerV1CustomersBookingfieldsGetWithHttpInfo(String locationId) throws ApiException {
+        okhttp3.Call localVarCall = consumerV1CustomersBookingfieldsGetValidateBeforeCall(locationId, null);
+        Type localVarReturnType = new TypeToken<BookingFieldListViewModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * Generate summary of app installation requests.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orderBy Field used to order results. Supported fields: * request_count * latest_request_time (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 50, anything above will be coerced to 50. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
+     * Get Customer Booking Fields (asynchronously)
+     * &lt;p&gt;Use this endpoint to return &lt;b&gt;Customer Booking Fields&lt;/b&gt;. Customer booking fields are stored with each customer object. They are used when the information collected during the booking is for a particular customer. Customer Booking Fields include any custom customer fields you define and want to capture with the Booking.&lt;/p&gt;
+     * @param locationId id of business location, defaults to primary business location (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersAppsCountChromeAppRequestsAsync(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orderBy, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback<GoogleChromeManagementV1CountChromeAppRequestsResponse> _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersBookingfieldsGetAsync(String locationId, final ApiCallback<BookingFieldListViewModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = chromemanagementCustomersAppsCountChromeAppRequestsValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orderBy, orgUnitId, pageSize, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeAppRequestsResponse>(){}.getType();
+        okhttp3.Call localVarCall = consumerV1CustomersBookingfieldsGetValidateBeforeCall(locationId, _callback);
+        Type localVarReturnType = new TypeToken<BookingFieldListViewModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
+     * Build call for consumerV1CustomersCountriesGet
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountChromeBrowsersNeedingAttentionCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersCountriesGetCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -367,62 +228,13 @@ public class CustomersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{customer}/reports:countChromeBrowsersNeedingAttention"
-            .replace("{" + "customer" + "}", localVarApiClient.escapeString(customer.toString()));
+        String localVarPath = "/consumer/v1/customers/countries";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (orgUnitId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orgUnitId", orgUnitId));
-        }
 
         final String[] localVarAccepts = {
             "application/json"
@@ -439,139 +251,82 @@ public class CustomersApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        String[] localVarAuthNames = new String[] { "oauth2" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersReportsCountChromeBrowsersNeedingAttentionValidateBeforeCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customer' is set
-        if (customer == null) {
-            throw new ApiException("Missing the required parameter 'customer' when calling chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention(Async)");
-        }
-
-        return chromemanagementCustomersReportsCountChromeBrowsersNeedingAttentionCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, _callback);
+    private okhttp3.Call consumerV1CustomersCountriesGetValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return consumerV1CustomersCountriesGetCall(_callback);
 
     }
 
     /**
-     * 
-     * Count of Chrome Browsers that have been recently enrolled, have new policy to be synced, or have no recent activity.
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
-     * @return GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse
+     * List Country Codes
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Countries with their associated Country Code&lt;/b&gt;. Country codes are based on the 2-character ANSI standard. If your countries of operation are not currently listed, contact us at &lt;i&gt;&lt;b&gt;support@onsched.com&lt;/b&gt;&lt;/i&gt;.&lt;/p&gt;
+     * @return List&lt;CountryViewModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse> localVarResp = chromemanagementCustomersReportsCountChromeBrowsersNeedingAttentionWithHttpInfo(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId);
+    public List<CountryViewModel> consumerV1CustomersCountriesGet() throws ApiException {
+        ApiResponse<List<CountryViewModel>> localVarResp = consumerV1CustomersCountriesGetWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * Count of Chrome Browsers that have been recently enrolled, have new policy to be synced, or have no recent activity.
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse&gt;
+     * List Country Codes
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Countries with their associated Country Code&lt;/b&gt;. Country codes are based on the 2-character ANSI standard. If your countries of operation are not currently listed, contact us at &lt;i&gt;&lt;b&gt;support@onsched.com&lt;/b&gt;&lt;/i&gt;.&lt;/p&gt;
+     * @return ApiResponse&lt;List&lt;CountryViewModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse> chromemanagementCustomersReportsCountChromeBrowsersNeedingAttentionWithHttpInfo(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountChromeBrowsersNeedingAttentionValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse>(){}.getType();
+    public ApiResponse<List<CountryViewModel>> consumerV1CustomersCountriesGetWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = consumerV1CustomersCountriesGetValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<CountryViewModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * Count of Chrome Browsers that have been recently enrolled, have new policy to be synced, or have no recent activity.
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
+     * List Country Codes (asynchronously)
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Countries with their associated Country Code&lt;/b&gt;. Country codes are based on the 2-character ANSI standard. If your countries of operation are not currently listed, contact us at &lt;i&gt;&lt;b&gt;support@onsched.com&lt;/b&gt;&lt;/i&gt;.&lt;/p&gt;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountChromeBrowsersNeedingAttentionAsync(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, final ApiCallback<GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse> _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersCountriesGetAsync(final ApiCallback<List<CountryViewModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountChromeBrowsersNeedingAttentionValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse>(){}.getType();
+        okhttp3.Call localVarCall = consumerV1CustomersCountriesGetValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<CountryViewModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param maxAueDate Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or earlier than the maximum date. (optional)
-     * @param minAueDate Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or later than the minimum date. (optional)
-     * @param orgUnitId Optional. The organizational unit ID, if omitted, will return data for all organizational units. (optional)
+     * Build call for consumerV1CustomersCustomfieldsGet
+     * @param locationId id of business location, defaults to primary business location (optional)
+     * @param leadQuestions A true/false indicator to filter on custom fields used for lead questions (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDateCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String maxAueDate, String minAueDate, String orgUnitId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersCustomfieldsGetCall(String locationId, Boolean leadQuestions, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -588,8 +343,7 @@ public class CustomersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{customer}/reports:countChromeDevicesReachingAutoExpirationDate"
-            .replace("{" + "customer" + "}", localVarApiClient.escapeString(customer.toString()));
+        String localVarPath = "/consumer/v1/customers/customfields";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -597,60 +351,12 @@ public class CustomersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        if (locationId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("locationId", locationId));
         }
 
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (maxAueDate != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxAueDate", maxAueDate));
-        }
-
-        if (minAueDate != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minAueDate", minAueDate));
-        }
-
-        if (orgUnitId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orgUnitId", orgUnitId));
+        if (leadQuestions != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("leadQuestions", leadQuestions));
         }
 
         final String[] localVarAccepts = {
@@ -668,144 +374,93 @@ public class CustomersApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        String[] localVarAuthNames = new String[] { "oauth2" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDateValidateBeforeCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String maxAueDate, String minAueDate, String orgUnitId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customer' is set
-        if (customer == null) {
-            throw new ApiException("Missing the required parameter 'customer' when calling chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate(Async)");
-        }
-
-        return chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDateCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, maxAueDate, minAueDate, orgUnitId, _callback);
+    private okhttp3.Call consumerV1CustomersCustomfieldsGetValidateBeforeCall(String locationId, Boolean leadQuestions, final ApiCallback _callback) throws ApiException {
+        return consumerV1CustomersCustomfieldsGetCall(locationId, leadQuestions, _callback);
 
     }
 
     /**
-     * 
-     * Generate report of the number of devices expiring in each month of the selected time frame. Devices are grouped by auto update expiration date and model. Further information can be found [here](https://support.google.com/chrome/a/answer/10564947).
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param maxAueDate Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or earlier than the maximum date. (optional)
-     * @param minAueDate Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or later than the minimum date. (optional)
-     * @param orgUnitId Optional. The organizational unit ID, if omitted, will return data for all organizational units. (optional)
-     * @return GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse
+     * Get Customer Custom Fields
+     * &lt;p&gt;Use this endpoint to return &lt;b&gt;Customer Custom Fields&lt;/b&gt;. Customer custom fields are stored with the customer object. They are used when the information collected during the booking is specific to a particular customer.&lt;/p&gt;
+     * @param locationId id of business location, defaults to primary business location (optional)
+     * @param leadQuestions A true/false indicator to filter on custom fields used for lead questions (optional)
+     * @return CustomFieldDefinitionListViewModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String maxAueDate, String minAueDate, String orgUnitId) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse> localVarResp = chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDateWithHttpInfo(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, maxAueDate, minAueDate, orgUnitId);
+    public CustomFieldDefinitionListViewModel consumerV1CustomersCustomfieldsGet(String locationId, Boolean leadQuestions) throws ApiException {
+        ApiResponse<CustomFieldDefinitionListViewModel> localVarResp = consumerV1CustomersCustomfieldsGetWithHttpInfo(locationId, leadQuestions);
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * Generate report of the number of devices expiring in each month of the selected time frame. Devices are grouped by auto update expiration date and model. Further information can be found [here](https://support.google.com/chrome/a/answer/10564947).
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param maxAueDate Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or earlier than the maximum date. (optional)
-     * @param minAueDate Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or later than the minimum date. (optional)
-     * @param orgUnitId Optional. The organizational unit ID, if omitted, will return data for all organizational units. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse&gt;
+     * Get Customer Custom Fields
+     * &lt;p&gt;Use this endpoint to return &lt;b&gt;Customer Custom Fields&lt;/b&gt;. Customer custom fields are stored with the customer object. They are used when the information collected during the booking is specific to a particular customer.&lt;/p&gt;
+     * @param locationId id of business location, defaults to primary business location (optional)
+     * @param leadQuestions A true/false indicator to filter on custom fields used for lead questions (optional)
+     * @return ApiResponse&lt;CustomFieldDefinitionListViewModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse> chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDateWithHttpInfo(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String maxAueDate, String minAueDate, String orgUnitId) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDateValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, maxAueDate, minAueDate, orgUnitId, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse>(){}.getType();
+    public ApiResponse<CustomFieldDefinitionListViewModel> consumerV1CustomersCustomfieldsGetWithHttpInfo(String locationId, Boolean leadQuestions) throws ApiException {
+        okhttp3.Call localVarCall = consumerV1CustomersCustomfieldsGetValidateBeforeCall(locationId, leadQuestions, null);
+        Type localVarReturnType = new TypeToken<CustomFieldDefinitionListViewModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * Generate report of the number of devices expiring in each month of the selected time frame. Devices are grouped by auto update expiration date and model. Further information can be found [here](https://support.google.com/chrome/a/answer/10564947).
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param maxAueDate Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or earlier than the maximum date. (optional)
-     * @param minAueDate Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or later than the minimum date. (optional)
-     * @param orgUnitId Optional. The organizational unit ID, if omitted, will return data for all organizational units. (optional)
+     * Get Customer Custom Fields (asynchronously)
+     * &lt;p&gt;Use this endpoint to return &lt;b&gt;Customer Custom Fields&lt;/b&gt;. Customer custom fields are stored with the customer object. They are used when the information collected during the booking is specific to a particular customer.&lt;/p&gt;
+     * @param locationId id of business location, defaults to primary business location (optional)
+     * @param leadQuestions A true/false indicator to filter on custom fields used for lead questions (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDateAsync(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String maxAueDate, String minAueDate, String orgUnitId, final ApiCallback<GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse> _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersCustomfieldsGetAsync(String locationId, Boolean leadQuestions, final ApiCallback<CustomFieldDefinitionListViewModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDateValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, maxAueDate, minAueDate, orgUnitId, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse>(){}.getType();
+        okhttp3.Call localVarCall = consumerV1CustomersCustomfieldsGetValidateBeforeCall(locationId, leadQuestions, _callback);
+        Type localVarReturnType = new TypeToken<CustomFieldDefinitionListViewModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
-     * @param readMask Required. Mask of the fields that should be populated in the returned report. (optional)
+     * Build call for consumerV1CustomersGet
+     * @param locationId id of business location, defaults to primary business location (optional)
+     * @param groupId Filter by groupId (optional)
+     * @param email Filter by email address (optional)
+     * @param lastname Filter by lastname (optional)
+     * @param deleted Filter by deleted status (optional)
+     * @param offset Starting row of page, default 0 (optional)
+     * @param limit Page limit default 20, max 100 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountChromeDevicesThatNeedAttentionCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, String readMask, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersGetCall(String locationId, String groupId, String email, String lastname, Boolean deleted, Integer offset, Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -822,8 +477,7 @@ public class CustomersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{customer}/reports:countChromeDevicesThatNeedAttention"
-            .replace("{" + "customer" + "}", localVarApiClient.escapeString(customer.toString()));
+        String localVarPath = "/consumer/v1/customers";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -831,56 +485,32 @@ public class CustomersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        if (locationId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("locationId", locationId));
         }
 
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        if (groupId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("groupId", groupId));
         }
 
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        if (email != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("email", email));
         }
 
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        if (lastname != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("lastname", lastname));
         }
 
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        if (deleted != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("deleted", deleted));
         }
 
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
         }
 
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (orgUnitId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orgUnitId", orgUnitId));
-        }
-
-        if (readMask != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("readMask", readMask));
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
         final String[] localVarAccepts = {
@@ -898,141 +528,102 @@ public class CustomersApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        String[] localVarAuthNames = new String[] { "oauth2" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersReportsCountChromeDevicesThatNeedAttentionValidateBeforeCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, String readMask, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customer' is set
-        if (customer == null) {
-            throw new ApiException("Missing the required parameter 'customer' when calling chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention(Async)");
-        }
-
-        return chromemanagementCustomersReportsCountChromeDevicesThatNeedAttentionCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask, _callback);
+    private okhttp3.Call consumerV1CustomersGetValidateBeforeCall(String locationId, String groupId, String email, String lastname, Boolean deleted, Integer offset, Integer limit, final ApiCallback _callback) throws ApiException {
+        return consumerV1CustomersGetCall(locationId, groupId, email, lastname, deleted, offset, limit, _callback);
 
     }
 
     /**
-     * 
-     * Counts of ChromeOS devices that have not synced policies or have lacked user activity in the past 28 days, are out of date, or are not complaint. Further information can be found here https://support.google.com/chrome/a/answer/10564947
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
-     * @param readMask Required. Mask of the fields that should be populated in the returned report. (optional)
-     * @return GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse
+     * List Customers
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Customers&lt;/b&gt;. The results are returned in pages. Use the offset and limit parameters to control the page start and number of results. Default offset is 0, limit is 20, max is 100. Use the query parameters to filter the results further.&lt;/p&gt;
+     * @param locationId id of business location, defaults to primary business location (optional)
+     * @param groupId Filter by groupId (optional)
+     * @param email Filter by email address (optional)
+     * @param lastname Filter by lastname (optional)
+     * @param deleted Filter by deleted status (optional)
+     * @param offset Starting row of page, default 0 (optional)
+     * @param limit Page limit default 20, max 100 (optional)
+     * @return CustomerListViewModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, String readMask) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse> localVarResp = chromemanagementCustomersReportsCountChromeDevicesThatNeedAttentionWithHttpInfo(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask);
+    public CustomerListViewModel consumerV1CustomersGet(String locationId, String groupId, String email, String lastname, Boolean deleted, Integer offset, Integer limit) throws ApiException {
+        ApiResponse<CustomerListViewModel> localVarResp = consumerV1CustomersGetWithHttpInfo(locationId, groupId, email, lastname, deleted, offset, limit);
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * Counts of ChromeOS devices that have not synced policies or have lacked user activity in the past 28 days, are out of date, or are not complaint. Further information can be found here https://support.google.com/chrome/a/answer/10564947
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
-     * @param readMask Required. Mask of the fields that should be populated in the returned report. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse&gt;
+     * List Customers
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Customers&lt;/b&gt;. The results are returned in pages. Use the offset and limit parameters to control the page start and number of results. Default offset is 0, limit is 20, max is 100. Use the query parameters to filter the results further.&lt;/p&gt;
+     * @param locationId id of business location, defaults to primary business location (optional)
+     * @param groupId Filter by groupId (optional)
+     * @param email Filter by email address (optional)
+     * @param lastname Filter by lastname (optional)
+     * @param deleted Filter by deleted status (optional)
+     * @param offset Starting row of page, default 0 (optional)
+     * @param limit Page limit default 20, max 100 (optional)
+     * @return ApiResponse&lt;CustomerListViewModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse> chromemanagementCustomersReportsCountChromeDevicesThatNeedAttentionWithHttpInfo(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, String readMask) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountChromeDevicesThatNeedAttentionValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse>(){}.getType();
+    public ApiResponse<CustomerListViewModel> consumerV1CustomersGetWithHttpInfo(String locationId, String groupId, String email, String lastname, Boolean deleted, Integer offset, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = consumerV1CustomersGetValidateBeforeCall(locationId, groupId, email, lastname, deleted, offset, limit, null);
+        Type localVarReturnType = new TypeToken<CustomerListViewModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * Counts of ChromeOS devices that have not synced policies or have lacked user activity in the past 28 days, are out of date, or are not complaint. Further information can be found here https://support.google.com/chrome/a/answer/10564947
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
-     * @param readMask Required. Mask of the fields that should be populated in the returned report. (optional)
+     * List Customers (asynchronously)
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Customers&lt;/b&gt;. The results are returned in pages. Use the offset and limit parameters to control the page start and number of results. Default offset is 0, limit is 20, max is 100. Use the query parameters to filter the results further.&lt;/p&gt;
+     * @param locationId id of business location, defaults to primary business location (optional)
+     * @param groupId Filter by groupId (optional)
+     * @param email Filter by email address (optional)
+     * @param lastname Filter by lastname (optional)
+     * @param deleted Filter by deleted status (optional)
+     * @param offset Starting row of page, default 0 (optional)
+     * @param limit Page limit default 20, max 100 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountChromeDevicesThatNeedAttentionAsync(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, String readMask, final ApiCallback<GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse> _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersGetAsync(String locationId, String groupId, String email, String lastname, Boolean deleted, Integer offset, Integer limit, final ApiCallback<CustomerListViewModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountChromeDevicesThatNeedAttentionValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse>(){}.getType();
+        okhttp3.Call localVarCall = consumerV1CustomersGetValidateBeforeCall(locationId, groupId, email, lastname, deleted, offset, limit, _callback);
+        Type localVarReturnType = new TypeToken<CustomerListViewModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for chromemanagementCustomersReportsCountChromeHardwareFleetDevices
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
-     * @param readMask Required. Mask of the fields that should be populated in the returned report. (optional)
+     * Build call for consumerV1CustomersIdDelete
+     * @param id id of customer object (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountChromeHardwareFleetDevicesCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, String readMask, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersIdDeleteCall(String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1049,8 +640,8 @@ public class CustomersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{customer}/reports:countChromeHardwareFleetDevices"
-            .replace("{" + "customer" + "}", localVarApiClient.escapeString(customer.toString()));
+        String localVarPath = "/consumer/v1/customers/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1058,57 +649,123 @@ public class CustomersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        final String[] localVarAccepts = {
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        String[] localVarAuthNames = new String[] { "oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call consumerV1CustomersIdDeleteValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling consumerV1CustomersIdDelete(Async)");
         }
 
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        return consumerV1CustomersIdDeleteCall(id, _callback);
+
+    }
+
+    /**
+     * Delete Customer
+     * &lt;p&gt;Use this endpoint to permanently &lt;b&gt;Delete&lt;/b&gt; a Customer object. A valid &lt;b&gt;customer id&lt;/b&gt; is required.&lt;/p&gt;
+     * @param id id of customer object (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public void consumerV1CustomersIdDelete(String id) throws ApiException {
+        consumerV1CustomersIdDeleteWithHttpInfo(id);
+    }
+
+    /**
+     * Delete Customer
+     * &lt;p&gt;Use this endpoint to permanently &lt;b&gt;Delete&lt;/b&gt; a Customer object. A valid &lt;b&gt;customer id&lt;/b&gt; is required.&lt;/p&gt;
+     * @param id id of customer object (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> consumerV1CustomersIdDeleteWithHttpInfo(String id) throws ApiException {
+        okhttp3.Call localVarCall = consumerV1CustomersIdDeleteValidateBeforeCall(id, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete Customer (asynchronously)
+     * &lt;p&gt;Use this endpoint to permanently &lt;b&gt;Delete&lt;/b&gt; a Customer object. A valid &lt;b&gt;customer id&lt;/b&gt; is required.&lt;/p&gt;
+     * @param id id of customer object (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call consumerV1CustomersIdDeleteAsync(String id, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = consumerV1CustomersIdDeleteValidateBeforeCall(id, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for consumerV1CustomersIdGet
+     * @param id id of customer object (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call consumerV1CustomersIdGetCall(String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
         }
 
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
+        Object localVarPostBody = null;
 
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
+        // create path and map variables
+        String localVarPath = "/consumer/v1/customers/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (orgUnitId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orgUnitId", orgUnitId));
-        }
-
-        if (readMask != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("readMask", readMask));
-        }
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1125,143 +782,90 @@ public class CustomersApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        String[] localVarAuthNames = new String[] { "oauth2" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersReportsCountChromeHardwareFleetDevicesValidateBeforeCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, String readMask, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customer' is set
-        if (customer == null) {
-            throw new ApiException("Missing the required parameter 'customer' when calling chromemanagementCustomersReportsCountChromeHardwareFleetDevices(Async)");
+    private okhttp3.Call consumerV1CustomersIdGetValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling consumerV1CustomersIdGet(Async)");
         }
 
-        return chromemanagementCustomersReportsCountChromeHardwareFleetDevicesCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask, _callback);
+        return consumerV1CustomersIdGetCall(id, _callback);
 
     }
 
     /**
-     * 
-     * Counts of devices with a specific hardware specification from the requested hardware type (for example model name, processor type). Further information can be found here https://support.google.com/chrome/a/answer/10564947
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
-     * @param readMask Required. Mask of the fields that should be populated in the returned report. (optional)
-     * @return GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse
+     * Get Customer
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;Customer&lt;/b&gt; object. A valid &lt;b&gt;customer id&lt;/b&gt; is required. Find customer id&#39;s by using the &lt;i&gt;GET /consumer/v1/customers&lt;/i&gt; endpoint.&lt;/p&gt;
+     * @param id id of customer object (required)
+     * @return CustomerViewModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse chromemanagementCustomersReportsCountChromeHardwareFleetDevices(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, String readMask) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse> localVarResp = chromemanagementCustomersReportsCountChromeHardwareFleetDevicesWithHttpInfo(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask);
+    public CustomerViewModel consumerV1CustomersIdGet(String id) throws ApiException {
+        ApiResponse<CustomerViewModel> localVarResp = consumerV1CustomersIdGetWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * Counts of devices with a specific hardware specification from the requested hardware type (for example model name, processor type). Further information can be found here https://support.google.com/chrome/a/answer/10564947
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
-     * @param readMask Required. Mask of the fields that should be populated in the returned report. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse&gt;
+     * Get Customer
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;Customer&lt;/b&gt; object. A valid &lt;b&gt;customer id&lt;/b&gt; is required. Find customer id&#39;s by using the &lt;i&gt;GET /consumer/v1/customers&lt;/i&gt; endpoint.&lt;/p&gt;
+     * @param id id of customer object (required)
+     * @return ApiResponse&lt;CustomerViewModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse> chromemanagementCustomersReportsCountChromeHardwareFleetDevicesWithHttpInfo(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, String readMask) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountChromeHardwareFleetDevicesValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse>(){}.getType();
+    public ApiResponse<CustomerViewModel> consumerV1CustomersIdGetWithHttpInfo(String id) throws ApiException {
+        okhttp3.Call localVarCall = consumerV1CustomersIdGetValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<CustomerViewModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * Counts of devices with a specific hardware specification from the requested hardware type (for example model name, processor type). Further information can be found here https://support.google.com/chrome/a/answer/10564947
-     * @param customer Required. The customer ID or \&quot;my_customer\&quot;. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param orgUnitId Optional. The ID of the organizational unit. If omitted, all data will be returned. (optional)
-     * @param readMask Required. Mask of the fields that should be populated in the returned report. (optional)
+     * Get Customer (asynchronously)
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;Customer&lt;/b&gt; object. A valid &lt;b&gt;customer id&lt;/b&gt; is required. Find customer id&#39;s by using the &lt;i&gt;GET /consumer/v1/customers&lt;/i&gt; endpoint.&lt;/p&gt;
+     * @param id id of customer object (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountChromeHardwareFleetDevicesAsync(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String orgUnitId, String readMask, final ApiCallback<GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse> _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersIdGetAsync(String id, final ApiCallback<CustomerViewModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountChromeHardwareFleetDevicesValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse>(){}.getType();
+        okhttp3.Call localVarCall = consumerV1CustomersIdGetValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<CustomerViewModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for chromemanagementCustomersReportsCountChromeVersions
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
+     * Build call for consumerV1CustomersIdPut
+     * @param id id of customer object (required)
+     * @param customerUpdateModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountChromeVersionsCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersIdPutCall(String id, CustomerUpdateModel customerUpdateModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1275,11 +879,11 @@ public class CustomersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = customerUpdateModel;
 
         // create path and map variables
-        String localVarPath = "/v1/{customer}/reports:countChromeVersions"
-            .replace("{" + "customer" + "}", localVarApiClient.escapeString(customer.toString()));
+        String localVarPath = "/consumer/v1/customers/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1287,65 +891,129 @@ public class CustomersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        final String[] localVarAccepts = {
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        final String[] localVarContentTypes = {
+            "application/*+json",
+            "application/json",
+            "application/json-patch+json",
+            "text/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        String[] localVarAuthNames = new String[] { "oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call consumerV1CustomersIdPutValidateBeforeCall(String id, CustomerUpdateModel customerUpdateModel, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling consumerV1CustomersIdPut(Async)");
         }
 
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        return consumerV1CustomersIdPutCall(id, customerUpdateModel, _callback);
+
+    }
+
+    /**
+     * Update Customer
+     * &lt;p&gt;Use this endpoint to &lt;b&gt;Update&lt;/b&gt; a Customer object. A valid &lt;b&gt;customer id&lt;/b&gt; is required. Note: Blank fields are not changed.&lt;/p&gt;
+     * @param id id of customer object (required)
+     * @param customerUpdateModel  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public void consumerV1CustomersIdPut(String id, CustomerUpdateModel customerUpdateModel) throws ApiException {
+        consumerV1CustomersIdPutWithHttpInfo(id, customerUpdateModel);
+    }
+
+    /**
+     * Update Customer
+     * &lt;p&gt;Use this endpoint to &lt;b&gt;Update&lt;/b&gt; a Customer object. A valid &lt;b&gt;customer id&lt;/b&gt; is required. Note: Blank fields are not changed.&lt;/p&gt;
+     * @param id id of customer object (required)
+     * @param customerUpdateModel  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> consumerV1CustomersIdPutWithHttpInfo(String id, CustomerUpdateModel customerUpdateModel) throws ApiException {
+        okhttp3.Call localVarCall = consumerV1CustomersIdPutValidateBeforeCall(id, customerUpdateModel, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Update Customer (asynchronously)
+     * &lt;p&gt;Use this endpoint to &lt;b&gt;Update&lt;/b&gt; a Customer object. A valid &lt;b&gt;customer id&lt;/b&gt; is required. Note: Blank fields are not changed.&lt;/p&gt;
+     * @param id id of customer object (required)
+     * @param customerUpdateModel  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call consumerV1CustomersIdPutAsync(String id, CustomerUpdateModel customerUpdateModel, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = consumerV1CustomersIdPutValidateBeforeCall(id, customerUpdateModel, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for consumerV1CustomersPost
+     * @param customerInputModel  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call consumerV1CustomersPostCall(CustomerInputModel customerInputModel, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
         }
 
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
+        Object localVarPostBody = customerInputModel;
 
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
+        // create path and map variables
+        String localVarPath = "/consumer/v1/customers";
 
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
-        }
-
-        if (orgUnitId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orgUnitId", orgUnitId));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
-        }
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1356,156 +1024,94 @@ public class CustomersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/*+json",
+            "application/json",
+            "application/json-patch+json",
+            "text/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        String[] localVarAuthNames = new String[] { "oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersReportsCountChromeVersionsValidateBeforeCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customer' is set
-        if (customer == null) {
-            throw new ApiException("Missing the required parameter 'customer' when calling chromemanagementCustomersReportsCountChromeVersions(Async)");
-        }
-
-        return chromemanagementCustomersReportsCountChromeVersionsCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orgUnitId, pageSize, pageToken, _callback);
+    private okhttp3.Call consumerV1CustomersPostValidateBeforeCall(CustomerInputModel customerInputModel, final ApiCallback _callback) throws ApiException {
+        return consumerV1CustomersPostCall(customerInputModel, _callback);
 
     }
 
     /**
-     * 
-     * Generate report of installed Chrome versions.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
-     * @return GoogleChromeManagementV1CountChromeVersionsResponse
+     * Create Customer
+     * &lt;p&gt;Use this endpoint to &lt;b&gt;Create&lt;/b&gt; a new Customer. A customer object is automatically created with the first appointment booking if it doesn&#39;t already exist. If not specified, the business location id defaults to the primary business location.&lt;/p&gt;  &lt;p&gt;Required Fields: &lt;b&gt;Email&lt;/b&gt; and &lt;b&gt;Name&lt;/b&gt; or &lt;b&gt;First and Lastname&lt;/b&gt; depending on customer type. Type 0 &#x3D; Person, Type 1 &#x3D; Business. For type 0, the firstname and lastname fields are used. For type 1, the Name field is used, and the name field is also used to populate the lastname.&lt;/p&gt;
+     * @param customerInputModel  (optional)
+     * @return CustomerViewModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public GoogleChromeManagementV1CountChromeVersionsResponse chromemanagementCustomersReportsCountChromeVersions(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orgUnitId, Integer pageSize, String pageToken) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1CountChromeVersionsResponse> localVarResp = chromemanagementCustomersReportsCountChromeVersionsWithHttpInfo(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orgUnitId, pageSize, pageToken);
+    public CustomerViewModel consumerV1CustomersPost(CustomerInputModel customerInputModel) throws ApiException {
+        ApiResponse<CustomerViewModel> localVarResp = consumerV1CustomersPostWithHttpInfo(customerInputModel);
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * Generate report of installed Chrome versions.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1CountChromeVersionsResponse&gt;
+     * Create Customer
+     * &lt;p&gt;Use this endpoint to &lt;b&gt;Create&lt;/b&gt; a new Customer. A customer object is automatically created with the first appointment booking if it doesn&#39;t already exist. If not specified, the business location id defaults to the primary business location.&lt;/p&gt;  &lt;p&gt;Required Fields: &lt;b&gt;Email&lt;/b&gt; and &lt;b&gt;Name&lt;/b&gt; or &lt;b&gt;First and Lastname&lt;/b&gt; depending on customer type. Type 0 &#x3D; Person, Type 1 &#x3D; Business. For type 0, the firstname and lastname fields are used. For type 1, the Name field is used, and the name field is also used to populate the lastname.&lt;/p&gt;
+     * @param customerInputModel  (optional)
+     * @return ApiResponse&lt;CustomerViewModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GoogleChromeManagementV1CountChromeVersionsResponse> chromemanagementCustomersReportsCountChromeVersionsWithHttpInfo(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orgUnitId, Integer pageSize, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountChromeVersionsValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orgUnitId, pageSize, pageToken, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeVersionsResponse>(){}.getType();
+    public ApiResponse<CustomerViewModel> consumerV1CustomersPostWithHttpInfo(CustomerInputModel customerInputModel) throws ApiException {
+        okhttp3.Call localVarCall = consumerV1CustomersPostValidateBeforeCall(customerInputModel, null);
+        Type localVarReturnType = new TypeToken<CustomerViewModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * Generate report of installed Chrome versions.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
+     * Create Customer (asynchronously)
+     * &lt;p&gt;Use this endpoint to &lt;b&gt;Create&lt;/b&gt; a new Customer. A customer object is automatically created with the first appointment booking if it doesn&#39;t already exist. If not specified, the business location id defaults to the primary business location.&lt;/p&gt;  &lt;p&gt;Required Fields: &lt;b&gt;Email&lt;/b&gt; and &lt;b&gt;Name&lt;/b&gt; or &lt;b&gt;First and Lastname&lt;/b&gt; depending on customer type. Type 0 &#x3D; Person, Type 1 &#x3D; Business. For type 0, the firstname and lastname fields are used. For type 1, the Name field is used, and the name field is also used to populate the lastname.&lt;/p&gt;
+     * @param customerInputModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountChromeVersionsAsync(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback<GoogleChromeManagementV1CountChromeVersionsResponse> _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersPostAsync(CustomerInputModel customerInputModel, final ApiCallback<CustomerViewModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountChromeVersionsValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orgUnitId, pageSize, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountChromeVersionsResponse>(){}.getType();
+        okhttp3.Call localVarCall = consumerV1CustomersPostValidateBeforeCall(customerInputModel, _callback);
+        Type localVarReturnType = new TypeToken<CustomerViewModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for chromemanagementCustomersReportsCountInstalledApps
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * latest_profile_active_date * permission_name * app_id (optional)
-     * @param orderBy Field used to order results. Supported order by fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * app_id (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
+     * Build call for consumerV1CustomersStatesGet
+     * @param country  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountInstalledAppsCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orderBy, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersStatesGetCall(String country, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1522,8 +1128,7 @@ public class CustomersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{customer}/reports:countInstalledApps"
-            .replace("{" + "customer" + "}", localVarApiClient.escapeString(customer.toString()));
+        String localVarPath = "/consumer/v1/customers/states";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1531,68 +1136,8 @@ public class CustomersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
-        }
-
-        if (orderBy != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orderBy", orderBy));
-        }
-
-        if (orgUnitId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orgUnitId", orgUnitId));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
+        if (country != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("country", country));
         }
 
         final String[] localVarAccepts = {
@@ -1610,1336 +1155,68 @@ public class CustomersApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        String[] localVarAuthNames = new String[] { "oauth2" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersReportsCountInstalledAppsValidateBeforeCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orderBy, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customer' is set
-        if (customer == null) {
-            throw new ApiException("Missing the required parameter 'customer' when calling chromemanagementCustomersReportsCountInstalledApps(Async)");
-        }
-
-        return chromemanagementCustomersReportsCountInstalledAppsCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, orgUnitId, pageSize, pageToken, _callback);
+    private okhttp3.Call consumerV1CustomersStatesGetValidateBeforeCall(String country, final ApiCallback _callback) throws ApiException {
+        return consumerV1CustomersStatesGetCall(country, _callback);
 
     }
 
     /**
-     * 
-     * Generate report of app installations.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * latest_profile_active_date * permission_name * app_id (optional)
-     * @param orderBy Field used to order results. Supported order by fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * app_id (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
-     * @return GoogleChromeManagementV1CountInstalledAppsResponse
+     * List Country States
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Countries with their associated State Codes&lt;/b&gt;. Supply a country code to filter results further. If states for your countries of operation are not currently listed, contact us at &lt;i&gt;&lt;b&gt;support@onsched.com&lt;/b&gt;&lt;/i&gt;.&lt;/p&gt;
+     * @param country  (optional)
+     * @return List&lt;StateViewModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public GoogleChromeManagementV1CountInstalledAppsResponse chromemanagementCustomersReportsCountInstalledApps(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orderBy, String orgUnitId, Integer pageSize, String pageToken) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1CountInstalledAppsResponse> localVarResp = chromemanagementCustomersReportsCountInstalledAppsWithHttpInfo(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, orgUnitId, pageSize, pageToken);
+    public List<StateViewModel> consumerV1CustomersStatesGet(String country) throws ApiException {
+        ApiResponse<List<StateViewModel>> localVarResp = consumerV1CustomersStatesGetWithHttpInfo(country);
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * Generate report of app installations.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * latest_profile_active_date * permission_name * app_id (optional)
-     * @param orderBy Field used to order results. Supported order by fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * app_id (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1CountInstalledAppsResponse&gt;
+     * List Country States
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Countries with their associated State Codes&lt;/b&gt;. Supply a country code to filter results further. If states for your countries of operation are not currently listed, contact us at &lt;i&gt;&lt;b&gt;support@onsched.com&lt;/b&gt;&lt;/i&gt;.&lt;/p&gt;
+     * @param country  (optional)
+     * @return ApiResponse&lt;List&lt;StateViewModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GoogleChromeManagementV1CountInstalledAppsResponse> chromemanagementCustomersReportsCountInstalledAppsWithHttpInfo(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orderBy, String orgUnitId, Integer pageSize, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountInstalledAppsValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, orgUnitId, pageSize, pageToken, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountInstalledAppsResponse>(){}.getType();
+    public ApiResponse<List<StateViewModel>> consumerV1CustomersStatesGetWithHttpInfo(String country) throws ApiException {
+        okhttp3.Call localVarCall = consumerV1CustomersStatesGetValidateBeforeCall(country, null);
+        Type localVarReturnType = new TypeToken<List<StateViewModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * Generate report of app installations.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * latest_profile_active_date * permission_name * app_id (optional)
-     * @param orderBy Field used to order results. Supported order by fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * app_id (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
+     * List Country States (asynchronously)
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Countries with their associated State Codes&lt;/b&gt;. Supply a country code to filter results further. If states for your countries of operation are not currently listed, contact us at &lt;i&gt;&lt;b&gt;support@onsched.com&lt;/b&gt;&lt;/i&gt;.&lt;/p&gt;
+     * @param country  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chromemanagementCustomersReportsCountInstalledAppsAsync(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orderBy, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback<GoogleChromeManagementV1CountInstalledAppsResponse> _callback) throws ApiException {
+    public okhttp3.Call consumerV1CustomersStatesGetAsync(String country, final ApiCallback<List<StateViewModel>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsCountInstalledAppsValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, orgUnitId, pageSize, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1CountInstalledAppsResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for chromemanagementCustomersReportsFindInstalledAppDevices
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param appId Unique identifier of the app. For Chrome apps and extensions, the 32-character id (e.g. ehoadneljpdggcbbknedodolkkjodefl). For Android apps, the package name (e.g. com.evernote). (optional)
-     * @param appType Type of the app. (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date (optional)
-     * @param orderBy Field used to order results. Supported order by fields: * machine * device_id (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call chromemanagementCustomersReportsFindInstalledAppDevicesCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String appId, String appType, String filter, String orderBy, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/{customer}/reports:findInstalledAppDevices"
-            .replace("{" + "customer" + "}", localVarApiClient.escapeString(customer.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (appId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("appId", appId));
-        }
-
-        if (appType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("appType", appType));
-        }
-
-        if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
-        }
-
-        if (orderBy != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orderBy", orderBy));
-        }
-
-        if (orgUnitId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orgUnitId", orgUnitId));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersReportsFindInstalledAppDevicesValidateBeforeCall(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String appId, String appType, String filter, String orderBy, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customer' is set
-        if (customer == null) {
-            throw new ApiException("Missing the required parameter 'customer' when calling chromemanagementCustomersReportsFindInstalledAppDevices(Async)");
-        }
-
-        return chromemanagementCustomersReportsFindInstalledAppDevicesCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, appId, appType, filter, orderBy, orgUnitId, pageSize, pageToken, _callback);
-
-    }
-
-    /**
-     * 
-     * Generate report of managed Chrome browser devices that have a specified app installed.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param appId Unique identifier of the app. For Chrome apps and extensions, the 32-character id (e.g. ehoadneljpdggcbbknedodolkkjodefl). For Android apps, the package name (e.g. com.evernote). (optional)
-     * @param appType Type of the app. (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date (optional)
-     * @param orderBy Field used to order results. Supported order by fields: * machine * device_id (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
-     * @return GoogleChromeManagementV1FindInstalledAppDevicesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public GoogleChromeManagementV1FindInstalledAppDevicesResponse chromemanagementCustomersReportsFindInstalledAppDevices(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String appId, String appType, String filter, String orderBy, String orgUnitId, Integer pageSize, String pageToken) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1FindInstalledAppDevicesResponse> localVarResp = chromemanagementCustomersReportsFindInstalledAppDevicesWithHttpInfo(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, appId, appType, filter, orderBy, orgUnitId, pageSize, pageToken);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * Generate report of managed Chrome browser devices that have a specified app installed.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param appId Unique identifier of the app. For Chrome apps and extensions, the 32-character id (e.g. ehoadneljpdggcbbknedodolkkjodefl). For Android apps, the package name (e.g. com.evernote). (optional)
-     * @param appType Type of the app. (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date (optional)
-     * @param orderBy Field used to order results. Supported order by fields: * machine * device_id (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1FindInstalledAppDevicesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GoogleChromeManagementV1FindInstalledAppDevicesResponse> chromemanagementCustomersReportsFindInstalledAppDevicesWithHttpInfo(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String appId, String appType, String filter, String orderBy, String orgUnitId, Integer pageSize, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsFindInstalledAppDevicesValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, appId, appType, filter, orderBy, orgUnitId, pageSize, pageToken, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1FindInstalledAppDevicesResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * Generate report of managed Chrome browser devices that have a specified app installed.
-     * @param customer Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param appId Unique identifier of the app. For Chrome apps and extensions, the 32-character id (e.g. ehoadneljpdggcbbknedodolkkjodefl). For Android apps, the package name (e.g. com.evernote). (optional)
-     * @param appType Type of the app. (optional)
-     * @param filter Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date (optional)
-     * @param orderBy Field used to order results. Supported order by fields: * machine * device_id (optional)
-     * @param orgUnitId The ID of the organizational unit. (optional)
-     * @param pageSize Maximum number of results to return. Maximum and default are 100. (optional)
-     * @param pageToken Token to specify the page of the request to be returned. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call chromemanagementCustomersReportsFindInstalledAppDevicesAsync(String customer, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String appId, String appType, String filter, String orderBy, String orgUnitId, Integer pageSize, String pageToken, final ApiCallback<GoogleChromeManagementV1FindInstalledAppDevicesResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = chromemanagementCustomersReportsFindInstalledAppDevicesValidateBeforeCall(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, appId, appType, filter, orderBy, orgUnitId, pageSize, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1FindInstalledAppDevicesResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for chromemanagementCustomersTelemetryDevicesList
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Optional. Only include resources that match the filter. Supported filter fields: - org_unit_id - serial_number - device_id - reports_timestamp The \&quot;reports_timestamp\&quot; filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \&quot;Zulu\&quot; format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \&quot;2014-10-02T15:01:23Z\&quot;, \&quot;2014-10-02T15:01:23.045123456Z\&quot;, \&quot;1679283943823\&quot;. (optional)
-     * @param pageSize Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Token to specify next page in the list. (optional)
-     * @param readMask Required. Read mask to specify which fields to return. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call chromemanagementCustomersTelemetryDevicesListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/{parent}/telemetry/devices"
-            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
-        }
-
-        if (readMask != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("readMask", readMask));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersTelemetryDevicesListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'parent' is set
-        if (parent == null) {
-            throw new ApiException("Missing the required parameter 'parent' when calling chromemanagementCustomersTelemetryDevicesList(Async)");
-        }
-
-        return chromemanagementCustomersTelemetryDevicesListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask, _callback);
-
-    }
-
-    /**
-     * 
-     * List all telemetry devices.
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Optional. Only include resources that match the filter. Supported filter fields: - org_unit_id - serial_number - device_id - reports_timestamp The \&quot;reports_timestamp\&quot; filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \&quot;Zulu\&quot; format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \&quot;2014-10-02T15:01:23Z\&quot;, \&quot;2014-10-02T15:01:23.045123456Z\&quot;, \&quot;1679283943823\&quot;. (optional)
-     * @param pageSize Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Token to specify next page in the list. (optional)
-     * @param readMask Required. Read mask to specify which fields to return. (optional)
-     * @return GoogleChromeManagementV1ListTelemetryDevicesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public GoogleChromeManagementV1ListTelemetryDevicesResponse chromemanagementCustomersTelemetryDevicesList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1ListTelemetryDevicesResponse> localVarResp = chromemanagementCustomersTelemetryDevicesListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * List all telemetry devices.
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Optional. Only include resources that match the filter. Supported filter fields: - org_unit_id - serial_number - device_id - reports_timestamp The \&quot;reports_timestamp\&quot; filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \&quot;Zulu\&quot; format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \&quot;2014-10-02T15:01:23Z\&quot;, \&quot;2014-10-02T15:01:23.045123456Z\&quot;, \&quot;1679283943823\&quot;. (optional)
-     * @param pageSize Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Token to specify next page in the list. (optional)
-     * @param readMask Required. Read mask to specify which fields to return. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1ListTelemetryDevicesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GoogleChromeManagementV1ListTelemetryDevicesResponse> chromemanagementCustomersTelemetryDevicesListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersTelemetryDevicesListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1ListTelemetryDevicesResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * List all telemetry devices.
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Optional. Only include resources that match the filter. Supported filter fields: - org_unit_id - serial_number - device_id - reports_timestamp The \&quot;reports_timestamp\&quot; filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \&quot;Zulu\&quot; format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \&quot;2014-10-02T15:01:23Z\&quot;, \&quot;2014-10-02T15:01:23.045123456Z\&quot;, \&quot;1679283943823\&quot;. (optional)
-     * @param pageSize Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Token to specify next page in the list. (optional)
-     * @param readMask Required. Read mask to specify which fields to return. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call chromemanagementCustomersTelemetryDevicesListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask, final ApiCallback<GoogleChromeManagementV1ListTelemetryDevicesResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = chromemanagementCustomersTelemetryDevicesListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1ListTelemetryDevicesResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for chromemanagementCustomersTelemetryEventsList
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Optional. Only include resources that match the filter. Supported filter fields: - device_id - user_id - device_org_unit_id - user_org_unit_id - timestamp - event_type The \&quot;timestamp\&quot; filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \&quot;Zulu\&quot; format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \&quot;2014-10-02T15:01:23Z\&quot;, \&quot;2014-10-02T15:01:23.045123456Z\&quot;, \&quot;1679283943823\&quot;. (optional)
-     * @param pageSize Optional. Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Optional. Token to specify next page in the list. (optional)
-     * @param readMask Required. Read mask to specify which fields to return. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call chromemanagementCustomersTelemetryEventsListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/{parent}/telemetry/events"
-            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
-        }
-
-        if (readMask != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("readMask", readMask));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersTelemetryEventsListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'parent' is set
-        if (parent == null) {
-            throw new ApiException("Missing the required parameter 'parent' when calling chromemanagementCustomersTelemetryEventsList(Async)");
-        }
-
-        return chromemanagementCustomersTelemetryEventsListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask, _callback);
-
-    }
-
-    /**
-     * 
-     * List telemetry events.
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Optional. Only include resources that match the filter. Supported filter fields: - device_id - user_id - device_org_unit_id - user_org_unit_id - timestamp - event_type The \&quot;timestamp\&quot; filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \&quot;Zulu\&quot; format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \&quot;2014-10-02T15:01:23Z\&quot;, \&quot;2014-10-02T15:01:23.045123456Z\&quot;, \&quot;1679283943823\&quot;. (optional)
-     * @param pageSize Optional. Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Optional. Token to specify next page in the list. (optional)
-     * @param readMask Required. Read mask to specify which fields to return. (optional)
-     * @return GoogleChromeManagementV1ListTelemetryEventsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public GoogleChromeManagementV1ListTelemetryEventsResponse chromemanagementCustomersTelemetryEventsList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1ListTelemetryEventsResponse> localVarResp = chromemanagementCustomersTelemetryEventsListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * List telemetry events.
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Optional. Only include resources that match the filter. Supported filter fields: - device_id - user_id - device_org_unit_id - user_org_unit_id - timestamp - event_type The \&quot;timestamp\&quot; filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \&quot;Zulu\&quot; format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \&quot;2014-10-02T15:01:23Z\&quot;, \&quot;2014-10-02T15:01:23.045123456Z\&quot;, \&quot;1679283943823\&quot;. (optional)
-     * @param pageSize Optional. Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Optional. Token to specify next page in the list. (optional)
-     * @param readMask Required. Read mask to specify which fields to return. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1ListTelemetryEventsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GoogleChromeManagementV1ListTelemetryEventsResponse> chromemanagementCustomersTelemetryEventsListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersTelemetryEventsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1ListTelemetryEventsResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * List telemetry events.
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Optional. Only include resources that match the filter. Supported filter fields: - device_id - user_id - device_org_unit_id - user_org_unit_id - timestamp - event_type The \&quot;timestamp\&quot; filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \&quot;Zulu\&quot; format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \&quot;2014-10-02T15:01:23Z\&quot;, \&quot;2014-10-02T15:01:23.045123456Z\&quot;, \&quot;1679283943823\&quot;. (optional)
-     * @param pageSize Optional. Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Optional. Token to specify next page in the list. (optional)
-     * @param readMask Required. Read mask to specify which fields to return. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call chromemanagementCustomersTelemetryEventsListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask, final ApiCallback<GoogleChromeManagementV1ListTelemetryEventsResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = chromemanagementCustomersTelemetryEventsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1ListTelemetryEventsResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for chromemanagementCustomersTelemetryUsersGet
-     * @param name Required. Name of the &#x60;TelemetryUser&#x60; to return. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param readMask Read mask to specify which fields to return. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call chromemanagementCustomersTelemetryUsersGetCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String readMask, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/{name}"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (readMask != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("readMask", readMask));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersTelemetryUsersGetValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String readMask, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling chromemanagementCustomersTelemetryUsersGet(Async)");
-        }
-
-        return chromemanagementCustomersTelemetryUsersGetCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, readMask, _callback);
-
-    }
-
-    /**
-     * 
-     * Get telemetry user.
-     * @param name Required. Name of the &#x60;TelemetryUser&#x60; to return. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param readMask Read mask to specify which fields to return. (optional)
-     * @return GoogleChromeManagementV1TelemetryUser
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public GoogleChromeManagementV1TelemetryUser chromemanagementCustomersTelemetryUsersGet(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String readMask) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1TelemetryUser> localVarResp = chromemanagementCustomersTelemetryUsersGetWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, readMask);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * Get telemetry user.
-     * @param name Required. Name of the &#x60;TelemetryUser&#x60; to return. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param readMask Read mask to specify which fields to return. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1TelemetryUser&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GoogleChromeManagementV1TelemetryUser> chromemanagementCustomersTelemetryUsersGetWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String readMask) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersTelemetryUsersGetValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, readMask, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1TelemetryUser>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * Get telemetry user.
-     * @param name Required. Name of the &#x60;TelemetryUser&#x60; to return. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param readMask Read mask to specify which fields to return. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call chromemanagementCustomersTelemetryUsersGetAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String readMask, final ApiCallback<GoogleChromeManagementV1TelemetryUser> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = chromemanagementCustomersTelemetryUsersGetValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, readMask, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1TelemetryUser>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for chromemanagementCustomersTelemetryUsersList
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Only include resources that match the filter. Supported filter fields: - user_id - user_org_unit_id  (optional)
-     * @param pageSize Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Token to specify next page in the list. (optional)
-     * @param readMask Read mask to specify which fields to return. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call chromemanagementCustomersTelemetryUsersListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/{parent}/telemetry/users"
-            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
-        }
-
-        if (readMask != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("readMask", readMask));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call chromemanagementCustomersTelemetryUsersListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'parent' is set
-        if (parent == null) {
-            throw new ApiException("Missing the required parameter 'parent' when calling chromemanagementCustomersTelemetryUsersList(Async)");
-        }
-
-        return chromemanagementCustomersTelemetryUsersListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask, _callback);
-
-    }
-
-    /**
-     * 
-     * List all telemetry users.
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Only include resources that match the filter. Supported filter fields: - user_id - user_org_unit_id  (optional)
-     * @param pageSize Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Token to specify next page in the list. (optional)
-     * @param readMask Read mask to specify which fields to return. (optional)
-     * @return GoogleChromeManagementV1ListTelemetryUsersResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public GoogleChromeManagementV1ListTelemetryUsersResponse chromemanagementCustomersTelemetryUsersList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask) throws ApiException {
-        ApiResponse<GoogleChromeManagementV1ListTelemetryUsersResponse> localVarResp = chromemanagementCustomersTelemetryUsersListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * List all telemetry users.
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Only include resources that match the filter. Supported filter fields: - user_id - user_org_unit_id  (optional)
-     * @param pageSize Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Token to specify next page in the list. (optional)
-     * @param readMask Read mask to specify which fields to return. (optional)
-     * @return ApiResponse&lt;GoogleChromeManagementV1ListTelemetryUsersResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GoogleChromeManagementV1ListTelemetryUsersResponse> chromemanagementCustomersTelemetryUsersListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask) throws ApiException {
-        okhttp3.Call localVarCall = chromemanagementCustomersTelemetryUsersListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask, null);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1ListTelemetryUsersResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * List all telemetry users.
-     * @param parent Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter Only include resources that match the filter. Supported filter fields: - user_id - user_org_unit_id  (optional)
-     * @param pageSize Maximum number of results to return. Default value is 100. Maximum value is 1000. (optional)
-     * @param pageToken Token to specify next page in the list. (optional)
-     * @param readMask Read mask to specify which fields to return. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call chromemanagementCustomersTelemetryUsersListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, String readMask, final ApiCallback<GoogleChromeManagementV1ListTelemetryUsersResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = chromemanagementCustomersTelemetryUsersListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask, _callback);
-        Type localVarReturnType = new TypeToken<GoogleChromeManagementV1ListTelemetryUsersResponse>(){}.getType();
+        okhttp3.Call localVarCall = consumerV1CustomersStatesGetValidateBeforeCall(country, _callback);
+        Type localVarReturnType = new TypeToken<List<StateViewModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

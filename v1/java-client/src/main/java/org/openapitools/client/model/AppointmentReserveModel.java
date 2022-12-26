@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * AppointmentReserveModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:07.204560-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:31.714197-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AppointmentReserveModel {
   public static final String SERIALIZED_NAME_APPOINTMENT_BOOKING_FIELDS = "appointmentBookingFields";
   @SerializedName(SERIALIZED_NAME_APPOINTMENT_BOOKING_FIELDS)

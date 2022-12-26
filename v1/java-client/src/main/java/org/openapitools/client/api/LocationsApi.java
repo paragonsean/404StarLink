@@ -1,6 +1,6 @@
 /*
- * Cloud Monitoring API
- * Manages your Cloud Monitoring data and configurations.
+ * OnSched Consumer API
+ * Build secure and scalable custom apps for Online Booking. Our flexible API provides many options for availability and booking.  <br><br>  Take the API for a test drive. Just click on the Authorize button below and authenticate.   You can access our demo company profile if you are not a customer, or your own profile by using your assigned ClientId and Secret.  <br><br>  The API has two interfaces, consumer and setup.   <ul>  <li>  The consumer interface provides all the endpoints required for implementing consumer booking flows.  </li>  <li>  The setup interface provides endpoints for profile configuration and setup.  </li>  </ul>  Toggle freely between the two interfaces using the swagger tool bar option labelled 'Select a definition'.  
  *
  * The version of the OpenAPI document: v1
  * 
@@ -27,9 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.ListMetricsScopesByMonitoredProjectResponse;
-import org.openapitools.client.model.MonitoredProject;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.LocationListViewModel;
+import org.openapitools.client.model.LocationViewModel;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -75,29 +74,27 @@ public class LocationsApi {
     }
 
     /**
-     * Build call for monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProject
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param monitoredResourceContainer Required. The resource name of the Monitored Project being requested. Example: projects/{MONITORED_PROJECT_ID_OR_NUMBER} (optional)
+     * Build call for consumerV1LocationsGet
+     * @param name Location name (full or partial) (optional)
+     * @param nearestTo Search by distance nearest Geocoords, City, Postal/Zip Code (optional)
+     * @param proximity Maximum distance to display (optional)
+     * @param units Distance either imperial(miles), metric(kilometers) (optional)
+     * @param serviceId Locations that offer this service (optional)
+     * @param friendlyId Frienldy Id of location (optional)
+     * @param regionId Locations within a specific region (optional)
+     * @param ignorePrimary Don&#39;t include the Primary Location (optional)
+     * @param offset Starting row of page, default 0 (optional)
+     * @param limit Page limit, default 20, max 100 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProjectCall(String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String monitoredResourceContainer, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call consumerV1LocationsGetCall(String name, String nearestTo, Integer proximity, String units, String serviceId, String friendlyId, String regionId, Boolean ignorePrimary, Integer offset, Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -114,7 +111,7 @@ public class LocationsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/locations/global/metricsScopes:listMetricsScopesByMonitoredProject";
+        String localVarPath = "/consumer/v1/locations";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -122,52 +119,44 @@ public class LocationsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
         }
 
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        if (nearestTo != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nearestTo", nearestTo));
         }
 
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        if (proximity != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("proximity", proximity));
         }
 
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        if (units != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("units", units));
         }
 
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        if (serviceId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("serviceId", serviceId));
         }
 
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        if (friendlyId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("friendlyId", friendlyId));
         }
 
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        if (regionId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("regionId", regionId));
         }
 
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        if (ignorePrimary != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignorePrimary", ignorePrimary));
         }
 
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
         }
 
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (monitoredResourceContainer != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("monitoredResourceContainer", monitoredResourceContainer));
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
         final String[] localVarAccepts = {
@@ -185,129 +174,111 @@ public class LocationsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        String[] localVarAuthNames = new String[] { "oauth2" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProjectValidateBeforeCall(String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String monitoredResourceContainer, final ApiCallback _callback) throws ApiException {
-        return monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProjectCall($xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, monitoredResourceContainer, _callback);
+    private okhttp3.Call consumerV1LocationsGetValidateBeforeCall(String name, String nearestTo, Integer proximity, String units, String serviceId, String friendlyId, String regionId, Boolean ignorePrimary, Integer offset, Integer limit, final ApiCallback _callback) throws ApiException {
+        return consumerV1LocationsGetCall(name, nearestTo, proximity, units, serviceId, friendlyId, regionId, ignorePrimary, offset, limit, _callback);
 
     }
 
     /**
-     * 
-     * Returns a list of every Metrics Scope that a specific MonitoredProject has been added to. The metrics scope representing the specified monitored project will always be the first entry in the response.
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param monitoredResourceContainer Required. The resource name of the Monitored Project being requested. Example: projects/{MONITORED_PROJECT_ID_OR_NUMBER} (optional)
-     * @return ListMetricsScopesByMonitoredProjectResponse
+     * List Locations
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Business Locations&lt;/b&gt;. The results are returned in pages. Use the offset and limit parameters to control the page start and size. Default offset is 0, and limit is 20 and maximum is 100. Use the other query parameters to filter the results further. &lt;/p&gt;  &lt;p&gt;    &lt;b&gt;IMPORTANT DEPRECATION NOTICE&lt;/b&gt;: The following online settings parameters were intended for internal use in our Portal application only. They will be deprecated on &lt;b&gt;OCTOBER 15, 2022&lt;/b&gt;. These fields are currently part of the &lt;b&gt;SETTINGS&lt;/b&gt; object in all location endpoints: &lt;b&gt;businessId, enabled, familyMembersEnabled, serviceLabel, resourceLabel, resourceAnyLabel, resourceSelection, liveMode, formFlow, availabilityForm, showServiceGroups, showOnSchedLogo, showBusinessLogo, disableAuthorization, hideNavBar, hideLocationNav, hideServiceGroupsNav, hideServicesNav, hideContinueBooking, returnToService, returnToAvailability, hideBreadCrumbNav.&lt;/b&gt; If you are using these fields, please adjust your code to handle the deprecation or let us know by submitting a ticket to: &lt;b&gt;&lt;i&gt;support@onsched.com&lt;/i&gt;&lt;/b&gt; as we do not want to interrupt your existing workflows.&lt;/p&gt;
+     * @param name Location name (full or partial) (optional)
+     * @param nearestTo Search by distance nearest Geocoords, City, Postal/Zip Code (optional)
+     * @param proximity Maximum distance to display (optional)
+     * @param units Distance either imperial(miles), metric(kilometers) (optional)
+     * @param serviceId Locations that offer this service (optional)
+     * @param friendlyId Frienldy Id of location (optional)
+     * @param regionId Locations within a specific region (optional)
+     * @param ignorePrimary Don&#39;t include the Primary Location (optional)
+     * @param offset Starting row of page, default 0 (optional)
+     * @param limit Page limit, default 20, max 100 (optional)
+     * @return LocationListViewModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ListMetricsScopesByMonitoredProjectResponse monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProject(String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String monitoredResourceContainer) throws ApiException {
-        ApiResponse<ListMetricsScopesByMonitoredProjectResponse> localVarResp = monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProjectWithHttpInfo($xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, monitoredResourceContainer);
+    public LocationListViewModel consumerV1LocationsGet(String name, String nearestTo, Integer proximity, String units, String serviceId, String friendlyId, String regionId, Boolean ignorePrimary, Integer offset, Integer limit) throws ApiException {
+        ApiResponse<LocationListViewModel> localVarResp = consumerV1LocationsGetWithHttpInfo(name, nearestTo, proximity, units, serviceId, friendlyId, regionId, ignorePrimary, offset, limit);
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * Returns a list of every Metrics Scope that a specific MonitoredProject has been added to. The metrics scope representing the specified monitored project will always be the first entry in the response.
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param monitoredResourceContainer Required. The resource name of the Monitored Project being requested. Example: projects/{MONITORED_PROJECT_ID_OR_NUMBER} (optional)
-     * @return ApiResponse&lt;ListMetricsScopesByMonitoredProjectResponse&gt;
+     * List Locations
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Business Locations&lt;/b&gt;. The results are returned in pages. Use the offset and limit parameters to control the page start and size. Default offset is 0, and limit is 20 and maximum is 100. Use the other query parameters to filter the results further. &lt;/p&gt;  &lt;p&gt;    &lt;b&gt;IMPORTANT DEPRECATION NOTICE&lt;/b&gt;: The following online settings parameters were intended for internal use in our Portal application only. They will be deprecated on &lt;b&gt;OCTOBER 15, 2022&lt;/b&gt;. These fields are currently part of the &lt;b&gt;SETTINGS&lt;/b&gt; object in all location endpoints: &lt;b&gt;businessId, enabled, familyMembersEnabled, serviceLabel, resourceLabel, resourceAnyLabel, resourceSelection, liveMode, formFlow, availabilityForm, showServiceGroups, showOnSchedLogo, showBusinessLogo, disableAuthorization, hideNavBar, hideLocationNav, hideServiceGroupsNav, hideServicesNav, hideContinueBooking, returnToService, returnToAvailability, hideBreadCrumbNav.&lt;/b&gt; If you are using these fields, please adjust your code to handle the deprecation or let us know by submitting a ticket to: &lt;b&gt;&lt;i&gt;support@onsched.com&lt;/i&gt;&lt;/b&gt; as we do not want to interrupt your existing workflows.&lt;/p&gt;
+     * @param name Location name (full or partial) (optional)
+     * @param nearestTo Search by distance nearest Geocoords, City, Postal/Zip Code (optional)
+     * @param proximity Maximum distance to display (optional)
+     * @param units Distance either imperial(miles), metric(kilometers) (optional)
+     * @param serviceId Locations that offer this service (optional)
+     * @param friendlyId Frienldy Id of location (optional)
+     * @param regionId Locations within a specific region (optional)
+     * @param ignorePrimary Don&#39;t include the Primary Location (optional)
+     * @param offset Starting row of page, default 0 (optional)
+     * @param limit Page limit, default 20, max 100 (optional)
+     * @return ApiResponse&lt;LocationListViewModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListMetricsScopesByMonitoredProjectResponse> monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProjectWithHttpInfo(String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String monitoredResourceContainer) throws ApiException {
-        okhttp3.Call localVarCall = monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProjectValidateBeforeCall($xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, monitoredResourceContainer, null);
-        Type localVarReturnType = new TypeToken<ListMetricsScopesByMonitoredProjectResponse>(){}.getType();
+    public ApiResponse<LocationListViewModel> consumerV1LocationsGetWithHttpInfo(String name, String nearestTo, Integer proximity, String units, String serviceId, String friendlyId, String regionId, Boolean ignorePrimary, Integer offset, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = consumerV1LocationsGetValidateBeforeCall(name, nearestTo, proximity, units, serviceId, friendlyId, regionId, ignorePrimary, offset, limit, null);
+        Type localVarReturnType = new TypeToken<LocationListViewModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * Returns a list of every Metrics Scope that a specific MonitoredProject has been added to. The metrics scope representing the specified monitored project will always be the first entry in the response.
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param monitoredResourceContainer Required. The resource name of the Monitored Project being requested. Example: projects/{MONITORED_PROJECT_ID_OR_NUMBER} (optional)
+     * List Locations (asynchronously)
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Business Locations&lt;/b&gt;. The results are returned in pages. Use the offset and limit parameters to control the page start and size. Default offset is 0, and limit is 20 and maximum is 100. Use the other query parameters to filter the results further. &lt;/p&gt;  &lt;p&gt;    &lt;b&gt;IMPORTANT DEPRECATION NOTICE&lt;/b&gt;: The following online settings parameters were intended for internal use in our Portal application only. They will be deprecated on &lt;b&gt;OCTOBER 15, 2022&lt;/b&gt;. These fields are currently part of the &lt;b&gt;SETTINGS&lt;/b&gt; object in all location endpoints: &lt;b&gt;businessId, enabled, familyMembersEnabled, serviceLabel, resourceLabel, resourceAnyLabel, resourceSelection, liveMode, formFlow, availabilityForm, showServiceGroups, showOnSchedLogo, showBusinessLogo, disableAuthorization, hideNavBar, hideLocationNav, hideServiceGroupsNav, hideServicesNav, hideContinueBooking, returnToService, returnToAvailability, hideBreadCrumbNav.&lt;/b&gt; If you are using these fields, please adjust your code to handle the deprecation or let us know by submitting a ticket to: &lt;b&gt;&lt;i&gt;support@onsched.com&lt;/i&gt;&lt;/b&gt; as we do not want to interrupt your existing workflows.&lt;/p&gt;
+     * @param name Location name (full or partial) (optional)
+     * @param nearestTo Search by distance nearest Geocoords, City, Postal/Zip Code (optional)
+     * @param proximity Maximum distance to display (optional)
+     * @param units Distance either imperial(miles), metric(kilometers) (optional)
+     * @param serviceId Locations that offer this service (optional)
+     * @param friendlyId Frienldy Id of location (optional)
+     * @param regionId Locations within a specific region (optional)
+     * @param ignorePrimary Don&#39;t include the Primary Location (optional)
+     * @param offset Starting row of page, default 0 (optional)
+     * @param limit Page limit, default 20, max 100 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProjectAsync(String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String monitoredResourceContainer, final ApiCallback<ListMetricsScopesByMonitoredProjectResponse> _callback) throws ApiException {
+    public okhttp3.Call consumerV1LocationsGetAsync(String name, String nearestTo, Integer proximity, String units, String serviceId, String friendlyId, String regionId, Boolean ignorePrimary, Integer offset, Integer limit, final ApiCallback<LocationListViewModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProjectValidateBeforeCall($xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, monitoredResourceContainer, _callback);
-        Type localVarReturnType = new TypeToken<ListMetricsScopesByMonitoredProjectResponse>(){}.getType();
+        okhttp3.Call localVarCall = consumerV1LocationsGetValidateBeforeCall(name, nearestTo, proximity, units, serviceId, friendlyId, regionId, ignorePrimary, offset, limit, _callback);
+        Type localVarReturnType = new TypeToken<LocationListViewModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for monitoringLocationsGlobalMetricsScopesProjectsCreate
-     * @param parent Required. The resource name of the existing Metrics Scope that will monitor this project. Example: locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER} (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param monitoredProject  (optional)
+     * Build call for consumerV1LocationsIdGet
+     * @param id id of business location (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringLocationsGlobalMetricsScopesProjectsCreateCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, MonitoredProject monitoredProject, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call consumerV1LocationsIdGetCall(String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -321,61 +292,17 @@ public class LocationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = monitoredProject;
+        Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{parent}/projects"
-            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
+        String localVarPath = "/consumer/v1/locations/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
 
         final String[] localVarAccepts = {
             "application/json"
@@ -386,116 +313,79 @@ public class LocationsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        String[] localVarAuthNames = new String[] { "oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringLocationsGlobalMetricsScopesProjectsCreateValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, MonitoredProject monitoredProject, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'parent' is set
-        if (parent == null) {
-            throw new ApiException("Missing the required parameter 'parent' when calling monitoringLocationsGlobalMetricsScopesProjectsCreate(Async)");
+    private okhttp3.Call consumerV1LocationsIdGetValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling consumerV1LocationsIdGet(Async)");
         }
 
-        return monitoringLocationsGlobalMetricsScopesProjectsCreateCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, monitoredProject, _callback);
+        return consumerV1LocationsIdGetCall(id, _callback);
 
     }
 
     /**
-     * 
-     * Adds a MonitoredProject with the given project ID to the specified Metrics Scope.
-     * @param parent Required. The resource name of the existing Metrics Scope that will monitor this project. Example: locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER} (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param monitoredProject  (optional)
-     * @return Operation
+     * Get Location
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;Location&lt;/b&gt; object. A valid business &lt;b&gt;location id&lt;/b&gt; is required. Find all location id&#39;s by using the &lt;i&gt;GET /consumer/v1/locations&lt;/i&gt; endpoint.&lt;/p&gt;  &lt;p&gt;    &lt;b&gt;IMPORTANT DEPRECATION NOTICE&lt;/b&gt;: The following online settings parameters were intended for internal use in our Portal application only. They will be deprecated on &lt;b&gt;OCTOBER 15, 2022&lt;/b&gt;. These fields are currently part of the &lt;b&gt;SETTINGS&lt;/b&gt; object in all location endpoints: &lt;b&gt;businessId, enabled, familyMembersEnabled, serviceLabel, resourceLabel, resourceAnyLabel, resourceSelection, liveMode, formFlow, availabilityForm, showServiceGroups, showOnSchedLogo, showBusinessLogo, disableAuthorization, hideNavBar, hideLocationNav, hideServiceGroupsNav, hideServicesNav, hideContinueBooking, returnToService, returnToAvailability, hideBreadCrumbNav.&lt;/b&gt; If you are using these fields, please adjust your code to handle the deprecation or let us know by submitting a ticket to: &lt;b&gt;&lt;i&gt;support@onsched.com&lt;/i&gt;&lt;/b&gt; as we do not want to interrupt your existing workflows.&lt;/p&gt;
+     * @param id id of business location (required)
+     * @return LocationViewModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public Operation monitoringLocationsGlobalMetricsScopesProjectsCreate(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, MonitoredProject monitoredProject) throws ApiException {
-        ApiResponse<Operation> localVarResp = monitoringLocationsGlobalMetricsScopesProjectsCreateWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, monitoredProject);
+    public LocationViewModel consumerV1LocationsIdGet(String id) throws ApiException {
+        ApiResponse<LocationViewModel> localVarResp = consumerV1LocationsIdGetWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * Adds a MonitoredProject with the given project ID to the specified Metrics Scope.
-     * @param parent Required. The resource name of the existing Metrics Scope that will monitor this project. Example: locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER} (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param monitoredProject  (optional)
-     * @return ApiResponse&lt;Operation&gt;
+     * Get Location
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;Location&lt;/b&gt; object. A valid business &lt;b&gt;location id&lt;/b&gt; is required. Find all location id&#39;s by using the &lt;i&gt;GET /consumer/v1/locations&lt;/i&gt; endpoint.&lt;/p&gt;  &lt;p&gt;    &lt;b&gt;IMPORTANT DEPRECATION NOTICE&lt;/b&gt;: The following online settings parameters were intended for internal use in our Portal application only. They will be deprecated on &lt;b&gt;OCTOBER 15, 2022&lt;/b&gt;. These fields are currently part of the &lt;b&gt;SETTINGS&lt;/b&gt; object in all location endpoints: &lt;b&gt;businessId, enabled, familyMembersEnabled, serviceLabel, resourceLabel, resourceAnyLabel, resourceSelection, liveMode, formFlow, availabilityForm, showServiceGroups, showOnSchedLogo, showBusinessLogo, disableAuthorization, hideNavBar, hideLocationNav, hideServiceGroupsNav, hideServicesNav, hideContinueBooking, returnToService, returnToAvailability, hideBreadCrumbNav.&lt;/b&gt; If you are using these fields, please adjust your code to handle the deprecation or let us know by submitting a ticket to: &lt;b&gt;&lt;i&gt;support@onsched.com&lt;/i&gt;&lt;/b&gt; as we do not want to interrupt your existing workflows.&lt;/p&gt;
+     * @param id id of business location (required)
+     * @return ApiResponse&lt;LocationViewModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Operation> monitoringLocationsGlobalMetricsScopesProjectsCreateWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, MonitoredProject monitoredProject) throws ApiException {
-        okhttp3.Call localVarCall = monitoringLocationsGlobalMetricsScopesProjectsCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, monitoredProject, null);
-        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+    public ApiResponse<LocationViewModel> consumerV1LocationsIdGetWithHttpInfo(String id) throws ApiException {
+        okhttp3.Call localVarCall = consumerV1LocationsIdGetValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<LocationViewModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * Adds a MonitoredProject with the given project ID to the specified Metrics Scope.
-     * @param parent Required. The resource name of the existing Metrics Scope that will monitor this project. Example: locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER} (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param monitoredProject  (optional)
+     * Get Location (asynchronously)
+     * &lt;p&gt;Use this endpoint to return a &lt;b&gt;Location&lt;/b&gt; object. A valid business &lt;b&gt;location id&lt;/b&gt; is required. Find all location id&#39;s by using the &lt;i&gt;GET /consumer/v1/locations&lt;/i&gt; endpoint.&lt;/p&gt;  &lt;p&gt;    &lt;b&gt;IMPORTANT DEPRECATION NOTICE&lt;/b&gt;: The following online settings parameters were intended for internal use in our Portal application only. They will be deprecated on &lt;b&gt;OCTOBER 15, 2022&lt;/b&gt;. These fields are currently part of the &lt;b&gt;SETTINGS&lt;/b&gt; object in all location endpoints: &lt;b&gt;businessId, enabled, familyMembersEnabled, serviceLabel, resourceLabel, resourceAnyLabel, resourceSelection, liveMode, formFlow, availabilityForm, showServiceGroups, showOnSchedLogo, showBusinessLogo, disableAuthorization, hideNavBar, hideLocationNav, hideServiceGroupsNav, hideServicesNav, hideContinueBooking, returnToService, returnToAvailability, hideBreadCrumbNav.&lt;/b&gt; If you are using these fields, please adjust your code to handle the deprecation or let us know by submitting a ticket to: &lt;b&gt;&lt;i&gt;support@onsched.com&lt;/i&gt;&lt;/b&gt; as we do not want to interrupt your existing workflows.&lt;/p&gt;
+     * @param id id of business location (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringLocationsGlobalMetricsScopesProjectsCreateAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, MonitoredProject monitoredProject, final ApiCallback<Operation> _callback) throws ApiException {
+    public okhttp3.Call consumerV1LocationsIdGetAsync(String id, final ApiCallback<LocationViewModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = monitoringLocationsGlobalMetricsScopesProjectsCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, monitoredProject, _callback);
-        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+        okhttp3.Call localVarCall = consumerV1LocationsIdGetValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<LocationViewModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
