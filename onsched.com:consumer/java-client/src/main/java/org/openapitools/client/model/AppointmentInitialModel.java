@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * AppointmentInitialModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:10.428978-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:34.980638-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AppointmentInitialModel {
   public static final String SERIALIZED_NAME_APPOINTMENT_BOOKING_FIELDS = "appointmentBookingFields";
   @SerializedName(SERIALIZED_NAME_APPOINTMENT_BOOKING_FIELDS)
