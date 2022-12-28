@@ -1,6 +1,6 @@
 /*
- * Future Generali Total Insurance Solutions
- * Two Wheeler, Car, Commercial Vehicle, Home and Travel Insurance policies issued by Future Generali are available on DigiLocker and can be pulled by citizens in their account.
+ * Department of Empowerment of Persons with Disabilities
+ * Department of Empowerment of Persons with Disabilities is issuing Unique Disability ID through DigiLocker. These can be pulled by beneficiaries into their DigiLocker accounts.
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ConsentArtifactSchemaConsentUser
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:18.178331-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:35.103036-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ConsentArtifactSchemaConsentUser {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)

@@ -1,6 +1,6 @@
 /*
- * Future Generali Total Insurance Solutions
- * Two Wheeler, Car, Commercial Vehicle, Home and Travel Insurance policies issued by Future Generali are available on DigiLocker and can be pulled by citizens in their account.
+ * Department of Empowerment of Persons with Disabilities
+ * Department of Empowerment of Persons with Disabilities is issuing Unique Disability ID through DigiLocker. These can be pulled by beneficiaries into their DigiLocker accounts.
  *
  * The version of the OpenAPI document: 3.0.0
  * 

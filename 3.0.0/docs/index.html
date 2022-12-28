@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Future Generali Total Insurance Solutions</title>
+    <title>Department of Empowerment of Persons with Disabilities</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,12 +179,12 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>Future Generali Total Insurance Solutions</h1>
-    <div class="app-desc">Two Wheeler, Car, Commercial Vehicle, Home and Travel Insurance policies issued by Future Generali are available on DigiLocker and can be pulled by citizens in their account.</div>
+  <h1>Department of Empowerment of Persons with Disabilities</h1>
+    <div class="app-desc">Department of Empowerment of Persons with Disabilities is issuing Unique Disability ID through DigiLocker. These can be pulled by beneficiaries into their DigiLocker accounts.</div>
     <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
     <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
     <div class="app-desc">Version: 3.0.0</div>
-    <div class="app-desc">BasePath:/futuregenerali/v3</div>
+    <div class="app-desc">BasePath:/swavlambancard/v3</div>
     <div class="license-info">All rights reserved</div>
     <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
   <h2>Access</h2>
@@ -200,20 +200,17 @@ font-style: italic;
   <div class="method-summary"></div>
   <h4><a href="#APIs">APIs</a></h4>
   <ul>
-  <li><a href="#cripc"><code><span class="http-method">post</span> /cripc/certificate</code></a></li>
-  <li><a href="#cvipc"><code><span class="http-method">post</span> /cvipc/certificate</code></a></li>
-  <li><a href="#hmipc"><code><span class="http-method">post</span> /hmipc/certificate</code></a></li>
-  <li><a href="#tripc"><code><span class="http-method">post</span> /tripc/certificate</code></a></li>
-  <li><a href="#twipc"><code><span class="http-method">post</span> /twipc/certificate</code></a></li>
+  <li><a href="#dpicr"><code><span class="http-method">post</span> /dpicr/certificate</code></a></li>
+  <li><a href="#govid"><code><span class="http-method">post</span> /govid/certificate</code></a></li>
   </ul>
 
   <h1><a name="APIs">APIs</a></h1>
-  <div class="method"><a name="cripc"/>
+  <div class="method"><a name="dpicr"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /cripc/certificate</code></pre></div>
-    <div class="method-summary">Insurance Policy - Car (<span class="nickname">cripc</span>)</div>
-    <div class="method-notes">API to verify Insurance Policy - Car.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /dpicr/certificate</code></pre></div>
+    <div class="method-summary">Disabled Person Identity Card/ Certificate (<span class="nickname">dpicr</span>)</div>
+    <div class="method-notes">API to verify Disabled Person Identity Card/ Certificate.</div>
 
 
     <h3 class="field-label">Consumes</h3>
@@ -224,7 +221,7 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">cripc_request <a href="#cripc_request">cripc_request</a> (optional)</div>
+      <div class="param">dpicr_request <a href="#dpicr_request">dpicr_request</a> (optional)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
@@ -293,33 +290,33 @@ font-style: italic;
         <a href="#"></a>
     <h4 class="field-label">400</h4>
     Bad request
-        <a href="#cripc_400_response">cripc_400_response</a>
+        <a href="#dpicr_400_response">dpicr_400_response</a>
     <h4 class="field-label">401</h4>
     Unauthorized access
-        <a href="#cripc_401_response">cripc_401_response</a>
+        <a href="#dpicr_401_response">dpicr_401_response</a>
     <h4 class="field-label">404</h4>
     No record found
-        <a href="#cripc_404_response">cripc_404_response</a>
+        <a href="#dpicr_404_response">dpicr_404_response</a>
     <h4 class="field-label">500</h4>
     Internal server error
-        <a href="#cripc_500_response">cripc_500_response</a>
+        <a href="#dpicr_500_response">dpicr_500_response</a>
     <h4 class="field-label">502</h4>
     Bad gateway
-        <a href="#cripc_502_response">cripc_502_response</a>
+        <a href="#dpicr_502_response">dpicr_502_response</a>
     <h4 class="field-label">503</h4>
     Service unavailable
-        <a href="#cripc_503_response">cripc_503_response</a>
+        <a href="#dpicr_503_response">dpicr_503_response</a>
     <h4 class="field-label">504</h4>
     Gateway timeout
-        <a href="#cripc_504_response">cripc_504_response</a>
+        <a href="#dpicr_504_response">dpicr_504_response</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="cvipc"/>
+  <div class="method"><a name="govid"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /cvipc/certificate</code></pre></div>
-    <div class="method-summary">Insurance Policy - Commercial Vehicle (<span class="nickname">cvipc</span>)</div>
-    <div class="method-notes">API to verify Insurance Policy - Commercial Vehicle.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /govid/certificate</code></pre></div>
+    <div class="method-summary">ID Card (<span class="nickname">govid</span>)</div>
+    <div class="method-notes">API to verify ID Card.</div>
 
 
     <h3 class="field-label">Consumes</h3>
@@ -330,7 +327,7 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">cripc_request <a href="#cripc_request">cripc_request</a> (optional)</div>
+      <div class="param">govid_request <a href="#govid_request">govid_request</a> (optional)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
@@ -390,6 +387,7 @@ font-style: italic;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>application/pdf</code></li>
+      <li><code>application/xml</code></li>
       <li><code>application/json</code></li>
     </ul>
 
@@ -399,343 +397,25 @@ font-style: italic;
         <a href="#"></a>
     <h4 class="field-label">400</h4>
     Bad request
-        <a href="#cripc_400_response">cripc_400_response</a>
+        <a href="#dpicr_400_response">dpicr_400_response</a>
     <h4 class="field-label">401</h4>
     Unauthorized access
-        <a href="#cripc_401_response">cripc_401_response</a>
+        <a href="#dpicr_401_response">dpicr_401_response</a>
     <h4 class="field-label">404</h4>
     No record found
-        <a href="#cripc_404_response">cripc_404_response</a>
+        <a href="#dpicr_404_response">dpicr_404_response</a>
     <h4 class="field-label">500</h4>
     Internal server error
-        <a href="#cripc_500_response">cripc_500_response</a>
+        <a href="#dpicr_500_response">dpicr_500_response</a>
     <h4 class="field-label">502</h4>
     Bad gateway
-        <a href="#cripc_502_response">cripc_502_response</a>
+        <a href="#dpicr_502_response">dpicr_502_response</a>
     <h4 class="field-label">503</h4>
     Service unavailable
-        <a href="#cripc_503_response">cripc_503_response</a>
+        <a href="#dpicr_503_response">dpicr_503_response</a>
     <h4 class="field-label">504</h4>
     Gateway timeout
-        <a href="#cripc_504_response">cripc_504_response</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="hmipc"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /hmipc/certificate</code></pre></div>
-    <div class="method-summary">Insurance Policy - Home (<span class="nickname">hmipc</span>)</div>
-    <div class="method-notes">API to verify Insurance Policy - Home.</div>
-
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">cripc_request <a href="#cripc_request">cripc_request</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Please provide all mandatory parameters",
-  "error" : "missing_parameter"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Authentication failed",
-  "error" : "invalid_authentication"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "No record found",
-  "error" : "record_not_found"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Internal server error",
-  "error" : "internal_server_error"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service returned an invalid response",
-  "error" : "bad_gatewy"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service is temporarily unavailable",
-  "error" : "service_unavailable"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service did not respond in time",
-  "error" : "gateway_timeout"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/pdf</code></li>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
-        <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#cripc_400_response">cripc_400_response</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized access
-        <a href="#cripc_401_response">cripc_401_response</a>
-    <h4 class="field-label">404</h4>
-    No record found
-        <a href="#cripc_404_response">cripc_404_response</a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#cripc_500_response">cripc_500_response</a>
-    <h4 class="field-label">502</h4>
-    Bad gateway
-        <a href="#cripc_502_response">cripc_502_response</a>
-    <h4 class="field-label">503</h4>
-    Service unavailable
-        <a href="#cripc_503_response">cripc_503_response</a>
-    <h4 class="field-label">504</h4>
-    Gateway timeout
-        <a href="#cripc_504_response">cripc_504_response</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="tripc"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /tripc/certificate</code></pre></div>
-    <div class="method-summary">Insurance Policy - Travel (<span class="nickname">tripc</span>)</div>
-    <div class="method-notes">API to verify Insurance Policy - Travel.</div>
-
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">cripc_request <a href="#cripc_request">cripc_request</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Please provide all mandatory parameters",
-  "error" : "missing_parameter"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Authentication failed",
-  "error" : "invalid_authentication"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "No record found",
-  "error" : "record_not_found"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Internal server error",
-  "error" : "internal_server_error"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service returned an invalid response",
-  "error" : "bad_gatewy"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service is temporarily unavailable",
-  "error" : "service_unavailable"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service did not respond in time",
-  "error" : "gateway_timeout"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/pdf</code></li>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
-        <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#cripc_400_response">cripc_400_response</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized access
-        <a href="#cripc_401_response">cripc_401_response</a>
-    <h4 class="field-label">404</h4>
-    No record found
-        <a href="#cripc_404_response">cripc_404_response</a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#cripc_500_response">cripc_500_response</a>
-    <h4 class="field-label">502</h4>
-    Bad gateway
-        <a href="#cripc_502_response">cripc_502_response</a>
-    <h4 class="field-label">503</h4>
-    Service unavailable
-        <a href="#cripc_503_response">cripc_503_response</a>
-    <h4 class="field-label">504</h4>
-    Gateway timeout
-        <a href="#cripc_504_response">cripc_504_response</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="twipc"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /twipc/certificate</code></pre></div>
-    <div class="method-summary">Insurance Policy - Two Wheeler (<span class="nickname">twipc</span>)</div>
-    <div class="method-notes">API to verify Insurance Policy - Two Wheeler.</div>
-
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">cripc_request <a href="#cripc_request">cripc_request</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Please provide all mandatory parameters",
-  "error" : "missing_parameter"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Authentication failed",
-  "error" : "invalid_authentication"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "No record found",
-  "error" : "record_not_found"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Internal server error",
-  "error" : "internal_server_error"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service returned an invalid response",
-  "error" : "bad_gatewy"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service is temporarily unavailable",
-  "error" : "service_unavailable"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service did not respond in time",
-  "error" : "gateway_timeout"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/pdf</code></li>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
-        <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#cripc_400_response">cripc_400_response</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized access
-        <a href="#cripc_401_response">cripc_401_response</a>
-    <h4 class="field-label">404</h4>
-    No record found
-        <a href="#cripc_404_response">cripc_404_response</a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#cripc_500_response">cripc_500_response</a>
-    <h4 class="field-label">502</h4>
-    Bad gateway
-        <a href="#cripc_502_response">cripc_502_response</a>
-    <h4 class="field-label">503</h4>
-    Service unavailable
-        <a href="#cripc_503_response">cripc_503_response</a>
-    <h4 class="field-label">504</h4>
-    Gateway timeout
-        <a href="#cripc_504_response">cripc_504_response</a>
+        <a href="#dpicr_504_response">dpicr_504_response</a>
   </div> <!-- method -->
   <hr/>
 
@@ -766,15 +446,16 @@ font-style: italic;
     <li><a href="#ConsentArtifactSchema_consent_purpose"><code>ConsentArtifactSchema_consent_purpose</code> - </a></li>
     <li><a href="#ConsentArtifactSchema_consent_user"><code>ConsentArtifactSchema_consent_user</code> - </a></li>
     <li><a href="#ConsentArtifactSchema_signature"><code>ConsentArtifactSchema_signature</code> - </a></li>
-    <li><a href="#cripc_400_response"><code>cripc_400_response</code> - </a></li>
-    <li><a href="#cripc_401_response"><code>cripc_401_response</code> - </a></li>
-    <li><a href="#cripc_404_response"><code>cripc_404_response</code> - </a></li>
-    <li><a href="#cripc_500_response"><code>cripc_500_response</code> - </a></li>
-    <li><a href="#cripc_502_response"><code>cripc_502_response</code> - </a></li>
-    <li><a href="#cripc_503_response"><code>cripc_503_response</code> - </a></li>
-    <li><a href="#cripc_504_response"><code>cripc_504_response</code> - </a></li>
-    <li><a href="#cripc_request"><code>cripc_request</code> - </a></li>
-    <li><a href="#cripc_request_certificateParameters"><code>cripc_request_certificateParameters</code> - </a></li>
+    <li><a href="#dpicr_400_response"><code>dpicr_400_response</code> - </a></li>
+    <li><a href="#dpicr_401_response"><code>dpicr_401_response</code> - </a></li>
+    <li><a href="#dpicr_404_response"><code>dpicr_404_response</code> - </a></li>
+    <li><a href="#dpicr_500_response"><code>dpicr_500_response</code> - </a></li>
+    <li><a href="#dpicr_502_response"><code>dpicr_502_response</code> - </a></li>
+    <li><a href="#dpicr_503_response"><code>dpicr_503_response</code> - </a></li>
+    <li><a href="#dpicr_504_response"><code>dpicr_504_response</code> - </a></li>
+    <li><a href="#dpicr_request"><code>dpicr_request</code> - </a></li>
+    <li><a href="#dpicr_request_certificateParameters"><code>dpicr_request_certificateParameters</code> - </a></li>
+    <li><a href="#govid_request"><code>govid_request</code> - </a></li>
   </ol>
 
   <div class="model">
@@ -1022,7 +703,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="cripc_400_response"><code>cripc_400_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_400_response"><code>dpicr_400_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -1034,7 +715,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="cripc_401_response"><code>cripc_401_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_401_response"><code>dpicr_401_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -1046,7 +727,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="cripc_404_response"><code>cripc_404_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_404_response"><code>dpicr_404_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -1058,7 +739,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="cripc_500_response"><code>cripc_500_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_500_response"><code>dpicr_500_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -1070,7 +751,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="cripc_502_response"><code>cripc_502_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_502_response"><code>dpicr_502_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -1082,7 +763,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="cripc_503_response"><code>cripc_503_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_503_response"><code>dpicr_503_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -1094,7 +775,7 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="cripc_504_response"><code>cripc_504_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_504_response"><code>dpicr_504_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -1106,10 +787,10 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="cripc_request"><code>cripc_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_request"><code>dpicr_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">certificateParameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#cripc_request_certificateParameters">cripc_request_certificateParameters</a></span>  </div>
+      <div class="param">certificateParameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#dpicr_request_certificateParameters">dpicr_request_certificateParameters</a></span>  </div>
 <div class="param">consentArtifact (optional)</div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema">ConsentArtifactSchema</a></span>  </div>
 <div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The format of the certificate in response. </div>
         <div class="param-enum-header">Enum:</div>
@@ -1118,11 +799,23 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="cripc_request_certificateParameters"><code>cripc_request_certificateParameters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_request_certificateParameters"><code>dpicr_request_certificateParameters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">FullName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Full name </div>
-<div class="param">policyno </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Policy Number </div>
+      <div class="param">CERT_NO </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> CERTIFICATE NO </div>
+<div class="param">FullName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Full name </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="govid_request"><code>govid_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">certificateParameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#dpicr_request_certificateParameters">dpicr_request_certificateParameters</a></span>  </div>
+<div class="param">consentArtifact (optional)</div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema">ConsentArtifactSchema</a></span>  </div>
+<div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The format of the certificate in response. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">xml</div><div class="param-enum">pdf</div>
+<div class="param">txnId </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> A unique transaction id for this request in UUID format. It is used for tracking the request. format: uuid</div>
     </div>  <!-- field-items -->
   </div>
   </body>
