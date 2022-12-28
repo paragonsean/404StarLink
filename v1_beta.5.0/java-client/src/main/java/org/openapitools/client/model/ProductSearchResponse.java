@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * This type contains the specifications for the collection of products that match the search or filter criteria of a &lt;b&gt;search&lt;/b&gt; call. A maximum of 200 product summaries is returned (the result set), fewer if you include the &lt;b&gt;limit&lt;/b&gt; query parameter in the request. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:13.567344-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:38.099720-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ProductSearchResponse {
   public static final String SERIALIZED_NAME_HREF = "href";
   @SerializedName(SERIALIZED_NAME_HREF)

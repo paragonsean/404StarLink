@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * This type contains the name and values of a category aspect.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:13.567344-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:38.099720-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Aspect {
   public static final String SERIALIZED_NAME_LOCALIZED_NAME = "localizedName";
   @SerializedName(SERIALIZED_NAME_LOCALIZED_NAME)

@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * This type contains the full details of a specified product, including information about the product&#39;s identifiers, product images, aspects, and categories.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:13.567344-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:38.099720-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Product {
   public static final String SERIALIZED_NAME_ADDITIONAL_IMAGES = "additionalImages";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_IMAGES)
