@@ -1,0 +1,2072 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Replica Pool</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Replica Pool</h1>
+    <div class="app-desc">The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v1beta1</div>
+    <div class="app-desc">BasePath:/replicapool/v1beta1/projects</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Pools">Pools</a></h4>
+  <ul>
+  <li><a href="#replicapool.pools.delete"><code><span class="http-method">post</span> /{projectName}/zones/{zone}/pools/{poolName}</code></a></li>
+  <li><a href="#replicapool.pools.get"><code><span class="http-method">get</span> /{projectName}/zones/{zone}/pools/{poolName}</code></a></li>
+  <li><a href="#replicapool.pools.insert"><code><span class="http-method">post</span> /{projectName}/zones/{zone}/pools</code></a></li>
+  <li><a href="#replicapool.pools.list"><code><span class="http-method">get</span> /{projectName}/zones/{zone}/pools</code></a></li>
+  <li><a href="#replicapool.pools.resize"><code><span class="http-method">post</span> /{projectName}/zones/{zone}/pools/{poolName}/resize</code></a></li>
+  <li><a href="#replicapool.pools.updatetemplate"><code><span class="http-method">post</span> /{projectName}/zones/{zone}/pools/{poolName}/updateTemplate</code></a></li>
+  </ul>
+  <h4><a href="#Replicas">Replicas</a></h4>
+  <ul>
+  <li><a href="#replicapool.replicas.delete"><code><span class="http-method">post</span> /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}</code></a></li>
+  <li><a href="#replicapool.replicas.get"><code><span class="http-method">get</span> /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}</code></a></li>
+  <li><a href="#replicapool.replicas.list"><code><span class="http-method">get</span> /{projectName}/zones/{zone}/pools/{poolName}/replicas</code></a></li>
+  <li><a href="#replicapool.replicas.restart"><code><span class="http-method">post</span> /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}/restart</code></a></li>
+  </ul>
+
+  <h1><a name="Pools">Pools</a></h1>
+  <div class="method"><a name="replicapool.pools.delete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /{projectName}/zones/{zone}/pools/{poolName}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">replicapool.pools.delete</span>)</div>
+    <div class="method-notes">Deletes a replica pool.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">projectName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The project ID for this replica pool. default: null </div><div class="param">zone (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The zone for this replica pool. default: null </div><div class="param">poolName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the replica pool for this request. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">PoolsDeleteRequest <a href="#PoolsDeleteRequest">PoolsDeleteRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for the response. default: json </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: true </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An opaque string that represents a user for quota purposes. Must not exceed 40 characters. default: null </div><div class="param">userIp (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Deprecated. Please use quotaUser instead. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="replicapool.pools.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{projectName}/zones/{zone}/pools/{poolName}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">replicapool.pools.get</span>)</div>
+    <div class="method-notes">Gets information about a single replica pool.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">projectName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The project ID for this replica pool. default: null </div><div class="param">zone (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The zone for this replica pool. default: null </div><div class="param">poolName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the replica pool for this request. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for the response. default: json </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: true </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An opaque string that represents a user for quota purposes. Must not exceed 40 characters. default: null </div><div class="param">userIp (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Deprecated. Please use quotaUser instead. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Pool">Pool</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "autoRestart" : true,
+  "template" : {
+    "healthChecks" : [ {
+      "path" : "path",
+      "port" : 5,
+      "checkIntervalSec" : 6,
+      "host" : "host",
+      "name" : "name",
+      "description" : "description",
+      "unhealthyThreshold" : 2,
+      "healthyThreshold" : 1,
+      "timeoutSec" : 5
+    }, {
+      "path" : "path",
+      "port" : 5,
+      "checkIntervalSec" : 6,
+      "host" : "host",
+      "name" : "name",
+      "description" : "description",
+      "unhealthyThreshold" : 2,
+      "healthyThreshold" : 1,
+      "timeoutSec" : 5
+    } ],
+    "action" : {
+      "timeoutMilliSeconds" : 3,
+      "envVariables" : [ {
+        "hidden" : true,
+        "name" : "name",
+        "value" : "value"
+      }, {
+        "hidden" : true,
+        "name" : "name",
+        "value" : "value"
+      } ],
+      "commands" : [ "commands", "commands" ]
+    },
+    "vmParams" : {
+      "canIpForward" : true,
+      "metadata" : {
+        "fingerPrint" : "fingerPrint",
+        "items" : [ {
+          "value" : "value",
+          "key" : "key"
+        }, {
+          "value" : "value",
+          "key" : "key"
+        } ]
+      },
+      "networkInterfaces" : [ {
+        "networkIp" : "networkIp",
+        "accessConfigs" : [ {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        }, {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        } ],
+        "network" : "network"
+      }, {
+        "networkIp" : "networkIp",
+        "accessConfigs" : [ {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        }, {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        } ],
+        "network" : "network"
+      } ],
+      "serviceAccounts" : [ {
+        "scopes" : [ "scopes", "scopes" ],
+        "email" : "email"
+      }, {
+        "scopes" : [ "scopes", "scopes" ],
+        "email" : "email"
+      } ],
+      "disksToAttach" : [ {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "source" : "source"
+      }, {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "source" : "source"
+      } ],
+      "onHostMaintenance" : "onHostMaintenance",
+      "disksToCreate" : [ {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "autoDelete" : true,
+        "boot" : true,
+        "initializeParams" : {
+          "diskType" : "diskType",
+          "sourceImage" : "sourceImage",
+          "diskSizeGb" : "diskSizeGb"
+        }
+      }, {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "autoDelete" : true,
+        "boot" : true,
+        "initializeParams" : {
+          "diskType" : "diskType",
+          "sourceImage" : "sourceImage",
+          "diskSizeGb" : "diskSizeGb"
+        }
+      } ],
+      "description" : "description",
+      "baseInstanceName" : "baseInstanceName",
+      "machineType" : "machineType",
+      "tags" : {
+        "fingerPrint" : "fingerPrint",
+        "items" : [ "items", "items" ]
+      }
+    },
+    "version" : "version"
+  },
+  "healthChecks" : [ {
+    "path" : "path",
+    "port" : 5,
+    "checkIntervalSec" : 6,
+    "host" : "host",
+    "name" : "name",
+    "description" : "description",
+    "unhealthyThreshold" : 2,
+    "healthyThreshold" : 1,
+    "timeoutSec" : 5
+  }, {
+    "path" : "path",
+    "port" : 5,
+    "checkIntervalSec" : 6,
+    "host" : "host",
+    "name" : "name",
+    "description" : "description",
+    "unhealthyThreshold" : 2,
+    "healthyThreshold" : 1,
+    "timeoutSec" : 5
+  } ],
+  "initialNumReplicas" : 7,
+  "description" : "description",
+  "baseInstanceName" : "baseInstanceName",
+  "targetPools" : [ "targetPools", "targetPools" ],
+  "type" : "type",
+  "labels" : [ {
+    "value" : "value",
+    "key" : "key"
+  }, {
+    "value" : "value",
+    "key" : "key"
+  } ],
+  "selfLink" : "selfLink",
+  "numReplicas" : 9,
+  "targetPool" : "targetPool",
+  "currentNumReplicas" : 0,
+  "name" : "name",
+  "resourceViews" : [ "resourceViews", "resourceViews" ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Pool">Pool</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="replicapool.pools.insert"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /{projectName}/zones/{zone}/pools</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">replicapool.pools.insert</span>)</div>
+    <div class="method-notes">Inserts a new replica pool.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">projectName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The project ID for this replica pool. default: null </div><div class="param">zone (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The zone for this replica pool. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Pool <a href="#Pool">Pool</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for the response. default: json </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: true </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An opaque string that represents a user for quota purposes. Must not exceed 40 characters. default: null </div><div class="param">userIp (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Deprecated. Please use quotaUser instead. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Pool">Pool</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "autoRestart" : true,
+  "template" : {
+    "healthChecks" : [ {
+      "path" : "path",
+      "port" : 5,
+      "checkIntervalSec" : 6,
+      "host" : "host",
+      "name" : "name",
+      "description" : "description",
+      "unhealthyThreshold" : 2,
+      "healthyThreshold" : 1,
+      "timeoutSec" : 5
+    }, {
+      "path" : "path",
+      "port" : 5,
+      "checkIntervalSec" : 6,
+      "host" : "host",
+      "name" : "name",
+      "description" : "description",
+      "unhealthyThreshold" : 2,
+      "healthyThreshold" : 1,
+      "timeoutSec" : 5
+    } ],
+    "action" : {
+      "timeoutMilliSeconds" : 3,
+      "envVariables" : [ {
+        "hidden" : true,
+        "name" : "name",
+        "value" : "value"
+      }, {
+        "hidden" : true,
+        "name" : "name",
+        "value" : "value"
+      } ],
+      "commands" : [ "commands", "commands" ]
+    },
+    "vmParams" : {
+      "canIpForward" : true,
+      "metadata" : {
+        "fingerPrint" : "fingerPrint",
+        "items" : [ {
+          "value" : "value",
+          "key" : "key"
+        }, {
+          "value" : "value",
+          "key" : "key"
+        } ]
+      },
+      "networkInterfaces" : [ {
+        "networkIp" : "networkIp",
+        "accessConfigs" : [ {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        }, {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        } ],
+        "network" : "network"
+      }, {
+        "networkIp" : "networkIp",
+        "accessConfigs" : [ {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        }, {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        } ],
+        "network" : "network"
+      } ],
+      "serviceAccounts" : [ {
+        "scopes" : [ "scopes", "scopes" ],
+        "email" : "email"
+      }, {
+        "scopes" : [ "scopes", "scopes" ],
+        "email" : "email"
+      } ],
+      "disksToAttach" : [ {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "source" : "source"
+      }, {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "source" : "source"
+      } ],
+      "onHostMaintenance" : "onHostMaintenance",
+      "disksToCreate" : [ {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "autoDelete" : true,
+        "boot" : true,
+        "initializeParams" : {
+          "diskType" : "diskType",
+          "sourceImage" : "sourceImage",
+          "diskSizeGb" : "diskSizeGb"
+        }
+      }, {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "autoDelete" : true,
+        "boot" : true,
+        "initializeParams" : {
+          "diskType" : "diskType",
+          "sourceImage" : "sourceImage",
+          "diskSizeGb" : "diskSizeGb"
+        }
+      } ],
+      "description" : "description",
+      "baseInstanceName" : "baseInstanceName",
+      "machineType" : "machineType",
+      "tags" : {
+        "fingerPrint" : "fingerPrint",
+        "items" : [ "items", "items" ]
+      }
+    },
+    "version" : "version"
+  },
+  "healthChecks" : [ {
+    "path" : "path",
+    "port" : 5,
+    "checkIntervalSec" : 6,
+    "host" : "host",
+    "name" : "name",
+    "description" : "description",
+    "unhealthyThreshold" : 2,
+    "healthyThreshold" : 1,
+    "timeoutSec" : 5
+  }, {
+    "path" : "path",
+    "port" : 5,
+    "checkIntervalSec" : 6,
+    "host" : "host",
+    "name" : "name",
+    "description" : "description",
+    "unhealthyThreshold" : 2,
+    "healthyThreshold" : 1,
+    "timeoutSec" : 5
+  } ],
+  "initialNumReplicas" : 7,
+  "description" : "description",
+  "baseInstanceName" : "baseInstanceName",
+  "targetPools" : [ "targetPools", "targetPools" ],
+  "type" : "type",
+  "labels" : [ {
+    "value" : "value",
+    "key" : "key"
+  }, {
+    "value" : "value",
+    "key" : "key"
+  } ],
+  "selfLink" : "selfLink",
+  "numReplicas" : 9,
+  "targetPool" : "targetPool",
+  "currentNumReplicas" : 0,
+  "name" : "name",
+  "resourceViews" : [ "resourceViews", "resourceViews" ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Pool">Pool</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="replicapool.pools.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{projectName}/zones/{zone}/pools</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">replicapool.pools.list</span>)</div>
+    <div class="method-notes">List all replica pools.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">projectName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The project ID for this request. default: null </div><div class="param">zone (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The zone for this replica pool. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for the response. default: json </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: true </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An opaque string that represents a user for quota purposes. Must not exceed 40 characters. default: null </div><div class="param">userIp (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Deprecated. Please use quotaUser instead. default: null </div><div class="param">maxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default: 50) default: 500 </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Set this to the nextPageToken value returned by a previous list request to obtain the next page of results from the previous list request. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PoolsListResponse">PoolsListResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "resources" : [ {
+    "autoRestart" : true,
+    "template" : {
+      "healthChecks" : [ {
+        "path" : "path",
+        "port" : 5,
+        "checkIntervalSec" : 6,
+        "host" : "host",
+        "name" : "name",
+        "description" : "description",
+        "unhealthyThreshold" : 2,
+        "healthyThreshold" : 1,
+        "timeoutSec" : 5
+      }, {
+        "path" : "path",
+        "port" : 5,
+        "checkIntervalSec" : 6,
+        "host" : "host",
+        "name" : "name",
+        "description" : "description",
+        "unhealthyThreshold" : 2,
+        "healthyThreshold" : 1,
+        "timeoutSec" : 5
+      } ],
+      "action" : {
+        "timeoutMilliSeconds" : 3,
+        "envVariables" : [ {
+          "hidden" : true,
+          "name" : "name",
+          "value" : "value"
+        }, {
+          "hidden" : true,
+          "name" : "name",
+          "value" : "value"
+        } ],
+        "commands" : [ "commands", "commands" ]
+      },
+      "vmParams" : {
+        "canIpForward" : true,
+        "metadata" : {
+          "fingerPrint" : "fingerPrint",
+          "items" : [ {
+            "value" : "value",
+            "key" : "key"
+          }, {
+            "value" : "value",
+            "key" : "key"
+          } ]
+        },
+        "networkInterfaces" : [ {
+          "networkIp" : "networkIp",
+          "accessConfigs" : [ {
+            "natIp" : "natIp",
+            "name" : "name",
+            "type" : "type"
+          }, {
+            "natIp" : "natIp",
+            "name" : "name",
+            "type" : "type"
+          } ],
+          "network" : "network"
+        }, {
+          "networkIp" : "networkIp",
+          "accessConfigs" : [ {
+            "natIp" : "natIp",
+            "name" : "name",
+            "type" : "type"
+          }, {
+            "natIp" : "natIp",
+            "name" : "name",
+            "type" : "type"
+          } ],
+          "network" : "network"
+        } ],
+        "serviceAccounts" : [ {
+          "scopes" : [ "scopes", "scopes" ],
+          "email" : "email"
+        }, {
+          "scopes" : [ "scopes", "scopes" ],
+          "email" : "email"
+        } ],
+        "disksToAttach" : [ {
+          "attachment" : {
+            "index" : 2,
+            "deviceName" : "deviceName"
+          },
+          "source" : "source"
+        }, {
+          "attachment" : {
+            "index" : 2,
+            "deviceName" : "deviceName"
+          },
+          "source" : "source"
+        } ],
+        "onHostMaintenance" : "onHostMaintenance",
+        "disksToCreate" : [ {
+          "attachment" : {
+            "index" : 2,
+            "deviceName" : "deviceName"
+          },
+          "autoDelete" : true,
+          "boot" : true,
+          "initializeParams" : {
+            "diskType" : "diskType",
+            "sourceImage" : "sourceImage",
+            "diskSizeGb" : "diskSizeGb"
+          }
+        }, {
+          "attachment" : {
+            "index" : 2,
+            "deviceName" : "deviceName"
+          },
+          "autoDelete" : true,
+          "boot" : true,
+          "initializeParams" : {
+            "diskType" : "diskType",
+            "sourceImage" : "sourceImage",
+            "diskSizeGb" : "diskSizeGb"
+          }
+        } ],
+        "description" : "description",
+        "baseInstanceName" : "baseInstanceName",
+        "machineType" : "machineType",
+        "tags" : {
+          "fingerPrint" : "fingerPrint",
+          "items" : [ "items", "items" ]
+        }
+      },
+      "version" : "version"
+    },
+    "healthChecks" : [ {
+      "path" : "path",
+      "port" : 5,
+      "checkIntervalSec" : 6,
+      "host" : "host",
+      "name" : "name",
+      "description" : "description",
+      "unhealthyThreshold" : 2,
+      "healthyThreshold" : 1,
+      "timeoutSec" : 5
+    }, {
+      "path" : "path",
+      "port" : 5,
+      "checkIntervalSec" : 6,
+      "host" : "host",
+      "name" : "name",
+      "description" : "description",
+      "unhealthyThreshold" : 2,
+      "healthyThreshold" : 1,
+      "timeoutSec" : 5
+    } ],
+    "initialNumReplicas" : 7,
+    "description" : "description",
+    "baseInstanceName" : "baseInstanceName",
+    "targetPools" : [ "targetPools", "targetPools" ],
+    "type" : "type",
+    "labels" : [ {
+      "value" : "value",
+      "key" : "key"
+    }, {
+      "value" : "value",
+      "key" : "key"
+    } ],
+    "selfLink" : "selfLink",
+    "numReplicas" : 9,
+    "targetPool" : "targetPool",
+    "currentNumReplicas" : 0,
+    "name" : "name",
+    "resourceViews" : [ "resourceViews", "resourceViews" ]
+  }, {
+    "autoRestart" : true,
+    "template" : {
+      "healthChecks" : [ {
+        "path" : "path",
+        "port" : 5,
+        "checkIntervalSec" : 6,
+        "host" : "host",
+        "name" : "name",
+        "description" : "description",
+        "unhealthyThreshold" : 2,
+        "healthyThreshold" : 1,
+        "timeoutSec" : 5
+      }, {
+        "path" : "path",
+        "port" : 5,
+        "checkIntervalSec" : 6,
+        "host" : "host",
+        "name" : "name",
+        "description" : "description",
+        "unhealthyThreshold" : 2,
+        "healthyThreshold" : 1,
+        "timeoutSec" : 5
+      } ],
+      "action" : {
+        "timeoutMilliSeconds" : 3,
+        "envVariables" : [ {
+          "hidden" : true,
+          "name" : "name",
+          "value" : "value"
+        }, {
+          "hidden" : true,
+          "name" : "name",
+          "value" : "value"
+        } ],
+        "commands" : [ "commands", "commands" ]
+      },
+      "vmParams" : {
+        "canIpForward" : true,
+        "metadata" : {
+          "fingerPrint" : "fingerPrint",
+          "items" : [ {
+            "value" : "value",
+            "key" : "key"
+          }, {
+            "value" : "value",
+            "key" : "key"
+          } ]
+        },
+        "networkInterfaces" : [ {
+          "networkIp" : "networkIp",
+          "accessConfigs" : [ {
+            "natIp" : "natIp",
+            "name" : "name",
+            "type" : "type"
+          }, {
+            "natIp" : "natIp",
+            "name" : "name",
+            "type" : "type"
+          } ],
+          "network" : "network"
+        }, {
+          "networkIp" : "networkIp",
+          "accessConfigs" : [ {
+            "natIp" : "natIp",
+            "name" : "name",
+            "type" : "type"
+          }, {
+            "natIp" : "natIp",
+            "name" : "name",
+            "type" : "type"
+          } ],
+          "network" : "network"
+        } ],
+        "serviceAccounts" : [ {
+          "scopes" : [ "scopes", "scopes" ],
+          "email" : "email"
+        }, {
+          "scopes" : [ "scopes", "scopes" ],
+          "email" : "email"
+        } ],
+        "disksToAttach" : [ {
+          "attachment" : {
+            "index" : 2,
+            "deviceName" : "deviceName"
+          },
+          "source" : "source"
+        }, {
+          "attachment" : {
+            "index" : 2,
+            "deviceName" : "deviceName"
+          },
+          "source" : "source"
+        } ],
+        "onHostMaintenance" : "onHostMaintenance",
+        "disksToCreate" : [ {
+          "attachment" : {
+            "index" : 2,
+            "deviceName" : "deviceName"
+          },
+          "autoDelete" : true,
+          "boot" : true,
+          "initializeParams" : {
+            "diskType" : "diskType",
+            "sourceImage" : "sourceImage",
+            "diskSizeGb" : "diskSizeGb"
+          }
+        }, {
+          "attachment" : {
+            "index" : 2,
+            "deviceName" : "deviceName"
+          },
+          "autoDelete" : true,
+          "boot" : true,
+          "initializeParams" : {
+            "diskType" : "diskType",
+            "sourceImage" : "sourceImage",
+            "diskSizeGb" : "diskSizeGb"
+          }
+        } ],
+        "description" : "description",
+        "baseInstanceName" : "baseInstanceName",
+        "machineType" : "machineType",
+        "tags" : {
+          "fingerPrint" : "fingerPrint",
+          "items" : [ "items", "items" ]
+        }
+      },
+      "version" : "version"
+    },
+    "healthChecks" : [ {
+      "path" : "path",
+      "port" : 5,
+      "checkIntervalSec" : 6,
+      "host" : "host",
+      "name" : "name",
+      "description" : "description",
+      "unhealthyThreshold" : 2,
+      "healthyThreshold" : 1,
+      "timeoutSec" : 5
+    }, {
+      "path" : "path",
+      "port" : 5,
+      "checkIntervalSec" : 6,
+      "host" : "host",
+      "name" : "name",
+      "description" : "description",
+      "unhealthyThreshold" : 2,
+      "healthyThreshold" : 1,
+      "timeoutSec" : 5
+    } ],
+    "initialNumReplicas" : 7,
+    "description" : "description",
+    "baseInstanceName" : "baseInstanceName",
+    "targetPools" : [ "targetPools", "targetPools" ],
+    "type" : "type",
+    "labels" : [ {
+      "value" : "value",
+      "key" : "key"
+    }, {
+      "value" : "value",
+      "key" : "key"
+    } ],
+    "selfLink" : "selfLink",
+    "numReplicas" : 9,
+    "targetPool" : "targetPool",
+    "currentNumReplicas" : 0,
+    "name" : "name",
+    "resourceViews" : [ "resourceViews", "resourceViews" ]
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#PoolsListResponse">PoolsListResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="replicapool.pools.resize"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /{projectName}/zones/{zone}/pools/{poolName}/resize</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">replicapool.pools.resize</span>)</div>
+    <div class="method-notes">Resize a pool. This is an asynchronous operation, and multiple overlapping resize requests can be made. Replica Pools will use the information from the last resize request.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">projectName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The project ID for this replica pool. default: null </div><div class="param">zone (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The zone for this replica pool. default: null </div><div class="param">poolName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the replica pool for this request. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for the response. default: json </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: true </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An opaque string that represents a user for quota purposes. Must not exceed 40 characters. default: null </div><div class="param">userIp (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Deprecated. Please use quotaUser instead. default: null </div><div class="param">numReplicas (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The desired number of replicas to resize to. If this number is larger than the existing number of replicas, new replicas will be added. If the number is smaller, then existing replicas will be deleted. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Pool">Pool</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "autoRestart" : true,
+  "template" : {
+    "healthChecks" : [ {
+      "path" : "path",
+      "port" : 5,
+      "checkIntervalSec" : 6,
+      "host" : "host",
+      "name" : "name",
+      "description" : "description",
+      "unhealthyThreshold" : 2,
+      "healthyThreshold" : 1,
+      "timeoutSec" : 5
+    }, {
+      "path" : "path",
+      "port" : 5,
+      "checkIntervalSec" : 6,
+      "host" : "host",
+      "name" : "name",
+      "description" : "description",
+      "unhealthyThreshold" : 2,
+      "healthyThreshold" : 1,
+      "timeoutSec" : 5
+    } ],
+    "action" : {
+      "timeoutMilliSeconds" : 3,
+      "envVariables" : [ {
+        "hidden" : true,
+        "name" : "name",
+        "value" : "value"
+      }, {
+        "hidden" : true,
+        "name" : "name",
+        "value" : "value"
+      } ],
+      "commands" : [ "commands", "commands" ]
+    },
+    "vmParams" : {
+      "canIpForward" : true,
+      "metadata" : {
+        "fingerPrint" : "fingerPrint",
+        "items" : [ {
+          "value" : "value",
+          "key" : "key"
+        }, {
+          "value" : "value",
+          "key" : "key"
+        } ]
+      },
+      "networkInterfaces" : [ {
+        "networkIp" : "networkIp",
+        "accessConfigs" : [ {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        }, {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        } ],
+        "network" : "network"
+      }, {
+        "networkIp" : "networkIp",
+        "accessConfigs" : [ {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        }, {
+          "natIp" : "natIp",
+          "name" : "name",
+          "type" : "type"
+        } ],
+        "network" : "network"
+      } ],
+      "serviceAccounts" : [ {
+        "scopes" : [ "scopes", "scopes" ],
+        "email" : "email"
+      }, {
+        "scopes" : [ "scopes", "scopes" ],
+        "email" : "email"
+      } ],
+      "disksToAttach" : [ {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "source" : "source"
+      }, {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "source" : "source"
+      } ],
+      "onHostMaintenance" : "onHostMaintenance",
+      "disksToCreate" : [ {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "autoDelete" : true,
+        "boot" : true,
+        "initializeParams" : {
+          "diskType" : "diskType",
+          "sourceImage" : "sourceImage",
+          "diskSizeGb" : "diskSizeGb"
+        }
+      }, {
+        "attachment" : {
+          "index" : 2,
+          "deviceName" : "deviceName"
+        },
+        "autoDelete" : true,
+        "boot" : true,
+        "initializeParams" : {
+          "diskType" : "diskType",
+          "sourceImage" : "sourceImage",
+          "diskSizeGb" : "diskSizeGb"
+        }
+      } ],
+      "description" : "description",
+      "baseInstanceName" : "baseInstanceName",
+      "machineType" : "machineType",
+      "tags" : {
+        "fingerPrint" : "fingerPrint",
+        "items" : [ "items", "items" ]
+      }
+    },
+    "version" : "version"
+  },
+  "healthChecks" : [ {
+    "path" : "path",
+    "port" : 5,
+    "checkIntervalSec" : 6,
+    "host" : "host",
+    "name" : "name",
+    "description" : "description",
+    "unhealthyThreshold" : 2,
+    "healthyThreshold" : 1,
+    "timeoutSec" : 5
+  }, {
+    "path" : "path",
+    "port" : 5,
+    "checkIntervalSec" : 6,
+    "host" : "host",
+    "name" : "name",
+    "description" : "description",
+    "unhealthyThreshold" : 2,
+    "healthyThreshold" : 1,
+    "timeoutSec" : 5
+  } ],
+  "initialNumReplicas" : 7,
+  "description" : "description",
+  "baseInstanceName" : "baseInstanceName",
+  "targetPools" : [ "targetPools", "targetPools" ],
+  "type" : "type",
+  "labels" : [ {
+    "value" : "value",
+    "key" : "key"
+  }, {
+    "value" : "value",
+    "key" : "key"
+  } ],
+  "selfLink" : "selfLink",
+  "numReplicas" : 9,
+  "targetPool" : "targetPool",
+  "currentNumReplicas" : 0,
+  "name" : "name",
+  "resourceViews" : [ "resourceViews", "resourceViews" ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Pool">Pool</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="replicapool.pools.updatetemplate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /{projectName}/zones/{zone}/pools/{poolName}/updateTemplate</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">replicapool.pools.updatetemplate</span>)</div>
+    <div class="method-notes">Update the template used by the pool.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">projectName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The project ID for this replica pool. default: null </div><div class="param">zone (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The zone for this replica pool. default: null </div><div class="param">poolName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the replica pool for this request. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Template <a href="#Template">Template</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for the response. default: json </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: true </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An opaque string that represents a user for quota purposes. Must not exceed 40 characters. default: null </div><div class="param">userIp (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Deprecated. Please use quotaUser instead. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Replicas">Replicas</a></h1>
+  <div class="method"><a name="replicapool.replicas.delete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">replicapool.replicas.delete</span>)</div>
+    <div class="method-notes">Deletes a replica from the pool.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">projectName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The project ID for this request. default: null </div><div class="param">zone (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The zone where the replica lives. default: null </div><div class="param">poolName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The replica pool name for this request. default: null </div><div class="param">replicaName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the replica for this request. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ReplicasDeleteRequest <a href="#ReplicasDeleteRequest">ReplicasDeleteRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for the response. default: json </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: true </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An opaque string that represents a user for quota purposes. Must not exceed 40 characters. default: null </div><div class="param">userIp (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Deprecated. Please use quotaUser instead. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Replica">Replica</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "name" : "name",
+  "selfLink" : "selfLink",
+  "status" : {
+    "details" : "details",
+    "templateVersion" : "templateVersion",
+    "state" : "state",
+    "vmLink" : "vmLink",
+    "vmStartTime" : "vmStartTime"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Replica">Replica</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="replicapool.replicas.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">replicapool.replicas.get</span>)</div>
+    <div class="method-notes">Gets information about a specific replica.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">projectName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The project ID for this request. default: null </div><div class="param">zone (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The zone where the replica lives. default: null </div><div class="param">poolName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The replica pool name for this request. default: null </div><div class="param">replicaName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the replica for this request. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for the response. default: json </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: true </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An opaque string that represents a user for quota purposes. Must not exceed 40 characters. default: null </div><div class="param">userIp (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Deprecated. Please use quotaUser instead. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Replica">Replica</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "name" : "name",
+  "selfLink" : "selfLink",
+  "status" : {
+    "details" : "details",
+    "templateVersion" : "templateVersion",
+    "state" : "state",
+    "vmLink" : "vmLink",
+    "vmStartTime" : "vmStartTime"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Replica">Replica</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="replicapool.replicas.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{projectName}/zones/{zone}/pools/{poolName}/replicas</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">replicapool.replicas.list</span>)</div>
+    <div class="method-notes">Lists all replicas in a pool.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">projectName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The project ID for this request. default: null </div><div class="param">zone (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The zone where the replica pool lives. default: null </div><div class="param">poolName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The replica pool name for this request. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for the response. default: json </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: true </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An opaque string that represents a user for quota purposes. Must not exceed 40 characters. default: null </div><div class="param">userIp (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Deprecated. Please use quotaUser instead. default: null </div><div class="param">maxResults (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default: 50) default: 500 </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Set this to the nextPageToken value returned by a previous list request to obtain the next page of results from the previous list request. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ReplicasListResponse">ReplicasListResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "resources" : [ {
+    "name" : "name",
+    "selfLink" : "selfLink",
+    "status" : {
+      "details" : "details",
+      "templateVersion" : "templateVersion",
+      "state" : "state",
+      "vmLink" : "vmLink",
+      "vmStartTime" : "vmStartTime"
+    }
+  }, {
+    "name" : "name",
+    "selfLink" : "selfLink",
+    "status" : {
+      "details" : "details",
+      "templateVersion" : "templateVersion",
+      "state" : "state",
+      "vmLink" : "vmLink",
+      "vmStartTime" : "vmStartTime"
+    }
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ReplicasListResponse">ReplicasListResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="replicapool.replicas.restart"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}/restart</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">replicapool.replicas.restart</span>)</div>
+    <div class="method-notes">Restarts a replica in a pool.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">projectName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The project ID for this request. default: null </div><div class="param">zone (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The zone where the replica lives. default: null </div><div class="param">poolName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The replica pool name for this request. default: null </div><div class="param">replicaName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the replica for this request. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for the response. default: json </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: true </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An opaque string that represents a user for quota purposes. Must not exceed 40 characters. default: null </div><div class="param">userIp (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Deprecated. Please use quotaUser instead. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Replica">Replica</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: */*</div>
+    <pre class="example"><code>{
+  "name" : "name",
+  "selfLink" : "selfLink",
+  "status" : {
+    "details" : "details",
+    "templateVersion" : "templateVersion",
+    "state" : "state",
+    "vmLink" : "vmLink",
+    "vmStartTime" : "vmStartTime"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Replica">Replica</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#AccessConfig"><code>AccessConfig</code> - </a></li>
+    <li><a href="#Action"><code>Action</code> - </a></li>
+    <li><a href="#DiskAttachment"><code>DiskAttachment</code> - </a></li>
+    <li><a href="#EnvVariable"><code>EnvVariable</code> - </a></li>
+    <li><a href="#ExistingDisk"><code>ExistingDisk</code> - </a></li>
+    <li><a href="#HealthCheck"><code>HealthCheck</code> - </a></li>
+    <li><a href="#Label"><code>Label</code> - </a></li>
+    <li><a href="#Metadata"><code>Metadata</code> - </a></li>
+    <li><a href="#MetadataItem"><code>MetadataItem</code> - </a></li>
+    <li><a href="#NetworkInterface"><code>NetworkInterface</code> - </a></li>
+    <li><a href="#NewDisk"><code>NewDisk</code> - </a></li>
+    <li><a href="#NewDiskInitializeParams"><code>NewDiskInitializeParams</code> - </a></li>
+    <li><a href="#Pool"><code>Pool</code> - </a></li>
+    <li><a href="#PoolsDeleteRequest"><code>PoolsDeleteRequest</code> - </a></li>
+    <li><a href="#PoolsListResponse"><code>PoolsListResponse</code> - </a></li>
+    <li><a href="#Replica"><code>Replica</code> - </a></li>
+    <li><a href="#ReplicaStatus"><code>ReplicaStatus</code> - </a></li>
+    <li><a href="#ReplicasDeleteRequest"><code>ReplicasDeleteRequest</code> - </a></li>
+    <li><a href="#ReplicasListResponse"><code>ReplicasListResponse</code> - </a></li>
+    <li><a href="#ServiceAccount"><code>ServiceAccount</code> - </a></li>
+    <li><a href="#Tag"><code>Tag</code> - </a></li>
+    <li><a href="#Template"><code>Template</code> - </a></li>
+    <li><a href="#VmParams"><code>VmParams</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="AccessConfig"><code>AccessConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A Compute Engine network accessConfig. Identical to the accessConfig on corresponding Compute Engine resource.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of this access configuration. </div>
+<div class="param">natIp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An external IP address associated with this instance. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Type of this access configuration file. Currently only ONE_TO_ONE_NAT is supported. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Action"><code>Action</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An action that gets executed during initialization of the replicas.</div>
+    <div class="field-items">
+      <div class="param">commands (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> A list of commands to run, one per line. If any command fails, the whole action is considered a failure and no further actions are run. This also marks the virtual machine or replica as a failure. </div>
+<div class="param">envVariables (optional)</div><div class="param-desc"><span class="param-type"><a href="#EnvVariable">array[EnvVariable]</a></span> A list of environment variables to use for the commands in this action. </div>
+<div class="param">timeoutMilliSeconds (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> If an action's commands on a particular replica do not finish in the specified timeoutMilliSeconds, the replica is considered to be in a FAILING state. No efforts are made to stop any processes that were spawned or created as the result of running the action's commands. The default is the max allowed value, 1 hour (i.e. 3600000 milliseconds). format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DiskAttachment"><code>DiskAttachment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specifies how to attach a disk to a Replica.</div>
+    <div class="field-items">
+      <div class="param">deviceName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The device name of this disk. </div>
+<div class="param">index (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> A zero-based index to assign to this disk, where 0 is reserved for the boot disk. If not specified, this is assigned by the server. format: uint32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EnvVariable"><code>EnvVariable</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An environment variable to set for an action.</div>
+    <div class="field-items">
+      <div class="param">hidden (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Deprecated, do not use. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the environment variable. </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The value of the variable. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExistingDisk"><code>ExistingDisk</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A pre-existing persistent disk that will be attached to every Replica in the Pool in READ_ONLY mode.</div>
+    <div class="field-items">
+      <div class="param">attachment (optional)</div><div class="param-desc"><span class="param-type"><a href="#DiskAttachment">DiskAttachment</a></span>  </div>
+<div class="param">source (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the Persistent Disk resource. The Persistent Disk resource must be in the same zone as the Pool. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="HealthCheck"><code>HealthCheck</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">checkIntervalSec (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> How often (in seconds) to make HTTP requests for this healthcheck. The default value is 5 seconds. format: int32</div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The description for this health check. </div>
+<div class="param">healthyThreshold (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of consecutive health check requests that need to succeed before the replica is considered healthy again. The default value is 2. format: int32</div>
+<div class="param">host (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The value of the host header in the HTTP health check request. If left empty (default value), the localhost IP 127.0.0.1 will be used. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of this health check. </div>
+<div class="param">path (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The localhost request path to send this health check, in the format /path/to/use. For example, /healthcheck. </div>
+<div class="param">port (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The TCP port for the health check requests. format: int32</div>
+<div class="param">timeoutSec (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> How long (in seconds) to wait before a timeout failure for this healthcheck. The default value is 5 seconds. format: int32</div>
+<div class="param">unhealthyThreshold (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of consecutive health check requests that need to fail in order to consider the replica unhealthy. The default value is 2. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Label"><code>Label</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A label to apply to this replica pool.</div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The key for this label. </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The value of this label. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Metadata"><code>Metadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A Compute Engine metadata entry. Identical to the metadata on the corresponding Compute Engine resource.</div>
+    <div class="field-items">
+      <div class="param">fingerPrint (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The fingerprint of the metadata. Required for updating the metadata entries for this instance. </div>
+<div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#MetadataItem">array[MetadataItem]</a></span> A list of metadata items. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MetadataItem"><code>MetadataItem</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A Compute Engine metadata item, defined as a key:value pair. Identical to the metadata on the corresponding Compute Engine resource.</div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A metadata key. </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A metadata value. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NetworkInterface"><code>NetworkInterface</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A Compute Engine NetworkInterface resource. Identical to the NetworkInterface on the corresponding Compute Engine resource.</div>
+    <div class="field-items">
+      <div class="param">accessConfigs (optional)</div><div class="param-desc"><span class="param-type"><a href="#AccessConfig">array[AccessConfig]</a></span> An array of configurations for this interface. This specifies how this interface is configured to interact with other network services. </div>
+<div class="param">network (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name the Network resource to which this interface applies. </div>
+<div class="param">networkIp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An optional IPV4 internal network address to assign to the instance for this network interface. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NewDisk"><code>NewDisk</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A Persistent Disk resource that will be created and attached to each Replica in the Pool. Each Replica will have a unique persistent disk that is created and attached to that Replica in READ_WRITE mode.</div>
+    <div class="field-items">
+      <div class="param">attachment (optional)</div><div class="param-desc"><span class="param-type"><a href="#DiskAttachment">DiskAttachment</a></span>  </div>
+<div class="param">autoDelete (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If true, then this disk will be deleted when the instance is deleted. The default value is true. </div>
+<div class="param">boot (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If true, indicates that this is the root persistent disk. </div>
+<div class="param">initializeParams (optional)</div><div class="param-desc"><span class="param-type"><a href="#NewDiskInitializeParams">NewDiskInitializeParams</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NewDiskInitializeParams"><code>NewDiskInitializeParams</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Initialization parameters for creating a new disk.</div>
+    <div class="field-items">
+      <div class="param">diskSizeGb (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The size of the created disk in gigabytes. format: int64</div>
+<div class="param">diskType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the disk type resource describing which disk type to use to create the disk. For example 'pd-ssd' or 'pd-standard'. Default is 'pd-standard' </div>
+<div class="param">sourceImage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name or fully-qualified URL of a source image to use to create this disk. If you provide a name of the source image, Replica Pool will look for an image with that name in your project. If you are specifying an image provided by Compute Engine, you will need to provide the full URL with the correct project, such as:
+http://www.googleapis.com/compute/v1/projects/debian-cloud/ global/images/debian-wheezy-7-vYYYYMMDD </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Pool"><code>Pool</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">autoRestart (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether replicas in this pool should be restarted if they experience a failure. The default value is true. </div>
+<div class="param">baseInstanceName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The base instance name to use for the replicas in this pool. This must match the regex <a href="[-a-z0-9]*[a-z0-9]">a-z</a>?. If specified, the instances in this replica pool will be named in the format <base-instance-name>-<ID>. The <ID> postfix will be a four character alphanumeric identifier generated by the service.</p>
+<p>If this is not specified by the user, a random base instance name is generated by the service.</p>
+ </div>
+<div class="param">currentNumReplicas (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> [Output Only] The current number of replicas in the pool. format: int32</div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An optional description of the replica pool. </div>
+<div class="param">healthChecks (optional)</div><div class="param-desc"><span class="param-type"><a href="#HealthCheck">array[HealthCheck]</a></span> Deprecated. Please use template[].healthChecks instead. </div>
+<div class="param">initialNumReplicas (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The initial number of replicas this pool should have. You must provide a value greater than or equal to 0. format: int32</div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#Label">array[Label]</a></span> A list of labels to attach to this replica pool and all created virtual machines in this replica pool. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the replica pool. Must follow the regex <a href="[-a-z0-9]*[a-z0-9]">a-z</a>? and be 1-28 characters long. </div>
+<div class="param">numReplicas (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Deprecated! Use initial_num_replicas instead. format: int32</div>
+<div class="param">resourceViews (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The list of resource views that should be updated with all the replicas that are managed by this pool. </div>
+<div class="param">selfLink (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> [Output Only] A self-link to the replica pool. </div>
+<div class="param">targetPool (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Deprecated, please use target_pools instead. </div>
+<div class="param">targetPools (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> A list of target pools to update with the replicas that are managed by this pool. If specified, the replicas in this replica pool will be added to the specified target pools for load balancing purposes. The replica pool must live in the same region as the specified target pools. These values must be the target pool resource names, and not fully qualified URLs. </div>
+<div class="param">template (optional)</div><div class="param-desc"><span class="param-type"><a href="#Template">Template</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Deprecated! Do not set. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PoolsDeleteRequest"><code>PoolsDeleteRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">abandonInstances (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> If there are instances you would like to keep, you can specify them here. These instances won't be deleted, but the associated replica objects will be removed. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PoolsListResponse"><code>PoolsListResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">resources (optional)</div><div class="param-desc"><span class="param-type"><a href="#Pool">array[Pool]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Replica"><code>Replica</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An individual Replica within a Pool. Replicas are automatically created by the replica pool, using the template provided by the user. You cannot directly create replicas.</div>
+    <div class="field-items">
+      <div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> [Output Only] The name of the Replica object. </div>
+<div class="param">selfLink (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> [Output Only] The self-link of the Replica. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReplicaStatus">ReplicaStatus</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReplicaStatus"><code>ReplicaStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The current status of a Replica.</div>
+    <div class="field-items">
+      <div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> [Output Only] Human-readable details about the current state of the replica </div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> [Output Only] The state of the Replica. </div>
+<div class="param">templateVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> [Output Only] The template used to build the replica. </div>
+<div class="param">vmLink (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> [Output Only] Link to the virtual machine that this Replica represents. </div>
+<div class="param">vmStartTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> [Output Only] The time that this Replica got to the RUNNING state, in RFC 3339 format. If the start time is unknown, UNKNOWN is returned. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReplicasDeleteRequest"><code>ReplicasDeleteRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">abandonInstance (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether the instance resource represented by this replica should be deleted or abandoned. If abandoned, the replica will be deleted but the virtual machine instance will remain. By default, this is set to false and the instance will be deleted along with the replica. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReplicasListResponse"><code>ReplicasListResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">resources (optional)</div><div class="param-desc"><span class="param-type"><a href="#Replica">array[Replica]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ServiceAccount"><code>ServiceAccount</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A Compute Engine service account, identical to the Compute Engine resource.</div>
+    <div class="field-items">
+      <div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The service account email address, for example: 123845678986@project.gserviceaccount.com </div>
+<div class="param">scopes (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The list of OAuth2 scopes to obtain for the service account, for example: https://www.googleapis.com/auth/devstorage.full_control </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Tag"><code>Tag</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A Compute Engine Instance tag, identical to the tags on the corresponding Compute Engine Instance resource.</div>
+    <div class="field-items">
+      <div class="param">fingerPrint (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The fingerprint of the tag. Required for updating the list of tags. </div>
+<div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Items contained in this tag. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Template"><code>Template</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The template used for creating replicas in the pool.</div>
+    <div class="field-items">
+      <div class="param">action (optional)</div><div class="param-desc"><span class="param-type"><a href="#Action">Action</a></span>  </div>
+<div class="param">healthChecks (optional)</div><div class="param-desc"><span class="param-type"><a href="#HealthCheck">array[HealthCheck]</a></span> A list of HTTP Health Checks to configure for this replica pool and all virtual machines in this replica pool. </div>
+<div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A free-form string describing the version of this template. You can provide any versioning string you would like. For example, version1 or template-v1. </div>
+<div class="param">vmParams (optional)</div><div class="param-desc"><span class="param-type"><a href="#VmParams">VmParams</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="VmParams"><code>VmParams</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Parameters for creating a Compute Engine Instance resource. Most fields are identical to the corresponding Compute Engine resource.</div>
+    <div class="field-items">
+      <div class="param">baseInstanceName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Deprecated. Please use baseInstanceName instead. </div>
+<div class="param">canIpForward (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Enables IP Forwarding, which allows this instance to receive packets destined for a different IP address, and send packets with a different source IP. See IP Forwarding for more information. </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An optional textual description of the instance. </div>
+<div class="param">disksToAttach (optional)</div><div class="param-desc"><span class="param-type"><a href="#ExistingDisk">array[ExistingDisk]</a></span> A list of existing Persistent Disk resources to attach to each replica in the pool. Each disk will be attached in read-only mode to every replica. </div>
+<div class="param">disksToCreate (optional)</div><div class="param-desc"><span class="param-type"><a href="#NewDisk">array[NewDisk]</a></span> A list of Disk resources to create and attach to each Replica in the Pool. Currently, you can only define one disk and it must be a root persistent disk. Note that Replica Pool will create a root persistent disk for each replica. </div>
+<div class="param">machineType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The machine type for this instance. The resource name (e.g. n1-standard-1). </div>
+<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#Metadata">Metadata</a></span>  </div>
+<div class="param">networkInterfaces (optional)</div><div class="param-desc"><span class="param-type"><a href="#NetworkInterface">array[NetworkInterface]</a></span> A list of network interfaces for the instance. Currently only one interface is supported by Google Compute Engine, ONE_TO_ONE_NAT. </div>
+<div class="param">onHostMaintenance (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">serviceAccounts (optional)</div><div class="param-desc"><span class="param-type"><a href="#ServiceAccount">array[ServiceAccount]</a></span> A list of Service Accounts to enable for this instance. </div>
+<div class="param">tags (optional)</div><div class="param-desc"><span class="param-type"><a href="#Tag">Tag</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
