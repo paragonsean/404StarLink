@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -61,15 +60,3 @@ src/main/java/org/openapitools/client/model/Product.java
 src/main/java/org/openapitools/client/model/ProductSearchResponse.java
 src/main/java/org/openapitools/client/model/ProductSummary.java
 src/main/java/org/openapitools/client/model/Refinement.java
-src/test/java/org/openapitools/client/api/ProductApiTest.java
-src/test/java/org/openapitools/client/api/ProductSummaryApiTest.java
-src/test/java/org/openapitools/client/model/AspectDistributionTest.java
-src/test/java/org/openapitools/client/model/AspectTest.java
-src/test/java/org/openapitools/client/model/AspectValueDistributionTest.java
-src/test/java/org/openapitools/client/model/ErrorParameterTest.java
-src/test/java/org/openapitools/client/model/ErrorTest.java
-src/test/java/org/openapitools/client/model/ImageTest.java
-src/test/java/org/openapitools/client/model/ProductSearchResponseTest.java
-src/test/java/org/openapitools/client/model/ProductSummaryTest.java
-src/test/java/org/openapitools/client/model/ProductTest.java
-src/test/java/org/openapitools/client/model/RefinementTest.java

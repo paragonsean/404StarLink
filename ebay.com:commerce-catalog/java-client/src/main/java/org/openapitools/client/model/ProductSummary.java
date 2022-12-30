@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * This type contains a summary of a specified product. The product summary includes information about the product&#39;s identifiers, product images, aspects, and the &lt;b&gt;getProduct&lt;/b&gt; URL for retrieving the product details.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:15.856462-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:42.743610-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ProductSummary {
   public static final String SERIALIZED_NAME_ADDITIONAL_IMAGES = "additionalImages";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_IMAGES)
