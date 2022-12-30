@@ -1,6 +1,6 @@
 /*
- * Serverless VPC Access API
- * API for managing VPC access connectors.
+ * Replica Pool
+ * The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.
  *
  * The version of the OpenAPI document: v1beta1
  * 
@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:30.383141-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:39.942530-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class HttpBearerAuth implements Authentication {
   private final String scheme;
   private Supplier<String> tokenSupplier;

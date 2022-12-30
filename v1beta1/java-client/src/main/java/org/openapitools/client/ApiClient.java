@@ -1,6 +1,6 @@
 /*
- * Serverless VPC Access API
- * API for managing VPC access connectors.
+ * Replica Pool
+ * The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.
  *
  * The version of the OpenAPI document: v1beta1
  * 
@@ -66,10 +66,10 @@ import org.openapitools.client.auth.OAuthFlow;
  */
 public class ApiClient {
 
-    private String basePath = "https://vpcaccess.googleapis.com";
+    private String basePath = "https://www.googleapis.com/replicapool/v1beta1/projects";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://vpcaccess.googleapis.com",
+      "https://www.googleapis.com/replicapool/v1beta1/projects",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -231,7 +231,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://vpcaccess.googleapis.com
+     * @param basePath Base path of the URL (e.g https://www.googleapis.com/replicapool/v1beta1/projects
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

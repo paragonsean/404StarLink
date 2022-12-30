@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Serverless VPC Access API
+Replica Pool
 - API version: v1beta1
-  - Build date: 2024-10-11T01:55:30.383141-04:00[America/New_York]
+  - Build date: 2024-10-11T01:58:39.942530-04:00[America/New_York]
   - Generator version: 7.9.0
 
-API for managing VPC access connectors.
+The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -87,12 +87,12 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.ProjectsApi;
+import org.openapitools.client.api.PoolsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://vpcaccess.googleapis.com");
+    defaultClient.setBasePath("https://www.googleapis.com/replicapool/v1beta1/projects");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -102,26 +102,22 @@ public class Example {
     OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The project and location in which the configuration should be created, specified in the format `projects/_*_/locations/_*`.
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
+    PoolsApi apiInstance = new PoolsApi(defaultClient);
+    String projectName = "projectName_example"; // String | The project ID for this replica pool.
+    String zone = "zone_example"; // String | The zone for this replica pool.
+    String poolName = "poolName_example"; // String | The name of the replica pool for this request.
+    String alt = "json"; // String | Data format for the response.
     String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
     String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
     String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
     Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String connectorId = "connectorId_example"; // String | Required. The ID to use for this connector.
-    Connector connector = new Connector(); // Connector | 
+    String quotaUser = "quotaUser_example"; // String | An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+    String userIp = "userIp_example"; // String | Deprecated. Please use quotaUser instead.
+    PoolsDeleteRequest poolsDeleteRequest = new PoolsDeleteRequest(); // PoolsDeleteRequest | 
     try {
-      Operation result = apiInstance.vpcaccessProjectsLocationsConnectorsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, connectorId, connector);
-      System.out.println(result);
+      apiInstance.replicapoolPoolsDelete(projectName, zone, poolName, alt, fields, key, oauthToken, prettyPrint, quotaUser, userIp, poolsDeleteRequest);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#vpcaccessProjectsLocationsConnectorsCreate");
+      System.err.println("Exception when calling PoolsApi#replicapoolPoolsDelete");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -134,32 +130,47 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://vpcaccess.googleapis.com*
+All URIs are relative to *https://www.googleapis.com/replicapool/v1beta1/projects*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ProjectsApi* | [**vpcaccessProjectsLocationsConnectorsCreate**](docs/ProjectsApi.md#vpcaccessProjectsLocationsConnectorsCreate) | **POST** /v1beta1/{parent}/connectors | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsConnectorsDelete**](docs/ProjectsApi.md#vpcaccessProjectsLocationsConnectorsDelete) | **DELETE** /v1beta1/{name} | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsConnectorsList**](docs/ProjectsApi.md#vpcaccessProjectsLocationsConnectorsList) | **GET** /v1beta1/{parent}/connectors | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsConnectorsPatch**](docs/ProjectsApi.md#vpcaccessProjectsLocationsConnectorsPatch) | **PATCH** /v1beta1/{name} | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsList**](docs/ProjectsApi.md#vpcaccessProjectsLocationsList) | **GET** /v1beta1/{name}/locations | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsOperationsGet**](docs/ProjectsApi.md#vpcaccessProjectsLocationsOperationsGet) | **GET** /v1beta1/{name} | 
-*ProjectsApi* | [**vpcaccessProjectsLocationsOperationsList**](docs/ProjectsApi.md#vpcaccessProjectsLocationsOperationsList) | **GET** /v1beta1/{name}/operations | 
+*PoolsApi* | [**replicapoolPoolsDelete**](docs/PoolsApi.md#replicapoolPoolsDelete) | **POST** /{projectName}/zones/{zone}/pools/{poolName} | 
+*PoolsApi* | [**replicapoolPoolsGet**](docs/PoolsApi.md#replicapoolPoolsGet) | **GET** /{projectName}/zones/{zone}/pools/{poolName} | 
+*PoolsApi* | [**replicapoolPoolsInsert**](docs/PoolsApi.md#replicapoolPoolsInsert) | **POST** /{projectName}/zones/{zone}/pools | 
+*PoolsApi* | [**replicapoolPoolsList**](docs/PoolsApi.md#replicapoolPoolsList) | **GET** /{projectName}/zones/{zone}/pools | 
+*PoolsApi* | [**replicapoolPoolsResize**](docs/PoolsApi.md#replicapoolPoolsResize) | **POST** /{projectName}/zones/{zone}/pools/{poolName}/resize | 
+*PoolsApi* | [**replicapoolPoolsUpdatetemplate**](docs/PoolsApi.md#replicapoolPoolsUpdatetemplate) | **POST** /{projectName}/zones/{zone}/pools/{poolName}/updateTemplate | 
+*ReplicasApi* | [**replicapoolReplicasDelete**](docs/ReplicasApi.md#replicapoolReplicasDelete) | **POST** /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName} | 
+*ReplicasApi* | [**replicapoolReplicasGet**](docs/ReplicasApi.md#replicapoolReplicasGet) | **GET** /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName} | 
+*ReplicasApi* | [**replicapoolReplicasList**](docs/ReplicasApi.md#replicapoolReplicasList) | **GET** /{projectName}/zones/{zone}/pools/{poolName}/replicas | 
+*ReplicasApi* | [**replicapoolReplicasRestart**](docs/ReplicasApi.md#replicapoolReplicasRestart) | **POST** /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}/restart | 
 
 
 ## Documentation for Models
 
- - [Connector](docs/Connector.md)
- - [ListConnectorsResponse](docs/ListConnectorsResponse.md)
- - [ListLocationsResponse](docs/ListLocationsResponse.md)
- - [ListOperationsResponse](docs/ListOperationsResponse.md)
- - [Location](docs/Location.md)
- - [Operation](docs/Operation.md)
- - [OperationMetadata](docs/OperationMetadata.md)
- - [OperationMetadataV1Alpha1](docs/OperationMetadataV1Alpha1.md)
- - [OperationMetadataV1Beta1](docs/OperationMetadataV1Beta1.md)
- - [Status](docs/Status.md)
- - [Subnet](docs/Subnet.md)
+ - [AccessConfig](docs/AccessConfig.md)
+ - [Action](docs/Action.md)
+ - [DiskAttachment](docs/DiskAttachment.md)
+ - [EnvVariable](docs/EnvVariable.md)
+ - [ExistingDisk](docs/ExistingDisk.md)
+ - [HealthCheck](docs/HealthCheck.md)
+ - [Label](docs/Label.md)
+ - [Metadata](docs/Metadata.md)
+ - [MetadataItem](docs/MetadataItem.md)
+ - [NetworkInterface](docs/NetworkInterface.md)
+ - [NewDisk](docs/NewDisk.md)
+ - [NewDiskInitializeParams](docs/NewDiskInitializeParams.md)
+ - [Pool](docs/Pool.md)
+ - [PoolsDeleteRequest](docs/PoolsDeleteRequest.md)
+ - [PoolsListResponse](docs/PoolsListResponse.md)
+ - [Replica](docs/Replica.md)
+ - [ReplicaStatus](docs/ReplicaStatus.md)
+ - [ReplicasDeleteRequest](docs/ReplicasDeleteRequest.md)
+ - [ReplicasListResponse](docs/ReplicasListResponse.md)
+ - [ServiceAccount](docs/ServiceAccount.md)
+ - [Tag](docs/Tag.md)
+ - [Template](docs/Template.md)
+ - [VmParams](docs/VmParams.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -174,7 +185,12 @@ Authentication schemes defined for the API:
 - **Flow**: implicit
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+  - https://www.googleapis.com/auth/cloud-platform: View and manage your data across Google Cloud Platform services
+  - https://www.googleapis.com/auth/cloud-platform.read-only: View your data across Google Cloud Platform services
+  - https://www.googleapis.com/auth/ndev.cloudman: View and manage your Google Cloud Platform management resources and deployment status information
+  - https://www.googleapis.com/auth/ndev.cloudman.readonly: View your Google Cloud Platform management resources and deployment status information
+  - https://www.googleapis.com/auth/replicapool: View and manage replica pools
+  - https://www.googleapis.com/auth/replicapool.readonly: View replica pools
 
 <a id="Oauth2c"></a>
 ### Oauth2c
@@ -183,7 +199,12 @@ Authentication schemes defined for the API:
 - **Flow**: accessCode
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+  - https://www.googleapis.com/auth/cloud-platform: View and manage your data across Google Cloud Platform services
+  - https://www.googleapis.com/auth/cloud-platform.read-only: View your data across Google Cloud Platform services
+  - https://www.googleapis.com/auth/ndev.cloudman: View and manage your Google Cloud Platform management resources and deployment status information
+  - https://www.googleapis.com/auth/ndev.cloudman.readonly: View your Google Cloud Platform management resources and deployment status information
+  - https://www.googleapis.com/auth/replicapool: View and manage replica pools
+  - https://www.googleapis.com/auth/replicapool.readonly: View replica pools
 
 
 ## Recommendation
