@@ -1,0 +1,1005 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My Business Q&amp;A API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>My Business Q&amp;A API</h1>
+    <div class="app-desc">The My Business Q&amp;A API allows questions and answers to be posted for specific listings. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v1</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Locations">Locations</a></h4>
+  <ul>
+  <li><a href="#mybusinessqanda.locations.questions.answers.delete"><code><span class="http-method">delete</span> /v1/{name}/answers:delete</code></a></li>
+  <li><a href="#mybusinessqanda.locations.questions.answers.list"><code><span class="http-method">get</span> /v1/{parent}/answers</code></a></li>
+  <li><a href="#mybusinessqanda.locations.questions.answers.upsert"><code><span class="http-method">post</span> /v1/{parent}/answers:upsert</code></a></li>
+  <li><a href="#mybusinessqanda.locations.questions.create"><code><span class="http-method">post</span> /v1/{parent}</code></a></li>
+  <li><a href="#mybusinessqanda.locations.questions.delete"><code><span class="http-method">delete</span> /v1/{name}</code></a></li>
+  <li><a href="#mybusinessqanda.locations.questions.list"><code><span class="http-method">get</span> /v1/{parent}</code></a></li>
+  <li><a href="#mybusinessqanda.locations.questions.patch"><code><span class="http-method">patch</span> /v1/{name}</code></a></li>
+  </ul>
+
+  <h1><a name="Locations">Locations</a></h1>
+  <div class="method"><a name="mybusinessqanda.locations.questions.answers.delete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/{name}/answers:delete</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.answers.delete</span>)</div>
+    <div class="method-notes">Deletes the answer written by the current user to a question.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to delete an answer for. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mybusinessqanda.locations.questions.answers.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/answers</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.answers.list</span>)</div>
+    <div class="method-notes">Returns the paginated list of answers for a specified question.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to fetch answers for. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">orderBy (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The order to return the answers. Valid options include 'update_time desc' and 'upvote_count desc', which will return the answers sorted descendingly by the requested field. The default sort order is 'update_time desc'. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. How many answers to fetch per page. The default and maximum <code>page_size</code> values are 10. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. If specified, the next page of answers is retrieved. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListAnswersResponse">ListAnswersResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "totalSize" : 0,
+  "nextPageToken" : "nextPageToken",
+  "answers" : [ {
+    "createTime" : "createTime",
+    "author" : {
+      "displayName" : "displayName",
+      "profilePhotoUri" : "profilePhotoUri",
+      "type" : "AUTHOR_TYPE_UNSPECIFIED"
+    },
+    "name" : "name",
+    "updateTime" : "updateTime",
+    "text" : "text",
+    "upvoteCount" : 0
+  }, {
+    "createTime" : "createTime",
+    "author" : {
+      "displayName" : "displayName",
+      "profilePhotoUri" : "profilePhotoUri",
+      "type" : "AUTHOR_TYPE_UNSPECIFIED"
+    },
+    "name" : "name",
+    "updateTime" : "updateTime",
+    "text" : "text",
+    "upvoteCount" : 0
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListAnswersResponse">ListAnswersResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mybusinessqanda.locations.questions.answers.upsert"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}/answers:upsert</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.answers.upsert</span>)</div>
+    <div class="method-notes">Creates an answer or updates the existing answer written by the user for the specified question. A user can only create one answer per question.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to write an answer for. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">UpsertAnswerRequest <a href="#UpsertAnswerRequest">UpsertAnswerRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Answer">Answer</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "createTime" : "createTime",
+  "author" : {
+    "displayName" : "displayName",
+    "profilePhotoUri" : "profilePhotoUri",
+    "type" : "AUTHOR_TYPE_UNSPECIFIED"
+  },
+  "name" : "name",
+  "updateTime" : "updateTime",
+  "text" : "text",
+  "upvoteCount" : 0
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Answer">Answer</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mybusinessqanda.locations.questions.create"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.create</span>)</div>
+    <div class="method-notes">Adds a question for the specified location.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the location to write a question for. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Question <a href="#Question">Question</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Question">Question</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "totalAnswerCount" : 6,
+  "createTime" : "createTime",
+  "author" : {
+    "displayName" : "displayName",
+    "profilePhotoUri" : "profilePhotoUri",
+    "type" : "AUTHOR_TYPE_UNSPECIFIED"
+  },
+  "name" : "name",
+  "updateTime" : "updateTime",
+  "text" : "text",
+  "topAnswers" : [ {
+    "createTime" : "createTime",
+    "author" : {
+      "displayName" : "displayName",
+      "profilePhotoUri" : "profilePhotoUri",
+      "type" : "AUTHOR_TYPE_UNSPECIFIED"
+    },
+    "name" : "name",
+    "updateTime" : "updateTime",
+    "text" : "text",
+    "upvoteCount" : 0
+  }, {
+    "createTime" : "createTime",
+    "author" : {
+      "displayName" : "displayName",
+      "profilePhotoUri" : "profilePhotoUri",
+      "type" : "AUTHOR_TYPE_UNSPECIFIED"
+    },
+    "name" : "name",
+    "updateTime" : "updateTime",
+    "text" : "text",
+    "upvoteCount" : 0
+  } ],
+  "upvoteCount" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Question">Question</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mybusinessqanda.locations.questions.delete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.delete</span>)</div>
+    <div class="method-notes">Deletes a specific question written by the current user.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to delete. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Object
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mybusinessqanda.locations.questions.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.list</span>)</div>
+    <div class="method-notes">Returns the paginated list of questions and some of its answers for a specified location. This operation is only valid if the specified location is verified.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the location to fetch questions for. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">answersPerQuestion (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. How many answers to fetch per question. The default and maximum <code>answers_per_question</code> values are 10. default: null </div><div class="param">filter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. A filter constraining the questions to return. The only filter currently supported is &quot;ignore_answered=true&quot; default: null </div><div class="param">orderBy (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The order to return the questions. Valid options include 'update_time desc' and 'upvote_count desc', which will return the questions sorted descendingly by the requested field. The default sort order is 'update_time desc'. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. How many questions to fetch per page. The default and maximum <code>page_size</code> values are 10. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. If specified, the next page of questions is retrieved. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListQuestionsResponse">ListQuestionsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "totalSize" : 0,
+  "nextPageToken" : "nextPageToken",
+  "questions" : [ {
+    "totalAnswerCount" : 6,
+    "createTime" : "createTime",
+    "author" : {
+      "displayName" : "displayName",
+      "profilePhotoUri" : "profilePhotoUri",
+      "type" : "AUTHOR_TYPE_UNSPECIFIED"
+    },
+    "name" : "name",
+    "updateTime" : "updateTime",
+    "text" : "text",
+    "topAnswers" : [ {
+      "createTime" : "createTime",
+      "author" : {
+        "displayName" : "displayName",
+        "profilePhotoUri" : "profilePhotoUri",
+        "type" : "AUTHOR_TYPE_UNSPECIFIED"
+      },
+      "name" : "name",
+      "updateTime" : "updateTime",
+      "text" : "text",
+      "upvoteCount" : 0
+    }, {
+      "createTime" : "createTime",
+      "author" : {
+        "displayName" : "displayName",
+        "profilePhotoUri" : "profilePhotoUri",
+        "type" : "AUTHOR_TYPE_UNSPECIFIED"
+      },
+      "name" : "name",
+      "updateTime" : "updateTime",
+      "text" : "text",
+      "upvoteCount" : 0
+    } ],
+    "upvoteCount" : 1
+  }, {
+    "totalAnswerCount" : 6,
+    "createTime" : "createTime",
+    "author" : {
+      "displayName" : "displayName",
+      "profilePhotoUri" : "profilePhotoUri",
+      "type" : "AUTHOR_TYPE_UNSPECIFIED"
+    },
+    "name" : "name",
+    "updateTime" : "updateTime",
+    "text" : "text",
+    "topAnswers" : [ {
+      "createTime" : "createTime",
+      "author" : {
+        "displayName" : "displayName",
+        "profilePhotoUri" : "profilePhotoUri",
+        "type" : "AUTHOR_TYPE_UNSPECIFIED"
+      },
+      "name" : "name",
+      "updateTime" : "updateTime",
+      "text" : "text",
+      "upvoteCount" : 0
+    }, {
+      "createTime" : "createTime",
+      "author" : {
+        "displayName" : "displayName",
+        "profilePhotoUri" : "profilePhotoUri",
+        "type" : "AUTHOR_TYPE_UNSPECIFIED"
+      },
+      "name" : "name",
+      "updateTime" : "updateTime",
+      "text" : "text",
+      "upvoteCount" : 0
+    } ],
+    "upvoteCount" : 1
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListQuestionsResponse">ListQuestionsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mybusinessqanda.locations.questions.patch"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /v1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.patch</span>)</div>
+    <div class="method-notes">Updates a specific question written by the current user.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Immutable. The unique name for the question. locations/<em>/questions/</em> This field will be ignored if set during question creation. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Question <a href="#Question">Question</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">updateMask (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Required. The specific fields to update. Only question text can be updated. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Question">Question</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "totalAnswerCount" : 6,
+  "createTime" : "createTime",
+  "author" : {
+    "displayName" : "displayName",
+    "profilePhotoUri" : "profilePhotoUri",
+    "type" : "AUTHOR_TYPE_UNSPECIFIED"
+  },
+  "name" : "name",
+  "updateTime" : "updateTime",
+  "text" : "text",
+  "topAnswers" : [ {
+    "createTime" : "createTime",
+    "author" : {
+      "displayName" : "displayName",
+      "profilePhotoUri" : "profilePhotoUri",
+      "type" : "AUTHOR_TYPE_UNSPECIFIED"
+    },
+    "name" : "name",
+    "updateTime" : "updateTime",
+    "text" : "text",
+    "upvoteCount" : 0
+  }, {
+    "createTime" : "createTime",
+    "author" : {
+      "displayName" : "displayName",
+      "profilePhotoUri" : "profilePhotoUri",
+      "type" : "AUTHOR_TYPE_UNSPECIFIED"
+    },
+    "name" : "name",
+    "updateTime" : "updateTime",
+    "text" : "text",
+    "upvoteCount" : 0
+  } ],
+  "upvoteCount" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Question">Question</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Answer"><code>Answer</code> - </a></li>
+    <li><a href="#Author"><code>Author</code> - </a></li>
+    <li><a href="#ListAnswersResponse"><code>ListAnswersResponse</code> - </a></li>
+    <li><a href="#ListQuestionsResponse"><code>ListQuestionsResponse</code> - </a></li>
+    <li><a href="#Question"><code>Question</code> - </a></li>
+    <li><a href="#UpsertAnswerRequest"><code>UpsertAnswerRequest</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Answer"><code>Answer</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents an answer to a question</div>
+    <div class="field-items">
+      <div class="param">author (optional)</div><div class="param-desc"><span class="param-type"><a href="#Author">Author</a></span>  </div>
+<div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the answer was written. Only retrieved during ListResponse fetching. format: google-datetime</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The unique name for the answer locations/<em>/questions/</em>/answers/* </div>
+<div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The text of the answer. It should contain at least one non-whitespace character. The maximum length is 4096 characters. </div>
+<div class="param">updateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the answer was last modified. format: google-datetime</div>
+<div class="param">upvoteCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Output only. The number of upvotes for the answer. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Author"><code>Author</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the author of a question or answer</div>
+    <div class="field-items">
+      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The display name of the user </div>
+<div class="param">profilePhotoUri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The profile photo URI of the user. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of user the author is. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">AUTHOR_TYPE_UNSPECIFIED</div><div class="param-enum">REGULAR_USER</div><div class="param-enum">LOCAL_GUIDE</div><div class="param-enum">MERCHANT</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListAnswersResponse"><code>ListAnswersResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response message for QuestionsAndAnswers.ListAnswers</div>
+    <div class="field-items">
+      <div class="param">answers (optional)</div><div class="param-desc"><span class="param-type"><a href="#Answer">array[Answer]</a></span> The requested answers. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If the number of answers exceeds the requested max page size, this field is populated with a token to fetch the next page of answers on a subsequent call. If there are no more answers, this field is not present in the response. </div>
+<div class="param">totalSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The total number of answers posted for this question across all pages. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListQuestionsResponse"><code>ListQuestionsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response message for QuestionsAndAnswers.ListQuestions</div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If the number of questions exceeds the requested max page size, this field is populated with a token to fetch the next page of questions on a subsequent call. If there are no more questions, this field is not present in the response. </div>
+<div class="param">questions (optional)</div><div class="param-desc"><span class="param-type"><a href="#Question">array[Question]</a></span> The requested questions, </div>
+<div class="param">totalSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The total number of questions posted for this location across all pages. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Question"><code>Question</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents a single question and some of its answers.</div>
+    <div class="field-items">
+      <div class="param">author (optional)</div><div class="param-desc"><span class="param-type"><a href="#Author">Author</a></span>  </div>
+<div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the question was written. format: google-datetime</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Immutable. The unique name for the question. locations/<em>/questions/</em> This field will be ignored if set during question creation. </div>
+<div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The text of the question. It should contain at least three words and the total length should be greater than or equal to 10 characters. The maximum length is 4096 characters. </div>
+<div class="param">topAnswers (optional)</div><div class="param-desc"><span class="param-type"><a href="#Answer">array[Answer]</a></span> Output only. A list of answers to the question, sorted by upvotes. This may not be a complete list of answers depending on the request parameters (answers_per_question) </div>
+<div class="param">totalAnswerCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Output only. The total number of answers posted for this question. format: int32</div>
+<div class="param">updateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the question was last modified. format: google-datetime</div>
+<div class="param">upvoteCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Output only. The number of upvotes for the question. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UpsertAnswerRequest"><code>UpsertAnswerRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Request message for QuestionsAndAnswers.UpsertAnswer</div>
+    <div class="field-items">
+      <div class="param">answer (optional)</div><div class="param-desc"><span class="param-type"><a href="#Answer">Answer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
