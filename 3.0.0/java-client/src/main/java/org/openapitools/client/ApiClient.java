@@ -1,6 +1,6 @@
 /*
- * Karnataka Secondary Education Examination Board, Karnataka
- * Karnataka Secondary Education Examination Board (http://kseeb.kar.nic.in) is providing passing certificates of  SSLC(10th Std) of April and June-2018 Examinations.
+ * Future Generali Total Insurance Solutions
+ * Two Wheeler, Car, Commercial Vehicle, Home and Travel Insurance policies issued by Future Generali are available on DigiLocker and can be pulled by citizens in their account.
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -61,10 +61,10 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "https://apisetu.gov.in/kseebkr/v3";
+    private String basePath = "https://apisetu.gov.in/futuregenerali/v3";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://apisetu.gov.in/kseebkr/v3",
+      "https://apisetu.gov.in/futuregenerali/v3",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -160,7 +160,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://apisetu.gov.in/kseebkr/v3
+     * @param basePath Base path of the URL (e.g https://apisetu.gov.in/futuregenerali/v3
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
