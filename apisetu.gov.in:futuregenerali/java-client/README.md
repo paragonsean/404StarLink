@@ -2,7 +2,7 @@
 
 Future Generali Total Insurance Solutions
 - API version: 3.0.0
-  - Build date: 2024-10-11T01:58:20.653060-04:00[America/New_York]
+  - Build date: 2024-10-11T02:06:47.537097-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Two Wheeler, Car, Commercial Vehicle, Home and Travel Insurance policies issued by Future Generali are available on DigiLocker and can be pulled by citizens in their account.
