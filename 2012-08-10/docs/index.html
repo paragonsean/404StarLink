@@ -1,0 +1,960 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Amazon DynamoDB Streams</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Amazon DynamoDB Streams</h1>
+    <div class="app-desc"><p><fullname>Amazon DynamoDB</fullname> <p>Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To learn more about application development with Streams, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html">Capturing Table Activity with DynamoDB Streams</a> in the Amazon DynamoDB Developer Guide.</p></p>
+</div>
+    <div class="app-desc">More information: <a href="https://github.com/mermade/aws2openapi">https://github.com/mermade/aws2openapi</a></div>
+    <div class="app-desc">Contact Info: <a href="mike.ralphson@gmail.com">mike.ralphson@gmail.com</a></div>
+    <div class="app-desc">Version: 2012-08-10</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0 License</div>
+    <div class="license-url">http://www.apache.org/licenses/</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:Authorization KeyInQuery:false KeyInHeader:true</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#describeStream"><code><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.DescribeStream</code></a></li>
+  <li><a href="#getRecords"><code><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.GetRecords</code></a></li>
+  <li><a href="#getShardIterator"><code><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.GetShardIterator</code></a></li>
+  <li><a href="#listStreams"><code><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.ListStreams</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="describeStream"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.DescribeStream</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">describeStream</span>)</div>
+    <div class="method-notes"><p>Returns information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table.</p> <note> <p>You can call <code>DescribeStream</code> at a maximum rate of 10 times per second.</p> </note> <p>Each shard in the stream has a <code>SequenceNumberRange</code> associated with it. If the <code>SequenceNumberRange</code> has a <code>StartingSequenceNumber</code> but no <code>EndingSequenceNumber</code>, then the shard is still open (able to receive more stream records). If both <code>StartingSequenceNumber</code> and <code>EndingSequenceNumber</code> are present, then that shard is closed and can no longer receive more data.</p>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DescribeStreamInput <a href="#DescribeStreamInput">DescribeStreamInput</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DescribeStreamOutput">DescribeStreamOutput</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "StreamDescription" : {
+    "CreationRequestDateTime" : "Wed May 20 13:51:10 PDT 2015",
+    "KeySchema" : [ {
+      "AttributeName" : "ForumName",
+      "KeyType" : "HASH"
+    }, {
+      "AttributeName" : "Subject",
+      "KeyType" : "RANGE"
+    } ],
+    "Shards" : [ {
+      "SequenceNumberRange" : {
+        "EndingSequenceNumber" : "20500000000000000910398",
+        "StartingSequenceNumber" : "20500000000000000910398"
+      },
+      "ShardId" : "shardId-00000001414562045508-2bac9cd2"
+    }, {
+      "ParentShardId" : "shardId-00000001414562045508-2bac9cd2",
+      "SequenceNumberRange" : {
+        "EndingSequenceNumber" : "820400000000000001192334",
+        "StartingSequenceNumber" : "820400000000000001192334"
+      },
+      "ShardId" : "shardId-00000001414576573621-f55eea83"
+    }, {
+      "ParentShardId" : "shardId-00000001414576573621-f55eea83",
+      "SequenceNumberRange" : {
+        "EndingSequenceNumber" : "1683700000000000001135967",
+        "StartingSequenceNumber" : "1683700000000000001135967"
+      },
+      "ShardId" : "shardId-00000001414592258131-674fd923"
+    }, {
+      "ParentShardId" : "shardId-00000001414592258131-674fd923",
+      "SequenceNumberRange" : {
+        "StartingSequenceNumber" : "2574600000000000000935255"
+      },
+      "ShardId" : "shardId-00000001414608446368-3a1afbaf"
+    } ],
+    "StreamArn" : "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252",
+    "StreamLabel" : "2015-05-20T20:51:10.252",
+    "StreamStatus" : "ENABLED",
+    "StreamViewType" : "NEW_AND_OLD_IMAGES",
+    "TableName" : "Forum"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#DescribeStreamOutput">DescribeStreamOutput</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerError
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getRecords"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.GetRecords</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getRecords</span>)</div>
+    <div class="method-notes"><p>Retrieves the stream records from a given shard.</p> <p>Specify a shard iterator using the <code>ShardIterator</code> parameter. The shard iterator specifies the position in the shard from which you want to start reading stream records sequentially. If there are no stream records available in the portion of the shard that the iterator points to, <code>GetRecords</code> returns an empty list. Note that it might take multiple calls to get to a portion of the shard that contains stream records.</p> <note> <p> <code>GetRecords</code> can retrieve a maximum of 1 MB of data or 1000 stream records, whichever comes first.</p> </note>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetRecordsInput <a href="#GetRecordsInput">GetRecordsInput</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetRecordsOutput">GetRecordsOutput</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "NextShardIterator" : "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252|1|AAAAAAAAAAGQBYshYDEe ... <remaining characters omitted> ...",
+  "Records" : [ {
+    "awsRegion" : "us-west-2",
+    "dynamodb" : {
+      "ApproximateCreationDateTime" : "1.46480646E9",
+      "Keys" : {
+        "ForumName" : {
+          "S" : "DynamoDB"
+        },
+        "Subject" : {
+          "S" : "DynamoDB Thread 3"
+        }
+      },
+      "SequenceNumber" : "300000000000000499659",
+      "SizeBytes" : 41,
+      "StreamViewType" : "KEYS_ONLY"
+    },
+    "eventID" : "e2fd9c34eff2d779b297b26f5fef4206",
+    "eventName" : "INSERT",
+    "eventSource" : "aws:dynamodb",
+    "eventVersion" : "1.0"
+  }, {
+    "awsRegion" : "us-west-2",
+    "dynamodb" : {
+      "ApproximateCreationDateTime" : "1.46480527E9",
+      "Keys" : {
+        "ForumName" : {
+          "S" : "DynamoDB"
+        },
+        "Subject" : {
+          "S" : "DynamoDB Thread 1"
+        }
+      },
+      "SequenceNumber" : "400000000000000499660",
+      "SizeBytes" : 41,
+      "StreamViewType" : "KEYS_ONLY"
+    },
+    "eventID" : "4b25bd0da9a181a155114127e4837252",
+    "eventName" : "MODIFY",
+    "eventSource" : "aws:dynamodb",
+    "eventVersion" : "1.0"
+  }, {
+    "awsRegion" : "us-west-2",
+    "dynamodb" : {
+      "ApproximateCreationDateTime" : "1.46480646E9",
+      "Keys" : {
+        "ForumName" : {
+          "S" : "DynamoDB"
+        },
+        "Subject" : {
+          "S" : "DynamoDB Thread 2"
+        }
+      },
+      "SequenceNumber" : "500000000000000499661",
+      "SizeBytes" : 41,
+      "StreamViewType" : "KEYS_ONLY"
+    },
+    "eventID" : "740280c73a3df7842edab3548a1b08ad",
+    "eventName" : "REMOVE",
+    "eventSource" : "aws:dynamodb",
+    "eventVersion" : "1.0"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetRecordsOutput">GetRecordsOutput</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    LimitExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    InternalServerError
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ExpiredIteratorException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    TrimmedDataAccessException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getShardIterator"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.GetShardIterator</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getShardIterator</span>)</div>
+    <div class="method-notes"><p>Returns a shard iterator. A shard iterator provides information about how to retrieve the stream records from within a shard. Use the shard iterator in a subsequent <code>GetRecords</code> request to read the stream records from the shard.</p> <note> <p>A shard iterator expires 15 minutes after it is returned to the requester.</p> </note>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">GetShardIteratorInput <a href="#GetShardIteratorInput">GetShardIteratorInput</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#GetShardIteratorOutput">GetShardIteratorOutput</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ShardIterator" : "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252|1|AAAAAAAAAAEvJp6D+zaQ...  <remaining characters omitted> ..."
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#GetShardIteratorOutput">GetShardIteratorOutput</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerError
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    TrimmedDataAccessException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listStreams"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.ListStreams</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listStreams</span>)</div>
+    <div class="method-notes"><p>Returns an array of stream ARNs associated with the current account and endpoint. If the <code>TableName</code> parameter is present, then <code>ListStreams</code> will return only the streams ARNs for that table.</p> <note> <p>You can call <code>ListStreams</code> at a maximum rate of 5 times per second.</p> </note>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">ListStreamsInput <a href="#ListStreamsInput">ListStreamsInput</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListStreamsOutput">ListStreamsOutput</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Streams" : [ {
+    "StreamArn" : "arn:aws:dynamodb:us-wesst-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252",
+    "StreamLabel" : "2015-05-20T20:51:10.252",
+    "TableName" : "Forum"
+  }, {
+    "StreamArn" : "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:50:02.714",
+    "StreamLabel" : "2015-05-20T20:50:02.714",
+    "TableName" : "Forum"
+  }, {
+    "StreamArn" : "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-19T23:03:50.641",
+    "StreamLabel" : "2015-05-19T23:03:50.641",
+    "TableName" : "Forum"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Success
+        <a href="#ListStreamsOutput">ListStreamsOutput</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerError
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#AttributeValue"><code>AttributeValue</code> - </a></li>
+    <li><a href="#DescribeStreamInput"><code>DescribeStreamInput</code> - DescribeStreamInput</a></li>
+    <li><a href="#DescribeStreamOutput"><code>DescribeStreamOutput</code> - </a></li>
+    <li><a href="#DescribeStreamOutput_StreamDescription"><code>DescribeStreamOutput_StreamDescription</code> - </a></li>
+    <li><a href="#GetRecordsInput"><code>GetRecordsInput</code> - GetRecordsInput</a></li>
+    <li><a href="#GetRecordsOutput"><code>GetRecordsOutput</code> - </a></li>
+    <li><a href="#GetShardIteratorInput"><code>GetShardIteratorInput</code> - GetShardIteratorInput</a></li>
+    <li><a href="#GetShardIteratorOutput"><code>GetShardIteratorOutput</code> - </a></li>
+    <li><a href="#Identity"><code>Identity</code> - </a></li>
+    <li><a href="#KeySchemaElement"><code>KeySchemaElement</code> - </a></li>
+    <li><a href="#KeyType"><code>KeyType</code> - </a></li>
+    <li><a href="#ListStreamsInput"><code>ListStreamsInput</code> - ListStreamsInput</a></li>
+    <li><a href="#ListStreamsOutput"><code>ListStreamsOutput</code> - </a></li>
+    <li><a href="#OperationType"><code>OperationType</code> - </a></li>
+    <li><a href="#Record"><code>Record</code> - </a></li>
+    <li><a href="#Record_dynamodb"><code>Record_dynamodb</code> - </a></li>
+    <li><a href="#Record_userIdentity"><code>Record_userIdentity</code> - </a></li>
+    <li><a href="#SequenceNumberRange"><code>SequenceNumberRange</code> - </a></li>
+    <li><a href="#Shard"><code>Shard</code> - </a></li>
+    <li><a href="#ShardIteratorType"><code>ShardIteratorType</code> - </a></li>
+    <li><a href="#Shard_SequenceNumberRange"><code>Shard_SequenceNumberRange</code> - </a></li>
+    <li><a href="#Stream"><code>Stream</code> - </a></li>
+    <li><a href="#StreamDescription"><code>StreamDescription</code> - </a></li>
+    <li><a href="#StreamRecord"><code>StreamRecord</code> - </a></li>
+    <li><a href="#StreamStatus"><code>StreamStatus</code> - </a></li>
+    <li><a href="#StreamViewType"><code>StreamViewType</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="AttributeValue"><code>AttributeValue</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p>Represents the data for an attribute.</p> <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+</div>
+    <div class="field-items">
+      <div class="param">S (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">N (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">B (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SS (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NS (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">BS (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">M (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">L (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NULL (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">BOOL (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeStreamInput"><code>DescribeStreamInput</code> - DescribeStreamInput</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the input of a <code>DescribeStream</code> operation.</div>
+    <div class="field-items">
+      <div class="param">StreamArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ExclusiveStartShardId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeStreamOutput"><code>DescribeStreamOutput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the output of a <code>DescribeStream</code> operation.</div>
+    <div class="field-items">
+      <div class="param">StreamDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#DescribeStreamOutput_StreamDescription">DescribeStreamOutput_StreamDescription</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DescribeStreamOutput_StreamDescription"><code>DescribeStreamOutput_StreamDescription</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">StreamArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamLabel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamStatus">StreamStatus</a></span>  </div>
+<div class="param">StreamViewType (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamViewType">StreamViewType</a></span>  </div>
+<div class="param">CreationRequestDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">TableName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">KeySchema (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">Shards (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">LastEvaluatedShardId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetRecordsInput"><code>GetRecordsInput</code> - GetRecordsInput</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the input of a <code>GetRecords</code> operation.</div>
+    <div class="field-items">
+      <div class="param">ShardIterator </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetRecordsOutput"><code>GetRecordsOutput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the output of a <code>GetRecords</code> operation.</div>
+    <div class="field-items">
+      <div class="param">Records (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextShardIterator (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetShardIteratorInput"><code>GetShardIteratorInput</code> - GetShardIteratorInput</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the input of a <code>GetShardIterator</code> operation.</div>
+    <div class="field-items">
+      <div class="param">StreamArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ShardId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ShardIteratorType </div><div class="param-desc"><span class="param-type"><a href="#ShardIteratorType">ShardIteratorType</a></span>  </div>
+<div class="param">SequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetShardIteratorOutput"><code>GetShardIteratorOutput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the output of a <code>GetShardIterator</code> operation.</div>
+    <div class="field-items">
+      <div class="param">ShardIterator (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Identity"><code>Identity</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Contains details about the type of identity that made the request.</div>
+    <div class="field-items">
+      <div class="param">PrincipalId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="KeySchemaElement"><code>KeySchemaElement</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p>Represents <i>a single element</i> of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.</p> <p>A <code>KeySchemaElement</code> represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one <code>KeySchemaElement</code> (for the partition key). A composite primary key would require one <code>KeySchemaElement</code> for the partition key, and another <code>KeySchemaElement</code> for the sort key.</p> <p>A <code>KeySchemaElement</code> must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.</p>
+</div>
+    <div class="field-items">
+      <div class="param">AttributeName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">KeyType </div><div class="param-desc"><span class="param-type"><a href="#KeyType">KeyType</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="KeyType"><code>KeyType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListStreamsInput"><code>ListStreamsInput</code> - ListStreamsInput</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the input of a <code>ListStreams</code> operation.</div>
+    <div class="field-items">
+      <div class="param">TableName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ExclusiveStartStreamArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListStreamsOutput"><code>ListStreamsOutput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the output of a <code>ListStreams</code> operation.</div>
+    <div class="field-items">
+      <div class="param">Streams (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">LastEvaluatedStreamArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OperationType"><code>OperationType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Record"><code>Record</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A description of a unique event within a stream.</div>
+    <div class="field-items">
+      <div class="param">eventID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">eventName (optional)</div><div class="param-desc"><span class="param-type"><a href="#OperationType">OperationType</a></span>  </div>
+<div class="param">eventVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">eventSource (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">awsRegion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dynamodb (optional)</div><div class="param-desc"><span class="param-type"><a href="#Record_dynamodb">Record_dynamodb</a></span>  </div>
+<div class="param">userIdentity (optional)</div><div class="param-desc"><span class="param-type"><a href="#Record_userIdentity">Record_userIdentity</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Record_dynamodb"><code>Record_dynamodb</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ApproximateCreationDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">Keys (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">NewImage (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">OldImage (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">SequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SizeBytes (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StreamViewType (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamViewType">StreamViewType</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Record_userIdentity"><code>Record_userIdentity</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">PrincipalId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SequenceNumberRange"><code>SequenceNumberRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The beginning and ending sequence numbers for the stream records contained within a shard.</div>
+    <div class="field-items">
+      <div class="param">StartingSequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">EndingSequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Shard"><code>Shard</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A uniquely identified group of stream records within a stream.</div>
+    <div class="field-items">
+      <div class="param">ShardId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SequenceNumberRange (optional)</div><div class="param-desc"><span class="param-type"><a href="#Shard_SequenceNumberRange">Shard_SequenceNumberRange</a></span>  </div>
+<div class="param">ParentShardId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ShardIteratorType"><code>ShardIteratorType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Shard_SequenceNumberRange"><code>Shard_SequenceNumberRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">StartingSequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">EndingSequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Stream"><code>Stream</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents all of the data describing a particular stream.</div>
+    <div class="field-items">
+      <div class="param">StreamArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TableName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamLabel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamDescription"><code>StreamDescription</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents all of the data describing a particular stream.</div>
+    <div class="field-items">
+      <div class="param">StreamArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamLabel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamStatus">StreamStatus</a></span>  </div>
+<div class="param">StreamViewType (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamViewType">StreamViewType</a></span>  </div>
+<div class="param">CreationRequestDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">TableName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">KeySchema (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">Shards (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">LastEvaluatedShardId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamRecord"><code>StreamRecord</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A description of a single data modification that was performed on an item in a DynamoDB table.</div>
+    <div class="field-items">
+      <div class="param">ApproximateCreationDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">Keys (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">NewImage (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">OldImage (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">SequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SizeBytes (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StreamViewType (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamViewType">StreamViewType</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamStatus"><code>StreamStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamViewType"><code>StreamViewType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
