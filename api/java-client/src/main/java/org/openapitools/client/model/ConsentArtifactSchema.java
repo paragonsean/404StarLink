@@ -1,6 +1,6 @@
 /*
- * Karnataka Secondary Education Examination Board, Karnataka
- * Karnataka Secondary Education Examination Board (http://kseeb.kar.nic.in) is providing passing certificates of  SSLC(10th Std) of April and June-2018 Examinations.
+ * Future Generali Total Insurance Solutions
+ * Two Wheeler, Car, Commercial Vehicle, Home and Travel Insurance policies issued by Future Generali are available on DigiLocker and can be pulled by citizens in their account.
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * ConsentArtifactSchema
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:01.791540-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:50.047349-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ConsentArtifactSchema {
   public static final String SERIALIZED_NAME_CONSENT = "consent";
   @SerializedName(SERIALIZED_NAME_CONSENT)
