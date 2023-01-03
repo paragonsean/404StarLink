@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -43,8 +42,3 @@ src/main/java/org/openapitools/client/model/InvokeEndpointAsyncOutput.java
 src/main/java/org/openapitools/client/model/InvokeEndpointInput.java
 src/main/java/org/openapitools/client/model/InvokeEndpointOutput.java
 src/main/java/org/openapitools/client/model/InvokeEndpointRequest.java
-src/test/java/org/openapitools/client/api/DefaultApiTest.java
-src/test/java/org/openapitools/client/model/InvokeEndpointAsyncOutputTest.java
-src/test/java/org/openapitools/client/model/InvokeEndpointInputTest.java
-src/test/java/org/openapitools/client/model/InvokeEndpointOutputTest.java
-src/test/java/org/openapitools/client/model/InvokeEndpointRequestTest.java
