@@ -2,7 +2,7 @@
 
 Amazon SageMaker Runtime
 - API version: 2017-05-13
-  - Build date: 2024-10-11T01:58:25.275239-04:00[America/New_York]
+  - Build date: 2024-10-11T02:06:54.757963-04:00[America/New_York]
   - Generator version: 7.9.0
 
  The Amazon SageMaker runtime API. 

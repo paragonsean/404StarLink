@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * InvokeEndpointRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:25.275239-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:06:54.757963-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class InvokeEndpointRequest {
   public static final String SERIALIZED_NAME_BODY = "Body";
   @SerializedName(SERIALIZED_NAME_BODY)
