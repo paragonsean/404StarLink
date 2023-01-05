@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Future Generali Total Insurance Solutions</title>
+    <title>Amazon SageMaker Runtime</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,18 +179,17 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>Future Generali Total Insurance Solutions</h1>
-    <div class="app-desc">Two Wheeler, Car, Commercial Vehicle, Home and Travel Insurance policies issued by Future Generali are available on DigiLocker and can be pulled by citizens in their account.</div>
-    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
-    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
-    <div class="app-desc">Version: 3.0.0</div>
-    <div class="app-desc">BasePath:/futuregenerali/v3</div>
-    <div class="license-info">All rights reserved</div>
-    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h1>Amazon SageMaker Runtime</h1>
+    <div class="app-desc">The Amazon SageMaker runtime API.</div>
+    <div class="app-desc">More information: <a href="https://github.com/mermade/aws2openapi">https://github.com/mermade/aws2openapi</a></div>
+    <div class="app-desc">Contact Info: <a href="mike.ralphson@gmail.com">mike.ralphson@gmail.com</a></div>
+    <div class="app-desc">Version: 2017-05-13</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0 License</div>
+    <div class="license-url">http://www.apache.org/licenses/</div>
   <h2>Access</h2>
     <ol>
-      <li>APIKey KeyParamName:X-APISETU-APIKEY KeyInQuery:false KeyInHeader:true</li>
-      <li>APIKey KeyParamName:X-APISETU-CLIENTID KeyInQuery:false KeyInHeader:true</li>
+      <li>APIKey KeyParamName:Authorization KeyInQuery:false KeyInHeader:true</li>
     </ol>
 
   <h2><a name="__Methods">Methods</a></h2>
@@ -198,23 +197,27 @@ font-style: italic;
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#APIs">APIs</a></h4>
+  <h4><a href="#Default">Default</a></h4>
   <ul>
-  <li><a href="#cripc"><code><span class="http-method">post</span> /cripc/certificate</code></a></li>
-  <li><a href="#cvipc"><code><span class="http-method">post</span> /cvipc/certificate</code></a></li>
-  <li><a href="#hmipc"><code><span class="http-method">post</span> /hmipc/certificate</code></a></li>
-  <li><a href="#tripc"><code><span class="http-method">post</span> /tripc/certificate</code></a></li>
-  <li><a href="#twipc"><code><span class="http-method">post</span> /twipc/certificate</code></a></li>
+  <li><a href="#invokeEndpoint"><code><span class="http-method">post</span> /endpoints/{EndpointName}/invocations</code></a></li>
+  <li><a href="#invokeEndpointAsync"><code><span class="http-method">post</span> /endpoints/{EndpointName}/async-invocations#X-Amzn-SageMaker-InputLocation</code></a></li>
   </ul>
 
-  <h1><a name="APIs">APIs</a></h1>
-  <div class="method"><a name="cripc"/>
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="invokeEndpoint"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /cripc/certificate</code></pre></div>
-    <div class="method-summary">Insurance Policy - Car (<span class="nickname">cripc</span>)</div>
-    <div class="method-notes">API to verify Insurance Policy - Car.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /endpoints/{EndpointName}/invocations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">invokeEndpoint</span>)</div>
+    <div class="method-notes"><p>After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint. </p> <p>For an overview of Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p> <p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax. </p> <p>Calls to <code>InvokeEndpoint</code> are authenticated by using Amazon Web Services Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.</p> <p>A customer's model containers must respond to requests within 60 seconds. The model itself can have a maximum processing time of 60 seconds before responding to invocations. If your model is going to take 50-60 seconds of processing time, the SDK socket timeout should be set to be 70 seconds.</p> <note> <p>Endpoints are scoped to an individual account, and are not public. The URL does not contain the account ID, but Amazon SageMaker determines the account ID from the authentication token that is supplied by the caller.</p> </note>
+</div>
 
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">EndpointName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the endpoint that you specified when you created the endpoint using the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API. default: null </div>
+    </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
     This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
@@ -224,518 +227,212 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">cripc_request <a href="#cripc_request">cripc_request</a> (optional)</div>
+      <div class="param">InvokeEndpoint_request <a href="#InvokeEndpoint_request">InvokeEndpoint_request</a> (required)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
     </div>  <!-- field-items -->
 
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">Content-Type (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The MIME type of the input data in the request body. default: null </div>
+<div class="param">Accept (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The desired MIME type of the inference in the response. default: null </div>
+<div class="param">X-Amzn-SageMaker-Custom-Attributes (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; <p>Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <a href="https://tools.ietf.org/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p> <p>The code in your model is responsible for setting or updating any custom attributes in the response. If your code does not set this value in the response, an empty value is returned. For example, if a custom attribute represents the trace ID, your model can prepend the custom attribute with <code>Trace ID:</code> in your post-processing function.</p> <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python SDK.</p>
+ default: null format: password</div>
+<div class="param">X-Amzn-SageMaker-Target-Model (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The model to request for inference when invoking a multi-model endpoint. default: null </div>
+<div class="param">X-Amzn-SageMaker-Target-Variant (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; <p>Specify the production variant to send the inference request to when invoking an endpoint that is running two or more variants. Note that this parameter overrides the default behavior for the endpoint, which is to distribute the invocation traffic based on the variant weights.</p> <p>For information about how to use variant targeting to perform a/b testing, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html">Test models in production</a> </p>
+ default: null </div>
+<div class="param">X-Amzn-SageMaker-Target-Container-Hostname (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; If the endpoint hosts multiple containers and is configured to use direct invocation, this parameter specifies the host name of the container to invoke. default: null </div>
+<div class="param">X-Amzn-SageMaker-Inference-Id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; If you provide a value, it is added to the captured data when you enable data capture on the endpoint. For information about data capture, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html">Capture Data</a>. default: null </div>
+<div class="param">X-Amzn-SageMaker-Enable-Explanations (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; An optional JMESPath expression used to override the <code>EnableExplanations</code> parameter of the <code>ClarifyExplainerConfig</code> API. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable">EnableExplanations</a> section in the developer guide for more information. default: null </div>
+
+    </div>  <!-- field-items -->
 
 
 
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#InvokeEndpointOutput">InvokeEndpointOutput</a>
+      
+    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "errorDescription" : "Please provide all mandatory parameters",
-  "error" : "missing_parameter"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Authentication failed",
-  "error" : "invalid_authentication"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "No record found",
-  "error" : "record_not_found"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Internal server error",
-  "error" : "internal_server_error"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service returned an invalid response",
-  "error" : "bad_gatewy"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service is temporarily unavailable",
-  "error" : "service_unavailable"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service did not respond in time",
-  "error" : "gateway_timeout"
+  "Body" : ""
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
-      <li><code>application/pdf</code></li>
       <li><code>application/json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
-        <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#cripc_400_response">cripc_400_response</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized access
-        <a href="#cripc_401_response">cripc_401_response</a>
-    <h4 class="field-label">404</h4>
-    No record found
-        <a href="#cripc_404_response">cripc_404_response</a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#cripc_500_response">cripc_500_response</a>
-    <h4 class="field-label">502</h4>
-    Bad gateway
-        <a href="#cripc_502_response">cripc_502_response</a>
-    <h4 class="field-label">503</h4>
-    Service unavailable
-        <a href="#cripc_503_response">cripc_503_response</a>
-    <h4 class="field-label">504</h4>
-    Gateway timeout
-        <a href="#cripc_504_response">cripc_504_response</a>
+    Success
+        <a href="#InvokeEndpointOutput">InvokeEndpointOutput</a>
+    <h4 class="field-label">480</h4>
+    InternalFailure
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ServiceUnavailable
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ValidationError
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ModelError
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    InternalDependencyException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">485</h4>
+    ModelNotReadyException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="cvipc"/>
+  <div class="method"><a name="invokeEndpointAsync"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /cvipc/certificate</code></pre></div>
-    <div class="method-summary">Insurance Policy - Commercial Vehicle (<span class="nickname">cvipc</span>)</div>
-    <div class="method-notes">API to verify Insurance Policy - Commercial Vehicle.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /endpoints/{EndpointName}/async-invocations#X-Amzn-SageMaker-InputLocation</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">invokeEndpointAsync</span>)</div>
+    <div class="method-notes"><p>After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint in an asynchronous manner.</p> <p>Inference requests sent to this API are enqueued for asynchronous processing. The processing of the inference request may or may not complete before you receive a response from this API. The response from this API will not contain the result of the inference request but contain information about where you can locate it.</p> <p>Amazon SageMaker strips all <code>POST</code> headers except those supported by the API. Amazon SageMaker might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax.</p> <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.</p>
+</div>
 
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
+    <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">cripc_request <a href="#cripc_request">cripc_request</a> (optional)</div>
+      <div class="param">EndpointName (required)</div>
 
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the endpoint that you specified when you created the endpoint using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html"> <code>CreateEndpoint</code> </a> API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Request headers</h3>
+    <div class="field-items">
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amzn-SageMaker-Content-Type (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The MIME type of the input data in the request body. default: null </div>
+<div class="param">X-Amzn-SageMaker-Accept (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The desired MIME type of the inference in the response. default: null </div>
+<div class="param">X-Amzn-SageMaker-Custom-Attributes (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; <p>Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p> <p>The code in your model is responsible for setting or updating any custom attributes in the response. If your code does not set this value in the response, an empty value is returned. For example, if a custom attribute represents the trace ID, your model can prepend the custom attribute with <code>Trace ID</code>: in your post-processing function. </p> <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python SDK. </p>
+ default: null format: password</div>
+<div class="param">X-Amzn-SageMaker-Inference-Id (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The identifier for the inference request. Amazon SageMaker will generate an identifier for you if none is specified. default: null </div>
+<div class="param">X-Amzn-SageMaker-InputLocation (required)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The Amazon S3 URI where the inference request payload is stored. default: null </div>
+<div class="param">X-Amzn-SageMaker-RequestTTLSeconds (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Maximum age in seconds a request can be in the queue before it is marked as expired. The default is 6 hours, or 21,600 seconds. default: null </div>
+<div class="param">X-Amzn-SageMaker-InvocationTimeoutSeconds (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Maximum amount of time in seconds a request can be processed before it is marked as expired. The default is 15 minutes, or 900 seconds. default: null </div>
 
     </div>  <!-- field-items -->
 
 
 
-
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#InvokeEndpointAsyncOutput">InvokeEndpointAsyncOutput</a>
+      
+    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "errorDescription" : "Please provide all mandatory parameters",
-  "error" : "missing_parameter"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Authentication failed",
-  "error" : "invalid_authentication"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "No record found",
-  "error" : "record_not_found"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Internal server error",
-  "error" : "internal_server_error"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service returned an invalid response",
-  "error" : "bad_gatewy"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service is temporarily unavailable",
-  "error" : "service_unavailable"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service did not respond in time",
-  "error" : "gateway_timeout"
+  "InferenceId" : ""
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
-      <li><code>application/pdf</code></li>
       <li><code>application/json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
-        <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#cripc_400_response">cripc_400_response</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized access
-        <a href="#cripc_401_response">cripc_401_response</a>
-    <h4 class="field-label">404</h4>
-    No record found
-        <a href="#cripc_404_response">cripc_404_response</a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#cripc_500_response">cripc_500_response</a>
-    <h4 class="field-label">502</h4>
-    Bad gateway
-        <a href="#cripc_502_response">cripc_502_response</a>
-    <h4 class="field-label">503</h4>
-    Service unavailable
-        <a href="#cripc_503_response">cripc_503_response</a>
-    <h4 class="field-label">504</h4>
-    Gateway timeout
-        <a href="#cripc_504_response">cripc_504_response</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="hmipc"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /hmipc/certificate</code></pre></div>
-    <div class="method-summary">Insurance Policy - Home (<span class="nickname">hmipc</span>)</div>
-    <div class="method-notes">API to verify Insurance Policy - Home.</div>
-
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">cripc_request <a href="#cripc_request">cripc_request</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Please provide all mandatory parameters",
-  "error" : "missing_parameter"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Authentication failed",
-  "error" : "invalid_authentication"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "No record found",
-  "error" : "record_not_found"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Internal server error",
-  "error" : "internal_server_error"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service returned an invalid response",
-  "error" : "bad_gatewy"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service is temporarily unavailable",
-  "error" : "service_unavailable"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service did not respond in time",
-  "error" : "gateway_timeout"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/pdf</code></li>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
-        <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#cripc_400_response">cripc_400_response</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized access
-        <a href="#cripc_401_response">cripc_401_response</a>
-    <h4 class="field-label">404</h4>
-    No record found
-        <a href="#cripc_404_response">cripc_404_response</a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#cripc_500_response">cripc_500_response</a>
-    <h4 class="field-label">502</h4>
-    Bad gateway
-        <a href="#cripc_502_response">cripc_502_response</a>
-    <h4 class="field-label">503</h4>
-    Service unavailable
-        <a href="#cripc_503_response">cripc_503_response</a>
-    <h4 class="field-label">504</h4>
-    Gateway timeout
-        <a href="#cripc_504_response">cripc_504_response</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="tripc"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /tripc/certificate</code></pre></div>
-    <div class="method-summary">Insurance Policy - Travel (<span class="nickname">tripc</span>)</div>
-    <div class="method-notes">API to verify Insurance Policy - Travel.</div>
-
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">cripc_request <a href="#cripc_request">cripc_request</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Please provide all mandatory parameters",
-  "error" : "missing_parameter"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Authentication failed",
-  "error" : "invalid_authentication"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "No record found",
-  "error" : "record_not_found"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Internal server error",
-  "error" : "internal_server_error"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service returned an invalid response",
-  "error" : "bad_gatewy"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service is temporarily unavailable",
-  "error" : "service_unavailable"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service did not respond in time",
-  "error" : "gateway_timeout"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/pdf</code></li>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
-        <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#cripc_400_response">cripc_400_response</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized access
-        <a href="#cripc_401_response">cripc_401_response</a>
-    <h4 class="field-label">404</h4>
-    No record found
-        <a href="#cripc_404_response">cripc_404_response</a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#cripc_500_response">cripc_500_response</a>
-    <h4 class="field-label">502</h4>
-    Bad gateway
-        <a href="#cripc_502_response">cripc_502_response</a>
-    <h4 class="field-label">503</h4>
-    Service unavailable
-        <a href="#cripc_503_response">cripc_503_response</a>
-    <h4 class="field-label">504</h4>
-    Gateway timeout
-        <a href="#cripc_504_response">cripc_504_response</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="twipc"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /twipc/certificate</code></pre></div>
-    <div class="method-summary">Insurance Policy - Two Wheeler (<span class="nickname">twipc</span>)</div>
-    <div class="method-notes">API to verify Insurance Policy - Two Wheeler.</div>
-
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">cripc_request <a href="#cripc_request">cripc_request</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Please provide all mandatory parameters",
-  "error" : "missing_parameter"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Authentication failed",
-  "error" : "invalid_authentication"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "No record found",
-  "error" : "record_not_found"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Internal server error",
-  "error" : "internal_server_error"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service returned an invalid response",
-  "error" : "bad_gatewy"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service is temporarily unavailable",
-  "error" : "service_unavailable"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "errorDescription" : "Publisher service did not respond in time",
-  "error" : "gateway_timeout"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/pdf</code></li>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
-        <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#cripc_400_response">cripc_400_response</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized access
-        <a href="#cripc_401_response">cripc_401_response</a>
-    <h4 class="field-label">404</h4>
-    No record found
-        <a href="#cripc_404_response">cripc_404_response</a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#cripc_500_response">cripc_500_response</a>
-    <h4 class="field-label">502</h4>
-    Bad gateway
-        <a href="#cripc_502_response">cripc_502_response</a>
-    <h4 class="field-label">503</h4>
-    Service unavailable
-        <a href="#cripc_503_response">cripc_503_response</a>
-    <h4 class="field-label">504</h4>
-    Gateway timeout
-        <a href="#cripc_504_response">cripc_504_response</a>
+    <h4 class="field-label">202</h4>
+    Success
+        <a href="#InvokeEndpointAsyncOutput">InvokeEndpointAsyncOutput</a>
+    <h4 class="field-label">480</h4>
+    InternalFailure
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    ServiceUnavailable
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    ValidationError
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
   </div> <!-- method -->
   <hr/>
 
@@ -744,385 +441,39 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#AcademicCertificateSchema"><code>AcademicCertificateSchema</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_CertificateData"><code>AcademicCertificateSchema_CertificateData</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_CertificateData_Examination"><code>AcademicCertificateSchema_CertificateData_Examination</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_CertificateData_Performance"><code>AcademicCertificateSchema_CertificateData_Performance</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_CertificateData_Performance_Subjects_inner"><code>AcademicCertificateSchema_CertificateData_Performance_Subjects_inner</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_CertificateData_School"><code>AcademicCertificateSchema_CertificateData_School</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedBy"><code>AcademicCertificateSchema_IssuedBy</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedBy_Organization"><code>AcademicCertificateSchema_IssuedBy_Organization</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedBy_Organization_Address"><code>AcademicCertificateSchema_IssuedBy_Organization_Address</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedTo"><code>AcademicCertificateSchema_IssuedTo</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedTo_Person"><code>AcademicCertificateSchema_IssuedTo_Person</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedTo_Person_Address"><code>AcademicCertificateSchema_IssuedTo_Person_Address</code> - </a></li>
-    <li><a href="#AcademicCertificateSchema_IssuedTo_Person_Photo"><code>AcademicCertificateSchema_IssuedTo_Person_Photo</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema"><code>ConsentArtifactSchema</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent"><code>ConsentArtifactSchema_consent</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_data"><code>ConsentArtifactSchema_consent_data</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_permission"><code>ConsentArtifactSchema_consent_permission</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_permission_dateRange"><code>ConsentArtifactSchema_consent_permission_dateRange</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_permission_frequency"><code>ConsentArtifactSchema_consent_permission_frequency</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_purpose"><code>ConsentArtifactSchema_consent_purpose</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_consent_user"><code>ConsentArtifactSchema_consent_user</code> - </a></li>
-    <li><a href="#ConsentArtifactSchema_signature"><code>ConsentArtifactSchema_signature</code> - </a></li>
-    <li><a href="#cripc_400_response"><code>cripc_400_response</code> - </a></li>
-    <li><a href="#cripc_401_response"><code>cripc_401_response</code> - </a></li>
-    <li><a href="#cripc_404_response"><code>cripc_404_response</code> - </a></li>
-    <li><a href="#cripc_500_response"><code>cripc_500_response</code> - </a></li>
-    <li><a href="#cripc_502_response"><code>cripc_502_response</code> - </a></li>
-    <li><a href="#cripc_503_response"><code>cripc_503_response</code> - </a></li>
-    <li><a href="#cripc_504_response"><code>cripc_504_response</code> - </a></li>
-    <li><a href="#cripc_request"><code>cripc_request</code> - </a></li>
-    <li><a href="#cripc_request_certificateParameters"><code>cripc_request_certificateParameters</code> - </a></li>
+    <li><a href="#InvokeEndpointAsyncOutput"><code>InvokeEndpointAsyncOutput</code> - </a></li>
+    <li><a href="#InvokeEndpointInput"><code>InvokeEndpointInput</code> - InvokeEndpointInput</a></li>
+    <li><a href="#InvokeEndpointOutput"><code>InvokeEndpointOutput</code> - </a></li>
+    <li><a href="#InvokeEndpoint_request"><code>InvokeEndpoint_request</code> - </a></li>
   </ol>
 
   <div class="model">
-    <h3><a name="AcademicCertificateSchema"><code>AcademicCertificateSchema</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="InvokeEndpointAsyncOutput"><code>InvokeEndpointAsyncOutput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">CertificateData </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData">AcademicCertificateSchema_CertificateData</a></span>  </div>
-<div class="param">IssuedBy </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy">AcademicCertificateSchema_IssuedBy</a></span>  </div>
-<div class="param">IssuedTo </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo">AcademicCertificateSchema_IssuedTo</a></span>  </div>
-<div class="param">issueDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">issuedAt </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">language </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">number </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">validFromDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">InferenceId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="AcademicCertificateSchema_CertificateData"><code>AcademicCertificateSchema_CertificateData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="InvokeEndpointInput"><code>InvokeEndpointInput</code> - InvokeEndpointInput</a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">Examination </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Examination">AcademicCertificateSchema_CertificateData_Examination</a></span>  </div>
-<div class="param">Performance </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Performance">AcademicCertificateSchema_CertificateData_Performance</a></span>  </div>
-<div class="param">School </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_School">AcademicCertificateSchema_CertificateData_School</a></span>  </div>
+      <div class="param">Body </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="AcademicCertificateSchema_CertificateData_Examination"><code>AcademicCertificateSchema_CertificateData_Examination</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="InvokeEndpointOutput"><code>InvokeEndpointOutput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">month </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">year </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">Body </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="AcademicCertificateSchema_CertificateData_Performance"><code>AcademicCertificateSchema_CertificateData_Performance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="InvokeEndpoint_request"><code>InvokeEndpoint_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">Subjects </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Performance_Subjects_inner">array[AcademicCertificateSchema_CertificateData_Performance_Subjects_inner]</a></span>  </div>
-<div class="param">cgpa </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">cgpaMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">grade </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">marksMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">marksTotal </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">percentage </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">result </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">resultDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">updateDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_CertificateData_Performance_Subjects_inner"><code>AcademicCertificateSchema_CertificateData_Performance_Subjects_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">gp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">gpMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">grade </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">marksMax </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">marksMaxPractical </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">marksMaxTheory </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">marksPractical </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">marksTheory </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">marksTotal </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_CertificateData_School"><code>AcademicCertificateSchema_CertificateData_School</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedBy"><code>AcademicCertificateSchema_IssuedBy</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">Organization </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy_Organization">AcademicCertificateSchema_IssuedBy_Organization</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedBy_Organization"><code>AcademicCertificateSchema_IssuedBy_Organization</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">Address </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy_Organization_Address">AcademicCertificateSchema_IssuedBy_Organization_Address</a></span>  </div>
-<div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">tin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">uid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedBy_Organization_Address"><code>AcademicCertificateSchema_IssuedBy_Organization_Address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">country </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">district </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">house </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">landmark </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">line1 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">line2 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">locality </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">pin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">vtc </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedTo"><code>AcademicCertificateSchema_IssuedTo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">Person </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person">AcademicCertificateSchema_IssuedTo_Person</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedTo_Person"><code>AcademicCertificateSchema_IssuedTo_Person</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">Address </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person_Address">AcademicCertificateSchema_IssuedTo_Person_Address</a></span>  </div>
-<div class="param">Photo </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person_Photo">AcademicCertificateSchema_IssuedTo_Person_Photo</a></span>  </div>
-<div class="param">category </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">disabilityStatus </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">dob </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">gender </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">maritalStatus </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">motherName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">phone </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">religion </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">swd </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">swdIndicator </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">uid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedTo_Person_Address"><code>AcademicCertificateSchema_IssuedTo_Person_Address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">country </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">district </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">house </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">landmark </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">line1 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">line2 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">locality </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">pin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">vtc </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="AcademicCertificateSchema_IssuedTo_Person_Photo"><code>AcademicCertificateSchema_IssuedTo_Person_Photo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema"><code>ConsentArtifactSchema</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">consent </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent">ConsentArtifactSchema_consent</a></span>  </div>
-<div class="param">signature </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_signature">ConsentArtifactSchema_signature</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent"><code>ConsentArtifactSchema_consent</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">consentId </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> A unique consent id in UUID format. format: uuid</div>
-<div class="param">data </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
-<div class="param">dataConsumer </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
-<div class="param">dataProvider </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
-<div class="param">permission </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission">ConsentArtifactSchema_consent_permission</a></span>  </div>
-<div class="param">purpose </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_purpose">ConsentArtifactSchema_consent_purpose</a></span>  </div>
-<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
-<div class="param">user </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_user">ConsentArtifactSchema_consent_user</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_data"><code>ConsentArtifactSchema_consent_data</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_permission"><code>ConsentArtifactSchema_consent_permission</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">access </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">dateRange </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission_dateRange">ConsentArtifactSchema_consent_permission_dateRange</a></span>  </div>
-<div class="param">frequency </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission_frequency">ConsentArtifactSchema_consent_permission_frequency</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_permission_dateRange"><code>ConsentArtifactSchema_consent_permission_dateRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
-<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_permission_frequency"><code>ConsentArtifactSchema_consent_permission_frequency</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">repeats </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
-<div class="param">unit </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_purpose"><code>ConsentArtifactSchema_consent_purpose</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">description </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_consent_user"><code>ConsentArtifactSchema_consent_user</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">idNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">idType </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">mobile </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="ConsentArtifactSchema_signature"><code>ConsentArtifactSchema_signature</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">signature </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="cripc_400_response"><code>cripc_400_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">missing_parameter</div><div class="param-enum">invalid_parameter</div><div class="param-enum">invalid_format</div><div class="param-enum">invalid_txnid</div><div class="param-enum">invalid_consentid</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Please provide all mandatory parameters</div><div class="param-enum">Bad request</div><div class="param-enum">The format parameter is invalid</div><div class="param-enum">The txnId parameter must be in UUID format</div><div class="param-enum">The consentId parameter must be in UUID format</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="cripc_401_response"><code>cripc_401_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">invalid_authentication</div><div class="param-enum">invalid_authorization</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Authentication failed</div><div class="param-enum">You are not authorized to use this API</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="cripc_404_response"><code>cripc_404_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">record_not_found</div><div class="param-enum">url_not_found</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">No record found</div><div class="param-enum">Your API url or path is incorrect</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="cripc_500_response"><code>cripc_500_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">internal_server_error</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Internal server error</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="cripc_502_response"><code>cripc_502_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">bad_gatewy</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Publisher service returned an invalid response</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="cripc_503_response"><code>cripc_503_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">service_unavailable</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Publisher service is temporarily unavailable</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="cripc_504_response"><code>cripc_504_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">gateway_timeout</div>
-<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">Publisher service did not respond in time</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="cripc_request"><code>cripc_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">certificateParameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#cripc_request_certificateParameters">cripc_request_certificateParameters</a></span>  </div>
-<div class="param">consentArtifact (optional)</div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema">ConsentArtifactSchema</a></span>  </div>
-<div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The format of the certificate in response. </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">pdf</div>
-<div class="param">txnId </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> A unique transaction id for this request in UUID format. It is used for tracking the request. format: uuid</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="cripc_request_certificateParameters"><code>cripc_request_certificateParameters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">FullName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Full name </div>
-<div class="param">policyno </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Policy Number </div>
+      <div class="param">Body </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. </p> <p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats-Inference</a>.</p>
+ format: password</div>
     </div>  <!-- field-items -->
   </div>
   </body>
