@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * GetMessagesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:27.521921-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:01.517629-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GetMessagesResponse {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
