@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Links to navigate to previous or next pages through the API
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:30.112209-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:04.263081-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Links {
   public static final String SERIALIZED_NAME_CURRENT = "current";
   @SerializedName(SERIALIZED_NAME_CURRENT)
