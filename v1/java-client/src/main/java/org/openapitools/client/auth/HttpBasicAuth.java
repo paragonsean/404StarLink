@@ -1,6 +1,6 @@
 /*
- * My Business Q&A API
- * The My Business Q&A API allows questions and answers to be posted for specific listings. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.
+ * Fitness API
+ * The Fitness API for managing users' fitness tracking data.
  *
  * The version of the OpenAPI document: v1
  * 

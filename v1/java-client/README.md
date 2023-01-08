@@ -1,11 +1,11 @@
 # openapi-java-client
 
-My Business Q&amp;A API
+Fitness API
 - API version: v1
-  - Build date: 2024-10-11T01:58:44.509525-04:00[America/New_York]
+  - Build date: 2024-10-11T01:59:03.273138-04:00[America/New_York]
   - Generator version: 7.9.0
 
-The My Business Q&A API allows questions and answers to be posted for specific listings. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.
+The Fitness API for managing users' fitness tracking data.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -85,16 +85,25 @@ Please follow the [installation](#installation) instruction and execute the foll
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.LocationsApi;
+import org.openapitools.client.api.UsersApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://mybusinessqanda.googleapis.com");
+    defaultClient.setBasePath("https://fitness.googleapis.com/fitness/v1/users");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
 
-    LocationsApi apiInstance = new LocationsApi(defaultClient);
-    String name = "name_example"; // String | Required. The name of the question to delete an answer for.
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    UsersApi apiInstance = new UsersApi(defaultClient);
+    String userId = "userId_example"; // String | Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -106,11 +115,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    DataSource dataSource = new DataSource(); // DataSource | 
     try {
-      Object result = apiInstance.mybusinessqandaLocationsQuestionsAnswersDelete(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+      DataSource result = apiInstance.fitnessUsersDataSourcesCreate(userId, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, dataSource);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling LocationsApi#mybusinessqandaLocationsQuestionsAnswersDelete");
+      System.err.println("Exception when calling UsersApi#fitnessUsersDataSourcesCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -123,33 +133,115 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://mybusinessqanda.googleapis.com*
+All URIs are relative to *https://fitness.googleapis.com/fitness/v1/users*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*LocationsApi* | [**mybusinessqandaLocationsQuestionsAnswersDelete**](docs/LocationsApi.md#mybusinessqandaLocationsQuestionsAnswersDelete) | **DELETE** /v1/{name}/answers:delete | 
-*LocationsApi* | [**mybusinessqandaLocationsQuestionsAnswersList**](docs/LocationsApi.md#mybusinessqandaLocationsQuestionsAnswersList) | **GET** /v1/{parent}/answers | 
-*LocationsApi* | [**mybusinessqandaLocationsQuestionsAnswersUpsert**](docs/LocationsApi.md#mybusinessqandaLocationsQuestionsAnswersUpsert) | **POST** /v1/{parent}/answers:upsert | 
-*LocationsApi* | [**mybusinessqandaLocationsQuestionsCreate**](docs/LocationsApi.md#mybusinessqandaLocationsQuestionsCreate) | **POST** /v1/{parent} | 
-*LocationsApi* | [**mybusinessqandaLocationsQuestionsDelete**](docs/LocationsApi.md#mybusinessqandaLocationsQuestionsDelete) | **DELETE** /v1/{name} | 
-*LocationsApi* | [**mybusinessqandaLocationsQuestionsList**](docs/LocationsApi.md#mybusinessqandaLocationsQuestionsList) | **GET** /v1/{parent} | 
-*LocationsApi* | [**mybusinessqandaLocationsQuestionsPatch**](docs/LocationsApi.md#mybusinessqandaLocationsQuestionsPatch) | **PATCH** /v1/{name} | 
+*UsersApi* | [**fitnessUsersDataSourcesCreate**](docs/UsersApi.md#fitnessUsersDataSourcesCreate) | **POST** /{userId}/dataSources | 
+*UsersApi* | [**fitnessUsersDataSourcesDataPointChangesList**](docs/UsersApi.md#fitnessUsersDataSourcesDataPointChangesList) | **GET** /{userId}/dataSources/{dataSourceId}/dataPointChanges | 
+*UsersApi* | [**fitnessUsersDataSourcesDatasetsDelete**](docs/UsersApi.md#fitnessUsersDataSourcesDatasetsDelete) | **DELETE** /{userId}/dataSources/{dataSourceId}/datasets/{datasetId} | 
+*UsersApi* | [**fitnessUsersDataSourcesDatasetsGet**](docs/UsersApi.md#fitnessUsersDataSourcesDatasetsGet) | **GET** /{userId}/dataSources/{dataSourceId}/datasets/{datasetId} | 
+*UsersApi* | [**fitnessUsersDataSourcesDatasetsPatch**](docs/UsersApi.md#fitnessUsersDataSourcesDatasetsPatch) | **PATCH** /{userId}/dataSources/{dataSourceId}/datasets/{datasetId} | 
+*UsersApi* | [**fitnessUsersDataSourcesDelete**](docs/UsersApi.md#fitnessUsersDataSourcesDelete) | **DELETE** /{userId}/dataSources/{dataSourceId} | 
+*UsersApi* | [**fitnessUsersDataSourcesGet**](docs/UsersApi.md#fitnessUsersDataSourcesGet) | **GET** /{userId}/dataSources/{dataSourceId} | 
+*UsersApi* | [**fitnessUsersDataSourcesList**](docs/UsersApi.md#fitnessUsersDataSourcesList) | **GET** /{userId}/dataSources | 
+*UsersApi* | [**fitnessUsersDataSourcesUpdate**](docs/UsersApi.md#fitnessUsersDataSourcesUpdate) | **PUT** /{userId}/dataSources/{dataSourceId} | 
+*UsersApi* | [**fitnessUsersDatasetAggregate**](docs/UsersApi.md#fitnessUsersDatasetAggregate) | **POST** /{userId}/dataset:aggregate | 
+*UsersApi* | [**fitnessUsersSessionsDelete**](docs/UsersApi.md#fitnessUsersSessionsDelete) | **DELETE** /{userId}/sessions/{sessionId} | 
+*UsersApi* | [**fitnessUsersSessionsList**](docs/UsersApi.md#fitnessUsersSessionsList) | **GET** /{userId}/sessions | 
+*UsersApi* | [**fitnessUsersSessionsUpdate**](docs/UsersApi.md#fitnessUsersSessionsUpdate) | **PUT** /{userId}/sessions/{sessionId} | 
 
 
 ## Documentation for Models
 
- - [Answer](docs/Answer.md)
- - [Author](docs/Author.md)
- - [ListAnswersResponse](docs/ListAnswersResponse.md)
- - [ListQuestionsResponse](docs/ListQuestionsResponse.md)
- - [Question](docs/Question.md)
- - [UpsertAnswerRequest](docs/UpsertAnswerRequest.md)
+ - [AggregateBucket](docs/AggregateBucket.md)
+ - [AggregateBy](docs/AggregateBy.md)
+ - [AggregateRequest](docs/AggregateRequest.md)
+ - [AggregateResponse](docs/AggregateResponse.md)
+ - [Application](docs/Application.md)
+ - [BucketByActivity](docs/BucketByActivity.md)
+ - [BucketBySession](docs/BucketBySession.md)
+ - [BucketByTime](docs/BucketByTime.md)
+ - [BucketByTimePeriod](docs/BucketByTimePeriod.md)
+ - [DataPoint](docs/DataPoint.md)
+ - [DataSource](docs/DataSource.md)
+ - [DataType](docs/DataType.md)
+ - [DataTypeField](docs/DataTypeField.md)
+ - [Dataset](docs/Dataset.md)
+ - [Device](docs/Device.md)
+ - [ListDataPointChangesResponse](docs/ListDataPointChangesResponse.md)
+ - [ListDataSourcesResponse](docs/ListDataSourcesResponse.md)
+ - [ListSessionsResponse](docs/ListSessionsResponse.md)
+ - [MapValue](docs/MapValue.md)
+ - [Session](docs/Session.md)
+ - [Value](docs/Value.md)
+ - [ValueMapValEntry](docs/ValueMapValEntry.md)
 
 
 <a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-Endpoints do not require authorization.
+
+Authentication schemes defined for the API:
+<a id="Oauth2"></a>
+### Oauth2
+
+- **Type**: OAuth
+- **Flow**: implicit
+- **Authorization URL**: https://accounts.google.com/o/oauth2/auth
+- **Scopes**: 
+  - https://www.googleapis.com/auth/fitness.activity.read: Use Google Fit to see and store your physical activity data
+  - https://www.googleapis.com/auth/fitness.activity.write: Add to your Google Fit physical activity data
+  - https://www.googleapis.com/auth/fitness.blood_glucose.read: See info about your blood glucose in Google Fit. I consent to Google sharing my blood glucose information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_glucose.write: Add info about your blood glucose to Google Fit. I consent to Google using my blood glucose information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_pressure.read: See info about your blood pressure in Google Fit. I consent to Google sharing my blood pressure information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_pressure.write: Add info about your blood pressure in Google Fit. I consent to Google using my blood pressure information with this app.
+  - https://www.googleapis.com/auth/fitness.body.read: See info about your body measurements in Google Fit
+  - https://www.googleapis.com/auth/fitness.body.write: Add info about your body measurements to Google Fit
+  - https://www.googleapis.com/auth/fitness.body_temperature.read: See info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app.
+  - https://www.googleapis.com/auth/fitness.body_temperature.write: Add to info about your body temperature in Google Fit. I consent to Google using my body temperature information with this app.
+  - https://www.googleapis.com/auth/fitness.heart_rate.read: See your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.
+  - https://www.googleapis.com/auth/fitness.heart_rate.write: Add to your heart rate data in Google Fit. I consent to Google using my heart rate information with this app.
+  - https://www.googleapis.com/auth/fitness.location.read: See your Google Fit speed and distance data
+  - https://www.googleapis.com/auth/fitness.location.write: Add to your Google Fit location data
+  - https://www.googleapis.com/auth/fitness.nutrition.read: See info about your nutrition in Google Fit
+  - https://www.googleapis.com/auth/fitness.nutrition.write: Add to info about your nutrition in Google Fit
+  - https://www.googleapis.com/auth/fitness.oxygen_saturation.read: See info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app.
+  - https://www.googleapis.com/auth/fitness.oxygen_saturation.write: Add info about your oxygen saturation in Google Fit. I consent to Google using my oxygen saturation information with this app.
+  - https://www.googleapis.com/auth/fitness.reproductive_health.read: See info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.
+  - https://www.googleapis.com/auth/fitness.reproductive_health.write: Add info about your reproductive health in Google Fit. I consent to Google using my reproductive health information with this app.
+  - https://www.googleapis.com/auth/fitness.sleep.read: See your sleep data in Google Fit. I consent to Google sharing my sleep information with this app.
+  - https://www.googleapis.com/auth/fitness.sleep.write: Add to your sleep data in Google Fit. I consent to Google using my sleep information with this app.
+
+<a id="Oauth2c"></a>
+### Oauth2c
+
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: https://accounts.google.com/o/oauth2/auth
+- **Scopes**: 
+  - https://www.googleapis.com/auth/fitness.activity.read: Use Google Fit to see and store your physical activity data
+  - https://www.googleapis.com/auth/fitness.activity.write: Add to your Google Fit physical activity data
+  - https://www.googleapis.com/auth/fitness.blood_glucose.read: See info about your blood glucose in Google Fit. I consent to Google sharing my blood glucose information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_glucose.write: Add info about your blood glucose to Google Fit. I consent to Google using my blood glucose information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_pressure.read: See info about your blood pressure in Google Fit. I consent to Google sharing my blood pressure information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_pressure.write: Add info about your blood pressure in Google Fit. I consent to Google using my blood pressure information with this app.
+  - https://www.googleapis.com/auth/fitness.body.read: See info about your body measurements in Google Fit
+  - https://www.googleapis.com/auth/fitness.body.write: Add info about your body measurements to Google Fit
+  - https://www.googleapis.com/auth/fitness.body_temperature.read: See info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app.
+  - https://www.googleapis.com/auth/fitness.body_temperature.write: Add to info about your body temperature in Google Fit. I consent to Google using my body temperature information with this app.
+  - https://www.googleapis.com/auth/fitness.heart_rate.read: See your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.
+  - https://www.googleapis.com/auth/fitness.heart_rate.write: Add to your heart rate data in Google Fit. I consent to Google using my heart rate information with this app.
+  - https://www.googleapis.com/auth/fitness.location.read: See your Google Fit speed and distance data
+  - https://www.googleapis.com/auth/fitness.location.write: Add to your Google Fit location data
+  - https://www.googleapis.com/auth/fitness.nutrition.read: See info about your nutrition in Google Fit
+  - https://www.googleapis.com/auth/fitness.nutrition.write: Add to info about your nutrition in Google Fit
+  - https://www.googleapis.com/auth/fitness.oxygen_saturation.read: See info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app.
+  - https://www.googleapis.com/auth/fitness.oxygen_saturation.write: Add info about your oxygen saturation in Google Fit. I consent to Google using my oxygen saturation information with this app.
+  - https://www.googleapis.com/auth/fitness.reproductive_health.read: See info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.
+  - https://www.googleapis.com/auth/fitness.reproductive_health.write: Add info about your reproductive health in Google Fit. I consent to Google using my reproductive health information with this app.
+  - https://www.googleapis.com/auth/fitness.sleep.read: See your sleep data in Google Fit. I consent to Google sharing my sleep information with this app.
+  - https://www.googleapis.com/auth/fitness.sleep.write: Add to your sleep data in Google Fit. I consent to Google using my sleep information with this app.
 
 
 ## Recommendation

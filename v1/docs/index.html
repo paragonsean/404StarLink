@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>My Business Q&amp;A API</title>
+    <title>Fitness API</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,48 +179,70 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>My Business Q&amp;A API</h1>
-    <div class="app-desc">The My Business Q&amp;A API allows questions and answers to be posted for specific listings. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.</div>
+  <h1>Fitness API</h1>
+    <div class="app-desc">The Fitness API for managing users' fitness tracking data.</div>
     <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
     <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
     <div class="app-desc">Version: v1</div>
-    <div class="app-desc">BasePath:</div>
+    <div class="app-desc">BasePath:/fitness/v1/users</div>
     <div class="license-info">Creative Commons Attribution 3.0</div>
     <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
   <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
 
   <h2><a name="__Methods">Methods</a></h2>
   [ Jump to <a href="#__Models">Models</a> ]
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#Locations">Locations</a></h4>
+  <h4><a href="#Users">Users</a></h4>
   <ul>
-  <li><a href="#mybusinessqanda.locations.questions.answers.delete"><code><span class="http-method">delete</span> /v1/{name}/answers:delete</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.answers.list"><code><span class="http-method">get</span> /v1/{parent}/answers</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.answers.upsert"><code><span class="http-method">post</span> /v1/{parent}/answers:upsert</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.create"><code><span class="http-method">post</span> /v1/{parent}</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.delete"><code><span class="http-method">delete</span> /v1/{name}</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.list"><code><span class="http-method">get</span> /v1/{parent}</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.patch"><code><span class="http-method">patch</span> /v1/{name}</code></a></li>
+  <li><a href="#fitness.users.dataSources.create"><code><span class="http-method">post</span> /{userId}/dataSources</code></a></li>
+  <li><a href="#fitness.users.dataSources.dataPointChanges.list"><code><span class="http-method">get</span> /{userId}/dataSources/{dataSourceId}/dataPointChanges</code></a></li>
+  <li><a href="#fitness.users.dataSources.datasets.delete"><code><span class="http-method">delete</span> /{userId}/dataSources/{dataSourceId}/datasets/{datasetId}</code></a></li>
+  <li><a href="#fitness.users.dataSources.datasets.get"><code><span class="http-method">get</span> /{userId}/dataSources/{dataSourceId}/datasets/{datasetId}</code></a></li>
+  <li><a href="#fitness.users.dataSources.datasets.patch"><code><span class="http-method">patch</span> /{userId}/dataSources/{dataSourceId}/datasets/{datasetId}</code></a></li>
+  <li><a href="#fitness.users.dataSources.delete"><code><span class="http-method">delete</span> /{userId}/dataSources/{dataSourceId}</code></a></li>
+  <li><a href="#fitness.users.dataSources.get"><code><span class="http-method">get</span> /{userId}/dataSources/{dataSourceId}</code></a></li>
+  <li><a href="#fitness.users.dataSources.list"><code><span class="http-method">get</span> /{userId}/dataSources</code></a></li>
+  <li><a href="#fitness.users.dataSources.update"><code><span class="http-method">put</span> /{userId}/dataSources/{dataSourceId}</code></a></li>
+  <li><a href="#fitness.users.dataset.aggregate"><code><span class="http-method">post</span> /{userId}/dataset:aggregate</code></a></li>
+  <li><a href="#fitness.users.sessions.delete"><code><span class="http-method">delete</span> /{userId}/sessions/{sessionId}</code></a></li>
+  <li><a href="#fitness.users.sessions.list"><code><span class="http-method">get</span> /{userId}/sessions</code></a></li>
+  <li><a href="#fitness.users.sessions.update"><code><span class="http-method">put</span> /{userId}/sessions/{sessionId}</code></a></li>
   </ul>
 
-  <h1><a name="Locations">Locations</a></h1>
-  <div class="method"><a name="mybusinessqanda.locations.questions.answers.delete"/>
+  <h1><a name="Users">Users</a></h1>
+  <div class="method"><a name="fitness.users.dataSources.create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/{name}/answers:delete</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.answers.delete</span>)</div>
-    <div class="method-notes">Deletes the answer written by the current user to a question.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /{userId}/dataSources</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.dataSources.create</span>)</div>
+    <div class="method-notes">Creates a new data source that is unique across all data sources belonging to this user. A data source is a unique source of sensor data. Data sources can expose raw data coming from hardware sensors on local or companion devices. They can also expose derived data, created by transforming or merging other data sources. Multiple data sources can exist for the same data type. Every data point in every dataset inserted into or read from the Fitness API has an associated data source. Each data source produces a unique stream of dataset updates, with a unique data source identifier. Not all changes to data source affect the data stream ID, so that data collected by updated versions of the same application/device can still be considered to belong to the same data source. Data sources are identified using a string generated by the server, based on the contents of the source being created. The dataStreamId field should not be set when invoking this method. It will be automatically generated by the server with the correct format. If a dataStreamId is set, it must match the format that the server would generate. This format is a combination of some fields from the data source, and has a specific order. If it doesn't match, the request will fail with an error. Specifying a DataType which is not a known type (beginning with &quot;com.google.&quot;) will create a DataSource with a <em>custom data type</em>. Custom data types are only readable by the application that created them. Custom data types are <em>deprecated</em>; use standard data types instead. In addition to the data source fields included in the data source ID, the developer project number that is authenticated when creating the data source is included. This developer project number is obfuscated when read by any other developer reading public data types.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">name (required)</div>
+      <div class="param">userId (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to delete an answer for. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div>
     </div>  <!-- field-items -->
 
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
 
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DataSource <a href="#DataSource">DataSource</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Query parameters</h3>
@@ -253,12 +275,46 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
+      <a href="#DataSource">DataSource</a>
       
-      Object
     </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "dataStreamName" : "dataStreamName",
+  "application" : {
+    "detailsUrl" : "detailsUrl",
+    "name" : "name",
+    "packageName" : "packageName",
+    "version" : "version"
+  },
+  "dataType" : {
+    "field" : [ {
+      "format" : "integer",
+      "name" : "name",
+      "optional" : true
+    }, {
+      "format" : "integer",
+      "name" : "name",
+      "optional" : true
+    } ],
+    "name" : "name"
+  },
+  "name" : "name",
+  "dataQualityStandard" : [ "dataQualityUnknown", "dataQualityUnknown" ],
+  "type" : "raw",
+  "device" : {
+    "uid" : "uid",
+    "model" : "model",
+    "type" : "unknown",
+    "version" : "version",
+    "manufacturer" : "manufacturer"
+  },
+  "dataStreamId" : "dataStreamId"
+}</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -270,21 +326,23 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#Object">Object</a>
+        <a href="#DataSource">DataSource</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.answers.list"/>
+  <div class="method"><a name="fitness.users.dataSources.dataPointChanges.list"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/answers</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.answers.list</span>)</div>
-    <div class="method-notes">Returns the paginated list of answers for a specified question.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{userId}/dataSources/{dataSourceId}/dataPointChanges</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.dataSources.dataPointChanges.list</span>)</div>
+    <div class="method-notes">Queries for user's data point changes for a particular data source.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">parent (required)</div>
+      <div class="param">userId (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to fetch answers for. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; List data points for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div><div class="param">dataSourceId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The data stream ID of the data source that created the dataset. default: null </div>
     </div>  <!-- field-items -->
 
 
@@ -314,19 +372,17 @@ font-style: italic;
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">orderBy (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">limit (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The order to return the answers. Valid options include 'update_time desc' and 'upvote_count desc', which will return the answers sorted descendingly by the requested field. The default sort order is 'update_time desc'. default: null </div><div class="param">pageSize (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; If specified, no more than this many data point changes will be included in the response. default: null </div><div class="param">pageToken (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. How many answers to fetch per page. The default and maximum <code>page_size</code> values are 10. default: null </div><div class="param">pageToken (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. If specified, the next page of answers is retrieved. default: null </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of nextPageToken from the previous response. default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ListAnswersResponse">ListAnswersResponse</a>
+      <a href="#ListDataPointChangesResponse">ListDataPointChangesResponse</a>
       
     </div>
 
@@ -335,30 +391,165 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "totalSize" : 0,
-  "nextPageToken" : "nextPageToken",
-  "answers" : [ {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
+  "dataSourceId" : "dataSourceId",
+  "deletedDataPoint" : [ {
+    "originDataSourceId" : "originDataSourceId",
+    "endTimeNanos" : "endTimeNanos",
+    "dataTypeName" : "dataTypeName",
+    "startTimeNanos" : "startTimeNanos",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "rawTimestampNanos" : "rawTimestampNanos",
+    "computationTimeMillis" : "computationTimeMillis",
+    "value" : [ {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    }, {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    } ]
   }, {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
+    "originDataSourceId" : "originDataSourceId",
+    "endTimeNanos" : "endTimeNanos",
+    "dataTypeName" : "dataTypeName",
+    "startTimeNanos" : "startTimeNanos",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "rawTimestampNanos" : "rawTimestampNanos",
+    "computationTimeMillis" : "computationTimeMillis",
+    "value" : [ {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    }, {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    } ]
+  } ],
+  "nextPageToken" : "nextPageToken",
+  "insertedDataPoint" : [ {
+    "originDataSourceId" : "originDataSourceId",
+    "endTimeNanos" : "endTimeNanos",
+    "dataTypeName" : "dataTypeName",
+    "startTimeNanos" : "startTimeNanos",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "rawTimestampNanos" : "rawTimestampNanos",
+    "computationTimeMillis" : "computationTimeMillis",
+    "value" : [ {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    }, {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    } ]
+  }, {
+    "originDataSourceId" : "originDataSourceId",
+    "endTimeNanos" : "endTimeNanos",
+    "dataTypeName" : "dataTypeName",
+    "startTimeNanos" : "startTimeNanos",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "rawTimestampNanos" : "rawTimestampNanos",
+    "computationTimeMillis" : "computationTimeMillis",
+    "value" : [ {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    }, {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    } ]
   } ]
 }</code></pre>
 
@@ -372,231 +563,25 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#ListAnswersResponse">ListAnswersResponse</a>
+        <a href="#ListDataPointChangesResponse">ListDataPointChangesResponse</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.answers.upsert"/>
+  <div class="method"><a name="fitness.users.dataSources.datasets.delete"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}/answers:upsert</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.answers.upsert</span>)</div>
-    <div class="method-notes">Creates an answer or updates the existing answer written by the user for the specified question. A user can only create one answer per question.</div>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /{userId}/dataSources/{dataSourceId}/datasets/{datasetId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.dataSources.datasets.delete</span>)</div>
+    <div class="method-notes">Performs an inclusive delete of all data points whose start and end times have any overlap with the time range specified by the dataset ID. For most data types, the entire data point will be deleted. For data types where the time span represents a consistent value (such as com.google.activity.segment), and a data point straddles either end point of the dataset, only the overlapping portion of the data point will be deleted.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">parent (required)</div>
+      <div class="param">userId (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to write an answer for. default: null </div>
-    </div>  <!-- field-items -->
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Delete a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div><div class="param">dataSourceId (required)</div>
 
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The data stream ID of the data source that created the dataset. default: null </div><div class="param">datasetId (required)</div>
 
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">UpsertAnswerRequest <a href="#UpsertAnswerRequest">UpsertAnswerRequest</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Answer">Answer</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "createTime" : "createTime",
-  "author" : {
-    "displayName" : "displayName",
-    "profilePhotoUri" : "profilePhotoUri",
-    "type" : "AUTHOR_TYPE_UNSPECIFIED"
-  },
-  "name" : "name",
-  "updateTime" : "updateTime",
-  "text" : "text",
-  "upvoteCount" : 0
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#Answer">Answer</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.create"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.create</span>)</div>
-    <div class="method-notes">Adds a question for the specified location.</div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">parent (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the location to write a question for. default: null </div>
-    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">Question <a href="#Question">Question</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Question">Question</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "totalAnswerCount" : 6,
-  "createTime" : "createTime",
-  "author" : {
-    "displayName" : "displayName",
-    "profilePhotoUri" : "profilePhotoUri",
-    "type" : "AUTHOR_TYPE_UNSPECIFIED"
-  },
-  "name" : "name",
-  "updateTime" : "updateTime",
-  "text" : "text",
-  "topAnswers" : [ {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
-  }, {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
-  } ],
-  "upvoteCount" : 1
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#Question">Question</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.delete"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/{name}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.delete</span>)</div>
-    <div class="method-notes">Deletes a specific question written by the current user.</div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">name (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to delete. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch. The ID is formatted like: &quot;startTime-endTime&quot; where startTime and endTime are 64 bit integers. default: null </div>
     </div>  <!-- field-items -->
 
 
@@ -630,40 +615,33 @@ font-style: italic;
     </div>  <!-- field-items -->
 
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      
-      Object
-    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#Object">Object</a>
+        <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.list"/>
+  <div class="method"><a name="fitness.users.dataSources.datasets.get"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.list</span>)</div>
-    <div class="method-notes">Returns the paginated list of questions and some of its answers for a specified location. This operation is only valid if the specified location is verified.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{userId}/dataSources/{dataSourceId}/datasets/{datasetId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.dataSources.datasets.get</span>)</div>
+    <div class="method-notes">Returns a dataset containing all data points whose start and end times overlap with the specified range of the dataset minimum start time and maximum end time. Specifically, any data point whose start time is less than or equal to the dataset end time and whose end time is greater than or equal to the dataset start time.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">parent (required)</div>
+      <div class="param">userId (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the location to fetch questions for. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Retrieve a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div><div class="param">dataSourceId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The data stream ID of the data source that created the dataset. default: null </div><div class="param">datasetId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch. The ID is formatted like: &quot;startTime-endTime&quot; where startTime and endTime are 64 bit integers. default: null </div>
     </div>  <!-- field-items -->
 
 
@@ -693,23 +671,17 @@ font-style: italic;
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">answersPerQuestion (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">limit (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. How many answers to fetch per question. The default and maximum <code>answers_per_question</code> values are 10. default: null </div><div class="param">filter (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; If specified, no more than this many data points will be included in the dataset. If there are more data points in the dataset, nextPageToken will be set in the dataset response. The limit is applied from the end of the time range. That is, if pageToken is absent, the limit most recent data points will be returned. default: null </div><div class="param">pageToken (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. A filter constraining the questions to return. The only filter currently supported is &quot;ignore_answered=true&quot; default: null </div><div class="param">orderBy (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The order to return the questions. Valid options include 'update_time desc' and 'upvote_count desc', which will return the questions sorted descendingly by the requested field. The default sort order is 'update_time desc'. default: null </div><div class="param">pageSize (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. How many questions to fetch per page. The default and maximum <code>page_size</code> values are 10. default: null </div><div class="param">pageToken (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. If specified, the next page of questions is retrieved. default: null </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The continuation token, which is used to page through large datasets. To get the next page of a dataset, set this parameter to the value of nextPageToken from the previous response. Each subsequent call will yield a partial dataset with data point end timestamps that are strictly smaller than those in the previous partial response. default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ListQuestionsResponse">ListQuestionsResponse</a>
+      <a href="#Dataset">Dataset</a>
       
     </div>
 
@@ -718,78 +690,88 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "totalSize" : 0,
+  "dataSourceId" : "dataSourceId",
+  "maxEndTimeNs" : "maxEndTimeNs",
+  "minStartTimeNs" : "minStartTimeNs",
   "nextPageToken" : "nextPageToken",
-  "questions" : [ {
-    "totalAnswerCount" : 6,
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "topAnswers" : [ {
-      "createTime" : "createTime",
-      "author" : {
-        "displayName" : "displayName",
-        "profilePhotoUri" : "profilePhotoUri",
-        "type" : "AUTHOR_TYPE_UNSPECIFIED"
-      },
-      "name" : "name",
-      "updateTime" : "updateTime",
-      "text" : "text",
-      "upvoteCount" : 0
+  "point" : [ {
+    "originDataSourceId" : "originDataSourceId",
+    "endTimeNanos" : "endTimeNanos",
+    "dataTypeName" : "dataTypeName",
+    "startTimeNanos" : "startTimeNanos",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "rawTimestampNanos" : "rawTimestampNanos",
+    "computationTimeMillis" : "computationTimeMillis",
+    "value" : [ {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
     }, {
-      "createTime" : "createTime",
-      "author" : {
-        "displayName" : "displayName",
-        "profilePhotoUri" : "profilePhotoUri",
-        "type" : "AUTHOR_TYPE_UNSPECIFIED"
-      },
-      "name" : "name",
-      "updateTime" : "updateTime",
-      "text" : "text",
-      "upvoteCount" : 0
-    } ],
-    "upvoteCount" : 1
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    } ]
   }, {
-    "totalAnswerCount" : 6,
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "topAnswers" : [ {
-      "createTime" : "createTime",
-      "author" : {
-        "displayName" : "displayName",
-        "profilePhotoUri" : "profilePhotoUri",
-        "type" : "AUTHOR_TYPE_UNSPECIFIED"
-      },
-      "name" : "name",
-      "updateTime" : "updateTime",
-      "text" : "text",
-      "upvoteCount" : 0
+    "originDataSourceId" : "originDataSourceId",
+    "endTimeNanos" : "endTimeNanos",
+    "dataTypeName" : "dataTypeName",
+    "startTimeNanos" : "startTimeNanos",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "rawTimestampNanos" : "rawTimestampNanos",
+    "computationTimeMillis" : "computationTimeMillis",
+    "value" : [ {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
     }, {
-      "createTime" : "createTime",
-      "author" : {
-        "displayName" : "displayName",
-        "profilePhotoUri" : "profilePhotoUri",
-        "type" : "AUTHOR_TYPE_UNSPECIFIED"
-      },
-      "name" : "name",
-      "updateTime" : "updateTime",
-      "text" : "text",
-      "upvoteCount" : 0
-    } ],
-    "upvoteCount" : 1
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    } ]
   } ]
 }</code></pre>
 
@@ -803,21 +785,25 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#ListQuestionsResponse">ListQuestionsResponse</a>
+        <a href="#Dataset">Dataset</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.patch"/>
+  <div class="method"><a name="fitness.users.dataSources.datasets.patch"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /v1/{name}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.patch</span>)</div>
-    <div class="method-notes">Updates a specific question written by the current user.</div>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /{userId}/dataSources/{dataSourceId}/datasets/{datasetId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.dataSources.datasets.patch</span>)</div>
+    <div class="method-notes">Adds data points to a dataset. The dataset need not be previously created. All points within the given dataset will be returned with subsquent calls to retrieve this dataset. Data points can belong to more than one dataset. This method does not use patch semantics: the data points provided are merely inserted, with no existing data replaced.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">name (required)</div>
+      <div class="param">userId (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Immutable. The unique name for the question. locations/<em>/questions/</em> This field will be ignored if set during question creation. default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Patch a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div><div class="param">dataSourceId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The data stream ID of the data source that created the dataset. default: null </div><div class="param">datasetId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; This field is not used, and can be safely omitted. default: null </div>
     </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
@@ -828,7 +814,7 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">Question <a href="#Question">Question</a> (optional)</div>
+      <div class="param">Dataset <a href="#Dataset">Dataset</a> (optional)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
@@ -859,15 +845,13 @@ font-style: italic;
 
       <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">updateMask (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Required. The specific fields to update. Only question text can be updated. default: null </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Question">Question</a>
+      <a href="#Dataset">Dataset</a>
       
     </div>
 
@@ -876,40 +860,89 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "totalAnswerCount" : 6,
-  "createTime" : "createTime",
-  "author" : {
-    "displayName" : "displayName",
-    "profilePhotoUri" : "profilePhotoUri",
-    "type" : "AUTHOR_TYPE_UNSPECIFIED"
-  },
-  "name" : "name",
-  "updateTime" : "updateTime",
-  "text" : "text",
-  "topAnswers" : [ {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
+  "dataSourceId" : "dataSourceId",
+  "maxEndTimeNs" : "maxEndTimeNs",
+  "minStartTimeNs" : "minStartTimeNs",
+  "nextPageToken" : "nextPageToken",
+  "point" : [ {
+    "originDataSourceId" : "originDataSourceId",
+    "endTimeNanos" : "endTimeNanos",
+    "dataTypeName" : "dataTypeName",
+    "startTimeNanos" : "startTimeNanos",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "rawTimestampNanos" : "rawTimestampNanos",
+    "computationTimeMillis" : "computationTimeMillis",
+    "value" : [ {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    }, {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    } ]
   }, {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
-  } ],
-  "upvoteCount" : 1
+    "originDataSourceId" : "originDataSourceId",
+    "endTimeNanos" : "endTimeNanos",
+    "dataTypeName" : "dataTypeName",
+    "startTimeNanos" : "startTimeNanos",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "rawTimestampNanos" : "rawTimestampNanos",
+    "computationTimeMillis" : "computationTimeMillis",
+    "value" : [ {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    }, {
+      "intVal" : 6,
+      "fpVal" : 0.8008281904610115,
+      "stringVal" : "stringVal",
+      "mapVal" : [ {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      }, {
+        "value" : {
+          "fpVal" : 1.4658129805029452
+        },
+        "key" : "key"
+      } ]
+    } ]
+  } ]
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -922,7 +955,1230 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Successful response
-        <a href="#Question">Question</a>
+        <a href="#Dataset">Dataset</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fitness.users.dataSources.delete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /{userId}/dataSources/{dataSourceId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.dataSources.delete</span>)</div>
+    <div class="method-notes">Deletes the specified data source. The request will fail if the data source contains any data points.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div><div class="param">dataSourceId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The data stream ID of the data source to delete. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DataSource">DataSource</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "dataStreamName" : "dataStreamName",
+  "application" : {
+    "detailsUrl" : "detailsUrl",
+    "name" : "name",
+    "packageName" : "packageName",
+    "version" : "version"
+  },
+  "dataType" : {
+    "field" : [ {
+      "format" : "integer",
+      "name" : "name",
+      "optional" : true
+    }, {
+      "format" : "integer",
+      "name" : "name",
+      "optional" : true
+    } ],
+    "name" : "name"
+  },
+  "name" : "name",
+  "dataQualityStandard" : [ "dataQualityUnknown", "dataQualityUnknown" ],
+  "type" : "raw",
+  "device" : {
+    "uid" : "uid",
+    "model" : "model",
+    "type" : "unknown",
+    "version" : "version",
+    "manufacturer" : "manufacturer"
+  },
+  "dataStreamId" : "dataStreamId"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#DataSource">DataSource</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fitness.users.dataSources.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{userId}/dataSources/{dataSourceId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.dataSources.get</span>)</div>
+    <div class="method-notes">Returns the specified data source.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div><div class="param">dataSourceId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The data stream ID of the data source to retrieve. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DataSource">DataSource</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "dataStreamName" : "dataStreamName",
+  "application" : {
+    "detailsUrl" : "detailsUrl",
+    "name" : "name",
+    "packageName" : "packageName",
+    "version" : "version"
+  },
+  "dataType" : {
+    "field" : [ {
+      "format" : "integer",
+      "name" : "name",
+      "optional" : true
+    }, {
+      "format" : "integer",
+      "name" : "name",
+      "optional" : true
+    } ],
+    "name" : "name"
+  },
+  "name" : "name",
+  "dataQualityStandard" : [ "dataQualityUnknown", "dataQualityUnknown" ],
+  "type" : "raw",
+  "device" : {
+    "uid" : "uid",
+    "model" : "model",
+    "type" : "unknown",
+    "version" : "version",
+    "manufacturer" : "manufacturer"
+  },
+  "dataStreamId" : "dataStreamId"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#DataSource">DataSource</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fitness.users.dataSources.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{userId}/dataSources</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.dataSources.list</span>)</div>
+    <div class="method-notes">Lists all data sources that are visible to the developer, using the OAuth scopes provided. The list is not exhaustive; the user may have private data sources that are only visible to other developers, or calls using other scopes.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; List data sources for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">dataTypeName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The names of data types to include in the list. If not specified, all data sources will be returned. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListDataSourcesResponse">ListDataSourcesResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "dataSource" : [ {
+    "dataStreamName" : "dataStreamName",
+    "application" : {
+      "detailsUrl" : "detailsUrl",
+      "name" : "name",
+      "packageName" : "packageName",
+      "version" : "version"
+    },
+    "dataType" : {
+      "field" : [ {
+        "format" : "integer",
+        "name" : "name",
+        "optional" : true
+      }, {
+        "format" : "integer",
+        "name" : "name",
+        "optional" : true
+      } ],
+      "name" : "name"
+    },
+    "name" : "name",
+    "dataQualityStandard" : [ "dataQualityUnknown", "dataQualityUnknown" ],
+    "type" : "raw",
+    "device" : {
+      "uid" : "uid",
+      "model" : "model",
+      "type" : "unknown",
+      "version" : "version",
+      "manufacturer" : "manufacturer"
+    },
+    "dataStreamId" : "dataStreamId"
+  }, {
+    "dataStreamName" : "dataStreamName",
+    "application" : {
+      "detailsUrl" : "detailsUrl",
+      "name" : "name",
+      "packageName" : "packageName",
+      "version" : "version"
+    },
+    "dataType" : {
+      "field" : [ {
+        "format" : "integer",
+        "name" : "name",
+        "optional" : true
+      }, {
+        "format" : "integer",
+        "name" : "name",
+        "optional" : true
+      } ],
+      "name" : "name"
+    },
+    "name" : "name",
+    "dataQualityStandard" : [ "dataQualityUnknown", "dataQualityUnknown" ],
+    "type" : "raw",
+    "device" : {
+      "uid" : "uid",
+      "model" : "model",
+      "type" : "unknown",
+      "version" : "version",
+      "manufacturer" : "manufacturer"
+    },
+    "dataStreamId" : "dataStreamId"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListDataSourcesResponse">ListDataSourcesResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fitness.users.dataSources.update"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /{userId}/dataSources/{dataSourceId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.dataSources.update</span>)</div>
+    <div class="method-notes">Updates the specified data source. The dataStreamId, dataType, type, dataStreamName, and device properties with the exception of version, cannot be modified. Data sources are identified by their dataStreamId.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div><div class="param">dataSourceId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The data stream ID of the data source to update. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DataSource <a href="#DataSource">DataSource</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DataSource">DataSource</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "dataStreamName" : "dataStreamName",
+  "application" : {
+    "detailsUrl" : "detailsUrl",
+    "name" : "name",
+    "packageName" : "packageName",
+    "version" : "version"
+  },
+  "dataType" : {
+    "field" : [ {
+      "format" : "integer",
+      "name" : "name",
+      "optional" : true
+    }, {
+      "format" : "integer",
+      "name" : "name",
+      "optional" : true
+    } ],
+    "name" : "name"
+  },
+  "name" : "name",
+  "dataQualityStandard" : [ "dataQualityUnknown", "dataQualityUnknown" ],
+  "type" : "raw",
+  "device" : {
+    "uid" : "uid",
+    "model" : "model",
+    "type" : "unknown",
+    "version" : "version",
+    "manufacturer" : "manufacturer"
+  },
+  "dataStreamId" : "dataStreamId"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#DataSource">DataSource</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fitness.users.dataset.aggregate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /{userId}/dataset:aggregate</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.dataset.aggregate</span>)</div>
+    <div class="method-notes">Aggregates data of a certain type or stream into buckets divided by a given type of boundary. Multiple data sets of multiple types and from multiple sources can be aggregated into exactly one bucket type per request.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">AggregateRequest <a href="#AggregateRequest">AggregateRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#AggregateResponse">AggregateResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bucket" : [ {
+    "endTimeMillis" : "endTimeMillis",
+    "activity" : 0,
+    "startTimeMillis" : "startTimeMillis",
+    "session" : {
+      "activeTimeMillis" : "activeTimeMillis",
+      "endTimeMillis" : "endTimeMillis",
+      "application" : {
+        "detailsUrl" : "detailsUrl",
+        "name" : "name",
+        "packageName" : "packageName",
+        "version" : "version"
+      },
+      "startTimeMillis" : "startTimeMillis",
+      "name" : "name",
+      "description" : "description",
+      "modifiedTimeMillis" : "modifiedTimeMillis",
+      "id" : "id",
+      "activityType" : 6
+    },
+    "type" : "unknown",
+    "dataset" : [ {
+      "dataSourceId" : "dataSourceId",
+      "maxEndTimeNs" : "maxEndTimeNs",
+      "minStartTimeNs" : "minStartTimeNs",
+      "nextPageToken" : "nextPageToken",
+      "point" : [ {
+        "originDataSourceId" : "originDataSourceId",
+        "endTimeNanos" : "endTimeNanos",
+        "dataTypeName" : "dataTypeName",
+        "startTimeNanos" : "startTimeNanos",
+        "modifiedTimeMillis" : "modifiedTimeMillis",
+        "rawTimestampNanos" : "rawTimestampNanos",
+        "computationTimeMillis" : "computationTimeMillis",
+        "value" : [ {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        }, {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        } ]
+      }, {
+        "originDataSourceId" : "originDataSourceId",
+        "endTimeNanos" : "endTimeNanos",
+        "dataTypeName" : "dataTypeName",
+        "startTimeNanos" : "startTimeNanos",
+        "modifiedTimeMillis" : "modifiedTimeMillis",
+        "rawTimestampNanos" : "rawTimestampNanos",
+        "computationTimeMillis" : "computationTimeMillis",
+        "value" : [ {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        }, {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        } ]
+      } ]
+    }, {
+      "dataSourceId" : "dataSourceId",
+      "maxEndTimeNs" : "maxEndTimeNs",
+      "minStartTimeNs" : "minStartTimeNs",
+      "nextPageToken" : "nextPageToken",
+      "point" : [ {
+        "originDataSourceId" : "originDataSourceId",
+        "endTimeNanos" : "endTimeNanos",
+        "dataTypeName" : "dataTypeName",
+        "startTimeNanos" : "startTimeNanos",
+        "modifiedTimeMillis" : "modifiedTimeMillis",
+        "rawTimestampNanos" : "rawTimestampNanos",
+        "computationTimeMillis" : "computationTimeMillis",
+        "value" : [ {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        }, {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        } ]
+      }, {
+        "originDataSourceId" : "originDataSourceId",
+        "endTimeNanos" : "endTimeNanos",
+        "dataTypeName" : "dataTypeName",
+        "startTimeNanos" : "startTimeNanos",
+        "modifiedTimeMillis" : "modifiedTimeMillis",
+        "rawTimestampNanos" : "rawTimestampNanos",
+        "computationTimeMillis" : "computationTimeMillis",
+        "value" : [ {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        }, {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "endTimeMillis" : "endTimeMillis",
+    "activity" : 0,
+    "startTimeMillis" : "startTimeMillis",
+    "session" : {
+      "activeTimeMillis" : "activeTimeMillis",
+      "endTimeMillis" : "endTimeMillis",
+      "application" : {
+        "detailsUrl" : "detailsUrl",
+        "name" : "name",
+        "packageName" : "packageName",
+        "version" : "version"
+      },
+      "startTimeMillis" : "startTimeMillis",
+      "name" : "name",
+      "description" : "description",
+      "modifiedTimeMillis" : "modifiedTimeMillis",
+      "id" : "id",
+      "activityType" : 6
+    },
+    "type" : "unknown",
+    "dataset" : [ {
+      "dataSourceId" : "dataSourceId",
+      "maxEndTimeNs" : "maxEndTimeNs",
+      "minStartTimeNs" : "minStartTimeNs",
+      "nextPageToken" : "nextPageToken",
+      "point" : [ {
+        "originDataSourceId" : "originDataSourceId",
+        "endTimeNanos" : "endTimeNanos",
+        "dataTypeName" : "dataTypeName",
+        "startTimeNanos" : "startTimeNanos",
+        "modifiedTimeMillis" : "modifiedTimeMillis",
+        "rawTimestampNanos" : "rawTimestampNanos",
+        "computationTimeMillis" : "computationTimeMillis",
+        "value" : [ {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        }, {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        } ]
+      }, {
+        "originDataSourceId" : "originDataSourceId",
+        "endTimeNanos" : "endTimeNanos",
+        "dataTypeName" : "dataTypeName",
+        "startTimeNanos" : "startTimeNanos",
+        "modifiedTimeMillis" : "modifiedTimeMillis",
+        "rawTimestampNanos" : "rawTimestampNanos",
+        "computationTimeMillis" : "computationTimeMillis",
+        "value" : [ {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        }, {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        } ]
+      } ]
+    }, {
+      "dataSourceId" : "dataSourceId",
+      "maxEndTimeNs" : "maxEndTimeNs",
+      "minStartTimeNs" : "minStartTimeNs",
+      "nextPageToken" : "nextPageToken",
+      "point" : [ {
+        "originDataSourceId" : "originDataSourceId",
+        "endTimeNanos" : "endTimeNanos",
+        "dataTypeName" : "dataTypeName",
+        "startTimeNanos" : "startTimeNanos",
+        "modifiedTimeMillis" : "modifiedTimeMillis",
+        "rawTimestampNanos" : "rawTimestampNanos",
+        "computationTimeMillis" : "computationTimeMillis",
+        "value" : [ {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        }, {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        } ]
+      }, {
+        "originDataSourceId" : "originDataSourceId",
+        "endTimeNanos" : "endTimeNanos",
+        "dataTypeName" : "dataTypeName",
+        "startTimeNanos" : "startTimeNanos",
+        "modifiedTimeMillis" : "modifiedTimeMillis",
+        "rawTimestampNanos" : "rawTimestampNanos",
+        "computationTimeMillis" : "computationTimeMillis",
+        "value" : [ {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        }, {
+          "intVal" : 6,
+          "fpVal" : 0.8008281904610115,
+          "stringVal" : "stringVal",
+          "mapVal" : [ {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          }, {
+            "value" : {
+              "fpVal" : 1.4658129805029452
+            },
+            "key" : "key"
+          } ]
+        } ]
+      } ]
+    } ]
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#AggregateResponse">AggregateResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fitness.users.sessions.delete"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /{userId}/sessions/{sessionId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.sessions.delete</span>)</div>
+    <div class="method-notes">Deletes a session specified by the given session ID.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Delete a session for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div><div class="param">sessionId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The ID of the session to be deleted. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fitness.users.sessions.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{userId}/sessions</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.sessions.list</span>)</div>
+    <div class="method-notes">Lists sessions previously created.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; List sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">activityType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; If non-empty, only sessions with these activity types should be returned. default: null </div><div class="param">endTime (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An RFC3339 timestamp. Only sessions ending between the start and end times will be included in the response. If this time is omitted but startTime is specified, all sessions from startTime to the end of time will be returned. default: null </div><div class="param">includeDeleted (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; If true, and if both startTime and endTime are omitted, session deletions will be returned. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The continuation token, which is used for incremental syncing. To get the next batch of changes, set this parameter to the value of nextPageToken from the previous response. The page token is ignored if either start or end time is specified. If none of start time, end time, and the page token is specified, sessions modified in the last 30 days are returned. default: null </div><div class="param">startTime (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An RFC3339 timestamp. Only sessions ending between the start and end times will be included in the response. If this time is omitted but endTime is specified, all sessions from the start of time up to endTime will be returned. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSessionsResponse">ListSessionsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "session" : [ {
+    "activeTimeMillis" : "activeTimeMillis",
+    "endTimeMillis" : "endTimeMillis",
+    "application" : {
+      "detailsUrl" : "detailsUrl",
+      "name" : "name",
+      "packageName" : "packageName",
+      "version" : "version"
+    },
+    "startTimeMillis" : "startTimeMillis",
+    "name" : "name",
+    "description" : "description",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "id" : "id",
+    "activityType" : 6
+  }, {
+    "activeTimeMillis" : "activeTimeMillis",
+    "endTimeMillis" : "endTimeMillis",
+    "application" : {
+      "detailsUrl" : "detailsUrl",
+      "name" : "name",
+      "packageName" : "packageName",
+      "version" : "version"
+    },
+    "startTimeMillis" : "startTimeMillis",
+    "name" : "name",
+    "description" : "description",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "id" : "id",
+    "activityType" : 6
+  } ],
+  "hasMoreData" : true,
+  "deletedSession" : [ {
+    "activeTimeMillis" : "activeTimeMillis",
+    "endTimeMillis" : "endTimeMillis",
+    "application" : {
+      "detailsUrl" : "detailsUrl",
+      "name" : "name",
+      "packageName" : "packageName",
+      "version" : "version"
+    },
+    "startTimeMillis" : "startTimeMillis",
+    "name" : "name",
+    "description" : "description",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "id" : "id",
+    "activityType" : 6
+  }, {
+    "activeTimeMillis" : "activeTimeMillis",
+    "endTimeMillis" : "endTimeMillis",
+    "application" : {
+      "detailsUrl" : "detailsUrl",
+      "name" : "name",
+      "packageName" : "packageName",
+      "version" : "version"
+    },
+    "startTimeMillis" : "startTimeMillis",
+    "name" : "name",
+    "description" : "description",
+    "modifiedTimeMillis" : "modifiedTimeMillis",
+    "id" : "id",
+    "activityType" : 6
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListSessionsResponse">ListSessionsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fitness.users.sessions.update"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /{userId}/sessions/{sessionId}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fitness.users.sessions.update</span>)</div>
+    <div class="method-notes">Updates or insert a given session.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Create sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. default: null </div><div class="param">sessionId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The ID of the session to be created. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Session <a href="#Session">Session</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Session">Session</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "activeTimeMillis" : "activeTimeMillis",
+  "endTimeMillis" : "endTimeMillis",
+  "application" : {
+    "detailsUrl" : "detailsUrl",
+    "name" : "name",
+    "packageName" : "packageName",
+    "version" : "version"
+  },
+  "startTimeMillis" : "startTimeMillis",
+  "name" : "name",
+  "description" : "description",
+  "modifiedTimeMillis" : "modifiedTimeMillis",
+  "id" : "id",
+  "activityType" : 6
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Session">Session</a>
   </div> <!-- method -->
   <hr/>
 
@@ -931,74 +2187,259 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#Answer"><code>Answer</code> - </a></li>
-    <li><a href="#Author"><code>Author</code> - </a></li>
-    <li><a href="#ListAnswersResponse"><code>ListAnswersResponse</code> - </a></li>
-    <li><a href="#ListQuestionsResponse"><code>ListQuestionsResponse</code> - </a></li>
-    <li><a href="#Question"><code>Question</code> - </a></li>
-    <li><a href="#UpsertAnswerRequest"><code>UpsertAnswerRequest</code> - </a></li>
+    <li><a href="#AggregateBucket"><code>AggregateBucket</code> - </a></li>
+    <li><a href="#AggregateBy"><code>AggregateBy</code> - </a></li>
+    <li><a href="#AggregateRequest"><code>AggregateRequest</code> - </a></li>
+    <li><a href="#AggregateResponse"><code>AggregateResponse</code> - </a></li>
+    <li><a href="#Application"><code>Application</code> - </a></li>
+    <li><a href="#BucketByActivity"><code>BucketByActivity</code> - </a></li>
+    <li><a href="#BucketBySession"><code>BucketBySession</code> - </a></li>
+    <li><a href="#BucketByTime"><code>BucketByTime</code> - </a></li>
+    <li><a href="#BucketByTimePeriod"><code>BucketByTimePeriod</code> - </a></li>
+    <li><a href="#DataPoint"><code>DataPoint</code> - </a></li>
+    <li><a href="#DataSource"><code>DataSource</code> - </a></li>
+    <li><a href="#DataType"><code>DataType</code> - </a></li>
+    <li><a href="#DataTypeField"><code>DataTypeField</code> - </a></li>
+    <li><a href="#Dataset"><code>Dataset</code> - </a></li>
+    <li><a href="#Device"><code>Device</code> - </a></li>
+    <li><a href="#ListDataPointChangesResponse"><code>ListDataPointChangesResponse</code> - </a></li>
+    <li><a href="#ListDataSourcesResponse"><code>ListDataSourcesResponse</code> - </a></li>
+    <li><a href="#ListSessionsResponse"><code>ListSessionsResponse</code> - </a></li>
+    <li><a href="#MapValue"><code>MapValue</code> - </a></li>
+    <li><a href="#Session"><code>Session</code> - </a></li>
+    <li><a href="#Value"><code>Value</code> - </a></li>
+    <li><a href="#ValueMapValEntry"><code>ValueMapValEntry</code> - </a></li>
   </ol>
 
   <div class="model">
-    <h3><a name="Answer"><code>Answer</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Represents an answer to a question</div>
+    <h3><a name="AggregateBucket"><code>AggregateBucket</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">author (optional)</div><div class="param-desc"><span class="param-type"><a href="#Author">Author</a></span>  </div>
-<div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the answer was written. Only retrieved during ListResponse fetching. format: google-datetime</div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The unique name for the answer locations/<em>/questions/</em>/answers/* </div>
-<div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The text of the answer. It should contain at least one non-whitespace character. The maximum length is 4096 characters. </div>
-<div class="param">updateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the answer was last modified. format: google-datetime</div>
-<div class="param">upvoteCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Output only. The number of upvotes for the answer. format: int32</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="Author"><code>Author</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Represents the author of a question or answer</div>
-    <div class="field-items">
-      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The display name of the user </div>
-<div class="param">profilePhotoUri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The profile photo URI of the user. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of user the author is. </div>
+      <div class="param">activity (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Available for Bucket.Type.ACTIVITY_TYPE, Bucket.Type.ACTIVITY_SEGMENT format: int32</div>
+<div class="param">dataset (optional)</div><div class="param-desc"><span class="param-type"><a href="#Dataset">array[Dataset]</a></span> There will be one dataset per AggregateBy in the request. </div>
+<div class="param">endTimeMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The end time for the aggregated data, in milliseconds since epoch, inclusive. format: int64</div>
+<div class="param">session (optional)</div><div class="param-desc"><span class="param-type"><a href="#Session">Session</a></span>  </div>
+<div class="param">startTimeMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The start time for the aggregated data, in milliseconds since epoch, inclusive. format: int64</div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of a bucket signifies how the data aggregation is performed in the bucket. </div>
         <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">AUTHOR_TYPE_UNSPECIFIED</div><div class="param-enum">REGULAR_USER</div><div class="param-enum">LOCAL_GUIDE</div><div class="param-enum">MERCHANT</div>
+        <div class="param-enum">unknown</div><div class="param-enum">time</div><div class="param-enum">session</div><div class="param-enum">activityType</div><div class="param-enum">activitySegment</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ListAnswersResponse"><code>ListAnswersResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Response message for QuestionsAndAnswers.ListAnswers</div>
+    <h3><a name="AggregateBy"><code>AggregateBy</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The specification of which data to aggregate.</div>
     <div class="field-items">
-      <div class="param">answers (optional)</div><div class="param-desc"><span class="param-type"><a href="#Answer">array[Answer]</a></span> The requested answers. </div>
-<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If the number of answers exceeds the requested max page size, this field is populated with a token to fetch the next page of answers on a subsequent call. If there are no more answers, this field is not present in the response. </div>
-<div class="param">totalSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The total number of answers posted for this question across all pages. format: int32</div>
+      <div class="param">dataSourceId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A data source ID to aggregate. Only data from the specified data source ID will be included in the aggregation. If specified, this data source must exist; the OAuth scopes in the supplied credentials must grant read access to this data type. The dataset in the response will have the same data source ID. Note: Data can be aggregated by either the dataTypeName or the dataSourceId, not both. </div>
+<div class="param">dataTypeName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The data type to aggregate. All data sources providing this data type will contribute data to the aggregation. The response will contain a single dataset for this data type name. The dataset will have a data source ID of derived::com.google.android.gms:aggregated. If the user has no data for this data type, an empty data set will be returned. Note: Data can be aggregated by either the dataTypeName or the dataSourceId, not both. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ListQuestionsResponse"><code>ListQuestionsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Response message for QuestionsAndAnswers.ListQuestions</div>
+    <h3><a name="AggregateRequest"><code>AggregateRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Next id: 10</div>
     <div class="field-items">
-      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If the number of questions exceeds the requested max page size, this field is populated with a token to fetch the next page of questions on a subsequent call. If there are no more questions, this field is not present in the response. </div>
-<div class="param">questions (optional)</div><div class="param-desc"><span class="param-type"><a href="#Question">array[Question]</a></span> The requested questions, </div>
-<div class="param">totalSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The total number of questions posted for this location across all pages. format: int32</div>
+      <div class="param">aggregateBy (optional)</div><div class="param-desc"><span class="param-type"><a href="#AggregateBy">array[AggregateBy]</a></span> The specification of data to be aggregated. At least one aggregateBy spec must be provided. All data that is specified will be aggregated using the same bucketing criteria. There will be one dataset in the response for every aggregateBy spec. </div>
+<div class="param">bucketByActivitySegment (optional)</div><div class="param-desc"><span class="param-type"><a href="#BucketByActivity">BucketByActivity</a></span>  </div>
+<div class="param">bucketByActivityType (optional)</div><div class="param-desc"><span class="param-type"><a href="#BucketByActivity">BucketByActivity</a></span>  </div>
+<div class="param">bucketBySession (optional)</div><div class="param-desc"><span class="param-type"><a href="#BucketBySession">BucketBySession</a></span>  </div>
+<div class="param">bucketByTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#BucketByTime">BucketByTime</a></span>  </div>
+<div class="param">endTimeMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The end of a window of time. Data that intersects with this time window will be aggregated. The time is in milliseconds since epoch, inclusive. The maximum allowed difference between start_time_millis // and end_time_millis is 7776000000 (roughly 90 days). format: int64</div>
+<div class="param">filteredDataQualityStandard (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> DO NOT POPULATE THIS FIELD. It is ignored. </div>
+        <div class="param-enum-header">Enum:</div>
+        
+<div class="param">startTimeMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The start of a window of time. Data that intersects with this time window will be aggregated. The time is in milliseconds since epoch, inclusive. format: int64</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Question"><code>Question</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Represents a single question and some of its answers.</div>
+    <h3><a name="AggregateResponse"><code>AggregateResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">author (optional)</div><div class="param-desc"><span class="param-type"><a href="#Author">Author</a></span>  </div>
-<div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the question was written. format: google-datetime</div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Immutable. The unique name for the question. locations/<em>/questions/</em> This field will be ignored if set during question creation. </div>
-<div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The text of the question. It should contain at least three words and the total length should be greater than or equal to 10 characters. The maximum length is 4096 characters. </div>
-<div class="param">topAnswers (optional)</div><div class="param-desc"><span class="param-type"><a href="#Answer">array[Answer]</a></span> Output only. A list of answers to the question, sorted by upvotes. This may not be a complete list of answers depending on the request parameters (answers_per_question) </div>
-<div class="param">totalAnswerCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Output only. The total number of answers posted for this question. format: int32</div>
-<div class="param">updateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the question was last modified. format: google-datetime</div>
-<div class="param">upvoteCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Output only. The number of upvotes for the question. format: int32</div>
+      <div class="param">bucket (optional)</div><div class="param-desc"><span class="param-type"><a href="#AggregateBucket">array[AggregateBucket]</a></span> A list of buckets containing the aggregated data. </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="UpsertAnswerRequest"><code>UpsertAnswerRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Request message for QuestionsAndAnswers.UpsertAnswer</div>
+    <h3><a name="Application"><code>Application</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">answer (optional)</div><div class="param-desc"><span class="param-type"><a href="#Answer">Answer</a></span>  </div>
+      <div class="param">detailsUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An optional URI that can be used to link back to the application. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of this application. This is required for REST clients, but we do not enforce uniqueness of this name. It is provided as a matter of convenience for other developers who would like to identify which REST created an Application or Data Source. </div>
+<div class="param">packageName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Package name for this application. This is used as a unique identifier when created by Android applications, but cannot be specified by REST clients. REST clients will have their developer project number reflected into the Data Source data stream IDs, instead of the packageName. </div>
+<div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Version of the application. You should update this field whenever the application changes in a way that affects the computation of the data. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BucketByActivity"><code>BucketByActivity</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">activityDataSourceId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The default activity stream will be used if a specific activityDataSourceId is not specified. </div>
+<div class="param">minDurationMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specifies that only activity segments of duration longer than minDurationMillis are considered and used as a container for aggregated data. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BucketBySession"><code>BucketBySession</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">minDurationMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specifies that only sessions of duration longer than minDurationMillis are considered and used as a container for aggregated data. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BucketByTime"><code>BucketByTime</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">durationMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specifies that result buckets aggregate data by exactly durationMillis time frames. Time frames that contain no data will be included in the response with an empty dataset. format: int64</div>
+<div class="param">period (optional)</div><div class="param-desc"><span class="param-type"><a href="#BucketByTimePeriod">BucketByTimePeriod</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BucketByTimePeriod"><code>BucketByTimePeriod</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">timeZoneId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> org.joda.timezone.DateTimeZone </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">day</div><div class="param-enum">week</div><div class="param-enum">month</div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DataPoint"><code>DataPoint</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents a single data point, generated by a particular data source. A data point holds a value for each field, an end timestamp and an optional start time. The exact semantics of each of these attributes are specified in the documentation for the particular data type. A data point can represent an instantaneous measurement, reading or input observation, as well as averages or aggregates over a time interval. Check the data type documentation to determine which is the case for a particular data type. Data points always contain one value for each field of the data type.</div>
+    <div class="field-items">
+      <div class="param">computationTimeMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> DO NOT USE THIS FIELD. It is ignored, and not stored. format: int64</div>
+<div class="param">dataTypeName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The data type defining the format of the values in this data point. </div>
+<div class="param">endTimeNanos (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The end time of the interval represented by this data point, in nanoseconds since epoch. format: int64</div>
+<div class="param">modifiedTimeMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Indicates the last time this data point was modified. Useful only in contexts where we are listing the data changes, rather than representing the current state of the data. format: int64</div>
+<div class="param">originDataSourceId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If the data point is contained in a dataset for a derived data source, this field will be populated with the data source stream ID that created the data point originally. WARNING: do not rely on this field for anything other than debugging. The value of this field, if it is set at all, is an implementation detail and is not guaranteed to remain consistent. </div>
+<div class="param">rawTimestampNanos (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The raw timestamp from the original SensorEvent. format: int64</div>
+<div class="param">startTimeNanos (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The start time of the interval represented by this data point, in nanoseconds since epoch. format: int64</div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#Value">array[Value]</a></span> Values of each data type field for the data point. It is expected that each value corresponding to a data type field will occur in the same order that the field is listed with in the data type specified in a data source. Only one of integer and floating point fields will be populated, depending on the format enum value within data source's type field. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DataSource"><code>DataSource</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Definition of a unique source of sensor data. Data sources can expose raw data coming from hardware sensors on local or companion devices. They can also expose derived data, created by transforming or merging other data sources. Multiple data sources can exist for the same data type. Every data point inserted into or read from this service has an associated data source. The data source contains enough information to uniquely identify its data, including the hardware device and the application that collected and/or transformed the data. It also holds useful metadata, such as the hardware and application versions, and the device type. Each data source produces a unique stream of data, with a unique identifier. Not all changes to data source affect the stream identifier, so that data collected by updated versions of the same application/device can still be considered to belong to the same data stream.</div>
+    <div class="field-items">
+      <div class="param">application (optional)</div><div class="param-desc"><span class="param-type"><a href="#Application">Application</a></span>  </div>
+<div class="param">dataQualityStandard (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> DO NOT POPULATE THIS FIELD. It is never populated in responses from the platform, and is ignored in queries. It will be removed in a future version entirely. </div>
+        <div class="param-enum-header">Enum:</div>
+        
+<div class="param">dataStreamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A unique identifier for the data stream produced by this data source. The identifier includes: - The physical device's manufacturer, model, and serial number (UID). - The application's package name or name. Package name is used when the data source was created by an Android application. The developer project number is used when the data source was created by a REST client. - The data source's type. - The data source's stream name. Note that not all attributes of the data source are used as part of the stream identifier. In particular, the version of the hardware/the application isn't used. This allows us to preserve the same stream through version updates. This also means that two DataSource objects may represent the same data stream even if they're not equal. The exact format of the data stream ID created by an Android application is: type:dataType.name:application.packageName:device.manufacturer:device.model:device.uid:dataStreamName The exact format of the data stream ID created by a REST client is: type:dataType.name:developer project number:device.manufacturer:device.model:device.uid:dataStreamName When any of the optional fields that make up the data stream ID are absent, they will be omitted from the data stream ID. The minimum viable data stream ID would be: type:dataType.name:developer project number Finally, the developer project number and device UID are obfuscated when read by any REST or Android client that did not create the data source. Only the data source creator will see the developer project number in clear and normal form. This means a client will see a different set of data_stream_ids than another client with different credentials. </div>
+<div class="param">dataStreamName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The stream name uniquely identifies this particular data source among other data sources of the same type from the same underlying producer. Setting the stream name is optional, but should be done whenever an application exposes two streams for the same data type, or when a device has two equivalent sensors. </div>
+<div class="param">dataType (optional)</div><div class="param-desc"><span class="param-type"><a href="#DataType">DataType</a></span>  </div>
+<div class="param">device (optional)</div><div class="param-desc"><span class="param-type"><a href="#Device">Device</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An end-user visible name for this data source. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A constant describing the type of this data source. Indicates whether this data source produces raw or derived data. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">raw</div><div class="param-enum">derived</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DataType"><code>DataType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">field (optional)</div><div class="param-desc"><span class="param-type"><a href="#DataTypeField">array[DataTypeField]</a></span> A field represents one dimension of a data type. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Each data type has a unique, namespaced, name. All data types in the com.google namespace are shared as part of the platform. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DataTypeField"><code>DataTypeField</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>In case of multi-dimensional data (such as an accelerometer with x, y, and z axes) each field represents one dimension. Each data type field has a unique name which identifies it. The field also defines the format of the data (int, float, etc.). This message is only instantiated in code and not used for wire comms or stored in any way.</div>
+    <div class="field-items">
+      <div class="param">format (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The different supported formats for each field in a data type. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">integer</div><div class="param-enum">floatPoint</div><div class="param-enum">string</div><div class="param-enum">map</div><div class="param-enum">integerList</div><div class="param-enum">floatList</div><div class="param-enum">blob</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Defines the name and format of data. Unlike data type names, field names are not namespaced, and only need to be unique within the data type. </div>
+<div class="param">optional (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Dataset"><code>Dataset</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A dataset represents a projection container for data points. They do not carry any info of their own. Datasets represent a set of data points from a particular data source. A data point can be found in more than one dataset.</div>
+    <div class="field-items">
+      <div class="param">dataSourceId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The data stream ID of the data source that created the points in this dataset. </div>
+<div class="param">maxEndTimeNs (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The largest end time of all data points in this possibly partial representation of the dataset. Time is in nanoseconds from epoch. This should also match the second part of the dataset identifier. format: int64</div>
+<div class="param">minStartTimeNs (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The smallest start time of all data points in this possibly partial representation of the dataset. Time is in nanoseconds from epoch. This should also match the first part of the dataset identifier. format: int64</div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> This token will be set when a dataset is received in response to a GET request and the dataset is too large to be included in a single response. Provide this value in a subsequent GET request to return the next page of data points within this dataset. </div>
+<div class="param">point (optional)</div><div class="param-desc"><span class="param-type"><a href="#DataPoint">array[DataPoint]</a></span> A partial list of data points contained in the dataset, ordered by endTimeNanos. This list is considered complete when retrieving a small dataset and partial when patching a dataset or retrieving a dataset that is too large to include in a single response. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Device"><code>Device</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Representation of an integrated device (such as a phone or a wearable) that can hold sensors. Each sensor is exposed as a data source. The main purpose of the device information contained in this class is to identify the hardware of a particular data source. This can be useful in different ways, including: - Distinguishing two similar sensors on different devices (the step counter on two nexus 5 phones, for instance) - Display the source of data to the user (by using the device make / model) - Treat data differently depending on sensor type (accelerometers on a watch may give different patterns than those on a phone) - Build different analysis models for each device/version.</div>
+    <div class="field-items">
+      <div class="param">manufacturer (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Manufacturer of the product/hardware. </div>
+<div class="param">model (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> End-user visible model name for the device. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A constant representing the type of the device. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">unknown</div><div class="param-enum">phone</div><div class="param-enum">tablet</div><div class="param-enum">watch</div><div class="param-enum">chestStrap</div><div class="param-enum">scale</div><div class="param-enum">headMounted</div><div class="param-enum">smartDisplay</div>
+<div class="param">uid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The serial number or other unique ID for the hardware. This field is obfuscated when read by any REST or Android client that did not create the data source. Only the data source creator will see the uid field in clear and normal form. The obfuscation preserves equality; that is, given two IDs, if id1 == id2, obfuscated(id1) == obfuscated(id2). </div>
+<div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Version string for the device hardware/software. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListDataPointChangesResponse"><code>ListDataPointChangesResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dataSourceId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The data stream ID of the data source with data point changes. </div>
+<div class="param">deletedDataPoint (optional)</div><div class="param-desc"><span class="param-type"><a href="#DataPoint">array[DataPoint]</a></span> Deleted data points for the user. Note, for modifications this should be parsed before handling insertions. </div>
+<div class="param">insertedDataPoint (optional)</div><div class="param-desc"><span class="param-type"><a href="#DataPoint">array[DataPoint]</a></span> Inserted data points for the user. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListDataSourcesResponse"><code>ListDataSourcesResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">dataSource (optional)</div><div class="param-desc"><span class="param-type"><a href="#DataSource">array[DataSource]</a></span> A previously created data source. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListSessionsResponse"><code>ListSessionsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">deletedSession (optional)</div><div class="param-desc"><span class="param-type"><a href="#Session">array[Session]</a></span> If includeDeleted is set to true in the request, and startTime and endTime are omitted, this will include sessions which were deleted since the last sync. </div>
+<div class="param">hasMoreData (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Flag to indicate server has more data to transfer. DO NOT USE THIS FIELD. It is never populated in responses from the server. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The sync token which is used to sync further changes. This will only be provided if both startTime and endTime are omitted from the request. </div>
+<div class="param">session (optional)</div><div class="param-desc"><span class="param-type"><a href="#Session">array[Session]</a></span> Sessions with an end time that is between startTime and endTime of the request. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MapValue"><code>MapValue</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Holder object for the value of an entry in a map field of a data point. A map value supports a subset of the formats that the regular Value supports.</div>
+    <div class="field-items">
+      <div class="param">fpVal (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Floating point value. format: double</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Session"><code>Session</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Sessions contain metadata, such as a user-friendly name and time interval information.</div>
+    <div class="field-items">
+      <div class="param">activeTimeMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Session active time. While start_time_millis and end_time_millis define the full session time, the active time can be shorter and specified by active_time_millis. If the inactive time during the session is known, it should also be inserted via a com.google.activity.segment data point with a STILL activity value format: int64</div>
+<div class="param">activityType (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The type of activity this session represents. format: int32</div>
+<div class="param">application (optional)</div><div class="param-desc"><span class="param-type"><a href="#Application">Application</a></span>  </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A description for this session. </div>
+<div class="param">endTimeMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An end time, in milliseconds since epoch, inclusive. format: int64</div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A client-generated identifier that is unique across all sessions owned by this particular user. </div>
+<div class="param">modifiedTimeMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A timestamp that indicates when the session was last modified. format: int64</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human readable name of the session. </div>
+<div class="param">startTimeMillis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A start time, in milliseconds since epoch, inclusive. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Value"><code>Value</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Holder object for the value of a single field in a data point. A field value has a particular format and is only ever set to one of an integer or a floating point value.</div>
+    <div class="field-items">
+      <div class="param">fpVal (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Floating point value. When this is set, other values must not be set. format: double</div>
+<div class="param">intVal (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Integer value. When this is set, other values must not be set. format: int32</div>
+<div class="param">mapVal (optional)</div><div class="param-desc"><span class="param-type"><a href="#ValueMapValEntry">array[ValueMapValEntry]</a></span> Map value. The valid key space and units for the corresponding value of each entry should be documented as part of the data type definition. Keys should be kept small whenever possible. Data streams with large keys and high data frequency may be down sampled. </div>
+<div class="param">stringVal (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> String value. When this is set, other values must not be set. Strings should be kept small whenever possible. Data streams with large string values and high data frequency may be down sampled. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ValueMapValEntry"><code>ValueMapValEntry</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#MapValue">MapValue</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   </body>
