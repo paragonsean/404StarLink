@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>SMS API</title>
+    <title>Department of Empowerment of Persons with Disabilities</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,165 +179,18 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>SMS API</h1>
-    <div class="app-desc"><p>Welcome to the SMS API.</p>
-<p>You can use this API to access all SMS API endpoints.</p>
-<h2>Base URL</h2>
-<p>The base URL for all API requests is <code>https://unify.apideck.com</code></p>
-<p>We also provide a <a href="https://developers.apideck.com/mock-api">Mock API</a> that can be used for testing purposes: <code>https://mock-api.apideck.com</code></p>
-<h2>Headers</h2>
-<p>Custom headers that are expected as part of the request. Note that <a href="https://tools.ietf.org/html/rfc7230">RFC7230</a> states header names are case insensitive.</p>
-<p>| Name                  | Type    | Required | Description                                                                                                                                                    |
-| --------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| x-apideck-consumer-id | String  | Yes      | The id of the customer stored inside Apideck Vault. This can be a user id, account id, device id or whatever entity that can have integration within your app. |
-| x-apideck-service-id  | String  | No       | Describe the service you want to call (e.g., pipedrive). Only needed when a customer has activated multiple integrations for the same Unified API.             |
-| x-apideck-raw         | Boolean | No       | Include raw response. Mostly used for debugging purposes.                                                                                                      |
-| x-apideck-app-id      | String  | Yes      | The application id of your Unify application. Available at https://app.apideck.com/unify/api-keys.                                                             |
-| Authorization         | String  | Yes      | Bearer API KEY                                                                                                                                                 |</p>
-<h2>Authorization</h2>
-<p>You can interact with the API through the authorization methods below.</p>
-<!-- ReDoc-Inject: <security-definitions> -->
-<h2>Pagination</h2>
-<p>All API resources have support for bulk retrieval via list APIs.  Apideck uses cursor-based pagination via the optional <code>cursor</code> and <code>limit</code> parameters.</p>
-<p>To fetch the first page of results, call the list API without a <code>cursor</code> parameter. Afterwards you can fetch subsequent pages by providing a cursor parameter. You will find the next cursor in the response body in <code>meta.cursors.next</code>. If <code>meta.cursors.next</code> is <code>null</code> you're at the end of the list.</p>
-<p>In the REST API you can also use the <code>links</code> from the response for added convenience. Simply call the URL in <code>links.next</code> to get the next page of results.</p>
-<h3>Query Parameters</h3>
-<p>| Name   | Type   | Required | Description                                                                                                        |
-| ------ | ------ | -------- | ------------------------------------------------------------------------------------------------------------------ |
-| cursor | String | No       | Cursor to start from. You can find cursors for next &amp; previous pages in the meta.cursors property of the response. |
-| limit  | Number | No       | Number of results to return. Minimum 1, Maximum 200, Default 20                                                    |</p>
-<h3>Response Body</h3>
-<p>| Name                  | Type   | Description                                                        |
-| --------------------- | ------ | ------------------------------------------------------------------ |
-| meta.cursors.previous | String | Cursor to navigate to the previous page of results through the API |
-| meta.cursors.current  | String | Cursor to navigate to the current page of results through the API  |
-| meta.cursors.next     | String | Cursor to navigate to the next page of results through the API     |
-| meta.items_on_page    | Number | Number of items returned in the data property of the response      |
-| links.previous        | String | Link to navigate to the previous page of results through the API   |
-| links.current         | String | Link to navigate to the current page of results through the API    |
-| links.next            | String | Link to navigate to the next page of results through the API       |</p>
-<p>⚠️ <code>meta.cursors.previous</code>/<code>links.previous</code> is not available for all connectors.</p>
-<h2>SDKs and API Clients</h2>
-<p>We currently offer a <a href="https://developers.apideck.com/sdks/node">Node.js</a>, <a href="https://developers.apideck.com/sdks/php">PHP</a> and <a href="https://developers.apideck.com/sdks/dot-net">.NET</a> SDK.
-Need another SDK? <a href="https://integrations.apideck.com/request">Request the SDK of your choice</a>.</p>
-<h2>Debugging</h2>
-<p>Because of the nature of the abstraction we do in Apideck Unify we still provide the option to the receive raw requests and responses being handled underlying. By including the raw flag <code>?raw=true</code> in your requests you can still receive the full request. Please note that this increases the response size and can introduce extra latency.</p>
-<h2>Errors</h2>
-<p>The API returns standard HTTP response codes to indicate success or failure of the API requests. For errors, we also return a customized error message inside the JSON response. You can see the returned HTTP status codes below.</p>
-<p>| Code | Title                | Description                                                                                                                                                                                              |
-| ---- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 200  | OK                   | The request message has been successfully processed, and it has produced a response. The response message varies, depending on the request method and the requested data.                                |
-| 201  | Created              | The request has been fulfilled and has resulted in one or more new resources being created.                                                                                                              |
-| 204  | No Content           | The server has successfully fulfilled the request and that there is no additional content to send in the response payload body.                                                                          |
-| 400  | Bad Request          | The receiving server cannot understand the request because of malformed syntax. Do not repeat the request without first modifying it; check the request for errors, fix them and then retry the request. |
-| 401  | Unauthorized         | The request has not been applied because it lacks valid authentication credentials for the target resource.                                                                                              |
-| 402  | Payment Required     | Subscription data is incomplete or out of date. You'll need to provide payment details to continue.                                                                                                      |
-| 403  | Forbidden            | You do not have the appropriate user rights to access the request. Do not repeat the request.                                                                                                            |
-| 404  | Not Found            | The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.                                                                           |
-| 409  | Conflict             | The request could not be completed due to a conflict with the current state of the target resource.                                                                                                      |
-| 422  | Unprocessable Entity | The server understands the content type of the request entity, and the syntax of the request entity is correct but was unable to process the contained instructions.                                     |
-| 429  | Too Many Requests    | You sent too many requests in a given amount of time (&quot;rate limit&quot;). Try again later                                                                                                                     |
-| 5xx  | Server Errors        | Something went wrong with the Unify API. These errors are logged on our side. You can contact our team to resolve the issue.                                                                             |</p>
-<h3>Handling errors</h3>
-<p>The Unify API and SDKs can produce errors for many reasons, such as a failed requests due to misconfigured integrations, invalid parameters, authentication errors, and network unavailability.</p>
-<h3>Error Types</h3>
-<h4>RequestValidationError</h4>
-<p>Request is not valid for the current endpoint. The response body will include details on the validation error. Check the spelling and types of your attributes, and ensure you are not passing data that is outside of the specification.</p>
-<h4>UnsupportedFiltersError</h4>
-<p>Filters in the request are valid, but not supported by the connector. Remove the unsupported filter(s) to get a successful response.</p>
-<h4>UnsupportedSortFieldError</h4>
-<p>Sort field (<code>sort[by]</code>) in the request is valid, but not supported by the connector. Replace or remove the sort field to get a successful response.</p>
-<h4>InvalidCursorError</h4>
-<p>Pagination cursor in the request is not valid for the current connector. Make sure to use a cursor returned from the API, for the same connector.</p>
-<h4>ConnectorExecutionError</h4>
-<p>A Unified API request made via one of our downstream connectors returned an unexpected error. The <code>status_code</code> returned is proxied through to error response along with their original response via the error detail.</p>
-<h4>UnauthorizedError</h4>
-<p>We were unable to authorize the request as made. This can happen for a number of reasons, from missing header params to passing an incorrect authorization token. Verify your Api Key is being set correctly in the authorization header. ie: <code>Authorization: 'Bearer sk_live_***'</code></p>
-<h4>ConnectorCredentialsError</h4>
-<p>A request using a given connector has not been authorized. Ensure the connector you are trying to use has been configured correctly and been authorized for use.</p>
-<h4>ConnectorDisabledError</h4>
-<p>A request has been made to a connector that has since been disabled. This may be temporary - You can contact our team to resolve the issue.</p>
-<h4>ConnectorRateLimitError</h4>
-<p>You sent too many request to a connector. These rate limits vary from connector to connector. You will need to try again later.</p>
-<h4>RequestLimitError</h4>
-<p>You have reached the number of requests included in your Free Tier Subscription. You will no be able to make further requests until this limit resets at the end of the month, or talk to us about upgrading your subscription to continue immediately.</p>
-<h4>EntityNotFoundError</h4>
-<p>You've made a request for a resource or route that does not exist. Verify your path parameters or any identifiers used to fetch this resource.</p>
-<h4>OAuthCredentialsNotFoundError</h4>
-<p>When adding a connector integration that implements OAuth, both a <code>client_id</code> and <code>client_secret</code> must be provided before any authorizations can be performed. Verify the integration has been configured properly before continuing.</p>
-<h4>IntegrationNotFoundError</h4>
-<p>The requested connector integration could not be found associated to your <code>application_id</code>. Verify your <code>application_id</code> is correct, and that this connector has been added and configured for your application.</p>
-<h4>ConnectionNotFoundError</h4>
-<p>A valid connection could not be found associated to your <code>application_id</code>. Something <em>may</em> have interrupted the authorization flow. You may need to start the connector authorization process again.</p>
-<h4>ConnectionSettingsError</h4>
-<p>The connector has required settings that were not supplied. Verify <code>connection.settings</code> contains all required settings for the connector to be callable.</p>
-<h4>ConnectorNotFoundError</h4>
-<p>A request was made for an unknown connector. Verify your <code>service_id</code> is spelled correctly, and that this connector is enabled for your provided <code>unified_api</code>.</p>
-<h4>OAuthRedirectUriError</h4>
-<p>A request was made either in a connector authorization flow, or attempting to revoke connector access without a valid <code>redirect_uri</code>. This is the url the user should be returned to on completion of process.</p>
-<h4>OAuthInvalidStateError</h4>
-<p>The state param is required and is used to ensure the outgoing authorization state has not been altered before the user is redirected back. It also contains required params needed to identify the connector being used. If this has been altered, the authorization will not succeed.</p>
-<h4>OAuthCodeExchangeError</h4>
-<p>When attempting to exchange the authorization code for an <code>access_token</code> during an OAuth flow, an error occurred. This may be temporary. You can reattempt authorization or contact our team to resolve the issue.</p>
-<h4>OAuthConnectorError</h4>
-<p>It seems something went wrong on the connector side. It's possible this connector is in <code>beta</code> or still under development. We've been notified and are working to fix this issue.</p>
-<h4>MappingError</h4>
-<p>There was an error attempting to retrieve the mapping for a given attribute. We've been notified and are working to fix this issue.</p>
-<h4>ConnectorMappingNotFoundError</h4>
-<p>It seems the implementation for this connector is incomplete. It's possible this connector is in <code>beta</code> or still under development. We've been notified and are working to fix this issue.</p>
-<h4>ConnectorResponseMappingNotFoundError</h4>
-<p>We were unable to retrieve the response mapping for this connector. It's possible this connector is in <code>beta</code> or still under development. We've been notified and are working to fix this issue.</p>
-<h4>ConnectorOperationMappingNotFoundError</h4>
-<p>Connector mapping has not been implemented for the requested operation. It's possible this connector is in <code>beta</code> or still under development. We've been notified and are working to fix this issue.</p>
-<h4>ConnectorWorkflowMappingError</h4>
-<p>The composite api calls required for this operation have not been mapped entirely. It's possible this connector is in <code>beta</code> or still under development. We've been notified and are working to fix this issue.</p>
-<h4>ConnectorOperationUnsupportedError</h4>
-<p>You're attempting a call that is not supported by the connector. It's likely this operation is supported by another connector, but we're unable to implement for this one.</p>
-<h4>PaginationNotSupportedError</h4>
-<p>Pagination is not yet supported for this connector, try removing limit and/or cursor from the query. It's possible this connector is in <code>beta</code> or still under development. We've been notified and are working to fix this issue.</p>
-<h2>API Design</h2>
-<h3>API Styles and data formats</h3>
-<h4>REST API</h4>
-<p>The API is organized around <a href="https://restfulapi.net/">REST</a>, providing simple and predictable URIs to access and modify objects. Requests support standard HTTP methods like GET, PUT, POST, and DELETE and standard status codes. JSON is returned by all API responses, including errors. In all API requests, you must set the content-type HTTP header to application/json. All API requests must be made over HTTPS. Calls made over HTTP will fail.</p>
-<h5>Available HTTP methods</h5>
-<p>The Apideck API uses HTTP verbs to understand if you want to read (GET), delete (DELETE) or create (POST) an object. When your web application cannot do a POST or DELETE, we provide the ability to set the method through the query parameter _method.</p>
-<pre><code>POST /messages
-GET /messages
-GET /messages/{messageId}
-PATCH /messages/{messageId}
-DELETE /messages/{messageId}
-</code></pre>
-<p>Response bodies are always UTF-8 encoded JSON objects, unless explicitly documented otherwise. For some endpoints and use cases we divert from REST to provide a better developer experience.</p>
-<h3>Schema</h3>
-<p>All API requests and response bodies adhere to a common JSON format representing individual items, collections of items, links to related items and additional meta data.</p>
-<h3>Meta</h3>
-<p>Meta data can be represented as a top level member named “meta”. Any information may be provided in the meta data. It’s most common use is to return the total number of records when requesting a collection of resources.</p>
-<h3>Idempotence (upcoming)</h3>
-<p>To prevent the creation of duplicate resources, every POST method (such as one that creates a consumer record) must specify a unique value for the X-Unique-Transaction-ID header name. Uniquely identifying each unique POST request ensures that the API processes a given request once and only once.</p>
-<p>Uniquely identifying new resource-creation POSTs is especially important when the outcome of a response is ambiguous because of a transient service interruption, such as a server-side timeout or network disruption. If a service interruption occurs, then the client application can safely retry the uniquely identified request without creating duplicate operations. (API endpoints that guarantee that every uniquely identified request is processed only once no matter how many times that uniquely identifiable request is made are described as idempotent.)</p>
-<h3>Request IDs</h3>
-<p>Each API request has an associated request identifier. You can find this value in the response headers, under Request-Id. You can also find request identifiers in the URLs of individual request logs in your Dashboard. If you need to contact us about a specific request, providing the request identifier will ensure the fastest possible resolution.</p>
-<h3>Fixed field types</h3>
-<h4>Dates</h4>
-<p>The dates returned by the API are all represented in UTC (ISO8601 format).</p>
-<p>This example <code>2019-11-14T00:55:31.820Z</code> is defined by the ISO 8601 standard. The T in the middle separates the year-month-day portion from the hour-minute-second portion. The Z on the end means UTC, that is, an offset-from-UTC of zero hours-minutes-seconds. The Z is pronounced &quot;Zulu&quot; per military/aviation tradition.</p>
-<p>The ISO 8601 standard is more modern. The formats are wisely designed to be easy to parse by machine as well as easy to read by humans across cultures.</p>
-<h4>Prices and Currencies</h4>
-<p>All prices returned by the API are represented as integer amounts in a currency’s smallest unit. For example, $5 USD would be returned as 500 (i.e, 500 cents).</p>
-<p>For zero-decimal currencies, amounts will still be provided as an integer but without the need to divide by 100. For example, an amount of ¥5 (JPY) would be returned as 5.</p>
-<p>All currency codes conform to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
-<h2>Support</h2>
-<p>If you have problems or need help with your case, you can always reach out to our Support.</p>
-</div>
-    <div class="app-desc">More information: <a href="https://developers.apideck.com">https://developers.apideck.com</a></div>
-    <div class="app-desc">Contact Info: <a href="hello@apideck.com">hello@apideck.com</a></div>
-    <div class="app-desc">Version: 9.3.0</div>
-    <div class="app-desc">BasePath:</div>
-    <div class="license-info">Apache 2.0</div>
-    <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h1>Department of Empowerment of Persons with Disabilities</h1>
+    <div class="app-desc">Department of Empowerment of Persons with Disabilities is issuing Unique Disability ID through DigiLocker. These can be pulled by beneficiaries into their DigiLocker accounts.</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 3.0.0</div>
+    <div class="app-desc">BasePath:/swavlambancard/v3</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
   <h2>Access</h2>
     <ol>
-      <li>APIKey KeyParamName:Authorization KeyInQuery:false KeyInHeader:true</li>
+      <li>APIKey KeyParamName:X-APISETU-APIKEY KeyInQuery:false KeyInHeader:true</li>
+      <li>APIKey KeyParamName:X-APISETU-CLIENTID KeyInQuery:false KeyInHeader:true</li>
     </ol>
 
   <h2><a name="__Methods">Methods</a></h2>
@@ -345,22 +198,19 @@ DELETE /messages/{messageId}
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#Messages">Messages</a></h4>
+  <h4><a href="#APIs">APIs</a></h4>
   <ul>
-  <li><a href="#messagesAdd"><code><span class="http-method">post</span> /sms/messages</code></a></li>
-  <li><a href="#messagesAll"><code><span class="http-method">get</span> /sms/messages</code></a></li>
-  <li><a href="#messagesDelete"><code><span class="http-method">delete</span> /sms/messages/{id}</code></a></li>
-  <li><a href="#messagesOne"><code><span class="http-method">get</span> /sms/messages/{id}</code></a></li>
-  <li><a href="#messagesUpdate"><code><span class="http-method">patch</span> /sms/messages/{id}</code></a></li>
+  <li><a href="#dpicr"><code><span class="http-method">post</span> /dpicr/certificate</code></a></li>
+  <li><a href="#govid"><code><span class="http-method">post</span> /govid/certificate</code></a></li>
   </ul>
 
-  <h1><a name="Messages">Messages</a></h1>
-  <div class="method"><a name="messagesAdd"/>
+  <h1><a name="APIs">APIs</a></h1>
+  <div class="method"><a name="dpicr"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /sms/messages</code></pre></div>
-    <div class="method-summary">Create Message (<span class="nickname">messagesAdd</span>)</div>
-    <div class="method-notes">Create Message</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /dpicr/certificate</code></pre></div>
+    <div class="method-summary">Disabled Person Identity Card/ Certificate (<span class="nickname">dpicr</span>)</div>
+    <div class="method-notes">API to verify Disabled Person Identity Card/ Certificate.</div>
 
 
     <h3 class="field-label">Consumes</h3>
@@ -371,707 +221,103 @@ DELETE /messages/{messageId}
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">Message <a href="#Message">Message</a> (required)</div>
+      <div class="param">dpicr_request <a href="#dpicr_request">dpicr_request</a> (optional)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
     </div>  <!-- field-items -->
 
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-      <div class="param">x-apideck-consumer-id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; ID of the consumer which you want to get or push data from default: null </div>
-<div class="param">x-apideck-app-id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The ID of your Unify application default: null </div>
-<div class="param">x-apideck-service-id (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API. default: null </div>
-
-    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">raw (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Include raw response. Mostly used for debugging purposes default: false </div>
-    </div>  <!-- field-items -->
 
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#CreateMessageResponse">CreateMessageResponse</a>
-      
-    </div>
+
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "status_code" : 200,
-  "data" : {
-    "id" : "12345"
-  },
-  "resource" : "Messages",
-  "service" : "twilio",
-  "operation" : "add",
-  "status" : "OK"
+  "errorDescription" : "Please provide all mandatory parameters",
+  "error" : "missing_parameter"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#requestvalidationerror",
-  "type_name" : "RequestValidationError",
-  "status_code" : 400,
-  "detail" : "Missing property foobar",
-  "error" : "Bad Request",
-  "message" : "Invalid Params"
+  "errorDescription" : "Authentication failed",
+  "error" : "invalid_authentication"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#unauthorizederror",
-  "type_name" : "UnauthorizedError",
-  "status_code" : 401,
-  "detail" : "Failed to generate valid JWT Session. Verify applicationId is correct",
-  "error" : "Unauthorized",
-  "message" : "Unauthorized Request"
+  "errorDescription" : "No record found",
+  "error" : "record_not_found"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#requestlimiterror",
-  "type_name" : "RequestLimitError",
-  "status_code" : 402,
-  "detail" : "You have reached your limit of 2000",
-  "error" : "Payment Required",
-  "message" : "Request Limit Reached"
+  "errorDescription" : "Internal server error",
+  "error" : "internal_server_error"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#entitynotfounderror",
-  "type_name" : "EntityNotFoundError",
-  "status_code" : 404,
-  "detail" : "Could not find widget with id: '123'",
-  "error" : "Not Found",
-  "message" : "Unknown Widget"
+  "errorDescription" : "Publisher service returned an invalid response",
+  "error" : "bad_gatewy"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#invalidstateerror",
-  "type_name" : "InvalidStateError",
-  "status_code" : 422,
-  "detail" : "Unprocessable request, please verify your request headers and body.",
-  "error" : "Unprocessable Entity",
-  "message" : "Invalid State"
+  "errorDescription" : "Publisher service is temporarily unavailable",
+  "error" : "service_unavailable"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#unauthorizederror",
-  "type_name" : "RequestHeadersValidationError",
-  "status_code" : 400,
-  "detail" : "Missing Header: x-apideck-consumer-id",
-  "error" : "Bad Request",
-  "message" : "Invalid Params"
+  "errorDescription" : "Publisher service did not respond in time",
+  "error" : "gateway_timeout"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">201</h4>
-    Messages
-        <a href="#CreateMessageResponse">CreateMessageResponse</a>
-    <h4 class="field-label">400</h4>
-    Bad Request
-        <a href="#BadRequestResponse">BadRequestResponse</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#UnauthorizedResponse">UnauthorizedResponse</a>
-    <h4 class="field-label">402</h4>
-    Payment Required
-        <a href="#PaymentRequiredResponse">PaymentRequiredResponse</a>
-    <h4 class="field-label">404</h4>
-    The specified resource was not found
-        <a href="#NotFoundResponse">NotFoundResponse</a>
-    <h4 class="field-label">422</h4>
-    Unprocessable
-        <a href="#UnprocessableResponse">UnprocessableResponse</a>
-    <h4 class="field-label">default</h4>
-    Unexpected error
-        <a href="#UnexpectedErrorResponse">UnexpectedErrorResponse</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="messagesAll"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /sms/messages</code></pre></div>
-    <div class="method-summary">List Messages (<span class="nickname">messagesAll</span>)</div>
-    <div class="method-notes">List Messages</div>
-
-
-
-
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-      <div class="param">x-apideck-consumer-id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; ID of the consumer which you want to get or push data from default: null </div>
-<div class="param">x-apideck-app-id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The ID of your Unify application default: null </div>
-<div class="param">x-apideck-service-id (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API. default: null </div>
-
-    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">raw (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Include raw response. Mostly used for debugging purposes default: false </div><div class="param">cursor (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response. default: null </div><div class="param">limit (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Number of results to return. Minimum 1, Maximum 200, Default 20 default: 20 </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: <code>fields=name,email,addresses.city</code><br /><br />In the example above, the response will only include the fields &quot;name&quot;, &quot;email&quot; and &quot;addresses.city&quot;. If any other fields are available, they will be excluded. default: null </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#GetMessagesResponse">GetMessagesResponse</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "status_code" : 200,
-  "data" : [ {
-    "webhook_url" : "https://unify.apideck.com/webhook/webhooks/eyz329dkffdl4949/x/sms",
-    "subject" : "Picture",
-    "created_at" : "2020-09-30T07:43:32Z",
-    "scheduled_at" : "2020-09-30T07:43:32Z",
-    "body" : "Hi! How are you doing?",
-    "error" : {
-      "code" : "X1",
-      "message" : "Something went wrong"
-    },
-    "type" : "sms",
-    "created_by" : "12345",
-    "reference" : "CUST001",
-    "sent_at" : "2020-09-30T07:43:32Z",
-    "messaging_service_id" : "123456",
-    "updated_at" : "2020-09-30T07:43:32Z",
-    "price" : {
-      "currency" : "USD",
-      "per_unit" : "0.01",
-      "total_amount" : "0.01"
-    },
-    "number_of_media_files" : 1,
-    "updated_by" : "12345",
-    "from" : "+15017122661",
-    "id" : "12345",
-    "to" : "+15017122662",
-    "direction" : "outbound-api",
-    "number_of_units" : 1,
-    "status" : "sent"
-  }, {
-    "webhook_url" : "https://unify.apideck.com/webhook/webhooks/eyz329dkffdl4949/x/sms",
-    "subject" : "Picture",
-    "created_at" : "2020-09-30T07:43:32Z",
-    "scheduled_at" : "2020-09-30T07:43:32Z",
-    "body" : "Hi! How are you doing?",
-    "error" : {
-      "code" : "X1",
-      "message" : "Something went wrong"
-    },
-    "type" : "sms",
-    "created_by" : "12345",
-    "reference" : "CUST001",
-    "sent_at" : "2020-09-30T07:43:32Z",
-    "messaging_service_id" : "123456",
-    "updated_at" : "2020-09-30T07:43:32Z",
-    "price" : {
-      "currency" : "USD",
-      "per_unit" : "0.01",
-      "total_amount" : "0.01"
-    },
-    "number_of_media_files" : 1,
-    "updated_by" : "12345",
-    "from" : "+15017122661",
-    "id" : "12345",
-    "to" : "+15017122662",
-    "direction" : "outbound-api",
-    "number_of_units" : 1,
-    "status" : "sent"
-  } ],
-  "resource" : "Messages",
-  "meta" : {
-    "cursors" : {
-      "next" : "em9oby1jcm06OnBhZ2U6OjM=",
-      "current" : "em9oby1jcm06OnBhZ2U6OjI=",
-      "previous" : "em9oby1jcm06OnBhZ2U6OjE="
-    },
-    "items_on_page" : 50
-  },
-  "service" : "twilio",
-  "links" : {
-    "next" : "https://unify.apideck.com/crm/companies?cursor=em9oby1jcm06OnBhZ2U6OjM",
-    "current" : "https://unify.apideck.com/crm/companies",
-    "previous" : "https://unify.apideck.com/crm/companies?cursor=em9oby1jcm06OnBhZ2U6OjE%3D"
-  },
-  "operation" : "all",
-  "status" : "OK"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#requestvalidationerror",
-  "type_name" : "RequestValidationError",
-  "status_code" : 400,
-  "detail" : "Missing property foobar",
-  "error" : "Bad Request",
-  "message" : "Invalid Params"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#unauthorizederror",
-  "type_name" : "UnauthorizedError",
-  "status_code" : 401,
-  "detail" : "Failed to generate valid JWT Session. Verify applicationId is correct",
-  "error" : "Unauthorized",
-  "message" : "Unauthorized Request"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#requestlimiterror",
-  "type_name" : "RequestLimitError",
-  "status_code" : 402,
-  "detail" : "You have reached your limit of 2000",
-  "error" : "Payment Required",
-  "message" : "Request Limit Reached"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#entitynotfounderror",
-  "type_name" : "EntityNotFoundError",
-  "status_code" : 404,
-  "detail" : "Could not find widget with id: '123'",
-  "error" : "Not Found",
-  "message" : "Unknown Widget"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#invalidstateerror",
-  "type_name" : "InvalidStateError",
-  "status_code" : 422,
-  "detail" : "Unprocessable request, please verify your request headers and body.",
-  "error" : "Unprocessable Entity",
-  "message" : "Invalid State"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#unauthorizederror",
-  "type_name" : "RequestHeadersValidationError",
-  "status_code" : 400,
-  "detail" : "Missing Header: x-apideck-consumer-id",
-  "error" : "Bad Request",
-  "message" : "Invalid Params"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
+      <li><code>application/pdf</code></li>
       <li><code>application/json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Messages
-        <a href="#GetMessagesResponse">GetMessagesResponse</a>
+    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
+        <a href="#"></a>
     <h4 class="field-label">400</h4>
-    Bad Request
-        <a href="#BadRequestResponse">BadRequestResponse</a>
+    Bad request
+        <a href="#dpicr_400_response">dpicr_400_response</a>
     <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#UnauthorizedResponse">UnauthorizedResponse</a>
-    <h4 class="field-label">402</h4>
-    Payment Required
-        <a href="#PaymentRequiredResponse">PaymentRequiredResponse</a>
+    Unauthorized access
+        <a href="#dpicr_401_response">dpicr_401_response</a>
     <h4 class="field-label">404</h4>
-    The specified resource was not found
-        <a href="#NotFoundResponse">NotFoundResponse</a>
-    <h4 class="field-label">422</h4>
-    Unprocessable
-        <a href="#UnprocessableResponse">UnprocessableResponse</a>
-    <h4 class="field-label">default</h4>
-    Unexpected error
-        <a href="#UnexpectedErrorResponse">UnexpectedErrorResponse</a>
+    No record found
+        <a href="#dpicr_404_response">dpicr_404_response</a>
+    <h4 class="field-label">500</h4>
+    Internal server error
+        <a href="#dpicr_500_response">dpicr_500_response</a>
+    <h4 class="field-label">502</h4>
+    Bad gateway
+        <a href="#dpicr_502_response">dpicr_502_response</a>
+    <h4 class="field-label">503</h4>
+    Service unavailable
+        <a href="#dpicr_503_response">dpicr_503_response</a>
+    <h4 class="field-label">504</h4>
+    Gateway timeout
+        <a href="#dpicr_504_response">dpicr_504_response</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="messagesDelete"/>
+  <div class="method"><a name="govid"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /sms/messages/{id}</code></pre></div>
-    <div class="method-summary">Delete Message (<span class="nickname">messagesDelete</span>)</div>
-    <div class="method-notes">Delete Message</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /govid/certificate</code></pre></div>
+    <div class="method-summary">ID Card (<span class="nickname">govid</span>)</div>
+    <div class="method-notes">API to verify ID Card.</div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the record you are acting upon. default: null </div>
-    </div>  <!-- field-items -->
-
-
-
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-      <div class="param">x-apideck-consumer-id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; ID of the consumer which you want to get or push data from default: null </div>
-<div class="param">x-apideck-app-id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The ID of your Unify application default: null </div>
-<div class="param">x-apideck-service-id (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API. default: null </div>
-
-    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">raw (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Include raw response. Mostly used for debugging purposes default: false </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#DeleteMessageResponse">DeleteMessageResponse</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "status_code" : 200,
-  "data" : {
-    "id" : "12345"
-  },
-  "resource" : "Messages",
-  "service" : "twilio",
-  "operation" : "delete",
-  "status" : "OK"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#requestvalidationerror",
-  "type_name" : "RequestValidationError",
-  "status_code" : 400,
-  "detail" : "Missing property foobar",
-  "error" : "Bad Request",
-  "message" : "Invalid Params"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#unauthorizederror",
-  "type_name" : "UnauthorizedError",
-  "status_code" : 401,
-  "detail" : "Failed to generate valid JWT Session. Verify applicationId is correct",
-  "error" : "Unauthorized",
-  "message" : "Unauthorized Request"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#requestlimiterror",
-  "type_name" : "RequestLimitError",
-  "status_code" : 402,
-  "detail" : "You have reached your limit of 2000",
-  "error" : "Payment Required",
-  "message" : "Request Limit Reached"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#entitynotfounderror",
-  "type_name" : "EntityNotFoundError",
-  "status_code" : 404,
-  "detail" : "Could not find widget with id: '123'",
-  "error" : "Not Found",
-  "message" : "Unknown Widget"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#invalidstateerror",
-  "type_name" : "InvalidStateError",
-  "status_code" : 422,
-  "detail" : "Unprocessable request, please verify your request headers and body.",
-  "error" : "Unprocessable Entity",
-  "message" : "Invalid State"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#unauthorizederror",
-  "type_name" : "RequestHeadersValidationError",
-  "status_code" : 400,
-  "detail" : "Missing Header: x-apideck-consumer-id",
-  "error" : "Bad Request",
-  "message" : "Invalid Params"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Messages
-        <a href="#DeleteMessageResponse">DeleteMessageResponse</a>
-    <h4 class="field-label">400</h4>
-    Bad Request
-        <a href="#BadRequestResponse">BadRequestResponse</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#UnauthorizedResponse">UnauthorizedResponse</a>
-    <h4 class="field-label">402</h4>
-    Payment Required
-        <a href="#PaymentRequiredResponse">PaymentRequiredResponse</a>
-    <h4 class="field-label">404</h4>
-    The specified resource was not found
-        <a href="#NotFoundResponse">NotFoundResponse</a>
-    <h4 class="field-label">422</h4>
-    Unprocessable
-        <a href="#UnprocessableResponse">UnprocessableResponse</a>
-    <h4 class="field-label">default</h4>
-    Unexpected error
-        <a href="#UnexpectedErrorResponse">UnexpectedErrorResponse</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="messagesOne"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /sms/messages/{id}</code></pre></div>
-    <div class="method-summary">Get Message (<span class="nickname">messagesOne</span>)</div>
-    <div class="method-notes">Get Message</div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the record you are acting upon. default: null </div>
-    </div>  <!-- field-items -->
-
-
-
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-      <div class="param">x-apideck-consumer-id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; ID of the consumer which you want to get or push data from default: null </div>
-<div class="param">x-apideck-app-id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The ID of your Unify application default: null </div>
-<div class="param">x-apideck-service-id (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API. default: null </div>
-
-    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">raw (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Include raw response. Mostly used for debugging purposes default: false </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: <code>fields=name,email,addresses.city</code><br /><br />In the example above, the response will only include the fields &quot;name&quot;, &quot;email&quot; and &quot;addresses.city&quot;. If any other fields are available, they will be excluded. default: null </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#GetMessageResponse">GetMessageResponse</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "status_code" : 200,
-  "data" : {
-    "webhook_url" : "https://unify.apideck.com/webhook/webhooks/eyz329dkffdl4949/x/sms",
-    "subject" : "Picture",
-    "created_at" : "2020-09-30T07:43:32Z",
-    "scheduled_at" : "2020-09-30T07:43:32Z",
-    "body" : "Hi! How are you doing?",
-    "error" : {
-      "code" : "X1",
-      "message" : "Something went wrong"
-    },
-    "type" : "sms",
-    "created_by" : "12345",
-    "reference" : "CUST001",
-    "sent_at" : "2020-09-30T07:43:32Z",
-    "messaging_service_id" : "123456",
-    "updated_at" : "2020-09-30T07:43:32Z",
-    "price" : {
-      "currency" : "USD",
-      "per_unit" : "0.01",
-      "total_amount" : "0.01"
-    },
-    "number_of_media_files" : 1,
-    "updated_by" : "12345",
-    "from" : "+15017122661",
-    "id" : "12345",
-    "to" : "+15017122662",
-    "direction" : "outbound-api",
-    "number_of_units" : 1,
-    "status" : "sent"
-  },
-  "resource" : "Messages",
-  "service" : "twilio",
-  "operation" : "one",
-  "status" : "OK"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#requestvalidationerror",
-  "type_name" : "RequestValidationError",
-  "status_code" : 400,
-  "detail" : "Missing property foobar",
-  "error" : "Bad Request",
-  "message" : "Invalid Params"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#unauthorizederror",
-  "type_name" : "UnauthorizedError",
-  "status_code" : 401,
-  "detail" : "Failed to generate valid JWT Session. Verify applicationId is correct",
-  "error" : "Unauthorized",
-  "message" : "Unauthorized Request"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#requestlimiterror",
-  "type_name" : "RequestLimitError",
-  "status_code" : 402,
-  "detail" : "You have reached your limit of 2000",
-  "error" : "Payment Required",
-  "message" : "Request Limit Reached"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#entitynotfounderror",
-  "type_name" : "EntityNotFoundError",
-  "status_code" : 404,
-  "detail" : "Could not find widget with id: '123'",
-  "error" : "Not Found",
-  "message" : "Unknown Widget"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#invalidstateerror",
-  "type_name" : "InvalidStateError",
-  "status_code" : 422,
-  "detail" : "Unprocessable request, please verify your request headers and body.",
-  "error" : "Unprocessable Entity",
-  "message" : "Invalid State"
-}</code></pre>
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#unauthorizederror",
-  "type_name" : "RequestHeadersValidationError",
-  "status_code" : 400,
-  "detail" : "Missing Header: x-apideck-consumer-id",
-  "error" : "Bad Request",
-  "message" : "Invalid Params"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Messages
-        <a href="#GetMessageResponse">GetMessageResponse</a>
-    <h4 class="field-label">400</h4>
-    Bad Request
-        <a href="#BadRequestResponse">BadRequestResponse</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#UnauthorizedResponse">UnauthorizedResponse</a>
-    <h4 class="field-label">402</h4>
-    Payment Required
-        <a href="#PaymentRequiredResponse">PaymentRequiredResponse</a>
-    <h4 class="field-label">404</h4>
-    The specified resource was not found
-        <a href="#NotFoundResponse">NotFoundResponse</a>
-    <h4 class="field-label">422</h4>
-    Unprocessable
-        <a href="#UnprocessableResponse">UnprocessableResponse</a>
-    <h4 class="field-label">default</h4>
-    Unexpected error
-        <a href="#UnexpectedErrorResponse">UnexpectedErrorResponse</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="messagesUpdate"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /sms/messages/{id}</code></pre></div>
-    <div class="method-summary">Update Message (<span class="nickname">messagesUpdate</span>)</div>
-    <div class="method-notes">Update Message</div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of the record you are acting upon. default: null </div>
-    </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
     This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
@@ -1081,144 +327,95 @@ DELETE /messages/{messageId}
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">Message <a href="#Message">Message</a> (required)</div>
+      <div class="param">govid_request <a href="#govid_request">govid_request</a> (optional)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
     </div>  <!-- field-items -->
 
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-      <div class="param">x-apideck-consumer-id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; ID of the consumer which you want to get or push data from default: null </div>
-<div class="param">x-apideck-app-id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; The ID of your Unify application default: null </div>
-<div class="param">x-apideck-service-id (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash; Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API. default: null </div>
-
-    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">raw (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Include raw response. Mostly used for debugging purposes default: false </div>
-    </div>  <!-- field-items -->
 
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#UpdateMessageResponse">UpdateMessageResponse</a>
-      
-    </div>
+
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "status_code" : 200,
-  "data" : {
-    "id" : "12345"
-  },
-  "resource" : "Messages",
-  "service" : "twilio",
-  "operation" : "update",
-  "status" : "OK"
+  "errorDescription" : "Please provide all mandatory parameters",
+  "error" : "missing_parameter"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#requestvalidationerror",
-  "type_name" : "RequestValidationError",
-  "status_code" : 400,
-  "detail" : "Missing property foobar",
-  "error" : "Bad Request",
-  "message" : "Invalid Params"
+  "errorDescription" : "Authentication failed",
+  "error" : "invalid_authentication"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#unauthorizederror",
-  "type_name" : "UnauthorizedError",
-  "status_code" : 401,
-  "detail" : "Failed to generate valid JWT Session. Verify applicationId is correct",
-  "error" : "Unauthorized",
-  "message" : "Unauthorized Request"
+  "errorDescription" : "No record found",
+  "error" : "record_not_found"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#requestlimiterror",
-  "type_name" : "RequestLimitError",
-  "status_code" : 402,
-  "detail" : "You have reached your limit of 2000",
-  "error" : "Payment Required",
-  "message" : "Request Limit Reached"
+  "errorDescription" : "Internal server error",
+  "error" : "internal_server_error"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#entitynotfounderror",
-  "type_name" : "EntityNotFoundError",
-  "status_code" : 404,
-  "detail" : "Could not find widget with id: '123'",
-  "error" : "Not Found",
-  "message" : "Unknown Widget"
+  "errorDescription" : "Publisher service returned an invalid response",
+  "error" : "bad_gatewy"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#invalidstateerror",
-  "type_name" : "InvalidStateError",
-  "status_code" : 422,
-  "detail" : "Unprocessable request, please verify your request headers and body.",
-  "error" : "Unprocessable Entity",
-  "message" : "Invalid State"
+  "errorDescription" : "Publisher service is temporarily unavailable",
+  "error" : "service_unavailable"
 }</code></pre>
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "ref" : "https://developers.apideck.com/errors#unauthorizederror",
-  "type_name" : "RequestHeadersValidationError",
-  "status_code" : 400,
-  "detail" : "Missing Header: x-apideck-consumer-id",
-  "error" : "Bad Request",
-  "message" : "Invalid Params"
+  "errorDescription" : "Publisher service did not respond in time",
+  "error" : "gateway_timeout"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
+      <li><code>application/pdf</code></li>
+      <li><code>application/xml</code></li>
       <li><code>application/json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Messages
-        <a href="#UpdateMessageResponse">UpdateMessageResponse</a>
+    The certificate data in response body in PDF, XML or JSON format as requested in format parameter.
+        <a href="#"></a>
     <h4 class="field-label">400</h4>
-    Bad Request
-        <a href="#BadRequestResponse">BadRequestResponse</a>
+    Bad request
+        <a href="#dpicr_400_response">dpicr_400_response</a>
     <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#UnauthorizedResponse">UnauthorizedResponse</a>
-    <h4 class="field-label">402</h4>
-    Payment Required
-        <a href="#PaymentRequiredResponse">PaymentRequiredResponse</a>
+    Unauthorized access
+        <a href="#dpicr_401_response">dpicr_401_response</a>
     <h4 class="field-label">404</h4>
-    The specified resource was not found
-        <a href="#NotFoundResponse">NotFoundResponse</a>
-    <h4 class="field-label">422</h4>
-    Unprocessable
-        <a href="#UnprocessableResponse">UnprocessableResponse</a>
-    <h4 class="field-label">default</h4>
-    Unexpected error
-        <a href="#UnexpectedErrorResponse">UnexpectedErrorResponse</a>
+    No record found
+        <a href="#dpicr_404_response">dpicr_404_response</a>
+    <h4 class="field-label">500</h4>
+    Internal server error
+        <a href="#dpicr_500_response">dpicr_500_response</a>
+    <h4 class="field-label">502</h4>
+    Bad gateway
+        <a href="#dpicr_502_response">dpicr_502_response</a>
+    <h4 class="field-label">503</h4>
+    Service unavailable
+        <a href="#dpicr_503_response">dpicr_503_response</a>
+    <h4 class="field-label">504</h4>
+    Gateway timeout
+        <a href="#dpicr_504_response">dpicr_504_response</a>
   </div> <!-- method -->
   <hr/>
 
@@ -1227,341 +424,398 @@ DELETE /messages/{messageId}
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#BadRequestResponse"><code>BadRequestResponse</code> - </a></li>
-    <li><a href="#BadRequestResponse_detail"><code>BadRequestResponse_detail</code> - </a></li>
-    <li><a href="#CreateMessageResponse"><code>CreateMessageResponse</code> - </a></li>
-    <li><a href="#Currency"><code>Currency</code> - Currency</a></li>
-    <li><a href="#CustomField"><code>CustomField</code> - </a></li>
-    <li><a href="#CustomField_value"><code>CustomField_value</code> - </a></li>
-    <li><a href="#DeleteMessageResponse"><code>DeleteMessageResponse</code> - </a></li>
-    <li><a href="#Email"><code>Email</code> - </a></li>
-    <li><a href="#Error"><code>Error</code> - Error</a></li>
-    <li><a href="#GetMessageResponse"><code>GetMessageResponse</code> - </a></li>
-    <li><a href="#GetMessagesResponse"><code>GetMessagesResponse</code> - </a></li>
-    <li><a href="#Links"><code>Links</code> - </a></li>
-    <li><a href="#Message"><code>Message</code> - </a></li>
-    <li><a href="#Meta"><code>Meta</code> - </a></li>
-    <li><a href="#Meta_cursors"><code>Meta_cursors</code> - </a></li>
-    <li><a href="#NotFoundResponse"><code>NotFoundResponse</code> - </a></li>
-    <li><a href="#NotFoundResponse_detail"><code>NotFoundResponse_detail</code> - </a></li>
-    <li><a href="#NotImplementedResponse"><code>NotImplementedResponse</code> - </a></li>
-    <li><a href="#NotImplementedResponse_detail"><code>NotImplementedResponse_detail</code> - </a></li>
-    <li><a href="#PaymentRequiredResponse"><code>PaymentRequiredResponse</code> - </a></li>
-    <li><a href="#Price"><code>Price</code> - Price</a></li>
-    <li><a href="#TooManyRequestsResponse"><code>TooManyRequestsResponse</code> - </a></li>
-    <li><a href="#TooManyRequestsResponse_detail"><code>TooManyRequestsResponse_detail</code> - </a></li>
-    <li><a href="#UnauthorizedResponse"><code>UnauthorizedResponse</code> - </a></li>
-    <li><a href="#UnexpectedErrorResponse"><code>UnexpectedErrorResponse</code> - </a></li>
-    <li><a href="#UnexpectedErrorResponse_detail"><code>UnexpectedErrorResponse_detail</code> - </a></li>
-    <li><a href="#UnifiedId"><code>UnifiedId</code> - UnifiedId</a></li>
-    <li><a href="#UnprocessableResponse"><code>UnprocessableResponse</code> - </a></li>
-    <li><a href="#UpdateMessageResponse"><code>UpdateMessageResponse</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema"><code>AcademicCertificateSchema</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_CertificateData"><code>AcademicCertificateSchema_CertificateData</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_CertificateData_Examination"><code>AcademicCertificateSchema_CertificateData_Examination</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_CertificateData_Performance"><code>AcademicCertificateSchema_CertificateData_Performance</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_CertificateData_Performance_Subjects_inner"><code>AcademicCertificateSchema_CertificateData_Performance_Subjects_inner</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_CertificateData_School"><code>AcademicCertificateSchema_CertificateData_School</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedBy"><code>AcademicCertificateSchema_IssuedBy</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedBy_Organization"><code>AcademicCertificateSchema_IssuedBy_Organization</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedBy_Organization_Address"><code>AcademicCertificateSchema_IssuedBy_Organization_Address</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedTo"><code>AcademicCertificateSchema_IssuedTo</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedTo_Person"><code>AcademicCertificateSchema_IssuedTo_Person</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedTo_Person_Address"><code>AcademicCertificateSchema_IssuedTo_Person_Address</code> - </a></li>
+    <li><a href="#AcademicCertificateSchema_IssuedTo_Person_Photo"><code>AcademicCertificateSchema_IssuedTo_Person_Photo</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema"><code>ConsentArtifactSchema</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent"><code>ConsentArtifactSchema_consent</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_data"><code>ConsentArtifactSchema_consent_data</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_permission"><code>ConsentArtifactSchema_consent_permission</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_permission_dateRange"><code>ConsentArtifactSchema_consent_permission_dateRange</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_permission_frequency"><code>ConsentArtifactSchema_consent_permission_frequency</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_purpose"><code>ConsentArtifactSchema_consent_purpose</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_consent_user"><code>ConsentArtifactSchema_consent_user</code> - </a></li>
+    <li><a href="#ConsentArtifactSchema_signature"><code>ConsentArtifactSchema_signature</code> - </a></li>
+    <li><a href="#dpicr_400_response"><code>dpicr_400_response</code> - </a></li>
+    <li><a href="#dpicr_401_response"><code>dpicr_401_response</code> - </a></li>
+    <li><a href="#dpicr_404_response"><code>dpicr_404_response</code> - </a></li>
+    <li><a href="#dpicr_500_response"><code>dpicr_500_response</code> - </a></li>
+    <li><a href="#dpicr_502_response"><code>dpicr_502_response</code> - </a></li>
+    <li><a href="#dpicr_503_response"><code>dpicr_503_response</code> - </a></li>
+    <li><a href="#dpicr_504_response"><code>dpicr_504_response</code> - </a></li>
+    <li><a href="#dpicr_request"><code>dpicr_request</code> - </a></li>
+    <li><a href="#dpicr_request_certificateParameters"><code>dpicr_request_certificateParameters</code> - </a></li>
+    <li><a href="#govid_request"><code>govid_request</code> - </a></li>
   </ol>
 
   <div class="model">
-    <h3><a name="BadRequestResponse"><code>BadRequestResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="AcademicCertificateSchema"><code>AcademicCertificateSchema</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#BadRequestResponse_detail">BadRequestResponse_detail</a></span>  </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contains an explanation of the status_code as defined in HTTP/1.1 standard (RFC 7231) </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable message providing more details about the error. </div>
-<div class="param">ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to documentation of error type </div>
-<div class="param">status_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> HTTP status code </div>
-<div class="param">type_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of error returned </div>
+      <div class="param">CertificateData </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData">AcademicCertificateSchema_CertificateData</a></span>  </div>
+<div class="param">IssuedBy </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy">AcademicCertificateSchema_IssuedBy</a></span>  </div>
+<div class="param">IssuedTo </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo">AcademicCertificateSchema_IssuedTo</a></span>  </div>
+<div class="param">issueDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">issuedAt </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">language </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">number </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">validFromDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="BadRequestResponse_detail"><code>BadRequestResponse_detail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Contains parameter or domain specific information related to the error and why it occurred.</div>
-    <div class="field-items">
-          </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="CreateMessageResponse"><code>CreateMessageResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="AcademicCertificateSchema_CertificateData"><code>AcademicCertificateSchema_CertificateData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">data </div><div class="param-desc"><span class="param-type"><a href="#UnifiedId">UnifiedId</a></span>  </div>
-<div class="param">operation </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Operation performed </div>
-<div class="param">resource </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unified API resource name </div>
-<div class="param">service </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Apideck ID of service provider </div>
-<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HTTP Response Status </div>
-<div class="param">status_code </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> HTTP Response Status Code </div>
+      <div class="param">Examination </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Examination">AcademicCertificateSchema_CertificateData_Examination</a></span>  </div>
+<div class="param">Performance </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Performance">AcademicCertificateSchema_CertificateData_Performance</a></span>  </div>
+<div class="param">School </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_School">AcademicCertificateSchema_CertificateData_School</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Currency"><code>Currency</code> - Currency</a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Indicates the associated currency for an amount of money. Values correspond to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</div>
-    <div class="field-items">
-          </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="CustomField"><code>CustomField</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="AcademicCertificateSchema_CertificateData_Examination"><code>AcademicCertificateSchema_CertificateData_Examination</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> More information about the custom field </div>
-<div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of the custom field. </div>
-<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#CustomField_value">CustomField_value</a></span>  </div>
+      <div class="param">month </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">year </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="CustomField_value"><code>CustomField_value</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="AcademicCertificateSchema_CertificateData_Performance"><code>AcademicCertificateSchema_CertificateData_Performance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-          </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="DeleteMessageResponse"><code>DeleteMessageResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">data </div><div class="param-desc"><span class="param-type"><a href="#UnifiedId">UnifiedId</a></span>  </div>
-<div class="param">operation </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Operation performed </div>
-<div class="param">resource </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unified API resource name </div>
-<div class="param">service </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Apideck ID of service provider </div>
-<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HTTP Response Status </div>
-<div class="param">status_code </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> HTTP Response Status Code </div>
+      <div class="param">Subjects </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_CertificateData_Performance_Subjects_inner">array[AcademicCertificateSchema_CertificateData_Performance_Subjects_inner]</a></span>  </div>
+<div class="param">cgpa </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">cgpaMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">grade </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">marksMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">marksTotal </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">percentage </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">result </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">resultDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">updateDate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Email"><code>Email</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="AcademicCertificateSchema_CertificateData_Performance_Subjects_inner"><code>AcademicCertificateSchema_CertificateData_Performance_Subjects_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: email</div>
-<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">gp </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">gpMax </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">grade </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">marksMax </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">marksMaxPractical </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">marksMaxTheory </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">marksPractical </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">marksTheory </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">marksTotal </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_CertificateData_School"><code>AcademicCertificateSchema_CertificateData_School</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedBy"><code>AcademicCertificateSchema_IssuedBy</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Organization </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy_Organization">AcademicCertificateSchema_IssuedBy_Organization</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedBy_Organization"><code>AcademicCertificateSchema_IssuedBy_Organization</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Address </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedBy_Organization_Address">AcademicCertificateSchema_IssuedBy_Organization_Address</a></span>  </div>
+<div class="param">code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">tin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">uid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedBy_Organization_Address"><code>AcademicCertificateSchema_IssuedBy_Organization_Address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">country </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">district </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">house </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">landmark </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">line1 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">line2 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">locality </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">vtc </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedTo"><code>AcademicCertificateSchema_IssuedTo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Person </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person">AcademicCertificateSchema_IssuedTo_Person</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedTo_Person"><code>AcademicCertificateSchema_IssuedTo_Person</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Address </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person_Address">AcademicCertificateSchema_IssuedTo_Person_Address</a></span>  </div>
+<div class="param">Photo </div><div class="param-desc"><span class="param-type"><a href="#AcademicCertificateSchema_IssuedTo_Person_Photo">AcademicCertificateSchema_IssuedTo_Person_Photo</a></span>  </div>
+<div class="param">category </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">disabilityStatus </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dob </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">gender </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">maritalStatus </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">motherName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">phone </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">religion </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">swd </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">swdIndicator </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">uid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedTo_Person_Address"><code>AcademicCertificateSchema_IssuedTo_Person_Address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">country </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">district </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">house </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">landmark </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">line1 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">line2 </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">locality </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pin </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">state </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">vtc </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AcademicCertificateSchema_IssuedTo_Person_Photo"><code>AcademicCertificateSchema_IssuedTo_Person_Photo</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema"><code>ConsentArtifactSchema</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">consent </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent">ConsentArtifactSchema_consent</a></span>  </div>
+<div class="param">signature </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_signature">ConsentArtifactSchema_signature</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent"><code>ConsentArtifactSchema_consent</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">consentId </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> A unique consent id in UUID format. format: uuid</div>
+<div class="param">data </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
+<div class="param">dataConsumer </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
+<div class="param">dataProvider </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_data">ConsentArtifactSchema_consent_data</a></span>  </div>
+<div class="param">permission </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission">ConsentArtifactSchema_consent_permission</a></span>  </div>
+<div class="param">purpose </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_purpose">ConsentArtifactSchema_consent_purpose</a></span>  </div>
+<div class="param">timestamp </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
+<div class="param">user </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_user">ConsentArtifactSchema_consent_user</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_data"><code>ConsentArtifactSchema_consent_data</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_permission"><code>ConsentArtifactSchema_consent_permission</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">access </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dateRange </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission_dateRange">ConsentArtifactSchema_consent_permission_dateRange</a></span>  </div>
+<div class="param">frequency </div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema_consent_permission_frequency">ConsentArtifactSchema_consent_permission_frequency</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_permission_dateRange"><code>ConsentArtifactSchema_consent_permission_dateRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
+<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ format: date-time</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_permission_frequency"><code>ConsentArtifactSchema_consent_permission_frequency</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">repeats </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">unit </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_purpose"><code>ConsentArtifactSchema_consent_purpose</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">description </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_consent_user"><code>ConsentArtifactSchema_consent_user</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">idNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">idType </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">mobile </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ConsentArtifactSchema_signature"><code>ConsentArtifactSchema_signature</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">signature </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="dpicr_400_response"><code>dpicr_400_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
         <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">primary</div><div class="param-enum">secondary</div><div class="param-enum">work</div><div class="param-enum">personal</div><div class="param-enum">billing</div><div class="param-enum">other</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="Error"><code>Error</code> - Error</a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>The error returned if your message status is failed or undelivered.</div>
-    <div class="field-items">
-      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The error_code provides more information about the failure. If the message was successful, this value is null </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="GetMessageResponse"><code>GetMessageResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">data </div><div class="param-desc"><span class="param-type"><a href="#Message">Message</a></span>  </div>
-<div class="param">operation </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Operation performed </div>
-<div class="param">resource </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unified API resource name </div>
-<div class="param">service </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Apideck ID of service provider </div>
-<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HTTP Response Status </div>
-<div class="param">status_code </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> HTTP Response Status Code </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="GetMessagesResponse"><code>GetMessagesResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">data </div><div class="param-desc"><span class="param-type"><a href="#Message">array[Message]</a></span>  </div>
-<div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#Links">Links</a></span>  </div>
-<div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#Meta">Meta</a></span>  </div>
-<div class="param">operation </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Operation performed </div>
-<div class="param">resource </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unified API resource name </div>
-<div class="param">service </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Apideck ID of service provider </div>
-<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HTTP Response Status </div>
-<div class="param">status_code </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> HTTP Response Status Code </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="Links"><code>Links</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Links to navigate to previous or next pages through the API</div>
-    <div class="field-items">
-      <div class="param">current (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to navigate to the current page through the API </div>
-<div class="param">next (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to navigate to the previous page through the API </div>
-<div class="param">previous (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to navigate to the previous page through the API </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="Message"><code>Message</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">body </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The message text. </div>
-<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time when the object was created. format: date-time</div>
-<div class="param">created_by (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The user who created the object. </div>
-<div class="param">direction (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The direction of the message. </div>
+        <div class="param-enum">missing_parameter</div><div class="param-enum">invalid_parameter</div><div class="param-enum">invalid_format</div><div class="param-enum">invalid_txnid</div><div class="param-enum">invalid_consentid</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
         <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">inbound</div><div class="param-enum">outbound-api</div><div class="param-enum">outbound-call</div><div class="param-enum">outbound-reply</div><div class="param-enum">unknown</div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#Error">Error</a></span>  </div>
-<div class="param">from </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number that initiated the message. </div>
-<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A unique identifier for an object. </div>
-<div class="param">messaging_service_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The ID of the Messaging Service used with the message. In case of Plivo this links to the Powerpack ID. </div>
-<div class="param">number_of_media_files (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of media files associated with the message. </div>
-<div class="param">number_of_units (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The number of units that make up the complete message. Messages can be split up due to the constraints of the message size. </div>
-<div class="param">price (optional)</div><div class="param-desc"><span class="param-type"><a href="#Price">Price</a></span>  </div>
-<div class="param">reference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A client reference. </div>
-<div class="param">scheduled_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The scheduled date and time of the message. format: date-time</div>
-<div class="param">sent_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time that the message was sent format: date-time</div>
-<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Status of the delivery of the message. </div>
+        <div class="param-enum">Please provide all mandatory parameters</div><div class="param-enum">Bad request</div><div class="param-enum">The format parameter is invalid</div><div class="param-enum">The txnId parameter must be in UUID format</div><div class="param-enum">The consentId parameter must be in UUID format</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="dpicr_401_response"><code>dpicr_401_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
         <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">accepted</div><div class="param-enum">scheduled</div><div class="param-enum">canceled</div><div class="param-enum">queued</div><div class="param-enum">sending</div><div class="param-enum">sent</div><div class="param-enum">failed</div><div class="param-enum">delivered</div><div class="param-enum">undelivered</div><div class="param-enum">receiving</div><div class="param-enum">received</div><div class="param-enum">read</div>
-<div class="param">subject (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">to </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The phone number that received the message. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Set to sms for SMS messages and mms for MMS messages. </div>
+        <div class="param-enum">invalid_authentication</div><div class="param-enum">invalid_authorization</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
         <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">sms</div><div class="param-enum">mms</div>
-<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time when the object was last updated. format: date-time</div>
-<div class="param">updated_by (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The user who last updated the object. </div>
-<div class="param">webhook_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Define a webhook to receive delivery notifications. </div>
+        <div class="param-enum">Authentication failed</div><div class="param-enum">You are not authorized to use this API</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Meta"><code>Meta</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Response metadata</div>
-    <div class="field-items">
-      <div class="param">cursors (optional)</div><div class="param-desc"><span class="param-type"><a href="#Meta_cursors">Meta_cursors</a></span>  </div>
-<div class="param">items_on_page (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of items returned in the data property of the response </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="Meta_cursors"><code>Meta_cursors</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Cursors to navigate to previous or next pages through the API</div>
-    <div class="field-items">
-      <div class="param">current (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Cursor to navigate to the current page of results through the API </div>
-<div class="param">next (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Cursor to navigate to the next page of results through the API </div>
-<div class="param">previous (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Cursor to navigate to the previous page of results through the API </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="NotFoundResponse"><code>NotFoundResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_404_response"><code>dpicr_404_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#NotFoundResponse_detail">NotFoundResponse_detail</a></span>  </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contains an explanation of the status_code as defined in HTTP/1.1 standard (RFC 7231) </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable message providing more details about the error. </div>
-<div class="param">ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to documentation of error type </div>
-<div class="param">status_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> HTTP status code </div>
-<div class="param">type_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of error returned </div>
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">record_not_found</div><div class="param-enum">url_not_found</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">No record found</div><div class="param-enum">Your API url or path is incorrect</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="NotFoundResponse_detail"><code>NotFoundResponse_detail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Contains parameter or domain specific information related to the error and why it occurred.</div>
-    <div class="field-items">
-          </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="NotImplementedResponse"><code>NotImplementedResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_500_response"><code>dpicr_500_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#NotImplementedResponse_detail">NotImplementedResponse_detail</a></span>  </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contains an explanation of the status_code as defined in HTTP/1.1 standard (RFC 7231) </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable message providing more details about the error. </div>
-<div class="param">ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to documentation of error type </div>
-<div class="param">status_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> HTTP status code </div>
-<div class="param">type_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of error returned </div>
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">internal_server_error</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Internal server error</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="NotImplementedResponse_detail"><code>NotImplementedResponse_detail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Contains parameter or domain specific information related to the error and why it occurred.</div>
-    <div class="field-items">
-          </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="PaymentRequiredResponse"><code>PaymentRequiredResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_502_response"><code>dpicr_502_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contains parameter or domain specific information related to the error and why it occurred. </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contains an explanation of the status_code as defined in HTTP/1.1 standard (RFC 7231) </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable message providing more details about the error. </div>
-<div class="param">ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to documentation of error type </div>
-<div class="param">status_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> HTTP status code </div>
-<div class="param">type_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of error returned </div>
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">bad_gatewy</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Publisher service returned an invalid response</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Price"><code>Price</code> - Price</a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Price of the message.</div>
-    <div class="field-items">
-      <div class="param">currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#Currency">Currency</a></span>  </div>
-<div class="param">per_unit (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">total_amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="TooManyRequestsResponse"><code>TooManyRequestsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_503_response"><code>dpicr_503_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#TooManyRequestsResponse_detail">TooManyRequestsResponse_detail</a></span>  </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contains an explanation of the status_code as defined in HTTP/1.1 standard (RFC 6585) </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable message providing more details about the error. </div>
-<div class="param">ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to documentation of error type </div>
-<div class="param">status_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> HTTP status code </div>
-<div class="param">type_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of error returned </div>
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">service_unavailable</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Publisher service is temporarily unavailable</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="TooManyRequestsResponse_detail"><code>TooManyRequestsResponse_detail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_504_response"><code>dpicr_504_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">context (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span>  </div>
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">gateway_timeout</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Publisher service did not respond in time</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="UnauthorizedResponse"><code>UnauthorizedResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_request"><code>dpicr_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contains parameter or domain specific information related to the error and why it occurred. </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contains an explanation of the status_code as defined in HTTP/1.1 standard (RFC 7231) </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable message providing more details about the error. </div>
-<div class="param">ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to documentation of error type </div>
-<div class="param">status_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> HTTP status code </div>
-<div class="param">type_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of error returned </div>
+      <div class="param">certificateParameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#dpicr_request_certificateParameters">dpicr_request_certificateParameters</a></span>  </div>
+<div class="param">consentArtifact (optional)</div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema">ConsentArtifactSchema</a></span>  </div>
+<div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The format of the certificate in response. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">pdf</div>
+<div class="param">txnId </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> A unique transaction id for this request in UUID format. It is used for tracking the request. format: uuid</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="UnexpectedErrorResponse"><code>UnexpectedErrorResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="dpicr_request_certificateParameters"><code>dpicr_request_certificateParameters</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#UnexpectedErrorResponse_detail">UnexpectedErrorResponse_detail</a></span>  </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contains an explanation of the status_code as defined in HTTP/1.1 standard (RFC 7231) </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable message providing more details about the error. </div>
-<div class="param">ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to documentation of error type </div>
-<div class="param">status_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> HTTP status code </div>
-<div class="param">type_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of error returned </div>
+      <div class="param">CERT_NO </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> CERTIFICATE NO </div>
+<div class="param">FullName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Full name </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="UnexpectedErrorResponse_detail"><code>UnexpectedErrorResponse_detail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Contains parameter or domain specific information related to the error and why it occurred.</div>
-    <div class="field-items">
-          </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="UnifiedId"><code>UnifiedId</code> - UnifiedId</a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="govid_request"><code>govid_request</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique identifier of the resource </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="UnprocessableResponse"><code>UnprocessableResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">detail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contains parameter or domain specific information related to the error and why it occurred. </div>
-<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Contains an explanation of the status_code as defined in HTTP/1.1 standard (RFC 7231) </div>
-<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable message providing more details about the error. </div>
-<div class="param">ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to documentation of error type </div>
-<div class="param">status_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> HTTP status code </div>
-<div class="param">type_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of error returned </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="UpdateMessageResponse"><code>UpdateMessageResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">data </div><div class="param-desc"><span class="param-type"><a href="#UnifiedId">UnifiedId</a></span>  </div>
-<div class="param">operation </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Operation performed </div>
-<div class="param">resource </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unified API resource name </div>
-<div class="param">service </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Apideck ID of service provider </div>
-<div class="param">status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HTTP Response Status </div>
-<div class="param">status_code </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> HTTP Response Status Code </div>
+      <div class="param">certificateParameters (optional)</div><div class="param-desc"><span class="param-type"><a href="#dpicr_request_certificateParameters">dpicr_request_certificateParameters</a></span>  </div>
+<div class="param">consentArtifact (optional)</div><div class="param-desc"><span class="param-type"><a href="#ConsentArtifactSchema">ConsentArtifactSchema</a></span>  </div>
+<div class="param">format </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The format of the certificate in response. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">xml</div><div class="param-enum">pdf</div>
+<div class="param">txnId </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> A unique transaction id for this request in UUID format. It is used for tracking the request. format: uuid</div>
     </div>  <!-- field-items -->
   </div>
   </body>
