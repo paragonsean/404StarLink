@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ConsentArtifactSchemaConsentUser
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:32.706987-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:12.536917-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ConsentArtifactSchemaConsentUser {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
