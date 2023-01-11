@@ -1,27 +1,30 @@
 # CustomersApi
 
-All URIs are relative to *https://sandbox-api.onsched.com*
+All URIs are relative to *https://chromemanagement.googleapis.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**consumerV1CustomersBookingfieldsGet**](CustomersApi.md#consumerV1CustomersBookingfieldsGet) | **GET** /consumer/v1/customers/bookingfields | Get Customer Booking Fields |
-| [**consumerV1CustomersCountriesGet**](CustomersApi.md#consumerV1CustomersCountriesGet) | **GET** /consumer/v1/customers/countries | List Country Codes |
-| [**consumerV1CustomersCustomfieldsGet**](CustomersApi.md#consumerV1CustomersCustomfieldsGet) | **GET** /consumer/v1/customers/customfields | Get Customer Custom Fields |
-| [**consumerV1CustomersGet**](CustomersApi.md#consumerV1CustomersGet) | **GET** /consumer/v1/customers | List Customers |
-| [**consumerV1CustomersIdDelete**](CustomersApi.md#consumerV1CustomersIdDelete) | **DELETE** /consumer/v1/customers/{id} | Delete Customer |
-| [**consumerV1CustomersIdGet**](CustomersApi.md#consumerV1CustomersIdGet) | **GET** /consumer/v1/customers/{id} | Get Customer |
-| [**consumerV1CustomersIdPut**](CustomersApi.md#consumerV1CustomersIdPut) | **PUT** /consumer/v1/customers/{id} | Update Customer |
-| [**consumerV1CustomersPost**](CustomersApi.md#consumerV1CustomersPost) | **POST** /consumer/v1/customers | Create Customer |
-| [**consumerV1CustomersStatesGet**](CustomersApi.md#consumerV1CustomersStatesGet) | **GET** /consumer/v1/customers/states | List Country States |
+| [**chromemanagementCustomersAppsCountChromeAppRequests**](CustomersApi.md#chromemanagementCustomersAppsCountChromeAppRequests) | **GET** /v1/{customer}/apps:countChromeAppRequests |  |
+| [**chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention**](CustomersApi.md#chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention) | **GET** /v1/{customer}/reports:countChromeBrowsersNeedingAttention |  |
+| [**chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate**](CustomersApi.md#chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate) | **GET** /v1/{customer}/reports:countChromeDevicesReachingAutoExpirationDate |  |
+| [**chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention**](CustomersApi.md#chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention) | **GET** /v1/{customer}/reports:countChromeDevicesThatNeedAttention |  |
+| [**chromemanagementCustomersReportsCountChromeHardwareFleetDevices**](CustomersApi.md#chromemanagementCustomersReportsCountChromeHardwareFleetDevices) | **GET** /v1/{customer}/reports:countChromeHardwareFleetDevices |  |
+| [**chromemanagementCustomersReportsCountChromeVersions**](CustomersApi.md#chromemanagementCustomersReportsCountChromeVersions) | **GET** /v1/{customer}/reports:countChromeVersions |  |
+| [**chromemanagementCustomersReportsCountInstalledApps**](CustomersApi.md#chromemanagementCustomersReportsCountInstalledApps) | **GET** /v1/{customer}/reports:countInstalledApps |  |
+| [**chromemanagementCustomersReportsFindInstalledAppDevices**](CustomersApi.md#chromemanagementCustomersReportsFindInstalledAppDevices) | **GET** /v1/{customer}/reports:findInstalledAppDevices |  |
+| [**chromemanagementCustomersTelemetryDevicesList**](CustomersApi.md#chromemanagementCustomersTelemetryDevicesList) | **GET** /v1/{parent}/telemetry/devices |  |
+| [**chromemanagementCustomersTelemetryEventsList**](CustomersApi.md#chromemanagementCustomersTelemetryEventsList) | **GET** /v1/{parent}/telemetry/events |  |
+| [**chromemanagementCustomersTelemetryUsersGet**](CustomersApi.md#chromemanagementCustomersTelemetryUsersGet) | **GET** /v1/{name} |  |
+| [**chromemanagementCustomersTelemetryUsersList**](CustomersApi.md#chromemanagementCustomersTelemetryUsersList) | **GET** /v1/{parent}/telemetry/users |  |
 
 
-<a id="consumerV1CustomersBookingfieldsGet"></a>
-# **consumerV1CustomersBookingfieldsGet**
-> BookingFieldListViewModel consumerV1CustomersBookingfieldsGet(locationId)
+<a id="chromemanagementCustomersAppsCountChromeAppRequests"></a>
+# **chromemanagementCustomersAppsCountChromeAppRequests**
+> GoogleChromeManagementV1CountChromeAppRequestsResponse chromemanagementCustomersAppsCountChromeAppRequests(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orderBy, orgUnitId, pageSize, pageToken)
 
-Get Customer Booking Fields
 
-&lt;p&gt;Use this endpoint to return &lt;b&gt;Customer Booking Fields&lt;/b&gt;. Customer booking fields are stored with each customer object. They are used when the information collected during the booking is for a particular customer. Customer Booking Fields include any custom customer fields you define and want to capture with the Booking.&lt;/p&gt;
+
+Generate summary of app installation requests.
 
 ### Example
 ```java
@@ -36,19 +39,38 @@ import org.openapitools.client.api.CustomersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://sandbox-api.onsched.com");
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
     
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
-    String locationId = "locationId_example"; // String | id of business location, defaults to primary business location
+    String customer = "customer_example"; // String | Required. Customer id or \"my_customer\" to use the customer associated to the account making the request.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String orderBy = "orderBy_example"; // String | Field used to order results. Supported fields: * request_count * latest_request_time
+    String orgUnitId = "orgUnitId_example"; // String | The ID of the organizational unit.
+    Integer pageSize = 56; // Integer | Maximum number of results to return. Maximum and default are 50, anything above will be coerced to 50.
+    String pageToken = "pageToken_example"; // String | Token to specify the page of the request to be returned.
     try {
-      BookingFieldListViewModel result = apiInstance.consumerV1CustomersBookingfieldsGet(locationId);
+      GoogleChromeManagementV1CountChromeAppRequestsResponse result = apiInstance.chromemanagementCustomersAppsCountChromeAppRequests(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orderBy, orgUnitId, pageSize, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CustomersApi#consumerV1CustomersBookingfieldsGet");
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersAppsCountChromeAppRequests");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -62,15 +84,30 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **locationId** | **String**| id of business location, defaults to primary business location | [optional] |
+| **customer** | **String**| Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **orderBy** | **String**| Field used to order results. Supported fields: * request_count * latest_request_time | [optional] |
+| **orgUnitId** | **String**| The ID of the organizational unit. | [optional] |
+| **pageSize** | **Integer**| Maximum number of results to return. Maximum and default are 50, anything above will be coerced to 50. | [optional] |
+| **pageToken** | **String**| Token to specify the page of the request to be returned. | [optional] |
 
 ### Return type
 
-[**BookingFieldListViewModel**](BookingFieldListViewModel.md)
+[**GoogleChromeManagementV1CountChromeAppRequestsResponse**](GoogleChromeManagementV1CountChromeAppRequestsResponse.md)
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
 
 ### HTTP request headers
 
@@ -80,15 +117,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Successful response |  -  |
 
-<a id="consumerV1CustomersCountriesGet"></a>
-# **consumerV1CustomersCountriesGet**
-> List&lt;CountryViewModel&gt; consumerV1CustomersCountriesGet()
+<a id="chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention"></a>
+# **chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention**
+> GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId)
 
-List Country Codes
 
-&lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Countries with their associated Country Code&lt;/b&gt;. Country codes are based on the 2-character ANSI standard. If your countries of operation are not currently listed, contact us at &lt;i&gt;&lt;b&gt;support@onsched.com&lt;/b&gt;&lt;/i&gt;.&lt;/p&gt;
+
+Count of Chrome Browsers that have been recently enrolled, have new policy to be synced, or have no recent activity.
 
 ### Example
 ```java
@@ -103,18 +140,35 @@ import org.openapitools.client.api.CustomersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://sandbox-api.onsched.com");
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
     
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
+    String customer = "customer_example"; // String | Required. The customer ID or \"my_customer\" prefixed with \"customers/\".
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String orgUnitId = "orgUnitId_example"; // String | Optional. The ID of the organizational unit. If omitted, all data will be returned.
     try {
-      List<CountryViewModel> result = apiInstance.consumerV1CustomersCountriesGet();
+      GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse result = apiInstance.chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CustomersApi#consumerV1CustomersCountriesGet");
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -125,15 +179,30 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customer** | **String**| Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **orgUnitId** | **String**| Optional. The ID of the organizational unit. If omitted, all data will be returned. | [optional] |
 
 ### Return type
 
-[**List&lt;CountryViewModel&gt;**](CountryViewModel.md)
+[**GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse**](GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse.md)
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
 
 ### HTTP request headers
 
@@ -143,15 +212,15 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Successful response |  -  |
 
-<a id="consumerV1CustomersCustomfieldsGet"></a>
-# **consumerV1CustomersCustomfieldsGet**
-> CustomFieldDefinitionListViewModel consumerV1CustomersCustomfieldsGet(locationId, leadQuestions)
+<a id="chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate"></a>
+# **chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate**
+> GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, maxAueDate, minAueDate, orgUnitId)
 
-Get Customer Custom Fields
 
-&lt;p&gt;Use this endpoint to return &lt;b&gt;Customer Custom Fields&lt;/b&gt;. Customer custom fields are stored with the customer object. They are used when the information collected during the booking is specific to a particular customer.&lt;/p&gt;
+
+Generate report of the number of devices expiring in each month of the selected time frame. Devices are grouped by auto update expiration date and model. Further information can be found [here](https://support.google.com/chrome/a/answer/10564947).
 
 ### Example
 ```java
@@ -166,20 +235,37 @@ import org.openapitools.client.api.CustomersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://sandbox-api.onsched.com");
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
     
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
-    String locationId = "locationId_example"; // String | id of business location, defaults to primary business location
-    Boolean leadQuestions = true; // Boolean | A true/false indicator to filter on custom fields used for lead questions
+    String customer = "customer_example"; // String | Required. The customer ID or \"my_customer\" prefixed with \"customers/\".
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String maxAueDate = "maxAueDate_example"; // String | Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or earlier than the maximum date.
+    String minAueDate = "minAueDate_example"; // String | Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or later than the minimum date.
+    String orgUnitId = "orgUnitId_example"; // String | Optional. The organizational unit ID, if omitted, will return data for all organizational units.
     try {
-      CustomFieldDefinitionListViewModel result = apiInstance.consumerV1CustomersCustomfieldsGet(locationId, leadQuestions);
+      GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse result = apiInstance.chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, maxAueDate, minAueDate, orgUnitId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CustomersApi#consumerV1CustomersCustomfieldsGet");
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -193,16 +279,29 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **locationId** | **String**| id of business location, defaults to primary business location | [optional] |
-| **leadQuestions** | **Boolean**| A true/false indicator to filter on custom fields used for lead questions | [optional] |
+| **customer** | **String**| Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **maxAueDate** | **String**| Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or earlier than the maximum date. | [optional] |
+| **minAueDate** | **String**| Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or later than the minimum date. | [optional] |
+| **orgUnitId** | **String**| Optional. The organizational unit ID, if omitted, will return data for all organizational units. | [optional] |
 
 ### Return type
 
-[**CustomFieldDefinitionListViewModel**](CustomFieldDefinitionListViewModel.md)
+[**GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse**](GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse.md)
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
 
 ### HTTP request headers
 
@@ -212,15 +311,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Successful response |  -  |
 
-<a id="consumerV1CustomersGet"></a>
-# **consumerV1CustomersGet**
-> CustomerListViewModel consumerV1CustomersGet(locationId, groupId, email, lastname, deleted, offset, limit)
+<a id="chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention"></a>
+# **chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention**
+> GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask)
 
-List Customers
 
-&lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Customers&lt;/b&gt;. The results are returned in pages. Use the offset and limit parameters to control the page start and number of results. Default offset is 0, limit is 20, max is 100. Use the query parameters to filter the results further.&lt;/p&gt;
+
+Counts of ChromeOS devices that have not synced policies or have lacked user activity in the past 28 days, are out of date, or are not complaint. Further information can be found here https://support.google.com/chrome/a/answer/10564947
 
 ### Example
 ```java
@@ -235,25 +334,36 @@ import org.openapitools.client.api.CustomersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://sandbox-api.onsched.com");
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
     
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
-    String locationId = "locationId_example"; // String | id of business location, defaults to primary business location
-    String groupId = "groupId_example"; // String | Filter by groupId
-    String email = "email_example"; // String | Filter by email address
-    String lastname = "lastname_example"; // String | Filter by lastname
-    Boolean deleted = true; // Boolean | Filter by deleted status
-    Integer offset = 56; // Integer | Starting row of page, default 0
-    Integer limit = 56; // Integer | Page limit default 20, max 100
+    String customer = "customer_example"; // String | Required. The customer ID or \"my_customer\" prefixed with \"customers/\".
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String orgUnitId = "orgUnitId_example"; // String | Optional. The ID of the organizational unit. If omitted, all data will be returned.
+    String readMask = "readMask_example"; // String | Required. Mask of the fields that should be populated in the returned report.
     try {
-      CustomerListViewModel result = apiInstance.consumerV1CustomersGet(locationId, groupId, email, lastname, deleted, offset, limit);
+      GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse result = apiInstance.chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CustomersApi#consumerV1CustomersGet");
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -267,21 +377,28 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **locationId** | **String**| id of business location, defaults to primary business location | [optional] |
-| **groupId** | **String**| Filter by groupId | [optional] |
-| **email** | **String**| Filter by email address | [optional] |
-| **lastname** | **String**| Filter by lastname | [optional] |
-| **deleted** | **Boolean**| Filter by deleted status | [optional] |
-| **offset** | **Integer**| Starting row of page, default 0 | [optional] |
-| **limit** | **Integer**| Page limit default 20, max 100 | [optional] |
+| **customer** | **String**| Required. The customer ID or \&quot;my_customer\&quot; prefixed with \&quot;customers/\&quot;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **orgUnitId** | **String**| Optional. The ID of the organizational unit. If omitted, all data will be returned. | [optional] |
+| **readMask** | **String**| Required. Mask of the fields that should be populated in the returned report. | [optional] |
 
 ### Return type
 
-[**CustomerListViewModel**](CustomerListViewModel.md)
+[**GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse**](GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse.md)
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
 
 ### HTTP request headers
 
@@ -291,81 +408,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Successful response |  -  |
 
-<a id="consumerV1CustomersIdDelete"></a>
-# **consumerV1CustomersIdDelete**
-> consumerV1CustomersIdDelete(id)
+<a id="chromemanagementCustomersReportsCountChromeHardwareFleetDevices"></a>
+# **chromemanagementCustomersReportsCountChromeHardwareFleetDevices**
+> GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse chromemanagementCustomersReportsCountChromeHardwareFleetDevices(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask)
 
-Delete Customer
 
-&lt;p&gt;Use this endpoint to permanently &lt;b&gt;Delete&lt;/b&gt; a Customer object. A valid &lt;b&gt;customer id&lt;/b&gt; is required.&lt;/p&gt;
 
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CustomersApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://sandbox-api.onsched.com");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    CustomersApi apiInstance = new CustomersApi(defaultClient);
-    String id = "id_example"; // String | id of customer object
-    try {
-      apiInstance.consumerV1CustomersIdDelete(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CustomersApi#consumerV1CustomersIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| id of customer object | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-<a id="consumerV1CustomersIdGet"></a>
-# **consumerV1CustomersIdGet**
-> CustomerViewModel consumerV1CustomersIdGet(id)
-
-Get Customer
-
-&lt;p&gt;Use this endpoint to return a &lt;b&gt;Customer&lt;/b&gt; object. A valid &lt;b&gt;customer id&lt;/b&gt; is required. Find customer id&#39;s by using the &lt;i&gt;GET /consumer/v1/customers&lt;/i&gt; endpoint.&lt;/p&gt;
+Counts of devices with a specific hardware specification from the requested hardware type (for example model name, processor type). Further information can be found here https://support.google.com/chrome/a/answer/10564947
 
 ### Example
 ```java
@@ -380,19 +431,36 @@ import org.openapitools.client.api.CustomersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://sandbox-api.onsched.com");
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
     
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
-    String id = "id_example"; // String | id of customer object
+    String customer = "customer_example"; // String | Required. The customer ID or \"my_customer\".
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String orgUnitId = "orgUnitId_example"; // String | Optional. The ID of the organizational unit. If omitted, all data will be returned.
+    String readMask = "readMask_example"; // String | Required. Mask of the fields that should be populated in the returned report.
     try {
-      CustomerViewModel result = apiInstance.consumerV1CustomersIdGet(id);
+      GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse result = apiInstance.chromemanagementCustomersReportsCountChromeHardwareFleetDevices(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orgUnitId, readMask);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CustomersApi#consumerV1CustomersIdGet");
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersReportsCountChromeHardwareFleetDevices");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -406,15 +474,28 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| id of customer object | |
+| **customer** | **String**| Required. The customer ID or \&quot;my_customer\&quot;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **orgUnitId** | **String**| Optional. The ID of the organizational unit. If omitted, all data will be returned. | [optional] |
+| **readMask** | **String**| Required. Mask of the fields that should be populated in the returned report. | [optional] |
 
 ### Return type
 
-[**CustomerViewModel**](CustomerViewModel.md)
+[**GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse**](GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse.md)
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
 
 ### HTTP request headers
 
@@ -424,83 +505,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Successful response |  -  |
 
-<a id="consumerV1CustomersIdPut"></a>
-# **consumerV1CustomersIdPut**
-> consumerV1CustomersIdPut(id, customerUpdateModel)
+<a id="chromemanagementCustomersReportsCountChromeVersions"></a>
+# **chromemanagementCustomersReportsCountChromeVersions**
+> GoogleChromeManagementV1CountChromeVersionsResponse chromemanagementCustomersReportsCountChromeVersions(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orgUnitId, pageSize, pageToken)
 
-Update Customer
 
-&lt;p&gt;Use this endpoint to &lt;b&gt;Update&lt;/b&gt; a Customer object. A valid &lt;b&gt;customer id&lt;/b&gt; is required. Note: Blank fields are not changed.&lt;/p&gt;
 
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CustomersApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://sandbox-api.onsched.com");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    CustomersApi apiInstance = new CustomersApi(defaultClient);
-    String id = "id_example"; // String | id of customer object
-    CustomerUpdateModel customerUpdateModel = new CustomerUpdateModel(); // CustomerUpdateModel | 
-    try {
-      apiInstance.consumerV1CustomersIdPut(id, customerUpdateModel);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CustomersApi#consumerV1CustomersIdPut");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| id of customer object | |
-| **customerUpdateModel** | [**CustomerUpdateModel**](CustomerUpdateModel.md)|  | [optional] |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/*+json, application/json, application/json-patch+json, text/json
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-<a id="consumerV1CustomersPost"></a>
-# **consumerV1CustomersPost**
-> CustomerViewModel consumerV1CustomersPost(customerInputModel)
-
-Create Customer
-
-&lt;p&gt;Use this endpoint to &lt;b&gt;Create&lt;/b&gt; a new Customer. A customer object is automatically created with the first appointment booking if it doesn&#39;t already exist. If not specified, the business location id defaults to the primary business location.&lt;/p&gt;  &lt;p&gt;Required Fields: &lt;b&gt;Email&lt;/b&gt; and &lt;b&gt;Name&lt;/b&gt; or &lt;b&gt;First and Lastname&lt;/b&gt; depending on customer type. Type 0 &#x3D; Person, Type 1 &#x3D; Business. For type 0, the firstname and lastname fields are used. For type 1, the Name field is used, and the name field is also used to populate the lastname.&lt;/p&gt;
+Generate report of installed Chrome versions.
 
 ### Example
 ```java
@@ -515,19 +528,38 @@ import org.openapitools.client.api.CustomersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://sandbox-api.onsched.com");
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
     
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
-    CustomerInputModel customerInputModel = new CustomerInputModel(); // CustomerInputModel | 
+    String customer = "customer_example"; // String | Required. Customer id or \"my_customer\" to use the customer associated to the account making the request.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String filter = "filter_example"; // String | Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date
+    String orgUnitId = "orgUnitId_example"; // String | The ID of the organizational unit.
+    Integer pageSize = 56; // Integer | Maximum number of results to return. Maximum and default are 100.
+    String pageToken = "pageToken_example"; // String | Token to specify the page of the request to be returned.
     try {
-      CustomerViewModel result = apiInstance.consumerV1CustomersPost(customerInputModel);
+      GoogleChromeManagementV1CountChromeVersionsResponse result = apiInstance.chromemanagementCustomersReportsCountChromeVersions(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orgUnitId, pageSize, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CustomersApi#consumerV1CustomersPost");
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersReportsCountChromeVersions");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -541,82 +573,30 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customerInputModel** | [**CustomerInputModel**](CustomerInputModel.md)|  | [optional] |
+| **customer** | **String**| Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **filter** | **String**| Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date | [optional] |
+| **orgUnitId** | **String**| The ID of the organizational unit. | [optional] |
+| **pageSize** | **Integer**| Maximum number of results to return. Maximum and default are 100. | [optional] |
+| **pageToken** | **String**| Token to specify the page of the request to be returned. | [optional] |
 
 ### Return type
 
-[**CustomerViewModel**](CustomerViewModel.md)
+[**GoogleChromeManagementV1CountChromeVersionsResponse**](GoogleChromeManagementV1CountChromeVersionsResponse.md)
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/*+json, application/json, application/json-patch+json, text/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-<a id="consumerV1CustomersStatesGet"></a>
-# **consumerV1CustomersStatesGet**
-> List&lt;StateViewModel&gt; consumerV1CustomersStatesGet(country)
-
-List Country States
-
-&lt;p&gt;Use this endpoint to return a &lt;b&gt;List of Countries with their associated State Codes&lt;/b&gt;. Supply a country code to filter results further. If states for your countries of operation are not currently listed, contact us at &lt;i&gt;&lt;b&gt;support@onsched.com&lt;/b&gt;&lt;/i&gt;.&lt;/p&gt;
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CustomersApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://sandbox-api.onsched.com");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    CustomersApi apiInstance = new CustomersApi(defaultClient);
-    String country = "country_example"; // String | 
-    try {
-      List<StateViewModel> result = apiInstance.consumerV1CustomersStatesGet(country);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CustomersApi#consumerV1CustomersStatesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **country** | **String**|  | [optional] |
-
-### Return type
-
-[**List&lt;StateViewModel&gt;**](StateViewModel.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
 
 ### HTTP request headers
 
@@ -626,5 +606,613 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Successful response |  -  |
+
+<a id="chromemanagementCustomersReportsCountInstalledApps"></a>
+# **chromemanagementCustomersReportsCountInstalledApps**
+> GoogleChromeManagementV1CountInstalledAppsResponse chromemanagementCustomersReportsCountInstalledApps(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, orgUnitId, pageSize, pageToken)
+
+
+
+Generate report of app installations.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CustomersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    CustomersApi apiInstance = new CustomersApi(defaultClient);
+    String customer = "customer_example"; // String | Required. Customer id or \"my_customer\" to use the customer associated to the account making the request.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String filter = "filter_example"; // String | Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * latest_profile_active_date * permission_name * app_id
+    String orderBy = "orderBy_example"; // String | Field used to order results. Supported order by fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * app_id
+    String orgUnitId = "orgUnitId_example"; // String | The ID of the organizational unit.
+    Integer pageSize = 56; // Integer | Maximum number of results to return. Maximum and default are 100.
+    String pageToken = "pageToken_example"; // String | Token to specify the page of the request to be returned.
+    try {
+      GoogleChromeManagementV1CountInstalledAppsResponse result = apiInstance.chromemanagementCustomersReportsCountInstalledApps(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, orgUnitId, pageSize, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersReportsCountInstalledApps");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customer** | **String**| Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **filter** | **String**| Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * latest_profile_active_date * permission_name * app_id | [optional] |
+| **orderBy** | **String**| Field used to order results. Supported order by fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * app_id | [optional] |
+| **orgUnitId** | **String**| The ID of the organizational unit. | [optional] |
+| **pageSize** | **Integer**| Maximum number of results to return. Maximum and default are 100. | [optional] |
+| **pageToken** | **String**| Token to specify the page of the request to be returned. | [optional] |
+
+### Return type
+
+[**GoogleChromeManagementV1CountInstalledAppsResponse**](GoogleChromeManagementV1CountInstalledAppsResponse.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="chromemanagementCustomersReportsFindInstalledAppDevices"></a>
+# **chromemanagementCustomersReportsFindInstalledAppDevices**
+> GoogleChromeManagementV1FindInstalledAppDevicesResponse chromemanagementCustomersReportsFindInstalledAppDevices(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, appId, appType, filter, orderBy, orgUnitId, pageSize, pageToken)
+
+
+
+Generate report of managed Chrome browser devices that have a specified app installed.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CustomersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    CustomersApi apiInstance = new CustomersApi(defaultClient);
+    String customer = "customer_example"; // String | Required. Customer id or \"my_customer\" to use the customer associated to the account making the request.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String appId = "appId_example"; // String | Unique identifier of the app. For Chrome apps and extensions, the 32-character id (e.g. ehoadneljpdggcbbknedodolkkjodefl). For Android apps, the package name (e.g. com.evernote).
+    String appType = "APP_TYPE_UNSPECIFIED"; // String | Type of the app.
+    String filter = "filter_example"; // String | Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date
+    String orderBy = "orderBy_example"; // String | Field used to order results. Supported order by fields: * machine * device_id
+    String orgUnitId = "orgUnitId_example"; // String | The ID of the organizational unit.
+    Integer pageSize = 56; // Integer | Maximum number of results to return. Maximum and default are 100.
+    String pageToken = "pageToken_example"; // String | Token to specify the page of the request to be returned.
+    try {
+      GoogleChromeManagementV1FindInstalledAppDevicesResponse result = apiInstance.chromemanagementCustomersReportsFindInstalledAppDevices(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, appId, appType, filter, orderBy, orgUnitId, pageSize, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersReportsFindInstalledAppDevices");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customer** | **String**| Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **appId** | **String**| Unique identifier of the app. For Chrome apps and extensions, the 32-character id (e.g. ehoadneljpdggcbbknedodolkkjodefl). For Android apps, the package name (e.g. com.evernote). | [optional] |
+| **appType** | **String**| Type of the app. | [optional] [enum: APP_TYPE_UNSPECIFIED, EXTENSION, APP, THEME, HOSTED_APP, ANDROID_APP] |
+| **filter** | **String**| Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date | [optional] |
+| **orderBy** | **String**| Field used to order results. Supported order by fields: * machine * device_id | [optional] |
+| **orgUnitId** | **String**| The ID of the organizational unit. | [optional] |
+| **pageSize** | **Integer**| Maximum number of results to return. Maximum and default are 100. | [optional] |
+| **pageToken** | **String**| Token to specify the page of the request to be returned. | [optional] |
+
+### Return type
+
+[**GoogleChromeManagementV1FindInstalledAppDevicesResponse**](GoogleChromeManagementV1FindInstalledAppDevicesResponse.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="chromemanagementCustomersTelemetryDevicesList"></a>
+# **chromemanagementCustomersTelemetryDevicesList**
+> GoogleChromeManagementV1ListTelemetryDevicesResponse chromemanagementCustomersTelemetryDevicesList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask)
+
+
+
+List all telemetry devices.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CustomersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    CustomersApi apiInstance = new CustomersApi(defaultClient);
+    String parent = "parent_example"; // String | Required. Customer id or \"my_customer\" to use the customer associated to the account making the request.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String filter = "filter_example"; // String | Optional. Only include resources that match the filter. Supported filter fields: - org_unit_id - serial_number - device_id - reports_timestamp The \"reports_timestamp\" filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \"Zulu\" format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \"2014-10-02T15:01:23Z\", \"2014-10-02T15:01:23.045123456Z\", \"1679283943823\".
+    Integer pageSize = 56; // Integer | Maximum number of results to return. Default value is 100. Maximum value is 1000.
+    String pageToken = "pageToken_example"; // String | Token to specify next page in the list.
+    String readMask = "readMask_example"; // String | Required. Read mask to specify which fields to return.
+    try {
+      GoogleChromeManagementV1ListTelemetryDevicesResponse result = apiInstance.chromemanagementCustomersTelemetryDevicesList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersTelemetryDevicesList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **parent** | **String**| Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **filter** | **String**| Optional. Only include resources that match the filter. Supported filter fields: - org_unit_id - serial_number - device_id - reports_timestamp The \&quot;reports_timestamp\&quot; filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \&quot;Zulu\&quot; format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \&quot;2014-10-02T15:01:23Z\&quot;, \&quot;2014-10-02T15:01:23.045123456Z\&quot;, \&quot;1679283943823\&quot;. | [optional] |
+| **pageSize** | **Integer**| Maximum number of results to return. Default value is 100. Maximum value is 1000. | [optional] |
+| **pageToken** | **String**| Token to specify next page in the list. | [optional] |
+| **readMask** | **String**| Required. Read mask to specify which fields to return. | [optional] |
+
+### Return type
+
+[**GoogleChromeManagementV1ListTelemetryDevicesResponse**](GoogleChromeManagementV1ListTelemetryDevicesResponse.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="chromemanagementCustomersTelemetryEventsList"></a>
+# **chromemanagementCustomersTelemetryEventsList**
+> GoogleChromeManagementV1ListTelemetryEventsResponse chromemanagementCustomersTelemetryEventsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask)
+
+
+
+List telemetry events.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CustomersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    CustomersApi apiInstance = new CustomersApi(defaultClient);
+    String parent = "parent_example"; // String | Required. Customer id or \"my_customer\" to use the customer associated to the account making the request.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String filter = "filter_example"; // String | Optional. Only include resources that match the filter. Supported filter fields: - device_id - user_id - device_org_unit_id - user_org_unit_id - timestamp - event_type The \"timestamp\" filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \"Zulu\" format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \"2014-10-02T15:01:23Z\", \"2014-10-02T15:01:23.045123456Z\", \"1679283943823\".
+    Integer pageSize = 56; // Integer | Optional. Maximum number of results to return. Default value is 100. Maximum value is 1000.
+    String pageToken = "pageToken_example"; // String | Optional. Token to specify next page in the list.
+    String readMask = "readMask_example"; // String | Required. Read mask to specify which fields to return.
+    try {
+      GoogleChromeManagementV1ListTelemetryEventsResponse result = apiInstance.chromemanagementCustomersTelemetryEventsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersTelemetryEventsList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **parent** | **String**| Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **filter** | **String**| Optional. Only include resources that match the filter. Supported filter fields: - device_id - user_id - device_org_unit_id - user_org_unit_id - timestamp - event_type The \&quot;timestamp\&quot; filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \&quot;Zulu\&quot; format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \&quot;2014-10-02T15:01:23Z\&quot;, \&quot;2014-10-02T15:01:23.045123456Z\&quot;, \&quot;1679283943823\&quot;. | [optional] |
+| **pageSize** | **Integer**| Optional. Maximum number of results to return. Default value is 100. Maximum value is 1000. | [optional] |
+| **pageToken** | **String**| Optional. Token to specify next page in the list. | [optional] |
+| **readMask** | **String**| Required. Read mask to specify which fields to return. | [optional] |
+
+### Return type
+
+[**GoogleChromeManagementV1ListTelemetryEventsResponse**](GoogleChromeManagementV1ListTelemetryEventsResponse.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="chromemanagementCustomersTelemetryUsersGet"></a>
+# **chromemanagementCustomersTelemetryUsersGet**
+> GoogleChromeManagementV1TelemetryUser chromemanagementCustomersTelemetryUsersGet(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, readMask)
+
+
+
+Get telemetry user.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CustomersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    CustomersApi apiInstance = new CustomersApi(defaultClient);
+    String name = "name_example"; // String | Required. Name of the `TelemetryUser` to return.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String readMask = "readMask_example"; // String | Read mask to specify which fields to return.
+    try {
+      GoogleChromeManagementV1TelemetryUser result = apiInstance.chromemanagementCustomersTelemetryUsersGet(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, readMask);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersTelemetryUsersGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| Required. Name of the &#x60;TelemetryUser&#x60; to return. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **readMask** | **String**| Read mask to specify which fields to return. | [optional] |
+
+### Return type
+
+[**GoogleChromeManagementV1TelemetryUser**](GoogleChromeManagementV1TelemetryUser.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="chromemanagementCustomersTelemetryUsersList"></a>
+# **chromemanagementCustomersTelemetryUsersList**
+> GoogleChromeManagementV1ListTelemetryUsersResponse chromemanagementCustomersTelemetryUsersList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask)
+
+
+
+List all telemetry users.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CustomersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    CustomersApi apiInstance = new CustomersApi(defaultClient);
+    String parent = "parent_example"; // String | Required. Customer id or \"my_customer\" to use the customer associated to the account making the request.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String filter = "filter_example"; // String | Only include resources that match the filter. Supported filter fields: - user_id - user_org_unit_id 
+    Integer pageSize = 56; // Integer | Maximum number of results to return. Default value is 100. Maximum value is 1000.
+    String pageToken = "pageToken_example"; // String | Token to specify next page in the list.
+    String readMask = "readMask_example"; // String | Read mask to specify which fields to return.
+    try {
+      GoogleChromeManagementV1ListTelemetryUsersResponse result = apiInstance.chromemanagementCustomersTelemetryUsersList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, readMask);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersTelemetryUsersList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **parent** | **String**| Required. Customer id or \&quot;my_customer\&quot; to use the customer associated to the account making the request. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **filter** | **String**| Only include resources that match the filter. Supported filter fields: - user_id - user_org_unit_id  | [optional] |
+| **pageSize** | **Integer**| Maximum number of results to return. Default value is 100. Maximum value is 1000. | [optional] |
+| **pageToken** | **String**| Token to specify next page in the list. | [optional] |
+| **readMask** | **String**| Read mask to specify which fields to return. | [optional] |
+
+### Return type
+
+[**GoogleChromeManagementV1ListTelemetryUsersResponse**](GoogleChromeManagementV1ListTelemetryUsersResponse.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 

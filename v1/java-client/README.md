@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Fitness API
+Chrome Management API
 - API version: v1
-  - Build date: 2024-10-11T01:59:03.273138-04:00[America/New_York]
+  - Build date: 2024-10-11T01:59:11.322773-04:00[America/New_York]
   - Generator version: 7.9.0
 
-The Fitness API for managing users' fitness tracking data.
+The Chrome Management API is a suite of services that allows Chrome administrators to view, manage and gain insights on their Chrome OS and Chrome Browser devices.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -87,12 +87,12 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.UsersApi;
+import org.openapitools.client.api.CustomersApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://fitness.googleapis.com/fitness/v1/users");
+    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -102,8 +102,8 @@ public class Example {
     OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    String userId = "userId_example"; // String | Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
+    CustomersApi apiInstance = new CustomersApi(defaultClient);
+    String customer = "customer_example"; // String | Required. Customer id or \"my_customer\" to use the customer associated to the account making the request.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -115,12 +115,15 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    DataSource dataSource = new DataSource(); // DataSource | 
+    String orderBy = "orderBy_example"; // String | Field used to order results. Supported fields: * request_count * latest_request_time
+    String orgUnitId = "orgUnitId_example"; // String | The ID of the organizational unit.
+    Integer pageSize = 56; // Integer | Maximum number of results to return. Maximum and default are 50, anything above will be coerced to 50.
+    String pageToken = "pageToken_example"; // String | Token to specify the page of the request to be returned.
     try {
-      DataSource result = apiInstance.fitnessUsersDataSourcesCreate(userId, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, dataSource);
+      GoogleChromeManagementV1CountChromeAppRequestsResponse result = apiInstance.chromemanagementCustomersAppsCountChromeAppRequests(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orderBy, orgUnitId, pageSize, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#fitnessUsersDataSourcesCreate");
+      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersAppsCountChromeAppRequests");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -133,49 +136,90 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://fitness.googleapis.com/fitness/v1/users*
+All URIs are relative to *https://chromemanagement.googleapis.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*UsersApi* | [**fitnessUsersDataSourcesCreate**](docs/UsersApi.md#fitnessUsersDataSourcesCreate) | **POST** /{userId}/dataSources | 
-*UsersApi* | [**fitnessUsersDataSourcesDataPointChangesList**](docs/UsersApi.md#fitnessUsersDataSourcesDataPointChangesList) | **GET** /{userId}/dataSources/{dataSourceId}/dataPointChanges | 
-*UsersApi* | [**fitnessUsersDataSourcesDatasetsDelete**](docs/UsersApi.md#fitnessUsersDataSourcesDatasetsDelete) | **DELETE** /{userId}/dataSources/{dataSourceId}/datasets/{datasetId} | 
-*UsersApi* | [**fitnessUsersDataSourcesDatasetsGet**](docs/UsersApi.md#fitnessUsersDataSourcesDatasetsGet) | **GET** /{userId}/dataSources/{dataSourceId}/datasets/{datasetId} | 
-*UsersApi* | [**fitnessUsersDataSourcesDatasetsPatch**](docs/UsersApi.md#fitnessUsersDataSourcesDatasetsPatch) | **PATCH** /{userId}/dataSources/{dataSourceId}/datasets/{datasetId} | 
-*UsersApi* | [**fitnessUsersDataSourcesDelete**](docs/UsersApi.md#fitnessUsersDataSourcesDelete) | **DELETE** /{userId}/dataSources/{dataSourceId} | 
-*UsersApi* | [**fitnessUsersDataSourcesGet**](docs/UsersApi.md#fitnessUsersDataSourcesGet) | **GET** /{userId}/dataSources/{dataSourceId} | 
-*UsersApi* | [**fitnessUsersDataSourcesList**](docs/UsersApi.md#fitnessUsersDataSourcesList) | **GET** /{userId}/dataSources | 
-*UsersApi* | [**fitnessUsersDataSourcesUpdate**](docs/UsersApi.md#fitnessUsersDataSourcesUpdate) | **PUT** /{userId}/dataSources/{dataSourceId} | 
-*UsersApi* | [**fitnessUsersDatasetAggregate**](docs/UsersApi.md#fitnessUsersDatasetAggregate) | **POST** /{userId}/dataset:aggregate | 
-*UsersApi* | [**fitnessUsersSessionsDelete**](docs/UsersApi.md#fitnessUsersSessionsDelete) | **DELETE** /{userId}/sessions/{sessionId} | 
-*UsersApi* | [**fitnessUsersSessionsList**](docs/UsersApi.md#fitnessUsersSessionsList) | **GET** /{userId}/sessions | 
-*UsersApi* | [**fitnessUsersSessionsUpdate**](docs/UsersApi.md#fitnessUsersSessionsUpdate) | **PUT** /{userId}/sessions/{sessionId} | 
+*CustomersApi* | [**chromemanagementCustomersAppsCountChromeAppRequests**](docs/CustomersApi.md#chromemanagementCustomersAppsCountChromeAppRequests) | **GET** /v1/{customer}/apps:countChromeAppRequests | 
+*CustomersApi* | [**chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention**](docs/CustomersApi.md#chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention) | **GET** /v1/{customer}/reports:countChromeBrowsersNeedingAttention | 
+*CustomersApi* | [**chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate**](docs/CustomersApi.md#chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate) | **GET** /v1/{customer}/reports:countChromeDevicesReachingAutoExpirationDate | 
+*CustomersApi* | [**chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention**](docs/CustomersApi.md#chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention) | **GET** /v1/{customer}/reports:countChromeDevicesThatNeedAttention | 
+*CustomersApi* | [**chromemanagementCustomersReportsCountChromeHardwareFleetDevices**](docs/CustomersApi.md#chromemanagementCustomersReportsCountChromeHardwareFleetDevices) | **GET** /v1/{customer}/reports:countChromeHardwareFleetDevices | 
+*CustomersApi* | [**chromemanagementCustomersReportsCountChromeVersions**](docs/CustomersApi.md#chromemanagementCustomersReportsCountChromeVersions) | **GET** /v1/{customer}/reports:countChromeVersions | 
+*CustomersApi* | [**chromemanagementCustomersReportsCountInstalledApps**](docs/CustomersApi.md#chromemanagementCustomersReportsCountInstalledApps) | **GET** /v1/{customer}/reports:countInstalledApps | 
+*CustomersApi* | [**chromemanagementCustomersReportsFindInstalledAppDevices**](docs/CustomersApi.md#chromemanagementCustomersReportsFindInstalledAppDevices) | **GET** /v1/{customer}/reports:findInstalledAppDevices | 
+*CustomersApi* | [**chromemanagementCustomersTelemetryDevicesList**](docs/CustomersApi.md#chromemanagementCustomersTelemetryDevicesList) | **GET** /v1/{parent}/telemetry/devices | 
+*CustomersApi* | [**chromemanagementCustomersTelemetryEventsList**](docs/CustomersApi.md#chromemanagementCustomersTelemetryEventsList) | **GET** /v1/{parent}/telemetry/events | 
+*CustomersApi* | [**chromemanagementCustomersTelemetryUsersGet**](docs/CustomersApi.md#chromemanagementCustomersTelemetryUsersGet) | **GET** /v1/{name} | 
+*CustomersApi* | [**chromemanagementCustomersTelemetryUsersList**](docs/CustomersApi.md#chromemanagementCustomersTelemetryUsersList) | **GET** /v1/{parent}/telemetry/users | 
 
 
 ## Documentation for Models
 
- - [AggregateBucket](docs/AggregateBucket.md)
- - [AggregateBy](docs/AggregateBy.md)
- - [AggregateRequest](docs/AggregateRequest.md)
- - [AggregateResponse](docs/AggregateResponse.md)
- - [Application](docs/Application.md)
- - [BucketByActivity](docs/BucketByActivity.md)
- - [BucketBySession](docs/BucketBySession.md)
- - [BucketByTime](docs/BucketByTime.md)
- - [BucketByTimePeriod](docs/BucketByTimePeriod.md)
- - [DataPoint](docs/DataPoint.md)
- - [DataSource](docs/DataSource.md)
- - [DataType](docs/DataType.md)
- - [DataTypeField](docs/DataTypeField.md)
- - [Dataset](docs/Dataset.md)
- - [Device](docs/Device.md)
- - [ListDataPointChangesResponse](docs/ListDataPointChangesResponse.md)
- - [ListDataSourcesResponse](docs/ListDataSourcesResponse.md)
- - [ListSessionsResponse](docs/ListSessionsResponse.md)
- - [MapValue](docs/MapValue.md)
- - [Session](docs/Session.md)
- - [Value](docs/Value.md)
- - [ValueMapValEntry](docs/ValueMapValEntry.md)
+ - [GoogleChromeManagementV1AndroidAppInfo](docs/GoogleChromeManagementV1AndroidAppInfo.md)
+ - [GoogleChromeManagementV1AndroidAppPermission](docs/GoogleChromeManagementV1AndroidAppPermission.md)
+ - [GoogleChromeManagementV1AppDetails](docs/GoogleChromeManagementV1AppDetails.md)
+ - [GoogleChromeManagementV1AudioStatusReport](docs/GoogleChromeManagementV1AudioStatusReport.md)
+ - [GoogleChromeManagementV1BatteryInfo](docs/GoogleChromeManagementV1BatteryInfo.md)
+ - [GoogleChromeManagementV1BatterySampleReport](docs/GoogleChromeManagementV1BatterySampleReport.md)
+ - [GoogleChromeManagementV1BatteryStatusReport](docs/GoogleChromeManagementV1BatteryStatusReport.md)
+ - [GoogleChromeManagementV1BootPerformanceReport](docs/GoogleChromeManagementV1BootPerformanceReport.md)
+ - [GoogleChromeManagementV1BrowserVersion](docs/GoogleChromeManagementV1BrowserVersion.md)
+ - [GoogleChromeManagementV1ChromeAppInfo](docs/GoogleChromeManagementV1ChromeAppInfo.md)
+ - [GoogleChromeManagementV1ChromeAppPermission](docs/GoogleChromeManagementV1ChromeAppPermission.md)
+ - [GoogleChromeManagementV1ChromeAppRequest](docs/GoogleChromeManagementV1ChromeAppRequest.md)
+ - [GoogleChromeManagementV1ChromeAppSiteAccess](docs/GoogleChromeManagementV1ChromeAppSiteAccess.md)
+ - [GoogleChromeManagementV1CountChromeAppRequestsResponse](docs/GoogleChromeManagementV1CountChromeAppRequestsResponse.md)
+ - [GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse](docs/GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse.md)
+ - [GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse](docs/GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse.md)
+ - [GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse](docs/GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse.md)
+ - [GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse](docs/GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse.md)
+ - [GoogleChromeManagementV1CountChromeVersionsResponse](docs/GoogleChromeManagementV1CountChromeVersionsResponse.md)
+ - [GoogleChromeManagementV1CountInstalledAppsResponse](docs/GoogleChromeManagementV1CountInstalledAppsResponse.md)
+ - [GoogleChromeManagementV1CpuInfo](docs/GoogleChromeManagementV1CpuInfo.md)
+ - [GoogleChromeManagementV1CpuStatusReport](docs/GoogleChromeManagementV1CpuStatusReport.md)
+ - [GoogleChromeManagementV1CpuTemperatureInfo](docs/GoogleChromeManagementV1CpuTemperatureInfo.md)
+ - [GoogleChromeManagementV1Device](docs/GoogleChromeManagementV1Device.md)
+ - [GoogleChromeManagementV1DeviceAueCountReport](docs/GoogleChromeManagementV1DeviceAueCountReport.md)
+ - [GoogleChromeManagementV1DeviceHardwareCountReport](docs/GoogleChromeManagementV1DeviceHardwareCountReport.md)
+ - [GoogleChromeManagementV1DiskInfo](docs/GoogleChromeManagementV1DiskInfo.md)
+ - [GoogleChromeManagementV1DisplayDevice](docs/GoogleChromeManagementV1DisplayDevice.md)
+ - [GoogleChromeManagementV1DisplayInfo](docs/GoogleChromeManagementV1DisplayInfo.md)
+ - [GoogleChromeManagementV1FindInstalledAppDevicesResponse](docs/GoogleChromeManagementV1FindInstalledAppDevicesResponse.md)
+ - [GoogleChromeManagementV1GraphicsAdapterInfo](docs/GoogleChromeManagementV1GraphicsAdapterInfo.md)
+ - [GoogleChromeManagementV1GraphicsInfo](docs/GoogleChromeManagementV1GraphicsInfo.md)
+ - [GoogleChromeManagementV1GraphicsStatusReport](docs/GoogleChromeManagementV1GraphicsStatusReport.md)
+ - [GoogleChromeManagementV1HttpsLatencyRoutineData](docs/GoogleChromeManagementV1HttpsLatencyRoutineData.md)
+ - [GoogleChromeManagementV1InstalledApp](docs/GoogleChromeManagementV1InstalledApp.md)
+ - [GoogleChromeManagementV1ListTelemetryDevicesResponse](docs/GoogleChromeManagementV1ListTelemetryDevicesResponse.md)
+ - [GoogleChromeManagementV1ListTelemetryEventsResponse](docs/GoogleChromeManagementV1ListTelemetryEventsResponse.md)
+ - [GoogleChromeManagementV1ListTelemetryUsersResponse](docs/GoogleChromeManagementV1ListTelemetryUsersResponse.md)
+ - [GoogleChromeManagementV1MemoryInfo](docs/GoogleChromeManagementV1MemoryInfo.md)
+ - [GoogleChromeManagementV1MemoryStatusReport](docs/GoogleChromeManagementV1MemoryStatusReport.md)
+ - [GoogleChromeManagementV1NetworkDevice](docs/GoogleChromeManagementV1NetworkDevice.md)
+ - [GoogleChromeManagementV1NetworkDiagnosticsReport](docs/GoogleChromeManagementV1NetworkDiagnosticsReport.md)
+ - [GoogleChromeManagementV1NetworkInfo](docs/GoogleChromeManagementV1NetworkInfo.md)
+ - [GoogleChromeManagementV1NetworkStatusReport](docs/GoogleChromeManagementV1NetworkStatusReport.md)
+ - [GoogleChromeManagementV1OsUpdateStatus](docs/GoogleChromeManagementV1OsUpdateStatus.md)
+ - [GoogleChromeManagementV1PeripheralsReport](docs/GoogleChromeManagementV1PeripheralsReport.md)
+ - [GoogleChromeManagementV1StorageInfo](docs/GoogleChromeManagementV1StorageInfo.md)
+ - [GoogleChromeManagementV1StorageInfoDiskVolume](docs/GoogleChromeManagementV1StorageInfoDiskVolume.md)
+ - [GoogleChromeManagementV1StorageStatusReport](docs/GoogleChromeManagementV1StorageStatusReport.md)
+ - [GoogleChromeManagementV1TelemetryDevice](docs/GoogleChromeManagementV1TelemetryDevice.md)
+ - [GoogleChromeManagementV1TelemetryDeviceInfo](docs/GoogleChromeManagementV1TelemetryDeviceInfo.md)
+ - [GoogleChromeManagementV1TelemetryEvent](docs/GoogleChromeManagementV1TelemetryEvent.md)
+ - [GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent](docs/GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent.md)
+ - [GoogleChromeManagementV1TelemetryUsbPeripheralsEvent](docs/GoogleChromeManagementV1TelemetryUsbPeripheralsEvent.md)
+ - [GoogleChromeManagementV1TelemetryUser](docs/GoogleChromeManagementV1TelemetryUser.md)
+ - [GoogleChromeManagementV1TelemetryUserDevice](docs/GoogleChromeManagementV1TelemetryUserDevice.md)
+ - [GoogleChromeManagementV1TelemetryUserInfo](docs/GoogleChromeManagementV1TelemetryUserInfo.md)
+ - [GoogleChromeManagementV1ThunderboltInfo](docs/GoogleChromeManagementV1ThunderboltInfo.md)
+ - [GoogleChromeManagementV1TotalMemoryEncryptionInfo](docs/GoogleChromeManagementV1TotalMemoryEncryptionInfo.md)
+ - [GoogleChromeManagementV1TouchScreenDevice](docs/GoogleChromeManagementV1TouchScreenDevice.md)
+ - [GoogleChromeManagementV1TouchScreenInfo](docs/GoogleChromeManagementV1TouchScreenInfo.md)
+ - [GoogleChromeManagementV1UsbPeripheralReport](docs/GoogleChromeManagementV1UsbPeripheralReport.md)
+ - [GoogleRpcStatus](docs/GoogleRpcStatus.md)
+ - [GoogleTypeDate](docs/GoogleTypeDate.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -190,28 +234,9 @@ Authentication schemes defined for the API:
 - **Flow**: implicit
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/fitness.activity.read: Use Google Fit to see and store your physical activity data
-  - https://www.googleapis.com/auth/fitness.activity.write: Add to your Google Fit physical activity data
-  - https://www.googleapis.com/auth/fitness.blood_glucose.read: See info about your blood glucose in Google Fit. I consent to Google sharing my blood glucose information with this app.
-  - https://www.googleapis.com/auth/fitness.blood_glucose.write: Add info about your blood glucose to Google Fit. I consent to Google using my blood glucose information with this app.
-  - https://www.googleapis.com/auth/fitness.blood_pressure.read: See info about your blood pressure in Google Fit. I consent to Google sharing my blood pressure information with this app.
-  - https://www.googleapis.com/auth/fitness.blood_pressure.write: Add info about your blood pressure in Google Fit. I consent to Google using my blood pressure information with this app.
-  - https://www.googleapis.com/auth/fitness.body.read: See info about your body measurements in Google Fit
-  - https://www.googleapis.com/auth/fitness.body.write: Add info about your body measurements to Google Fit
-  - https://www.googleapis.com/auth/fitness.body_temperature.read: See info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app.
-  - https://www.googleapis.com/auth/fitness.body_temperature.write: Add to info about your body temperature in Google Fit. I consent to Google using my body temperature information with this app.
-  - https://www.googleapis.com/auth/fitness.heart_rate.read: See your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.
-  - https://www.googleapis.com/auth/fitness.heart_rate.write: Add to your heart rate data in Google Fit. I consent to Google using my heart rate information with this app.
-  - https://www.googleapis.com/auth/fitness.location.read: See your Google Fit speed and distance data
-  - https://www.googleapis.com/auth/fitness.location.write: Add to your Google Fit location data
-  - https://www.googleapis.com/auth/fitness.nutrition.read: See info about your nutrition in Google Fit
-  - https://www.googleapis.com/auth/fitness.nutrition.write: Add to info about your nutrition in Google Fit
-  - https://www.googleapis.com/auth/fitness.oxygen_saturation.read: See info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app.
-  - https://www.googleapis.com/auth/fitness.oxygen_saturation.write: Add info about your oxygen saturation in Google Fit. I consent to Google using my oxygen saturation information with this app.
-  - https://www.googleapis.com/auth/fitness.reproductive_health.read: See info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.
-  - https://www.googleapis.com/auth/fitness.reproductive_health.write: Add info about your reproductive health in Google Fit. I consent to Google using my reproductive health information with this app.
-  - https://www.googleapis.com/auth/fitness.sleep.read: See your sleep data in Google Fit. I consent to Google sharing my sleep information with this app.
-  - https://www.googleapis.com/auth/fitness.sleep.write: Add to your sleep data in Google Fit. I consent to Google using my sleep information with this app.
+  - https://www.googleapis.com/auth/chrome.management.appdetails.readonly: See detailed information about apps installed on Chrome browsers and devices managed by your organization
+  - https://www.googleapis.com/auth/chrome.management.reports.readonly: See reports about devices and Chrome browsers managed within your organization
+  - https://www.googleapis.com/auth/chrome.management.telemetry.readonly: See basic device and telemetry information collected from Chrome OS devices or users managed within your organization
 
 <a id="Oauth2c"></a>
 ### Oauth2c
@@ -220,28 +245,9 @@ Authentication schemes defined for the API:
 - **Flow**: accessCode
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/fitness.activity.read: Use Google Fit to see and store your physical activity data
-  - https://www.googleapis.com/auth/fitness.activity.write: Add to your Google Fit physical activity data
-  - https://www.googleapis.com/auth/fitness.blood_glucose.read: See info about your blood glucose in Google Fit. I consent to Google sharing my blood glucose information with this app.
-  - https://www.googleapis.com/auth/fitness.blood_glucose.write: Add info about your blood glucose to Google Fit. I consent to Google using my blood glucose information with this app.
-  - https://www.googleapis.com/auth/fitness.blood_pressure.read: See info about your blood pressure in Google Fit. I consent to Google sharing my blood pressure information with this app.
-  - https://www.googleapis.com/auth/fitness.blood_pressure.write: Add info about your blood pressure in Google Fit. I consent to Google using my blood pressure information with this app.
-  - https://www.googleapis.com/auth/fitness.body.read: See info about your body measurements in Google Fit
-  - https://www.googleapis.com/auth/fitness.body.write: Add info about your body measurements to Google Fit
-  - https://www.googleapis.com/auth/fitness.body_temperature.read: See info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app.
-  - https://www.googleapis.com/auth/fitness.body_temperature.write: Add to info about your body temperature in Google Fit. I consent to Google using my body temperature information with this app.
-  - https://www.googleapis.com/auth/fitness.heart_rate.read: See your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.
-  - https://www.googleapis.com/auth/fitness.heart_rate.write: Add to your heart rate data in Google Fit. I consent to Google using my heart rate information with this app.
-  - https://www.googleapis.com/auth/fitness.location.read: See your Google Fit speed and distance data
-  - https://www.googleapis.com/auth/fitness.location.write: Add to your Google Fit location data
-  - https://www.googleapis.com/auth/fitness.nutrition.read: See info about your nutrition in Google Fit
-  - https://www.googleapis.com/auth/fitness.nutrition.write: Add to info about your nutrition in Google Fit
-  - https://www.googleapis.com/auth/fitness.oxygen_saturation.read: See info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app.
-  - https://www.googleapis.com/auth/fitness.oxygen_saturation.write: Add info about your oxygen saturation in Google Fit. I consent to Google using my oxygen saturation information with this app.
-  - https://www.googleapis.com/auth/fitness.reproductive_health.read: See info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.
-  - https://www.googleapis.com/auth/fitness.reproductive_health.write: Add info about your reproductive health in Google Fit. I consent to Google using my reproductive health information with this app.
-  - https://www.googleapis.com/auth/fitness.sleep.read: See your sleep data in Google Fit. I consent to Google sharing my sleep information with this app.
-  - https://www.googleapis.com/auth/fitness.sleep.write: Add to your sleep data in Google Fit. I consent to Google using my sleep information with this app.
+  - https://www.googleapis.com/auth/chrome.management.appdetails.readonly: See detailed information about apps installed on Chrome browsers and devices managed by your organization
+  - https://www.googleapis.com/auth/chrome.management.reports.readonly: See reports about devices and Chrome browsers managed within your organization
+  - https://www.googleapis.com/auth/chrome.management.telemetry.readonly: See basic device and telemetry information collected from Chrome OS devices or users managed within your organization
 
 
 ## Recommendation
