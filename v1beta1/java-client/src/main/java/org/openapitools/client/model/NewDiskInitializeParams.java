@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Initialization parameters for creating a new disk.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:39.942530-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:23.087479-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class NewDiskInitializeParams {
   public static final String SERIALIZED_NAME_DISK_SIZE_GB = "diskSizeGb";
   @SerializedName(SERIALIZED_NAME_DISK_SIZE_GB)
