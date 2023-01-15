@@ -1,6 +1,6 @@
 /*
- * Serverless VPC Access API
- * API for managing VPC access connectors.
+ * Cloud IDS API
+ * Cloud IDS (Cloud Intrusion Detection System) detects malware, spyware, command-and-control attacks, and other network-based threats. Its security efficacy is industry leading, built with Palo Alto Networks technologies. When you use this product, your organization name and consumption levels will be shared with Palo Alto Networks.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -46,10 +46,14 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * Metadata for google.longrunning.Operation.
+ * Represents the metadata of the long-running operation.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:55:25.780688-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:21.034915-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class OperationMetadata {
+  public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
+  @SerializedName(SERIALIZED_NAME_API_VERSION)
+  private String apiVersion;
+
   public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   private String createTime;
@@ -58,32 +62,57 @@ public class OperationMetadata {
   @SerializedName(SERIALIZED_NAME_END_TIME)
   private String endTime;
 
-  public static final String SERIALIZED_NAME_METHOD = "method";
-  @SerializedName(SERIALIZED_NAME_METHOD)
-  private String method;
+  public static final String SERIALIZED_NAME_REQUESTED_CANCELLATION = "requestedCancellation";
+  @SerializedName(SERIALIZED_NAME_REQUESTED_CANCELLATION)
+  private Boolean requestedCancellation;
+
+  public static final String SERIALIZED_NAME_STATUS_MESSAGE = "statusMessage";
+  @SerializedName(SERIALIZED_NAME_STATUS_MESSAGE)
+  private String statusMessage;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
   private String target;
 
+  public static final String SERIALIZED_NAME_VERB = "verb";
+  @SerializedName(SERIALIZED_NAME_VERB)
+  private String verb;
+
   public OperationMetadata() {
   }
 
   public OperationMetadata(
+     String apiVersion, 
      String createTime, 
      String endTime, 
-     String method, 
-     String target
+     Boolean requestedCancellation, 
+     String statusMessage, 
+     String target, 
+     String verb
   ) {
     this();
+    this.apiVersion = apiVersion;
     this.createTime = createTime;
     this.endTime = endTime;
-    this.method = method;
+    this.requestedCancellation = requestedCancellation;
+    this.statusMessage = statusMessage;
     this.target = target;
+    this.verb = verb;
   }
 
   /**
-   * Output only. Time when the operation was created.
+   * Output only. API version used to start the operation.
+   * @return apiVersion
+   */
+  @javax.annotation.Nullable
+  public String getApiVersion() {
+    return apiVersion;
+  }
+
+
+
+  /**
+   * Output only. The time the operation was created.
    * @return createTime
    */
   @javax.annotation.Nullable
@@ -94,7 +123,7 @@ public class OperationMetadata {
 
 
   /**
-   * Output only. Time when the operation completed.
+   * Output only. The time the operation finished running.
    * @return endTime
    */
   @javax.annotation.Nullable
@@ -105,23 +134,45 @@ public class OperationMetadata {
 
 
   /**
-   * Output only. Method that initiated the operation e.g. google.cloud.vpcaccess.v1.Connectors.CreateConnector.
-   * @return method
+   * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a google.rpc.Status.code of 1, corresponding to &#x60;Code.CANCELLED&#x60;.
+   * @return requestedCancellation
    */
   @javax.annotation.Nullable
-  public String getMethod() {
-    return method;
+  public Boolean getRequestedCancellation() {
+    return requestedCancellation;
   }
 
 
 
   /**
-   * Output only. Name of the resource that this operation is acting on e.g. projects/my-project/locations/us-central1/connectors/v1.
+   * Output only. Human-readable status of the operation, if any.
+   * @return statusMessage
+   */
+  @javax.annotation.Nullable
+  public String getStatusMessage() {
+    return statusMessage;
+  }
+
+
+
+  /**
+   * Output only. Server-defined resource path for the target of the operation.
    * @return target
    */
   @javax.annotation.Nullable
   public String getTarget() {
     return target;
+  }
+
+
+
+  /**
+   * Output only. Name of the verb executed by the operation.
+   * @return verb
+   */
+  @javax.annotation.Nullable
+  public String getVerb() {
+    return verb;
   }
 
 
@@ -136,25 +187,31 @@ public class OperationMetadata {
       return false;
     }
     OperationMetadata operationMetadata = (OperationMetadata) o;
-    return Objects.equals(this.createTime, operationMetadata.createTime) &&
+    return Objects.equals(this.apiVersion, operationMetadata.apiVersion) &&
+        Objects.equals(this.createTime, operationMetadata.createTime) &&
         Objects.equals(this.endTime, operationMetadata.endTime) &&
-        Objects.equals(this.method, operationMetadata.method) &&
-        Objects.equals(this.target, operationMetadata.target);
+        Objects.equals(this.requestedCancellation, operationMetadata.requestedCancellation) &&
+        Objects.equals(this.statusMessage, operationMetadata.statusMessage) &&
+        Objects.equals(this.target, operationMetadata.target) &&
+        Objects.equals(this.verb, operationMetadata.verb);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, endTime, method, target);
+    return Objects.hash(apiVersion, createTime, endTime, requestedCancellation, statusMessage, target, verb);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OperationMetadata {\n");
+    sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
-    sb.append("    method: ").append(toIndentedString(method)).append("\n");
+    sb.append("    requestedCancellation: ").append(toIndentedString(requestedCancellation)).append("\n");
+    sb.append("    statusMessage: ").append(toIndentedString(statusMessage)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    verb: ").append(toIndentedString(verb)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -177,10 +234,13 @@ public class OperationMetadata {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("apiVersion");
     openapiFields.add("createTime");
     openapiFields.add("endTime");
-    openapiFields.add("method");
+    openapiFields.add("requestedCancellation");
+    openapiFields.add("statusMessage");
     openapiFields.add("target");
+    openapiFields.add("verb");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -207,17 +267,23 @@ public class OperationMetadata {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
+      }
       if ((jsonObj.get("createTime") != null && !jsonObj.get("createTime").isJsonNull()) && !jsonObj.get("createTime").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createTime").toString()));
       }
       if ((jsonObj.get("endTime") != null && !jsonObj.get("endTime").isJsonNull()) && !jsonObj.get("endTime").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `endTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endTime").toString()));
       }
-      if ((jsonObj.get("method") != null && !jsonObj.get("method").isJsonNull()) && !jsonObj.get("method").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method").toString()));
+      if ((jsonObj.get("statusMessage") != null && !jsonObj.get("statusMessage").isJsonNull()) && !jsonObj.get("statusMessage").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `statusMessage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statusMessage").toString()));
       }
       if ((jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull()) && !jsonObj.get("target").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target").toString()));
+      }
+      if ((jsonObj.get("verb") != null && !jsonObj.get("verb").isJsonNull()) && !jsonObj.get("verb").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `verb` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verb").toString()));
       }
   }
 
