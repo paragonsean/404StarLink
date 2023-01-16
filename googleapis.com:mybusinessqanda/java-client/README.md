@@ -2,7 +2,7 @@
 
 My Business Q&amp;A API
 - API version: v1
-  - Build date: 2024-10-11T01:58:42.341072-04:00[America/New_York]
+  - Build date: 2024-10-11T02:07:25.788610-04:00[America/New_York]
   - Generator version: 7.9.0
 
 The My Business Q&A API allows questions and answers to be posted for specific listings. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.
