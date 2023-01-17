@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Response message for QuestionsAndAnswers.ListAnswers
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:44.509525-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:28.243943-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ListAnswersResponse {
   public static final String SERIALIZED_NAME_ANSWERS = "answers";
   @SerializedName(SERIALIZED_NAME_ANSWERS)
