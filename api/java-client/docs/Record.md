@@ -2,14 +2,19 @@
 
 # Record
 
-An occurrence of sensitive data in an Apache Avro object container or an Apache Parquet file.
+A description of a unique event within a stream.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**jsonPath** | [**String**](String.md) |  |  [optional] |
-|**recordIndex** | [**Integer**](Integer.md) |  |  [optional] |
+|**eventID** | [**String**](String.md) |  |  [optional] |
+|**eventName** | [**OperationType**](OperationType.md) |  |  [optional] |
+|**eventVersion** | [**String**](String.md) |  |  [optional] |
+|**eventSource** | [**String**](String.md) |  |  [optional] |
+|**awsRegion** | [**String**](String.md) |  |  [optional] |
+|**dynamodb** | [**RecordDynamodb**](RecordDynamodb.md) |  |  [optional] |
+|**userIdentity** | [**RecordUserIdentity**](RecordUserIdentity.md) |  |  [optional] |
 
 
 

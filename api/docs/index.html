@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>My Business Q&amp;A API</title>
+    <title>Amazon DynamoDB Streams</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,86 +179,142 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>My Business Q&amp;A API</h1>
-    <div class="app-desc">The My Business Q&amp;A API allows questions and answers to be posted for specific listings. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.</div>
-    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
-    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
-    <div class="app-desc">Version: v1</div>
+  <h1>Amazon DynamoDB Streams</h1>
+    <div class="app-desc"><p><fullname>Amazon DynamoDB</fullname> <p>Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To learn more about application development with Streams, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html">Capturing Table Activity with DynamoDB Streams</a> in the Amazon DynamoDB Developer Guide.</p></p>
+</div>
+    <div class="app-desc">More information: <a href="https://github.com/mermade/aws2openapi">https://github.com/mermade/aws2openapi</a></div>
+    <div class="app-desc">Contact Info: <a href="mike.ralphson@gmail.com">mike.ralphson@gmail.com</a></div>
+    <div class="app-desc">Version: 2012-08-10</div>
     <div class="app-desc">BasePath:</div>
-    <div class="license-info">Creative Commons Attribution 3.0</div>
-    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
+    <div class="license-info">Apache 2.0 License</div>
+    <div class="license-url">http://www.apache.org/licenses/</div>
   <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:Authorization KeyInQuery:false KeyInHeader:true</li>
+    </ol>
 
   <h2><a name="__Methods">Methods</a></h2>
   [ Jump to <a href="#__Models">Models</a> ]
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#Locations">Locations</a></h4>
+  <h4><a href="#Default">Default</a></h4>
   <ul>
-  <li><a href="#mybusinessqanda.locations.questions.answers.delete"><code><span class="http-method">delete</span> /v1/{name}/answers:delete</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.answers.list"><code><span class="http-method">get</span> /v1/{parent}/answers</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.answers.upsert"><code><span class="http-method">post</span> /v1/{parent}/answers:upsert</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.create"><code><span class="http-method">post</span> /v1/{parent}</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.delete"><code><span class="http-method">delete</span> /v1/{name}</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.list"><code><span class="http-method">get</span> /v1/{parent}</code></a></li>
-  <li><a href="#mybusinessqanda.locations.questions.patch"><code><span class="http-method">patch</span> /v1/{name}</code></a></li>
+  <li><a href="#describeStream"><code><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.DescribeStream</code></a></li>
+  <li><a href="#getRecords"><code><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.GetRecords</code></a></li>
+  <li><a href="#getShardIterator"><code><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.GetShardIterator</code></a></li>
+  <li><a href="#listStreams"><code><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.ListStreams</code></a></li>
   </ul>
 
-  <h1><a name="Locations">Locations</a></h1>
-  <div class="method"><a name="mybusinessqanda.locations.questions.answers.delete"/>
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="describeStream"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/{name}/answers:delete</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.answers.delete</span>)</div>
-    <div class="method-notes">Deletes the answer written by the current user to a question.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.DescribeStream</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">describeStream</span>)</div>
+    <div class="method-notes"><p>Returns information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table.</p> <note> <p>You can call <code>DescribeStream</code> at a maximum rate of 10 times per second.</p> </note> <p>Each shard in the stream has a <code>SequenceNumberRange</code> associated with it. If the <code>SequenceNumberRange</code> has a <code>StartingSequenceNumber</code> but no <code>EndingSequenceNumber</code>, then the shard is still open (able to receive more stream records). If both <code>StartingSequenceNumber</code> and <code>EndingSequenceNumber</code> are present, then that shard is closed and can no longer receive more data.</p>
+</div>
 
-    <h3 class="field-label">Path parameters</h3>
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">name (required)</div>
+      <div class="param">DescribeStreamInput <a href="#DescribeStreamInput">DescribeStreamInput</a> (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to delete an answer for. default: null </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
     </div>  <!-- field-items -->
 
-
-
-
-    <h3 class="field-label">Query parameters</h3>
+    <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
     </div>  <!-- field-items -->
+
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
+      <a href="#DescribeStreamOutput">DescribeStreamOutput</a>
       
-      Object
     </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "StreamDescription" : {
+    "CreationRequestDateTime" : "Wed May 20 13:51:10 PDT 2015",
+    "KeySchema" : [ {
+      "AttributeName" : "ForumName",
+      "KeyType" : "HASH"
+    }, {
+      "AttributeName" : "Subject",
+      "KeyType" : "RANGE"
+    } ],
+    "Shards" : [ {
+      "SequenceNumberRange" : {
+        "EndingSequenceNumber" : "20500000000000000910398",
+        "StartingSequenceNumber" : "20500000000000000910398"
+      },
+      "ShardId" : "shardId-00000001414562045508-2bac9cd2"
+    }, {
+      "ParentShardId" : "shardId-00000001414562045508-2bac9cd2",
+      "SequenceNumberRange" : {
+        "EndingSequenceNumber" : "820400000000000001192334",
+        "StartingSequenceNumber" : "820400000000000001192334"
+      },
+      "ShardId" : "shardId-00000001414576573621-f55eea83"
+    }, {
+      "ParentShardId" : "shardId-00000001414576573621-f55eea83",
+      "SequenceNumberRange" : {
+        "EndingSequenceNumber" : "1683700000000000001135967",
+        "StartingSequenceNumber" : "1683700000000000001135967"
+      },
+      "ShardId" : "shardId-00000001414592258131-674fd923"
+    }, {
+      "ParentShardId" : "shardId-00000001414592258131-674fd923",
+      "SequenceNumberRange" : {
+        "StartingSequenceNumber" : "2574600000000000000935255"
+      },
+      "ShardId" : "shardId-00000001414608446368-3a1afbaf"
+    } ],
+    "StreamArn" : "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252",
+    "StreamLabel" : "2015-05-20T20:51:10.252",
+    "StreamStatus" : "ENABLED",
+    "StreamViewType" : "NEW_AND_OLD_IMAGES",
+    "TableName" : "Forum"
+  }
+}</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -269,64 +325,73 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#Object">Object</a>
+    Success
+        <a href="#DescribeStreamOutput">DescribeStreamOutput</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerError
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.answers.list"/>
+  <div class="method"><a name="getRecords"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/answers</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.answers.list</span>)</div>
-    <div class="method-notes">Returns the paginated list of answers for a specified question.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.GetRecords</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getRecords</span>)</div>
+    <div class="method-notes"><p>Retrieves the stream records from a given shard.</p> <p>Specify a shard iterator using the <code>ShardIterator</code> parameter. The shard iterator specifies the position in the shard from which you want to start reading stream records sequentially. If there are no stream records available in the portion of the shard that the iterator points to, <code>GetRecords</code> returns an empty list. Note that it might take multiple calls to get to a portion of the shard that contains stream records.</p> <note> <p> <code>GetRecords</code> can retrieve a maximum of 1 MB of data or 1000 stream records, whichever comes first.</p> </note>
+</div>
 
-    <h3 class="field-label">Path parameters</h3>
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">parent (required)</div>
+      <div class="param">GetRecordsInput <a href="#GetRecordsInput">GetRecordsInput</a> (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to fetch answers for. default: null </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
     </div>  <!-- field-items -->
 
-
-
-
-    <h3 class="field-label">Query parameters</h3>
+    <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">orderBy (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The order to return the answers. Valid options include 'update_time desc' and 'upvote_count desc', which will return the answers sorted descendingly by the requested field. The default sort order is 'update_time desc'. default: null </div><div class="param">pageSize (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. How many answers to fetch per page. The default and maximum <code>page_size</code> values are 10. default: null </div><div class="param">pageToken (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. If specified, the next page of answers is retrieved. default: null </div>
     </div>  <!-- field-items -->
+
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#ListAnswersResponse">ListAnswersResponse</a>
+      <a href="#GetRecordsOutput">GetRecordsOutput</a>
       
     </div>
 
@@ -335,30 +400,67 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "totalSize" : 0,
-  "nextPageToken" : "nextPageToken",
-  "answers" : [ {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
+  "NextShardIterator" : "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252|1|AAAAAAAAAAGQBYshYDEe ... <remaining characters omitted> ...",
+  "Records" : [ {
+    "awsRegion" : "us-west-2",
+    "dynamodb" : {
+      "ApproximateCreationDateTime" : 1.46480646E9,
+      "Keys" : {
+        "ForumName" : {
+          "S" : "DynamoDB"
+        },
+        "Subject" : {
+          "S" : "DynamoDB Thread 3"
+        }
+      },
+      "SequenceNumber" : "300000000000000499659",
+      "SizeBytes" : 41,
+      "StreamViewType" : "KEYS_ONLY"
     },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
+    "eventID" : "e2fd9c34eff2d779b297b26f5fef4206",
+    "eventName" : "INSERT",
+    "eventSource" : "aws:dynamodb",
+    "eventVersion" : "1.0"
   }, {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
+    "awsRegion" : "us-west-2",
+    "dynamodb" : {
+      "ApproximateCreationDateTime" : 1.46480527E9,
+      "Keys" : {
+        "ForumName" : {
+          "S" : "DynamoDB"
+        },
+        "Subject" : {
+          "S" : "DynamoDB Thread 1"
+        }
+      },
+      "SequenceNumber" : "400000000000000499660",
+      "SizeBytes" : 41,
+      "StreamViewType" : "KEYS_ONLY"
     },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
+    "eventID" : "4b25bd0da9a181a155114127e4837252",
+    "eventName" : "MODIFY",
+    "eventSource" : "aws:dynamodb",
+    "eventVersion" : "1.0"
+  }, {
+    "awsRegion" : "us-west-2",
+    "dynamodb" : {
+      "ApproximateCreationDateTime" : 1.46480646E9,
+      "Keys" : {
+        "ForumName" : {
+          "S" : "DynamoDB"
+        },
+        "Subject" : {
+          "S" : "DynamoDB Thread 2"
+        }
+      },
+      "SequenceNumber" : "500000000000000499661",
+      "SizeBytes" : 41,
+      "StreamViewType" : "KEYS_ONLY"
+    },
+    "eventID" : "740280c73a3df7842edab3548a1b08ad",
+    "eventName" : "REMOVE",
+    "eventSource" : "aws:dynamodb",
+    "eventVersion" : "1.0"
   } ]
 }</code></pre>
 
@@ -371,23 +473,33 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#ListAnswersResponse">ListAnswersResponse</a>
+    Success
+        <a href="#GetRecordsOutput">GetRecordsOutput</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    LimitExceededException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    InternalServerError
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">483</h4>
+    ExpiredIteratorException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">484</h4>
+    TrimmedDataAccessException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.answers.upsert"/>
+  <div class="method"><a name="getShardIterator"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}/answers:upsert</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.answers.upsert</span>)</div>
-    <div class="method-notes">Creates an answer or updates the existing answer written by the user for the specified question. A user can only create one answer per question.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.GetShardIterator</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">getShardIterator</span>)</div>
+    <div class="method-notes"><p>Returns a shard iterator. A shard iterator provides information about how to retrieve the stream records from within a shard. Use the shard iterator in a subsequent <code>GetRecords</code> request to read the stream records from the shard.</p> <note> <p>A shard iterator expires 15 minutes after it is returned to the requester.</p> </note>
+</div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">parent (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to write an answer for. default: null </div>
-    </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
     This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
@@ -397,44 +509,46 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">UpsertAnswerRequest <a href="#UpsertAnswerRequest">UpsertAnswerRequest</a> (optional)</div>
+      <div class="param">GetShardIteratorInput <a href="#GetShardIteratorInput">GetShardIteratorInput</a> (required)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
     </div>  <!-- field-items -->
 
-
-    <h3 class="field-label">Query parameters</h3>
+    <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
     </div>  <!-- field-items -->
+
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Answer">Answer</a>
+      <a href="#GetShardIteratorOutput">GetShardIteratorOutput</a>
       
     </div>
 
@@ -443,16 +557,7 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "createTime" : "createTime",
-  "author" : {
-    "displayName" : "displayName",
-    "profilePhotoUri" : "profilePhotoUri",
-    "type" : "AUTHOR_TYPE_UNSPECIFIED"
-  },
-  "name" : "name",
-  "updateTime" : "updateTime",
-  "text" : "text",
-  "upvoteCount" : 0
+  "ShardIterator" : "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252|1|AAAAAAAAAAEvJp6D+zaQ...  <remaining characters omitted> ..."
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -464,23 +569,27 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#Answer">Answer</a>
+    Success
+        <a href="#GetShardIteratorOutput">GetShardIteratorOutput</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerError
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">482</h4>
+    TrimmedDataAccessException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.create"/>
+  <div class="method"><a name="listStreams"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.create</span>)</div>
-    <div class="method-notes">Adds a question for the specified location.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /#X-Amz-Target=DynamoDBStreams_20120810.ListStreams</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listStreams</span>)</div>
+    <div class="method-notes"><p>Returns an array of stream ARNs associated with the current account and endpoint. If the <code>TableName</code> parameter is present, then <code>ListStreams</code> will return only the streams ARNs for that table.</p> <note> <p>You can call <code>ListStreams</code> at a maximum rate of 5 times per second.</p> </note>
+</div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">parent (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the location to write a question for. default: null </div>
-    </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
     This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
@@ -490,44 +599,46 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">Question <a href="#Question">Question</a> (optional)</div>
+      <div class="param">ListStreamsInput <a href="#ListStreamsInput">ListStreamsInput</a> (required)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
 
     </div>  <!-- field-items -->
 
-
-    <h3 class="field-label">Query parameters</h3>
+    <h3 class="field-label">Request headers</h3>
     <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
+      <div class="param">X-Amz-Content-Sha256 (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Date (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Algorithm (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Credential (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Security-Token (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Signature (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-SignedHeaders (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
+<div class="param">X-Amz-Target (required)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+      <div class="param-desc"><span class="param-type">Header Parameter</span> &mdash;  default: null </div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
     </div>  <!-- field-items -->
+
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Question">Question</a>
+      <a href="#ListStreamsOutput">ListStreamsOutput</a>
       
     </div>
 
@@ -536,260 +647,18 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "totalAnswerCount" : 6,
-  "createTime" : "createTime",
-  "author" : {
-    "displayName" : "displayName",
-    "profilePhotoUri" : "profilePhotoUri",
-    "type" : "AUTHOR_TYPE_UNSPECIFIED"
-  },
-  "name" : "name",
-  "updateTime" : "updateTime",
-  "text" : "text",
-  "topAnswers" : [ {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
+  "Streams" : [ {
+    "StreamArn" : "arn:aws:dynamodb:us-wesst-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252",
+    "StreamLabel" : "2015-05-20T20:51:10.252",
+    "TableName" : "Forum"
   }, {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
-  } ],
-  "upvoteCount" : 1
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#Question">Question</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.delete"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/{name}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.delete</span>)</div>
-    <div class="method-notes">Deletes a specific question written by the current user.</div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">name (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the question to delete. default: null </div>
-    </div>  <!-- field-items -->
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      
-      Object
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#Object">Object</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.list"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.list</span>)</div>
-    <div class="method-notes">Returns the paginated list of questions and some of its answers for a specified location. This operation is only valid if the specified location is verified.</div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">parent (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The name of the location to fetch questions for. default: null </div>
-    </div>  <!-- field-items -->
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">answersPerQuestion (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. How many answers to fetch per question. The default and maximum <code>answers_per_question</code> values are 10. default: null </div><div class="param">filter (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. A filter constraining the questions to return. The only filter currently supported is &quot;ignore_answered=true&quot; default: null </div><div class="param">orderBy (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The order to return the questions. Valid options include 'update_time desc' and 'upvote_count desc', which will return the questions sorted descendingly by the requested field. The default sort order is 'update_time desc'. default: null </div><div class="param">pageSize (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. How many questions to fetch per page. The default and maximum <code>page_size</code> values are 10. default: null </div><div class="param">pageToken (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. If specified, the next page of questions is retrieved. default: null </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#ListQuestionsResponse">ListQuestionsResponse</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "totalSize" : 0,
-  "nextPageToken" : "nextPageToken",
-  "questions" : [ {
-    "totalAnswerCount" : 6,
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "topAnswers" : [ {
-      "createTime" : "createTime",
-      "author" : {
-        "displayName" : "displayName",
-        "profilePhotoUri" : "profilePhotoUri",
-        "type" : "AUTHOR_TYPE_UNSPECIFIED"
-      },
-      "name" : "name",
-      "updateTime" : "updateTime",
-      "text" : "text",
-      "upvoteCount" : 0
-    }, {
-      "createTime" : "createTime",
-      "author" : {
-        "displayName" : "displayName",
-        "profilePhotoUri" : "profilePhotoUri",
-        "type" : "AUTHOR_TYPE_UNSPECIFIED"
-      },
-      "name" : "name",
-      "updateTime" : "updateTime",
-      "text" : "text",
-      "upvoteCount" : 0
-    } ],
-    "upvoteCount" : 1
+    "StreamArn" : "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:50:02.714",
+    "StreamLabel" : "2015-05-20T20:50:02.714",
+    "TableName" : "Forum"
   }, {
-    "totalAnswerCount" : 6,
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "topAnswers" : [ {
-      "createTime" : "createTime",
-      "author" : {
-        "displayName" : "displayName",
-        "profilePhotoUri" : "profilePhotoUri",
-        "type" : "AUTHOR_TYPE_UNSPECIFIED"
-      },
-      "name" : "name",
-      "updateTime" : "updateTime",
-      "text" : "text",
-      "upvoteCount" : 0
-    }, {
-      "createTime" : "createTime",
-      "author" : {
-        "displayName" : "displayName",
-        "profilePhotoUri" : "profilePhotoUri",
-        "type" : "AUTHOR_TYPE_UNSPECIFIED"
-      },
-      "name" : "name",
-      "updateTime" : "updateTime",
-      "text" : "text",
-      "upvoteCount" : 0
-    } ],
-    "upvoteCount" : 1
+    "StreamArn" : "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-19T23:03:50.641",
+    "StreamLabel" : "2015-05-19T23:03:50.641",
+    "TableName" : "Forum"
   } ]
 }</code></pre>
 
@@ -802,127 +671,14 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#ListQuestionsResponse">ListQuestionsResponse</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="mybusinessqanda.locations.questions.patch"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /v1/{name}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">mybusinessqanda.locations.questions.patch</span>)</div>
-    <div class="method-notes">Updates a specific question written by the current user.</div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">name (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Immutable. The unique name for the question. locations/<em>/questions/</em> This field will be ignored if set during question creation. default: null </div>
-    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">Question <a href="#Question">Question</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">$.xgafv (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">updateMask (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Required. The specific fields to update. Only question text can be updated. default: null </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Question">Question</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "totalAnswerCount" : 6,
-  "createTime" : "createTime",
-  "author" : {
-    "displayName" : "displayName",
-    "profilePhotoUri" : "profilePhotoUri",
-    "type" : "AUTHOR_TYPE_UNSPECIFIED"
-  },
-  "name" : "name",
-  "updateTime" : "updateTime",
-  "text" : "text",
-  "topAnswers" : [ {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
-  }, {
-    "createTime" : "createTime",
-    "author" : {
-      "displayName" : "displayName",
-      "profilePhotoUri" : "profilePhotoUri",
-      "type" : "AUTHOR_TYPE_UNSPECIFIED"
-    },
-    "name" : "name",
-    "updateTime" : "updateTime",
-    "text" : "text",
-    "upvoteCount" : 0
-  } ],
-  "upvoteCount" : 1
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Successful response
-        <a href="#Question">Question</a>
+    Success
+        <a href="#ListStreamsOutput">ListStreamsOutput</a>
+    <h4 class="field-label">480</h4>
+    ResourceNotFoundException
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+    <h4 class="field-label">481</h4>
+    InternalServerError
+        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
   </div> <!-- method -->
   <hr/>
 
@@ -931,75 +687,274 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#Answer"><code>Answer</code> - </a></li>
-    <li><a href="#Author"><code>Author</code> - </a></li>
-    <li><a href="#ListAnswersResponse"><code>ListAnswersResponse</code> - </a></li>
-    <li><a href="#ListQuestionsResponse"><code>ListQuestionsResponse</code> - </a></li>
-    <li><a href="#Question"><code>Question</code> - </a></li>
-    <li><a href="#UpsertAnswerRequest"><code>UpsertAnswerRequest</code> - </a></li>
+    <li><a href="#AttributeValue"><code>AttributeValue</code> - </a></li>
+    <li><a href="#DescribeStreamInput"><code>DescribeStreamInput</code> - DescribeStreamInput</a></li>
+    <li><a href="#DescribeStreamOutput"><code>DescribeStreamOutput</code> - </a></li>
+    <li><a href="#DescribeStreamOutput_StreamDescription"><code>DescribeStreamOutput_StreamDescription</code> - </a></li>
+    <li><a href="#GetRecordsInput"><code>GetRecordsInput</code> - GetRecordsInput</a></li>
+    <li><a href="#GetRecordsOutput"><code>GetRecordsOutput</code> - </a></li>
+    <li><a href="#GetShardIteratorInput"><code>GetShardIteratorInput</code> - GetShardIteratorInput</a></li>
+    <li><a href="#GetShardIteratorOutput"><code>GetShardIteratorOutput</code> - </a></li>
+    <li><a href="#Identity"><code>Identity</code> - </a></li>
+    <li><a href="#KeySchemaElement"><code>KeySchemaElement</code> - </a></li>
+    <li><a href="#KeyType"><code>KeyType</code> - </a></li>
+    <li><a href="#ListStreamsInput"><code>ListStreamsInput</code> - ListStreamsInput</a></li>
+    <li><a href="#ListStreamsOutput"><code>ListStreamsOutput</code> - </a></li>
+    <li><a href="#OperationType"><code>OperationType</code> - </a></li>
+    <li><a href="#Record"><code>Record</code> - </a></li>
+    <li><a href="#Record_dynamodb"><code>Record_dynamodb</code> - </a></li>
+    <li><a href="#Record_userIdentity"><code>Record_userIdentity</code> - </a></li>
+    <li><a href="#SequenceNumberRange"><code>SequenceNumberRange</code> - </a></li>
+    <li><a href="#Shard"><code>Shard</code> - </a></li>
+    <li><a href="#ShardIteratorType"><code>ShardIteratorType</code> - </a></li>
+    <li><a href="#Shard_SequenceNumberRange"><code>Shard_SequenceNumberRange</code> - </a></li>
+    <li><a href="#Stream"><code>Stream</code> - </a></li>
+    <li><a href="#StreamDescription"><code>StreamDescription</code> - </a></li>
+    <li><a href="#StreamRecord"><code>StreamRecord</code> - </a></li>
+    <li><a href="#StreamStatus"><code>StreamStatus</code> - </a></li>
+    <li><a href="#StreamViewType"><code>StreamViewType</code> - </a></li>
   </ol>
 
   <div class="model">
-    <h3><a name="Answer"><code>Answer</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Represents an answer to a question</div>
+    <h3><a name="AttributeValue"><code>AttributeValue</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p>Represents the data for an attribute.</p> <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+</div>
     <div class="field-items">
-      <div class="param">author (optional)</div><div class="param-desc"><span class="param-type"><a href="#Author">Author</a></span>  </div>
-<div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the answer was written. Only retrieved during ListResponse fetching. format: google-datetime</div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The unique name for the answer locations/<em>/questions/</em>/answers/* </div>
-<div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The text of the answer. It should contain at least one non-whitespace character. The maximum length is 4096 characters. </div>
-<div class="param">updateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the answer was last modified. format: google-datetime</div>
-<div class="param">upvoteCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Output only. The number of upvotes for the answer. format: int32</div>
+      <div class="param">S (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">N (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">B (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SS (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NS (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">BS (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">M (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">L (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NULL (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">BOOL (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Author"><code>Author</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Represents the author of a question or answer</div>
+    <h3><a name="DescribeStreamInput"><code>DescribeStreamInput</code> - DescribeStreamInput</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the input of a <code>DescribeStream</code> operation.</div>
     <div class="field-items">
-      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The display name of the user </div>
-<div class="param">profilePhotoUri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The profile photo URI of the user. </div>
-<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of user the author is. </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">AUTHOR_TYPE_UNSPECIFIED</div><div class="param-enum">REGULAR_USER</div><div class="param-enum">LOCAL_GUIDE</div><div class="param-enum">MERCHANT</div>
+      <div class="param">StreamArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ExclusiveStartShardId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ListAnswersResponse"><code>ListAnswersResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Response message for QuestionsAndAnswers.ListAnswers</div>
+    <h3><a name="DescribeStreamOutput"><code>DescribeStreamOutput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the output of a <code>DescribeStream</code> operation.</div>
     <div class="field-items">
-      <div class="param">answers (optional)</div><div class="param-desc"><span class="param-type"><a href="#Answer">array[Answer]</a></span> The requested answers. </div>
-<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If the number of answers exceeds the requested max page size, this field is populated with a token to fetch the next page of answers on a subsequent call. If there are no more answers, this field is not present in the response. </div>
-<div class="param">totalSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The total number of answers posted for this question across all pages. format: int32</div>
+      <div class="param">StreamDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#DescribeStreamOutput_StreamDescription">DescribeStreamOutput_StreamDescription</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="ListQuestionsResponse"><code>ListQuestionsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Response message for QuestionsAndAnswers.ListQuestions</div>
+    <h3><a name="DescribeStreamOutput_StreamDescription"><code>DescribeStreamOutput_StreamDescription</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> If the number of questions exceeds the requested max page size, this field is populated with a token to fetch the next page of questions on a subsequent call. If there are no more questions, this field is not present in the response. </div>
-<div class="param">questions (optional)</div><div class="param-desc"><span class="param-type"><a href="#Question">array[Question]</a></span> The requested questions, </div>
-<div class="param">totalSize (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The total number of questions posted for this location across all pages. format: int32</div>
+      <div class="param">StreamArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamLabel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamStatus">StreamStatus</a></span>  </div>
+<div class="param">StreamViewType (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamViewType">StreamViewType</a></span>  </div>
+<div class="param">CreationRequestDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">TableName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">KeySchema (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">Shards (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">LastEvaluatedShardId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Question"><code>Question</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Represents a single question and some of its answers.</div>
+    <h3><a name="GetRecordsInput"><code>GetRecordsInput</code> - GetRecordsInput</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the input of a <code>GetRecords</code> operation.</div>
     <div class="field-items">
-      <div class="param">author (optional)</div><div class="param-desc"><span class="param-type"><a href="#Author">Author</a></span>  </div>
-<div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the question was written. format: google-datetime</div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Immutable. The unique name for the question. locations/<em>/questions/</em> This field will be ignored if set during question creation. </div>
-<div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The text of the question. It should contain at least three words and the total length should be greater than or equal to 10 characters. The maximum length is 4096 characters. </div>
-<div class="param">topAnswers (optional)</div><div class="param-desc"><span class="param-type"><a href="#Answer">array[Answer]</a></span> Output only. A list of answers to the question, sorted by upvotes. This may not be a complete list of answers depending on the request parameters (answers_per_question) </div>
-<div class="param">totalAnswerCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Output only. The total number of answers posted for this question. format: int32</div>
-<div class="param">updateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The timestamp for when the question was last modified. format: google-datetime</div>
-<div class="param">upvoteCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Output only. The number of upvotes for the question. format: int32</div>
+      <div class="param">ShardIterator </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="UpsertAnswerRequest"><code>UpsertAnswerRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Request message for QuestionsAndAnswers.UpsertAnswer</div>
+    <h3><a name="GetRecordsOutput"><code>GetRecordsOutput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the output of a <code>GetRecords</code> operation.</div>
     <div class="field-items">
-      <div class="param">answer (optional)</div><div class="param-desc"><span class="param-type"><a href="#Answer">Answer</a></span>  </div>
+      <div class="param">Records (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">NextShardIterator (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetShardIteratorInput"><code>GetShardIteratorInput</code> - GetShardIteratorInput</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the input of a <code>GetShardIterator</code> operation.</div>
+    <div class="field-items">
+      <div class="param">StreamArn </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ShardId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ShardIteratorType </div><div class="param-desc"><span class="param-type"><a href="#ShardIteratorType">ShardIteratorType</a></span>  </div>
+<div class="param">SequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GetShardIteratorOutput"><code>GetShardIteratorOutput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the output of a <code>GetShardIterator</code> operation.</div>
+    <div class="field-items">
+      <div class="param">ShardIterator (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Identity"><code>Identity</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Contains details about the type of identity that made the request.</div>
+    <div class="field-items">
+      <div class="param">PrincipalId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="KeySchemaElement"><code>KeySchemaElement</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'><p>Represents <i>a single element</i> of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.</p> <p>A <code>KeySchemaElement</code> represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one <code>KeySchemaElement</code> (for the partition key). A composite primary key would require one <code>KeySchemaElement</code> for the partition key, and another <code>KeySchemaElement</code> for the sort key.</p> <p>A <code>KeySchemaElement</code> must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.</p>
+</div>
+    <div class="field-items">
+      <div class="param">AttributeName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">KeyType </div><div class="param-desc"><span class="param-type"><a href="#KeyType">KeyType</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="KeyType"><code>KeyType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListStreamsInput"><code>ListStreamsInput</code> - ListStreamsInput</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the input of a <code>ListStreams</code> operation.</div>
+    <div class="field-items">
+      <div class="param">TableName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ExclusiveStartStreamArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListStreamsOutput"><code>ListStreamsOutput</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the output of a <code>ListStreams</code> operation.</div>
+    <div class="field-items">
+      <div class="param">Streams (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">LastEvaluatedStreamArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OperationType"><code>OperationType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Record"><code>Record</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A description of a unique event within a stream.</div>
+    <div class="field-items">
+      <div class="param">eventID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">eventName (optional)</div><div class="param-desc"><span class="param-type"><a href="#OperationType">OperationType</a></span>  </div>
+<div class="param">eventVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">eventSource (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">awsRegion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dynamodb (optional)</div><div class="param-desc"><span class="param-type"><a href="#Record_dynamodb">Record_dynamodb</a></span>  </div>
+<div class="param">userIdentity (optional)</div><div class="param-desc"><span class="param-type"><a href="#Record_userIdentity">Record_userIdentity</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Record_dynamodb"><code>Record_dynamodb</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ApproximateCreationDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">Keys (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">NewImage (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">OldImage (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">SequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SizeBytes (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StreamViewType (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamViewType">StreamViewType</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Record_userIdentity"><code>Record_userIdentity</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">PrincipalId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SequenceNumberRange"><code>SequenceNumberRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The beginning and ending sequence numbers for the stream records contained within a shard.</div>
+    <div class="field-items">
+      <div class="param">StartingSequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">EndingSequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Shard"><code>Shard</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A uniquely identified group of stream records within a stream.</div>
+    <div class="field-items">
+      <div class="param">ShardId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SequenceNumberRange (optional)</div><div class="param-desc"><span class="param-type"><a href="#Shard_SequenceNumberRange">Shard_SequenceNumberRange</a></span>  </div>
+<div class="param">ParentShardId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ShardIteratorType"><code>ShardIteratorType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Shard_SequenceNumberRange"><code>Shard_SequenceNumberRange</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">StartingSequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">EndingSequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Stream"><code>Stream</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents all of the data describing a particular stream.</div>
+    <div class="field-items">
+      <div class="param">StreamArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TableName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamLabel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamDescription"><code>StreamDescription</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents all of the data describing a particular stream.</div>
+    <div class="field-items">
+      <div class="param">StreamArn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamLabel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StreamStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamStatus">StreamStatus</a></span>  </div>
+<div class="param">StreamViewType (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamViewType">StreamViewType</a></span>  </div>
+<div class="param">CreationRequestDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">TableName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">KeySchema (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">Shards (optional)</div><div class="param-desc"><span class="param-type"><a href="#array">List</a></span>  </div>
+<div class="param">LastEvaluatedShardId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamRecord"><code>StreamRecord</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A description of a single data modification that was performed on an item in a DynamoDB table.</div>
+    <div class="field-items">
+      <div class="param">ApproximateCreationDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  </div>
+<div class="param">Keys (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">NewImage (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">OldImage (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">Map</a></span>  </div>
+<div class="param">SequenceNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SizeBytes (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StreamViewType (optional)</div><div class="param-desc"><span class="param-type"><a href="#StreamViewType">StreamViewType</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamStatus"><code>StreamStatus</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="StreamViewType"><code>StreamViewType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
   </div>
   </body>
 </html>

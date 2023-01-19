@@ -5,15 +5,13 @@
 ## Enum
 
 
-* `ACTIVE` (value: `"ACTIVE"`)
+* `ENABLING` (value: `"ENABLING"`)
 
-* `COMPLETED` (value: `"COMPLETED"`)
+* `ENABLED` (value: `"ENABLED"`)
 
-* `CANCELED` (value: `"CANCELED"`)
+* `DISABLING` (value: `"DISABLING"`)
 
-* `FAILED` (value: `"FAILED"`)
-
-* `IMPAIRED` (value: `"IMPAIRED"`)
+* `DISABLED` (value: `"DISABLED"`)
 
 
 
