@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Represents &lt;i&gt;a single element&lt;/i&gt; of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.&lt;/p&gt; &lt;p&gt;A &lt;code&gt;KeySchemaElement&lt;/code&gt; represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one &lt;code&gt;KeySchemaElement&lt;/code&gt; (for the partition key). A composite primary key would require one &lt;code&gt;KeySchemaElement&lt;/code&gt; for the partition key, and another &lt;code&gt;KeySchemaElement&lt;/code&gt; for the sort key.&lt;/p&gt; &lt;p&gt;A &lt;code&gt;KeySchemaElement&lt;/code&gt; must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:46.795436-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:36.213583-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class KeySchemaElement {
   public static final String SERIALIZED_NAME_ATTRIBUTE_NAME = "AttributeName";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTE_NAME)

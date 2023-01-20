@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Represents the data for an attribute.&lt;/p&gt; &lt;p&gt;Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes\&quot;&gt;Data Types&lt;/a&gt; in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:46.795436-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:36.213583-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AttributeValue {
   public static final String SERIALIZED_NAME_S = "S";
   @SerializedName(SERIALIZED_NAME_S)

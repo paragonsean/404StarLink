@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * The beginning and ending sequence numbers for the stream records contained within a shard.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:46.795436-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:36.213583-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SequenceNumberRange {
   public static final String SERIALIZED_NAME_STARTING_SEQUENCE_NUMBER = "StartingSequenceNumber";
   @SerializedName(SERIALIZED_NAME_STARTING_SEQUENCE_NUMBER)

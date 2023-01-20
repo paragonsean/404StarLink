@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * RecordDynamodb
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:46.795436-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:36.213583-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class RecordDynamodb {
   public static final String SERIALIZED_NAME_APPROXIMATE_CREATION_DATE_TIME = "ApproximateCreationDateTime";
   @SerializedName(SERIALIZED_NAME_APPROXIMATE_CREATION_DATE_TIME)

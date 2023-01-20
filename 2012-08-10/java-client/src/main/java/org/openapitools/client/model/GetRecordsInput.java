@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents the input of a &lt;code&gt;GetRecords&lt;/code&gt; operation.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:46.795436-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:36.213583-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GetRecordsInput {
   public static final String SERIALIZED_NAME_SHARD_ITERATOR = "ShardIterator";
   @SerializedName(SERIALIZED_NAME_SHARD_ITERATOR)

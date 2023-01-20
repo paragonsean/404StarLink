@@ -2,7 +2,7 @@
 
 Amazon DynamoDB Streams
 - API version: 2012-08-10
-  - Build date: 2024-10-11T01:58:46.795436-04:00[America/New_York]
+  - Build date: 2024-10-11T02:07:36.213583-04:00[America/New_York]
   - Generator version: 7.9.0
 
 <fullname>Amazon DynamoDB</fullname> <p>Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To learn more about application development with Streams, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html\">Capturing Table Activity with DynamoDB Streams</a> in the Amazon DynamoDB Developer Guide.</p>

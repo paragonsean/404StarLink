@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * DescribeStreamOutputStreamDescription
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:46.795436-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:36.213583-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DescribeStreamOutputStreamDescription {
   public static final String SERIALIZED_NAME_STREAM_ARN = "StreamArn";
   @SerializedName(SERIALIZED_NAME_STREAM_ARN)
