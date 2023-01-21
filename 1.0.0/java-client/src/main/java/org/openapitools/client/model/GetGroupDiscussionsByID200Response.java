@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * GetGroupDiscussionsByID200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:51.881402-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:39.005803-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GetGroupDiscussionsByID200Response {
   public static final String SERIALIZED_NAME_ICONFARM = "iconfarm";
   @SerializedName(SERIALIZED_NAME_ICONFARM)
