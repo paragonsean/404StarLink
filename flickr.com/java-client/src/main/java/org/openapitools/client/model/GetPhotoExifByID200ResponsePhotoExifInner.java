@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * GetPhotoExifByID200ResponsePhotoExifInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:54.658141-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:42.002778-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GetPhotoExifByID200ResponsePhotoExifInner {
   public static final String SERIALIZED_NAME_LABEL = "label";
   @SerializedName(SERIALIZED_NAME_LABEL)

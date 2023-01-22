@@ -2,7 +2,7 @@
 
 Flickr API Schema
 - API version: 1.0.0
-  - Build date: 2024-10-11T01:58:54.658141-04:00[America/New_York]
+  - Build date: 2024-10-11T02:07:42.002778-04:00[America/New_York]
   - Generator version: 7.9.0
 
 A subset of Flickr's API defined in Swagger format.
