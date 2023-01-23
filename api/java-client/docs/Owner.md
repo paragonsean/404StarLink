@@ -7,9 +7,16 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**email** | **String** | Email of the owner |  [optional] [readonly] |
-|**id** | **String** | ID of the owner |  [optional] [readonly] |
-|**name** | **String** | Name of the owner |  [optional] [readonly] |
+|**iconfarm** | **String** |  |  [optional] |
+|**iconserver** | **String** |  |  [optional] |
+|**isAdFree** | **Boolean** |  |  [optional] |
+|**ispro** | **Boolean** |  |  [optional] |
+|**location** | **String** |  |  [optional] |
+|**noindexfollow** | **Boolean** |  |  [optional] |
+|**nsid** | **String** |  |  [optional] |
+|**pathAlias** | **String** |  |  [optional] |
+|**realname** | **String** |  |  [optional] |
+|**username** | **String** |  |  [optional] |
 
 
 
