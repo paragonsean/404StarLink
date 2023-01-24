@@ -1,6 +1,6 @@
 /*
- * Department of Empowerment of Persons with Disabilities
- * Department of Empowerment of Persons with Disabilities is issuing Unique Disability ID through DigiLocker. These can be pulled by beneficiaries into their DigiLocker accounts.
+ * National Institute of Electronics and Information Technology
+ * NIELIT, under Ministry of Electronics & IT (http://www.nielit.gov.in/) provides education and training in the area of Information, Electronics & Communication Technology. Certificates issued by NIELIT are made available in students' DigiLocker accounts.
  *
  * The version of the OpenAPI document: 3.0.0
  * 

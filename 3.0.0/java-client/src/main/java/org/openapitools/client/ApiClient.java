@@ -1,6 +1,6 @@
 /*
- * Department of Empowerment of Persons with Disabilities
- * Department of Empowerment of Persons with Disabilities is issuing Unique Disability ID through DigiLocker. These can be pulled by beneficiaries into their DigiLocker accounts.
+ * National Institute of Electronics and Information Technology
+ * NIELIT, under Ministry of Electronics & IT (http://www.nielit.gov.in/) provides education and training in the area of Information, Electronics & Communication Technology. Certificates issued by NIELIT are made available in students' DigiLocker accounts.
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -61,10 +61,10 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "https://apisetu.gov.in/swavlambancard/v3";
+    private String basePath = "https://apisetu.gov.in/neilit/v3";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://apisetu.gov.in/swavlambancard/v3",
+      "https://apisetu.gov.in/neilit/v3",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -160,7 +160,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://apisetu.gov.in/swavlambancard/v3
+     * @param basePath Base path of the URL (e.g https://apisetu.gov.in/neilit/v3
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
