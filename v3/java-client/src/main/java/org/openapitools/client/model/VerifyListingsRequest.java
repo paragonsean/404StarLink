@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Request message for VRPartnerListingVerificationService.VerifyPartnerListings.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:57.375310-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:47.882086-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class VerifyListingsRequest {
   public static final String SERIALIZED_NAME_XML_LISTING = "xmlListing";
   @SerializedName(SERIALIZED_NAME_XML_LISTING)

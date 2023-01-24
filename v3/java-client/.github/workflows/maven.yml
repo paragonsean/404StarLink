@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build Google Analytics API
+    name: Build Travel Partner API
     runs-on: ubuntu-latest
     strategy:
       matrix:

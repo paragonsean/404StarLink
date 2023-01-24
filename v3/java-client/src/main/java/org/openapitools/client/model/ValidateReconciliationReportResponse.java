@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Response message for ReconciliationReportService.ValidateReconciliationReport.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:57.375310-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:47.882086-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ValidateReconciliationReportResponse {
   public static final String SERIALIZED_NAME_ISSUES = "issues";
   @SerializedName(SERIALIZED_NAME_ISSUES)

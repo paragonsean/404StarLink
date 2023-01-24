@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A rating within a vacation rentals Listing. NEXT ID: 4
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:57.375310-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:47.882086-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Rating {
   public static final String SERIALIZED_NAME_RATING_SCALE = "ratingScale";
   @SerializedName(SERIALIZED_NAME_RATING_SCALE)

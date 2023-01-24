@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * An account link. Represents the link between a Google Ads customer and a Hotel Ads (Hotel Center) account. An account link defines the set of hotels under the Hotel Center account that is linked to the Google Ads customer.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:57.375310-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:47.882086-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AccountLink {
   public static final String SERIALIZED_NAME_ACCOUNT_LINK_TARGET = "accountLinkTarget";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_LINK_TARGET)

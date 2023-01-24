@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * Brand-level icon and display name configuration. Once approved, the icon and display name appear in the search results for properties that the partner has assigned to this brand.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:58:57.375310-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:47.882086-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Brand {
   public static final String SERIALIZED_NAME_ACTIVE_DISPLAY_NAMES = "activeDisplayNames";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DISPLAY_NAMES)
