@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * The reasons that contributed to the price missing count and the total count for each reason.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:00.307934-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:51.108833-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class PriceMissingCountDetails {
   public static final String SERIALIZED_NAME_BANDWIDTH_DEPLETED_COUNT = "bandwidthDepletedCount";
   @SerializedName(SERIALIZED_NAME_BANDWIDTH_DEPLETED_COUNT)

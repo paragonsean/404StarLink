@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Response message for PriceCoverageViewService.ListPriceCoverageViews.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:00.307934-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:51.108833-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ListPriceCoverageViewsResponse {
   public static final String SERIALIZED_NAME_PRICE_COVERAGE_VIEWS = "priceCoverageViews";
   @SerializedName(SERIALIZED_NAME_PRICE_COVERAGE_VIEWS)

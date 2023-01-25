@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Request message for HotelService.SetLiveOnGoogle.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:00.307934-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:51.108833-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SetLiveOnGoogleRequest {
   public static final String SERIALIZED_NAME_LIVE_ON_GOOGLE = "liveOnGoogle";
   @SerializedName(SERIALIZED_NAME_LIVE_ON_GOOGLE)

@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * A price accuracy row.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:00.307934-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:51.108833-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class PriceAccuracyRow {
   public static final String SERIALIZED_NAME_ADULT_OCCUPANCY = "adultOccupancy";
   @SerializedName(SERIALIZED_NAME_ADULT_OCCUPANCY)

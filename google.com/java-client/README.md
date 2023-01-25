@@ -2,7 +2,7 @@
 
 Travel Partner API
 - API version: v3
-  - Build date: 2024-10-11T01:59:00.307934-04:00[America/New_York]
+  - Build date: 2024-10-11T02:07:51.108833-04:00[America/New_York]
   - Generator version: 7.9.0
 
 The Travel Partner API provides you with a RESTful interface to the Google Hotel Center platform. It enables an app to efficiently retrieve and change Hotel Center data, and is thus suitable for managing large or complex accounts.
