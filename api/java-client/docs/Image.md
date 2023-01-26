@@ -2,15 +2,15 @@
 
 # Image
 
-This type contains information about a product image stored in eBay Picture Services (EPS).
+A single image in a VR Listing. Title and gallery URL are stored per locale. NEXT ID: 4
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**height** | **Integer** | The height of the image in pixels. |  [optional] |
-|**imageUrl** | **String** | The eBay Picture Services (EPS) URL of the image. |  [optional] |
-|**width** | **Integer** | The width of the image in pixels. |  [optional] |
+|**galleryUri** | [**List&lt;LocalizedText&gt;**](LocalizedText.md) | URL that is deeplink to the image in a gallery (or a webpage). |  [optional] |
+|**title** | [**List&lt;LocalizedText&gt;**](LocalizedText.md) | Title of the image. |  [optional] |
+|**uri** | **String** | URL that points to the binary image content directly. |  [optional] |
 
 
 

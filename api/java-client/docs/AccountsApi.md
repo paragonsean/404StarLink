@@ -1,39 +1,41 @@
 # AccountsApi
 
-All URIs are relative to *http://mastodon.local*
+All URIs are relative to *https://travelpartner.googleapis.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV1AccountsIdBlockPost**](AccountsApi.md#apiV1AccountsIdBlockPost) | **POST** /api/v1/accounts/{id}/block |  |
-| [**apiV1AccountsIdFeaturedTagsGet**](AccountsApi.md#apiV1AccountsIdFeaturedTagsGet) | **GET** /api/v1/accounts/{id}/featured_tags |  |
-| [**apiV1AccountsIdFollowPost**](AccountsApi.md#apiV1AccountsIdFollowPost) | **POST** /api/v1/accounts/{id}/follow |  |
-| [**apiV1AccountsIdFollowersGet**](AccountsApi.md#apiV1AccountsIdFollowersGet) | **GET** /api/v1/accounts/{id}/followers |  |
-| [**apiV1AccountsIdFollowingGet**](AccountsApi.md#apiV1AccountsIdFollowingGet) | **GET** /api/v1/accounts/{id}/following |  |
-| [**apiV1AccountsIdGet**](AccountsApi.md#apiV1AccountsIdGet) | **GET** /api/v1/accounts/{id} |  |
-| [**apiV1AccountsIdIdentityProofsGet**](AccountsApi.md#apiV1AccountsIdIdentityProofsGet) | **GET** /api/v1/accounts/{id}/identity_proofs |  |
-| [**apiV1AccountsIdListsGet**](AccountsApi.md#apiV1AccountsIdListsGet) | **GET** /api/v1/accounts/{id}/lists |  |
-| [**apiV1AccountsIdMutePost**](AccountsApi.md#apiV1AccountsIdMutePost) | **POST** /api/v1/accounts/{id}/mute |  |
-| [**apiV1AccountsIdNotePost**](AccountsApi.md#apiV1AccountsIdNotePost) | **POST** /api/v1/accounts/{id}/note |  |
-| [**apiV1AccountsIdPinPost**](AccountsApi.md#apiV1AccountsIdPinPost) | **POST** /api/v1/accounts/{id}/pin |  |
-| [**apiV1AccountsIdStatusesGet**](AccountsApi.md#apiV1AccountsIdStatusesGet) | **GET** /api/v1/accounts/{id}/statuses |  |
-| [**apiV1AccountsIdUnblockPost**](AccountsApi.md#apiV1AccountsIdUnblockPost) | **POST** /api/v1/accounts/{id}/unblock |  |
-| [**apiV1AccountsIdUnfollowPost**](AccountsApi.md#apiV1AccountsIdUnfollowPost) | **POST** /api/v1/accounts/{id}/unfollow |  |
-| [**apiV1AccountsIdUnmutePost**](AccountsApi.md#apiV1AccountsIdUnmutePost) | **POST** /api/v1/accounts/{id}/unmute |  |
-| [**apiV1AccountsIdUnpinPost**](AccountsApi.md#apiV1AccountsIdUnpinPost) | **POST** /api/v1/accounts/{id}/unpin |  |
-| [**apiV1AccountsPost_0**](AccountsApi.md#apiV1AccountsPost_0) | **POST** /api/v1/accounts |  |
-| [**apiV1AccountsRelationshipsGet**](AccountsApi.md#apiV1AccountsRelationshipsGet) | **GET** /api/v1/accounts/relationships |  |
-| [**apiV1AccountsSearchGet**](AccountsApi.md#apiV1AccountsSearchGet) | **GET** /api/v1/accounts/search |  |
-| [**apiV1AccountsUpdateCredentialsPatch**](AccountsApi.md#apiV1AccountsUpdateCredentialsPatch) | **PATCH** /api/v1/accounts/update_credentials |  |
-| [**apiV1AccountsVerifyCredentialsGet**](AccountsApi.md#apiV1AccountsVerifyCredentialsGet) | **GET** /api/v1/accounts/verify_credentials |  |
+| [**travelpartnerAccountsAccountLinksCreate**](AccountsApi.md#travelpartnerAccountsAccountLinksCreate) | **POST** /v3/{parent}/accountLinks |  |
+| [**travelpartnerAccountsAccountLinksDelete**](AccountsApi.md#travelpartnerAccountsAccountLinksDelete) | **DELETE** /v3/{name} |  |
+| [**travelpartnerAccountsAccountLinksList**](AccountsApi.md#travelpartnerAccountsAccountLinksList) | **GET** /v3/{parent}/accountLinks |  |
+| [**travelpartnerAccountsBrandsCreate**](AccountsApi.md#travelpartnerAccountsBrandsCreate) | **POST** /v3/{parent}/brands |  |
+| [**travelpartnerAccountsBrandsList**](AccountsApi.md#travelpartnerAccountsBrandsList) | **GET** /v3/{parent}/brands |  |
+| [**travelpartnerAccountsBrandsPatch**](AccountsApi.md#travelpartnerAccountsBrandsPatch) | **PATCH** /v3/{name} |  |
+| [**travelpartnerAccountsFreeBookingLinksReportViewsQuery**](AccountsApi.md#travelpartnerAccountsFreeBookingLinksReportViewsQuery) | **GET** /v3/{name}/freeBookingLinksReportViews:query |  |
+| [**travelpartnerAccountsHotelViewsList**](AccountsApi.md#travelpartnerAccountsHotelViewsList) | **GET** /v3/{parent}/hotelViews |  |
+| [**travelpartnerAccountsHotelViewsSummarize**](AccountsApi.md#travelpartnerAccountsHotelViewsSummarize) | **GET** /v3/{parent}/hotelViews:summarize |  |
+| [**travelpartnerAccountsHotelsSetLiveOnGoogle**](AccountsApi.md#travelpartnerAccountsHotelsSetLiveOnGoogle) | **POST** /v3/{account}/hotels:setLiveOnGoogle |  |
+| [**travelpartnerAccountsIconsCreate**](AccountsApi.md#travelpartnerAccountsIconsCreate) | **POST** /v3/{parent}/icons |  |
+| [**travelpartnerAccountsIconsList**](AccountsApi.md#travelpartnerAccountsIconsList) | **GET** /v3/{parent}/icons |  |
+| [**travelpartnerAccountsListingsVerify**](AccountsApi.md#travelpartnerAccountsListingsVerify) | **POST** /v3/{parent}/listings:verify |  |
+| [**travelpartnerAccountsParticipationReportViewsQuery**](AccountsApi.md#travelpartnerAccountsParticipationReportViewsQuery) | **GET** /v3/{name}/participationReportViews:query |  |
+| [**travelpartnerAccountsPriceAccuracyViewsList**](AccountsApi.md#travelpartnerAccountsPriceAccuracyViewsList) | **GET** /v3/{parent}/priceAccuracyViews |  |
+| [**travelpartnerAccountsPriceAccuracyViewsSummarize**](AccountsApi.md#travelpartnerAccountsPriceAccuracyViewsSummarize) | **GET** /v3/{parent}/priceAccuracyViews:summarize |  |
+| [**travelpartnerAccountsPriceCoverageViewsGetLatest**](AccountsApi.md#travelpartnerAccountsPriceCoverageViewsGetLatest) | **GET** /v3/{parent}/priceCoverageViews:latest |  |
+| [**travelpartnerAccountsPriceCoverageViewsList**](AccountsApi.md#travelpartnerAccountsPriceCoverageViewsList) | **GET** /v3/{parent}/priceCoverageViews |  |
+| [**travelpartnerAccountsPropertyPerformanceReportViewsQuery**](AccountsApi.md#travelpartnerAccountsPropertyPerformanceReportViewsQuery) | **GET** /v3/{name}/propertyPerformanceReportViews:query |  |
+| [**travelpartnerAccountsReconciliationReportsCreate**](AccountsApi.md#travelpartnerAccountsReconciliationReportsCreate) | **POST** /v3/{parent}/reconciliationReports |  |
+| [**travelpartnerAccountsReconciliationReportsGet**](AccountsApi.md#travelpartnerAccountsReconciliationReportsGet) | **GET** /v3/{name} |  |
+| [**travelpartnerAccountsReconciliationReportsList**](AccountsApi.md#travelpartnerAccountsReconciliationReportsList) | **GET** /v3/{parent}/reconciliationReports |  |
+| [**travelpartnerAccountsReconciliationReportsValidate**](AccountsApi.md#travelpartnerAccountsReconciliationReportsValidate) | **POST** /v3/{parent}/reconciliationReports:validate |  |
 
 
-<a id="apiV1AccountsIdBlockPost"></a>
-# **apiV1AccountsIdBlockPost**
-> Relationship apiV1AccountsIdBlockPost(id)
+<a id="travelpartnerAccountsAccountLinksCreate"></a>
+# **travelpartnerAccountsAccountLinksCreate**
+> AccountLink travelpartnerAccountsAccountLinksCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, accountLink)
 
 
 
-Block the given account. Clients should filter statuses from this account if received (e.g. due to a boost in the Home timeline).
+Creates a new account link between a Hotel Center account and a Google Ads account.
 
 ### Example
 ```java
@@ -41,26 +43,33 @@ Block the given account. Clients should filter statuses from this account if rec
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
+    String parent = "parent_example"; // String | The resource name of the Hotel Center account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    AccountLink accountLink = new AccountLink(); // AccountLink | 
     try {
-      Relationship result = apiInstance.apiV1AccountsIdBlockPost(id);
+      AccountLink result = apiInstance.travelpartnerAccountsAccountLinksCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, accountLink);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdBlockPost");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsAccountLinksCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -74,15 +83,111 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
+| **parent** | **String**| The resource name of the Hotel Center account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **accountLink** | [**AccountLink**](AccountLink.md)|  | [optional] |
 
 ### Return type
 
-[**Relationship**](Relationship.md)
+[**AccountLink**](AccountLink.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="travelpartnerAccountsAccountLinksDelete"></a>
+# **travelpartnerAccountsAccountLinksDelete**
+> Object travelpartnerAccountsAccountLinksDelete(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
+
+
+
+Deletes an account link.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AccountsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
+
+    AccountsApi apiInstance = new AccountsApi(defaultClient);
+    String name = "name_example"; // String | Required. The resource name of the account link being deleted. The format is `accounts/{account_id}/accountLinks/{account_link_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    try {
+      Object result = apiInstance.travelpartnerAccountsAccountLinksDelete(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsAccountLinksDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| Required. The resource name of the account link being deleted. The format is &#x60;accounts/{account_id}/accountLinks/{account_link_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -92,16 +197,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully blocked, or account was already blocked |  -  |
-| **401** | Invalid or missing Authorization header |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdFeaturedTagsGet"></a>
-# **apiV1AccountsIdFeaturedTagsGet**
-> List&lt;FeaturedTag&gt; apiV1AccountsIdFeaturedTagsGet(id)
-
+<a id="travelpartnerAccountsAccountLinksList"></a>
+# **travelpartnerAccountsAccountLinksList**
+> ListAccountLinksResponse travelpartnerAccountsAccountLinksList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
 
 
-Tags featured by this account.
+
+Returns the account links for a Hotel Center account.
 
 ### Example
 ```java
@@ -109,26 +213,32 @@ Tags featured by this account.
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
+    String parent = "parent_example"; // String | The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
     try {
-      List<FeaturedTag> result = apiInstance.apiV1AccountsIdFeaturedTagsGet(id);
+      ListAccountLinksResponse result = apiInstance.travelpartnerAccountsAccountLinksList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdFeaturedTagsGet");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsAccountLinksList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -142,15 +252,26 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
+| **parent** | **String**| The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
 
 ### Return type
 
-[**List&lt;FeaturedTag&gt;**](FeaturedTag.md)
+[**ListAccountLinksResponse**](ListAccountLinksResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -160,16 +281,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **401** | Invalid or missing Authorization header, or instance is in whitelist mode and your token is not authorized with a user |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdFollowPost"></a>
-# **apiV1AccountsIdFollowPost**
-> Relationship apiV1AccountsIdFollowPost(id, apiV1AccountsIdFollowPostRequest)
-
+<a id="travelpartnerAccountsBrandsCreate"></a>
+# **travelpartnerAccountsBrandsCreate**
+> Brand travelpartnerAccountsBrandsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, brandId, brand)
 
 
-Follow the given account. Can also be used to update whether to show reblogs or enable notifications.
+
+Creates a new brand. Because Google detects brands from your existing properties, you only need this operation when you want to configure a brand before you send its properties to Google. Note that it might take a couple of days after your listing feed first provides a brand for the brand to appear.
 
 ### Example
 ```java
@@ -177,27 +297,34 @@ Follow the given account. Can also be used to update whether to show reblogs or 
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
-    ApiV1AccountsIdFollowPostRequest apiV1AccountsIdFollowPostRequest = new ApiV1AccountsIdFollowPostRequest(); // ApiV1AccountsIdFollowPostRequest | 
+    String parent = "parent_example"; // String | Required. The resource name of the Hotel Center account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String brandId = "brandId_example"; // String | Required. The partner-determined brand identifier.
+    Brand brand = new Brand(); // Brand | 
     try {
-      Relationship result = apiInstance.apiV1AccountsIdFollowPost(id, apiV1AccountsIdFollowPostRequest);
+      Brand result = apiInstance.travelpartnerAccountsBrandsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, brandId, brand);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdFollowPost");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsBrandsCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -211,35 +338,46 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
-| **apiV1AccountsIdFollowPostRequest** | [**ApiV1AccountsIdFollowPostRequest**](ApiV1AccountsIdFollowPostRequest.md)|  | [optional] |
+| **parent** | **String**| Required. The resource name of the Hotel Center account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **brandId** | **String**| Required. The partner-determined brand identifier. | [optional] |
+| **brand** | [**Brand**](Brand.md)|  | [optional] |
 
 ### Return type
 
-[**Relationship**](Relationship.md)
+[**Brand**](Brand.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully followed, or account was already followed |  -  |
-| **403** | Trying to follow someone that you block or that blocks you |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdFollowersGet"></a>
-# **apiV1AccountsIdFollowersGet**
-> List&lt;Account&gt; apiV1AccountsIdFollowersGet(id, maxId, sinceId, limit)
-
+<a id="travelpartnerAccountsBrandsList"></a>
+# **travelpartnerAccountsBrandsList**
+> ListBrandsResponse travelpartnerAccountsBrandsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
 
 
-Accounts which follow the given account, if network is not hidden by the account owner.
+
+Returns the brands for a partner account.
 
 ### Example
 ```java
@@ -247,29 +385,32 @@ Accounts which follow the given account, if network is not hidden by the account
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
-    String maxId = "maxId_example"; // String | Internal parameter. Use HTTP `Link` header for pagination.
-    String sinceId = "sinceId_example"; // String | Internal parameter. Use HTTP `Link` header for pagination.
-    Integer limit = 40; // Integer | Maximum number of results to return. Defaults to 40.
+    String parent = "parent_example"; // String | Required. The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
     try {
-      List<Account> result = apiInstance.apiV1AccountsIdFollowersGet(id, maxId, sinceId, limit);
+      ListBrandsResponse result = apiInstance.travelpartnerAccountsBrandsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdFollowersGet");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsBrandsList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -283,18 +424,26 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
-| **maxId** | **String**| Internal parameter. Use HTTP &#x60;Link&#x60; header for pagination. | [optional] |
-| **sinceId** | **String**| Internal parameter. Use HTTP &#x60;Link&#x60; header for pagination. | [optional] |
-| **limit** | **Integer**| Maximum number of results to return. Defaults to 40. | [optional] [default to 40] |
+| **parent** | **String**| Required. The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
 
 ### Return type
 
-[**List&lt;Account&gt;**](Account.md)
+[**ListBrandsResponse**](ListBrandsResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -304,18 +453,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **401** | Invalid or missing Authorization header, or instance is in whitelist mode and your token is not authorized with a user |  -  |
-| **404** | Account is deleted or does not exist |  -  |
-| **410** | Account is suspended |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdFollowingGet"></a>
-# **apiV1AccountsIdFollowingGet**
-> List&lt;Account&gt; apiV1AccountsIdFollowingGet(id, maxId, sinceId, limit)
+<a id="travelpartnerAccountsBrandsPatch"></a>
+# **travelpartnerAccountsBrandsPatch**
+> Brand travelpartnerAccountsBrandsPatch(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, allowMissing, updateMask, brand)
 
 
 
-Accounts which the given account is following, if network is not hidden by the account owner.
+Updates a brand.
 
 ### Example
 ```java
@@ -323,29 +469,35 @@ Accounts which the given account is following, if network is not hidden by the a
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
-    String maxId = "maxId_example"; // String | Internal parameter. Use HTTP `Link` header for pagination.
-    String sinceId = "sinceId_example"; // String | Internal parameter. Use HTTP `Link` header for pagination.
-    Integer limit = 40; // Integer | Maximum number of results to return. Defaults to 40.
+    String name = "name_example"; // String | Output only. The resource name for the brand in the format `accounts/{account_id}/brands/{brand_id}`. The `brand_id` corresponds to the partner's brand identifier used for landing page matching and the property-level brand identifier. A default brand is applied to properties that do not have a brand. The `brand_id` of the default brand is `NO_BRAND_ID`. It can be fetched and updated like any configured brand.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    Boolean allowMissing = true; // Boolean | When true, and the Brand is not found, a new Brand will be created. In this situation, `update_mask` is ignored.
+    String updateMask = "updateMask_example"; // String | Required. The field to update. Only the `display_names` and `icon` fields can be updated. Use the syntax shown in the example URI below and provide the new value in the request body. Example request URI and request body: ``` PATCH https://travelpartner.googleapis.com/v3/accounts/123456789/ brands/my-brand?update_mask=brand.display_names ``` ``` { \"display_names\": [{ \"language\": \"en\" \"text\": \"Gilles' Gites\" }] } ``` The information above is sufficient for forming the URI and request body. The sentence below is auto-generated, supplemental information about the `FieldMask` format in general.
+    Brand brand = new Brand(); // Brand | 
     try {
-      List<Account> result = apiInstance.apiV1AccountsIdFollowingGet(id, maxId, sinceId, limit);
+      Brand result = apiInstance.travelpartnerAccountsBrandsPatch(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, allowMissing, updateMask, brand);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdFollowingGet");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsBrandsPatch");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -359,18 +511,121 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
-| **maxId** | **String**| Internal parameter. Use HTTP &#x60;Link&#x60; header for pagination. | [optional] |
-| **sinceId** | **String**| Internal parameter. Use HTTP &#x60;Link&#x60; header for pagination. | [optional] |
-| **limit** | **Integer**| Maximum number of results to return. Defaults to 40. | [optional] [default to 40] |
+| **name** | **String**| Output only. The resource name for the brand in the format &#x60;accounts/{account_id}/brands/{brand_id}&#x60;. The &#x60;brand_id&#x60; corresponds to the partner&#39;s brand identifier used for landing page matching and the property-level brand identifier. A default brand is applied to properties that do not have a brand. The &#x60;brand_id&#x60; of the default brand is &#x60;NO_BRAND_ID&#x60;. It can be fetched and updated like any configured brand. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **allowMissing** | **Boolean**| When true, and the Brand is not found, a new Brand will be created. In this situation, &#x60;update_mask&#x60; is ignored. | [optional] |
+| **updateMask** | **String**| Required. The field to update. Only the &#x60;display_names&#x60; and &#x60;icon&#x60; fields can be updated. Use the syntax shown in the example URI below and provide the new value in the request body. Example request URI and request body: &#x60;&#x60;&#x60; PATCH https://travelpartner.googleapis.com/v3/accounts/123456789/ brands/my-brand?update_mask&#x3D;brand.display_names &#x60;&#x60;&#x60; &#x60;&#x60;&#x60; { \&quot;display_names\&quot;: [{ \&quot;language\&quot;: \&quot;en\&quot; \&quot;text\&quot;: \&quot;Gilles&#39; Gites\&quot; }] } &#x60;&#x60;&#x60; The information above is sufficient for forming the URI and request body. The sentence below is auto-generated, supplemental information about the &#x60;FieldMask&#x60; format in general. | [optional] |
+| **brand** | [**Brand**](Brand.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;Account&gt;**](Account.md)
+[**Brand**](Brand.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="travelpartnerAccountsFreeBookingLinksReportViewsQuery"></a>
+# **travelpartnerAccountsFreeBookingLinksReportViewsQuery**
+> QueryFreeBookingLinksReportResponse travelpartnerAccountsFreeBookingLinksReportViewsQuery(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, aggregateBy, filter, pageSize, pageToken)
+
+
+
+**DEPRECATED:** Use PropertyPerformanceReportService.QueryPropertyPerformanceReport, which also has impression reporting, instead. Provides the ability to query (get, filter, and segment) a free booking links report for a specific account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AccountsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
+
+    AccountsApi apiInstance = new AccountsApi(defaultClient);
+    String name = "name_example"; // String | The resource name of the account being queried. Format: accounts/{account_id}
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String aggregateBy = "aggregateBy_example"; // String | Specifies how to segment the metrics returned by the query. For example, if `userRegionCode` is specified, the `freeBookingLinksResult` will provide metrics aggregated by user region. The string value is a comma-separated list of fields. Valid fields are: `date`, `userRegionCode`, `deviceType`, `partnerHotelId`, and `partnerHotelDisplayName`. Only fields specified here are included in the FreeBookingLinksResult.
+    String filter = "filter_example"; // String | The conditions (fields and expressions) used to filter the free booking link metrics for the account being queried. The syntax requires spaces surrounding the `in` operator. Otherwise, spaces can be omitted. Conditions can be joined using the `and` operator. The `date` field is required. All other fields are optional. The `date` field values are inclusive and must be in YYYY-MM-DD format. The earliest acceptable date is 2021-03-09; earlier date values will be coerced to 2021-03-09. Values for `partnerHotelDisplayName` are matched case-insensitively. Examples of valid conditions are as follows: * `date = '2021-12-03'` * `date between '2021-12-03' and '2021-12-08'` * `deviceType = 'TABLET'` * `deviceType in ('MOBILE', 'TABLET')` * `partnerHotelId = 'AAA'` * `partnerHotelId in ('AAA', 'BBB')` * `partnerHotelDisplayName = 'hotel A'` * `partnerHotelDisplayName in ('Hotel A', 'HOTEL b')` * `userRegionCode = 'US'` * `userRegionCode in ('US', 'CA')`
+    Integer pageSize = 56; // Integer | The maximum number of participation results to return. The service may return fewer than this value. If unspecified, at most 10,000 results will be returned. The maximum value is 10,000; values above 10,000 will be coerced to 10,000.
+    String pageToken = "pageToken_example"; // String | A page token, received from a previous QueryParticipationReport request. Provide this to receive the subsequent page. When paginating, all other parameters provided to QueryParticipationReport must match the call that provided the page token.
+    try {
+      QueryFreeBookingLinksReportResponse result = apiInstance.travelpartnerAccountsFreeBookingLinksReportViewsQuery(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, aggregateBy, filter, pageSize, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsFreeBookingLinksReportViewsQuery");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| The resource name of the account being queried. Format: accounts/{account_id} | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **aggregateBy** | **String**| Specifies how to segment the metrics returned by the query. For example, if &#x60;userRegionCode&#x60; is specified, the &#x60;freeBookingLinksResult&#x60; will provide metrics aggregated by user region. The string value is a comma-separated list of fields. Valid fields are: &#x60;date&#x60;, &#x60;userRegionCode&#x60;, &#x60;deviceType&#x60;, &#x60;partnerHotelId&#x60;, and &#x60;partnerHotelDisplayName&#x60;. Only fields specified here are included in the FreeBookingLinksResult. | [optional] |
+| **filter** | **String**| The conditions (fields and expressions) used to filter the free booking link metrics for the account being queried. The syntax requires spaces surrounding the &#x60;in&#x60; operator. Otherwise, spaces can be omitted. Conditions can be joined using the &#x60;and&#x60; operator. The &#x60;date&#x60; field is required. All other fields are optional. The &#x60;date&#x60; field values are inclusive and must be in YYYY-MM-DD format. The earliest acceptable date is 2021-03-09; earlier date values will be coerced to 2021-03-09. Values for &#x60;partnerHotelDisplayName&#x60; are matched case-insensitively. Examples of valid conditions are as follows: * &#x60;date &#x3D; &#39;2021-12-03&#39;&#x60; * &#x60;date between &#39;2021-12-03&#39; and &#39;2021-12-08&#39;&#x60; * &#x60;deviceType &#x3D; &#39;TABLET&#39;&#x60; * &#x60;deviceType in (&#39;MOBILE&#39;, &#39;TABLET&#39;)&#x60; * &#x60;partnerHotelId &#x3D; &#39;AAA&#39;&#x60; * &#x60;partnerHotelId in (&#39;AAA&#39;, &#39;BBB&#39;)&#x60; * &#x60;partnerHotelDisplayName &#x3D; &#39;hotel A&#39;&#x60; * &#x60;partnerHotelDisplayName in (&#39;Hotel A&#39;, &#39;HOTEL b&#39;)&#x60; * &#x60;userRegionCode &#x3D; &#39;US&#39;&#x60; * &#x60;userRegionCode in (&#39;US&#39;, &#39;CA&#39;)&#x60; | [optional] |
+| **pageSize** | **Integer**| The maximum number of participation results to return. The service may return fewer than this value. If unspecified, at most 10,000 results will be returned. The maximum value is 10,000; values above 10,000 will be coerced to 10,000. | [optional] |
+| **pageToken** | **String**| A page token, received from a previous QueryParticipationReport request. Provide this to receive the subsequent page. When paginating, all other parameters provided to QueryParticipationReport must match the call that provided the page token. | [optional] |
+
+### Return type
+
+[**QueryFreeBookingLinksReportResponse**](QueryFreeBookingLinksReportResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -380,16 +635,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **401** | Invalid or missing Authorization header, or instance is in whitelist mode and your token is not authorized with a user |  -  |
-| **404** | Account is deleted or does not exist |  -  |
-| **410** | Account is suspended |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdGet"></a>
-# **apiV1AccountsIdGet**
-> Account apiV1AccountsIdGet(id)
+<a id="travelpartnerAccountsHotelViewsList"></a>
+# **travelpartnerAccountsHotelViewsList**
+> ListHotelViewsResponse travelpartnerAccountsHotelViewsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken)
 
 
+
+Returns the list of hotel views.
 
 ### Example
 ```java
@@ -397,26 +651,35 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
+    String parent = "parent_example"; // String | The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String filter = "filter_example"; // String | Optional. The conditions (fields and expressions) used to filter HotelViews. The syntax requires spaces surrounding the `in` operator. Otherwise, spaces can be omitted. Conditions cannot be joined. The `hotelId` field can be used to select specific hotels. The `liveOnGoogle` field can select properties that Google shows, or properties that are omitted in google search results. The `matchStatus` field can be used to filter the list of HotelViews returned for the account. Examples of valid conditions and their syntax are as follows: * `hotelId = 'hotel_ABC'` * `hotelId in ('hotel_ABC', 'hotel_XYZ')` * `liveOnGoogle = 'TRUE'` * `liveOnGoogle = 'FALSE'` * `matchStatus = 'NOT_MATCHED'` * `matchStatus in ('NOT_MATCHED', 'MATCHED', 'MAP_OVERLAP')`
+    Integer pageSize = 56; // Integer | Number of elements to retrieve in a single page.
+    String pageToken = "pageToken_example"; // String | Token of the page to retrieve.
     try {
-      Account result = apiInstance.apiV1AccountsIdGet(id);
+      ListHotelViewsResponse result = apiInstance.travelpartnerAccountsHotelViewsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdGet");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsHotelViewsList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -430,15 +693,29 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
+| **parent** | **String**| The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **filter** | **String**| Optional. The conditions (fields and expressions) used to filter HotelViews. The syntax requires spaces surrounding the &#x60;in&#x60; operator. Otherwise, spaces can be omitted. Conditions cannot be joined. The &#x60;hotelId&#x60; field can be used to select specific hotels. The &#x60;liveOnGoogle&#x60; field can select properties that Google shows, or properties that are omitted in google search results. The &#x60;matchStatus&#x60; field can be used to filter the list of HotelViews returned for the account. Examples of valid conditions and their syntax are as follows: * &#x60;hotelId &#x3D; &#39;hotel_ABC&#39;&#x60; * &#x60;hotelId in (&#39;hotel_ABC&#39;, &#39;hotel_XYZ&#39;)&#x60; * &#x60;liveOnGoogle &#x3D; &#39;TRUE&#39;&#x60; * &#x60;liveOnGoogle &#x3D; &#39;FALSE&#39;&#x60; * &#x60;matchStatus &#x3D; &#39;NOT_MATCHED&#39;&#x60; * &#x60;matchStatus in (&#39;NOT_MATCHED&#39;, &#39;MATCHED&#39;, &#39;MAP_OVERLAP&#39;)&#x60; | [optional] |
+| **pageSize** | **Integer**| Number of elements to retrieve in a single page. | [optional] |
+| **pageToken** | **String**| Token of the page to retrieve. | [optional] |
 
 ### Return type
 
-[**Account**](Account.md)
+[**ListHotelViewsResponse**](ListHotelViewsResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -448,18 +725,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Account record will be returned. Note that &#x60;acct&#x60; of local users does not include the domain name. |  -  |
-| **401** | If the instance is in whitelist mode and the Authorization header is missing or invalid |  -  |
-| **404** | Account does not exist |  -  |
-| **410** | Account is suspended |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdIdentityProofsGet"></a>
-# **apiV1AccountsIdIdentityProofsGet**
-> List&lt;IdentityProof&gt; apiV1AccountsIdIdentityProofsGet(id)
+<a id="travelpartnerAccountsHotelViewsSummarize"></a>
+# **travelpartnerAccountsHotelViewsSummarize**
+> SummarizeHotelViewsResponse travelpartnerAccountsHotelViewsSummarize(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
 
 
 
-Array of IdentityProof
+Returns summarized information about hotels.
 
 ### Example
 ```java
@@ -467,26 +741,32 @@ Array of IdentityProof
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
+    String parent = "parent_example"; // String | The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
     try {
-      List<IdentityProof> result = apiInstance.apiV1AccountsIdIdentityProofsGet(id);
+      SummarizeHotelViewsResponse result = apiInstance.travelpartnerAccountsHotelViewsSummarize(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdIdentityProofsGet");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsHotelViewsSummarize");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -500,15 +780,26 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
+| **parent** | **String**| The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
 
 ### Return type
 
-[**List&lt;IdentityProof&gt;**](IdentityProof.md)
+[**SummarizeHotelViewsResponse**](SummarizeHotelViewsResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -518,18 +809,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **404** | Account is deleted or does not exist |  -  |
-| **410** | Account with given id is suspended |  -  |
-| **422** | Unprocessable Entity |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdListsGet"></a>
-# **apiV1AccountsIdListsGet**
-> List&lt;ModelList&gt; apiV1AccountsIdListsGet(id)
+<a id="travelpartnerAccountsHotelsSetLiveOnGoogle"></a>
+# **travelpartnerAccountsHotelsSetLiveOnGoogle**
+> SetLiveOnGoogleResponse travelpartnerAccountsHotelsSetLiveOnGoogle(account, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setLiveOnGoogleRequest)
 
 
 
-User lists that you have added this account to.
+Collection-level custom method to update the Live on Google status for multiple properties. Each call can turn on or off multiple hotels. To turn some hotels on and turn some hotels off, you will have to make multiple calls.
 
 ### Example
 ```java
@@ -537,26 +825,33 @@ User lists that you have added this account to.
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
+    String account = "account_example"; // String | Required. The resource name of the account. The format is accounts/{account_id}.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    SetLiveOnGoogleRequest setLiveOnGoogleRequest = new SetLiveOnGoogleRequest(); // SetLiveOnGoogleRequest | 
     try {
-      List<ModelList> result = apiInstance.apiV1AccountsIdListsGet(id);
+      SetLiveOnGoogleResponse result = apiInstance.travelpartnerAccountsHotelsSetLiveOnGoogle(account, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setLiveOnGoogleRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdListsGet");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsHotelsSetLiveOnGoogle");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -570,15 +865,197 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
+| **account** | **String**| Required. The resource name of the account. The format is accounts/{account_id}. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **setLiveOnGoogleRequest** | [**SetLiveOnGoogleRequest**](SetLiveOnGoogleRequest.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;ModelList&gt;**](ModelList.md)
+[**SetLiveOnGoogleResponse**](SetLiveOnGoogleResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="travelpartnerAccountsIconsCreate"></a>
+# **travelpartnerAccountsIconsCreate**
+> Icon travelpartnerAccountsIconsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, icon)
+
+
+
+Uploads a new icon and starts its review process. Generates an &#x60;icon_id&#x60; and includes it in the icon&#39;s resource name, which is the format &#x60;accounts/{account_id}/icons/{icon_id}&#x60; Returns HTTP status 400 and doesn&#39;t trigger the review process if the icon has any of these conditions: * Image is not in PNG format, or not convertible to PNG format. * Size less than 72 pixels * Size greater than 1200 pixels * Aspect ratio other than 1:1
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AccountsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
+
+    AccountsApi apiInstance = new AccountsApi(defaultClient);
+    String parent = "parent_example"; // String | Required. The resource name of the partner account owning the icon. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    Icon icon = new Icon(); // Icon | 
+    try {
+      Icon result = apiInstance.travelpartnerAccountsIconsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, icon);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsIconsCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **parent** | **String**| Required. The resource name of the partner account owning the icon. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **icon** | [**Icon**](Icon.md)|  | [optional] |
+
+### Return type
+
+[**Icon**](Icon.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="travelpartnerAccountsIconsList"></a>
+# **travelpartnerAccountsIconsList**
+> ListIconsResponse travelpartnerAccountsIconsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
+
+
+
+Returns the &#x60;Icon&#x60;s for a partner account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AccountsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
+
+    AccountsApi apiInstance = new AccountsApi(defaultClient);
+    String parent = "parent_example"; // String | Required. The resource name of the queried partner account. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    try {
+      ListIconsResponse result = apiInstance.travelpartnerAccountsIconsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsIconsList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **parent** | **String**| Required. The resource name of the queried partner account. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+
+### Return type
+
+[**ListIconsResponse**](ListIconsResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -588,18 +1065,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **401** | Invalid or missing Authorization header, or instance is in whitelist mode and your token is not authorized with a user |  -  |
-| **404** | Account is deleted or does not exist |  -  |
-| **410** | Account is suspended |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdMutePost"></a>
-# **apiV1AccountsIdMutePost**
-> Relationship apiV1AccountsIdMutePost(id, apiV1AccountsIdMutePostRequest)
+<a id="travelpartnerAccountsListingsVerify"></a>
+# **travelpartnerAccountsListingsVerify**
+> VerifyListingsResponse travelpartnerAccountsListingsVerify(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, verifyListingsRequest)
 
 
 
-Mute the given account. Clients should filter statuses and notifications from this account, if received (e.g. due to a boost in the Home timeline).
+returns verified listings with data issues and serving eligibilities
 
 ### Example
 ```java
@@ -607,27 +1081,33 @@ Mute the given account. Clients should filter statuses and notifications from th
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
-    ApiV1AccountsIdMutePostRequest apiV1AccountsIdMutePostRequest = new ApiV1AccountsIdMutePostRequest(); // ApiV1AccountsIdMutePostRequest | 
+    String parent = "parent_example"; // String | The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    VerifyListingsRequest verifyListingsRequest = new VerifyListingsRequest(); // VerifyListingsRequest | 
     try {
-      Relationship result = apiInstance.apiV1AccountsIdMutePost(id, apiV1AccountsIdMutePostRequest);
+      VerifyListingsResponse result = apiInstance.travelpartnerAccountsListingsVerify(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, verifyListingsRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdMutePost");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsListingsVerify");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -641,35 +1121,45 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
-| **apiV1AccountsIdMutePostRequest** | [**ApiV1AccountsIdMutePostRequest**](ApiV1AccountsIdMutePostRequest.md)|  | [optional] |
+| **parent** | **String**| The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **verifyListingsRequest** | [**VerifyListingsRequest**](VerifyListingsRequest.md)|  | [optional] |
 
 ### Return type
 
-[**Relationship**](Relationship.md)
+[**VerifyListingsResponse**](VerifyListingsResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully muted, or account was already muted. Note that you can call this API method again with notifications&#x3D;false to update the relationship so that only statuses are muted. |  -  |
-| **401** | Invalid or missing Authorization header |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdNotePost"></a>
-# **apiV1AccountsIdNotePost**
-> Relationship apiV1AccountsIdNotePost(id, apiV1AccountsIdNotePostRequest)
-
+<a id="travelpartnerAccountsParticipationReportViewsQuery"></a>
+# **travelpartnerAccountsParticipationReportViewsQuery**
+> QueryParticipationReportResponse travelpartnerAccountsParticipationReportViewsQuery(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, aggregateBy, filter, pageSize, pageToken)
 
 
-Sets a private note on a user.
+
+Provides the ability to query (get, filter, and segment) a participation report for a particular account.
 
 ### Example
 ```java
@@ -677,27 +1167,36 @@ Sets a private note on a user.
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
-    ApiV1AccountsIdNotePostRequest apiV1AccountsIdNotePostRequest = new ApiV1AccountsIdNotePostRequest(); // ApiV1AccountsIdNotePostRequest | 
+    String name = "name_example"; // String | The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String aggregateBy = "aggregateBy_example"; // String | Specifies how to segment the metrics returned by the query. For example, if `userRegionCode` is specified as the `aggregate_by` value, the `participationResult` will provide metrics aggregated by user region. The string value is a comma-separated list of fields. Valid fields are: `date`, `userRegionCode`, `deviceType`, `partnerHotelId`, `hotelRegionCode`, `advanceBookingWindow`, `lengthOfStayDays`, `checkinDate`, and `occupancy`. Fields that are not specified are not included in the ParticipationResult. Using an `aggregateBy` specification that produces a large number of rows will cause an error. This is especially true when aggregating by `partnerHotelId` or more than two fields. To reduce the possibiliy of an error, filter by `partnerHotelId` and `date` to only include a select number of hotels and dates. Accounts with a large number of hotels will need to further reduce data with more filtering.
+    String filter = "filter_example"; // String | The conditions (fields and expressions) used to filter the participation metrics for the account being queried. The syntax requires spaces surrounding the `in` operator. Otherwise, spaces can be omitted. Conditions can be joined using the `and` operator. The `date` field is required. All other fields are optional. Examples of valid conditions are as follows: * `advanceBookingWindow = 2` * `advanceBookingWindow >= 0` * `advanceBookingWindow <= 5` * `advanceBookingWindow between 1 and 5` * `checkinDate = '2020-10-01'` * `checkinDate >= '2020-10-01'` * `checkinDate <= '2020-10-01'` * `checkinDate between '2020-10-01' and '2020-10-05'` * `date = '2020-02-04'` * `date between '2020-02-04' and '2020-02-09'` * `deviceType = 'TABLET'` * `deviceType in ('MOBILE', 'TABLET')` * `hotelRegionCode = 'US'` * `hotelRegionCode in ('US', 'CA')` * `lengthOfStayDays = 2` * `lengthOfStayDays >= 0` * `lengthOfStayDays <= 5` * `lengthOfStayDays between 1 and 5` * `occupancy = 2` * `occupancy >= 0` * `occupancy <= 5` * `occupancy between 1 and 5` * `partnerHotelId = 'AAA'` * `partnerHotelId in ('AAA', 'BBB')` * `userRegionCode = 'US'` * `userRegionCode in ('US', 'CA')`
+    Integer pageSize = 56; // Integer | The maximum number of participation results to return. The service may return fewer than this value. If unspecified, at most 10,000 results will be returned. The maximum value is 10,000; values above 10,000 will be coerced to 10,000.
+    String pageToken = "pageToken_example"; // String | A page token, received from a previous QueryParticipationReport request. Provide this to receive the subsequent page. When paginating, all other parameters provided to QueryParticipationReport must match the call that provided the page token.
     try {
-      Relationship result = apiInstance.apiV1AccountsIdNotePost(id, apiV1AccountsIdNotePostRequest);
+      QueryParticipationReportResponse result = apiInstance.travelpartnerAccountsParticipationReportViewsQuery(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, aggregateBy, filter, pageSize, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdNotePost");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsParticipationReportViewsQuery");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -711,85 +1210,30 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
-| **apiV1AccountsIdNotePostRequest** | [**ApiV1AccountsIdNotePostRequest**](ApiV1AccountsIdNotePostRequest.md)|  | [optional] |
+| **name** | **String**| The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **aggregateBy** | **String**| Specifies how to segment the metrics returned by the query. For example, if &#x60;userRegionCode&#x60; is specified as the &#x60;aggregate_by&#x60; value, the &#x60;participationResult&#x60; will provide metrics aggregated by user region. The string value is a comma-separated list of fields. Valid fields are: &#x60;date&#x60;, &#x60;userRegionCode&#x60;, &#x60;deviceType&#x60;, &#x60;partnerHotelId&#x60;, &#x60;hotelRegionCode&#x60;, &#x60;advanceBookingWindow&#x60;, &#x60;lengthOfStayDays&#x60;, &#x60;checkinDate&#x60;, and &#x60;occupancy&#x60;. Fields that are not specified are not included in the ParticipationResult. Using an &#x60;aggregateBy&#x60; specification that produces a large number of rows will cause an error. This is especially true when aggregating by &#x60;partnerHotelId&#x60; or more than two fields. To reduce the possibiliy of an error, filter by &#x60;partnerHotelId&#x60; and &#x60;date&#x60; to only include a select number of hotels and dates. Accounts with a large number of hotels will need to further reduce data with more filtering. | [optional] |
+| **filter** | **String**| The conditions (fields and expressions) used to filter the participation metrics for the account being queried. The syntax requires spaces surrounding the &#x60;in&#x60; operator. Otherwise, spaces can be omitted. Conditions can be joined using the &#x60;and&#x60; operator. The &#x60;date&#x60; field is required. All other fields are optional. Examples of valid conditions are as follows: * &#x60;advanceBookingWindow &#x3D; 2&#x60; * &#x60;advanceBookingWindow &gt;&#x3D; 0&#x60; * &#x60;advanceBookingWindow &lt;&#x3D; 5&#x60; * &#x60;advanceBookingWindow between 1 and 5&#x60; * &#x60;checkinDate &#x3D; &#39;2020-10-01&#39;&#x60; * &#x60;checkinDate &gt;&#x3D; &#39;2020-10-01&#39;&#x60; * &#x60;checkinDate &lt;&#x3D; &#39;2020-10-01&#39;&#x60; * &#x60;checkinDate between &#39;2020-10-01&#39; and &#39;2020-10-05&#39;&#x60; * &#x60;date &#x3D; &#39;2020-02-04&#39;&#x60; * &#x60;date between &#39;2020-02-04&#39; and &#39;2020-02-09&#39;&#x60; * &#x60;deviceType &#x3D; &#39;TABLET&#39;&#x60; * &#x60;deviceType in (&#39;MOBILE&#39;, &#39;TABLET&#39;)&#x60; * &#x60;hotelRegionCode &#x3D; &#39;US&#39;&#x60; * &#x60;hotelRegionCode in (&#39;US&#39;, &#39;CA&#39;)&#x60; * &#x60;lengthOfStayDays &#x3D; 2&#x60; * &#x60;lengthOfStayDays &gt;&#x3D; 0&#x60; * &#x60;lengthOfStayDays &lt;&#x3D; 5&#x60; * &#x60;lengthOfStayDays between 1 and 5&#x60; * &#x60;occupancy &#x3D; 2&#x60; * &#x60;occupancy &gt;&#x3D; 0&#x60; * &#x60;occupancy &lt;&#x3D; 5&#x60; * &#x60;occupancy between 1 and 5&#x60; * &#x60;partnerHotelId &#x3D; &#39;AAA&#39;&#x60; * &#x60;partnerHotelId in (&#39;AAA&#39;, &#39;BBB&#39;)&#x60; * &#x60;userRegionCode &#x3D; &#39;US&#39;&#x60; * &#x60;userRegionCode in (&#39;US&#39;, &#39;CA&#39;)&#x60; | [optional] |
+| **pageSize** | **Integer**| The maximum number of participation results to return. The service may return fewer than this value. If unspecified, at most 10,000 results will be returned. The maximum value is 10,000; values above 10,000 will be coerced to 10,000. | [optional] |
+| **pageToken** | **String**| A page token, received from a previous QueryParticipationReport request. Provide this to receive the subsequent page. When paginating, all other parameters provided to QueryParticipationReport must match the call that provided the page token. | [optional] |
 
 ### Return type
 
-[**Relationship**](Relationship.md)
+[**QueryParticipationReportResponse**](QueryParticipationReportResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/form-data
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully unmuted, or account was already unmuted. |  -  |
-| **401** | Invalid or missing Authorization header |  -  |
-| **422** | Unprocessable Entity |  -  |
-
-<a id="apiV1AccountsIdPinPost"></a>
-# **apiV1AccountsIdPinPost**
-> Relationship apiV1AccountsIdPinPost(id)
-
-
-
-Add the given account to the user&#39;s featured profiles. (Featured profiles are currently shown on the user&#39;s own public profile.)
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.AccountsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
-    try {
-      Relationship result = apiInstance.apiV1AccountsIdPinPost(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdPinPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
-
-### Return type
-
-[**Relationship**](Relationship.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -799,19 +1243,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully unmuted, or account was already unmuted. |  -  |
-| **401** | Invalid or missing Authorization header |  -  |
-| **403** | Token is not authorized with a valid user or is missing a required scope |  -  |
-| **422** | You are not following this account |  -  |
-| **500** | Account already endorsed |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdStatusesGet"></a>
-# **apiV1AccountsIdStatusesGet**
-> List&lt;Status&gt; apiV1AccountsIdStatusesGet(id)
+<a id="travelpartnerAccountsPriceAccuracyViewsList"></a>
+# **travelpartnerAccountsPriceAccuracyViewsList**
+> ListPriceAccuracyViewsResponse travelpartnerAccountsPriceAccuracyViewsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
 
 
 
-Statuses posted to the given account.
+Lists the available price accuracy views.
 
 ### Example
 ```java
@@ -819,26 +1259,32 @@ Statuses posted to the given account.
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
+    String parent = "parent_example"; // String | The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
     try {
-      List<Status> result = apiInstance.apiV1AccountsIdStatusesGet(id);
+      ListPriceAccuracyViewsResponse result = apiInstance.travelpartnerAccountsPriceAccuracyViewsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdStatusesGet");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsPriceAccuracyViewsList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -852,15 +1298,26 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
+| **parent** | **String**| The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
 
 ### Return type
 
-[**List&lt;Status&gt;**](Status.md)
+[**ListPriceAccuracyViewsResponse**](ListPriceAccuracyViewsResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -870,18 +1327,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Statuses posted to the given account. Public (for public statuses only), or user token + read:statuses (for private statuses the user is authorized to see) |  -  |
-| **401** | Instance is in whitelist mode or running a version of Mastodon older than 2.7.0, and the Authorization header is invalid or missing |  -  |
-| **404** | Account is deleted or does not exist |  -  |
-| **410** | Account is suspended |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdUnblockPost"></a>
-# **apiV1AccountsIdUnblockPost**
-> Relationship apiV1AccountsIdUnblockPost(id)
+<a id="travelpartnerAccountsPriceAccuracyViewsSummarize"></a>
+# **travelpartnerAccountsPriceAccuracyViewsSummarize**
+> SummarizePriceAccuracyResponse travelpartnerAccountsPriceAccuracyViewsSummarize(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
 
 
 
-Block the given account. Clients should filter statuses from this account if received (e.g. due to a boost in the Home timeline).
+Returns the price accuracy summary.
 
 ### Example
 ```java
@@ -889,26 +1343,32 @@ Block the given account. Clients should filter statuses from this account if rec
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
+    String parent = "parent_example"; // String | The resource name of the account that is being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
     try {
-      Relationship result = apiInstance.apiV1AccountsIdUnblockPost(id);
+      SummarizePriceAccuracyResponse result = apiInstance.travelpartnerAccountsPriceAccuracyViewsSummarize(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdUnblockPost");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsPriceAccuracyViewsSummarize");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -922,15 +1382,26 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
+| **parent** | **String**| The resource name of the account that is being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
 
 ### Return type
 
-[**Relationship**](Relationship.md)
+[**SummarizePriceAccuracyResponse**](SummarizePriceAccuracyResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -940,16 +1411,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully unblocked, or account was already not blocked |  -  |
-| **401** | Invalid or missing Authorization header |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdUnfollowPost"></a>
-# **apiV1AccountsIdUnfollowPost**
-> Relationship apiV1AccountsIdUnfollowPost(id)
-
+<a id="travelpartnerAccountsPriceCoverageViewsGetLatest"></a>
+# **travelpartnerAccountsPriceCoverageViewsGetLatest**
+> PriceCoverageView travelpartnerAccountsPriceCoverageViewsGetLatest(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
 
 
-Unfollow the given account.
+
+Returns the latest price coverage view in full detail.
 
 ### Example
 ```java
@@ -957,26 +1427,32 @@ Unfollow the given account.
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
+    String parent = "parent_example"; // String | The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
     try {
-      Relationship result = apiInstance.apiV1AccountsIdUnfollowPost(id);
+      PriceCoverageView result = apiInstance.travelpartnerAccountsPriceCoverageViewsGetLatest(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdUnfollowPost");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsPriceCoverageViewsGetLatest");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -990,15 +1466,26 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
+| **parent** | **String**| The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
 
 ### Return type
 
-[**Relationship**](Relationship.md)
+[**PriceCoverageView**](PriceCoverageView.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1008,16 +1495,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully unfollowed, or account was already not followed |  -  |
-| **401** | Invalid or missing Authorization header |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdUnmutePost"></a>
-# **apiV1AccountsIdUnmutePost**
-> Relationship apiV1AccountsIdUnmutePost(id)
-
+<a id="travelpartnerAccountsPriceCoverageViewsList"></a>
+# **travelpartnerAccountsPriceCoverageViewsList**
+> ListPriceCoverageViewsResponse travelpartnerAccountsPriceCoverageViewsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
 
 
-Unmute the given account.
+
+Returns the entire price coverage history.
 
 ### Example
 ```java
@@ -1025,26 +1511,32 @@ Unmute the given account.
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
+    String parent = "parent_example"; // String | The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
     try {
-      Relationship result = apiInstance.apiV1AccountsIdUnmutePost(id);
+      ListPriceCoverageViewsResponse result = apiInstance.travelpartnerAccountsPriceCoverageViewsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdUnmutePost");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsPriceCoverageViewsList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1058,15 +1550,26 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
+| **parent** | **String**| The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
 
 ### Return type
 
-[**Relationship**](Relationship.md)
+[**ListPriceCoverageViewsResponse**](ListPriceCoverageViewsResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1076,16 +1579,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully unmuted, or account was already unmuted. |  -  |
-| **401** | Invalid or missing Authorization header |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsIdUnpinPost"></a>
-# **apiV1AccountsIdUnpinPost**
-> Relationship apiV1AccountsIdUnpinPost(id)
-
+<a id="travelpartnerAccountsPropertyPerformanceReportViewsQuery"></a>
+# **travelpartnerAccountsPropertyPerformanceReportViewsQuery**
+> QueryPropertyPerformanceReportResponse travelpartnerAccountsPropertyPerformanceReportViewsQuery(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, aggregateBy, filter, pageSize, pageToken)
 
 
-Remove the given account from the user&#39;s featured profiles.
+
+Provides the ability to query (get, filter, and segment) a property performance links report for a specific account.
 
 ### Example
 ```java
@@ -1093,26 +1595,36 @@ Remove the given account from the user&#39;s featured profiles.
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String id = "id_example"; // String | The id of the account in the database
+    String name = "name_example"; // String | The resource name of the account being queried. Format: accounts/{account_id}
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String aggregateBy = "aggregateBy_example"; // String | Specifies how to segment the metrics returned by the query. For example, if `userRegionCode` is specified, the `PropertyPerformanceResult` will provide metrics aggregated by user region. The string value is a comma-separated list of fields. Valid fields are: `advanceBookingWindow`, `brand`, `date`, `deviceType`, `highIntentUsers`, `lengthOfStay`, `propertyRegionCode`, `occupancy`, `partnerPropertyId`, `partnerPropertyDisplayName`, and `userRegionCode`. Only fields specified here are included in the PropertyPerformanceResult.
+    String filter = "filter_example"; // String | The conditions (fields and expressions) used to filter the property performance metrics for the account being queried. The syntax requires spaces surrounding the `in` operator. Otherwise, spaces can be omitted. Conditions can be joined using the `and` operator. The `date` field is required. All other fields are optional. The `date` field values are inclusive and must be in YYYY-MM-DD format. The earliest acceptable date is 2021-03-09; earlier date values will be coerced to 2021-03-09. Values for `partnerPropertyDisplayName` and `brand` are matched case-insensitively. Examples of valid conditions are as follows: * `advanceBookingWindow = 'ADVANCE_BOOKING_WINDOW_SAME_DAY'` * `advanceBookingWindow in ('ADVANCE_BOOKING_WINDOW_SAME_DAY', 'ADVANCE_BOOKING_WINDOW_DAYS_61_TO_90')` * `brand = 'Brand A'` * `brand in ('Brand A', 'brand B')` * `date = '2021-12-03'` * `date between '2021-12-03' and '2021-12-08'` * `deviceType = 'TABLET'` * `deviceType in ('MOBILE', 'TABLET')` * `highIntentUsers = 'TRUE'` * `highIntentUsers = 'FALSE'` * `lengthOfStay = 'LENGTH_OF_STAY_NIGHTS_2'` * `lengthOfStay in ('LENGTH_OF_STAY_NIGHTS_2', 'LENGTH_OF_STAY_NIGHTS_4_TO_7')` * `propertyRegionCode = 'US'` * `propertyRegionCode in ('US', 'CA')` * `occupancy = 'OCCUPANCY_2'` * `occupancy in ('OCCUPANCY_2', 'OCCUPANCY_OVER_4')` * `partnerPropertyId = 'AAA'` * `partnerPropertyId in ('AAA', 'BBB')` * `partnerPropertyDisplayName = 'hotel A'` * `partnerPropertyDisplayName in ('Hotel A', 'HOTEL b')` * `userRegionCode = 'US'` * `userRegionCode in ('US', 'CA')`
+    Integer pageSize = 56; // Integer | The maximum number of participation results to return. The service may return fewer than this value. If unspecified, at most 10,000 results will be returned. The maximum value is 10,000; values above 10,000 will be coerced to 10,000.
+    String pageToken = "pageToken_example"; // String | A page token, received from a previous QueryParticipationReport request. Provide this to receive the subsequent page. When paginating, all other parameters provided to QueryParticipationReport must match the call that provided the page token.
     try {
-      Relationship result = apiInstance.apiV1AccountsIdUnpinPost(id);
+      QueryPropertyPerformanceReportResponse result = apiInstance.travelpartnerAccountsPropertyPerformanceReportViewsQuery(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, aggregateBy, filter, pageSize, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsIdUnpinPost");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsPropertyPerformanceReportViewsQuery");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1126,15 +1638,30 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The id of the account in the database | |
+| **name** | **String**| The resource name of the account being queried. Format: accounts/{account_id} | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **aggregateBy** | **String**| Specifies how to segment the metrics returned by the query. For example, if &#x60;userRegionCode&#x60; is specified, the &#x60;PropertyPerformanceResult&#x60; will provide metrics aggregated by user region. The string value is a comma-separated list of fields. Valid fields are: &#x60;advanceBookingWindow&#x60;, &#x60;brand&#x60;, &#x60;date&#x60;, &#x60;deviceType&#x60;, &#x60;highIntentUsers&#x60;, &#x60;lengthOfStay&#x60;, &#x60;propertyRegionCode&#x60;, &#x60;occupancy&#x60;, &#x60;partnerPropertyId&#x60;, &#x60;partnerPropertyDisplayName&#x60;, and &#x60;userRegionCode&#x60;. Only fields specified here are included in the PropertyPerformanceResult. | [optional] |
+| **filter** | **String**| The conditions (fields and expressions) used to filter the property performance metrics for the account being queried. The syntax requires spaces surrounding the &#x60;in&#x60; operator. Otherwise, spaces can be omitted. Conditions can be joined using the &#x60;and&#x60; operator. The &#x60;date&#x60; field is required. All other fields are optional. The &#x60;date&#x60; field values are inclusive and must be in YYYY-MM-DD format. The earliest acceptable date is 2021-03-09; earlier date values will be coerced to 2021-03-09. Values for &#x60;partnerPropertyDisplayName&#x60; and &#x60;brand&#x60; are matched case-insensitively. Examples of valid conditions are as follows: * &#x60;advanceBookingWindow &#x3D; &#39;ADVANCE_BOOKING_WINDOW_SAME_DAY&#39;&#x60; * &#x60;advanceBookingWindow in (&#39;ADVANCE_BOOKING_WINDOW_SAME_DAY&#39;, &#39;ADVANCE_BOOKING_WINDOW_DAYS_61_TO_90&#39;)&#x60; * &#x60;brand &#x3D; &#39;Brand A&#39;&#x60; * &#x60;brand in (&#39;Brand A&#39;, &#39;brand B&#39;)&#x60; * &#x60;date &#x3D; &#39;2021-12-03&#39;&#x60; * &#x60;date between &#39;2021-12-03&#39; and &#39;2021-12-08&#39;&#x60; * &#x60;deviceType &#x3D; &#39;TABLET&#39;&#x60; * &#x60;deviceType in (&#39;MOBILE&#39;, &#39;TABLET&#39;)&#x60; * &#x60;highIntentUsers &#x3D; &#39;TRUE&#39;&#x60; * &#x60;highIntentUsers &#x3D; &#39;FALSE&#39;&#x60; * &#x60;lengthOfStay &#x3D; &#39;LENGTH_OF_STAY_NIGHTS_2&#39;&#x60; * &#x60;lengthOfStay in (&#39;LENGTH_OF_STAY_NIGHTS_2&#39;, &#39;LENGTH_OF_STAY_NIGHTS_4_TO_7&#39;)&#x60; * &#x60;propertyRegionCode &#x3D; &#39;US&#39;&#x60; * &#x60;propertyRegionCode in (&#39;US&#39;, &#39;CA&#39;)&#x60; * &#x60;occupancy &#x3D; &#39;OCCUPANCY_2&#39;&#x60; * &#x60;occupancy in (&#39;OCCUPANCY_2&#39;, &#39;OCCUPANCY_OVER_4&#39;)&#x60; * &#x60;partnerPropertyId &#x3D; &#39;AAA&#39;&#x60; * &#x60;partnerPropertyId in (&#39;AAA&#39;, &#39;BBB&#39;)&#x60; * &#x60;partnerPropertyDisplayName &#x3D; &#39;hotel A&#39;&#x60; * &#x60;partnerPropertyDisplayName in (&#39;Hotel A&#39;, &#39;HOTEL b&#39;)&#x60; * &#x60;userRegionCode &#x3D; &#39;US&#39;&#x60; * &#x60;userRegionCode in (&#39;US&#39;, &#39;CA&#39;)&#x60; | [optional] |
+| **pageSize** | **Integer**| The maximum number of participation results to return. The service may return fewer than this value. If unspecified, at most 10,000 results will be returned. The maximum value is 10,000; values above 10,000 will be coerced to 10,000. | [optional] |
+| **pageToken** | **String**| A page token, received from a previous QueryParticipationReport request. Provide this to receive the subsequent page. When paginating, all other parameters provided to QueryParticipationReport must match the call that provided the page token. | [optional] |
 
 ### Return type
 
-[**Relationship**](Relationship.md)
+[**QueryPropertyPerformanceReportResponse**](QueryPropertyPerformanceReportResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1144,17 +1671,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully unmuted, or account was already unmuted. |  -  |
-| **401** | Invalid or missing Authorization header |  -  |
-| **422** | Unprocessable Entity |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsPost_0"></a>
-# **apiV1AccountsPost_0**
-> apiV1AccountsPost_0(apiV1AccountsPostRequest)
+<a id="travelpartnerAccountsReconciliationReportsCreate"></a>
+# **travelpartnerAccountsReconciliationReportsCreate**
+> CreateReconciliationReportResponse travelpartnerAccountsReconciliationReportsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, reconciliationReport)
 
 
 
-Creates a user and account records. Returns an account access token for the app that initiated the request. The app should save this token for later, and should wait for the user to confirm their account by clicking a link in their email inbox.
+Creates a reconciliation report and uploads it to Google.
 
 ### Example
 ```java
@@ -1162,25 +1687,33 @@ Creates a user and account records. Returns an account access token for the app 
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    ApiV1AccountsPostRequest apiV1AccountsPostRequest = new ApiV1AccountsPostRequest(); // ApiV1AccountsPostRequest | 
+    String parent = "parent_example"; // String | The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    ReconciliationReport reconciliationReport = new ReconciliationReport(); // ReconciliationReport | 
     try {
-      apiInstance.apiV1AccountsPost_0(apiV1AccountsPostRequest);
+      CreateReconciliationReportResponse result = apiInstance.travelpartnerAccountsReconciliationReportsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, reconciliationReport);
+      System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsPost_0");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsReconciliationReportsCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1194,34 +1727,45 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV1AccountsPostRequest** | [**ApiV1AccountsPostRequest**](ApiV1AccountsPostRequest.md)|  | [optional] |
+| **parent** | **String**| The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **reconciliationReport** | [**ReconciliationReport**](ReconciliationReport.md)|  | [optional] |
 
 ### Return type
 
-null (empty response body)
+[**CreateReconciliationReportResponse**](CreateReconciliationReportResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/form-data
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsRelationshipsGet"></a>
-# **apiV1AccountsRelationshipsGet**
-> List&lt;Relationship&gt; apiV1AccountsRelationshipsGet(id)
-
+<a id="travelpartnerAccountsReconciliationReportsGet"></a>
+# **travelpartnerAccountsReconciliationReportsGet**
+> ReconciliationReport travelpartnerAccountsReconciliationReportsGet(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, includeMatchedPrices, includeNonScoring, includePixels)
 
 
-Sets a private note on a user.
+
+Returns a reconciliation report.
 
 ### Example
 ```java
@@ -1229,26 +1773,35 @@ Sets a private note on a user.
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    List<String> id = Arrays.asList(); // List<String> | Array of account IDs to check
+    String name = "name_example"; // String | The resource name of the reconciliation report to fetch. The format is `accounts/{account_id}/reconciliationReports/{datetime}~{filename}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    Boolean includeMatchedPrices = true; // Boolean | Set to true if matched prices are to be added into the report.
+    Boolean includeNonScoring = true; // Boolean | Set to true if non-account impacting rows are to be added into the report.
+    Boolean includePixels = true; // Boolean | Set to true if pixel signals are to be added into the report.
     try {
-      List<Relationship> result = apiInstance.apiV1AccountsRelationshipsGet(id);
+      ReconciliationReport result = apiInstance.travelpartnerAccountsReconciliationReportsGet(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, includeMatchedPrices, includeNonScoring, includePixels);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsRelationshipsGet");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsReconciliationReportsGet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1262,15 +1815,29 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | [**List&lt;String&gt;**](String.md)| Array of account IDs to check | |
+| **name** | **String**| The resource name of the reconciliation report to fetch. The format is &#x60;accounts/{account_id}/reconciliationReports/{datetime}~{filename}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **includeMatchedPrices** | **Boolean**| Set to true if matched prices are to be added into the report. | [optional] |
+| **includeNonScoring** | **Boolean**| Set to true if non-account impacting rows are to be added into the report. | [optional] |
+| **includePixels** | **Boolean**| Set to true if pixel signals are to be added into the report. | [optional] |
 
 ### Return type
 
-[**List&lt;Relationship&gt;**](Relationship.md)
+[**ReconciliationReport**](ReconciliationReport.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1280,17 +1847,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
-| **401** | Invalid or missing Authorization header |  -  |
-| **422** | Unprocessable Entity |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsSearchGet"></a>
-# **apiV1AccountsSearchGet**
-> List&lt;Account&gt; apiV1AccountsSearchGet(q, limit, resolve, following)
+<a id="travelpartnerAccountsReconciliationReportsList"></a>
+# **travelpartnerAccountsReconciliationReportsList**
+> ListReconciliationReportsResponse travelpartnerAccountsReconciliationReportsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, endDate, startDate)
 
 
 
-Search for matching accounts by username or display name.
+Returns a list of the names of created reconciliation reports.
 
 ### Example
 ```java
@@ -1298,29 +1863,34 @@ Search for matching accounts by username or display name.
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String q = "q_example"; // String | What to search for
-    Integer limit = 40; // Integer | Maximum number of results. Defaults to 40.
-    String resolve = "resolve_example"; // String | Attempt WebFinger lookup. Defaults to false. Use this when `q` is an exact address.
-    Boolean following = true; // Boolean | Only who the user is following. Defaults to false.
+    String parent = "parent_example"; // String | The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String endDate = "endDate_example"; // String | End of date range to fetch files for. Format is yyyy-mm-dd[THH[:MM[:SS]]]. If empty, reports until the end of time are fetched.
+    String startDate = "startDate_example"; // String | Beginning of date range to fetch files for. Format is yyyy-MM-dd[THH[:mm[:SS]]]. If empty, reports from the beginning of time onwards are fetched.
     try {
-      List<Account> result = apiInstance.apiV1AccountsSearchGet(q, limit, resolve, following);
+      ListReconciliationReportsResponse result = apiInstance.travelpartnerAccountsReconciliationReportsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, endDate, startDate);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsSearchGet");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsReconciliationReportsList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1334,18 +1904,28 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **q** | **String**| What to search for | |
-| **limit** | **Integer**| Maximum number of results. Defaults to 40. | [optional] [default to 40] |
-| **resolve** | **String**| Attempt WebFinger lookup. Defaults to false. Use this when &#x60;q&#x60; is an exact address. | [optional] |
-| **following** | **Boolean**| Only who the user is following. Defaults to false. | [optional] |
+| **parent** | **String**| The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **endDate** | **String**| End of date range to fetch files for. Format is yyyy-mm-dd[THH[:MM[:SS]]]. If empty, reports until the end of time are fetched. | [optional] |
+| **startDate** | **String**| Beginning of date range to fetch files for. Format is yyyy-MM-dd[THH[:mm[:SS]]]. If empty, reports from the beginning of time onwards are fetched. | [optional] |
 
 ### Return type
 
-[**List&lt;Account&gt;**](Account.md)
+[**ListReconciliationReportsResponse**](ListReconciliationReportsResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1355,16 +1935,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Accounts matching &#x60;q&#x60; in username or display name |  -  |
-| **503** | resolve&#x3D;true, but the domain part of the user@domain address is not a currently live website |  -  |
+| **200** | Successful response |  -  |
 
-<a id="apiV1AccountsUpdateCredentialsPatch"></a>
-# **apiV1AccountsUpdateCredentialsPatch**
-> Account apiV1AccountsUpdateCredentialsPatch(apiV1AccountsUpdateCredentialsPatchRequest)
-
+<a id="travelpartnerAccountsReconciliationReportsValidate"></a>
+# **travelpartnerAccountsReconciliationReportsValidate**
+> ValidateReconciliationReportResponse travelpartnerAccountsReconciliationReportsValidate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, reconciliationReport)
 
 
-Update the user&#39;s display and preferences.
+
+Validates a reconciliation report.
 
 ### Example
 ```java
@@ -1372,26 +1951,33 @@ Update the user&#39;s display and preferences.
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AccountsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
+    defaultClient.setBasePath("https://travelpartner.googleapis.com");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
-    ApiV1AccountsUpdateCredentialsPatchRequest apiV1AccountsUpdateCredentialsPatchRequest = new ApiV1AccountsUpdateCredentialsPatchRequest(); // ApiV1AccountsUpdateCredentialsPatchRequest | 
+    String parent = "parent_example"; // String | The resource name of the account being queried. The format is `accounts/{account_id}`.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    ReconciliationReport reconciliationReport = new ReconciliationReport(); // ReconciliationReport | 
     try {
-      Account result = apiInstance.apiV1AccountsUpdateCredentialsPatch(apiV1AccountsUpdateCredentialsPatchRequest);
+      ValidateReconciliationReportResponse result = apiInstance.travelpartnerAccountsReconciliationReportsValidate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, reconciliationReport);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsUpdateCredentialsPatch");
+      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsReconciliationReportsValidate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1405,89 +1991,35 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV1AccountsUpdateCredentialsPatchRequest** | [**ApiV1AccountsUpdateCredentialsPatchRequest**](ApiV1AccountsUpdateCredentialsPatchRequest.md)|  | [optional] |
+| **parent** | **String**| The resource name of the account being queried. The format is &#x60;accounts/{account_id}&#x60;. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **reconciliationReport** | [**ReconciliationReport**](ReconciliationReport.md)|  | [optional] |
 
 ### Return type
 
-[**Account**](Account.md)
+[**ValidateReconciliationReportResponse**](ValidateReconciliationReportResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | You should use &#x60;accounts/verify_credentials&#x60; to first obtain plaintext representations from within the &#x60;source&#x60; parameter, then allow the user to edit these plaintext representations before submitting them through this API. The server will generate the corresponding HTML. |  -  |
-| **401** | Unauthorized |  -  |
-
-<a id="apiV1AccountsVerifyCredentialsGet"></a>
-# **apiV1AccountsVerifyCredentialsGet**
-> Account apiV1AccountsVerifyCredentialsGet()
-
-
-
-Test to make sure that the user token works.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.AccountsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://mastodon.local");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AccountsApi apiInstance = new AccountsApi(defaultClient);
-    try {
-      Account result = apiInstance.apiV1AccountsVerifyCredentialsGet();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#apiV1AccountsVerifyCredentialsGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Account**](Account.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Note the extra &#x60;source&#x60; property, which is not visible on accounts other than your own. Also note that plain-text is used within &#x60;source&#x60; and HTML is used for their corresponding properties such as &#x60;note&#x60; and &#x60;fields&#x60;. |  -  |
-| **401** | Your credential verification will fail if the token is invalid or incorrect. |  -  |
-| **403** | Your user account is currently disabled, missing a confirmed email address, or pending approval. |  -  |
+| **200** | Successful response |  -  |
 
