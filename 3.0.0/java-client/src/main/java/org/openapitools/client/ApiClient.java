@@ -1,6 +1,6 @@
 /*
- * National Institute of Electronics and Information Technology
- * NIELIT, under Ministry of Electronics & IT (http://www.nielit.gov.in/) provides education and training in the area of Information, Electronics & Communication Technology. Certificates issued by NIELIT are made available in students' DigiLocker accounts.
+ * Maharashtra State Board of Secondary and Higher Secondary Education, Maharashtra
+ * Class X and XII marksheets and passing certificates of Maharashtra State Board of Secondary and Higher Secondary Education (https://mahahsscboard.maharashtra.gov.in/) are available in DigiLocker for years 1990 to 2017.
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -61,10 +61,10 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "https://apisetu.gov.in/neilit/v3";
+    private String basePath = "https://apisetu.gov.in/hsscboardmh/v3";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://apisetu.gov.in/neilit/v3",
+      "https://apisetu.gov.in/hsscboardmh/v3",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -160,7 +160,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://apisetu.gov.in/neilit/v3
+     * @param basePath Base path of the URL (e.g https://apisetu.gov.in/hsscboardmh/v3
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
