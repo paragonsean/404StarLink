@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * In case of multi-dimensional data (such as an accelerometer with x, y, and z axes) each field represents one dimension. Each data type field has a unique name which identifies it. The field also defines the format of the data (int, float, etc.). This message is only instantiated in code and not used for wire comms or stored in any way.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:03.273138-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:57.575543-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DataTypeField {
   /**
    * The different supported formats for each field in a data type.

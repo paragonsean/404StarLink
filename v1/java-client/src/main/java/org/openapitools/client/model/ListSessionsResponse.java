@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ListSessionsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:03.273138-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:57.575543-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ListSessionsResponse {
   public static final String SERIALIZED_NAME_DELETED_SESSION = "deletedSession";
   @SerializedName(SERIALIZED_NAME_DELETED_SESSION)

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Holder object for the value of a single field in a data point. A field value has a particular format and is only ever set to one of an integer or a floating point value.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:03.273138-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:57.575543-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Value {
   public static final String SERIALIZED_NAME_FP_VAL = "fpVal";
   @SerializedName(SERIALIZED_NAME_FP_VAL)
