@@ -1,6 +1,6 @@
 /*
- * Cloud IDS API
- * Cloud IDS (Cloud Intrusion Detection System) detects malware, spyware, command-and-control attacks, and other network-based threats. Its security efficacy is industry leading, built with Palo Alto Networks technologies. When you use this product, your organization name and consumption levels will be shared with Palo Alto Networks.
+ * Storage Transfer API
+ * Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. 
  *
  * The version of the OpenAPI document: v1
  * 
@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * This resource represents a long-running operation that is the result of a network API call.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:21.034915-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:04.262691-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Operation {
   public static final String SERIALIZED_NAME_DONE = "done";
   @SerializedName(SERIALIZED_NAME_DONE)
@@ -128,7 +128,7 @@ public class Operation {
   }
 
   /**
-   * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+   * Represents the transfer operation object. To request a TransferOperation object, use transferOperations.get.
    * @return metadata
    */
   @javax.annotation.Nullable
@@ -147,7 +147,7 @@ public class Operation {
   }
 
   /**
-   * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the &#x60;name&#x60; should be a resource name ending with &#x60;operations/{unique_id}&#x60;.
+   * The server-assigned unique name. The format of &#x60;name&#x60; is &#x60;transferOperations/some/unique/name&#x60;.
    * @return name
    */
   @javax.annotation.Nullable

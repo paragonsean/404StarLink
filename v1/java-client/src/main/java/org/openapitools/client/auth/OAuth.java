@@ -1,6 +1,6 @@
 /*
- * Cloud IDS API
- * Cloud IDS (Cloud Intrusion Detection System) detects malware, spyware, command-and-control attacks, and other network-based threats. Its security efficacy is industry leading, built with Palo Alto Networks technologies. When you use this product, your organization name and consumption levels will be shared with Palo Alto Networks.
+ * Storage Transfer API
+ * Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. 
  *
  * The version of the OpenAPI document: v1
  * 
@@ -20,7 +20,7 @@ import java.net.URI;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:21.034915-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:04.262691-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class OAuth implements Authentication {
   private String accessToken;
 

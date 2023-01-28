@@ -17,7 +17,7 @@
     <licenses>
         <license>
             <name>Unlicense</name>
-            <url>http://creativecommons.org/licenses/by-nc-sa/4.0/</url>
+            <url>http://creativecommons.org/licenses/by/3.0/</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -283,6 +283,11 @@
             <groupId>io.gsonfire</groupId>
             <artifactId>gson-fire</artifactId>
             <version>${gson-fire-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.oltu.oauth2</groupId>
+            <artifactId>org.apache.oltu.oauth2.client</artifactId>
+            <version>1.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
