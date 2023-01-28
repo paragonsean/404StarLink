@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Travel Partner API
-- API version: v3
-  - Build date: 2024-10-11T02:07:54.390975-04:00[America/New_York]
+Fitness API
+- API version: v1
+  - Build date: 2024-10-11T02:08:00.335106-04:00[America/New_York]
   - Generator version: 7.9.0
 
-The Travel Partner API provides you with a RESTful interface to the Google Hotel Center platform. It enables an app to efficiently retrieve and change Hotel Center data, and is thus suitable for managing large or complex accounts.
+The Fitness API for managing users' fitness tracking data.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>v3</version>
+  <version>v1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -58,7 +58,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:v3"
+     implementation "org.openapitools:openapi-java-client:v1"
   }
 ```
 
@@ -72,7 +72,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-v3.jar`
+* `target/openapi-java-client-v1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -85,16 +85,25 @@ Please follow the [installation](#installation) instruction and execute the foll
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.AccountsApi;
+import org.openapitools.client.api.UsersApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://travelpartner.googleapis.com");
+    defaultClient.setBasePath("https://fitness.googleapis.com/fitness/v1/users");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
 
-    AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String parent = "parent_example"; // String | The resource name of the Hotel Center account being queried. The format is `accounts/{account_id}`.
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    UsersApi apiInstance = new UsersApi(defaultClient);
+    String userId = "userId_example"; // String | Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -106,12 +115,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    AccountLink accountLink = new AccountLink(); // AccountLink | 
+    DataSource dataSource = new DataSource(); // DataSource | 
     try {
-      AccountLink result = apiInstance.travelpartnerAccountsAccountLinksCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, accountLink);
+      DataSource result = apiInstance.fitnessUsersDataSourcesCreate(userId, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, dataSource);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsAccountLinksCreate");
+      System.err.println("Exception when calling UsersApi#fitnessUsersDataSourcesCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -124,94 +133,115 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://travelpartner.googleapis.com*
+All URIs are relative to *https://fitness.googleapis.com/fitness/v1/users*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountsApi* | [**travelpartnerAccountsAccountLinksCreate**](docs/AccountsApi.md#travelpartnerAccountsAccountLinksCreate) | **POST** /v3/{parent}/accountLinks | 
-*AccountsApi* | [**travelpartnerAccountsAccountLinksDelete**](docs/AccountsApi.md#travelpartnerAccountsAccountLinksDelete) | **DELETE** /v3/{name} | 
-*AccountsApi* | [**travelpartnerAccountsAccountLinksList**](docs/AccountsApi.md#travelpartnerAccountsAccountLinksList) | **GET** /v3/{parent}/accountLinks | 
-*AccountsApi* | [**travelpartnerAccountsBrandsCreate**](docs/AccountsApi.md#travelpartnerAccountsBrandsCreate) | **POST** /v3/{parent}/brands | 
-*AccountsApi* | [**travelpartnerAccountsBrandsList**](docs/AccountsApi.md#travelpartnerAccountsBrandsList) | **GET** /v3/{parent}/brands | 
-*AccountsApi* | [**travelpartnerAccountsBrandsPatch**](docs/AccountsApi.md#travelpartnerAccountsBrandsPatch) | **PATCH** /v3/{name} | 
-*AccountsApi* | [**travelpartnerAccountsFreeBookingLinksReportViewsQuery**](docs/AccountsApi.md#travelpartnerAccountsFreeBookingLinksReportViewsQuery) | **GET** /v3/{name}/freeBookingLinksReportViews:query | 
-*AccountsApi* | [**travelpartnerAccountsHotelViewsList**](docs/AccountsApi.md#travelpartnerAccountsHotelViewsList) | **GET** /v3/{parent}/hotelViews | 
-*AccountsApi* | [**travelpartnerAccountsHotelViewsSummarize**](docs/AccountsApi.md#travelpartnerAccountsHotelViewsSummarize) | **GET** /v3/{parent}/hotelViews:summarize | 
-*AccountsApi* | [**travelpartnerAccountsHotelsSetLiveOnGoogle**](docs/AccountsApi.md#travelpartnerAccountsHotelsSetLiveOnGoogle) | **POST** /v3/{account}/hotels:setLiveOnGoogle | 
-*AccountsApi* | [**travelpartnerAccountsIconsCreate**](docs/AccountsApi.md#travelpartnerAccountsIconsCreate) | **POST** /v3/{parent}/icons | 
-*AccountsApi* | [**travelpartnerAccountsIconsList**](docs/AccountsApi.md#travelpartnerAccountsIconsList) | **GET** /v3/{parent}/icons | 
-*AccountsApi* | [**travelpartnerAccountsListingsVerify**](docs/AccountsApi.md#travelpartnerAccountsListingsVerify) | **POST** /v3/{parent}/listings:verify | 
-*AccountsApi* | [**travelpartnerAccountsParticipationReportViewsQuery**](docs/AccountsApi.md#travelpartnerAccountsParticipationReportViewsQuery) | **GET** /v3/{name}/participationReportViews:query | 
-*AccountsApi* | [**travelpartnerAccountsPriceAccuracyViewsList**](docs/AccountsApi.md#travelpartnerAccountsPriceAccuracyViewsList) | **GET** /v3/{parent}/priceAccuracyViews | 
-*AccountsApi* | [**travelpartnerAccountsPriceAccuracyViewsSummarize**](docs/AccountsApi.md#travelpartnerAccountsPriceAccuracyViewsSummarize) | **GET** /v3/{parent}/priceAccuracyViews:summarize | 
-*AccountsApi* | [**travelpartnerAccountsPriceCoverageViewsGetLatest**](docs/AccountsApi.md#travelpartnerAccountsPriceCoverageViewsGetLatest) | **GET** /v3/{parent}/priceCoverageViews:latest | 
-*AccountsApi* | [**travelpartnerAccountsPriceCoverageViewsList**](docs/AccountsApi.md#travelpartnerAccountsPriceCoverageViewsList) | **GET** /v3/{parent}/priceCoverageViews | 
-*AccountsApi* | [**travelpartnerAccountsPropertyPerformanceReportViewsQuery**](docs/AccountsApi.md#travelpartnerAccountsPropertyPerformanceReportViewsQuery) | **GET** /v3/{name}/propertyPerformanceReportViews:query | 
-*AccountsApi* | [**travelpartnerAccountsReconciliationReportsCreate**](docs/AccountsApi.md#travelpartnerAccountsReconciliationReportsCreate) | **POST** /v3/{parent}/reconciliationReports | 
-*AccountsApi* | [**travelpartnerAccountsReconciliationReportsGet**](docs/AccountsApi.md#travelpartnerAccountsReconciliationReportsGet) | **GET** /v3/{name} | 
-*AccountsApi* | [**travelpartnerAccountsReconciliationReportsList**](docs/AccountsApi.md#travelpartnerAccountsReconciliationReportsList) | **GET** /v3/{parent}/reconciliationReports | 
-*AccountsApi* | [**travelpartnerAccountsReconciliationReportsValidate**](docs/AccountsApi.md#travelpartnerAccountsReconciliationReportsValidate) | **POST** /v3/{parent}/reconciliationReports:validate | 
+*UsersApi* | [**fitnessUsersDataSourcesCreate**](docs/UsersApi.md#fitnessUsersDataSourcesCreate) | **POST** /{userId}/dataSources | 
+*UsersApi* | [**fitnessUsersDataSourcesDataPointChangesList**](docs/UsersApi.md#fitnessUsersDataSourcesDataPointChangesList) | **GET** /{userId}/dataSources/{dataSourceId}/dataPointChanges | 
+*UsersApi* | [**fitnessUsersDataSourcesDatasetsDelete**](docs/UsersApi.md#fitnessUsersDataSourcesDatasetsDelete) | **DELETE** /{userId}/dataSources/{dataSourceId}/datasets/{datasetId} | 
+*UsersApi* | [**fitnessUsersDataSourcesDatasetsGet**](docs/UsersApi.md#fitnessUsersDataSourcesDatasetsGet) | **GET** /{userId}/dataSources/{dataSourceId}/datasets/{datasetId} | 
+*UsersApi* | [**fitnessUsersDataSourcesDatasetsPatch**](docs/UsersApi.md#fitnessUsersDataSourcesDatasetsPatch) | **PATCH** /{userId}/dataSources/{dataSourceId}/datasets/{datasetId} | 
+*UsersApi* | [**fitnessUsersDataSourcesDelete**](docs/UsersApi.md#fitnessUsersDataSourcesDelete) | **DELETE** /{userId}/dataSources/{dataSourceId} | 
+*UsersApi* | [**fitnessUsersDataSourcesGet**](docs/UsersApi.md#fitnessUsersDataSourcesGet) | **GET** /{userId}/dataSources/{dataSourceId} | 
+*UsersApi* | [**fitnessUsersDataSourcesList**](docs/UsersApi.md#fitnessUsersDataSourcesList) | **GET** /{userId}/dataSources | 
+*UsersApi* | [**fitnessUsersDataSourcesUpdate**](docs/UsersApi.md#fitnessUsersDataSourcesUpdate) | **PUT** /{userId}/dataSources/{dataSourceId} | 
+*UsersApi* | [**fitnessUsersDatasetAggregate**](docs/UsersApi.md#fitnessUsersDatasetAggregate) | **POST** /{userId}/dataset:aggregate | 
+*UsersApi* | [**fitnessUsersSessionsDelete**](docs/UsersApi.md#fitnessUsersSessionsDelete) | **DELETE** /{userId}/sessions/{sessionId} | 
+*UsersApi* | [**fitnessUsersSessionsList**](docs/UsersApi.md#fitnessUsersSessionsList) | **GET** /{userId}/sessions | 
+*UsersApi* | [**fitnessUsersSessionsUpdate**](docs/UsersApi.md#fitnessUsersSessionsUpdate) | **PUT** /{userId}/sessions/{sessionId} | 
 
 
 ## Documentation for Models
 
- - [AccountLink](docs/AccountLink.md)
- - [AccountLinkTarget](docs/AccountLinkTarget.md)
- - [Brand](docs/Brand.md)
- - [CreateReconciliationReportResponse](docs/CreateReconciliationReportResponse.md)
- - [DataIssueDetail](docs/DataIssueDetail.md)
- - [Date](docs/Date.md)
- - [DisplayNameDisapprovalReason](docs/DisplayNameDisapprovalReason.md)
- - [FreeBookingLinksResult](docs/FreeBookingLinksResult.md)
- - [HotelList](docs/HotelList.md)
- - [HotelPricePerItinerary](docs/HotelPricePerItinerary.md)
- - [HotelView](docs/HotelView.md)
- - [Icon](docs/Icon.md)
- - [Image](docs/Image.md)
- - [Key](docs/Key.md)
- - [LatLng](docs/LatLng.md)
- - [ListAccountLinksResponse](docs/ListAccountLinksResponse.md)
- - [ListBrandsResponse](docs/ListBrandsResponse.md)
- - [ListHotelViewsResponse](docs/ListHotelViewsResponse.md)
- - [ListIconsResponse](docs/ListIconsResponse.md)
- - [ListPriceAccuracyViewsResponse](docs/ListPriceAccuracyViewsResponse.md)
- - [ListPriceCoverageViewsResponse](docs/ListPriceCoverageViewsResponse.md)
- - [ListReconciliationReportsResponse](docs/ListReconciliationReportsResponse.md)
- - [LocalizedText](docs/LocalizedText.md)
- - [MissedParticipationCountDetails](docs/MissedParticipationCountDetails.md)
- - [NoPriceCountDetails](docs/NoPriceCountDetails.md)
- - [ParsedListing](docs/ParsedListing.md)
- - [ParticipationResult](docs/ParticipationResult.md)
- - [PriceAccuracyRow](docs/PriceAccuracyRow.md)
- - [PriceAccuracyView](docs/PriceAccuracyView.md)
- - [PriceCoverageBucket](docs/PriceCoverageBucket.md)
- - [PriceCoverageView](docs/PriceCoverageView.md)
- - [PriceMissingCountDetails](docs/PriceMissingCountDetails.md)
- - [PriceProblemCountDetails](docs/PriceProblemCountDetails.md)
- - [PriceRecord](docs/PriceRecord.md)
- - [PriceUnavailableCountDetails](docs/PriceUnavailableCountDetails.md)
- - [PriceView](docs/PriceView.md)
- - [PropertyPerformanceResult](docs/PropertyPerformanceResult.md)
- - [QueryFreeBookingLinksReportResponse](docs/QueryFreeBookingLinksReportResponse.md)
- - [QueryParticipationReportResponse](docs/QueryParticipationReportResponse.md)
- - [QueryPropertyPerformanceReportResponse](docs/QueryPropertyPerformanceReportResponse.md)
- - [Rating](docs/Rating.md)
- - [ReconciliationReport](docs/ReconciliationReport.md)
- - [ReconciliationReportValidationIssue](docs/ReconciliationReportValidationIssue.md)
- - [Review](docs/Review.md)
- - [SetLiveOnGoogleRequest](docs/SetLiveOnGoogleRequest.md)
- - [SetLiveOnGoogleResponse](docs/SetLiveOnGoogleResponse.md)
- - [SummarizeHotelViewsResponse](docs/SummarizeHotelViewsResponse.md)
- - [SummarizePriceAccuracyResponse](docs/SummarizePriceAccuracyResponse.md)
- - [ValidateReconciliationReportResponse](docs/ValidateReconciliationReportResponse.md)
- - [VerifyListingsRequest](docs/VerifyListingsRequest.md)
- - [VerifyListingsResponse](docs/VerifyListingsResponse.md)
+ - [AggregateBucket](docs/AggregateBucket.md)
+ - [AggregateBy](docs/AggregateBy.md)
+ - [AggregateRequest](docs/AggregateRequest.md)
+ - [AggregateResponse](docs/AggregateResponse.md)
+ - [Application](docs/Application.md)
+ - [BucketByActivity](docs/BucketByActivity.md)
+ - [BucketBySession](docs/BucketBySession.md)
+ - [BucketByTime](docs/BucketByTime.md)
+ - [BucketByTimePeriod](docs/BucketByTimePeriod.md)
+ - [DataPoint](docs/DataPoint.md)
+ - [DataSource](docs/DataSource.md)
+ - [DataType](docs/DataType.md)
+ - [DataTypeField](docs/DataTypeField.md)
+ - [Dataset](docs/Dataset.md)
+ - [Device](docs/Device.md)
+ - [ListDataPointChangesResponse](docs/ListDataPointChangesResponse.md)
+ - [ListDataSourcesResponse](docs/ListDataSourcesResponse.md)
+ - [ListSessionsResponse](docs/ListSessionsResponse.md)
+ - [MapValue](docs/MapValue.md)
+ - [Session](docs/Session.md)
+ - [Value](docs/Value.md)
+ - [ValueMapValEntry](docs/ValueMapValEntry.md)
 
 
 <a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-Endpoints do not require authorization.
+
+Authentication schemes defined for the API:
+<a id="Oauth2"></a>
+### Oauth2
+
+- **Type**: OAuth
+- **Flow**: implicit
+- **Authorization URL**: https://accounts.google.com/o/oauth2/auth
+- **Scopes**: 
+  - https://www.googleapis.com/auth/fitness.activity.read: Use Google Fit to see and store your physical activity data
+  - https://www.googleapis.com/auth/fitness.activity.write: Add to your Google Fit physical activity data
+  - https://www.googleapis.com/auth/fitness.blood_glucose.read: See info about your blood glucose in Google Fit. I consent to Google sharing my blood glucose information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_glucose.write: Add info about your blood glucose to Google Fit. I consent to Google using my blood glucose information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_pressure.read: See info about your blood pressure in Google Fit. I consent to Google sharing my blood pressure information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_pressure.write: Add info about your blood pressure in Google Fit. I consent to Google using my blood pressure information with this app.
+  - https://www.googleapis.com/auth/fitness.body.read: See info about your body measurements in Google Fit
+  - https://www.googleapis.com/auth/fitness.body.write: Add info about your body measurements to Google Fit
+  - https://www.googleapis.com/auth/fitness.body_temperature.read: See info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app.
+  - https://www.googleapis.com/auth/fitness.body_temperature.write: Add to info about your body temperature in Google Fit. I consent to Google using my body temperature information with this app.
+  - https://www.googleapis.com/auth/fitness.heart_rate.read: See your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.
+  - https://www.googleapis.com/auth/fitness.heart_rate.write: Add to your heart rate data in Google Fit. I consent to Google using my heart rate information with this app.
+  - https://www.googleapis.com/auth/fitness.location.read: See your Google Fit speed and distance data
+  - https://www.googleapis.com/auth/fitness.location.write: Add to your Google Fit location data
+  - https://www.googleapis.com/auth/fitness.nutrition.read: See info about your nutrition in Google Fit
+  - https://www.googleapis.com/auth/fitness.nutrition.write: Add to info about your nutrition in Google Fit
+  - https://www.googleapis.com/auth/fitness.oxygen_saturation.read: See info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app.
+  - https://www.googleapis.com/auth/fitness.oxygen_saturation.write: Add info about your oxygen saturation in Google Fit. I consent to Google using my oxygen saturation information with this app.
+  - https://www.googleapis.com/auth/fitness.reproductive_health.read: See info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.
+  - https://www.googleapis.com/auth/fitness.reproductive_health.write: Add info about your reproductive health in Google Fit. I consent to Google using my reproductive health information with this app.
+  - https://www.googleapis.com/auth/fitness.sleep.read: See your sleep data in Google Fit. I consent to Google sharing my sleep information with this app.
+  - https://www.googleapis.com/auth/fitness.sleep.write: Add to your sleep data in Google Fit. I consent to Google using my sleep information with this app.
+
+<a id="Oauth2c"></a>
+### Oauth2c
+
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: https://accounts.google.com/o/oauth2/auth
+- **Scopes**: 
+  - https://www.googleapis.com/auth/fitness.activity.read: Use Google Fit to see and store your physical activity data
+  - https://www.googleapis.com/auth/fitness.activity.write: Add to your Google Fit physical activity data
+  - https://www.googleapis.com/auth/fitness.blood_glucose.read: See info about your blood glucose in Google Fit. I consent to Google sharing my blood glucose information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_glucose.write: Add info about your blood glucose to Google Fit. I consent to Google using my blood glucose information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_pressure.read: See info about your blood pressure in Google Fit. I consent to Google sharing my blood pressure information with this app.
+  - https://www.googleapis.com/auth/fitness.blood_pressure.write: Add info about your blood pressure in Google Fit. I consent to Google using my blood pressure information with this app.
+  - https://www.googleapis.com/auth/fitness.body.read: See info about your body measurements in Google Fit
+  - https://www.googleapis.com/auth/fitness.body.write: Add info about your body measurements to Google Fit
+  - https://www.googleapis.com/auth/fitness.body_temperature.read: See info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app.
+  - https://www.googleapis.com/auth/fitness.body_temperature.write: Add to info about your body temperature in Google Fit. I consent to Google using my body temperature information with this app.
+  - https://www.googleapis.com/auth/fitness.heart_rate.read: See your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.
+  - https://www.googleapis.com/auth/fitness.heart_rate.write: Add to your heart rate data in Google Fit. I consent to Google using my heart rate information with this app.
+  - https://www.googleapis.com/auth/fitness.location.read: See your Google Fit speed and distance data
+  - https://www.googleapis.com/auth/fitness.location.write: Add to your Google Fit location data
+  - https://www.googleapis.com/auth/fitness.nutrition.read: See info about your nutrition in Google Fit
+  - https://www.googleapis.com/auth/fitness.nutrition.write: Add to info about your nutrition in Google Fit
+  - https://www.googleapis.com/auth/fitness.oxygen_saturation.read: See info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app.
+  - https://www.googleapis.com/auth/fitness.oxygen_saturation.write: Add info about your oxygen saturation in Google Fit. I consent to Google using my oxygen saturation information with this app.
+  - https://www.googleapis.com/auth/fitness.reproductive_health.read: See info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.
+  - https://www.googleapis.com/auth/fitness.reproductive_health.write: Add info about your reproductive health in Google Fit. I consent to Google using my reproductive health information with this app.
+  - https://www.googleapis.com/auth/fitness.sleep.read: See your sleep data in Google Fit. I consent to Google sharing my sleep information with this app.
+  - https://www.googleapis.com/auth/fitness.sleep.write: Add to your sleep data in Google Fit. I consent to Google using my sleep information with this app.
 
 
 ## Recommendation

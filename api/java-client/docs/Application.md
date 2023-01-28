@@ -2,17 +2,15 @@
 
 # Application
 
-Represents an application that interfaces with the REST API to access accounts or post statuses.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**clientId** | **String** | Client ID key, to be used for obtaining OAuth tokens |  [optional] |
-|**clientSecret** | **String** | Client secret key, to be used for obtaining OAuth tokens |  [optional] |
-|**name** | **String** | The name of your application. |  |
-|**vapidKey** | **String** | Used for Push Streaming API. Returned with [POST /api/v1/apps](https://docs.joinmastodon.org/methods/apps/#create-an-application). Equivalent to [PushSubscription#server_key](https://docs.joinmastodon.org/entities/pushsubscription/#server_key) |  [optional] |
-|**website** | **String** | The website associated with your application. Must be URL. |  [optional] |
+|**detailsUrl** | **String** | An optional URI that can be used to link back to the application. |  [optional] |
+|**name** | **String** | The name of this application. This is required for REST clients, but we do not enforce uniqueness of this name. It is provided as a matter of convenience for other developers who would like to identify which REST created an Application or Data Source. |  [optional] |
+|**packageName** | **String** | Package name for this application. This is used as a unique identifier when created by Android applications, but cannot be specified by REST clients. REST clients will have their developer project number reflected into the Data Source data stream IDs, instead of the packageName. |  [optional] |
+|**version** | **String** | Version of the application. You should update this field whenever the application changes in a way that affects the computation of the data. |  [optional] |
 
 
 
