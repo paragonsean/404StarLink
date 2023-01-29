@@ -2,7 +2,7 @@
 
 Fitness API
 - API version: v1
-  - Build date: 2024-10-11T01:59:05.813979-04:00[America/New_York]
+  - Build date: 2024-10-11T02:08:03.093710-04:00[America/New_York]
   - Generator version: 7.9.0
 
 The Fitness API for managing users' fitness tracking data.
