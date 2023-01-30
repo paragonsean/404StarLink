@@ -2,7 +2,7 @@
 
 Chrome Management API
 - API version: v1
-  - Build date: 2024-10-11T01:59:08.409671-04:00[America/New_York]
+  - Build date: 2024-10-11T02:08:05.864903-04:00[America/New_York]
   - Generator version: 7.9.0
 
 The Chrome Management API is a suite of services that allows Chrome administrators to view, manage and gain insights on their Chrome OS and Chrome Browser devices.

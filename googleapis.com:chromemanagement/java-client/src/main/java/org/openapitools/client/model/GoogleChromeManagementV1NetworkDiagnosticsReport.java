@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Network testing results to determine the health of the device&#39;s network connection, for example whether the HTTPS latency is high or normal.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:08.409671-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:05.864903-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleChromeManagementV1NetworkDiagnosticsReport {
   public static final String SERIALIZED_NAME_HTTPS_LATENCY_DATA = "httpsLatencyData";
   @SerializedName(SERIALIZED_NAME_HTTPS_LATENCY_DATA)

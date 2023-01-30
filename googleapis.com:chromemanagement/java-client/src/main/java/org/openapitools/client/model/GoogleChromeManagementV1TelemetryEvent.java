@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * Telemetry data reported by a managed device.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:08.409671-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:05.864903-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleChromeManagementV1TelemetryEvent {
   public static final String SERIALIZED_NAME_AUDIO_SEVERE_UNDERRUN_EVENT = "audioSevereUnderrunEvent";
   @SerializedName(SERIALIZED_NAME_AUDIO_SEVERE_UNDERRUN_EVENT)

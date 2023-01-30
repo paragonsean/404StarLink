@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Data that describes the result of the HTTPS latency diagnostics routine, with the HTTPS requests issued to Google websites.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:08.409671-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:05.864903-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleChromeManagementV1HttpsLatencyRoutineData {
   public static final String SERIALIZED_NAME_LATENCY = "latency";
   @SerializedName(SERIALIZED_NAME_LATENCY)
