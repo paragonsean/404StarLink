@@ -1,6 +1,6 @@
 /*
- * Fitness API
- * The Fitness API for managing users' fitness tracking data.
+ * Chrome Management API
+ * The Chrome Management API is a suite of services that allows Chrome administrators to view, manage and gain insights on their Chrome OS and Chrome Browser devices.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -66,10 +66,10 @@ import org.openapitools.client.auth.OAuthFlow;
  */
 public class ApiClient {
 
-    private String basePath = "https://fitness.googleapis.com/fitness/v1/users";
+    private String basePath = "https://chromemanagement.googleapis.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://fitness.googleapis.com/fitness/v1/users",
+      "https://chromemanagement.googleapis.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -231,7 +231,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://fitness.googleapis.com/fitness/v1/users
+     * @param basePath Base path of the URL (e.g https://chromemanagement.googleapis.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Memory information of a device. * This field has both telemetry and device information: - &#x60;totalRamBytes&#x60; - Device information - &#x60;availableRamBytes&#x60; - Telemetry information - &#x60;totalMemoryEncryption&#x60; - Device information * Data for this field is controlled via policy: [ReportDeviceMemoryInfo](https://chromeenterprise.google/policies/#ReportDeviceMemoryInfo) * Data Collection Frequency: - &#x60;totalRamBytes&#x60; - Only at upload - &#x60;availableRamBytes&#x60; - Every 10 minutes - &#x60;totalMemoryEncryption&#x60; - at device startup * Default Data Reporting Frequency: - &#x60;totalRamBytes&#x60; - 3 hours - &#x60;availableRamBytes&#x60; - 3 hours - &#x60;totalMemoryEncryption&#x60; - at device startup - Policy Controlled: Yes * Cache: If the device is offline, the collected data is stored locally, and will be reported when the device is next online: only for &#x60;totalMemoryEncryption&#x60; * Reported for affiliated users only: N/A
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:11.322773-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:08.888155-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleChromeManagementV1MemoryInfo {
   public static final String SERIALIZED_NAME_AVAILABLE_RAM_BYTES = "availableRamBytes";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_RAM_BYTES)

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Https latency routine is run periodically and &#x60;TelemetryHttpsLatencyChangeEvent&#x60; is triggered if a latency problem was detected or if the device has recovered from a latency problem..
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:11.322773-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:08.888155-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent {
   public static final String SERIALIZED_NAME_HTTPS_LATENCY_ROUTINE_DATA = "httpsLatencyRoutineData";
   @SerializedName(SERIALIZED_NAME_HTTPS_LATENCY_ROUTINE_DATA)

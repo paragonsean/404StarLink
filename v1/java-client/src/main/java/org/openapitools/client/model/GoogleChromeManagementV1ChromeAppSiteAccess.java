@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Represent one host permission.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:11.322773-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:08.888155-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleChromeManagementV1ChromeAppSiteAccess {
   public static final String SERIALIZED_NAME_HOST_MATCH = "hostMatch";
   @SerializedName(SERIALIZED_NAME_HOST_MATCH)

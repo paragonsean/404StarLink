@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Report for CountChromeDevicesPerAueDateResponse, contains the count of devices of a specific model and auto update expiration range.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:11.322773-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:08.888155-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleChromeManagementV1DeviceAueCountReport {
   /**
    * Enum value of month corresponding to the auto update expiration date in UTC time zone. If the device is already expired, this field is empty.

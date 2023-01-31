@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Response containing a list of devices expiring in each month of a selected time frame. Counts are grouped by model and Auto Update Expiration date.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:11.322773-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:08.888155-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse {
   public static final String SERIALIZED_NAME_DEVICE_AUE_COUNT_REPORTS = "deviceAueCountReports";
   @SerializedName(SERIALIZED_NAME_DEVICE_AUE_COUNT_REPORTS)
