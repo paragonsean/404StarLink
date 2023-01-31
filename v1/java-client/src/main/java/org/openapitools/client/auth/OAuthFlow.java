@@ -1,6 +1,6 @@
 /*
- * Storage Transfer API
- * Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. 
+ * Notebooks API
+ * Notebooks API is used to manage notebook resources in Google Cloud.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -16,7 +16,7 @@ package org.openapitools.client.auth;
 /**
  * OAuth flows that are supported by this client
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:04.262691-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:12.602654-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public enum OAuthFlow {
     ACCESS_CODE, //called authorizationCode  in OpenAPI 3.0
     IMPLICIT,

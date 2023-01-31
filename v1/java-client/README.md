@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Storage Transfer API
+Notebooks API
 - API version: v1
-  - Build date: 2024-10-11T02:00:04.262691-04:00[America/New_York]
+  - Build date: 2024-10-11T02:00:12.602654-04:00[America/New_York]
   - Generator version: 7.9.0
 
-Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. 
+Notebooks API is used to manage notebook resources in Google Cloud.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -87,12 +87,12 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.GoogleServiceAccountsApi;
+import org.openapitools.client.api.ProjectsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://storagetransfer.googleapis.com");
+    defaultClient.setBasePath("https://notebooks.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -102,8 +102,8 @@ public class Example {
     OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    GoogleServiceAccountsApi apiInstance = new GoogleServiceAccountsApi(defaultClient);
-    String projectId = "projectId_example"; // String | Required. The ID of the Google Cloud project that the Google service account is associated with.
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String parent = "parent_example"; // String | Required. Format: `projects/{project_id}/locations/{location}`
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -115,11 +115,13 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String environmentId = "environmentId_example"; // String | Required. User-defined unique ID of this environment. The `environment_id` must be 1 to 63 characters long and contain only lowercase letters, numeric characters, and dashes. The first character must be a lowercase letter and the last character cannot be a dash.
+    Environment environment = new Environment(); // Environment | 
     try {
-      GoogleServiceAccount result = apiInstance.storagetransferGoogleServiceAccountsGet(projectId, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+      Operation result = apiInstance.notebooksProjectsLocationsEnvironmentsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, environmentId, environment);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling GoogleServiceAccountsApi#storagetransferGoogleServiceAccountsGet");
+      System.err.println("Exception when calling ProjectsApi#notebooksProjectsLocationsEnvironmentsCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -132,64 +134,127 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://storagetransfer.googleapis.com*
+All URIs are relative to *https://notebooks.googleapis.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*GoogleServiceAccountsApi* | [**storagetransferGoogleServiceAccountsGet**](docs/GoogleServiceAccountsApi.md#storagetransferGoogleServiceAccountsGet) | **GET** /v1/googleServiceAccounts/{projectId} | 
-*ProjectsApi* | [**storagetransferProjectsAgentPoolsCreate**](docs/ProjectsApi.md#storagetransferProjectsAgentPoolsCreate) | **POST** /v1/projects/{projectId}/agentPools | 
-*ProjectsApi* | [**storagetransferProjectsAgentPoolsDelete**](docs/ProjectsApi.md#storagetransferProjectsAgentPoolsDelete) | **DELETE** /v1/{name} | 
-*ProjectsApi* | [**storagetransferProjectsAgentPoolsList**](docs/ProjectsApi.md#storagetransferProjectsAgentPoolsList) | **GET** /v1/projects/{projectId}/agentPools | 
-*ProjectsApi* | [**storagetransferProjectsAgentPoolsPatch**](docs/ProjectsApi.md#storagetransferProjectsAgentPoolsPatch) | **PATCH** /v1/{name} | 
-*TransferJobsApi* | [**storagetransferTransferJobsCreate**](docs/TransferJobsApi.md#storagetransferTransferJobsCreate) | **POST** /v1/transferJobs | 
-*TransferJobsApi* | [**storagetransferTransferJobsDelete**](docs/TransferJobsApi.md#storagetransferTransferJobsDelete) | **DELETE** /v1/{jobName} | 
-*TransferJobsApi* | [**storagetransferTransferJobsGet**](docs/TransferJobsApi.md#storagetransferTransferJobsGet) | **GET** /v1/{jobName} | 
-*TransferJobsApi* | [**storagetransferTransferJobsList**](docs/TransferJobsApi.md#storagetransferTransferJobsList) | **GET** /v1/transferJobs | 
-*TransferJobsApi* | [**storagetransferTransferJobsPatch**](docs/TransferJobsApi.md#storagetransferTransferJobsPatch) | **PATCH** /v1/{jobName} | 
-*TransferJobsApi* | [**storagetransferTransferJobsRun**](docs/TransferJobsApi.md#storagetransferTransferJobsRun) | **POST** /v1/{jobName}:run | 
-*TransferOperationsApi* | [**storagetransferTransferOperationsCancel**](docs/TransferOperationsApi.md#storagetransferTransferOperationsCancel) | **POST** /v1/{name}:cancel | 
-*TransferOperationsApi* | [**storagetransferTransferOperationsList**](docs/TransferOperationsApi.md#storagetransferTransferOperationsList) | **GET** /v1/{name} | 
-*TransferOperationsApi* | [**storagetransferTransferOperationsPause**](docs/TransferOperationsApi.md#storagetransferTransferOperationsPause) | **POST** /v1/{name}:pause | 
-*TransferOperationsApi* | [**storagetransferTransferOperationsResume**](docs/TransferOperationsApi.md#storagetransferTransferOperationsResume) | **POST** /v1/{name}:resume | 
+*ProjectsApi* | [**notebooksProjectsLocationsEnvironmentsCreate**](docs/ProjectsApi.md#notebooksProjectsLocationsEnvironmentsCreate) | **POST** /v1/{parent}/environments | 
+*ProjectsApi* | [**notebooksProjectsLocationsEnvironmentsList**](docs/ProjectsApi.md#notebooksProjectsLocationsEnvironmentsList) | **GET** /v1/{parent}/environments | 
+*ProjectsApi* | [**notebooksProjectsLocationsExecutionsCreate**](docs/ProjectsApi.md#notebooksProjectsLocationsExecutionsCreate) | **POST** /v1/{parent}/executions | 
+*ProjectsApi* | [**notebooksProjectsLocationsExecutionsList**](docs/ProjectsApi.md#notebooksProjectsLocationsExecutionsList) | **GET** /v1/{parent}/executions | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesCreate**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesCreate) | **POST** /v1/{parent}/instances | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesGetInstanceHealth**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesGetInstanceHealth) | **GET** /v1/{name}:getInstanceHealth | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesIsUpgradeable**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesIsUpgradeable) | **GET** /v1/{notebookInstance}:isUpgradeable | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesList**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesList) | **GET** /v1/{parent}/instances | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesRegister**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesRegister) | **POST** /v1/{parent}/instances:register | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesReport**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesReport) | **POST** /v1/{name}:report | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesRollback**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesRollback) | **POST** /v1/{name}:rollback | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesSetAccelerator**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesSetAccelerator) | **PATCH** /v1/{name}:setAccelerator | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesSetLabels**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesSetLabels) | **PATCH** /v1/{name}:setLabels | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesSetMachineType**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesSetMachineType) | **PATCH** /v1/{name}:setMachineType | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesUpdateConfig**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesUpdateConfig) | **PATCH** /v1/{name}:updateConfig | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesUpdateMetadataItems**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesUpdateMetadataItems) | **PATCH** /v1/{name}:updateMetadataItems | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesUpdateShieldedInstanceConfig**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesUpdateShieldedInstanceConfig) | **PATCH** /v1/{name}:updateShieldedInstanceConfig | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesUpgradeInternal**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesUpgradeInternal) | **POST** /v1/{name}:upgradeInternal | 
+*ProjectsApi* | [**notebooksProjectsLocationsList**](docs/ProjectsApi.md#notebooksProjectsLocationsList) | **GET** /v1/{name}/locations | 
+*ProjectsApi* | [**notebooksProjectsLocationsOperationsCancel**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsCancel) | **POST** /v1/{name}:cancel | 
+*ProjectsApi* | [**notebooksProjectsLocationsOperationsList**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsList) | **GET** /v1/{name}/operations | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesCreate**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesCreate) | **POST** /v1/{parent}/runtimes | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesDiagnose**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesDiagnose) | **POST** /v1/{name}:diagnose | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesGetIamPolicy**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesGetIamPolicy) | **GET** /v1/{resource}:getIamPolicy | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesList**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesList) | **GET** /v1/{parent}/runtimes | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesPatch**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesPatch) | **PATCH** /v1/{name} | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesRefreshRuntimeTokenInternal**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesRefreshRuntimeTokenInternal) | **POST** /v1/{name}:refreshRuntimeTokenInternal | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesReportEvent**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesReportEvent) | **POST** /v1/{name}:reportEvent | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesReset**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesReset) | **POST** /v1/{name}:reset | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesSetIamPolicy**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesSetIamPolicy) | **POST** /v1/{resource}:setIamPolicy | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesStart**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesStart) | **POST** /v1/{name}:start | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesStop**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesStop) | **POST** /v1/{name}:stop | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesSwitch**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesSwitch) | **POST** /v1/{name}:switch | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesTestIamPermissions**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesTestIamPermissions) | **POST** /v1/{resource}:testIamPermissions | 
+*ProjectsApi* | [**notebooksProjectsLocationsRuntimesUpgrade**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesUpgrade) | **POST** /v1/{name}:upgrade | 
+*ProjectsApi* | [**notebooksProjectsLocationsSchedulesCreate**](docs/ProjectsApi.md#notebooksProjectsLocationsSchedulesCreate) | **POST** /v1/{parent}/schedules | 
+*ProjectsApi* | [**notebooksProjectsLocationsSchedulesDelete**](docs/ProjectsApi.md#notebooksProjectsLocationsSchedulesDelete) | **DELETE** /v1/{name} | 
+*ProjectsApi* | [**notebooksProjectsLocationsSchedulesGet**](docs/ProjectsApi.md#notebooksProjectsLocationsSchedulesGet) | **GET** /v1/{name} | 
+*ProjectsApi* | [**notebooksProjectsLocationsSchedulesList**](docs/ProjectsApi.md#notebooksProjectsLocationsSchedulesList) | **GET** /v1/{parent}/schedules | 
+*ProjectsApi* | [**notebooksProjectsLocationsSchedulesTrigger**](docs/ProjectsApi.md#notebooksProjectsLocationsSchedulesTrigger) | **POST** /v1/{name}:trigger | 
 
 
 ## Documentation for Models
 
- - [AgentPool](docs/AgentPool.md)
- - [AwsAccessKey](docs/AwsAccessKey.md)
- - [AwsS3CompatibleData](docs/AwsS3CompatibleData.md)
- - [AwsS3Data](docs/AwsS3Data.md)
- - [AzureBlobStorageData](docs/AzureBlobStorageData.md)
- - [AzureCredentials](docs/AzureCredentials.md)
- - [BandwidthLimit](docs/BandwidthLimit.md)
- - [Date](docs/Date.md)
- - [ErrorLogEntry](docs/ErrorLogEntry.md)
- - [ErrorSummary](docs/ErrorSummary.md)
- - [EventStream](docs/EventStream.md)
- - [GcsData](docs/GcsData.md)
- - [GoogleServiceAccount](docs/GoogleServiceAccount.md)
- - [HttpData](docs/HttpData.md)
- - [ListAgentPoolsResponse](docs/ListAgentPoolsResponse.md)
+ - [AcceleratorConfig](docs/AcceleratorConfig.md)
+ - [Binding](docs/Binding.md)
+ - [ContainerImage](docs/ContainerImage.md)
+ - [DataprocParameters](docs/DataprocParameters.md)
+ - [DiagnoseInstanceRequest](docs/DiagnoseInstanceRequest.md)
+ - [DiagnoseRuntimeRequest](docs/DiagnoseRuntimeRequest.md)
+ - [DiagnosticConfig](docs/DiagnosticConfig.md)
+ - [Disk](docs/Disk.md)
+ - [EncryptionConfig](docs/EncryptionConfig.md)
+ - [Environment](docs/Environment.md)
+ - [Event](docs/Event.md)
+ - [Execution](docs/Execution.md)
+ - [ExecutionTemplate](docs/ExecutionTemplate.md)
+ - [Expr](docs/Expr.md)
+ - [GetInstanceHealthResponse](docs/GetInstanceHealthResponse.md)
+ - [GuestOsFeature](docs/GuestOsFeature.md)
+ - [Instance](docs/Instance.md)
+ - [InstanceConfig](docs/InstanceConfig.md)
+ - [IsInstanceUpgradeableResponse](docs/IsInstanceUpgradeableResponse.md)
+ - [ListEnvironmentsResponse](docs/ListEnvironmentsResponse.md)
+ - [ListExecutionsResponse](docs/ListExecutionsResponse.md)
+ - [ListInstancesResponse](docs/ListInstancesResponse.md)
+ - [ListLocationsResponse](docs/ListLocationsResponse.md)
  - [ListOperationsResponse](docs/ListOperationsResponse.md)
- - [ListTransferJobsResponse](docs/ListTransferJobsResponse.md)
- - [LoggingConfig](docs/LoggingConfig.md)
- - [MetadataOptions](docs/MetadataOptions.md)
- - [NotificationConfig](docs/NotificationConfig.md)
- - [ObjectConditions](docs/ObjectConditions.md)
+ - [ListRuntimesResponse](docs/ListRuntimesResponse.md)
+ - [ListSchedulesResponse](docs/ListSchedulesResponse.md)
+ - [LocalDisk](docs/LocalDisk.md)
+ - [LocalDiskInitializeParams](docs/LocalDiskInitializeParams.md)
+ - [Location](docs/Location.md)
  - [Operation](docs/Operation.md)
- - [PosixFilesystem](docs/PosixFilesystem.md)
- - [RunTransferJobRequest](docs/RunTransferJobRequest.md)
- - [S3CompatibleMetadata](docs/S3CompatibleMetadata.md)
+ - [OperationMetadata](docs/OperationMetadata.md)
+ - [Policy](docs/Policy.md)
+ - [RefreshRuntimeTokenInternalRequest](docs/RefreshRuntimeTokenInternalRequest.md)
+ - [RefreshRuntimeTokenInternalResponse](docs/RefreshRuntimeTokenInternalResponse.md)
+ - [RegisterInstanceRequest](docs/RegisterInstanceRequest.md)
+ - [ReportInstanceEventRequest](docs/ReportInstanceEventRequest.md)
+ - [ReportInstanceInfoRequest](docs/ReportInstanceInfoRequest.md)
+ - [ReportRuntimeEventRequest](docs/ReportRuntimeEventRequest.md)
+ - [ReservationAffinity](docs/ReservationAffinity.md)
+ - [ResetRuntimeRequest](docs/ResetRuntimeRequest.md)
+ - [RollbackInstanceRequest](docs/RollbackInstanceRequest.md)
+ - [Runtime](docs/Runtime.md)
+ - [RuntimeAcceleratorConfig](docs/RuntimeAcceleratorConfig.md)
+ - [RuntimeAccessConfig](docs/RuntimeAccessConfig.md)
+ - [RuntimeGuestOsFeature](docs/RuntimeGuestOsFeature.md)
+ - [RuntimeMetrics](docs/RuntimeMetrics.md)
+ - [RuntimeShieldedInstanceConfig](docs/RuntimeShieldedInstanceConfig.md)
+ - [RuntimeSoftwareConfig](docs/RuntimeSoftwareConfig.md)
  - [Schedule](docs/Schedule.md)
+ - [SchedulerAcceleratorConfig](docs/SchedulerAcceleratorConfig.md)
+ - [SetIamPolicyRequest](docs/SetIamPolicyRequest.md)
+ - [SetInstanceAcceleratorRequest](docs/SetInstanceAcceleratorRequest.md)
+ - [SetInstanceLabelsRequest](docs/SetInstanceLabelsRequest.md)
+ - [SetInstanceMachineTypeRequest](docs/SetInstanceMachineTypeRequest.md)
+ - [ShieldedInstanceConfig](docs/ShieldedInstanceConfig.md)
+ - [StartRuntimeRequest](docs/StartRuntimeRequest.md)
  - [Status](docs/Status.md)
- - [TimeOfDay](docs/TimeOfDay.md)
- - [TransferCounters](docs/TransferCounters.md)
- - [TransferJob](docs/TransferJob.md)
- - [TransferManifest](docs/TransferManifest.md)
- - [TransferOperation](docs/TransferOperation.md)
- - [TransferOptions](docs/TransferOptions.md)
- - [TransferSpec](docs/TransferSpec.md)
- - [UpdateTransferJobRequest](docs/UpdateTransferJobRequest.md)
+ - [StopRuntimeRequest](docs/StopRuntimeRequest.md)
+ - [SwitchRuntimeRequest](docs/SwitchRuntimeRequest.md)
+ - [TestIamPermissionsRequest](docs/TestIamPermissionsRequest.md)
+ - [TestIamPermissionsResponse](docs/TestIamPermissionsResponse.md)
+ - [UpdateInstanceConfigRequest](docs/UpdateInstanceConfigRequest.md)
+ - [UpdateInstanceMetadataItemsRequest](docs/UpdateInstanceMetadataItemsRequest.md)
+ - [UpdateInstanceMetadataItemsResponse](docs/UpdateInstanceMetadataItemsResponse.md)
+ - [UpdateShieldedInstanceConfigRequest](docs/UpdateShieldedInstanceConfigRequest.md)
+ - [UpgradeHistoryEntry](docs/UpgradeHistoryEntry.md)
+ - [UpgradeInstanceInternalRequest](docs/UpgradeInstanceInternalRequest.md)
+ - [UpgradeInstanceRequest](docs/UpgradeInstanceRequest.md)
+ - [UpgradeRuntimeRequest](docs/UpgradeRuntimeRequest.md)
+ - [VertexAIParameters](docs/VertexAIParameters.md)
+ - [VirtualMachine](docs/VirtualMachine.md)
+ - [VirtualMachineConfig](docs/VirtualMachineConfig.md)
+ - [VmImage](docs/VmImage.md)
 
 
 <a id="documentation-for-authorization"></a>
