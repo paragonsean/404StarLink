@@ -1,6 +1,6 @@
 /*
- * Fitness API
- * The Fitness API for managing users' fitness tracking data.
+ * Chrome Management API
+ * The Chrome Management API is a suite of services that allows Chrome administrators to view, manage and gain insights on their Chrome OS and Chrome Browser devices.
  *
  * The version of the OpenAPI document: v1
  * 
