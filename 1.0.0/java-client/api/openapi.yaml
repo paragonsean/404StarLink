@@ -1,334 +1,92 @@
 openapi: 3.0.0
 info:
   contact:
-    email: support@aoncadis.org
-  description: This API allows programmers to build National Snow and Ice Data Center
-    data and metadata services into their applications.
-  title: NSIDC Web Service Documentation Index
+    email: support@interzoid.com
+    name: API Support
+    url: https://www.interzoid.com
+    x-twitter: interzoid
+  description: "This API provides a similarity key used to match with other similar\
+    \ company name data, including for purposes of deduplication, fuzzy matching,\
+    \ or merging of datasets. A much higher match rate will be achieved by matching\
+    \ on the algorithmically generated similarity key rather than the data itself."
+  license:
+    name: Interzoid license
+    url: https://www.interzoid.com/license
+  termsOfService: https://www.interzoid.com/terms
+  title: Interzoid Get Company Name Match Similarity Key API
   version: 1.0.0
   x-apisguru-categories:
-  - open_data
+  - developer_tools
   x-logo:
-    url: https://api.apis.guru/v2/cache/logo/http_nsidc.org_images_logo_nsidc_115x90.jpg
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_interzoid_profile_image.png
   x-origin:
-  - converter:
-      url: https://github.com/lucybot/api-spec-converter
-      version: 2.7.31
-    format: swagger
-    url: http://documentation-index-vm.apps.nsidc.org/api-docs
-    version: "1.2"
-  x-providerName: nsidc.org
+  - format: openapi
+    url: https://oas.interzoid.com/api/getcompanymatch.json
+    version: "3.0"
+  x-providerName: interzoid.com
+  x-serviceName: getcompanymatch
+externalDocs:
+  description: API home page and documentation
+  url: https://www.interzoid.com/services/getcompanymatch
 servers:
-- url: http://nsidc.org/api/dataset/2
-tags:
-- description: Dataset search
-  name: SwaggerDocs
+- url: https://api.interzoid.com
 paths:
-  /Facets:
+  /getcompanymatch:
     get:
-      description: "In the NSIDC Search and Arctic Data Explorer interfaces, this\
-        \ endpoint is used in conjunction with /OpenSearch whenever a user submits\
-        \ a new search. Consequently, it has the same parameters as /OpenSearch."
-      operationId: facets
+      description: Gets a similarity key for matching purposes for company name data
+      operationId: getcompanymatch
       parameters:
-      - description: URL-encoded keyword or keywords desired by the client; OpenSearch
-          1.1
+      - description: Your Interzoid license API key. Register at www.interzoid.com/register
         explode: true
         in: query
-        name: searchTerms
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: The number of search results per page desired by the client;
-          OpenSearch 1.1
-        explode: true
-        in: query
-        name: count
-        required: false
-        schema:
-          default: 25
-          type: integer
-        style: form
-      - description: First search result desired by the search client; OpenSearch
-          1.1
-        explode: true
-        in: query
-        name: startIndex
-        required: false
-        schema:
-          default: 1
-          type: integer
-        style: form
-      - description: "4 comma separated values - W, S, E, N; OpenSearch-Geo 1.0, \"\
-          box\" parameter"
-        explode: true
-        in: query
-        name: spatial
-        required: false
-        schema:
-          default: "-180.0,-90.0,180.0,90.0"
-          type: string
-        style: form
-      - description: "Sort the results by most relevant (default), smallest or largest\
-          \ spatial area, shortest or longest temporal duration, or most recently\
-          \ updated; partial implementation of OpenSearch SRU 1.0"
-        explode: true
-        in: query
-        name: sortKeys
-        required: false
-        schema:
-          default: "score,,desc"
-          enum:
-          - "score,,desc"
-          - "spatial_area,,asc"
-          - "spatial_area,,desc"
-          - "temporal_duration,,asc"
-          - "temporal_duration,,desc"
-          - "updated,,desc"
-          type: string
-        style: form
-      - description: The start date in yyyy-mm-dd format
-        explode: true
-        in: query
-        name: startDate
-        required: false
-        schema:
-          format: date
-          type: string
-        style: form
-      - description: The end date in yyyy-mm-dd format
-        explode: true
-        in: query
-        name: endDate
-        required: false
-        schema:
-          format: date
-          type: string
-        style: form
-      - description: "Describes faceted restrictions on the search. A URL-encoded\
-          \ JSON object where the keys are the names of the facet, and the values\
-          \ are arrays of the selected facet values"
-        explode: true
-        in: query
-        name: facetFilters
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Custom parameter for selecting which source to use; the Arctic\
-          \ Data Explorer (ADE) uses data aggregated from many sources, including,\
-          \ but not limited to, NSIDC"
-        explode: true
-        in: query
-        name: source
-        required: false
-        schema:
-          default: NSIDC
-          enum:
-          - NSIDC
-          - ADE
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/nsidcfacets+xml:
-              schema:
-                type: string
-          description: OK
-        "400":
-          description: Bad request
-        "500":
-          description: Internal server error
-      summary: View the facet information corresponding to a search
-      tags:
-      - SwaggerDocs
-      x-accepts:
-      - application/nsidcfacets+xml
-  /OpenSearch:
-    get:
-      description: "This endpoint uses parameters from the OpenSearch 1.1 specification,\
-        \ as well as parameters from the OpenSearch Geo (1.0) and SRU (1.0) extensions."
-      operationId: open search
-      parameters:
-      - description: URL-encoded keyword or keywords desired by the client; OpenSearch
-          1.1
-        explode: true
-        in: query
-        name: searchTerms
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: The number of search results per page desired by the client;
-          OpenSearch 1.1
-        explode: true
-        in: query
-        name: count
-        required: false
-        schema:
-          default: 25
-          type: integer
-        style: form
-      - description: First search result desired by the search client; OpenSearch
-          1.1
-        explode: true
-        in: query
-        name: startIndex
-        required: false
-        schema:
-          default: 1
-          type: integer
-        style: form
-      - description: "4 comma separated values - W, S, E, N; OpenSearch-Geo 1.0, \"\
-          box\" parameter"
-        explode: true
-        in: query
-        name: spatial
-        required: false
-        schema:
-          default: "-180.0,-90.0,180.0,90.0"
-          type: string
-        style: form
-      - description: "Sort the results by most relevant (default), smallest or largest\
-          \ spatial area, shortest or longest temporal duration, or most recently\
-          \ updated; partial implementation of OpenSearch SRU 1.0"
-        explode: true
-        in: query
-        name: sortKeys
-        required: false
-        schema:
-          default: "score,,desc"
-          enum:
-          - "score,,desc"
-          - "spatial_area,,asc"
-          - "spatial_area,,desc"
-          - "temporal_duration,,asc"
-          - "temporal_duration,,desc"
-          - "updated,,desc"
-          type: string
-        style: form
-      - description: The start date in yyyy-mm-dd format
-        explode: true
-        in: query
-        name: startDate
-        required: false
-        schema:
-          format: date
-          type: string
-        style: form
-      - description: The end date in yyyy-mm-dd format
-        explode: true
-        in: query
-        name: endDate
-        required: false
-        schema:
-          format: date
-          type: string
-        style: form
-      - description: "Describes faceted restrictions on the search. A URL-encoded\
-          \ JSON object where the keys are the names of the facet, and the values\
-          \ are arrays of the selected facet values"
-        explode: true
-        in: query
-        name: facetFilters
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Custom parameter for selecting which source to use; the Arctic\
-          \ Data Explorer (ADE) uses data aggregated from many sources, including,\
-          \ but not limited to, NSIDC"
-        explode: true
-        in: query
-        name: source
-        required: false
-        schema:
-          default: NSIDC
-          enum:
-          - NSIDC
-          - ADE
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/atom+xml:
-              schema:
-                type: string
-          description: OK
-        "400":
-          description: Bad request
-        "500":
-          description: Internal server error
-      summary: Search documents using the OpenSearch 1.1 Specification
-      tags:
-      - SwaggerDocs
-      x-accepts:
-      - application/atom+xml
-  /OpenSearchDescription:
-    get:
-      operationId: opensearch description
-      responses:
-        "200":
-          content:
-            application/opensearchdescription+xml:
-              schema:
-                type: string
-          description: Success
-      summary: Describes the web interface of NSIDC's data search engine
-      tags:
-      - SwaggerDocs
-      x-accepts:
-      - application/opensearchdescription+xml
-  /suggest:
-    get:
-      description: "In NSIDC Search and the Arctic Data Explorer, this endpoint is\
-        \ queried whenever the user types into the search terms box, and the returned\
-        \ suggestions are displayed in a dropdown beneath the search terms box. The\
-        \ q parameter and returned JSON follow the specifications of the OpenSearch\
-        \ Suggestions 1.0 extension."
-      operationId: id
-      parameters:
-      - description: Search terms typed into the interface (minimum two characters)
-        explode: true
-        in: query
-        name: q
+        name: license
         required: true
         schema:
           type: string
         style: form
-      - description: "Custom parameter for selecting which source to use; the Arctic\
-          \ Data Explorer (ADE) uses data aggregated from many sources, including,\
-          \ but not limited to, NSIDC"
+      - description: Company name from which to generate similarity key
         explode: true
         in: query
-        name: source
+        name: company
         required: true
         schema:
-          default: NSIDC
-          enum:
-          - NSIDC
-          - ADE
           type: string
         style: form
       responses:
         "200":
           content:
-            application/x-suggestions+json:
+            application/json:
               schema:
-                type: string
-          description: OK
+                $ref: '#/components/schemas/getcompanymatch_200_response'
+          description: Generated similarity key for company name data
         "400":
-          description: Bad request
+          description: bad request - insufficient parameters
+        "402":
+          description: credits exhausted
+        "403":
+          description: invalid license API key
+        "405":
+          description: method not allowed
         "500":
-          description: Internal server error
-      summary: Suggest search terms based on a partial query
+          description: internal server error
+      summary: Gets a similarity key for matching purposes for company name data
       tags:
-      - SwaggerDocs
+      - Company Name Similarity Key
       x-accepts:
-      - application/x-suggestions+json
+      - application/json
 components:
-  schemas: {}
+  schemas:
+    getcompanymatch_200_response:
+      example:
+        Credits: Credits
+        Simkey: Simkey
+        Code: Code
+      properties:
+        Code:
+          type: string
+        Credits:
+          type: string
+        Simkey:
+          type: string
+      type: object
 
