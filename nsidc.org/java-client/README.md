@@ -2,7 +2,7 @@
 
 NSIDC Web Service Documentation Index
 - API version: 1.0.0
-  - Build date: 2024-10-11T01:59:16.301308-04:00[America/New_York]
+  - Build date: 2024-10-11T02:08:19.392864-04:00[America/New_York]
   - Generator version: 7.9.0
 
 This API allows programmers to build National Snow and Ice Data Center data and metadata services into their applications.
