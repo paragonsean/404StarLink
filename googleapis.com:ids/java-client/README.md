@@ -2,7 +2,7 @@
 
 Cloud IDS API
 - API version: v1
-  - Build date: 2024-10-11T01:59:18.483926-04:00[America/New_York]
+  - Build date: 2024-10-11T02:08:21.649040-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Cloud IDS (Cloud Intrusion Detection System) detects malware, spyware, command-and-control attacks, and other network-based threats. Its security efficacy is industry leading, built with Palo Alto Networks technologies. When you use this product, your organization name and consumption levels will be shared with Palo Alto Networks.

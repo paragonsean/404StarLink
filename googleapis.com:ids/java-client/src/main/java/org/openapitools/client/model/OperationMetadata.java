@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents the metadata of the long-running operation.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:18.483926-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:21.649040-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class OperationMetadata {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

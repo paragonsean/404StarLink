@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -71,20 +70,3 @@ src/main/java/org/openapitools/client/model/SetIamPolicyRequest.java
 src/main/java/org/openapitools/client/model/Status.java
 src/main/java/org/openapitools/client/model/TestIamPermissionsRequest.java
 src/main/java/org/openapitools/client/model/TestIamPermissionsResponse.java
-src/test/java/org/openapitools/client/api/ProjectsApiTest.java
-src/test/java/org/openapitools/client/model/AuditConfigTest.java
-src/test/java/org/openapitools/client/model/AuditLogConfigTest.java
-src/test/java/org/openapitools/client/model/BindingTest.java
-src/test/java/org/openapitools/client/model/EndpointTest.java
-src/test/java/org/openapitools/client/model/ExprTest.java
-src/test/java/org/openapitools/client/model/ListEndpointsResponseTest.java
-src/test/java/org/openapitools/client/model/ListLocationsResponseTest.java
-src/test/java/org/openapitools/client/model/ListOperationsResponseTest.java
-src/test/java/org/openapitools/client/model/LocationTest.java
-src/test/java/org/openapitools/client/model/OperationMetadataTest.java
-src/test/java/org/openapitools/client/model/OperationTest.java
-src/test/java/org/openapitools/client/model/PolicyTest.java
-src/test/java/org/openapitools/client/model/SetIamPolicyRequestTest.java
-src/test/java/org/openapitools/client/model/StatusTest.java
-src/test/java/org/openapitools/client/model/TestIamPermissionsRequestTest.java
-src/test/java/org/openapitools/client/model/TestIamPermissionsResponseTest.java
