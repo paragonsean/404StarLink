@@ -1,0 +1,3552 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Twilio - Trusthub</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Twilio - Trusthub</h1>
+    <div class="app-desc">This is the public Twilio REST API.</div>
+    <div class="app-desc">More information: <a href="https://support.twilio.com">https://support.twilio.com</a></div>
+    <div class="app-desc">Contact Info: <a href="support@twilio.com">support@twilio.com</a></div>
+    <div class="app-desc">Version: 1.42.0</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">https://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>HTTP Basic Authentication</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#createCustomerProfile"><code><span class="http-method">post</span> /v1/CustomerProfiles</code></a></li>
+  <li><a href="#createCustomerProfileChannelEndpointAssignment"><code><span class="http-method">post</span> /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments</code></a></li>
+  <li><a href="#createCustomerProfileEntityAssignment"><code><span class="http-method">post</span> /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments</code></a></li>
+  <li><a href="#createCustomerProfileEvaluation"><code><span class="http-method">post</span> /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations</code></a></li>
+  <li><a href="#createEndUser"><code><span class="http-method">post</span> /v1/EndUsers</code></a></li>
+  <li><a href="#createSupportingDocument"><code><span class="http-method">post</span> /v1/SupportingDocuments</code></a></li>
+  <li><a href="#createTrustProduct"><code><span class="http-method">post</span> /v1/TrustProducts</code></a></li>
+  <li><a href="#createTrustProductChannelEndpointAssignment"><code><span class="http-method">post</span> /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments</code></a></li>
+  <li><a href="#createTrustProductEntityAssignment"><code><span class="http-method">post</span> /v1/TrustProducts/{TrustProductSid}/EntityAssignments</code></a></li>
+  <li><a href="#createTrustProductEvaluation"><code><span class="http-method">post</span> /v1/TrustProducts/{TrustProductSid}/Evaluations</code></a></li>
+  <li><a href="#deleteCustomerProfile"><code><span class="http-method">delete</span> /v1/CustomerProfiles/{Sid}</code></a></li>
+  <li><a href="#deleteCustomerProfileChannelEndpointAssignment"><code><span class="http-method">delete</span> /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments/{Sid}</code></a></li>
+  <li><a href="#deleteCustomerProfileEntityAssignment"><code><span class="http-method">delete</span> /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments/{Sid}</code></a></li>
+  <li><a href="#deleteEndUser"><code><span class="http-method">delete</span> /v1/EndUsers/{Sid}</code></a></li>
+  <li><a href="#deleteSupportingDocument"><code><span class="http-method">delete</span> /v1/SupportingDocuments/{Sid}</code></a></li>
+  <li><a href="#deleteTrustProduct"><code><span class="http-method">delete</span> /v1/TrustProducts/{Sid}</code></a></li>
+  <li><a href="#deleteTrustProductChannelEndpointAssignment"><code><span class="http-method">delete</span> /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments/{Sid}</code></a></li>
+  <li><a href="#deleteTrustProductEntityAssignment"><code><span class="http-method">delete</span> /v1/TrustProducts/{TrustProductSid}/EntityAssignments/{Sid}</code></a></li>
+  <li><a href="#fetchCustomerProfile"><code><span class="http-method">get</span> /v1/CustomerProfiles/{Sid}</code></a></li>
+  <li><a href="#fetchCustomerProfileChannelEndpointAssignment"><code><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments/{Sid}</code></a></li>
+  <li><a href="#fetchCustomerProfileEntityAssignment"><code><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments/{Sid}</code></a></li>
+  <li><a href="#fetchCustomerProfileEvaluation"><code><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations/{Sid}</code></a></li>
+  <li><a href="#fetchEndUser"><code><span class="http-method">get</span> /v1/EndUsers/{Sid}</code></a></li>
+  <li><a href="#fetchEndUserType"><code><span class="http-method">get</span> /v1/EndUserTypes/{Sid}</code></a></li>
+  <li><a href="#fetchPolicies"><code><span class="http-method">get</span> /v1/Policies/{Sid}</code></a></li>
+  <li><a href="#fetchSupportingDocument"><code><span class="http-method">get</span> /v1/SupportingDocuments/{Sid}</code></a></li>
+  <li><a href="#fetchSupportingDocumentType"><code><span class="http-method">get</span> /v1/SupportingDocumentTypes/{Sid}</code></a></li>
+  <li><a href="#fetchTrustProduct"><code><span class="http-method">get</span> /v1/TrustProducts/{Sid}</code></a></li>
+  <li><a href="#fetchTrustProductChannelEndpointAssignment"><code><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments/{Sid}</code></a></li>
+  <li><a href="#fetchTrustProductEntityAssignment"><code><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/EntityAssignments/{Sid}</code></a></li>
+  <li><a href="#fetchTrustProductEvaluation"><code><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/Evaluations/{Sid}</code></a></li>
+  <li><a href="#listCustomerProfile"><code><span class="http-method">get</span> /v1/CustomerProfiles</code></a></li>
+  <li><a href="#listCustomerProfileChannelEndpointAssignment"><code><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments</code></a></li>
+  <li><a href="#listCustomerProfileEntityAssignment"><code><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments</code></a></li>
+  <li><a href="#listCustomerProfileEvaluation"><code><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations</code></a></li>
+  <li><a href="#listEndUser"><code><span class="http-method">get</span> /v1/EndUsers</code></a></li>
+  <li><a href="#listEndUserType"><code><span class="http-method">get</span> /v1/EndUserTypes</code></a></li>
+  <li><a href="#listPolicies"><code><span class="http-method">get</span> /v1/Policies</code></a></li>
+  <li><a href="#listSupportingDocument"><code><span class="http-method">get</span> /v1/SupportingDocuments</code></a></li>
+  <li><a href="#listSupportingDocumentType"><code><span class="http-method">get</span> /v1/SupportingDocumentTypes</code></a></li>
+  <li><a href="#listTrustProduct"><code><span class="http-method">get</span> /v1/TrustProducts</code></a></li>
+  <li><a href="#listTrustProductChannelEndpointAssignment"><code><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments</code></a></li>
+  <li><a href="#listTrustProductEntityAssignment"><code><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/EntityAssignments</code></a></li>
+  <li><a href="#listTrustProductEvaluation"><code><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/Evaluations</code></a></li>
+  <li><a href="#updateCustomerProfile"><code><span class="http-method">post</span> /v1/CustomerProfiles/{Sid}</code></a></li>
+  <li><a href="#updateEndUser"><code><span class="http-method">post</span> /v1/EndUsers/{Sid}</code></a></li>
+  <li><a href="#updateSupportingDocument"><code><span class="http-method">post</span> /v1/SupportingDocuments/{Sid}</code></a></li>
+  <li><a href="#updateTrustProduct"><code><span class="http-method">post</span> /v1/TrustProducts/{Sid}</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="createCustomerProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/CustomerProfiles</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createCustomerProfile</span>)</div>
+    <div class="method-notes">Create a new Customer-Profile.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">Email (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The email address that will receive updates when the Customer-Profile resource changes status. default: null </div><div class="param">FriendlyName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The string that you assigned to describe the resource. default: null </div><div class="param">PolicySid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The unique string of a policy that is associated to the Customer-Profile resource. default: null </div><div class="param">StatusCallback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL we call to inform your application of status changes. default: null format: uri</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.customer_profile">trusthub.v1.customer_profile</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "policy_sid" : "policy_sid",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "valid_until" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "status_callback" : "https://openapi-generator.tech",
+  "email" : "email",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#trusthub.v1.customer_profile">trusthub.v1.customer_profile</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createCustomerProfileChannelEndpointAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createCustomerProfileChannelEndpointAssignment</span>)</div>
+    <div class="method-notes">Create a new Assigned Item.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">CustomerProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">ChannelEndpointSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The SID of an channel endpoint default: null </div><div class="param">ChannelEndpointType (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The type of channel endpoint. eg: phone-number default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment">trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "channel_endpoint_sid" : "channel_endpoint_sid",
+  "customer_profile_sid" : "customer_profile_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "channel_endpoint_type" : "channel_endpoint_type",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment">trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createCustomerProfileEntityAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createCustomerProfileEntityAssignment</span>)</div>
+    <div class="method-notes">Create a new Assigned Item.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">CustomerProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">ObjectSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The SID of an object bag that holds information of the different items. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.customer_profile.customer_profile_entity_assignment">trusthub.v1.customer_profile.customer_profile_entity_assignment</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "customer_profile_sid" : "customer_profile_sid",
+  "object_sid" : "object_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#trusthub.v1.customer_profile.customer_profile_entity_assignment">trusthub.v1.customer_profile.customer_profile_entity_assignment</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createCustomerProfileEvaluation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createCustomerProfileEvaluation</span>)</div>
+    <div class="method-notes">Create a new Evaluation</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">CustomerProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">PolicySid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The unique string of a policy that is associated to the customer_profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.customer_profile.customer_profile_evaluation">trusthub.v1.customer_profile.customer_profile_evaluation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "policy_sid" : "policy_sid",
+  "customer_profile_sid" : "customer_profile_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "results" : [ "", "" ],
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#trusthub.v1.customer_profile.customer_profile_evaluation">trusthub.v1.customer_profile.customer_profile_evaluation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createEndUser"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/EndUsers</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createEndUser</span>)</div>
+    <div class="method-notes">Create a new End User.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">Attributes (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The set of parameters that are the attributes of the End User resource which are derived End User Types. default: null </div><div class="param">FriendlyName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The string that you assigned to describe the resource. default: null </div><div class="param">Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The type of end user of the Bundle resource - can be <code>individual</code> or <code>business</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.end_user">trusthub.v1.end_user</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "attributes" : "",
+  "type" : "type",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#trusthub.v1.end_user">trusthub.v1.end_user</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createSupportingDocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/SupportingDocuments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createSupportingDocument</span>)</div>
+    <div class="method-notes">Create a new Supporting Document.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">Attributes (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The set of parameters that are the attributes of the Supporting Documents resource which are derived Supporting Document Types. default: null </div><div class="param">FriendlyName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The string that you assigned to describe the resource. default: null </div><div class="param">Type (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The type of the Supporting Document. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.supporting_document">trusthub.v1.supporting_document</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "mime_type" : "mime_type",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "attributes" : "",
+  "type" : "type",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#trusthub.v1.supporting_document">trusthub.v1.supporting_document</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createTrustProduct"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/TrustProducts</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createTrustProduct</span>)</div>
+    <div class="method-notes">Create a new Customer-Profile.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">Email (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The email address that will receive updates when the Customer-Profile resource changes status. default: null </div><div class="param">FriendlyName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The string that you assigned to describe the resource. default: null </div><div class="param">PolicySid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The unique string of a policy that is associated to the Customer-Profile resource. default: null </div><div class="param">StatusCallback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL we call to inform your application of status changes. default: null format: uri</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.trust_product">trusthub.v1.trust_product</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "policy_sid" : "policy_sid",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "valid_until" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "status_callback" : "https://openapi-generator.tech",
+  "email" : "email",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#trusthub.v1.trust_product">trusthub.v1.trust_product</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createTrustProductChannelEndpointAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createTrustProductChannelEndpointAssignment</span>)</div>
+    <div class="method-notes">Create a new Assigned Item.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">TrustProductSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">ChannelEndpointSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The SID of an channel endpoint default: null </div><div class="param">ChannelEndpointType (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The type of channel endpoint. eg: phone-number default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.trust_product.trust_product_channel_endpoint_assignment">trusthub.v1.trust_product.trust_product_channel_endpoint_assignment</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "channel_endpoint_sid" : "channel_endpoint_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "trust_product_sid" : "trust_product_sid",
+  "channel_endpoint_type" : "channel_endpoint_type",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#trusthub.v1.trust_product.trust_product_channel_endpoint_assignment">trusthub.v1.trust_product.trust_product_channel_endpoint_assignment</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createTrustProductEntityAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/TrustProducts/{TrustProductSid}/EntityAssignments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createTrustProductEntityAssignment</span>)</div>
+    <div class="method-notes">Create a new Assigned Item.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">TrustProductSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the TrustProduct resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">ObjectSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The SID of an object bag that holds information of the different items. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.trust_product.trust_product_entity_assignment">trusthub.v1.trust_product.trust_product_entity_assignment</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "object_sid" : "object_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "trust_product_sid" : "trust_product_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#trusthub.v1.trust_product.trust_product_entity_assignment">trusthub.v1.trust_product.trust_product_entity_assignment</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createTrustProductEvaluation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/TrustProducts/{TrustProductSid}/Evaluations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createTrustProductEvaluation</span>)</div>
+    <div class="method-notes">Create a new Evaluation</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">TrustProductSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the trust_product resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">PolicySid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The unique string of a policy that is associated to the customer_profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.trust_product.trust_product_evaluation">trusthub.v1.trust_product.trust_product_evaluation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "policy_sid" : "policy_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "trust_product_sid" : "trust_product_sid",
+  "results" : [ "", "" ],
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#trusthub.v1.trust_product.trust_product_evaluation">trusthub.v1.trust_product.trust_product_evaluation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteCustomerProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/CustomerProfiles/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteCustomerProfile</span>)</div>
+    <div class="method-notes">Delete a specific Customer-Profile.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the Customer-Profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    The resource was deleted successfully.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteCustomerProfileChannelEndpointAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteCustomerProfileChannelEndpointAssignment</span>)</div>
+    <div class="method-notes">Remove an Assignment Item Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">CustomerProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    The resource was deleted successfully.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteCustomerProfileEntityAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteCustomerProfileEntityAssignment</span>)</div>
+    <div class="method-notes">Remove an Assignment Item Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">CustomerProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the Identity resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    The resource was deleted successfully.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteEndUser"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/EndUsers/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteEndUser</span>)</div>
+    <div class="method-notes">Delete a specific End User.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string created by Twilio to identify the End User resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    The resource was deleted successfully.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteSupportingDocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/SupportingDocuments/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteSupportingDocument</span>)</div>
+    <div class="method-notes">Delete a specific Supporting Document.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string created by Twilio to identify the Supporting Document resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    The resource was deleted successfully.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteTrustProduct"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/TrustProducts/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteTrustProduct</span>)</div>
+    <div class="method-notes">Delete a specific Customer-Profile.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the Customer-Profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    The resource was deleted successfully.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteTrustProductChannelEndpointAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteTrustProductChannelEndpointAssignment</span>)</div>
+    <div class="method-notes">Remove an Assignment Item Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">TrustProductSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    The resource was deleted successfully.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteTrustProductEntityAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/TrustProducts/{TrustProductSid}/EntityAssignments/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteTrustProductEntityAssignment</span>)</div>
+    <div class="method-notes">Remove an Assignment Item Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">TrustProductSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the TrustProduct resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the Identity resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    The resource was deleted successfully.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchCustomerProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/CustomerProfiles/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchCustomerProfile</span>)</div>
+    <div class="method-notes">Fetch a specific Customer-Profile instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the Customer-Profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.customer_profile">trusthub.v1.customer_profile</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "policy_sid" : "policy_sid",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "valid_until" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "status_callback" : "https://openapi-generator.tech",
+  "email" : "email",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.customer_profile">trusthub.v1.customer_profile</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchCustomerProfileChannelEndpointAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchCustomerProfileChannelEndpointAssignment</span>)</div>
+    <div class="method-notes">Fetch specific Assigned Item Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">CustomerProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment">trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "channel_endpoint_sid" : "channel_endpoint_sid",
+  "customer_profile_sid" : "customer_profile_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "channel_endpoint_type" : "channel_endpoint_type",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment">trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchCustomerProfileEntityAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchCustomerProfileEntityAssignment</span>)</div>
+    <div class="method-notes">Fetch specific Assigned Item Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">CustomerProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the Identity resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.customer_profile.customer_profile_entity_assignment">trusthub.v1.customer_profile.customer_profile_entity_assignment</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "customer_profile_sid" : "customer_profile_sid",
+  "object_sid" : "object_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.customer_profile.customer_profile_entity_assignment">trusthub.v1.customer_profile.customer_profile_entity_assignment</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchCustomerProfileEvaluation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchCustomerProfileEvaluation</span>)</div>
+    <div class="method-notes">Fetch specific Evaluation Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">CustomerProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the customer_profile resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that identifies the Evaluation resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.customer_profile.customer_profile_evaluation">trusthub.v1.customer_profile.customer_profile_evaluation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "policy_sid" : "policy_sid",
+  "customer_profile_sid" : "customer_profile_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "results" : [ "", "" ],
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.customer_profile.customer_profile_evaluation">trusthub.v1.customer_profile.customer_profile_evaluation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchEndUser"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/EndUsers/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchEndUser</span>)</div>
+    <div class="method-notes">Fetch specific End User Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string created by Twilio to identify the End User resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.end_user">trusthub.v1.end_user</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "attributes" : "",
+  "type" : "type",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.end_user">trusthub.v1.end_user</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchEndUserType"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/EndUserTypes/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchEndUserType</span>)</div>
+    <div class="method-notes">Fetch a specific End-User Type Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that identifies the End-User Type resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.end_user_type">trusthub.v1.end_user_type</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "fields" : [ "", "" ],
+  "machine_name" : "machine_name",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.end_user_type">trusthub.v1.end_user_type</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchPolicies"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/Policies/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchPolicies</span>)</div>
+    <div class="method-notes">Fetch specific Policy Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that identifies the Policy resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.policies">trusthub.v1.policies</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "requirements" : "",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.policies">trusthub.v1.policies</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchSupportingDocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/SupportingDocuments/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchSupportingDocument</span>)</div>
+    <div class="method-notes">Fetch specific Supporting Document Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string created by Twilio to identify the Supporting Document resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.supporting_document">trusthub.v1.supporting_document</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "mime_type" : "mime_type",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "attributes" : "",
+  "type" : "type",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.supporting_document">trusthub.v1.supporting_document</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchSupportingDocumentType"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/SupportingDocumentTypes/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchSupportingDocumentType</span>)</div>
+    <div class="method-notes">Fetch a specific Supporting Document Type Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that identifies the Supporting Document Type resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.supporting_document_type">trusthub.v1.supporting_document_type</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "fields" : [ "", "" ],
+  "machine_name" : "machine_name",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.supporting_document_type">trusthub.v1.supporting_document_type</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchTrustProduct"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/TrustProducts/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchTrustProduct</span>)</div>
+    <div class="method-notes">Fetch a specific Customer-Profile instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the Customer-Profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.trust_product">trusthub.v1.trust_product</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "policy_sid" : "policy_sid",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "valid_until" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "status_callback" : "https://openapi-generator.tech",
+  "email" : "email",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.trust_product">trusthub.v1.trust_product</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchTrustProductChannelEndpointAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchTrustProductChannelEndpointAssignment</span>)</div>
+    <div class="method-notes">Fetch specific Assigned Item Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">TrustProductSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.trust_product.trust_product_channel_endpoint_assignment">trusthub.v1.trust_product.trust_product_channel_endpoint_assignment</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "channel_endpoint_sid" : "channel_endpoint_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "trust_product_sid" : "trust_product_sid",
+  "channel_endpoint_type" : "channel_endpoint_type",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.trust_product.trust_product_channel_endpoint_assignment">trusthub.v1.trust_product.trust_product_channel_endpoint_assignment</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchTrustProductEntityAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/EntityAssignments/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchTrustProductEntityAssignment</span>)</div>
+    <div class="method-notes">Fetch specific Assigned Item Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">TrustProductSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the TrustProduct resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the Identity resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.trust_product.trust_product_entity_assignment">trusthub.v1.trust_product.trust_product_entity_assignment</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "object_sid" : "object_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "trust_product_sid" : "trust_product_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.trust_product.trust_product_entity_assignment">trusthub.v1.trust_product.trust_product_entity_assignment</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchTrustProductEvaluation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/Evaluations/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchTrustProductEvaluation</span>)</div>
+    <div class="method-notes">Fetch specific Evaluation Instance.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">TrustProductSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the trust_product resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that identifies the Evaluation resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.trust_product.trust_product_evaluation">trusthub.v1.trust_product.trust_product_evaluation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "policy_sid" : "policy_sid",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "trust_product_sid" : "trust_product_sid",
+  "results" : [ "", "" ],
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.trust_product.trust_product_evaluation">trusthub.v1.trust_product.trust_product_evaluation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listCustomerProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/CustomerProfiles</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listCustomerProfile</span>)</div>
+    <div class="method-notes">Retrieve a list of all Customer-Profiles for an account.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">Status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The verification status of the Customer-Profile resource. default: null </div><div class="param">FriendlyName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The string that you assigned to describe the resource. default: null </div><div class="param">PolicySid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The unique string of a policy that is associated to the Customer-Profile resource. default: null </div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListCustomerProfileResponse">ListCustomerProfileResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "results" : [ {
+    "policy_sid" : "policy_sid",
+    "friendly_name" : "friendly_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "valid_until" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "links" : "{}",
+    "status_callback" : "https://openapi-generator.tech",
+    "email" : "email",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  }, {
+    "policy_sid" : "policy_sid",
+    "friendly_name" : "friendly_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "valid_until" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "links" : "{}",
+    "status_callback" : "https://openapi-generator.tech",
+    "email" : "email",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListCustomerProfileResponse">ListCustomerProfileResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listCustomerProfileChannelEndpointAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listCustomerProfileChannelEndpointAssignment</span>)</div>
+    <div class="method-notes">Retrieve a list of all Assigned Items for an account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">CustomerProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">ChannelEndpointSid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The SID of an channel endpoint default: null </div><div class="param">ChannelEndpointSids (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; comma separated list of channel endpoint sids default: null </div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListCustomerProfileChannelEndpointAssignmentResponse">ListCustomerProfileChannelEndpointAssignmentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "results" : [ {
+    "channel_endpoint_sid" : "channel_endpoint_sid",
+    "customer_profile_sid" : "customer_profile_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "channel_endpoint_type" : "channel_endpoint_type",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  }, {
+    "channel_endpoint_sid" : "channel_endpoint_sid",
+    "customer_profile_sid" : "customer_profile_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "channel_endpoint_type" : "channel_endpoint_type",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListCustomerProfileChannelEndpointAssignmentResponse">ListCustomerProfileChannelEndpointAssignmentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listCustomerProfileEntityAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listCustomerProfileEntityAssignment</span>)</div>
+    <div class="method-notes">Retrieve a list of all Assigned Items for an account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">CustomerProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListCustomerProfileEntityAssignmentResponse">ListCustomerProfileEntityAssignmentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "results" : [ {
+    "customer_profile_sid" : "customer_profile_sid",
+    "object_sid" : "object_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  }, {
+    "customer_profile_sid" : "customer_profile_sid",
+    "object_sid" : "object_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListCustomerProfileEntityAssignmentResponse">ListCustomerProfileEntityAssignmentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listCustomerProfileEvaluation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listCustomerProfileEvaluation</span>)</div>
+    <div class="method-notes">Retrieve a list of Evaluations associated to the customer_profile resource.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">CustomerProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListCustomerProfileEvaluationResponse">ListCustomerProfileEvaluationResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "results" : [ {
+    "policy_sid" : "policy_sid",
+    "customer_profile_sid" : "customer_profile_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "results" : [ "", "" ],
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  }, {
+    "policy_sid" : "policy_sid",
+    "customer_profile_sid" : "customer_profile_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "results" : [ "", "" ],
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListCustomerProfileEvaluationResponse">ListCustomerProfileEvaluationResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listEndUser"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/EndUsers</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listEndUser</span>)</div>
+    <div class="method-notes">Retrieve a list of all End User for an account.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListEndUserResponse">ListEndUserResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "results" : [ {
+    "friendly_name" : "friendly_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "attributes" : "",
+    "type" : "type",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  }, {
+    "friendly_name" : "friendly_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "attributes" : "",
+    "type" : "type",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListEndUserResponse">ListEndUserResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listEndUserType"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/EndUserTypes</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listEndUserType</span>)</div>
+    <div class="method-notes">Retrieve a list of all End-User Types.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListEndUserTypeResponse">ListEndUserTypeResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "end_user_types" : [ {
+    "friendly_name" : "friendly_name",
+    "fields" : [ "", "" ],
+    "machine_name" : "machine_name",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  }, {
+    "friendly_name" : "friendly_name",
+    "fields" : [ "", "" ],
+    "machine_name" : "machine_name",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListEndUserTypeResponse">ListEndUserTypeResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listPolicies"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/Policies</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listPolicies</span>)</div>
+    <div class="method-notes">Retrieve a list of all Policys.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListPoliciesResponse">ListPoliciesResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "results" : [ {
+    "friendly_name" : "friendly_name",
+    "requirements" : "",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  }, {
+    "friendly_name" : "friendly_name",
+    "requirements" : "",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListPoliciesResponse">ListPoliciesResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listSupportingDocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/SupportingDocuments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listSupportingDocument</span>)</div>
+    <div class="method-notes">Retrieve a list of all Supporting Document for an account.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSupportingDocumentResponse">ListSupportingDocumentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "results" : [ {
+    "friendly_name" : "friendly_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "mime_type" : "mime_type",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "attributes" : "",
+    "type" : "type",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  }, {
+    "friendly_name" : "friendly_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "mime_type" : "mime_type",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "attributes" : "",
+    "type" : "type",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSupportingDocumentResponse">ListSupportingDocumentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listSupportingDocumentType"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/SupportingDocumentTypes</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listSupportingDocumentType</span>)</div>
+    <div class="method-notes">Retrieve a list of all Supporting Document Types.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSupportingDocumentTypeResponse">ListSupportingDocumentTypeResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "supporting_document_types" : [ {
+    "friendly_name" : "friendly_name",
+    "fields" : [ "", "" ],
+    "machine_name" : "machine_name",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  }, {
+    "friendly_name" : "friendly_name",
+    "fields" : [ "", "" ],
+    "machine_name" : "machine_name",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  } ],
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSupportingDocumentTypeResponse">ListSupportingDocumentTypeResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listTrustProduct"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/TrustProducts</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listTrustProduct</span>)</div>
+    <div class="method-notes">Retrieve a list of all Customer-Profiles for an account.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">Status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The verification status of the Customer-Profile resource. default: null </div><div class="param">FriendlyName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The string that you assigned to describe the resource. default: null </div><div class="param">PolicySid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The unique string of a policy that is associated to the Customer-Profile resource. default: null </div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListTrustProductResponse">ListTrustProductResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "results" : [ {
+    "policy_sid" : "policy_sid",
+    "friendly_name" : "friendly_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "valid_until" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "links" : "{}",
+    "status_callback" : "https://openapi-generator.tech",
+    "email" : "email",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  }, {
+    "policy_sid" : "policy_sid",
+    "friendly_name" : "friendly_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "valid_until" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "links" : "{}",
+    "status_callback" : "https://openapi-generator.tech",
+    "email" : "email",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListTrustProductResponse">ListTrustProductResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listTrustProductChannelEndpointAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listTrustProductChannelEndpointAssignment</span>)</div>
+    <div class="method-notes">Retrieve a list of all Assigned Items for an account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">TrustProductSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the CustomerProfile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">ChannelEndpointSid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The SID of an channel endpoint default: null </div><div class="param">ChannelEndpointSids (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; comma separated list of channel endpoint sids default: null </div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListTrustProductChannelEndpointAssignmentResponse">ListTrustProductChannelEndpointAssignmentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "results" : [ {
+    "channel_endpoint_sid" : "channel_endpoint_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "trust_product_sid" : "trust_product_sid",
+    "channel_endpoint_type" : "channel_endpoint_type",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  }, {
+    "channel_endpoint_sid" : "channel_endpoint_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "trust_product_sid" : "trust_product_sid",
+    "channel_endpoint_type" : "channel_endpoint_type",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListTrustProductChannelEndpointAssignmentResponse">ListTrustProductChannelEndpointAssignmentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listTrustProductEntityAssignment"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/EntityAssignments</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listTrustProductEntityAssignment</span>)</div>
+    <div class="method-notes">Retrieve a list of all Assigned Items for an account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">TrustProductSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the TrustProduct resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListTrustProductEntityAssignmentResponse">ListTrustProductEntityAssignmentResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "results" : [ {
+    "object_sid" : "object_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "trust_product_sid" : "trust_product_sid",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  }, {
+    "object_sid" : "object_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "trust_product_sid" : "trust_product_sid",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListTrustProductEntityAssignmentResponse">ListTrustProductEntityAssignmentResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listTrustProductEvaluation"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/TrustProducts/{TrustProductSid}/Evaluations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listTrustProductEvaluation</span>)</div>
+    <div class="method-notes">Retrieve a list of Evaluations associated to the trust_product resource.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">TrustProductSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the trust_product resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListTrustProductEvaluationResponse">ListTrustProductEvaluationResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "results" : [ {
+    "policy_sid" : "policy_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "trust_product_sid" : "trust_product_sid",
+    "results" : [ "", "" ],
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  }, {
+    "policy_sid" : "policy_sid",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "trust_product_sid" : "trust_product_sid",
+    "results" : [ "", "" ],
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListTrustProductEvaluationResponse">ListTrustProductEvaluationResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateCustomerProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/CustomerProfiles/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateCustomerProfile</span>)</div>
+    <div class="method-notes">Updates a Customer-Profile in an account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the Customer-Profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">Email (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The email address that will receive updates when the Customer-Profile resource changes status. default: null </div><div class="param">FriendlyName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The string that you assigned to describe the resource. default: null </div><div class="param">Status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null </div><div class="param">StatusCallback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL we call to inform your application of status changes. default: null format: uri</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.customer_profile">trusthub.v1.customer_profile</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "policy_sid" : "policy_sid",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "valid_until" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "status_callback" : "https://openapi-generator.tech",
+  "email" : "email",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.customer_profile">trusthub.v1.customer_profile</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateEndUser"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/EndUsers/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateEndUser</span>)</div>
+    <div class="method-notes">Update an existing End User.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string created by Twilio to identify the End User resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">Attributes (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The set of parameters that are the attributes of the End User resource which are derived End User Types. default: null </div><div class="param">FriendlyName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The string that you assigned to describe the resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.end_user">trusthub.v1.end_user</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "attributes" : "",
+  "type" : "type",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.end_user">trusthub.v1.end_user</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateSupportingDocument"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/SupportingDocuments/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateSupportingDocument</span>)</div>
+    <div class="method-notes">Update an existing Supporting Document.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string created by Twilio to identify the Supporting Document resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">Attributes (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The set of parameters that are the attributes of the Supporting Document resource which are derived Supporting Document Types. default: null </div><div class="param">FriendlyName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The string that you assigned to describe the resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.supporting_document">trusthub.v1.supporting_document</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "mime_type" : "mime_type",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "attributes" : "",
+  "type" : "type",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.supporting_document">trusthub.v1.supporting_document</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateTrustProduct"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/TrustProducts/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateTrustProduct</span>)</div>
+    <div class="method-notes">Updates a Customer-Profile in an account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that we created to identify the Customer-Profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">Email (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The email address that will receive updates when the Customer-Profile resource changes status. default: null </div><div class="param">FriendlyName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The string that you assigned to describe the resource. default: null </div><div class="param">Status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null </div><div class="param">StatusCallback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL we call to inform your application of status changes. default: null format: uri</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#trusthub.v1.trust_product">trusthub.v1.trust_product</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "policy_sid" : "policy_sid",
+  "friendly_name" : "friendly_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "valid_until" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "status_callback" : "https://openapi-generator.tech",
+  "email" : "email",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#trusthub.v1.trust_product">trusthub.v1.trust_product</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ListCustomerProfileChannelEndpointAssignmentResponse"><code>ListCustomerProfileChannelEndpointAssignmentResponse</code> - ListCustomerProfileChannelEndpointAssignmentResponse</a></li>
+    <li><a href="#ListCustomerProfileEntityAssignmentResponse"><code>ListCustomerProfileEntityAssignmentResponse</code> - ListCustomerProfileEntityAssignmentResponse</a></li>
+    <li><a href="#ListCustomerProfileEvaluationResponse"><code>ListCustomerProfileEvaluationResponse</code> - ListCustomerProfileEvaluationResponse</a></li>
+    <li><a href="#ListCustomerProfileResponse"><code>ListCustomerProfileResponse</code> - ListCustomerProfileResponse</a></li>
+    <li><a href="#ListCustomerProfileResponse_meta"><code>ListCustomerProfileResponse_meta</code> - </a></li>
+    <li><a href="#ListEndUserResponse"><code>ListEndUserResponse</code> - ListEndUserResponse</a></li>
+    <li><a href="#ListEndUserTypeResponse"><code>ListEndUserTypeResponse</code> - ListEndUserTypeResponse</a></li>
+    <li><a href="#ListPoliciesResponse"><code>ListPoliciesResponse</code> - ListPoliciesResponse</a></li>
+    <li><a href="#ListSupportingDocumentResponse"><code>ListSupportingDocumentResponse</code> - ListSupportingDocumentResponse</a></li>
+    <li><a href="#ListSupportingDocumentTypeResponse"><code>ListSupportingDocumentTypeResponse</code> - ListSupportingDocumentTypeResponse</a></li>
+    <li><a href="#ListTrustProductChannelEndpointAssignmentResponse"><code>ListTrustProductChannelEndpointAssignmentResponse</code> - ListTrustProductChannelEndpointAssignmentResponse</a></li>
+    <li><a href="#ListTrustProductEntityAssignmentResponse"><code>ListTrustProductEntityAssignmentResponse</code> - ListTrustProductEntityAssignmentResponse</a></li>
+    <li><a href="#ListTrustProductEvaluationResponse"><code>ListTrustProductEvaluationResponse</code> - ListTrustProductEvaluationResponse</a></li>
+    <li><a href="#ListTrustProductResponse"><code>ListTrustProductResponse</code> - ListTrustProductResponse</a></li>
+    <li><a href="#customer_profile_enum_end_user_type"><code>customer_profile_enum_end_user_type</code> - </a></li>
+    <li><a href="#customer_profile_enum_status"><code>customer_profile_enum_status</code> - </a></li>
+    <li><a href="#customer_profile_evaluation_enum_status"><code>customer_profile_evaluation_enum_status</code> - </a></li>
+    <li><a href="#policies_enum_end_user_type"><code>policies_enum_end_user_type</code> - </a></li>
+    <li><a href="#supporting_document_enum_status"><code>supporting_document_enum_status</code> - </a></li>
+    <li><a href="#trust_product_enum_end_user_type"><code>trust_product_enum_end_user_type</code> - </a></li>
+    <li><a href="#trust_product_enum_status"><code>trust_product_enum_status</code> - </a></li>
+    <li><a href="#trust_product_evaluation_enum_status"><code>trust_product_evaluation_enum_status</code> - </a></li>
+    <li><a href="#trusthub.v1.customer_profile"><code>trusthub.v1.customer_profile</code> - </a></li>
+    <li><a href="#trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment"><code>trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment</code> - </a></li>
+    <li><a href="#trusthub.v1.customer_profile.customer_profile_entity_assignment"><code>trusthub.v1.customer_profile.customer_profile_entity_assignment</code> - </a></li>
+    <li><a href="#trusthub.v1.customer_profile.customer_profile_evaluation"><code>trusthub.v1.customer_profile.customer_profile_evaluation</code> - </a></li>
+    <li><a href="#trusthub.v1.end_user"><code>trusthub.v1.end_user</code> - </a></li>
+    <li><a href="#trusthub.v1.end_user_type"><code>trusthub.v1.end_user_type</code> - </a></li>
+    <li><a href="#trusthub.v1.policies"><code>trusthub.v1.policies</code> - </a></li>
+    <li><a href="#trusthub.v1.supporting_document"><code>trusthub.v1.supporting_document</code> - </a></li>
+    <li><a href="#trusthub.v1.supporting_document_type"><code>trusthub.v1.supporting_document_type</code> - </a></li>
+    <li><a href="#trusthub.v1.trust_product"><code>trusthub.v1.trust_product</code> - </a></li>
+    <li><a href="#trusthub.v1.trust_product.trust_product_channel_endpoint_assignment"><code>trusthub.v1.trust_product.trust_product_channel_endpoint_assignment</code> - </a></li>
+    <li><a href="#trusthub.v1.trust_product.trust_product_entity_assignment"><code>trusthub.v1.trust_product.trust_product_entity_assignment</code> - </a></li>
+    <li><a href="#trusthub.v1.trust_product.trust_product_evaluation"><code>trusthub.v1.trust_product.trust_product_evaluation</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="ListCustomerProfileChannelEndpointAssignmentResponse"><code>ListCustomerProfileChannelEndpointAssignmentResponse</code> - ListCustomerProfileChannelEndpointAssignmentResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment">array[trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListCustomerProfileEntityAssignmentResponse"><code>ListCustomerProfileEntityAssignmentResponse</code> - ListCustomerProfileEntityAssignmentResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.customer_profile.customer_profile_entity_assignment">array[trusthub.v1.customer_profile.customer_profile_entity_assignment]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListCustomerProfileEvaluationResponse"><code>ListCustomerProfileEvaluationResponse</code> - ListCustomerProfileEvaluationResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.customer_profile.customer_profile_evaluation">array[trusthub.v1.customer_profile.customer_profile_evaluation]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListCustomerProfileResponse"><code>ListCustomerProfileResponse</code> - ListCustomerProfileResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.customer_profile">array[trusthub.v1.customer_profile]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListCustomerProfileResponse_meta"><code>ListCustomerProfileResponse_meta</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">first_page_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">next_page_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
+<div class="param">page (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">page_size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">previous_page_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListEndUserResponse"><code>ListEndUserResponse</code> - ListEndUserResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.end_user">array[trusthub.v1.end_user]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListEndUserTypeResponse"><code>ListEndUserTypeResponse</code> - ListEndUserTypeResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">end_user_types (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.end_user_type">array[trusthub.v1.end_user_type]</a></span>  </div>
+<div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListPoliciesResponse"><code>ListPoliciesResponse</code> - ListPoliciesResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.policies">array[trusthub.v1.policies]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListSupportingDocumentResponse"><code>ListSupportingDocumentResponse</code> - ListSupportingDocumentResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.supporting_document">array[trusthub.v1.supporting_document]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListSupportingDocumentTypeResponse"><code>ListSupportingDocumentTypeResponse</code> - ListSupportingDocumentTypeResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">supporting_document_types (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.supporting_document_type">array[trusthub.v1.supporting_document_type]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTrustProductChannelEndpointAssignmentResponse"><code>ListTrustProductChannelEndpointAssignmentResponse</code> - ListTrustProductChannelEndpointAssignmentResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.trust_product.trust_product_channel_endpoint_assignment">array[trusthub.v1.trust_product.trust_product_channel_endpoint_assignment]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTrustProductEntityAssignmentResponse"><code>ListTrustProductEntityAssignmentResponse</code> - ListTrustProductEntityAssignmentResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.trust_product.trust_product_entity_assignment">array[trusthub.v1.trust_product.trust_product_entity_assignment]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTrustProductEvaluationResponse"><code>ListTrustProductEvaluationResponse</code> - ListTrustProductEvaluationResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.trust_product.trust_product_evaluation">array[trusthub.v1.trust_product.trust_product_evaluation]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListTrustProductResponse"><code>ListTrustProductResponse</code> - ListTrustProductResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListCustomerProfileResponse_meta">ListCustomerProfileResponse_meta</a></span>  </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#trusthub.v1.trust_product">array[trusthub.v1.trust_product]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="customer_profile_enum_end_user_type"><code>customer_profile_enum_end_user_type</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="customer_profile_enum_status"><code>customer_profile_enum_status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="customer_profile_evaluation_enum_status"><code>customer_profile_evaluation_enum_status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="policies_enum_end_user_type"><code>policies_enum_end_user_type</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supporting_document_enum_status"><code>supporting_document_enum_status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trust_product_enum_end_user_type"><code>trust_product_enum_end_user_type</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trust_product_enum_status"><code>trust_product_enum_status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trust_product_evaluation_enum_status"><code>trust_product_evaluation_enum_status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.customer_profile"><code>trusthub.v1.customer_profile</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the Customer-Profile resource. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was last updated specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The email address that will receive updates when the Customer-Profile resource changes status. </div>
+<div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The string that you assigned to describe the resource. </div>
+<div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span> The URLs of the Assigned Items of the Customer-Profile resource. format: uri-map</div>
+<div class="param">policy_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string of a policy that is associated to the Customer-Profile resource. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the Customer-Profile resource. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#customer_profile_enum_status">customer_profile_enum_status</a></span>  </div>
+<div class="param">status_callback (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The URL we call to inform your application of status changes. format: uri</div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Customer-Profile resource. format: uri</div>
+<div class="param">valid_until (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format when the resource will be valid until. format: date-time</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment"><code>trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the Item Assignment resource. </div>
+<div class="param">channel_endpoint_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of an channel endpoint </div>
+<div class="param">channel_endpoint_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of channel endpoint. eg: phone-number </div>
+<div class="param">customer_profile_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the CustomerProfile resource. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the Item Assignment resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Identity resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.customer_profile.customer_profile_entity_assignment"><code>trusthub.v1.customer_profile.customer_profile_entity_assignment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the Item Assignment resource. </div>
+<div class="param">customer_profile_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the CustomerProfile resource. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">object_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of an object bag that holds information of the different items. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the Item Assignment resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Identity resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.customer_profile.customer_profile_evaluation"><code>trusthub.v1.customer_profile.customer_profile_evaluation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the customer_profile resource. </div>
+<div class="param">customer_profile_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the customer_profile resource. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">policy_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string of a policy that is associated to the customer_profile resource. </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> The results of the Evaluation which includes the valid and invalid attributes. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that identifies the Evaluation resource. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#customer_profile_evaluation_enum_status">customer_profile_evaluation_enum_status</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.end_user"><code>trusthub.v1.end_user</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the End User resource. </div>
+<div class="param">attributes (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The set of parameters that are the attributes of the End Users resource which are listed in the End User Types. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was last updated specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The string that you assigned to describe the resource. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string created by Twilio to identify the End User resource. </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of end user of the Bundle resource - can be <code>individual</code> or <code>business</code>. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the End User resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.end_user_type"><code>trusthub.v1.end_user_type</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">fields (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> The required information for creating an End-User. The required fields will change as regulatory needs change and will differ for businesses and individuals. </div>
+<div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable description that is assigned to describe the End-User Type resource. Examples can include first name, last name, email, business name, etc </div>
+<div class="param">machine_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A machine-readable description of the End-User Type resource. Examples can include first_name, last_name, email, business_name, etc. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that identifies the End-User Type resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the End-User Type resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.policies"><code>trusthub.v1.policies</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable description that is assigned to describe the Policy resource. Examples can include Primary Customer profile policy </div>
+<div class="param">requirements (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The SID of an object that holds the policy information </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that identifies the Policy resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Policy resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.supporting_document"><code>trusthub.v1.supporting_document</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the Document resource. </div>
+<div class="param">attributes (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The set of parameters that are the attributes of the Supporting Documents resource which are listed in the Supporting Document Types. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was last updated specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The string that you assigned to describe the resource. </div>
+<div class="param">mime_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The image type uploaded in the Supporting Document container. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string created by Twilio to identify the Supporting Document resource. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#supporting_document_enum_status">supporting_document_enum_status</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of the Supporting Document. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Supporting Document resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.supporting_document_type"><code>trusthub.v1.supporting_document_type</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">fields (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> The required information for creating a Supporting Document. The required fields will change as regulatory needs change and will differ for businesses and individuals. </div>
+<div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human-readable description of the Supporting Document Type resource. </div>
+<div class="param">machine_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The machine-readable description of the Supporting Document Type resource. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that identifies the Supporting Document Type resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Supporting Document Type resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.trust_product"><code>trusthub.v1.trust_product</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the Customer-Profile resource. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was last updated specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The email address that will receive updates when the Customer-Profile resource changes status. </div>
+<div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The string that you assigned to describe the resource. </div>
+<div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span> The URLs of the Assigned Items of the Customer-Profile resource. format: uri-map</div>
+<div class="param">policy_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string of a policy that is associated to the Customer-Profile resource. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the Customer-Profile resource. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#trust_product_enum_status">trust_product_enum_status</a></span>  </div>
+<div class="param">status_callback (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The URL we call to inform your application of status changes. format: uri</div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Customer-Profile resource. format: uri</div>
+<div class="param">valid_until (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format when the resource will be valid until. format: date-time</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.trust_product.trust_product_channel_endpoint_assignment"><code>trusthub.v1.trust_product.trust_product_channel_endpoint_assignment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the Item Assignment resource. </div>
+<div class="param">channel_endpoint_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of an channel endpoint </div>
+<div class="param">channel_endpoint_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of channel endpoint. eg: phone-number </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the Item Assignment resource. </div>
+<div class="param">trust_product_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the CustomerProfile resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Identity resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.trust_product.trust_product_entity_assignment"><code>trusthub.v1.trust_product.trust_product_entity_assignment</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the Item Assignment resource. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">object_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of an object bag that holds information of the different items. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the Item Assignment resource. </div>
+<div class="param">trust_product_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the TrustProduct resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Identity resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="trusthub.v1.trust_product.trust_product_evaluation"><code>trusthub.v1.trust_product.trust_product_evaluation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the trust_product resource. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">policy_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string of a policy that is associated to the trust_product resource. </div>
+<div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> The results of the Evaluation which includes the valid and invalid attributes. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that identifies the Evaluation resource. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#trust_product_evaluation_enum_status">trust_product_evaluation_enum_status</a></span>  </div>
+<div class="param">trust_product_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the trust_product resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
