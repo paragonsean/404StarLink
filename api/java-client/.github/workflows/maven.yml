@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build File storage API
+    name: Build Maharashtra State Board of Secondary and Higher Secondary Education, Maharashtra
     runs-on: ubuntu-latest
     strategy:
       matrix:
