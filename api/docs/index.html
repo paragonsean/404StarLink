@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>NSIDC Web Service Documentation Index</title>
+    <title>Cloud IDS API</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,181 +179,841 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>NSIDC Web Service Documentation Index</h1>
-    <div class="app-desc">This API allows programmers to build National Snow and Ice Data Center data and metadata services into their applications.</div>
-    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
-    <div class="app-desc">Contact Info: <a href="support@aoncadis.org">support@aoncadis.org</a></div>
-    <div class="app-desc">Version: 1.0.0</div>
-    <div class="app-desc">BasePath:/api/dataset/2</div>
-    <div class="license-info">All rights reserved</div>
-    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h1>Cloud IDS API</h1>
+    <div class="app-desc">Cloud IDS (Cloud Intrusion Detection System) detects malware, spyware, command-and-control attacks, and other network-based threats. Its security efficacy is industry leading, built with Palo Alto Networks technologies. When you use this product, your organization name and consumption levels will be shared with Palo Alto Networks.</div>
+    <div class="app-desc">More information: <a href="https://google.com">https://google.com</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: v1</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Creative Commons Attribution 3.0</div>
+    <div class="license-url">http://creativecommons.org/licenses/by/3.0/</div>
   <h2>Access</h2>
+    <ol>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:</li>
+      <li>OAuth AuthorizationUrl:https://accounts.google.com/o/oauth2/authTokenUrl:https://accounts.google.com/o/oauth2/token</li>
+    </ol>
 
   <h2><a name="__Methods">Methods</a></h2>
   [ Jump to <a href="#__Models">Models</a> ]
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#SwaggerDocs">SwaggerDocs</a></h4>
+  <h4><a href="#Projects">Projects</a></h4>
   <ul>
-  <li><a href="#facets"><code><span class="http-method">get</span> /Facets</code></a></li>
-  <li><a href="#id"><code><span class="http-method">get</span> /suggest</code></a></li>
-  <li><a href="#open search"><code><span class="http-method">get</span> /OpenSearch</code></a></li>
-  <li><a href="#opensearch description"><code><span class="http-method">get</span> /OpenSearchDescription</code></a></li>
+  <li><a href="#ids.projects.locations.endpoints.create"><code><span class="http-method">post</span> /v1/{parent}/endpoints</code></a></li>
+  <li><a href="#ids.projects.locations.endpoints.getIamPolicy"><code><span class="http-method">get</span> /v1/{resource}:getIamPolicy</code></a></li>
+  <li><a href="#ids.projects.locations.endpoints.list"><code><span class="http-method">get</span> /v1/{parent}/endpoints</code></a></li>
+  <li><a href="#ids.projects.locations.endpoints.patch"><code><span class="http-method">patch</span> /v1/{name}</code></a></li>
+  <li><a href="#ids.projects.locations.endpoints.setIamPolicy"><code><span class="http-method">post</span> /v1/{resource}:setIamPolicy</code></a></li>
+  <li><a href="#ids.projects.locations.endpoints.testIamPermissions"><code><span class="http-method">post</span> /v1/{resource}:testIamPermissions</code></a></li>
+  <li><a href="#ids.projects.locations.list"><code><span class="http-method">get</span> /v1/{name}/locations</code></a></li>
+  <li><a href="#ids.projects.locations.operations.cancel"><code><span class="http-method">post</span> /v1/{name}:cancel</code></a></li>
+  <li><a href="#ids.projects.locations.operations.delete"><code><span class="http-method">delete</span> /v1/{name}</code></a></li>
+  <li><a href="#ids.projects.locations.operations.get"><code><span class="http-method">get</span> /v1/{name}</code></a></li>
+  <li><a href="#ids.projects.locations.operations.list"><code><span class="http-method">get</span> /v1/{name}/operations</code></a></li>
   </ul>
 
-  <h1><a name="SwaggerDocs">SwaggerDocs</a></h1>
-  <div class="method"><a name="facets"/>
+  <h1><a name="Projects">Projects</a></h1>
+  <div class="method"><a name="ids.projects.locations.endpoints.create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /Facets</code></pre></div>
-    <div class="method-summary">View the facet information corresponding to a search (<span class="nickname">facets</span>)</div>
-    <div class="method-notes">In the NSIDC Search and Arctic Data Explorer interfaces, this endpoint is used in conjunction with /OpenSearch whenever a user submits a new search. Consequently, it has the same parameters as /OpenSearch.</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{parent}/endpoints</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">ids.projects.locations.endpoints.create</span>)</div>
+    <div class="method-notes">Creates a new Endpoint in a given project and location.</div>
 
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The endpoint's parent. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Endpoint <a href="#Endpoint">Endpoint</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">endpointId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Required. The endpoint identifier. This will be part of the endpoint's resource name. This value must start with a lowercase letter followed by up to 62 lowercase letters, numbers, or hyphens, and cannot end with a hyphen. Values that do not match this pattern will trigger an INVALID_ARGUMENT error. default: null </div><div class="param">requestId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="ids.projects.locations.endpoints.getIamPolicy"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{resource}:getIamPolicy</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">ids.projects.locations.endpoints.getIamPolicy</span>)</div>
+    <div class="method-notes">Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">resource (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; REQUIRED: The resource for which the policy is being requested. See <a href="https://cloud.google.com/apis/design/resource_names">Resource names</a> for the appropriate value for this field. default: null </div>
+    </div>  <!-- field-items -->
 
 
 
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">searchTerms (optional)</div>
+      <div class="param">$.xgafv (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; URL-encoded keyword or keywords desired by the client; OpenSearch 1.1 default: null </div><div class="param">count (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of search results per page desired by the client; OpenSearch 1.1 default: 25 </div><div class="param">startIndex (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; First search result desired by the search client; OpenSearch 1.1 default: 1 </div><div class="param">spatial (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; 4 comma separated values - W, S, E, N; OpenSearch-Geo 1.0, &quot;box&quot; parameter default: -180.0,-90.0,180.0,90.0 </div><div class="param">sortKeys (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sort the results by most relevant (default), smallest or largest spatial area, shortest or longest temporal duration, or most recently updated; partial implementation of OpenSearch SRU 1.0 default: score,,desc </div><div class="param">startDate (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The start date in yyyy-mm-dd format default: null format: date</div><div class="param">endDate (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The end date in yyyy-mm-dd format default: null format: date</div><div class="param">facetFilters (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Describes faceted restrictions on the search. A URL-encoded JSON object where the keys are the names of the facet, and the values are arrays of the selected facet values default: null </div><div class="param">source (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Custom parameter for selecting which source to use; the Arctic Data Explorer (ADE) uses data aggregated from many sources, including, but not limited to, NSIDC default: NSIDC </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">options.requestedPolicyVersion (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the <a href="https://cloud.google.com/iam/help/conditions/resource-policies">IAM documentation</a>. default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
+      <a href="#Policy">Policy</a>
       
-      String
     </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bindings" : [ {
+    "condition" : {
+      "expression" : "expression",
+      "description" : "description",
+      "location" : "location",
+      "title" : "title"
+    },
+    "role" : "role",
+    "members" : [ "members", "members" ]
+  }, {
+    "condition" : {
+      "expression" : "expression",
+      "description" : "description",
+      "location" : "location",
+      "title" : "title"
+    },
+    "role" : "role",
+    "members" : [ "members", "members" ]
+  } ],
+  "etag" : "etag",
+  "version" : 0,
+  "auditConfigs" : [ {
+    "auditLogConfigs" : [ {
+      "logType" : "LOG_TYPE_UNSPECIFIED",
+      "exemptedMembers" : [ "exemptedMembers", "exemptedMembers" ]
+    }, {
+      "logType" : "LOG_TYPE_UNSPECIFIED",
+      "exemptedMembers" : [ "exemptedMembers", "exemptedMembers" ]
+    } ],
+    "service" : "service"
+  }, {
+    "auditLogConfigs" : [ {
+      "logType" : "LOG_TYPE_UNSPECIFIED",
+      "exemptedMembers" : [ "exemptedMembers", "exemptedMembers" ]
+    }, {
+      "logType" : "LOG_TYPE_UNSPECIFIED",
+      "exemptedMembers" : [ "exemptedMembers", "exemptedMembers" ]
+    } ],
+    "service" : "service"
+  } ]
+}</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
-      <li><code>application/nsidcfacets+xml</code></li>
+      <li><code>application/json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    OK
-        <a href="#String">String</a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#"></a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#"></a>
+    Successful response
+        <a href="#Policy">Policy</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="id"/>
+  <div class="method"><a name="ids.projects.locations.endpoints.list"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /suggest</code></pre></div>
-    <div class="method-summary">Suggest search terms based on a partial query (<span class="nickname">id</span>)</div>
-    <div class="method-notes">In NSIDC Search and the Arctic Data Explorer, this endpoint is queried whenever the user types into the search terms box, and the returned suggestions are displayed in a dropdown beneath the search terms box. The q parameter and returned JSON follow the specifications of the OpenSearch Suggestions 1.0 extension.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{parent}/endpoints</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">ids.projects.locations.endpoints.list</span>)</div>
+    <div class="method-notes">Lists Endpoints in a given project and location.</div>
 
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">parent (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Required. The parent, which owns this collection of endpoints. default: null </div>
+    </div>  <!-- field-items -->
 
 
 
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">q (required)</div>
+      <div class="param">$.xgafv (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Search terms typed into the interface (minimum two characters) default: null </div><div class="param">source (required)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Custom parameter for selecting which source to use; the Arctic Data Explorer (ADE) uses data aggregated from many sources, including, but not limited to, NSIDC default: NSIDC </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The filter expression, following the syntax outlined in https://google.aip.dev/160. default: null </div><div class="param">orderBy (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. The maximum number of endpoints to return. The service may return fewer than this value. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Optional. A page token, received from a previous <code>ListEndpoints</code> call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to <code>ListEndpoints</code> must match the call that provided the page token. default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
+      <a href="#ListEndpointsResponse">ListEndpointsResponse</a>
       
-      String
     </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "endpoints" : [ {
+    "severity" : "SEVERITY_UNSPECIFIED",
+    "endpointForwardingRule" : "endpointForwardingRule",
+    "threatExceptions" : [ "threatExceptions", "threatExceptions" ],
+    "createTime" : "createTime",
+    "trafficLogs" : true,
+    "name" : "name",
+    "description" : "description",
+    "endpointIp" : "endpointIp",
+    "updateTime" : "updateTime",
+    "state" : "STATE_UNSPECIFIED",
+    "labels" : {
+      "key" : "labels"
+    },
+    "network" : "network"
+  }, {
+    "severity" : "SEVERITY_UNSPECIFIED",
+    "endpointForwardingRule" : "endpointForwardingRule",
+    "threatExceptions" : [ "threatExceptions", "threatExceptions" ],
+    "createTime" : "createTime",
+    "trafficLogs" : true,
+    "name" : "name",
+    "description" : "description",
+    "endpointIp" : "endpointIp",
+    "updateTime" : "updateTime",
+    "state" : "STATE_UNSPECIFIED",
+    "labels" : {
+      "key" : "labels"
+    },
+    "network" : "network"
+  } ],
+  "unreachable" : [ "unreachable", "unreachable" ],
+  "nextPageToken" : "nextPageToken"
+}</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
-      <li><code>application/x-suggestions+json</code></li>
+      <li><code>application/json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    OK
-        <a href="#String">String</a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#"></a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#"></a>
+    Successful response
+        <a href="#ListEndpointsResponse">ListEndpointsResponse</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="open search"/>
+  <div class="method"><a name="ids.projects.locations.endpoints.patch"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /OpenSearch</code></pre></div>
-    <div class="method-summary">Search documents using the OpenSearch 1.1 Specification (<span class="nickname">open search</span>)</div>
-    <div class="method-notes">This endpoint uses parameters from the OpenSearch 1.1 specification, as well as parameters from the OpenSearch Geo (1.0) and SRU (1.0) extensions.</div>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /v1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">ids.projects.locations.endpoints.patch</span>)</div>
+    <div class="method-notes">Updates the parameters of a single Endpoint.</div>
 
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Output only. The name of the endpoint. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">Endpoint <a href="#Endpoint">Endpoint</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">requestId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). default: null </div><div class="param">updateMask (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Field mask is used to specify the fields to be overwritten in the Endpoint resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="ids.projects.locations.endpoints.setIamPolicy"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{resource}:setIamPolicy</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">ids.projects.locations.endpoints.setIamPolicy</span>)</div>
+    <div class="method-notes">Sets the access control policy on the specified resource. Replaces any existing policy. Can return <code>NOT_FOUND</code>, <code>INVALID_ARGUMENT</code>, and <code>PERMISSION_DENIED</code> errors.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">resource (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; REQUIRED: The resource for which the policy is being specified. See <a href="https://cloud.google.com/apis/design/resource_names">Resource names</a> for the appropriate value for this field. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">SetIamPolicyRequest <a href="#SetIamPolicyRequest">SetIamPolicyRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Policy">Policy</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bindings" : [ {
+    "condition" : {
+      "expression" : "expression",
+      "description" : "description",
+      "location" : "location",
+      "title" : "title"
+    },
+    "role" : "role",
+    "members" : [ "members", "members" ]
+  }, {
+    "condition" : {
+      "expression" : "expression",
+      "description" : "description",
+      "location" : "location",
+      "title" : "title"
+    },
+    "role" : "role",
+    "members" : [ "members", "members" ]
+  } ],
+  "etag" : "etag",
+  "version" : 0,
+  "auditConfigs" : [ {
+    "auditLogConfigs" : [ {
+      "logType" : "LOG_TYPE_UNSPECIFIED",
+      "exemptedMembers" : [ "exemptedMembers", "exemptedMembers" ]
+    }, {
+      "logType" : "LOG_TYPE_UNSPECIFIED",
+      "exemptedMembers" : [ "exemptedMembers", "exemptedMembers" ]
+    } ],
+    "service" : "service"
+  }, {
+    "auditLogConfigs" : [ {
+      "logType" : "LOG_TYPE_UNSPECIFIED",
+      "exemptedMembers" : [ "exemptedMembers", "exemptedMembers" ]
+    }, {
+      "logType" : "LOG_TYPE_UNSPECIFIED",
+      "exemptedMembers" : [ "exemptedMembers", "exemptedMembers" ]
+    } ],
+    "service" : "service"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Policy">Policy</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="ids.projects.locations.endpoints.testIamPermissions"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{resource}:testIamPermissions</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">ids.projects.locations.endpoints.testIamPermissions</span>)</div>
+    <div class="method-notes">Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a <code>NOT_FOUND</code> error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may &quot;fail open&quot; without warning.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">resource (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; REQUIRED: The resource for which the policy detail is being requested. See <a href="https://cloud.google.com/apis/design/resource_names">Resource names</a> for the appropriate value for this field. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">TestIamPermissionsRequest <a href="#TestIamPermissionsRequest">TestIamPermissionsRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#TestIamPermissionsResponse">TestIamPermissionsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "permissions" : [ "permissions", "permissions" ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#TestIamPermissionsResponse">TestIamPermissionsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="ids.projects.locations.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{name}/locations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">ids.projects.locations.list</span>)</div>
+    <div class="method-notes">Lists information about the supported locations for this service.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The resource that owns the locations collection, if applicable. default: null </div>
+    </div>  <!-- field-items -->
 
 
 
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">searchTerms (optional)</div>
+      <div class="param">$.xgafv (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; URL-encoded keyword or keywords desired by the client; OpenSearch 1.1 default: null </div><div class="param">count (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of search results per page desired by the client; OpenSearch 1.1 default: 25 </div><div class="param">startIndex (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; First search result desired by the search client; OpenSearch 1.1 default: 1 </div><div class="param">spatial (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; 4 comma separated values - W, S, E, N; OpenSearch-Geo 1.0, &quot;box&quot; parameter default: -180.0,-90.0,180.0,90.0 </div><div class="param">sortKeys (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Sort the results by most relevant (default), smallest or largest spatial area, shortest or longest temporal duration, or most recently updated; partial implementation of OpenSearch SRU 1.0 default: score,,desc </div><div class="param">startDate (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The start date in yyyy-mm-dd format default: null format: date</div><div class="param">endDate (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The end date in yyyy-mm-dd format default: null format: date</div><div class="param">facetFilters (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Describes faceted restrictions on the search. A URL-encoded JSON object where the keys are the names of the facet, and the values are arrays of the selected facet values default: null </div><div class="param">source (optional)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Custom parameter for selecting which source to use; the Arctic Data Explorer (ADE) uses data aggregated from many sources, including, but not limited to, NSIDC default: NSIDC </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A filter to narrow down results to a preferred subset. The filtering language accepts strings like <code>&quot;displayName=tokyo&quot;</code>, and is documented in more detail in <a href="https://google.aip.dev/160">AIP-160</a>. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum number of results to return. If not set, the service selects a default. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A page token received from the <code>next_page_token</code> field in the response. Send that page token to receive the subsequent page. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListLocationsResponse">ListLocationsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nextPageToken" : "nextPageToken",
+  "locations" : [ {
+    "metadata" : {
+      "key" : ""
+    },
+    "displayName" : "displayName",
+    "locationId" : "locationId",
+    "name" : "name",
+    "labels" : {
+      "key" : "labels"
+    }
+  }, {
+    "metadata" : {
+      "key" : ""
+    },
+    "displayName" : "displayName",
+    "locationId" : "locationId",
+    "name" : "name",
+    "labels" : {
+      "key" : "labels"
+    }
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListLocationsResponse">ListLocationsResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="ids.projects.locations.operations.cancel"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/{name}:cancel</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">ids.projects.locations.operations.cancel</span>)</div>
+    <div class="method-notes">Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns <code>google.rpc.Code.UNIMPLEMENTED</code>. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to <code>Code.CANCELLED</code>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation resource to be cancelled. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#object">object</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
     </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
       
-      String
+      Object
     </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
@@ -363,38 +1023,66 @@ font-style: italic;
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
-      <li><code>application/atom+xml</code></li>
+      <li><code>application/json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    OK
-        <a href="#String">String</a>
-    <h4 class="field-label">400</h4>
-    Bad request
-        <a href="#"></a>
-    <h4 class="field-label">500</h4>
-    Internal server error
-        <a href="#"></a>
+    Successful response
+        <a href="#Object">Object</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="opensearch description"/>
+  <div class="method"><a name="ids.projects.locations.operations.delete"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /OpenSearchDescription</code></pre></div>
-    <div class="method-summary">Describes the web interface of NSIDC's data search engine (<span class="nickname">opensearch description</span>)</div>
-    <div class="method-notes"></div>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">ids.projects.locations.operations.delete</span>)</div>
+    <div class="method-notes">Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns <code>google.rpc.Code.UNIMPLEMENTED</code>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation resource to be deleted. default: null </div>
+    </div>  <!-- field-items -->
 
 
 
 
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
 
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">requestId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). default: null </div>
+    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
       
-      String
+      Object
     </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
@@ -404,13 +1092,216 @@ font-style: italic;
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
-      <li><code>application/opensearchdescription+xml</code></li>
+      <li><code>application/json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Success
-        <a href="#String">String</a>
+    Successful response
+        <a href="#Object">Object</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="ids.projects.locations.operations.get"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{name}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">ids.projects.locations.operations.get</span>)</div>
+    <div class="method-notes">Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Operation">Operation</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "metadata" : {
+    "key" : ""
+  },
+  "response" : {
+    "key" : ""
+  },
+  "name" : "name",
+  "error" : {
+    "code" : 0,
+    "details" : [ {
+      "key" : ""
+    }, {
+      "key" : ""
+    } ],
+    "message" : "message"
+  },
+  "done" : true
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#Operation">Operation</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="ids.projects.locations.operations.list"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/{name}/operations</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">ids.projects.locations.operations.list</span>)</div>
+    <div class="method-notes">Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns <code>UNIMPLEMENTED</code>.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">name (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The name of the operation's parent resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">$.xgafv (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; V1 error format. default: null </div><div class="param">access_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth access token. default: null </div><div class="param">alt (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Data format for response. default: null </div><div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; JSONP default: null </div><div class="param">fields (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Selector specifying which fields to include in a partial response. default: null </div><div class="param">key (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. default: null </div><div class="param">oauth_token (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; OAuth 2.0 token for the current user. default: null </div><div class="param">prettyPrint (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Returns response with indentations and line breaks. default: null </div><div class="param">quotaUser (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. default: null </div><div class="param">upload_protocol (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Upload protocol for media (e.g. &quot;raw&quot;, &quot;multipart&quot;). default: null </div><div class="param">uploadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Legacy upload protocol for media (e.g. &quot;media&quot;, &quot;multipart&quot;). default: null </div><div class="param">filter (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list filter. default: null </div><div class="param">pageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list page size. default: null </div><div class="param">pageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The standard list page token. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListOperationsResponse">ListOperationsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "operations" : [ {
+    "metadata" : {
+      "key" : ""
+    },
+    "response" : {
+      "key" : ""
+    },
+    "name" : "name",
+    "error" : {
+      "code" : 0,
+      "details" : [ {
+        "key" : ""
+      }, {
+        "key" : ""
+      } ],
+      "message" : "message"
+    },
+    "done" : true
+  }, {
+    "metadata" : {
+      "key" : ""
+    },
+    "response" : {
+      "key" : ""
+    },
+    "name" : "name",
+    "error" : {
+      "code" : 0,
+      "details" : [ {
+        "key" : ""
+      }, {
+        "key" : ""
+      } ],
+      "message" : "message"
+    },
+    "done" : true
+  } ],
+  "nextPageToken" : "nextPageToken"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response
+        <a href="#ListOperationsResponse">ListOperationsResponse</a>
   </div> <!-- method -->
   <hr/>
 
@@ -419,7 +1310,183 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
+    <li><a href="#AuditConfig"><code>AuditConfig</code> - </a></li>
+    <li><a href="#AuditLogConfig"><code>AuditLogConfig</code> - </a></li>
+    <li><a href="#Binding"><code>Binding</code> - </a></li>
+    <li><a href="#Endpoint"><code>Endpoint</code> - </a></li>
+    <li><a href="#Expr"><code>Expr</code> - </a></li>
+    <li><a href="#ListEndpointsResponse"><code>ListEndpointsResponse</code> - </a></li>
+    <li><a href="#ListLocationsResponse"><code>ListLocationsResponse</code> - </a></li>
+    <li><a href="#ListOperationsResponse"><code>ListOperationsResponse</code> - </a></li>
+    <li><a href="#Location"><code>Location</code> - </a></li>
+    <li><a href="#Operation"><code>Operation</code> - </a></li>
+    <li><a href="#OperationMetadata"><code>OperationMetadata</code> - </a></li>
+    <li><a href="#Policy"><code>Policy</code> - </a></li>
+    <li><a href="#SetIamPolicyRequest"><code>SetIamPolicyRequest</code> - </a></li>
+    <li><a href="#Status"><code>Status</code> - </a></li>
+    <li><a href="#TestIamPermissionsRequest"><code>TestIamPermissionsRequest</code> - </a></li>
+    <li><a href="#TestIamPermissionsResponse"><code>TestIamPermissionsResponse</code> - </a></li>
   </ol>
 
+  <div class="model">
+    <h3><a name="AuditConfig"><code>AuditConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Specifies the audit configuration for a service. The configuration determines which permission types are logged, and what identities, if any, are exempted from logging. An AuditConfig must have one or more AuditLogConfigs. If there are AuditConfigs for both <code>allServices</code> and a specific service, the union of the two AuditConfigs is used for that service: the log_types specified in each AuditConfig are enabled, and the exempted_members in each AuditLogConfig are exempted. Example Policy with multiple AuditConfigs: { &quot;audit_configs&quot;: [ { &quot;service&quot;: &quot;allServices&quot;, &quot;audit_log_configs&quot;: [ { &quot;log_type&quot;: &quot;DATA_READ&quot;, &quot;exempted_members&quot;: [ &quot;user:jose@example.com&quot; ] }, { &quot;log_type&quot;: &quot;DATA_WRITE&quot; }, { &quot;log_type&quot;: &quot;ADMIN_READ&quot; } ] }, { &quot;service&quot;: &quot;sampleservice.googleapis.com&quot;, &quot;audit_log_configs&quot;: [ { &quot;log_type&quot;: &quot;DATA_READ&quot; }, { &quot;log_type&quot;: &quot;DATA_WRITE&quot;, &quot;exempted_members&quot;: [ &quot;user:aliya@example.com&quot; ] } ] } ] } For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ logging. It also exempts <code>jose@example.com</code> from DATA_READ logging, and <code>aliya@example.com</code> from DATA_WRITE logging.</div>
+    <div class="field-items">
+      <div class="param">auditLogConfigs (optional)</div><div class="param-desc"><span class="param-type"><a href="#AuditLogConfig">array[AuditLogConfig]</a></span> The configuration for logging of each type of permission. </div>
+<div class="param">service (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Specifies a service that will be enabled for audit logging. For example, <code>storage.googleapis.com</code>, <code>cloudsql.googleapis.com</code>. <code>allServices</code> is a special value that covers all services. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AuditLogConfig"><code>AuditLogConfig</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Provides the configuration for logging a type of permissions. Example: { &quot;audit_log_configs&quot;: [ { &quot;log_type&quot;: &quot;DATA_READ&quot;, &quot;exempted_members&quot;: [ &quot;user:jose@example.com&quot; ] }, { &quot;log_type&quot;: &quot;DATA_WRITE&quot; } ] } This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting jose@example.com from DATA_READ logging.</div>
+    <div class="field-items">
+      <div class="param">exemptedMembers (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. </div>
+<div class="param">logType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The log type that this config enables. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">LOG_TYPE_UNSPECIFIED</div><div class="param-enum">ADMIN_READ</div><div class="param-enum">DATA_WRITE</div><div class="param-enum">DATA_READ</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Binding"><code>Binding</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Associates <code>members</code>, or principals, with a <code>role</code>.</div>
+    <div class="field-items">
+      <div class="param">condition (optional)</div><div class="param-desc"><span class="param-type"><a href="#Expr">Expr</a></span>  </div>
+<div class="param">members (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Specifies the principals requesting access for a Google Cloud resource. <code>members</code> can have the following values: * <code>allUsers</code>: A special identifier that represents anyone who is on the internet; with or without a Google account. * <code>allAuthenticatedUsers</code>: A special identifier that represents anyone who is authenticated with a Google account or a service account. Does not include identities that come from external identity providers (IdPs) through identity federation. * <code>user:{emailid}</code>: An email address that represents a specific Google account. For example, <code>alice@example.com</code> . * <code>serviceAccount:{emailid}</code>: An email address that represents a Google service account. For example, <code>my-other-app@appspot.gserviceaccount.com</code>. * <code>serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]</code>: An identifier for a <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts">Kubernetes service account</a>. For example, <code>my-project.svc.id.goog[my-namespace/my-kubernetes-sa]</code>. * <code>group:{emailid}</code>: An email address that represents a Google group. For example, <code>admins@example.com</code>. * <code>domain:{domain}</code>: The G Suite domain (primary) that represents all the users of that domain. For example, <code>google.com</code> or <code>example.com</code>. * <code>deleted:user:{emailid}?uid={uniqueid}</code>: An email address (plus unique identifier) representing a user that has been recently deleted. For example, <code>alice@example.com?uid=123456789012345678901</code>. If the user is recovered, this value reverts to <code>user:{emailid}</code> and the recovered user retains the role in the binding. * <code>deleted:serviceAccount:{emailid}?uid={uniqueid}</code>: An email address (plus unique identifier) representing a service account that has been recently deleted. For example, <code>my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901</code>. If the service account is undeleted, this value reverts to <code>serviceAccount:{emailid}</code> and the undeleted service account retains the role in the binding. * <code>deleted:group:{emailid}?uid={uniqueid}</code>: An email address (plus unique identifier) representing a Google group that has been recently deleted. For example, <code>admins@example.com?uid=123456789012345678901</code>. If the group is recovered, this value reverts to <code>group:{emailid}</code> and the recovered group retains the role in the binding. </div>
+<div class="param">role (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Role that is assigned to the list of <code>members</code>, or principals. For example, <code>roles/viewer</code>, <code>roles/editor</code>, or <code>roles/owner</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Endpoint"><code>Endpoint</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Endpoint describes a single IDS endpoint. It defines a forwarding rule to which packets can be sent for IDS inspection.</div>
+    <div class="field-items">
+      <div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The create time timestamp. format: google-datetime</div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> User-provided description of the endpoint </div>
+<div class="param">endpointForwardingRule (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The fully qualified URL of the endpoint's ILB Forwarding Rule. </div>
+<div class="param">endpointIp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The IP address of the IDS Endpoint's ILB. </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> The labels of the endpoint. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The name of the endpoint. </div>
+<div class="param">network (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. The fully qualified URL of the network to which the IDS Endpoint is attached. </div>
+<div class="param">severity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Required. Lowest threat severity that this endpoint will alert on. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">SEVERITY_UNSPECIFIED</div><div class="param-enum">INFORMATIONAL</div><div class="param-enum">LOW</div><div class="param-enum">MEDIUM</div><div class="param-enum">HIGH</div><div class="param-enum">CRITICAL</div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Current state of the endpoint. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">STATE_UNSPECIFIED</div><div class="param-enum">CREATING</div><div class="param-enum">READY</div><div class="param-enum">DELETING</div><div class="param-enum">UPDATING</div>
+<div class="param">threatExceptions (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> List of threat IDs to be excepted from generating alerts. </div>
+<div class="param">trafficLogs (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Whether the endpoint should report traffic logs in addition to threat logs. </div>
+<div class="param">updateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The update time timestamp. format: google-datetime</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Expr"><code>Expr</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents a textual expression in the Common Expression Language (CEL) syntax. CEL is a C-like expression language. The syntax and semantics of CEL are documented at https://github.com/google/cel-spec. Example (Comparison): title: &quot;Summary size limit&quot; description: &quot;Determines if a summary is less than 100 chars&quot; expression: &quot;document.summary.size() &lt; 100&quot; Example (Equality): title: &quot;Requestor is owner&quot; description: &quot;Determines if requestor is the document owner&quot; expression: &quot;document.owner == request.auth.claims.email&quot; Example (Logic): title: &quot;Public documents&quot; description: &quot;Determine whether the document should be publicly visible&quot; expression: &quot;document.type != 'private' &amp;&amp; document.type != 'internal'&quot; Example (Data Manipulation): title: &quot;Notification string&quot; description: &quot;Create a notification string with a timestamp.&quot; expression: &quot;'New message received at ' + string(document.create_time)&quot; The exact variables and functions that may be referenced within an expression are determined by the service that evaluates it. See the service documentation for additional information.</div>
+    <div class="field-items">
+      <div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. </div>
+<div class="param">expression (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Textual representation of an expression in Common Expression Language syntax. </div>
+<div class="param">location (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. </div>
+<div class="param">title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListEndpointsResponse"><code>ListEndpointsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">endpoints (optional)</div><div class="param-desc"><span class="param-type"><a href="#Endpoint">array[Endpoint]</a></span> The list of endpoints response. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A token, which can be sent as <code>page_token</code> to retrieve the next page. If this field is omitted, there are no subsequent pages. </div>
+<div class="param">unreachable (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Locations that could not be reached. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListLocationsResponse"><code>ListLocationsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response message for Locations.ListLocations.</div>
+    <div class="field-items">
+      <div class="param">locations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Location">array[Location]</a></span> A list of locations that matches the specified filter in the request. </div>
+<div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The standard List next-page token. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListOperationsResponse"><code>ListOperationsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The response message for Operations.ListOperations.</div>
+    <div class="field-items">
+      <div class="param">nextPageToken (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The standard List next-page token. </div>
+<div class="param">operations (optional)</div><div class="param-desc"><span class="param-type"><a href="#Operation">array[Operation]</a></span> A list of operations that matches the specified filter in the request. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Location"><code>Location</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>A resource that represents Google Cloud Platform location.</div>
+    <div class="field-items">
+      <div class="param">displayName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The friendly name for this location, typically a nearby city name. For example, &quot;Tokyo&quot;. </div>
+<div class="param">labels (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Cross-service attributes for the location. For example {&quot;cloud.googleapis.com/region&quot;: &quot;us-east1&quot;} </div>
+<div class="param">locationId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The canonical id for this location. For example: <code>&quot;us-east1&quot;</code>. </div>
+<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Service-specific metadata. For example the available capacity at the given location. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Resource name for the location, which may vary between implementations. For example: <code>&quot;projects/example-project/locations/us-east1&quot;</code> </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Operation"><code>Operation</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>This resource represents a long-running operation that is the result of a network API call.</div>
+    <div class="field-items">
+      <div class="param">done (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If the value is <code>false</code>, it means the operation is still in progress. If <code>true</code>, the operation is completed, and either <code>error</code> or <code>response</code> is available. </div>
+<div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#Status">Status</a></span>  </div>
+<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the <code>name</code> should be a resource name ending with <code>operations/{unique_id}</code>. </div>
+<div class="param">response (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">map[String, oas_any_type_not_mapped]</a></span> The normal response of the operation in case of success. If the original method returns no data on success, such as <code>Delete</code>, the response is <code>google.protobuf.Empty</code>. If the original method is standard <code>Get</code>/<code>Create</code>/<code>Update</code>, the response should be the resource. For other methods, the response should have the type <code>XxxResponse</code>, where <code>Xxx</code> is the original method name. For example, if the original method name is <code>TakeSnapshot()</code>, the inferred response type is <code>TakeSnapshotResponse</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="OperationMetadata"><code>OperationMetadata</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Represents the metadata of the long-running operation.</div>
+    <div class="field-items">
+      <div class="param">apiVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. API version used to start the operation. </div>
+<div class="param">createTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The time the operation was created. format: google-datetime</div>
+<div class="param">endTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. The time the operation finished running. format: google-datetime</div>
+<div class="param">requestedCancellation (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a google.rpc.Status.code of 1, corresponding to <code>Code.CANCELLED</code>. </div>
+<div class="param">statusMessage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Human-readable status of the operation, if any. </div>
+<div class="param">target (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Server-defined resource path for the target of the operation. </div>
+<div class="param">verb (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Output only. Name of the verb executed by the operation. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Policy"><code>Policy</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>An Identity and Access Management (IAM) policy, which specifies access controls for Google Cloud resources. A <code>Policy</code> is a collection of <code>bindings</code>. A <code>binding</code> binds one or more <code>members</code>, or principals, to a single <code>role</code>. Principals can be user accounts, service accounts, Google groups, and domains (such as G Suite). A <code>role</code> is a named list of permissions; each <code>role</code> can be an IAM predefined role or a user-created custom role. For some types of Google Cloud resources, a <code>binding</code> can also specify a <code>condition</code>, which is a logical expression that allows access to a resource only if the expression evaluates to <code>true</code>. A condition can add constraints based on attributes of the request, the resource, or both. To learn which resources support conditions in their IAM policies, see the <a href="https://cloud.google.com/iam/help/conditions/resource-policies">IAM documentation</a>. <strong>JSON example:</strong> { &quot;bindings&quot;: [ { &quot;role&quot;: &quot;roles/resourcemanager.organizationAdmin&quot;, &quot;members&quot;: [ &quot;user:mike@example.com&quot;, &quot;group:admins@example.com&quot;, &quot;domain:google.com&quot;, &quot;serviceAccount:my-project-id@appspot.gserviceaccount.com&quot; ] }, { &quot;role&quot;: &quot;roles/resourcemanager.organizationViewer&quot;, &quot;members&quot;: [ &quot;user:eve@example.com&quot; ], &quot;condition&quot;: { &quot;title&quot;: &quot;expirable access&quot;, &quot;description&quot;: &quot;Does not grant access after Sep 2020&quot;, &quot;expression&quot;: &quot;request.time &lt; timestamp('2020-10-01T00:00:00.000Z')&quot;, } } ], &quot;etag&quot;: &quot;BwWWja0YfJA=&quot;, &quot;version&quot;: 3 } <strong>YAML example:</strong> bindings: - members: - user:mike@example.com - group:admins@example.com - domain:google.com - serviceAccount:my-project-id@appspot.gserviceaccount.com role: roles/resourcemanager.organizationAdmin - members: - user:eve@example.com role: roles/resourcemanager.organizationViewer condition: title: expirable access description: Does not grant access after Sep 2020 expression: request.time &lt; timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA= version: 3 For a description of IAM and its features, see the <a href="https://cloud.google.com/iam/docs/">IAM documentation</a>.</div>
+    <div class="field-items">
+      <div class="param">auditConfigs (optional)</div><div class="param-desc"><span class="param-type"><a href="#AuditConfig">array[AuditConfig]</a></span> Specifies cloud audit logging configuration for this policy. </div>
+<div class="param">bindings (optional)</div><div class="param-desc"><span class="param-type"><a href="#Binding">array[Binding]</a></span> Associates a list of <code>members</code>, or principals, with a <code>role</code>. Optionally, may specify a <code>condition</code> that determines how and when the <code>bindings</code> are applied. Each of the <code>bindings</code> must contain at least one principal. The <code>bindings</code> in a <code>Policy</code> can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a principal counts towards these limits. For example, if the <code>bindings</code> grant 50 different roles to <code>user:alice@example.com</code>, and not to any other principal, then you can add another 1,450 principals to the <code>bindings</code> in the <code>Policy</code>. </div>
+<div class="param">etag (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> <code>etag</code> is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make use of the <code>etag</code> in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An <code>etag</code> is returned in the response to <code>getIamPolicy</code>, and systems are expected to put that etag in the request to <code>setIamPolicy</code> to ensure that their change will be applied to the same version of the policy. <strong>Important:</strong> If you use IAM Conditions, you must include the <code>etag</code> field whenever you call <code>setIamPolicy</code>. If you omit this field, then IAM allows you to overwrite a version <code>3</code> policy with a version <code>1</code> policy, and all of the conditions in the version <code>3</code> policy are lost. format: byte</div>
+<div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Specifies the format of the policy. Valid values are <code>0</code>, <code>1</code>, and <code>3</code>. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings must specify version <code>3</code>. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions <strong>Important:</strong> If you use IAM Conditions, you must include the <code>etag</code> field whenever you call <code>setIamPolicy</code>. If you omit this field, then IAM allows you to overwrite a version <code>3</code> policy with a version <code>1</code> policy, and all of the conditions in the version <code>3</code> policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave the field unset. To learn which resources support conditions in their IAM policies, see the <a href="https://cloud.google.com/iam/help/conditions/resource-policies">IAM documentation</a>. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SetIamPolicyRequest"><code>SetIamPolicyRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Request message for <code>SetIamPolicy</code> method.</div>
+    <div class="field-items">
+      <div class="param">policy (optional)</div><div class="param-desc"><span class="param-type"><a href="#Policy">Policy</a></span>  </div>
+<div class="param">updateMask (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used: <code>paths: &quot;bindings, etag&quot;</code> format: google-fieldmask</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Status"><code>Status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The <code>Status</code> type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by <a href="https://github.com/grpc">gRPC</a>. Each <code>Status</code> message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the <a href="https://cloud.google.com/apis/design/errors">API Design Guide</a>.</div>
+    <div class="field-items">
+      <div class="param">code (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The status code, which should be an enum value of google.rpc.Code. format: int32</div>
+<div class="param">details (optional)</div><div class="param-desc"><span class="param-type"><a href="#map">array[map[String, oas_any_type_not_mapped]]</a></span> A list of messages that carry the error details. There is a common set of message types for APIs to use. </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TestIamPermissionsRequest"><code>TestIamPermissionsRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Request message for <code>TestIamPermissions</code> method.</div>
+    <div class="field-items">
+      <div class="param">permissions (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> The set of permissions to check for the <code>resource</code>. Permissions with wildcards (such as <code>*</code> or <code>storage.*</code>) are not allowed. For more information see <a href="https://cloud.google.com/iam/docs/overview#permissions">IAM Overview</a>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TestIamPermissionsResponse"><code>TestIamPermissionsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Response message for <code>TestIamPermissions</code> method.</div>
+    <div class="field-items">
+      <div class="param">permissions (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> A subset of <code>TestPermissionsRequest.permissions</code> that the caller is allowed. </div>
+    </div>  <!-- field-items -->
+  </div>
   </body>
 </html>
