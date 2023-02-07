@@ -1,6 +1,6 @@
 /*
- * Container Analysis API
- * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
+ * Cloud IDS API
+ * Cloud IDS (Cloud Intrusion Detection System) detects malware, spyware, command-and-control attacks, and other network-based threats. Its security efficacy is industry leading, built with Palo Alto Networks technologies. When you use this product, your organization name and consumption levels will be shared with Palo Alto Networks.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.AuditConfig;
 import org.openapitools.client.model.Binding;
 
 import com.google.gson.Gson;
@@ -51,8 +52,12 @@ import org.openapitools.client.JSON;
 /**
  * An Identity and Access Management (IAM) policy, which specifies access controls for Google Cloud resources. A &#x60;Policy&#x60; is a collection of &#x60;bindings&#x60;. A &#x60;binding&#x60; binds one or more &#x60;members&#x60;, or principals, to a single &#x60;role&#x60;. Principals can be user accounts, service accounts, Google groups, and domains (such as G Suite). A &#x60;role&#x60; is a named list of permissions; each &#x60;role&#x60; can be an IAM predefined role or a user-created custom role. For some types of Google Cloud resources, a &#x60;binding&#x60; can also specify a &#x60;condition&#x60;, which is a logical expression that allows access to a resource only if the expression evaluates to &#x60;true&#x60;. A condition can add constraints based on attributes of the request, the resource, or both. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). **JSON example:** { \&quot;bindings\&quot;: [ { \&quot;role\&quot;: \&quot;roles/resourcemanager.organizationAdmin\&quot;, \&quot;members\&quot;: [ \&quot;user:mike@example.com\&quot;, \&quot;group:admins@example.com\&quot;, \&quot;domain:google.com\&quot;, \&quot;serviceAccount:my-project-id@appspot.gserviceaccount.com\&quot; ] }, { \&quot;role\&quot;: \&quot;roles/resourcemanager.organizationViewer\&quot;, \&quot;members\&quot;: [ \&quot;user:eve@example.com\&quot; ], \&quot;condition\&quot;: { \&quot;title\&quot;: \&quot;expirable access\&quot;, \&quot;description\&quot;: \&quot;Does not grant access after Sep 2020\&quot;, \&quot;expression\&quot;: \&quot;request.time &lt; timestamp(&#39;2020-10-01T00:00:00.000Z&#39;)\&quot;, } } ], \&quot;etag\&quot;: \&quot;BwWWja0YfJA&#x3D;\&quot;, \&quot;version\&quot;: 3 } **YAML example:** bindings: - members: - user:mike@example.com - group:admins@example.com - domain:google.com - serviceAccount:my-project-id@appspot.gserviceaccount.com role: roles/resourcemanager.organizationAdmin - members: - user:eve@example.com role: roles/resourcemanager.organizationViewer condition: title: expirable access description: Does not grant access after Sep 2020 expression: request.time &lt; timestamp(&#39;2020-10-01T00:00:00.000Z&#39;) etag: BwWWja0YfJA&#x3D; version: 3 For a description of IAM and its features, see the [IAM documentation](https://cloud.google.com/iam/docs/).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:59.945291-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:26.946950-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Policy {
+  public static final String SERIALIZED_NAME_AUDIT_CONFIGS = "auditConfigs";
+  @SerializedName(SERIALIZED_NAME_AUDIT_CONFIGS)
+  private List<AuditConfig> auditConfigs = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_BINDINGS = "bindings";
   @SerializedName(SERIALIZED_NAME_BINDINGS)
   private List<Binding> bindings = new ArrayList<>();
@@ -67,6 +72,33 @@ public class Policy {
 
   public Policy() {
   }
+
+  public Policy auditConfigs(List<AuditConfig> auditConfigs) {
+    this.auditConfigs = auditConfigs;
+    return this;
+  }
+
+  public Policy addAuditConfigsItem(AuditConfig auditConfigsItem) {
+    if (this.auditConfigs == null) {
+      this.auditConfigs = new ArrayList<>();
+    }
+    this.auditConfigs.add(auditConfigsItem);
+    return this;
+  }
+
+  /**
+   * Specifies cloud audit logging configuration for this policy.
+   * @return auditConfigs
+   */
+  @javax.annotation.Nullable
+  public List<AuditConfig> getAuditConfigs() {
+    return auditConfigs;
+  }
+
+  public void setAuditConfigs(List<AuditConfig> auditConfigs) {
+    this.auditConfigs = auditConfigs;
+  }
+
 
   public Policy bindings(List<Binding> bindings) {
     this.bindings = bindings;
@@ -143,20 +175,22 @@ public class Policy {
       return false;
     }
     Policy policy = (Policy) o;
-    return Objects.equals(this.bindings, policy.bindings) &&
+    return Objects.equals(this.auditConfigs, policy.auditConfigs) &&
+        Objects.equals(this.bindings, policy.bindings) &&
         Arrays.equals(this.etag, policy.etag) &&
         Objects.equals(this.version, policy.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindings, Arrays.hashCode(etag), version);
+    return Objects.hash(auditConfigs, bindings, Arrays.hashCode(etag), version);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Policy {\n");
+    sb.append("    auditConfigs: ").append(toIndentedString(auditConfigs)).append("\n");
     sb.append("    bindings: ").append(toIndentedString(bindings)).append("\n");
     sb.append("    etag: ").append(toIndentedString(etag)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -182,6 +216,7 @@ public class Policy {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("auditConfigs");
     openapiFields.add("bindings");
     openapiFields.add("etag");
     openapiFields.add("version");
@@ -211,6 +246,20 @@ public class Policy {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("auditConfigs") != null && !jsonObj.get("auditConfigs").isJsonNull()) {
+        JsonArray jsonArrayauditConfigs = jsonObj.getAsJsonArray("auditConfigs");
+        if (jsonArrayauditConfigs != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("auditConfigs").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `auditConfigs` to be an array in the JSON string but got `%s`", jsonObj.get("auditConfigs").toString()));
+          }
+
+          // validate the optional field `auditConfigs` (array)
+          for (int i = 0; i < jsonArrayauditConfigs.size(); i++) {
+            AuditConfig.validateJsonElement(jsonArrayauditConfigs.get(i));
+          };
+        }
+      }
       if (jsonObj.get("bindings") != null && !jsonObj.get("bindings").isJsonNull()) {
         JsonArray jsonArraybindings = jsonObj.getAsJsonArray("bindings");
         if (jsonArraybindings != null) {

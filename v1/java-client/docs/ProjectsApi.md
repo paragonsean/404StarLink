@@ -1,32 +1,29 @@
 # ProjectsApi
 
-All URIs are relative to *https://recaptchaenterprise.googleapis.com*
+All URIs are relative to *https://ids.googleapis.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**recaptchaenterpriseProjectsAssessmentsAnnotate**](ProjectsApi.md#recaptchaenterpriseProjectsAssessmentsAnnotate) | **POST** /v1/{name}:annotate |  |
-| [**recaptchaenterpriseProjectsAssessmentsCreate**](ProjectsApi.md#recaptchaenterpriseProjectsAssessmentsCreate) | **POST** /v1/{parent}/assessments |  |
-| [**recaptchaenterpriseProjectsFirewallpoliciesCreate**](ProjectsApi.md#recaptchaenterpriseProjectsFirewallpoliciesCreate) | **POST** /v1/{parent}/firewallpolicies |  |
-| [**recaptchaenterpriseProjectsFirewallpoliciesList**](ProjectsApi.md#recaptchaenterpriseProjectsFirewallpoliciesList) | **GET** /v1/{parent}/firewallpolicies |  |
-| [**recaptchaenterpriseProjectsKeysCreate**](ProjectsApi.md#recaptchaenterpriseProjectsKeysCreate) | **POST** /v1/{parent}/keys |  |
-| [**recaptchaenterpriseProjectsKeysDelete**](ProjectsApi.md#recaptchaenterpriseProjectsKeysDelete) | **DELETE** /v1/{name} |  |
-| [**recaptchaenterpriseProjectsKeysGetMetrics**](ProjectsApi.md#recaptchaenterpriseProjectsKeysGetMetrics) | **GET** /v1/{name} |  |
-| [**recaptchaenterpriseProjectsKeysList**](ProjectsApi.md#recaptchaenterpriseProjectsKeysList) | **GET** /v1/{parent}/keys |  |
-| [**recaptchaenterpriseProjectsKeysMigrate**](ProjectsApi.md#recaptchaenterpriseProjectsKeysMigrate) | **POST** /v1/{name}:migrate |  |
-| [**recaptchaenterpriseProjectsKeysPatch**](ProjectsApi.md#recaptchaenterpriseProjectsKeysPatch) | **PATCH** /v1/{name} |  |
-| [**recaptchaenterpriseProjectsKeysRetrieveLegacySecretKey**](ProjectsApi.md#recaptchaenterpriseProjectsKeysRetrieveLegacySecretKey) | **GET** /v1/{key}:retrieveLegacySecretKey |  |
-| [**recaptchaenterpriseProjectsRelatedaccountgroupmembershipsSearch**](ProjectsApi.md#recaptchaenterpriseProjectsRelatedaccountgroupmembershipsSearch) | **POST** /v1/{project}/relatedaccountgroupmemberships:search |  |
-| [**recaptchaenterpriseProjectsRelatedaccountgroupsList**](ProjectsApi.md#recaptchaenterpriseProjectsRelatedaccountgroupsList) | **GET** /v1/{parent}/relatedaccountgroups |  |
-| [**recaptchaenterpriseProjectsRelatedaccountgroupsMembershipsList**](ProjectsApi.md#recaptchaenterpriseProjectsRelatedaccountgroupsMembershipsList) | **GET** /v1/{parent}/memberships |  |
+| [**idsProjectsLocationsEndpointsCreate**](ProjectsApi.md#idsProjectsLocationsEndpointsCreate) | **POST** /v1/{parent}/endpoints |  |
+| [**idsProjectsLocationsEndpointsGetIamPolicy**](ProjectsApi.md#idsProjectsLocationsEndpointsGetIamPolicy) | **GET** /v1/{resource}:getIamPolicy |  |
+| [**idsProjectsLocationsEndpointsList**](ProjectsApi.md#idsProjectsLocationsEndpointsList) | **GET** /v1/{parent}/endpoints |  |
+| [**idsProjectsLocationsEndpointsPatch**](ProjectsApi.md#idsProjectsLocationsEndpointsPatch) | **PATCH** /v1/{name} |  |
+| [**idsProjectsLocationsEndpointsSetIamPolicy**](ProjectsApi.md#idsProjectsLocationsEndpointsSetIamPolicy) | **POST** /v1/{resource}:setIamPolicy |  |
+| [**idsProjectsLocationsEndpointsTestIamPermissions**](ProjectsApi.md#idsProjectsLocationsEndpointsTestIamPermissions) | **POST** /v1/{resource}:testIamPermissions |  |
+| [**idsProjectsLocationsList**](ProjectsApi.md#idsProjectsLocationsList) | **GET** /v1/{name}/locations |  |
+| [**idsProjectsLocationsOperationsCancel**](ProjectsApi.md#idsProjectsLocationsOperationsCancel) | **POST** /v1/{name}:cancel |  |
+| [**idsProjectsLocationsOperationsDelete**](ProjectsApi.md#idsProjectsLocationsOperationsDelete) | **DELETE** /v1/{name} |  |
+| [**idsProjectsLocationsOperationsGet**](ProjectsApi.md#idsProjectsLocationsOperationsGet) | **GET** /v1/{name} |  |
+| [**idsProjectsLocationsOperationsList**](ProjectsApi.md#idsProjectsLocationsOperationsList) | **GET** /v1/{name}/operations |  |
 
 
-<a id="recaptchaenterpriseProjectsAssessmentsAnnotate"></a>
-# **recaptchaenterpriseProjectsAssessmentsAnnotate**
-> Object recaptchaenterpriseProjectsAssessmentsAnnotate(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest)
+<a id="idsProjectsLocationsEndpointsCreate"></a>
+# **idsProjectsLocationsEndpointsCreate**
+> Operation idsProjectsLocationsEndpointsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, endpointId, requestId, endpoint)
 
 
 
-Annotates a previously created Assessment to provide additional information on whether the event turned out to be authentic or fraudulent.
+Creates a new Endpoint in a given project and location.
 
 ### Example
 ```java
@@ -41,7 +38,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
+    defaultClient.setBasePath("https://ids.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -52,7 +49,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | Required. The resource name of the Assessment, in the format \"projects/{project}/assessments/{assessment}\".
+    String parent = "parent_example"; // String | Required. The endpoint's parent.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -64,12 +61,14 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest googleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest = new GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest(); // GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest | 
+    String endpointId = "endpointId_example"; // String | Required. The endpoint identifier. This will be part of the endpoint's resource name. This value must start with a lowercase letter followed by up to 62 lowercase letters, numbers, or hyphens, and cannot end with a hyphen. Values that do not match this pattern will trigger an INVALID_ARGUMENT error.
+    String requestId = "requestId_example"; // String | An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+    Endpoint endpoint = new Endpoint(); // Endpoint | 
     try {
-      Object result = apiInstance.recaptchaenterpriseProjectsAssessmentsAnnotate(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest);
+      Operation result = apiInstance.idsProjectsLocationsEndpointsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, endpointId, requestId, endpoint);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsAssessmentsAnnotate");
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsEndpointsCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -83,7 +82,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | **String**| Required. The resource name of the Assessment, in the format \&quot;projects/{project}/assessments/{assessment}\&quot;. | |
+| **parent** | **String**| Required. The endpoint&#39;s parent. | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -95,7 +94,688 @@ public class Example {
 | **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
 | **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
 | **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **googleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest** | [**GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest**](GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest.md)|  | [optional] |
+| **endpointId** | **String**| Required. The endpoint identifier. This will be part of the endpoint&#39;s resource name. This value must start with a lowercase letter followed by up to 62 lowercase letters, numbers, or hyphens, and cannot end with a hyphen. Values that do not match this pattern will trigger an INVALID_ARGUMENT error. | [optional] |
+| **requestId** | **String**| An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). | [optional] |
+| **endpoint** | [**Endpoint**](Endpoint.md)|  | [optional] |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="idsProjectsLocationsEndpointsGetIamPolicy"></a>
+# **idsProjectsLocationsEndpointsGetIamPolicy**
+> Policy idsProjectsLocationsEndpointsGetIamPolicy(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, optionsRequestedPolicyVersion)
+
+
+
+Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://ids.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String resource = "resource_example"; // String | REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    Integer optionsRequestedPolicyVersion = 56; // Integer | Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+    try {
+      Policy result = apiInstance.idsProjectsLocationsEndpointsGetIamPolicy(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, optionsRequestedPolicyVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsEndpointsGetIamPolicy");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **resource** | **String**| REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **optionsRequestedPolicyVersion** | **Integer**| Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). | [optional] |
+
+### Return type
+
+[**Policy**](Policy.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="idsProjectsLocationsEndpointsList"></a>
+# **idsProjectsLocationsEndpointsList**
+> ListEndpointsResponse idsProjectsLocationsEndpointsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, pageSize, pageToken)
+
+
+
+Lists Endpoints in a given project and location.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://ids.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String parent = "parent_example"; // String | Required. The parent, which owns this collection of endpoints.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String filter = "filter_example"; // String | Optional. The filter expression, following the syntax outlined in https://google.aip.dev/160.
+    String orderBy = "orderBy_example"; // String | Optional. One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering.
+    Integer pageSize = 56; // Integer | Optional. The maximum number of endpoints to return. The service may return fewer than this value.
+    String pageToken = "pageToken_example"; // String | Optional. A page token, received from a previous `ListEndpoints` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListEndpoints` must match the call that provided the page token.
+    try {
+      ListEndpointsResponse result = apiInstance.idsProjectsLocationsEndpointsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, pageSize, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsEndpointsList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **parent** | **String**| Required. The parent, which owns this collection of endpoints. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **filter** | **String**| Optional. The filter expression, following the syntax outlined in https://google.aip.dev/160. | [optional] |
+| **orderBy** | **String**| Optional. One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. | [optional] |
+| **pageSize** | **Integer**| Optional. The maximum number of endpoints to return. The service may return fewer than this value. | [optional] |
+| **pageToken** | **String**| Optional. A page token, received from a previous &#x60;ListEndpoints&#x60; call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to &#x60;ListEndpoints&#x60; must match the call that provided the page token. | [optional] |
+
+### Return type
+
+[**ListEndpointsResponse**](ListEndpointsResponse.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="idsProjectsLocationsEndpointsPatch"></a>
+# **idsProjectsLocationsEndpointsPatch**
+> Operation idsProjectsLocationsEndpointsPatch(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, requestId, updateMask, endpoint)
+
+
+
+Updates the parameters of a single Endpoint.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://ids.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String name = "name_example"; // String | Output only. The name of the endpoint.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String requestId = "requestId_example"; // String | An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+    String updateMask = "updateMask_example"; // String | Field mask is used to specify the fields to be overwritten in the Endpoint resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
+    Endpoint endpoint = new Endpoint(); // Endpoint | 
+    try {
+      Operation result = apiInstance.idsProjectsLocationsEndpointsPatch(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, requestId, updateMask, endpoint);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsEndpointsPatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| Output only. The name of the endpoint. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **requestId** | **String**| An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). | [optional] |
+| **updateMask** | **String**| Field mask is used to specify the fields to be overwritten in the Endpoint resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten. | [optional] |
+| **endpoint** | [**Endpoint**](Endpoint.md)|  | [optional] |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="idsProjectsLocationsEndpointsSetIamPolicy"></a>
+# **idsProjectsLocationsEndpointsSetIamPolicy**
+> Policy idsProjectsLocationsEndpointsSetIamPolicy(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest)
+
+
+
+Sets the access control policy on the specified resource. Replaces any existing policy. Can return &#x60;NOT_FOUND&#x60;, &#x60;INVALID_ARGUMENT&#x60;, and &#x60;PERMISSION_DENIED&#x60; errors.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://ids.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String resource = "resource_example"; // String | REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    SetIamPolicyRequest setIamPolicyRequest = new SetIamPolicyRequest(); // SetIamPolicyRequest | 
+    try {
+      Policy result = apiInstance.idsProjectsLocationsEndpointsSetIamPolicy(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsEndpointsSetIamPolicy");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **resource** | **String**| REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **setIamPolicyRequest** | [**SetIamPolicyRequest**](SetIamPolicyRequest.md)|  | [optional] |
+
+### Return type
+
+[**Policy**](Policy.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="idsProjectsLocationsEndpointsTestIamPermissions"></a>
+# **idsProjectsLocationsEndpointsTestIamPermissions**
+> TestIamPermissionsResponse idsProjectsLocationsEndpointsTestIamPermissions(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest)
+
+
+
+Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a &#x60;NOT_FOUND&#x60; error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \&quot;fail open\&quot; without warning.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://ids.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String resource = "resource_example"; // String | REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    TestIamPermissionsRequest testIamPermissionsRequest = new TestIamPermissionsRequest(); // TestIamPermissionsRequest | 
+    try {
+      TestIamPermissionsResponse result = apiInstance.idsProjectsLocationsEndpointsTestIamPermissions(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsEndpointsTestIamPermissions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **resource** | **String**| REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **testIamPermissionsRequest** | [**TestIamPermissionsRequest**](TestIamPermissionsRequest.md)|  | [optional] |
+
+### Return type
+
+[**TestIamPermissionsResponse**](TestIamPermissionsResponse.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="idsProjectsLocationsList"></a>
+# **idsProjectsLocationsList**
+> ListLocationsResponse idsProjectsLocationsList(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken)
+
+
+
+Lists information about the supported locations for this service.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://ids.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String name = "name_example"; // String | The resource that owns the locations collection, if applicable.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String filter = "filter_example"; // String | A filter to narrow down results to a preferred subset. The filtering language accepts strings like `\"displayName=tokyo\"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160).
+    Integer pageSize = 56; // Integer | The maximum number of results to return. If not set, the service selects a default.
+    String pageToken = "pageToken_example"; // String | A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page.
+    try {
+      ListLocationsResponse result = apiInstance.idsProjectsLocationsList(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| The resource that owns the locations collection, if applicable. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **filter** | **String**| A filter to narrow down results to a preferred subset. The filtering language accepts strings like &#x60;\&quot;displayName&#x3D;tokyo\&quot;&#x60;, and is documented in more detail in [AIP-160](https://google.aip.dev/160). | [optional] |
+| **pageSize** | **Integer**| The maximum number of results to return. If not set, the service selects a default. | [optional] |
+| **pageToken** | **String**| A page token received from the &#x60;next_page_token&#x60; field in the response. Send that page token to receive the subsequent page. | [optional] |
+
+### Return type
+
+[**ListLocationsResponse**](ListLocationsResponse.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="idsProjectsLocationsOperationsCancel"></a>
+# **idsProjectsLocationsOperationsCancel**
+> Object idsProjectsLocationsOperationsCancel(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body)
+
+
+
+Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn&#39;t support this method, it returns &#x60;google.rpc.Code.UNIMPLEMENTED&#x60;. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to &#x60;Code.CANCELLED&#x60;.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://ids.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String name = "name_example"; // String | The name of the operation resource to be cancelled.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    Object body = null; // Object | 
+    try {
+      Object result = apiInstance.idsProjectsLocationsOperationsCancel(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsOperationsCancel");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| The name of the operation resource to be cancelled. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **body** | **Object**|  | [optional] |
 
 ### Return type
 
@@ -115,108 +795,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="recaptchaenterpriseProjectsAssessmentsCreate"></a>
-# **recaptchaenterpriseProjectsAssessmentsCreate**
-> GoogleCloudRecaptchaenterpriseV1Assessment recaptchaenterpriseProjectsAssessmentsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1Assessment)
+<a id="idsProjectsLocationsOperationsDelete"></a>
+# **idsProjectsLocationsOperationsDelete**
+> Object idsProjectsLocationsOperationsDelete(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, requestId)
 
 
 
-Creates an Assessment of the likelihood an event is legitimate.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project in which the assessment will be created, in the format \"projects/{project}\".
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    GoogleCloudRecaptchaenterpriseV1Assessment googleCloudRecaptchaenterpriseV1Assessment = new GoogleCloudRecaptchaenterpriseV1Assessment(); // GoogleCloudRecaptchaenterpriseV1Assessment | 
-    try {
-      GoogleCloudRecaptchaenterpriseV1Assessment result = apiInstance.recaptchaenterpriseProjectsAssessmentsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1Assessment);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsAssessmentsCreate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project in which the assessment will be created, in the format \&quot;projects/{project}\&quot;. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **googleCloudRecaptchaenterpriseV1Assessment** | [**GoogleCloudRecaptchaenterpriseV1Assessment**](GoogleCloudRecaptchaenterpriseV1Assessment.md)|  | [optional] |
-
-### Return type
-
-[**GoogleCloudRecaptchaenterpriseV1Assessment**](GoogleCloudRecaptchaenterpriseV1Assessment.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="recaptchaenterpriseProjectsFirewallpoliciesCreate"></a>
-# **recaptchaenterpriseProjectsFirewallpoliciesCreate**
-> GoogleCloudRecaptchaenterpriseV1FirewallPolicy recaptchaenterpriseProjectsFirewallpoliciesCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1FirewallPolicy)
-
-
-
-Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA Enterprise actions can be executed. A project may have a maximum of 1000 policies.
+Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn&#39;t support this method, it returns &#x60;google.rpc.Code.UNIMPLEMENTED&#x60;.
 
 ### Example
 ```java
@@ -231,7 +816,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
+    defaultClient.setBasePath("https://ids.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -242,7 +827,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project this policy will apply to, in the format \"projects/{project}\".
+    String name = "name_example"; // String | The name of the operation resource to be deleted.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -254,12 +839,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    GoogleCloudRecaptchaenterpriseV1FirewallPolicy googleCloudRecaptchaenterpriseV1FirewallPolicy = new GoogleCloudRecaptchaenterpriseV1FirewallPolicy(); // GoogleCloudRecaptchaenterpriseV1FirewallPolicy | 
+    String requestId = "requestId_example"; // String | An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
     try {
-      GoogleCloudRecaptchaenterpriseV1FirewallPolicy result = apiInstance.recaptchaenterpriseProjectsFirewallpoliciesCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1FirewallPolicy);
+      Object result = apiInstance.idsProjectsLocationsOperationsDelete(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, requestId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsFirewallpoliciesCreate");
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsOperationsDelete");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -273,7 +858,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project this policy will apply to, in the format \&quot;projects/{project}\&quot;. | |
+| **name** | **String**| The name of the operation resource to be deleted. | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -285,292 +870,7 @@ public class Example {
 | **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
 | **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
 | **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **googleCloudRecaptchaenterpriseV1FirewallPolicy** | [**GoogleCloudRecaptchaenterpriseV1FirewallPolicy**](GoogleCloudRecaptchaenterpriseV1FirewallPolicy.md)|  | [optional] |
-
-### Return type
-
-[**GoogleCloudRecaptchaenterpriseV1FirewallPolicy**](GoogleCloudRecaptchaenterpriseV1FirewallPolicy.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="recaptchaenterpriseProjectsFirewallpoliciesList"></a>
-# **recaptchaenterpriseProjectsFirewallpoliciesList**
-> GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse recaptchaenterpriseProjectsFirewallpoliciesList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken)
-
-
-
-Returns the list of all firewall policies that belong to a project.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project to list the policies for, in the format \"projects/{project}\".
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    Integer pageSize = 56; // Integer | Optional. The maximum number of policies to return. Default is 10. Max limit is 1000.
-    String pageToken = "pageToken_example"; // String | Optional. The next_page_token value returned from a previous. ListFirewallPoliciesRequest, if any.
-    try {
-      GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse result = apiInstance.recaptchaenterpriseProjectsFirewallpoliciesList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsFirewallpoliciesList");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project to list the policies for, in the format \&quot;projects/{project}\&quot;. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **pageSize** | **Integer**| Optional. The maximum number of policies to return. Default is 10. Max limit is 1000. | [optional] |
-| **pageToken** | **String**| Optional. The next_page_token value returned from a previous. ListFirewallPoliciesRequest, if any. | [optional] |
-
-### Return type
-
-[**GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse**](GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="recaptchaenterpriseProjectsKeysCreate"></a>
-# **recaptchaenterpriseProjectsKeysCreate**
-> GoogleCloudRecaptchaenterpriseV1Key recaptchaenterpriseProjectsKeysCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1Key)
-
-
-
-Creates a new reCAPTCHA Enterprise key.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project in which the key will be created, in the format \"projects/{project}\".
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    GoogleCloudRecaptchaenterpriseV1Key googleCloudRecaptchaenterpriseV1Key = new GoogleCloudRecaptchaenterpriseV1Key(); // GoogleCloudRecaptchaenterpriseV1Key | 
-    try {
-      GoogleCloudRecaptchaenterpriseV1Key result = apiInstance.recaptchaenterpriseProjectsKeysCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1Key);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsKeysCreate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project in which the key will be created, in the format \&quot;projects/{project}\&quot;. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **googleCloudRecaptchaenterpriseV1Key** | [**GoogleCloudRecaptchaenterpriseV1Key**](GoogleCloudRecaptchaenterpriseV1Key.md)|  | [optional] |
-
-### Return type
-
-[**GoogleCloudRecaptchaenterpriseV1Key**](GoogleCloudRecaptchaenterpriseV1Key.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="recaptchaenterpriseProjectsKeysDelete"></a>
-# **recaptchaenterpriseProjectsKeysDelete**
-> Object recaptchaenterpriseProjectsKeysDelete(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
-
-
-
-Deletes the specified key.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | Required. The name of the key to be deleted, in the format \"projects/{project}/keys/{key}\".
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    try {
-      Object result = apiInstance.recaptchaenterpriseProjectsKeysDelete(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsKeysDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **name** | **String**| Required. The name of the key to be deleted, in the format \&quot;projects/{project}/keys/{key}\&quot;. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **requestId** | **String**| An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). | [optional] |
 
 ### Return type
 
@@ -590,13 +890,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="recaptchaenterpriseProjectsKeysGetMetrics"></a>
-# **recaptchaenterpriseProjectsKeysGetMetrics**
-> GoogleCloudRecaptchaenterpriseV1Metrics recaptchaenterpriseProjectsKeysGetMetrics(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
+<a id="idsProjectsLocationsOperationsGet"></a>
+# **idsProjectsLocationsOperationsGet**
+> Operation idsProjectsLocationsOperationsGet(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
 
 
 
-Get some aggregated metrics for a Key. This data can be used to build dashboards.
+Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 
 ### Example
 ```java
@@ -611,7 +911,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
+    defaultClient.setBasePath("https://ids.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -622,7 +922,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | Required. The name of the requested metrics, in the format \"projects/{project}/keys/{key}/metrics\".
+    String name = "name_example"; // String | The name of the operation resource.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -635,10 +935,10 @@ public class Example {
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
     try {
-      GoogleCloudRecaptchaenterpriseV1Metrics result = apiInstance.recaptchaenterpriseProjectsKeysGetMetrics(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+      Operation result = apiInstance.idsProjectsLocationsOperationsGet(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsKeysGetMetrics");
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsOperationsGet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -652,7 +952,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | **String**| Required. The name of the requested metrics, in the format \&quot;projects/{project}/keys/{key}/metrics\&quot;. | |
+| **name** | **String**| The name of the operation resource. | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -667,7 +967,7 @@ public class Example {
 
 ### Return type
 
-[**GoogleCloudRecaptchaenterpriseV1Metrics**](GoogleCloudRecaptchaenterpriseV1Metrics.md)
+[**Operation**](Operation.md)
 
 ### Authorization
 
@@ -683,110 +983,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="recaptchaenterpriseProjectsKeysList"></a>
-# **recaptchaenterpriseProjectsKeysList**
-> GoogleCloudRecaptchaenterpriseV1ListKeysResponse recaptchaenterpriseProjectsKeysList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken)
+<a id="idsProjectsLocationsOperationsList"></a>
+# **idsProjectsLocationsOperationsList**
+> ListOperationsResponse idsProjectsLocationsOperationsList(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken)
 
 
 
-Returns the list of all keys that belong to a project.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project that contains the keys that will be listed, in the format \"projects/{project}\".
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    Integer pageSize = 56; // Integer | Optional. The maximum number of keys to return. Default is 10. Max limit is 1000.
-    String pageToken = "pageToken_example"; // String | Optional. The next_page_token value returned from a previous. ListKeysRequest, if any.
-    try {
-      GoogleCloudRecaptchaenterpriseV1ListKeysResponse result = apiInstance.recaptchaenterpriseProjectsKeysList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsKeysList");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project that contains the keys that will be listed, in the format \&quot;projects/{project}\&quot;. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **pageSize** | **Integer**| Optional. The maximum number of keys to return. Default is 10. Max limit is 1000. | [optional] |
-| **pageToken** | **String**| Optional. The next_page_token value returned from a previous. ListKeysRequest, if any. | [optional] |
-
-### Return type
-
-[**GoogleCloudRecaptchaenterpriseV1ListKeysResponse**](GoogleCloudRecaptchaenterpriseV1ListKeysResponse.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="recaptchaenterpriseProjectsKeysMigrate"></a>
-# **recaptchaenterpriseProjectsKeysMigrate**
-> GoogleCloudRecaptchaenterpriseV1Key recaptchaenterpriseProjectsKeysMigrate(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1MigrateKeyRequest)
-
-
-
-Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment calls. You must be authenticated as one of the current owners of the reCAPTCHA Site Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project.
+Lists operations that match the specified filter in the request. If the server doesn&#39;t support this method, it returns &#x60;UNIMPLEMENTED&#x60;.
 
 ### Example
 ```java
@@ -801,7 +1004,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
+    defaultClient.setBasePath("https://ids.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -812,7 +1015,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | Required. The name of the key to be migrated, in the format \"projects/{project}/keys/{key}\".
+    String name = "name_example"; // String | The name of the operation's parent resource.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -824,12 +1027,14 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest googleCloudRecaptchaenterpriseV1MigrateKeyRequest = new GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest(); // GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest | 
+    String filter = "filter_example"; // String | The standard list filter.
+    Integer pageSize = 56; // Integer | The standard list page size.
+    String pageToken = "pageToken_example"; // String | The standard list page token.
     try {
-      GoogleCloudRecaptchaenterpriseV1Key result = apiInstance.recaptchaenterpriseProjectsKeysMigrate(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1MigrateKeyRequest);
+      ListOperationsResponse result = apiInstance.idsProjectsLocationsOperationsList(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsKeysMigrate");
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsOperationsList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -843,7 +1048,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | **String**| Required. The name of the key to be migrated, in the format \&quot;projects/{project}/keys/{key}\&quot;. | |
+| **name** | **String**| The name of the operation&#39;s parent resource. | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -855,488 +1060,13 @@ public class Example {
 | **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
 | **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
 | **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **googleCloudRecaptchaenterpriseV1MigrateKeyRequest** | [**GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest**](GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest.md)|  | [optional] |
+| **filter** | **String**| The standard list filter. | [optional] |
+| **pageSize** | **Integer**| The standard list page size. | [optional] |
+| **pageToken** | **String**| The standard list page token. | [optional] |
 
 ### Return type
 
-[**GoogleCloudRecaptchaenterpriseV1Key**](GoogleCloudRecaptchaenterpriseV1Key.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="recaptchaenterpriseProjectsKeysPatch"></a>
-# **recaptchaenterpriseProjectsKeysPatch**
-> GoogleCloudRecaptchaenterpriseV1Key recaptchaenterpriseProjectsKeysPatch(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, googleCloudRecaptchaenterpriseV1Key)
-
-
-
-Updates the specified key.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | The resource name for the Key in the format \"projects/{project}/keys/{key}\".
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String updateMask = "updateMask_example"; // String | Optional. The mask to control which fields of the key get updated. If the mask is not present, all fields will be updated.
-    GoogleCloudRecaptchaenterpriseV1Key googleCloudRecaptchaenterpriseV1Key = new GoogleCloudRecaptchaenterpriseV1Key(); // GoogleCloudRecaptchaenterpriseV1Key | 
-    try {
-      GoogleCloudRecaptchaenterpriseV1Key result = apiInstance.recaptchaenterpriseProjectsKeysPatch(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, googleCloudRecaptchaenterpriseV1Key);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsKeysPatch");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **name** | **String**| The resource name for the Key in the format \&quot;projects/{project}/keys/{key}\&quot;. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **updateMask** | **String**| Optional. The mask to control which fields of the key get updated. If the mask is not present, all fields will be updated. | [optional] |
-| **googleCloudRecaptchaenterpriseV1Key** | [**GoogleCloudRecaptchaenterpriseV1Key**](GoogleCloudRecaptchaenterpriseV1Key.md)|  | [optional] |
-
-### Return type
-
-[**GoogleCloudRecaptchaenterpriseV1Key**](GoogleCloudRecaptchaenterpriseV1Key.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="recaptchaenterpriseProjectsKeysRetrieveLegacySecretKey"></a>
-# **recaptchaenterpriseProjectsKeysRetrieveLegacySecretKey**
-> GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse recaptchaenterpriseProjectsKeysRetrieveLegacySecretKey($xgafv, accessToken, alt, paramCallback, fields, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, key)
-
-
-
-Returns the secret key related to the specified public key. You must use the legacy secret key only in a 3rd party integration with legacy reCAPTCHA.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    try {
-      GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse result = apiInstance.recaptchaenterpriseProjectsKeysRetrieveLegacySecretKey($xgafv, accessToken, alt, paramCallback, fields, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, key);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsKeysRetrieveLegacySecretKey");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-
-### Return type
-
-[**GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse**](GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="recaptchaenterpriseProjectsRelatedaccountgroupmembershipsSearch"></a>
-# **recaptchaenterpriseProjectsRelatedaccountgroupmembershipsSearch**
-> GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse recaptchaenterpriseProjectsRelatedaccountgroupmembershipsSearch(project, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest)
-
-
-
-Search group memberships related to a given account.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String project = "project_example"; // String | Required. The name of the project to search related account group memberships from. Specify the project name in the following format: \"projects/{project}\".
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest googleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest = new GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest(); // GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest | 
-    try {
-      GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse result = apiInstance.recaptchaenterpriseProjectsRelatedaccountgroupmembershipsSearch(project, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, googleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsRelatedaccountgroupmembershipsSearch");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **project** | **String**| Required. The name of the project to search related account group memberships from. Specify the project name in the following format: \&quot;projects/{project}\&quot;. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **googleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest** | [**GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest**](GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest.md)|  | [optional] |
-
-### Return type
-
-[**GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse**](GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="recaptchaenterpriseProjectsRelatedaccountgroupsList"></a>
-# **recaptchaenterpriseProjectsRelatedaccountgroupsList**
-> GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse recaptchaenterpriseProjectsRelatedaccountgroupsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken)
-
-
-
-List groups of related accounts.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project to list related account groups from, in the format \"projects/{project}\".
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    Integer pageSize = 56; // Integer | Optional. The maximum number of groups to return. The service might return fewer than this value. If unspecified, at most 50 groups are returned. The maximum value is 1000; values above 1000 are coerced to 1000.
-    String pageToken = "pageToken_example"; // String | Optional. A page token, received from a previous `ListRelatedAccountGroups` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListRelatedAccountGroups` must match the call that provided the page token.
-    try {
-      GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse result = apiInstance.recaptchaenterpriseProjectsRelatedaccountgroupsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsRelatedaccountgroupsList");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project to list related account groups from, in the format \&quot;projects/{project}\&quot;. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **pageSize** | **Integer**| Optional. The maximum number of groups to return. The service might return fewer than this value. If unspecified, at most 50 groups are returned. The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] |
-| **pageToken** | **String**| Optional. A page token, received from a previous &#x60;ListRelatedAccountGroups&#x60; call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to &#x60;ListRelatedAccountGroups&#x60; must match the call that provided the page token. | [optional] |
-
-### Return type
-
-[**GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse**](GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="recaptchaenterpriseProjectsRelatedaccountgroupsMembershipsList"></a>
-# **recaptchaenterpriseProjectsRelatedaccountgroupsMembershipsList**
-> GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse recaptchaenterpriseProjectsRelatedaccountgroupsMembershipsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken)
-
-
-
-Get memberships in a group of related accounts.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://recaptchaenterprise.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The resource name for the related account group in the format `projects/{project}/relatedaccountgroups/{relatedaccountgroup}`.
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    Integer pageSize = 56; // Integer | Optional. The maximum number of accounts to return. The service might return fewer than this value. If unspecified, at most 50 accounts are returned. The maximum value is 1000; values above 1000 are coerced to 1000.
-    String pageToken = "pageToken_example"; // String | Optional. A page token, received from a previous `ListRelatedAccountGroupMemberships` call. When paginating, all other parameters provided to `ListRelatedAccountGroupMemberships` must match the call that provided the page token.
-    try {
-      GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse result = apiInstance.recaptchaenterpriseProjectsRelatedaccountgroupsMembershipsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#recaptchaenterpriseProjectsRelatedaccountgroupsMembershipsList");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The resource name for the related account group in the format &#x60;projects/{project}/relatedaccountgroups/{relatedaccountgroup}&#x60;. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **pageSize** | **Integer**| Optional. The maximum number of accounts to return. The service might return fewer than this value. If unspecified, at most 50 accounts are returned. The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] |
-| **pageToken** | **String**| Optional. A page token, received from a previous &#x60;ListRelatedAccountGroupMemberships&#x60; call. When paginating, all other parameters provided to &#x60;ListRelatedAccountGroupMemberships&#x60; must match the call that provided the page token. | [optional] |
-
-### Return type
-
-[**GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse**](GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse.md)
+[**ListOperationsResponse**](ListOperationsResponse.md)
 
 ### Authorization
 

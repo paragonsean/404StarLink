@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Chrome Management API
+Cloud IDS API
 - API version: v1
-  - Build date: 2024-10-11T02:08:08.888155-04:00[America/New_York]
+  - Build date: 2024-10-11T02:08:26.946950-04:00[America/New_York]
   - Generator version: 7.9.0
 
-The Chrome Management API is a suite of services that allows Chrome administrators to view, manage and gain insights on their Chrome OS and Chrome Browser devices.
+Cloud IDS (Cloud Intrusion Detection System) detects malware, spyware, command-and-control attacks, and other network-based threats. Its security efficacy is industry leading, built with Palo Alto Networks technologies. When you use this product, your organization name and consumption levels will be shared with Palo Alto Networks.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -87,12 +87,12 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.CustomersApi;
+import org.openapitools.client.api.ProjectsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://chromemanagement.googleapis.com");
+    defaultClient.setBasePath("https://ids.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -102,8 +102,8 @@ public class Example {
     OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    CustomersApi apiInstance = new CustomersApi(defaultClient);
-    String customer = "customer_example"; // String | Required. Customer id or \"my_customer\" to use the customer associated to the account making the request.
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String parent = "parent_example"; // String | Required. The endpoint's parent.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -115,15 +115,14 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String orderBy = "orderBy_example"; // String | Field used to order results. Supported fields: * request_count * latest_request_time
-    String orgUnitId = "orgUnitId_example"; // String | The ID of the organizational unit.
-    Integer pageSize = 56; // Integer | Maximum number of results to return. Maximum and default are 50, anything above will be coerced to 50.
-    String pageToken = "pageToken_example"; // String | Token to specify the page of the request to be returned.
+    String endpointId = "endpointId_example"; // String | Required. The endpoint identifier. This will be part of the endpoint's resource name. This value must start with a lowercase letter followed by up to 62 lowercase letters, numbers, or hyphens, and cannot end with a hyphen. Values that do not match this pattern will trigger an INVALID_ARGUMENT error.
+    String requestId = "requestId_example"; // String | An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+    Endpoint endpoint = new Endpoint(); // Endpoint | 
     try {
-      GoogleChromeManagementV1CountChromeAppRequestsResponse result = apiInstance.chromemanagementCustomersAppsCountChromeAppRequests(customer, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, orderBy, orgUnitId, pageSize, pageToken);
+      Operation result = apiInstance.idsProjectsLocationsEndpointsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, endpointId, requestId, endpoint);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CustomersApi#chromemanagementCustomersAppsCountChromeAppRequests");
+      System.err.println("Exception when calling ProjectsApi#idsProjectsLocationsEndpointsCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -136,90 +135,41 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://chromemanagement.googleapis.com*
+All URIs are relative to *https://ids.googleapis.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CustomersApi* | [**chromemanagementCustomersAppsCountChromeAppRequests**](docs/CustomersApi.md#chromemanagementCustomersAppsCountChromeAppRequests) | **GET** /v1/{customer}/apps:countChromeAppRequests | 
-*CustomersApi* | [**chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention**](docs/CustomersApi.md#chromemanagementCustomersReportsCountChromeBrowsersNeedingAttention) | **GET** /v1/{customer}/reports:countChromeBrowsersNeedingAttention | 
-*CustomersApi* | [**chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate**](docs/CustomersApi.md#chromemanagementCustomersReportsCountChromeDevicesReachingAutoExpirationDate) | **GET** /v1/{customer}/reports:countChromeDevicesReachingAutoExpirationDate | 
-*CustomersApi* | [**chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention**](docs/CustomersApi.md#chromemanagementCustomersReportsCountChromeDevicesThatNeedAttention) | **GET** /v1/{customer}/reports:countChromeDevicesThatNeedAttention | 
-*CustomersApi* | [**chromemanagementCustomersReportsCountChromeHardwareFleetDevices**](docs/CustomersApi.md#chromemanagementCustomersReportsCountChromeHardwareFleetDevices) | **GET** /v1/{customer}/reports:countChromeHardwareFleetDevices | 
-*CustomersApi* | [**chromemanagementCustomersReportsCountChromeVersions**](docs/CustomersApi.md#chromemanagementCustomersReportsCountChromeVersions) | **GET** /v1/{customer}/reports:countChromeVersions | 
-*CustomersApi* | [**chromemanagementCustomersReportsCountInstalledApps**](docs/CustomersApi.md#chromemanagementCustomersReportsCountInstalledApps) | **GET** /v1/{customer}/reports:countInstalledApps | 
-*CustomersApi* | [**chromemanagementCustomersReportsFindInstalledAppDevices**](docs/CustomersApi.md#chromemanagementCustomersReportsFindInstalledAppDevices) | **GET** /v1/{customer}/reports:findInstalledAppDevices | 
-*CustomersApi* | [**chromemanagementCustomersTelemetryDevicesList**](docs/CustomersApi.md#chromemanagementCustomersTelemetryDevicesList) | **GET** /v1/{parent}/telemetry/devices | 
-*CustomersApi* | [**chromemanagementCustomersTelemetryEventsList**](docs/CustomersApi.md#chromemanagementCustomersTelemetryEventsList) | **GET** /v1/{parent}/telemetry/events | 
-*CustomersApi* | [**chromemanagementCustomersTelemetryUsersGet**](docs/CustomersApi.md#chromemanagementCustomersTelemetryUsersGet) | **GET** /v1/{name} | 
-*CustomersApi* | [**chromemanagementCustomersTelemetryUsersList**](docs/CustomersApi.md#chromemanagementCustomersTelemetryUsersList) | **GET** /v1/{parent}/telemetry/users | 
+*ProjectsApi* | [**idsProjectsLocationsEndpointsCreate**](docs/ProjectsApi.md#idsProjectsLocationsEndpointsCreate) | **POST** /v1/{parent}/endpoints | 
+*ProjectsApi* | [**idsProjectsLocationsEndpointsGetIamPolicy**](docs/ProjectsApi.md#idsProjectsLocationsEndpointsGetIamPolicy) | **GET** /v1/{resource}:getIamPolicy | 
+*ProjectsApi* | [**idsProjectsLocationsEndpointsList**](docs/ProjectsApi.md#idsProjectsLocationsEndpointsList) | **GET** /v1/{parent}/endpoints | 
+*ProjectsApi* | [**idsProjectsLocationsEndpointsPatch**](docs/ProjectsApi.md#idsProjectsLocationsEndpointsPatch) | **PATCH** /v1/{name} | 
+*ProjectsApi* | [**idsProjectsLocationsEndpointsSetIamPolicy**](docs/ProjectsApi.md#idsProjectsLocationsEndpointsSetIamPolicy) | **POST** /v1/{resource}:setIamPolicy | 
+*ProjectsApi* | [**idsProjectsLocationsEndpointsTestIamPermissions**](docs/ProjectsApi.md#idsProjectsLocationsEndpointsTestIamPermissions) | **POST** /v1/{resource}:testIamPermissions | 
+*ProjectsApi* | [**idsProjectsLocationsList**](docs/ProjectsApi.md#idsProjectsLocationsList) | **GET** /v1/{name}/locations | 
+*ProjectsApi* | [**idsProjectsLocationsOperationsCancel**](docs/ProjectsApi.md#idsProjectsLocationsOperationsCancel) | **POST** /v1/{name}:cancel | 
+*ProjectsApi* | [**idsProjectsLocationsOperationsDelete**](docs/ProjectsApi.md#idsProjectsLocationsOperationsDelete) | **DELETE** /v1/{name} | 
+*ProjectsApi* | [**idsProjectsLocationsOperationsGet**](docs/ProjectsApi.md#idsProjectsLocationsOperationsGet) | **GET** /v1/{name} | 
+*ProjectsApi* | [**idsProjectsLocationsOperationsList**](docs/ProjectsApi.md#idsProjectsLocationsOperationsList) | **GET** /v1/{name}/operations | 
 
 
 ## Documentation for Models
 
- - [GoogleChromeManagementV1AndroidAppInfo](docs/GoogleChromeManagementV1AndroidAppInfo.md)
- - [GoogleChromeManagementV1AndroidAppPermission](docs/GoogleChromeManagementV1AndroidAppPermission.md)
- - [GoogleChromeManagementV1AppDetails](docs/GoogleChromeManagementV1AppDetails.md)
- - [GoogleChromeManagementV1AudioStatusReport](docs/GoogleChromeManagementV1AudioStatusReport.md)
- - [GoogleChromeManagementV1BatteryInfo](docs/GoogleChromeManagementV1BatteryInfo.md)
- - [GoogleChromeManagementV1BatterySampleReport](docs/GoogleChromeManagementV1BatterySampleReport.md)
- - [GoogleChromeManagementV1BatteryStatusReport](docs/GoogleChromeManagementV1BatteryStatusReport.md)
- - [GoogleChromeManagementV1BootPerformanceReport](docs/GoogleChromeManagementV1BootPerformanceReport.md)
- - [GoogleChromeManagementV1BrowserVersion](docs/GoogleChromeManagementV1BrowserVersion.md)
- - [GoogleChromeManagementV1ChromeAppInfo](docs/GoogleChromeManagementV1ChromeAppInfo.md)
- - [GoogleChromeManagementV1ChromeAppPermission](docs/GoogleChromeManagementV1ChromeAppPermission.md)
- - [GoogleChromeManagementV1ChromeAppRequest](docs/GoogleChromeManagementV1ChromeAppRequest.md)
- - [GoogleChromeManagementV1ChromeAppSiteAccess](docs/GoogleChromeManagementV1ChromeAppSiteAccess.md)
- - [GoogleChromeManagementV1CountChromeAppRequestsResponse](docs/GoogleChromeManagementV1CountChromeAppRequestsResponse.md)
- - [GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse](docs/GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse.md)
- - [GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse](docs/GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse.md)
- - [GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse](docs/GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse.md)
- - [GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse](docs/GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse.md)
- - [GoogleChromeManagementV1CountChromeVersionsResponse](docs/GoogleChromeManagementV1CountChromeVersionsResponse.md)
- - [GoogleChromeManagementV1CountInstalledAppsResponse](docs/GoogleChromeManagementV1CountInstalledAppsResponse.md)
- - [GoogleChromeManagementV1CpuInfo](docs/GoogleChromeManagementV1CpuInfo.md)
- - [GoogleChromeManagementV1CpuStatusReport](docs/GoogleChromeManagementV1CpuStatusReport.md)
- - [GoogleChromeManagementV1CpuTemperatureInfo](docs/GoogleChromeManagementV1CpuTemperatureInfo.md)
- - [GoogleChromeManagementV1Device](docs/GoogleChromeManagementV1Device.md)
- - [GoogleChromeManagementV1DeviceAueCountReport](docs/GoogleChromeManagementV1DeviceAueCountReport.md)
- - [GoogleChromeManagementV1DeviceHardwareCountReport](docs/GoogleChromeManagementV1DeviceHardwareCountReport.md)
- - [GoogleChromeManagementV1DiskInfo](docs/GoogleChromeManagementV1DiskInfo.md)
- - [GoogleChromeManagementV1DisplayDevice](docs/GoogleChromeManagementV1DisplayDevice.md)
- - [GoogleChromeManagementV1DisplayInfo](docs/GoogleChromeManagementV1DisplayInfo.md)
- - [GoogleChromeManagementV1FindInstalledAppDevicesResponse](docs/GoogleChromeManagementV1FindInstalledAppDevicesResponse.md)
- - [GoogleChromeManagementV1GraphicsAdapterInfo](docs/GoogleChromeManagementV1GraphicsAdapterInfo.md)
- - [GoogleChromeManagementV1GraphicsInfo](docs/GoogleChromeManagementV1GraphicsInfo.md)
- - [GoogleChromeManagementV1GraphicsStatusReport](docs/GoogleChromeManagementV1GraphicsStatusReport.md)
- - [GoogleChromeManagementV1HttpsLatencyRoutineData](docs/GoogleChromeManagementV1HttpsLatencyRoutineData.md)
- - [GoogleChromeManagementV1InstalledApp](docs/GoogleChromeManagementV1InstalledApp.md)
- - [GoogleChromeManagementV1ListTelemetryDevicesResponse](docs/GoogleChromeManagementV1ListTelemetryDevicesResponse.md)
- - [GoogleChromeManagementV1ListTelemetryEventsResponse](docs/GoogleChromeManagementV1ListTelemetryEventsResponse.md)
- - [GoogleChromeManagementV1ListTelemetryUsersResponse](docs/GoogleChromeManagementV1ListTelemetryUsersResponse.md)
- - [GoogleChromeManagementV1MemoryInfo](docs/GoogleChromeManagementV1MemoryInfo.md)
- - [GoogleChromeManagementV1MemoryStatusReport](docs/GoogleChromeManagementV1MemoryStatusReport.md)
- - [GoogleChromeManagementV1NetworkDevice](docs/GoogleChromeManagementV1NetworkDevice.md)
- - [GoogleChromeManagementV1NetworkDiagnosticsReport](docs/GoogleChromeManagementV1NetworkDiagnosticsReport.md)
- - [GoogleChromeManagementV1NetworkInfo](docs/GoogleChromeManagementV1NetworkInfo.md)
- - [GoogleChromeManagementV1NetworkStatusReport](docs/GoogleChromeManagementV1NetworkStatusReport.md)
- - [GoogleChromeManagementV1OsUpdateStatus](docs/GoogleChromeManagementV1OsUpdateStatus.md)
- - [GoogleChromeManagementV1PeripheralsReport](docs/GoogleChromeManagementV1PeripheralsReport.md)
- - [GoogleChromeManagementV1StorageInfo](docs/GoogleChromeManagementV1StorageInfo.md)
- - [GoogleChromeManagementV1StorageInfoDiskVolume](docs/GoogleChromeManagementV1StorageInfoDiskVolume.md)
- - [GoogleChromeManagementV1StorageStatusReport](docs/GoogleChromeManagementV1StorageStatusReport.md)
- - [GoogleChromeManagementV1TelemetryDevice](docs/GoogleChromeManagementV1TelemetryDevice.md)
- - [GoogleChromeManagementV1TelemetryDeviceInfo](docs/GoogleChromeManagementV1TelemetryDeviceInfo.md)
- - [GoogleChromeManagementV1TelemetryEvent](docs/GoogleChromeManagementV1TelemetryEvent.md)
- - [GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent](docs/GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent.md)
- - [GoogleChromeManagementV1TelemetryUsbPeripheralsEvent](docs/GoogleChromeManagementV1TelemetryUsbPeripheralsEvent.md)
- - [GoogleChromeManagementV1TelemetryUser](docs/GoogleChromeManagementV1TelemetryUser.md)
- - [GoogleChromeManagementV1TelemetryUserDevice](docs/GoogleChromeManagementV1TelemetryUserDevice.md)
- - [GoogleChromeManagementV1TelemetryUserInfo](docs/GoogleChromeManagementV1TelemetryUserInfo.md)
- - [GoogleChromeManagementV1ThunderboltInfo](docs/GoogleChromeManagementV1ThunderboltInfo.md)
- - [GoogleChromeManagementV1TotalMemoryEncryptionInfo](docs/GoogleChromeManagementV1TotalMemoryEncryptionInfo.md)
- - [GoogleChromeManagementV1TouchScreenDevice](docs/GoogleChromeManagementV1TouchScreenDevice.md)
- - [GoogleChromeManagementV1TouchScreenInfo](docs/GoogleChromeManagementV1TouchScreenInfo.md)
- - [GoogleChromeManagementV1UsbPeripheralReport](docs/GoogleChromeManagementV1UsbPeripheralReport.md)
- - [GoogleRpcStatus](docs/GoogleRpcStatus.md)
- - [GoogleTypeDate](docs/GoogleTypeDate.md)
+ - [AuditConfig](docs/AuditConfig.md)
+ - [AuditLogConfig](docs/AuditLogConfig.md)
+ - [Binding](docs/Binding.md)
+ - [Endpoint](docs/Endpoint.md)
+ - [Expr](docs/Expr.md)
+ - [ListEndpointsResponse](docs/ListEndpointsResponse.md)
+ - [ListLocationsResponse](docs/ListLocationsResponse.md)
+ - [ListOperationsResponse](docs/ListOperationsResponse.md)
+ - [Location](docs/Location.md)
+ - [Operation](docs/Operation.md)
+ - [OperationMetadata](docs/OperationMetadata.md)
+ - [Policy](docs/Policy.md)
+ - [SetIamPolicyRequest](docs/SetIamPolicyRequest.md)
+ - [Status](docs/Status.md)
+ - [TestIamPermissionsRequest](docs/TestIamPermissionsRequest.md)
+ - [TestIamPermissionsResponse](docs/TestIamPermissionsResponse.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -234,9 +184,7 @@ Authentication schemes defined for the API:
 - **Flow**: implicit
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/chrome.management.appdetails.readonly: See detailed information about apps installed on Chrome browsers and devices managed by your organization
-  - https://www.googleapis.com/auth/chrome.management.reports.readonly: See reports about devices and Chrome browsers managed within your organization
-  - https://www.googleapis.com/auth/chrome.management.telemetry.readonly: See basic device and telemetry information collected from Chrome OS devices or users managed within your organization
+  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
 
 <a id="Oauth2c"></a>
 ### Oauth2c
@@ -245,9 +193,7 @@ Authentication schemes defined for the API:
 - **Flow**: accessCode
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/chrome.management.appdetails.readonly: See detailed information about apps installed on Chrome browsers and devices managed by your organization
-  - https://www.googleapis.com/auth/chrome.management.reports.readonly: See reports about devices and Chrome browsers managed within your organization
-  - https://www.googleapis.com/auth/chrome.management.telemetry.readonly: See basic device and telemetry information collected from Chrome OS devices or users managed within your organization
+  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
 
 
 ## Recommendation
