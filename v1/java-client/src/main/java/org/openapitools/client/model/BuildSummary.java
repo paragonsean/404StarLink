@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * BuildSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:23.647857-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:29.554473-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BuildSummary {
   public static final String SERIALIZED_NAME_ADDED_AT = "added_at";
   @SerializedName(SERIALIZED_NAME_ADDED_AT)
