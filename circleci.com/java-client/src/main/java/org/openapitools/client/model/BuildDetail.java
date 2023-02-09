@@ -56,7 +56,7 @@ import org.openapitools.client.JSON;
 /**
  * previous build
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:26.249361-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:32.315150-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BuildDetail {
   public static final String SERIALIZED_NAME_ALL_COMMIT_DETAILS = "all_commit_details";
   @SerializedName(SERIALIZED_NAME_ALL_COMMIT_DETAILS)
