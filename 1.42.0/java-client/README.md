@@ -1,8 +1,8 @@
 # openapi-java-client
 
-Twilio - Trusthub
+Twilio - Ip_messaging
 - API version: 1.42.0
-  - Build date: 2024-10-11T02:00:22.981264-04:00[America/New_York]
+  - Build date: 2024-10-11T02:00:46.374619-04:00[America/New_York]
   - Generator version: 7.9.0
 
 This is the public Twilio REST API.
@@ -92,7 +92,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://trusthub.twilio.com");
+    defaultClient.setBasePath("https://ip-messaging.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -100,15 +100,16 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String email = "email_example"; // String | The email address that will receive updates when the Customer-Profile resource changes status.
-    String friendlyName = "friendlyName_example"; // String | The string that you assigned to describe the resource.
-    String policySid = "policySid_example"; // String | The unique string of a policy that is associated to the Customer-Profile resource.
-    URI statusCallback = new URI(); // URI | The URL we call to inform your application of status changes.
+    String serviceSid = "serviceSid_example"; // String | 
+    String attributes = "attributes_example"; // String | 
+    String friendlyName = "friendlyName_example"; // String | 
+    ChannelEnumChannelType type = ChannelEnumChannelType.fromValue("public"); // ChannelEnumChannelType | 
+    String uniqueName = "uniqueName_example"; // String | 
     try {
-      TrusthubV1CustomerProfile result = apiInstance.createCustomerProfile(email, friendlyName, policySid, statusCallback);
+      IpMessagingV1ServiceChannel result = apiInstance.createChannel(serviceSid, attributes, friendlyName, type, uniqueName);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createCustomerProfile");
+      System.err.println("Exception when calling DefaultApi#createChannel");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -121,97 +122,78 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://trusthub.twilio.com*
+All URIs are relative to *https://ip-messaging.twilio.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**createCustomerProfile**](docs/DefaultApi.md#createCustomerProfile) | **POST** /v1/CustomerProfiles | 
-*DefaultApi* | [**createCustomerProfileChannelEndpointAssignment**](docs/DefaultApi.md#createCustomerProfileChannelEndpointAssignment) | **POST** /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments | 
-*DefaultApi* | [**createCustomerProfileEntityAssignment**](docs/DefaultApi.md#createCustomerProfileEntityAssignment) | **POST** /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments | 
-*DefaultApi* | [**createCustomerProfileEvaluation**](docs/DefaultApi.md#createCustomerProfileEvaluation) | **POST** /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations | 
-*DefaultApi* | [**createEndUser**](docs/DefaultApi.md#createEndUser) | **POST** /v1/EndUsers | 
-*DefaultApi* | [**createSupportingDocument**](docs/DefaultApi.md#createSupportingDocument) | **POST** /v1/SupportingDocuments | 
-*DefaultApi* | [**createTrustProduct**](docs/DefaultApi.md#createTrustProduct) | **POST** /v1/TrustProducts | 
-*DefaultApi* | [**createTrustProductChannelEndpointAssignment**](docs/DefaultApi.md#createTrustProductChannelEndpointAssignment) | **POST** /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments | 
-*DefaultApi* | [**createTrustProductEntityAssignment**](docs/DefaultApi.md#createTrustProductEntityAssignment) | **POST** /v1/TrustProducts/{TrustProductSid}/EntityAssignments | 
-*DefaultApi* | [**createTrustProductEvaluation**](docs/DefaultApi.md#createTrustProductEvaluation) | **POST** /v1/TrustProducts/{TrustProductSid}/Evaluations | 
-*DefaultApi* | [**deleteCustomerProfile**](docs/DefaultApi.md#deleteCustomerProfile) | **DELETE** /v1/CustomerProfiles/{Sid} | 
-*DefaultApi* | [**deleteCustomerProfileChannelEndpointAssignment**](docs/DefaultApi.md#deleteCustomerProfileChannelEndpointAssignment) | **DELETE** /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments/{Sid} | 
-*DefaultApi* | [**deleteCustomerProfileEntityAssignment**](docs/DefaultApi.md#deleteCustomerProfileEntityAssignment) | **DELETE** /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments/{Sid} | 
-*DefaultApi* | [**deleteEndUser**](docs/DefaultApi.md#deleteEndUser) | **DELETE** /v1/EndUsers/{Sid} | 
-*DefaultApi* | [**deleteSupportingDocument**](docs/DefaultApi.md#deleteSupportingDocument) | **DELETE** /v1/SupportingDocuments/{Sid} | 
-*DefaultApi* | [**deleteTrustProduct**](docs/DefaultApi.md#deleteTrustProduct) | **DELETE** /v1/TrustProducts/{Sid} | 
-*DefaultApi* | [**deleteTrustProductChannelEndpointAssignment**](docs/DefaultApi.md#deleteTrustProductChannelEndpointAssignment) | **DELETE** /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments/{Sid} | 
-*DefaultApi* | [**deleteTrustProductEntityAssignment**](docs/DefaultApi.md#deleteTrustProductEntityAssignment) | **DELETE** /v1/TrustProducts/{TrustProductSid}/EntityAssignments/{Sid} | 
-*DefaultApi* | [**fetchCustomerProfile**](docs/DefaultApi.md#fetchCustomerProfile) | **GET** /v1/CustomerProfiles/{Sid} | 
-*DefaultApi* | [**fetchCustomerProfileChannelEndpointAssignment**](docs/DefaultApi.md#fetchCustomerProfileChannelEndpointAssignment) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments/{Sid} | 
-*DefaultApi* | [**fetchCustomerProfileEntityAssignment**](docs/DefaultApi.md#fetchCustomerProfileEntityAssignment) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments/{Sid} | 
-*DefaultApi* | [**fetchCustomerProfileEvaluation**](docs/DefaultApi.md#fetchCustomerProfileEvaluation) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations/{Sid} | 
-*DefaultApi* | [**fetchEndUser**](docs/DefaultApi.md#fetchEndUser) | **GET** /v1/EndUsers/{Sid} | 
-*DefaultApi* | [**fetchEndUserType**](docs/DefaultApi.md#fetchEndUserType) | **GET** /v1/EndUserTypes/{Sid} | 
-*DefaultApi* | [**fetchPolicies**](docs/DefaultApi.md#fetchPolicies) | **GET** /v1/Policies/{Sid} | 
-*DefaultApi* | [**fetchSupportingDocument**](docs/DefaultApi.md#fetchSupportingDocument) | **GET** /v1/SupportingDocuments/{Sid} | 
-*DefaultApi* | [**fetchSupportingDocumentType**](docs/DefaultApi.md#fetchSupportingDocumentType) | **GET** /v1/SupportingDocumentTypes/{Sid} | 
-*DefaultApi* | [**fetchTrustProduct**](docs/DefaultApi.md#fetchTrustProduct) | **GET** /v1/TrustProducts/{Sid} | 
-*DefaultApi* | [**fetchTrustProductChannelEndpointAssignment**](docs/DefaultApi.md#fetchTrustProductChannelEndpointAssignment) | **GET** /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments/{Sid} | 
-*DefaultApi* | [**fetchTrustProductEntityAssignment**](docs/DefaultApi.md#fetchTrustProductEntityAssignment) | **GET** /v1/TrustProducts/{TrustProductSid}/EntityAssignments/{Sid} | 
-*DefaultApi* | [**fetchTrustProductEvaluation**](docs/DefaultApi.md#fetchTrustProductEvaluation) | **GET** /v1/TrustProducts/{TrustProductSid}/Evaluations/{Sid} | 
-*DefaultApi* | [**listCustomerProfile**](docs/DefaultApi.md#listCustomerProfile) | **GET** /v1/CustomerProfiles | 
-*DefaultApi* | [**listCustomerProfileChannelEndpointAssignment**](docs/DefaultApi.md#listCustomerProfileChannelEndpointAssignment) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments | 
-*DefaultApi* | [**listCustomerProfileEntityAssignment**](docs/DefaultApi.md#listCustomerProfileEntityAssignment) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments | 
-*DefaultApi* | [**listCustomerProfileEvaluation**](docs/DefaultApi.md#listCustomerProfileEvaluation) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations | 
-*DefaultApi* | [**listEndUser**](docs/DefaultApi.md#listEndUser) | **GET** /v1/EndUsers | 
-*DefaultApi* | [**listEndUserType**](docs/DefaultApi.md#listEndUserType) | **GET** /v1/EndUserTypes | 
-*DefaultApi* | [**listPolicies**](docs/DefaultApi.md#listPolicies) | **GET** /v1/Policies | 
-*DefaultApi* | [**listSupportingDocument**](docs/DefaultApi.md#listSupportingDocument) | **GET** /v1/SupportingDocuments | 
-*DefaultApi* | [**listSupportingDocumentType**](docs/DefaultApi.md#listSupportingDocumentType) | **GET** /v1/SupportingDocumentTypes | 
-*DefaultApi* | [**listTrustProduct**](docs/DefaultApi.md#listTrustProduct) | **GET** /v1/TrustProducts | 
-*DefaultApi* | [**listTrustProductChannelEndpointAssignment**](docs/DefaultApi.md#listTrustProductChannelEndpointAssignment) | **GET** /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments | 
-*DefaultApi* | [**listTrustProductEntityAssignment**](docs/DefaultApi.md#listTrustProductEntityAssignment) | **GET** /v1/TrustProducts/{TrustProductSid}/EntityAssignments | 
-*DefaultApi* | [**listTrustProductEvaluation**](docs/DefaultApi.md#listTrustProductEvaluation) | **GET** /v1/TrustProducts/{TrustProductSid}/Evaluations | 
-*DefaultApi* | [**updateCustomerProfile**](docs/DefaultApi.md#updateCustomerProfile) | **POST** /v1/CustomerProfiles/{Sid} | 
-*DefaultApi* | [**updateEndUser**](docs/DefaultApi.md#updateEndUser) | **POST** /v1/EndUsers/{Sid} | 
-*DefaultApi* | [**updateSupportingDocument**](docs/DefaultApi.md#updateSupportingDocument) | **POST** /v1/SupportingDocuments/{Sid} | 
-*DefaultApi* | [**updateTrustProduct**](docs/DefaultApi.md#updateTrustProduct) | **POST** /v1/TrustProducts/{Sid} | 
+*DefaultApi* | [**createChannel**](docs/DefaultApi.md#createChannel) | **POST** /v1/Services/{ServiceSid}/Channels | 
+*DefaultApi* | [**createCredential**](docs/DefaultApi.md#createCredential) | **POST** /v1/Credentials | 
+*DefaultApi* | [**createInvite**](docs/DefaultApi.md#createInvite) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites | 
+*DefaultApi* | [**createMember**](docs/DefaultApi.md#createMember) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members | 
+*DefaultApi* | [**createMessage**](docs/DefaultApi.md#createMessage) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages | 
+*DefaultApi* | [**createRole**](docs/DefaultApi.md#createRole) | **POST** /v1/Services/{ServiceSid}/Roles | 
+*DefaultApi* | [**createService**](docs/DefaultApi.md#createService) | **POST** /v1/Services | 
+*DefaultApi* | [**createUser**](docs/DefaultApi.md#createUser) | **POST** /v1/Services/{ServiceSid}/Users | 
+*DefaultApi* | [**deleteChannel**](docs/DefaultApi.md#deleteChannel) | **DELETE** /v1/Services/{ServiceSid}/Channels/{Sid} | 
+*DefaultApi* | [**deleteCredential**](docs/DefaultApi.md#deleteCredential) | **DELETE** /v1/Credentials/{Sid} | 
+*DefaultApi* | [**deleteInvite**](docs/DefaultApi.md#deleteInvite) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid} | 
+*DefaultApi* | [**deleteMember**](docs/DefaultApi.md#deleteMember) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} | 
+*DefaultApi* | [**deleteMessage**](docs/DefaultApi.md#deleteMessage) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} | 
+*DefaultApi* | [**deleteRole**](docs/DefaultApi.md#deleteRole) | **DELETE** /v1/Services/{ServiceSid}/Roles/{Sid} | 
+*DefaultApi* | [**deleteService**](docs/DefaultApi.md#deleteService) | **DELETE** /v1/Services/{Sid} | 
+*DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /v1/Services/{ServiceSid}/Users/{Sid} | 
+*DefaultApi* | [**fetchChannel**](docs/DefaultApi.md#fetchChannel) | **GET** /v1/Services/{ServiceSid}/Channels/{Sid} | 
+*DefaultApi* | [**fetchCredential**](docs/DefaultApi.md#fetchCredential) | **GET** /v1/Credentials/{Sid} | 
+*DefaultApi* | [**fetchInvite**](docs/DefaultApi.md#fetchInvite) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid} | 
+*DefaultApi* | [**fetchMember**](docs/DefaultApi.md#fetchMember) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} | 
+*DefaultApi* | [**fetchMessage**](docs/DefaultApi.md#fetchMessage) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} | 
+*DefaultApi* | [**fetchRole**](docs/DefaultApi.md#fetchRole) | **GET** /v1/Services/{ServiceSid}/Roles/{Sid} | 
+*DefaultApi* | [**fetchService**](docs/DefaultApi.md#fetchService) | **GET** /v1/Services/{Sid} | 
+*DefaultApi* | [**fetchUser**](docs/DefaultApi.md#fetchUser) | **GET** /v1/Services/{ServiceSid}/Users/{Sid} | 
+*DefaultApi* | [**listChannel**](docs/DefaultApi.md#listChannel) | **GET** /v1/Services/{ServiceSid}/Channels | 
+*DefaultApi* | [**listCredential**](docs/DefaultApi.md#listCredential) | **GET** /v1/Credentials | 
+*DefaultApi* | [**listInvite**](docs/DefaultApi.md#listInvite) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites | 
+*DefaultApi* | [**listMember**](docs/DefaultApi.md#listMember) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members | 
+*DefaultApi* | [**listMessage**](docs/DefaultApi.md#listMessage) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages | 
+*DefaultApi* | [**listRole**](docs/DefaultApi.md#listRole) | **GET** /v1/Services/{ServiceSid}/Roles | 
+*DefaultApi* | [**listService**](docs/DefaultApi.md#listService) | **GET** /v1/Services | 
+*DefaultApi* | [**listUser**](docs/DefaultApi.md#listUser) | **GET** /v1/Services/{ServiceSid}/Users | 
+*DefaultApi* | [**listUserChannel**](docs/DefaultApi.md#listUserChannel) | **GET** /v1/Services/{ServiceSid}/Users/{UserSid}/Channels | 
+*DefaultApi* | [**updateChannel**](docs/DefaultApi.md#updateChannel) | **POST** /v1/Services/{ServiceSid}/Channels/{Sid} | 
+*DefaultApi* | [**updateCredential**](docs/DefaultApi.md#updateCredential) | **POST** /v1/Credentials/{Sid} | 
+*DefaultApi* | [**updateMember**](docs/DefaultApi.md#updateMember) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} | 
+*DefaultApi* | [**updateMessage**](docs/DefaultApi.md#updateMessage) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} | 
+*DefaultApi* | [**updateRole**](docs/DefaultApi.md#updateRole) | **POST** /v1/Services/{ServiceSid}/Roles/{Sid} | 
+*DefaultApi* | [**updateService**](docs/DefaultApi.md#updateService) | **POST** /v1/Services/{Sid} | 
+*DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateUser) | **POST** /v1/Services/{ServiceSid}/Users/{Sid} | 
 
 
 ## Documentation for Models
 
- - [CustomerProfileEnumEndUserType](docs/CustomerProfileEnumEndUserType.md)
- - [CustomerProfileEnumStatus](docs/CustomerProfileEnumStatus.md)
- - [CustomerProfileEvaluationEnumStatus](docs/CustomerProfileEvaluationEnumStatus.md)
- - [ListCustomerProfileChannelEndpointAssignmentResponse](docs/ListCustomerProfileChannelEndpointAssignmentResponse.md)
- - [ListCustomerProfileEntityAssignmentResponse](docs/ListCustomerProfileEntityAssignmentResponse.md)
- - [ListCustomerProfileEvaluationResponse](docs/ListCustomerProfileEvaluationResponse.md)
- - [ListCustomerProfileResponse](docs/ListCustomerProfileResponse.md)
- - [ListCustomerProfileResponseMeta](docs/ListCustomerProfileResponseMeta.md)
- - [ListEndUserResponse](docs/ListEndUserResponse.md)
- - [ListEndUserTypeResponse](docs/ListEndUserTypeResponse.md)
- - [ListPoliciesResponse](docs/ListPoliciesResponse.md)
- - [ListSupportingDocumentResponse](docs/ListSupportingDocumentResponse.md)
- - [ListSupportingDocumentTypeResponse](docs/ListSupportingDocumentTypeResponse.md)
- - [ListTrustProductChannelEndpointAssignmentResponse](docs/ListTrustProductChannelEndpointAssignmentResponse.md)
- - [ListTrustProductEntityAssignmentResponse](docs/ListTrustProductEntityAssignmentResponse.md)
- - [ListTrustProductEvaluationResponse](docs/ListTrustProductEvaluationResponse.md)
- - [ListTrustProductResponse](docs/ListTrustProductResponse.md)
- - [PoliciesEnumEndUserType](docs/PoliciesEnumEndUserType.md)
- - [SupportingDocumentEnumStatus](docs/SupportingDocumentEnumStatus.md)
- - [TrustProductEnumEndUserType](docs/TrustProductEnumEndUserType.md)
- - [TrustProductEnumStatus](docs/TrustProductEnumStatus.md)
- - [TrustProductEvaluationEnumStatus](docs/TrustProductEvaluationEnumStatus.md)
- - [TrusthubV1CustomerProfile](docs/TrusthubV1CustomerProfile.md)
- - [TrusthubV1CustomerProfileCustomerProfileChannelEndpointAssignment](docs/TrusthubV1CustomerProfileCustomerProfileChannelEndpointAssignment.md)
- - [TrusthubV1CustomerProfileCustomerProfileEntityAssignment](docs/TrusthubV1CustomerProfileCustomerProfileEntityAssignment.md)
- - [TrusthubV1CustomerProfileCustomerProfileEvaluation](docs/TrusthubV1CustomerProfileCustomerProfileEvaluation.md)
- - [TrusthubV1EndUser](docs/TrusthubV1EndUser.md)
- - [TrusthubV1EndUserType](docs/TrusthubV1EndUserType.md)
- - [TrusthubV1Policies](docs/TrusthubV1Policies.md)
- - [TrusthubV1SupportingDocument](docs/TrusthubV1SupportingDocument.md)
- - [TrusthubV1SupportingDocumentType](docs/TrusthubV1SupportingDocumentType.md)
- - [TrusthubV1TrustProduct](docs/TrusthubV1TrustProduct.md)
- - [TrusthubV1TrustProductTrustProductChannelEndpointAssignment](docs/TrusthubV1TrustProductTrustProductChannelEndpointAssignment.md)
- - [TrusthubV1TrustProductTrustProductEntityAssignment](docs/TrusthubV1TrustProductTrustProductEntityAssignment.md)
- - [TrusthubV1TrustProductTrustProductEvaluation](docs/TrusthubV1TrustProductTrustProductEvaluation.md)
+ - [ChannelEnumChannelType](docs/ChannelEnumChannelType.md)
+ - [CredentialEnumPushService](docs/CredentialEnumPushService.md)
+ - [IpMessagingV1Credential](docs/IpMessagingV1Credential.md)
+ - [IpMessagingV1Service](docs/IpMessagingV1Service.md)
+ - [IpMessagingV1ServiceChannel](docs/IpMessagingV1ServiceChannel.md)
+ - [IpMessagingV1ServiceChannelInvite](docs/IpMessagingV1ServiceChannelInvite.md)
+ - [IpMessagingV1ServiceChannelMember](docs/IpMessagingV1ServiceChannelMember.md)
+ - [IpMessagingV1ServiceChannelMessage](docs/IpMessagingV1ServiceChannelMessage.md)
+ - [IpMessagingV1ServiceRole](docs/IpMessagingV1ServiceRole.md)
+ - [IpMessagingV1ServiceUser](docs/IpMessagingV1ServiceUser.md)
+ - [IpMessagingV1ServiceUserUserChannel](docs/IpMessagingV1ServiceUserUserChannel.md)
+ - [ListChannelResponse](docs/ListChannelResponse.md)
+ - [ListCredentialResponse](docs/ListCredentialResponse.md)
+ - [ListCredentialResponseMeta](docs/ListCredentialResponseMeta.md)
+ - [ListInviteResponse](docs/ListInviteResponse.md)
+ - [ListMemberResponse](docs/ListMemberResponse.md)
+ - [ListMessageResponse](docs/ListMessageResponse.md)
+ - [ListRoleResponse](docs/ListRoleResponse.md)
+ - [ListServiceResponse](docs/ListServiceResponse.md)
+ - [ListUserChannelResponse](docs/ListUserChannelResponse.md)
+ - [ListUserResponse](docs/ListUserResponse.md)
+ - [MessageEnumOrderType](docs/MessageEnumOrderType.md)
+ - [RoleEnumRoleType](docs/RoleEnumRoleType.md)
+ - [UserChannelEnumChannelStatus](docs/UserChannelEnumChannelStatus.md)
 
 
 <a id="documentation-for-authorization"></a>
