@@ -7,15 +7,33 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**userId** | [**String**](String.md) |  |  [optional] |
-|**userName** | [**String**](String.md) |  |  [optional] |
-|**status** | [**String**](String.md) |  |  [optional] |
-|**engine** | [**String**](String.md) |  |  [optional] |
-|**minimumEngineVersion** | [**String**](String.md) |  |  [optional] |
-|**accessString** | [**String**](String.md) |  |  [optional] |
-|**userGroupIds** | [**List**](List.md) |  |  [optional] |
-|**authentication** | [**UserAuthentication**](UserAuthentication.md) |  |  [optional] |
-|**ARN** | [**String**](String.md) |  |  [optional] |
+|**admin** | **Boolean** |  |  [optional] |
+|**allEmails** | **List&lt;String&gt;** |  |  [optional] |
+|**analyticsId** | **String** |  |  [optional] |
+|**avatarUrl** | **URI** |  |  [optional] |
+|**basicEmailPrefs** | **String** |  |  [optional] |
+|**bitbucket** | **Integer** |  |  [optional] |
+|**bitbucketAuthorized** | **Boolean** |  |  [optional] |
+|**containers** | **Integer** |  |  [optional] |
+|**createdAt** | **OffsetDateTime** |  |  [optional] |
+|**daysLeftInTrial** | **Integer** |  |  [optional] |
+|**devAdmin** | **Boolean** |  |  [optional] |
+|**enrolledBetas** | **List&lt;String&gt;** |  |  [optional] |
+|**githubId** | **Integer** |  |  [optional] |
+|**githubOauthScopes** | **List&lt;String&gt;** |  |  [optional] |
+|**gravatarId** | **Integer** |  |  [optional] |
+|**herokuApiKey** | **String** |  |  [optional] |
+|**inBetaProgram** | **Boolean** |  |  [optional] |
+|**login** | **String** |  |  [optional] |
+|**name** | **String** |  |  [optional] |
+|**organizationPrefs** | **Object** |  |  [optional] |
+|**parallelism** | **Integer** |  |  [optional] |
+|**plan** | **String** |  |  [optional] |
+|**projects** | **Object** |  |  [optional] |
+|**pusherId** | **String** |  |  [optional] |
+|**selectedEmail** | **String** |  |  [optional] |
+|**signInCount** | **Integer** |  |  [optional] |
+|**trialEnd** | **OffsetDateTime** |  |  [optional] |
 
 
 
