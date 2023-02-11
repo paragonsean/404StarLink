@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes a request to create or edit the &lt;code&gt;StopInstanceOnIdle&lt;/code&gt; add-on.&lt;/p&gt; &lt;important&gt; &lt;p&gt;This add-on only applies to Lightsail for Research resources.&lt;/p&gt; &lt;/important&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:29.318232-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:38.220643-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class StopInstanceOnIdleRequest {
   public static final String SERIALIZED_NAME_THRESHOLD = "threshold";
   @SerializedName(SERIALIZED_NAME_THRESHOLD)

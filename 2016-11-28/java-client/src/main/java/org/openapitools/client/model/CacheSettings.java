@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes the cache settings of an Amazon Lightsail content delivery network (CDN) distribution.&lt;/p&gt; &lt;p&gt;These settings apply only to your distribution&#39;s &lt;code&gt;cacheBehaviors&lt;/code&gt; (including the &lt;code&gt;defaultCacheBehavior&lt;/code&gt;) that have a &lt;code&gt;behavior&lt;/code&gt; of &lt;code&gt;cache&lt;/code&gt;.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:29.318232-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:38.220643-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CacheSettings {
   public static final String SERIALIZED_NAME_DEFAULT_T_T_L = "defaultTTL";
   @SerializedName(SERIALIZED_NAME_DEFAULT_T_T_L)

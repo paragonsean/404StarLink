@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Sets the start date and end date for retrieving a cost estimate. The start date is inclusive, but the end date is exclusive. For example, if &lt;code&gt;start&lt;/code&gt; is &lt;code&gt;2017-01-01&lt;/code&gt; and &lt;code&gt;end&lt;/code&gt; is &lt;code&gt;2017-05-01&lt;/code&gt;, then the cost and usage data is retrieved from &lt;code&gt;2017-01-01&lt;/code&gt; up to and including &lt;code&gt;2017-04-30&lt;/code&gt; but not including &lt;code&gt;2017-05-01&lt;/code&gt;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:29.318232-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:38.220643-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TimePeriod {
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)

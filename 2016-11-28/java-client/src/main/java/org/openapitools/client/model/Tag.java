@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes a tag key and optional value assigned to an Amazon Lightsail resource.&lt;/p&gt; &lt;p&gt;For more information about tags in Lightsail, see the &lt;a href&#x3D;\&quot;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags\&quot;&gt;Amazon Lightsail Developer Guide&lt;/a&gt;.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:29.318232-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:38.220643-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Tag {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)

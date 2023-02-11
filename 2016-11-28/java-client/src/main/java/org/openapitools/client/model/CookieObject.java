@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes whether an Amazon Lightsail content delivery network (CDN) distribution forwards cookies to the origin and, if so, which ones.&lt;/p&gt; &lt;p&gt;For the cookies that you specify, your distribution caches separate versions of the specified content based on the cookie values in viewer requests.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:29.318232-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:38.220643-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CookieObject {
   public static final String SERIALIZED_NAME_OPTION = "option";
   @SerializedName(SERIALIZED_NAME_OPTION)

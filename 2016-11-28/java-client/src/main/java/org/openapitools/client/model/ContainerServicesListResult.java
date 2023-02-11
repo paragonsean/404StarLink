@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * ContainerServicesListResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:29.318232-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:38.220643-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ContainerServicesListResult {
   public static final String SERIALIZED_NAME_CONTAINER_SERVICES = "containerServices";
   @SerializedName(SERIALIZED_NAME_CONTAINER_SERVICES)

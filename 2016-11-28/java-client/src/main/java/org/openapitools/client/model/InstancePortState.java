@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes open ports on an instance, the IP addresses allowed to connect to the instance through the ports, and the protocol.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:29.318232-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:38.220643-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class InstancePortState {
   public static final String SERIALIZED_NAME_FROM_PORT = "fromPort";
   @SerializedName(SERIALIZED_NAME_FROM_PORT)

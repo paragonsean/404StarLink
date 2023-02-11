@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes an Availability Zone. This is returned only as part of a &lt;code&gt;GetRegions&lt;/code&gt; request.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:29.318232-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:38.220643-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AvailabilityZone {
   public static final String SERIALIZED_NAME_ZONE_NAME = "zoneName";
   @SerializedName(SERIALIZED_NAME_ZONE_NAME)

@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes the request headers that a Lightsail distribution bases caching on.&lt;/p&gt; &lt;p&gt;For the headers that you specify, your distribution caches separate versions of the specified content based on the header values in viewer requests. For example, suppose viewer requests for &lt;code&gt;logo.jpg&lt;/code&gt; contain a custom &lt;code&gt;product&lt;/code&gt; header that has a value of either &lt;code&gt;acme&lt;/code&gt; or &lt;code&gt;apex&lt;/code&gt;, and you configure your distribution to cache your content based on values in the &lt;code&gt;product&lt;/code&gt; header. Your distribution forwards the &lt;code&gt;product&lt;/code&gt; header to the origin and caches the response from the origin once for each header value. &lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:29.318232-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:38.220643-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class HeaderObject {
   public static final String SERIALIZED_NAME_OPTION = "option";
   @SerializedName(SERIALIZED_NAME_OPTION)

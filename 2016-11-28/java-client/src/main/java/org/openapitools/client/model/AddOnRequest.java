@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes a request to enable, modify, or disable an add-on for an Amazon Lightsail resource.&lt;/p&gt; &lt;note&gt; &lt;p&gt;An additional cost may be associated with enabling add-ons. For more information, see the &lt;a href&#x3D;\&quot;https://aws.amazon.com/lightsail/pricing/\&quot;&gt;Lightsail pricing page&lt;/a&gt;.&lt;/p&gt; &lt;/note&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:29.318232-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:38.220643-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AddOnRequest {
   public static final String SERIALIZED_NAME_ADD_ON_TYPE = "addOnType";
   @SerializedName(SERIALIZED_NAME_ADD_ON_TYPE)
