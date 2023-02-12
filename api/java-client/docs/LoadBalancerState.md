@@ -2,14 +2,18 @@
 
 # LoadBalancerState
 
-Information about the state of the load balancer.
+## Enum
 
-## Properties
 
-| Name | Type | Description | Notes |
-|------------ | ------------- | ------------- | -------------|
-|**code** | [**String**](String.md) |  |  [optional] |
-|**reason** | [**String**](String.md) |  |  [optional] |
+* `ACTIVE` (value: `"active"`)
+
+* `PROVISIONING` (value: `"provisioning"`)
+
+* `ACTIVE_IMPAIRED` (value: `"active_impaired"`)
+
+* `FAILED` (value: `"failed"`)
+
+* `UNKNOWN` (value: `"unknown"`)
 
 
 

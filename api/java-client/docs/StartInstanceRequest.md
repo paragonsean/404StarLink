@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**instanceId** | [**String**](String.md) |  |  |
+|**instanceName** | [**String**](String.md) |  |  |
 
 
 

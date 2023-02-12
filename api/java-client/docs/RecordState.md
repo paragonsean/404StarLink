@@ -5,9 +5,11 @@
 ## Enum
 
 
-* `ACTIVE` (value: `"ACTIVE"`)
+* `STARTED` (value: `"Started"`)
 
-* `ARCHIVED` (value: `"ARCHIVED"`)
+* `SUCCEEDED` (value: `"Succeeded"`)
+
+* `FAILED` (value: `"Failed"`)
 
 
 

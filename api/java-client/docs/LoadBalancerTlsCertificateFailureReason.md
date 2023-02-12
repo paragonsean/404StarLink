@@ -1,0 +1,19 @@
+
+
+# LoadBalancerTlsCertificateFailureReason
+
+## Enum
+
+
+* `NO_AVAILABLE_CONTACTS` (value: `"NO_AVAILABLE_CONTACTS"`)
+
+* `ADDITIONAL_VERIFICATION_REQUIRED` (value: `"ADDITIONAL_VERIFICATION_REQUIRED"`)
+
+* `DOMAIN_NOT_ALLOWED` (value: `"DOMAIN_NOT_ALLOWED"`)
+
+* `INVALID_PUBLIC_DOMAIN` (value: `"INVALID_PUBLIC_DOMAIN"`)
+
+* `OTHER` (value: `"OTHER"`)
+
+
+

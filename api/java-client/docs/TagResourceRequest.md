@@ -7,8 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**resourceArn** | [**String**](String.md) |  |  |
-|**tags** | [**Map**](Map.md) |  |  |
+|**resourceName** | [**String**](String.md) |  |  |
+|**resourceArn** | [**String**](String.md) |  |  [optional] |
+|**tags** | [**List**](List.md) |  |  |
 
 
 

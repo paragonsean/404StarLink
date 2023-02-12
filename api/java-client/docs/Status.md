@@ -5,31 +5,25 @@
 ## Enum
 
 
-* `RETRIED` (value: `"retried"`)
+* `START_EXPIRED` (value: `"startExpired"`)
 
-* `CANCELED` (value: `"canceled"`)
+* `NOT_STARTED` (value: `"notStarted"`)
 
-* `INFRASTRUCTURE_FAIL` (value: `"infrastructure_fail"`)
+* `STARTED` (value: `"started"`)
 
-* `TIMEDOUT` (value: `"timedout"`)
+* `STARTING` (value: `"starting"`)
 
-* `NOT_RUN` (value: `"not_run"`)
+* `STOPPED` (value: `"stopped"`)
 
-* `RUNNING` (value: `"running"`)
+* `STOPPING` (value: `"stopping"`)
 
-* `FAILED` (value: `"failed"`)
+* `SETTING_UP_INSTANCE` (value: `"settingUpInstance"`)
 
-* `QUEUED` (value: `"queued"`)
+* `FAILED_INSTANCE_CREATION` (value: `"failedInstanceCreation"`)
 
-* `SCHEDULED` (value: `"scheduled"`)
+* `FAILED_STARTING_GUI_SESSION` (value: `"failedStartingGUISession"`)
 
-* `NOT_RUNNING` (value: `"not_running"`)
-
-* `NO_TESTS` (value: `"no_tests"`)
-
-* `FIXED` (value: `"fixed"`)
-
-* `SUCCESS` (value: `"success"`)
+* `FAILED_STOPPING_GUI_SESSION` (value: `"failedStoppingGUISession"`)
 
 
 

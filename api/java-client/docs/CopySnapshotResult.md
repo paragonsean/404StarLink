@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**snapshot** | [**Snapshot**](Snapshot.md) |  |  [optional] |
+|**operations** | [**List**](List.md) |  |  [optional] |
 
 
 
