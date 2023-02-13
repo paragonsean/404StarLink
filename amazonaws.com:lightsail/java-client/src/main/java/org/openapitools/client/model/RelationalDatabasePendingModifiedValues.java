@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * RelationalDatabasePendingModifiedValues
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class RelationalDatabasePendingModifiedValues {
   public static final String SERIALIZED_NAME_MASTER_USER_PASSWORD = "masterUserPassword";
   @SerializedName(SERIALIZED_NAME_MASTER_USER_PASSWORD)

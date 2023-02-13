@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes the state of the name server records update made by Amazon Lightsail to an Amazon Route 53 registered domain.&lt;/p&gt; &lt;p&gt;For more information, see &lt;a href&#x3D;\&quot;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/understanding-dns-in-amazon-lightsail\&quot;&gt;DNS in Amazon Lightsail&lt;/a&gt; in the &lt;i&gt;Amazon Lightsail Developer Guide&lt;/i&gt;.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class NameServersUpdateState {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)

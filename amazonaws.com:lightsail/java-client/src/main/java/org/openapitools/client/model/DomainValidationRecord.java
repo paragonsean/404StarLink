@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes the domain name system (DNS) records that you must add to the DNS of your registered domain to validate ownership for an Amazon Lightsail SSL/TLS certificate.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DomainValidationRecord {
   public static final String SERIALIZED_NAME_DOMAIN_NAME = "domainName";
   @SerializedName(SERIALIZED_NAME_DOMAIN_NAME)

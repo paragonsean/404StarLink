@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes the query string parameters that an Amazon Lightsail content delivery network (CDN) distribution to bases caching on.&lt;/p&gt; &lt;p&gt;For the query strings that you specify, your distribution caches separate versions of the specified content based on the query string values in viewer requests.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class QueryStringObject {
   public static final String SERIALIZED_NAME_OPTION = "option";
   @SerializedName(SERIALIZED_NAME_OPTION)

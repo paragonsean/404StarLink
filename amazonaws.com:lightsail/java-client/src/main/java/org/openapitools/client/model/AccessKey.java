@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes an access key for an Amazon Lightsail bucket.&lt;/p&gt; &lt;p&gt;Access keys grant full programmatic access to the specified bucket and its objects. You can have a maximum of two access keys per bucket. Use the &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html\&quot;&gt;CreateBucketAccessKey&lt;/a&gt; action to create an access key for a specific bucket. For more information about access keys, see &lt;a href&#x3D;\&quot;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys\&quot;&gt;Creating access keys for a bucket in Amazon Lightsail&lt;/a&gt; in the &lt;i&gt;Amazon Lightsail Developer Guide&lt;/i&gt;.&lt;/p&gt; &lt;important&gt; &lt;p&gt;The &lt;code&gt;secretAccessKey&lt;/code&gt; value is returned only in response to the &lt;code&gt;CreateBucketAccessKey&lt;/code&gt; action. You can get a secret access key only when you first create an access key; you cannot get the secret access key later. If you lose the secret access key, you must create a new access key.&lt;/p&gt; &lt;/important&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AccessKey {
   public static final String SERIALIZED_NAME_ACCESS_KEY_ID = "accessKeyId";
   @SerializedName(SERIALIZED_NAME_ACCESS_KEY_ID)

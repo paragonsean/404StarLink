@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes a database image, or blueprint. A blueprint describes the major engine version of a database.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class RelationalDatabaseBlueprint {
   public static final String SERIALIZED_NAME_BLUEPRINT_ID = "blueprintId";
   @SerializedName(SERIALIZED_NAME_BLUEPRINT_ID)

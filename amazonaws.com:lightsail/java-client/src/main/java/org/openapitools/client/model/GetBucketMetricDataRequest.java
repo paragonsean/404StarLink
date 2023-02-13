@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * GetBucketMetricDataRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GetBucketMetricDataRequest {
   public static final String SERIALIZED_NAME_BUCKET_NAME = "bucketName";
   @SerializedName(SERIALIZED_NAME_BUCKET_NAME)

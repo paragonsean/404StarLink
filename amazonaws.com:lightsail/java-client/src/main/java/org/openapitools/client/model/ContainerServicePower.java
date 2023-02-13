@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes the powers that can be specified for an Amazon Lightsail container service.&lt;/p&gt; &lt;p&gt;The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ContainerServicePower {
   public static final String SERIALIZED_NAME_POWER_ID = "powerId";
   @SerializedName(SERIALIZED_NAME_POWER_ID)

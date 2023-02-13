@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes the per-path cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.&lt;/p&gt; &lt;p&gt;A per-path cache behavior is used to override, or add an exception to, the default cache behavior of a distribution. For example, if the &lt;code&gt;cacheBehavior&lt;/code&gt; is set to &lt;code&gt;cache&lt;/code&gt;, then a per-path cache behavior can be used to specify a directory, file, or file type that your distribution will cache. Alternately, if the distribution&#39;s &lt;code&gt;cacheBehavior&lt;/code&gt; is &lt;code&gt;dont-cache&lt;/code&gt;, then a per-path cache behavior can be used to specify a directory, file, or file type that your distribution will not cache.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CacheBehaviorPerPath {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)

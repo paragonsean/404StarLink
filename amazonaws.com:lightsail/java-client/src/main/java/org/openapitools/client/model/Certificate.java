@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes the full details of an Amazon Lightsail SSL/TLS certificate.&lt;/p&gt; &lt;note&gt; &lt;p&gt;To get a summary of a certificate, use the &lt;code&gt;GetCertificates&lt;/code&gt; action and ommit &lt;code&gt;includeCertificateDetails&lt;/code&gt; from your request. The response will include only the certificate Amazon Resource Name (ARN), certificate name, domain name, and tags.&lt;/p&gt; &lt;/note&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Certificate {
   public static final String SERIALIZED_NAME_ARN = "arn";
   @SerializedName(SERIALIZED_NAME_ARN)

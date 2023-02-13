@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;Describes resource being monitored by an alarm.&lt;/p&gt; &lt;p&gt;An alarm is a way to monitor your Amazon Lightsail resource metrics. For more information, see &lt;a href&#x3D;\&quot;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms\&quot;&gt;Alarms in Amazon Lightsail&lt;/a&gt;.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class MonitoredResourceInfo {
   public static final String SERIALIZED_NAME_ARN = "arn";
   @SerializedName(SERIALIZED_NAME_ARN)

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Describes the estimated cost or usage that a budget tracks.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:36.256697-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:53.071508-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ResourceBudgetEstimate {
   public static final String SERIALIZED_NAME_RESOURCE_NAME = "resourceName";
   @SerializedName(SERIALIZED_NAME_RESOURCE_NAME)
