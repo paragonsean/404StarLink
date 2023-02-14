@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build Amazon Lightsail
+    name: Build Chomp Food Database API Documentation
     runs-on: ubuntu-latest
     strategy:
       matrix:
