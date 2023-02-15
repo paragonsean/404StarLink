@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Notebooks API
+Container Analysis API
 - API version: v1
-  - Build date: 2024-10-11T02:00:12.602654-04:00[America/New_York]
+  - Build date: 2024-10-11T02:00:59.945291-04:00[America/New_York]
   - Generator version: 7.9.0
 
-Notebooks API is used to manage notebook resources in Google Cloud.
+An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -92,7 +92,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://notebooks.googleapis.com");
+    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -103,7 +103,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. Format: `projects/{project_id}/locations/{location}`
+    String parent = "parent_example"; // String | Required. The name of the project in the form of `projects/[PROJECT_ID]`, under which the notes are to be created.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -115,13 +115,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String environmentId = "environmentId_example"; // String | Required. User-defined unique ID of this environment. The `environment_id` must be 1 to 63 characters long and contain only lowercase letters, numeric characters, and dashes. The first character must be a lowercase letter and the last character cannot be a dash.
-    Environment environment = new Environment(); // Environment | 
+    BatchCreateNotesRequest batchCreateNotesRequest = new BatchCreateNotesRequest(); // BatchCreateNotesRequest | 
     try {
-      Operation result = apiInstance.notebooksProjectsLocationsEnvironmentsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, environmentId, environment);
+      BatchCreateNotesResponse result = apiInstance.containeranalysisProjectsNotesBatchCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateNotesRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#notebooksProjectsLocationsEnvironmentsCreate");
+      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsNotesBatchCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -134,127 +133,178 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://notebooks.googleapis.com*
+All URIs are relative to *https://containeranalysis.googleapis.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ProjectsApi* | [**notebooksProjectsLocationsEnvironmentsCreate**](docs/ProjectsApi.md#notebooksProjectsLocationsEnvironmentsCreate) | **POST** /v1/{parent}/environments | 
-*ProjectsApi* | [**notebooksProjectsLocationsEnvironmentsList**](docs/ProjectsApi.md#notebooksProjectsLocationsEnvironmentsList) | **GET** /v1/{parent}/environments | 
-*ProjectsApi* | [**notebooksProjectsLocationsExecutionsCreate**](docs/ProjectsApi.md#notebooksProjectsLocationsExecutionsCreate) | **POST** /v1/{parent}/executions | 
-*ProjectsApi* | [**notebooksProjectsLocationsExecutionsList**](docs/ProjectsApi.md#notebooksProjectsLocationsExecutionsList) | **GET** /v1/{parent}/executions | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesCreate**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesCreate) | **POST** /v1/{parent}/instances | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesGetInstanceHealth**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesGetInstanceHealth) | **GET** /v1/{name}:getInstanceHealth | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesIsUpgradeable**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesIsUpgradeable) | **GET** /v1/{notebookInstance}:isUpgradeable | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesList**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesList) | **GET** /v1/{parent}/instances | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesRegister**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesRegister) | **POST** /v1/{parent}/instances:register | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesReport**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesReport) | **POST** /v1/{name}:report | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesRollback**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesRollback) | **POST** /v1/{name}:rollback | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesSetAccelerator**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesSetAccelerator) | **PATCH** /v1/{name}:setAccelerator | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesSetLabels**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesSetLabels) | **PATCH** /v1/{name}:setLabels | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesSetMachineType**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesSetMachineType) | **PATCH** /v1/{name}:setMachineType | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesUpdateConfig**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesUpdateConfig) | **PATCH** /v1/{name}:updateConfig | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesUpdateMetadataItems**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesUpdateMetadataItems) | **PATCH** /v1/{name}:updateMetadataItems | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesUpdateShieldedInstanceConfig**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesUpdateShieldedInstanceConfig) | **PATCH** /v1/{name}:updateShieldedInstanceConfig | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesUpgradeInternal**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesUpgradeInternal) | **POST** /v1/{name}:upgradeInternal | 
-*ProjectsApi* | [**notebooksProjectsLocationsList**](docs/ProjectsApi.md#notebooksProjectsLocationsList) | **GET** /v1/{name}/locations | 
-*ProjectsApi* | [**notebooksProjectsLocationsOperationsCancel**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsCancel) | **POST** /v1/{name}:cancel | 
-*ProjectsApi* | [**notebooksProjectsLocationsOperationsList**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsList) | **GET** /v1/{name}/operations | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesCreate**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesCreate) | **POST** /v1/{parent}/runtimes | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesDiagnose**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesDiagnose) | **POST** /v1/{name}:diagnose | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesGetIamPolicy**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesGetIamPolicy) | **GET** /v1/{resource}:getIamPolicy | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesList**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesList) | **GET** /v1/{parent}/runtimes | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesPatch**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesPatch) | **PATCH** /v1/{name} | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesRefreshRuntimeTokenInternal**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesRefreshRuntimeTokenInternal) | **POST** /v1/{name}:refreshRuntimeTokenInternal | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesReportEvent**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesReportEvent) | **POST** /v1/{name}:reportEvent | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesReset**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesReset) | **POST** /v1/{name}:reset | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesSetIamPolicy**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesSetIamPolicy) | **POST** /v1/{resource}:setIamPolicy | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesStart**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesStart) | **POST** /v1/{name}:start | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesStop**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesStop) | **POST** /v1/{name}:stop | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesSwitch**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesSwitch) | **POST** /v1/{name}:switch | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesTestIamPermissions**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesTestIamPermissions) | **POST** /v1/{resource}:testIamPermissions | 
-*ProjectsApi* | [**notebooksProjectsLocationsRuntimesUpgrade**](docs/ProjectsApi.md#notebooksProjectsLocationsRuntimesUpgrade) | **POST** /v1/{name}:upgrade | 
-*ProjectsApi* | [**notebooksProjectsLocationsSchedulesCreate**](docs/ProjectsApi.md#notebooksProjectsLocationsSchedulesCreate) | **POST** /v1/{parent}/schedules | 
-*ProjectsApi* | [**notebooksProjectsLocationsSchedulesDelete**](docs/ProjectsApi.md#notebooksProjectsLocationsSchedulesDelete) | **DELETE** /v1/{name} | 
-*ProjectsApi* | [**notebooksProjectsLocationsSchedulesGet**](docs/ProjectsApi.md#notebooksProjectsLocationsSchedulesGet) | **GET** /v1/{name} | 
-*ProjectsApi* | [**notebooksProjectsLocationsSchedulesList**](docs/ProjectsApi.md#notebooksProjectsLocationsSchedulesList) | **GET** /v1/{parent}/schedules | 
-*ProjectsApi* | [**notebooksProjectsLocationsSchedulesTrigger**](docs/ProjectsApi.md#notebooksProjectsLocationsSchedulesTrigger) | **POST** /v1/{name}:trigger | 
+*ProjectsApi* | [**containeranalysisProjectsNotesBatchCreate**](docs/ProjectsApi.md#containeranalysisProjectsNotesBatchCreate) | **POST** /v1/{parent}/notes:batchCreate | 
+*ProjectsApi* | [**containeranalysisProjectsNotesCreate**](docs/ProjectsApi.md#containeranalysisProjectsNotesCreate) | **POST** /v1/{parent}/notes | 
+*ProjectsApi* | [**containeranalysisProjectsNotesList**](docs/ProjectsApi.md#containeranalysisProjectsNotesList) | **GET** /v1/{parent}/notes | 
+*ProjectsApi* | [**containeranalysisProjectsNotesOccurrencesList**](docs/ProjectsApi.md#containeranalysisProjectsNotesOccurrencesList) | **GET** /v1/{name}/occurrences | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesBatchCreate**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesBatchCreate) | **POST** /v1/{parent}/occurrences:batchCreate | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesCreate**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesCreate) | **POST** /v1/{parent}/occurrences | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesDelete**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesDelete) | **DELETE** /v1/{name} | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesGet**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesGet) | **GET** /v1/{name} | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesGetIamPolicy**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesGetIamPolicy) | **POST** /v1/{resource}:getIamPolicy | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesGetNotes**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesGetNotes) | **GET** /v1/{name}/notes | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesGetVulnerabilitySummary**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesGetVulnerabilitySummary) | **GET** /v1/{parent}/occurrences:vulnerabilitySummary | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesList**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesList) | **GET** /v1/{parent}/occurrences | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesPatch**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesPatch) | **PATCH** /v1/{name} | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesSetIamPolicy**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesSetIamPolicy) | **POST** /v1/{resource}:setIamPolicy | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesTestIamPermissions**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesTestIamPermissions) | **POST** /v1/{resource}:testIamPermissions | 
+*ProjectsApi* | [**containeranalysisProjectsResourcesGeneratePackagesSummary**](docs/ProjectsApi.md#containeranalysisProjectsResourcesGeneratePackagesSummary) | **POST** /v1/{name}:generatePackagesSummary | 
 
 
 ## Documentation for Models
 
- - [AcceleratorConfig](docs/AcceleratorConfig.md)
+ - [AliasContext](docs/AliasContext.md)
+ - [AnalysisCompleted](docs/AnalysisCompleted.md)
+ - [Artifact](docs/Artifact.md)
+ - [Assessment](docs/Assessment.md)
+ - [AttestationNote](docs/AttestationNote.md)
+ - [AttestationOccurrence](docs/AttestationOccurrence.md)
+ - [BatchCreateNotesRequest](docs/BatchCreateNotesRequest.md)
+ - [BatchCreateNotesResponse](docs/BatchCreateNotesResponse.md)
+ - [BatchCreateOccurrencesRequest](docs/BatchCreateOccurrencesRequest.md)
+ - [BatchCreateOccurrencesResponse](docs/BatchCreateOccurrencesResponse.md)
  - [Binding](docs/Binding.md)
- - [ContainerImage](docs/ContainerImage.md)
- - [DataprocParameters](docs/DataprocParameters.md)
- - [DiagnoseInstanceRequest](docs/DiagnoseInstanceRequest.md)
- - [DiagnoseRuntimeRequest](docs/DiagnoseRuntimeRequest.md)
- - [DiagnosticConfig](docs/DiagnosticConfig.md)
- - [Disk](docs/Disk.md)
- - [EncryptionConfig](docs/EncryptionConfig.md)
- - [Environment](docs/Environment.md)
- - [Event](docs/Event.md)
- - [Execution](docs/Execution.md)
- - [ExecutionTemplate](docs/ExecutionTemplate.md)
+ - [BuildNote](docs/BuildNote.md)
+ - [BuildOccurrence](docs/BuildOccurrence.md)
+ - [BuildProvenance](docs/BuildProvenance.md)
+ - [BuildStep](docs/BuildStep.md)
+ - [BuilderConfig](docs/BuilderConfig.md)
+ - [CVSS](docs/CVSS.md)
+ - [CVSSv3](docs/CVSSv3.md)
+ - [Category](docs/Category.md)
+ - [CisBenchmark](docs/CisBenchmark.md)
+ - [CloudRepoSourceContext](docs/CloudRepoSourceContext.md)
+ - [Command](docs/Command.md)
+ - [Completeness](docs/Completeness.md)
+ - [ComplianceNote](docs/ComplianceNote.md)
+ - [ComplianceOccurrence](docs/ComplianceOccurrence.md)
+ - [ComplianceVersion](docs/ComplianceVersion.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ApprovalConfig](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ApprovalConfig.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ApprovalResult](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ApprovalResult.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Artifacts](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Artifacts.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsArtifactObjects](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsArtifactObjects.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsMavenArtifact](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsMavenArtifact.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsNpmPackage](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsNpmPackage.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsPythonPackage](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsPythonPackage.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Build](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Build.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildApproval](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildApproval.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildFailureInfo](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildFailureInfo.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildOptions](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildOptions.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildOptionsPoolOption](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildOptionsPoolOption.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildStep](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildStep.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildWarning](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildWarning.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuiltImage](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuiltImage.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1FileHashes](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1FileHashes.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1GitSource](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1GitSource.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Hash](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Hash.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1InlineSecret](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1InlineSecret.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1RepoSource](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1RepoSource.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Results](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Results.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Secret](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Secret.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1SecretManagerSecret](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1SecretManagerSecret.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Secrets](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Secrets.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Source](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Source.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1SourceProvenance](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1SourceProvenance.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1StorageSource](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1StorageSource.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1StorageSourceManifest](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1StorageSourceManifest.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1TimeSpan](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1TimeSpan.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedMavenArtifact](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedMavenArtifact.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedNpmPackage](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedNpmPackage.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedPythonPackage](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedPythonPackage.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Volume](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Volume.md)
+ - [DSSEAttestationNote](docs/DSSEAttestationNote.md)
+ - [DSSEAttestationOccurrence](docs/DSSEAttestationOccurrence.md)
+ - [DSSEHint](docs/DSSEHint.md)
+ - [DeploymentNote](docs/DeploymentNote.md)
+ - [DeploymentOccurrence](docs/DeploymentOccurrence.md)
+ - [Detail](docs/Detail.md)
+ - [Digest](docs/Digest.md)
+ - [DiscoveryNote](docs/DiscoveryNote.md)
+ - [DiscoveryOccurrence](docs/DiscoveryOccurrence.md)
+ - [Distribution](docs/Distribution.md)
+ - [Envelope](docs/Envelope.md)
+ - [EnvelopeSignature](docs/EnvelopeSignature.md)
  - [Expr](docs/Expr.md)
- - [GetInstanceHealthResponse](docs/GetInstanceHealthResponse.md)
- - [GuestOsFeature](docs/GuestOsFeature.md)
- - [Instance](docs/Instance.md)
- - [InstanceConfig](docs/InstanceConfig.md)
- - [IsInstanceUpgradeableResponse](docs/IsInstanceUpgradeableResponse.md)
- - [ListEnvironmentsResponse](docs/ListEnvironmentsResponse.md)
- - [ListExecutionsResponse](docs/ListExecutionsResponse.md)
- - [ListInstancesResponse](docs/ListInstancesResponse.md)
- - [ListLocationsResponse](docs/ListLocationsResponse.md)
- - [ListOperationsResponse](docs/ListOperationsResponse.md)
- - [ListRuntimesResponse](docs/ListRuntimesResponse.md)
- - [ListSchedulesResponse](docs/ListSchedulesResponse.md)
- - [LocalDisk](docs/LocalDisk.md)
- - [LocalDiskInitializeParams](docs/LocalDiskInitializeParams.md)
+ - [FileHashes](docs/FileHashes.md)
+ - [Fingerprint](docs/Fingerprint.md)
+ - [FixableTotalByDigest](docs/FixableTotalByDigest.md)
+ - [GerritSourceContext](docs/GerritSourceContext.md)
+ - [GetIamPolicyRequest](docs/GetIamPolicyRequest.md)
+ - [GetPolicyOptions](docs/GetPolicyOptions.md)
+ - [GitSourceContext](docs/GitSourceContext.md)
+ - [GoogleDevtoolsContaineranalysisV1alpha1OperationMetadata](docs/GoogleDevtoolsContaineranalysisV1alpha1OperationMetadata.md)
+ - [GrafeasV1FileLocation](docs/GrafeasV1FileLocation.md)
+ - [GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder](docs/GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder.md)
+ - [GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness](docs/GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness.md)
+ - [GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource](docs/GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource.md)
+ - [GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation](docs/GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation.md)
+ - [GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial](docs/GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial.md)
+ - [GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata](docs/GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata.md)
+ - [Hash](docs/Hash.md)
+ - [Hint](docs/Hint.md)
+ - [Identity](docs/Identity.md)
+ - [ImageNote](docs/ImageNote.md)
+ - [ImageOccurrence](docs/ImageOccurrence.md)
+ - [InTotoProvenance](docs/InTotoProvenance.md)
+ - [InTotoStatement](docs/InTotoStatement.md)
+ - [Justification](docs/Justification.md)
+ - [Jwt](docs/Jwt.md)
+ - [KnowledgeBase](docs/KnowledgeBase.md)
+ - [Layer](docs/Layer.md)
+ - [License](docs/License.md)
+ - [LicensesSummary](docs/LicensesSummary.md)
+ - [ListNoteOccurrencesResponse](docs/ListNoteOccurrencesResponse.md)
+ - [ListNotesResponse](docs/ListNotesResponse.md)
+ - [ListOccurrencesResponse](docs/ListOccurrencesResponse.md)
  - [Location](docs/Location.md)
- - [Operation](docs/Operation.md)
- - [OperationMetadata](docs/OperationMetadata.md)
+ - [Material](docs/Material.md)
+ - [Metadata](docs/Metadata.md)
+ - [NonCompliantFile](docs/NonCompliantFile.md)
+ - [Note](docs/Note.md)
+ - [Occurrence](docs/Occurrence.md)
+ - [PackageIssue](docs/PackageIssue.md)
+ - [PackageNote](docs/PackageNote.md)
+ - [PackageOccurrence](docs/PackageOccurrence.md)
+ - [PackagesSummaryResponse](docs/PackagesSummaryResponse.md)
  - [Policy](docs/Policy.md)
- - [RefreshRuntimeTokenInternalRequest](docs/RefreshRuntimeTokenInternalRequest.md)
- - [RefreshRuntimeTokenInternalResponse](docs/RefreshRuntimeTokenInternalResponse.md)
- - [RegisterInstanceRequest](docs/RegisterInstanceRequest.md)
- - [ReportInstanceEventRequest](docs/ReportInstanceEventRequest.md)
- - [ReportInstanceInfoRequest](docs/ReportInstanceInfoRequest.md)
- - [ReportRuntimeEventRequest](docs/ReportRuntimeEventRequest.md)
- - [ReservationAffinity](docs/ReservationAffinity.md)
- - [ResetRuntimeRequest](docs/ResetRuntimeRequest.md)
- - [RollbackInstanceRequest](docs/RollbackInstanceRequest.md)
- - [Runtime](docs/Runtime.md)
- - [RuntimeAcceleratorConfig](docs/RuntimeAcceleratorConfig.md)
- - [RuntimeAccessConfig](docs/RuntimeAccessConfig.md)
- - [RuntimeGuestOsFeature](docs/RuntimeGuestOsFeature.md)
- - [RuntimeMetrics](docs/RuntimeMetrics.md)
- - [RuntimeShieldedInstanceConfig](docs/RuntimeShieldedInstanceConfig.md)
- - [RuntimeSoftwareConfig](docs/RuntimeSoftwareConfig.md)
- - [Schedule](docs/Schedule.md)
- - [SchedulerAcceleratorConfig](docs/SchedulerAcceleratorConfig.md)
+ - [Product](docs/Product.md)
+ - [ProjectRepoId](docs/ProjectRepoId.md)
+ - [Publisher](docs/Publisher.md)
+ - [Recipe](docs/Recipe.md)
+ - [RelatedUrl](docs/RelatedUrl.md)
+ - [Remediation](docs/Remediation.md)
+ - [RepoId](docs/RepoId.md)
  - [SetIamPolicyRequest](docs/SetIamPolicyRequest.md)
- - [SetInstanceAcceleratorRequest](docs/SetInstanceAcceleratorRequest.md)
- - [SetInstanceLabelsRequest](docs/SetInstanceLabelsRequest.md)
- - [SetInstanceMachineTypeRequest](docs/SetInstanceMachineTypeRequest.md)
- - [ShieldedInstanceConfig](docs/ShieldedInstanceConfig.md)
- - [StartRuntimeRequest](docs/StartRuntimeRequest.md)
+ - [Signature](docs/Signature.md)
+ - [SlsaBuilder](docs/SlsaBuilder.md)
+ - [SlsaCompleteness](docs/SlsaCompleteness.md)
+ - [SlsaMetadata](docs/SlsaMetadata.md)
+ - [SlsaProvenance](docs/SlsaProvenance.md)
+ - [SlsaProvenanceZeroTwo](docs/SlsaProvenanceZeroTwo.md)
+ - [SlsaRecipe](docs/SlsaRecipe.md)
+ - [Source](docs/Source.md)
+ - [SourceContext](docs/SourceContext.md)
  - [Status](docs/Status.md)
- - [StopRuntimeRequest](docs/StopRuntimeRequest.md)
- - [SwitchRuntimeRequest](docs/SwitchRuntimeRequest.md)
+ - [Subject](docs/Subject.md)
  - [TestIamPermissionsRequest](docs/TestIamPermissionsRequest.md)
  - [TestIamPermissionsResponse](docs/TestIamPermissionsResponse.md)
- - [UpdateInstanceConfigRequest](docs/UpdateInstanceConfigRequest.md)
- - [UpdateInstanceMetadataItemsRequest](docs/UpdateInstanceMetadataItemsRequest.md)
- - [UpdateInstanceMetadataItemsResponse](docs/UpdateInstanceMetadataItemsResponse.md)
- - [UpdateShieldedInstanceConfigRequest](docs/UpdateShieldedInstanceConfigRequest.md)
- - [UpgradeHistoryEntry](docs/UpgradeHistoryEntry.md)
- - [UpgradeInstanceInternalRequest](docs/UpgradeInstanceInternalRequest.md)
- - [UpgradeInstanceRequest](docs/UpgradeInstanceRequest.md)
- - [UpgradeRuntimeRequest](docs/UpgradeRuntimeRequest.md)
- - [VertexAIParameters](docs/VertexAIParameters.md)
- - [VirtualMachine](docs/VirtualMachine.md)
- - [VirtualMachineConfig](docs/VirtualMachineConfig.md)
- - [VmImage](docs/VmImage.md)
+ - [TimeSpan](docs/TimeSpan.md)
+ - [UpgradeDistribution](docs/UpgradeDistribution.md)
+ - [UpgradeNote](docs/UpgradeNote.md)
+ - [UpgradeOccurrence](docs/UpgradeOccurrence.md)
+ - [Version](docs/Version.md)
+ - [VexAssessment](docs/VexAssessment.md)
+ - [Volume](docs/Volume.md)
+ - [VulnerabilityAssessmentNote](docs/VulnerabilityAssessmentNote.md)
+ - [VulnerabilityNote](docs/VulnerabilityNote.md)
+ - [VulnerabilityOccurrence](docs/VulnerabilityOccurrence.md)
+ - [VulnerabilityOccurrencesSummary](docs/VulnerabilityOccurrencesSummary.md)
+ - [WindowsDetail](docs/WindowsDetail.md)
+ - [WindowsUpdate](docs/WindowsUpdate.md)
 
 
 <a id="documentation-for-authorization"></a>

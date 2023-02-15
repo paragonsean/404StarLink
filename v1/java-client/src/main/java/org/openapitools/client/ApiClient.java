@@ -1,6 +1,6 @@
 /*
- * Notebooks API
- * Notebooks API is used to manage notebook resources in Google Cloud.
+ * Container Analysis API
+ * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -66,10 +66,10 @@ import org.openapitools.client.auth.OAuthFlow;
  */
 public class ApiClient {
 
-    private String basePath = "https://notebooks.googleapis.com";
+    private String basePath = "https://containeranalysis.googleapis.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://notebooks.googleapis.com",
+      "https://containeranalysis.googleapis.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -231,7 +231,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://notebooks.googleapis.com
+     * @param basePath Base path of the URL (e.g https://containeranalysis.googleapis.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

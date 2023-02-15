@@ -1,6 +1,6 @@
 /*
- * Notebooks API
- * Notebooks API is used to manage notebook resources in Google Cloud.
+ * Container Analysis API
+ * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
  *
  * The version of the OpenAPI document: v1
  * 
