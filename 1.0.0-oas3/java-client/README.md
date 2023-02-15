@@ -2,7 +2,7 @@
 
 Chomp Food Database API Documentation
 - API version: 1.0.0-oas3
-  - Build date: 2024-10-11T01:59:43.083627-04:00[America/New_York]
+  - Build date: 2024-10-11T02:09:02.249041-04:00[America/New_York]
   - Generator version: 7.9.0
 
 ## Important

@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * An object containing additional information on the countries where this item is found
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:43.083627-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:02.249041-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BrandedFoodObjectItemsInnerCountryDetails {
   public static final String SERIALIZED_NAME_ENGLISH_SPEAKING = "english_speaking";
   @SerializedName(SERIALIZED_NAME_ENGLISH_SPEAKING)

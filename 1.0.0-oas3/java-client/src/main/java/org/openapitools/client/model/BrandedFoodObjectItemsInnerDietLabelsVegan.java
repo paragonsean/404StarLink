@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * An object containing information on this item&#39;s compatibility with the Vegan diets
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:43.083627-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:02.249041-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BrandedFoodObjectItemsInnerDietLabelsVegan {
   public static final String SERIALIZED_NAME_COMPATIBILITY_LEVEL = "compatibility_level";
   @SerializedName(SERIALIZED_NAME_COMPATIBILITY_LEVEL)
