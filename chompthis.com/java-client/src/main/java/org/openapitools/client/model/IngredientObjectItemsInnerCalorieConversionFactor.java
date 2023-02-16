@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * An object containing the multiplication factors to be used when calculating energy from macronutrients for a specific food.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:45.542408-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:04.808550-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class IngredientObjectItemsInnerCalorieConversionFactor {
   public static final String SERIALIZED_NAME_CARBOHYDRATE_VALUE = "carbohydrate_value";
   @SerializedName(SERIALIZED_NAME_CARBOHYDRATE_VALUE)

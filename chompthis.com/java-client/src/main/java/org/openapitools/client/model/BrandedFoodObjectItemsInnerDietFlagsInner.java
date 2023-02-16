@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * An object containing information on an individual ingredient that was flagged as potentially not being compatible with a certain diet
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:45.542408-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:04.808550-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BrandedFoodObjectItemsInnerDietFlagsInner {
   public static final String SERIALIZED_NAME_COMPATIBILITY_DESCRIPTION = "compatibility_description";
   @SerializedName(SERIALIZED_NAME_COMPATIBILITY_DESCRIPTION)
