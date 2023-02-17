@@ -50,7 +50,7 @@ import com.google.gson.JsonParseException;
 
 import org.openapitools.client.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:48.119439-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:07.387230-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class District extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(District.class.getName());
 

@@ -2,7 +2,7 @@
 
 Open States API v3
 - API version: 2021.11.12
-  - Build date: 2024-10-11T01:59:48.119439-04:00[America/New_York]
+  - Build date: 2024-10-11T02:09:07.387230-04:00[America/New_York]
   - Generator version: 7.9.0
 
 
