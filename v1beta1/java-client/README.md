@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Replica Pool
+Container Analysis API
 - API version: v1beta1
-  - Build date: 2024-10-11T01:58:39.942530-04:00[America/New_York]
+  - Build date: 2024-10-11T02:01:08.153528-04:00[America/New_York]
   - Generator version: 7.9.0
 
-The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.
+An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -87,12 +87,12 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.PoolsApi;
+import org.openapitools.client.api.ProjectsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://www.googleapis.com/replicapool/v1beta1/projects");
+    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -102,22 +102,25 @@ public class Example {
     OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    PoolsApi apiInstance = new PoolsApi(defaultClient);
-    String projectName = "projectName_example"; // String | The project ID for this replica pool.
-    String zone = "zone_example"; // String | The zone for this replica pool.
-    String poolName = "poolName_example"; // String | The name of the replica pool for this request.
-    String alt = "json"; // String | Data format for the response.
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String parent = "parent_example"; // String | Required. The name of the project in the form of `projects/[PROJECT_ID]`, under which the notes are to be created.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
     String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
     String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
     String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
     Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
-    String userIp = "userIp_example"; // String | Deprecated. Please use quotaUser instead.
-    PoolsDeleteRequest poolsDeleteRequest = new PoolsDeleteRequest(); // PoolsDeleteRequest | 
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    BatchCreateNotesRequest batchCreateNotesRequest = new BatchCreateNotesRequest(); // BatchCreateNotesRequest | 
     try {
-      apiInstance.replicapoolPoolsDelete(projectName, zone, poolName, alt, fields, key, oauthToken, prettyPrint, quotaUser, userIp, poolsDeleteRequest);
+      BatchCreateNotesResponse result = apiInstance.containeranalysisProjectsNotesBatchCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateNotesRequest);
+      System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PoolsApi#replicapoolPoolsDelete");
+      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsNotesBatchCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -130,47 +133,173 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://www.googleapis.com/replicapool/v1beta1/projects*
+All URIs are relative to *https://containeranalysis.googleapis.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*PoolsApi* | [**replicapoolPoolsDelete**](docs/PoolsApi.md#replicapoolPoolsDelete) | **POST** /{projectName}/zones/{zone}/pools/{poolName} | 
-*PoolsApi* | [**replicapoolPoolsGet**](docs/PoolsApi.md#replicapoolPoolsGet) | **GET** /{projectName}/zones/{zone}/pools/{poolName} | 
-*PoolsApi* | [**replicapoolPoolsInsert**](docs/PoolsApi.md#replicapoolPoolsInsert) | **POST** /{projectName}/zones/{zone}/pools | 
-*PoolsApi* | [**replicapoolPoolsList**](docs/PoolsApi.md#replicapoolPoolsList) | **GET** /{projectName}/zones/{zone}/pools | 
-*PoolsApi* | [**replicapoolPoolsResize**](docs/PoolsApi.md#replicapoolPoolsResize) | **POST** /{projectName}/zones/{zone}/pools/{poolName}/resize | 
-*PoolsApi* | [**replicapoolPoolsUpdatetemplate**](docs/PoolsApi.md#replicapoolPoolsUpdatetemplate) | **POST** /{projectName}/zones/{zone}/pools/{poolName}/updateTemplate | 
-*ReplicasApi* | [**replicapoolReplicasDelete**](docs/ReplicasApi.md#replicapoolReplicasDelete) | **POST** /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName} | 
-*ReplicasApi* | [**replicapoolReplicasGet**](docs/ReplicasApi.md#replicapoolReplicasGet) | **GET** /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName} | 
-*ReplicasApi* | [**replicapoolReplicasList**](docs/ReplicasApi.md#replicapoolReplicasList) | **GET** /{projectName}/zones/{zone}/pools/{poolName}/replicas | 
-*ReplicasApi* | [**replicapoolReplicasRestart**](docs/ReplicasApi.md#replicapoolReplicasRestart) | **POST** /{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}/restart | 
+*ProjectsApi* | [**containeranalysisProjectsNotesBatchCreate**](docs/ProjectsApi.md#containeranalysisProjectsNotesBatchCreate) | **POST** /v1beta1/{parent}/notes:batchCreate | 
+*ProjectsApi* | [**containeranalysisProjectsNotesCreate**](docs/ProjectsApi.md#containeranalysisProjectsNotesCreate) | **POST** /v1beta1/{parent}/notes | 
+*ProjectsApi* | [**containeranalysisProjectsNotesList**](docs/ProjectsApi.md#containeranalysisProjectsNotesList) | **GET** /v1beta1/{parent}/notes | 
+*ProjectsApi* | [**containeranalysisProjectsNotesOccurrencesList**](docs/ProjectsApi.md#containeranalysisProjectsNotesOccurrencesList) | **GET** /v1beta1/{name}/occurrences | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesBatchCreate**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesBatchCreate) | **POST** /v1beta1/{parent}/occurrences:batchCreate | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesCreate**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesCreate) | **POST** /v1beta1/{parent}/occurrences | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesDelete**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesDelete) | **DELETE** /v1beta1/{name} | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesGet**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesGet) | **GET** /v1beta1/{name} | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesGetIamPolicy**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesGetIamPolicy) | **POST** /v1beta1/{resource}:getIamPolicy | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesGetNotes**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesGetNotes) | **GET** /v1beta1/{name}/notes | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesGetVulnerabilitySummary**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesGetVulnerabilitySummary) | **GET** /v1beta1/{parent}/occurrences:vulnerabilitySummary | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesList**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesList) | **GET** /v1beta1/{parent}/occurrences | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesPatch**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesPatch) | **PATCH** /v1beta1/{name} | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesSetIamPolicy**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesSetIamPolicy) | **POST** /v1beta1/{resource}:setIamPolicy | 
+*ProjectsApi* | [**containeranalysisProjectsOccurrencesTestIamPermissions**](docs/ProjectsApi.md#containeranalysisProjectsOccurrencesTestIamPermissions) | **POST** /v1beta1/{resource}:testIamPermissions | 
 
 
 ## Documentation for Models
 
- - [AccessConfig](docs/AccessConfig.md)
- - [Action](docs/Action.md)
- - [DiskAttachment](docs/DiskAttachment.md)
- - [EnvVariable](docs/EnvVariable.md)
- - [ExistingDisk](docs/ExistingDisk.md)
- - [HealthCheck](docs/HealthCheck.md)
- - [Label](docs/Label.md)
- - [Metadata](docs/Metadata.md)
- - [MetadataItem](docs/MetadataItem.md)
- - [NetworkInterface](docs/NetworkInterface.md)
- - [NewDisk](docs/NewDisk.md)
- - [NewDiskInitializeParams](docs/NewDiskInitializeParams.md)
- - [Pool](docs/Pool.md)
- - [PoolsDeleteRequest](docs/PoolsDeleteRequest.md)
- - [PoolsListResponse](docs/PoolsListResponse.md)
- - [Replica](docs/Replica.md)
- - [ReplicaStatus](docs/ReplicaStatus.md)
- - [ReplicasDeleteRequest](docs/ReplicasDeleteRequest.md)
- - [ReplicasListResponse](docs/ReplicasListResponse.md)
- - [ServiceAccount](docs/ServiceAccount.md)
- - [Tag](docs/Tag.md)
- - [Template](docs/Template.md)
- - [VmParams](docs/VmParams.md)
+ - [AliasContext](docs/AliasContext.md)
+ - [AnalysisCompleted](docs/AnalysisCompleted.md)
+ - [Artifact](docs/Artifact.md)
+ - [ArtifactHashes](docs/ArtifactHashes.md)
+ - [ArtifactRule](docs/ArtifactRule.md)
+ - [Assessment](docs/Assessment.md)
+ - [Attestation](docs/Attestation.md)
+ - [Authority](docs/Authority.md)
+ - [Basis](docs/Basis.md)
+ - [BatchCreateNotesRequest](docs/BatchCreateNotesRequest.md)
+ - [BatchCreateNotesResponse](docs/BatchCreateNotesResponse.md)
+ - [BatchCreateOccurrencesRequest](docs/BatchCreateOccurrencesRequest.md)
+ - [BatchCreateOccurrencesResponse](docs/BatchCreateOccurrencesResponse.md)
+ - [Binding](docs/Binding.md)
+ - [Build](docs/Build.md)
+ - [BuildProvenance](docs/BuildProvenance.md)
+ - [BuildSignature](docs/BuildSignature.md)
+ - [BuildStep](docs/BuildStep.md)
+ - [ByProducts](docs/ByProducts.md)
+ - [CVSS](docs/CVSS.md)
+ - [CVSSv3](docs/CVSSv3.md)
+ - [CloudRepoSourceContext](docs/CloudRepoSourceContext.md)
+ - [Command](docs/Command.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ApprovalConfig](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ApprovalConfig.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ApprovalResult](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ApprovalResult.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Artifacts](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Artifacts.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsArtifactObjects](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsArtifactObjects.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsMavenArtifact](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsMavenArtifact.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsNpmPackage](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsNpmPackage.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsPythonPackage](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1ArtifactsPythonPackage.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Build](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Build.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildApproval](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildApproval.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildFailureInfo](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildFailureInfo.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildOptions](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildOptions.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildOptionsPoolOption](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildOptionsPoolOption.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildStep](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildStep.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuildWarning](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuildWarning.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1BuiltImage](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1BuiltImage.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1FileHashes](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1FileHashes.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1GitSource](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1GitSource.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Hash](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Hash.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1InlineSecret](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1InlineSecret.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1RepoSource](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1RepoSource.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Results](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Results.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Secret](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Secret.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1SecretManagerSecret](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1SecretManagerSecret.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Secrets](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Secrets.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Source](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Source.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1SourceProvenance](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1SourceProvenance.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1StorageSource](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1StorageSource.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1StorageSourceManifest](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1StorageSourceManifest.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1TimeSpan](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1TimeSpan.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedMavenArtifact](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedMavenArtifact.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedNpmPackage](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedNpmPackage.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedPythonPackage](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedPythonPackage.md)
+ - [ContaineranalysisGoogleDevtoolsCloudbuildV1Volume](docs/ContaineranalysisGoogleDevtoolsCloudbuildV1Volume.md)
+ - [Deployable](docs/Deployable.md)
+ - [Deployment](docs/Deployment.md)
+ - [Derived](docs/Derived.md)
+ - [Detail](docs/Detail.md)
+ - [Details](docs/Details.md)
+ - [Digest](docs/Digest.md)
+ - [Discovered](docs/Discovered.md)
+ - [Discovery](docs/Discovery.md)
+ - [Distribution](docs/Distribution.md)
+ - [DocumentNote](docs/DocumentNote.md)
+ - [DocumentOccurrence](docs/DocumentOccurrence.md)
+ - [Envelope](docs/Envelope.md)
+ - [EnvelopeSignature](docs/EnvelopeSignature.md)
+ - [Environment](docs/Environment.md)
+ - [Expr](docs/Expr.md)
+ - [ExternalRef](docs/ExternalRef.md)
+ - [FileHashes](docs/FileHashes.md)
+ - [FileNote](docs/FileNote.md)
+ - [FileOccurrence](docs/FileOccurrence.md)
+ - [Fingerprint](docs/Fingerprint.md)
+ - [FixableTotalByDigest](docs/FixableTotalByDigest.md)
+ - [GenericSignedAttestation](docs/GenericSignedAttestation.md)
+ - [GerritSourceContext](docs/GerritSourceContext.md)
+ - [GetIamPolicyRequest](docs/GetIamPolicyRequest.md)
+ - [GetPolicyOptions](docs/GetPolicyOptions.md)
+ - [GitSourceContext](docs/GitSourceContext.md)
+ - [GoogleDevtoolsContaineranalysisV1alpha1OperationMetadata](docs/GoogleDevtoolsContaineranalysisV1alpha1OperationMetadata.md)
+ - [GrafeasV1beta1BuildDetails](docs/GrafeasV1beta1BuildDetails.md)
+ - [GrafeasV1beta1DeploymentDetails](docs/GrafeasV1beta1DeploymentDetails.md)
+ - [GrafeasV1beta1DiscoveryDetails](docs/GrafeasV1beta1DiscoveryDetails.md)
+ - [GrafeasV1beta1ImageDetails](docs/GrafeasV1beta1ImageDetails.md)
+ - [GrafeasV1beta1IntotoArtifact](docs/GrafeasV1beta1IntotoArtifact.md)
+ - [GrafeasV1beta1IntotoDetails](docs/GrafeasV1beta1IntotoDetails.md)
+ - [GrafeasV1beta1IntotoSignature](docs/GrafeasV1beta1IntotoSignature.md)
+ - [GrafeasV1beta1PackageDetails](docs/GrafeasV1beta1PackageDetails.md)
+ - [GrafeasV1beta1VulnerabilityDetails](docs/GrafeasV1beta1VulnerabilityDetails.md)
+ - [Hash](docs/Hash.md)
+ - [Hint](docs/Hint.md)
+ - [InToto](docs/InToto.md)
+ - [Installation](docs/Installation.md)
+ - [Justification](docs/Justification.md)
+ - [KnowledgeBase](docs/KnowledgeBase.md)
+ - [Layer](docs/Layer.md)
+ - [License](docs/License.md)
+ - [Link](docs/Link.md)
+ - [ListNoteOccurrencesResponse](docs/ListNoteOccurrencesResponse.md)
+ - [ListNotesResponse](docs/ListNotesResponse.md)
+ - [ListOccurrencesResponse](docs/ListOccurrencesResponse.md)
+ - [Location](docs/Location.md)
+ - [ModelPackage](docs/ModelPackage.md)
+ - [Note](docs/Note.md)
+ - [Occurrence](docs/Occurrence.md)
+ - [PackageInfoNote](docs/PackageInfoNote.md)
+ - [PackageInfoOccurrence](docs/PackageInfoOccurrence.md)
+ - [PackageIssue](docs/PackageIssue.md)
+ - [PgpSignedAttestation](docs/PgpSignedAttestation.md)
+ - [Policy](docs/Policy.md)
+ - [Product](docs/Product.md)
+ - [ProjectRepoId](docs/ProjectRepoId.md)
+ - [Publisher](docs/Publisher.md)
+ - [RelatedUrl](docs/RelatedUrl.md)
+ - [RelationshipNote](docs/RelationshipNote.md)
+ - [RelationshipOccurrence](docs/RelationshipOccurrence.md)
+ - [Remediation](docs/Remediation.md)
+ - [RepoId](docs/RepoId.md)
+ - [Resource](docs/Resource.md)
+ - [SBOMReferenceNote](docs/SBOMReferenceNote.md)
+ - [SBOMReferenceOccurrence](docs/SBOMReferenceOccurrence.md)
+ - [SbomReferenceIntotoPayload](docs/SbomReferenceIntotoPayload.md)
+ - [SbomReferenceIntotoPredicate](docs/SbomReferenceIntotoPredicate.md)
+ - [SetIamPolicyRequest](docs/SetIamPolicyRequest.md)
+ - [Signature](docs/Signature.md)
+ - [SigningKey](docs/SigningKey.md)
+ - [Source](docs/Source.md)
+ - [SourceContext](docs/SourceContext.md)
+ - [Status](docs/Status.md)
+ - [Subject](docs/Subject.md)
+ - [TestIamPermissionsRequest](docs/TestIamPermissionsRequest.md)
+ - [TestIamPermissionsResponse](docs/TestIamPermissionsResponse.md)
+ - [TimeSpan](docs/TimeSpan.md)
+ - [Version](docs/Version.md)
+ - [VexAssessment](docs/VexAssessment.md)
+ - [Volume](docs/Volume.md)
+ - [Vulnerability](docs/Vulnerability.md)
+ - [VulnerabilityAssessmentNote](docs/VulnerabilityAssessmentNote.md)
+ - [VulnerabilityLocation](docs/VulnerabilityLocation.md)
+ - [VulnerabilityOccurrencesSummary](docs/VulnerabilityOccurrencesSummary.md)
+ - [WindowsDetail](docs/WindowsDetail.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -185,12 +314,7 @@ Authentication schemes defined for the API:
 - **Flow**: implicit
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/cloud-platform: View and manage your data across Google Cloud Platform services
-  - https://www.googleapis.com/auth/cloud-platform.read-only: View your data across Google Cloud Platform services
-  - https://www.googleapis.com/auth/ndev.cloudman: View and manage your Google Cloud Platform management resources and deployment status information
-  - https://www.googleapis.com/auth/ndev.cloudman.readonly: View your Google Cloud Platform management resources and deployment status information
-  - https://www.googleapis.com/auth/replicapool: View and manage replica pools
-  - https://www.googleapis.com/auth/replicapool.readonly: View replica pools
+  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
 
 <a id="Oauth2c"></a>
 ### Oauth2c
@@ -199,12 +323,7 @@ Authentication schemes defined for the API:
 - **Flow**: accessCode
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/cloud-platform: View and manage your data across Google Cloud Platform services
-  - https://www.googleapis.com/auth/cloud-platform.read-only: View your data across Google Cloud Platform services
-  - https://www.googleapis.com/auth/ndev.cloudman: View and manage your Google Cloud Platform management resources and deployment status information
-  - https://www.googleapis.com/auth/ndev.cloudman.readonly: View your Google Cloud Platform management resources and deployment status information
-  - https://www.googleapis.com/auth/replicapool: View and manage replica pools
-  - https://www.googleapis.com/auth/replicapool.readonly: View replica pools
+  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
 
 
 ## Recommendation
