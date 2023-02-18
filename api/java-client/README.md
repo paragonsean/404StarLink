@@ -1,43 +1,22 @@
 # openapi-java-client
 
-Chomp Food Database API Documentation
-- API version: 1.0.0-oas3
-  - Build date: 2024-10-11T02:08:59.572060-04:00[America/New_York]
+Open States API v3
+- API version: 2021.11.12
+  - Build date: 2024-10-11T02:09:10.400115-04:00[America/New_York]
   - Generator version: 7.9.0
 
-## Important
-An **[API key](https://chompthis.com/api/)** is required for access to this API. Get yours at **[https://chompthis.com/api](https://chompthis.com/api/)**.
 
-### Getting Started
-  * **[Subscribe](https://chompthis.com/api/#pricing)** to the API.
-  * Scroll down and click the \"**Authorize**\" button.
-  * Enter your API key into the \"**value**\" input, click the \"**Authorize**\" button, then click the \"**Close**\" button.
-  * Scroll down to the section titled \"**default**\" and click on the API endpoint you wish to use.
-  * Click the \"**Try it out**\" button.
-  * Enter the information the endpoint requires.
-  * Click the \"**Execute**\" button.
+* [More documentation](https://docs.openstates.org/en/latest/api/v3/index.html)
+* [Register for an account](https://openstates.org/accounts/signup/)
 
-### Example 
-  * Branded food response object: **[View example &raquo;](https://raw.githubusercontent.com/chompfoods/examples/master/branded-food-response-object.json)**
-  * Ingredient response object: **[View example &raquo;](https://raw.githubusercontent.com/chompfoods/examples/master/ingredient-response-object.json)**
-  * Error response object: **[View example &raquo;](https://raw.githubusercontent.com/chompfoods/examples/master/error-response-object.json)**
 
-### How Do I Find My API Key?
-  * Your API key was sent to the email address you used to create your subscription.
-  * You will also find your API key in the **[Client Center](https://chompthis.com/api/manage.php)**.
-  * Read **[this article](https://desk.zoho.com/portal/chompthis/kb/articles/how-do-i-find-my-api-key)** for more information.
+**We are currently working to restore experimental support for committees & events.**
 
-### Helpful Links
-  * **Help & Support**
-    * [Knowledge Base &raquo;](https://desk.zoho.com/portal/chompthis/kb/chomp)
-    * [Support &raquo;](https://chompthis.com/api/ticket-new.php)
-    * [Client Center &raquo;](https://chompthis.com/api/manage.php)
-  * **Pricing**
-    * [Subscription Options &raquo;](https://chompthis.com/api/)
-    * [Cost Calculator &raquo;](https://chompthis.com/api/cost-calculator.php)
-  * **Guidelines**
-    * [Terms & License &raquo;](https://chompthis.com/api/terms.php)
-    * [Attribution &raquo;](https://chompthis.com/api/docs/attribution.php)
+During this period please note that data is not yet available for all states
+and the exact format of the new endpoints may change slightly depending on user feedback.
+
+If you have any issues or questions use our
+[GitHub Issues](https://github.com/openstates/issues/issues) to give feedback.
 
 
 
@@ -74,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>1.0.0-oas3</version>
+  <version>2021.11.12</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -90,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:1.0.0-oas3"
+     implementation "org.openapitools:openapi-java-client:2021.11.12"
   }
 ```
 
@@ -104,7 +83,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-1.0.0-oas3.jar`
+* `target/openapi-java-client-2021.11.12.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -117,28 +96,26 @@ Please follow the [installation](#installation) instruction and execute the foll
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.api.BillsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://chompthis.com/api/v2");
-    
-    // Configure API key authorization: ApiKeyAuth
-    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-    ApiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKeyAuth.setApiKeyPrefix("Token");
+    defaultClient.setBasePath("http://localhost");
 
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String code = "code_example"; // String | #### UPC/EAN barcode  **Example** > ```&code=0842234000988``` 
+    BillsApi apiInstance = new BillsApi(defaultClient);
+    String jurisdiction = "jurisdiction_example"; // String | 
+    String session = "session_example"; // String | 
+    String billId = "billId_example"; // String | 
+    List<BillInclude> include = Arrays.asList(); // List<BillInclude> | 
+    String apikey = "apikey_example"; // String | 
+    String xApiKey = "xApiKey_example"; // String | 
     try {
-      BrandedFoodObject result = apiInstance.foodBrandedBarcodePhpGet(code);
+      Bill result = apiInstance.billDetailBillsJurisdictionSessionBillIdGet(jurisdiction, session, billId, include, apikey, xApiKey);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#foodBrandedBarcodePhpGet");
+      System.err.println("Exception when calling BillsApi#billDetailBillsJurisdictionSessionBillIdGet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -151,52 +128,89 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://chompthis.com/api/v2*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**foodBrandedBarcodePhpGet**](docs/DefaultApi.md#foodBrandedBarcodePhpGet) | **GET** /food/branded/barcode.php | Get a branded food item using a barcode
-*DefaultApi* | [**foodBrandedNamePhpGet**](docs/DefaultApi.md#foodBrandedNamePhpGet) | **GET** /food/branded/name.php | Get a branded food item by name
-*DefaultApi* | [**foodBrandedSearchPhpGet**](docs/DefaultApi.md#foodBrandedSearchPhpGet) | **GET** /food/branded/search.php | Get data for branded food items using various search parameters
-*DefaultApi* | [**foodIngredientSearchPhpGet**](docs/DefaultApi.md#foodIngredientSearchPhpGet) | **GET** /food/ingredient/search.php | Get raw/generic food ingredient item(s)
+*BillsApi* | [**billDetailBillsJurisdictionSessionBillIdGet**](docs/BillsApi.md#billDetailBillsJurisdictionSessionBillIdGet) | **GET** /bills/{jurisdiction}/{session}/{bill_id} | Bill Detail
+*BillsApi* | [**billDetailByIdBillsOcdBillOpenstatesBillIdGet**](docs/BillsApi.md#billDetailByIdBillsOcdBillOpenstatesBillIdGet) | **GET** /bills/ocd-bill/{openstates_bill_id} | Bill Detail By Id
+*BillsApi* | [**billsSearchBillsGet**](docs/BillsApi.md#billsSearchBillsGet) | **GET** /bills | Bills Search
+*CommitteesApi* | [**committeeDetailCommitteesCommitteeIdGet**](docs/CommitteesApi.md#committeeDetailCommitteesCommitteeIdGet) | **GET** /committees/{committee_id} | Committee Detail
+*CommitteesApi* | [**committeeListCommitteesGet**](docs/CommitteesApi.md#committeeListCommitteesGet) | **GET** /committees | Committee List
+*DefaultApi* | [**metricsMetricsGet**](docs/DefaultApi.md#metricsMetricsGet) | **GET** /metrics | Metrics
+*EventsApi* | [**eventDetailEventsEventIdGet**](docs/EventsApi.md#eventDetailEventsEventIdGet) | **GET** /events/{event_id} | Event Detail
+*EventsApi* | [**eventListEventsGet**](docs/EventsApi.md#eventListEventsGet) | **GET** /events | Event List
+*JurisdictionsApi* | [**jurisdictionDetailJurisdictionsJurisdictionIdGet**](docs/JurisdictionsApi.md#jurisdictionDetailJurisdictionsJurisdictionIdGet) | **GET** /jurisdictions/{jurisdiction_id} | Jurisdiction Detail
+*JurisdictionsApi* | [**jurisdictionListJurisdictionsGet**](docs/JurisdictionsApi.md#jurisdictionListJurisdictionsGet) | **GET** /jurisdictions | Jurisdiction List
+*PeopleApi* | [**peopleGeoPeopleGeoGet**](docs/PeopleApi.md#peopleGeoPeopleGeoGet) | **GET** /people.geo | People Geo
+*PeopleApi* | [**peopleSearchPeopleGet**](docs/PeopleApi.md#peopleSearchPeopleGet) | **GET** /people | People Search
 
 
 ## Documentation for Models
 
- - [BrandedFoodObject](docs/BrandedFoodObject.md)
- - [BrandedFoodObjectItemsInner](docs/BrandedFoodObjectItemsInner.md)
- - [BrandedFoodObjectItemsInnerCountryDetails](docs/BrandedFoodObjectItemsInnerCountryDetails.md)
- - [BrandedFoodObjectItemsInnerDietFlagsInner](docs/BrandedFoodObjectItemsInnerDietFlagsInner.md)
- - [BrandedFoodObjectItemsInnerDietLabels](docs/BrandedFoodObjectItemsInnerDietLabels.md)
- - [BrandedFoodObjectItemsInnerDietLabelsGlutenFree](docs/BrandedFoodObjectItemsInnerDietLabelsGlutenFree.md)
- - [BrandedFoodObjectItemsInnerDietLabelsVegan](docs/BrandedFoodObjectItemsInnerDietLabelsVegan.md)
- - [BrandedFoodObjectItemsInnerDietLabelsVegetarian](docs/BrandedFoodObjectItemsInnerDietLabelsVegetarian.md)
- - [BrandedFoodObjectItemsInnerNutrientsInner](docs/BrandedFoodObjectItemsInnerNutrientsInner.md)
- - [BrandedFoodObjectItemsInnerPackage](docs/BrandedFoodObjectItemsInnerPackage.md)
- - [BrandedFoodObjectItemsInnerPackagingPhotos](docs/BrandedFoodObjectItemsInnerPackagingPhotos.md)
- - [BrandedFoodObjectItemsInnerPackagingPhotosFront](docs/BrandedFoodObjectItemsInnerPackagingPhotosFront.md)
- - [BrandedFoodObjectItemsInnerPackagingPhotosIngredients](docs/BrandedFoodObjectItemsInnerPackagingPhotosIngredients.md)
- - [BrandedFoodObjectItemsInnerPackagingPhotosNutrition](docs/BrandedFoodObjectItemsInnerPackagingPhotosNutrition.md)
- - [BrandedFoodObjectItemsInnerServing](docs/BrandedFoodObjectItemsInnerServing.md)
- - [IngredientObject](docs/IngredientObject.md)
- - [IngredientObjectItemsInner](docs/IngredientObjectItemsInner.md)
- - [IngredientObjectItemsInnerCalorieConversionFactor](docs/IngredientObjectItemsInnerCalorieConversionFactor.md)
- - [IngredientObjectItemsInnerComponentsInner](docs/IngredientObjectItemsInnerComponentsInner.md)
- - [IngredientObjectItemsInnerNutrientsInner](docs/IngredientObjectItemsInnerNutrientsInner.md)
- - [IngredientObjectItemsInnerPortionsInner](docs/IngredientObjectItemsInnerPortionsInner.md)
+ - [AltIdentifier](docs/AltIdentifier.md)
+ - [AltName](docs/AltName.md)
+ - [Bill](docs/Bill.md)
+ - [BillAbstract](docs/BillAbstract.md)
+ - [BillAction](docs/BillAction.md)
+ - [BillDocumentLink](docs/BillDocumentLink.md)
+ - [BillDocumentOrVersion](docs/BillDocumentOrVersion.md)
+ - [BillIdentifier](docs/BillIdentifier.md)
+ - [BillInclude](docs/BillInclude.md)
+ - [BillList](docs/BillList.md)
+ - [BillSortOption](docs/BillSortOption.md)
+ - [BillSponsorship](docs/BillSponsorship.md)
+ - [BillTitle](docs/BillTitle.md)
+ - [Chamber](docs/Chamber.md)
+ - [Committee](docs/Committee.md)
+ - [CommitteeClassification](docs/CommitteeClassification.md)
+ - [CommitteeInclude](docs/CommitteeInclude.md)
+ - [CommitteeList](docs/CommitteeList.md)
+ - [CommitteeMembership](docs/CommitteeMembership.md)
+ - [CompactBill](docs/CompactBill.md)
+ - [CompactJurisdiction](docs/CompactJurisdiction.md)
+ - [CompactPerson](docs/CompactPerson.md)
+ - [CompactVoteEvent](docs/CompactVoteEvent.md)
+ - [CurrentRole](docs/CurrentRole.md)
+ - [DataExport](docs/DataExport.md)
+ - [District](docs/District.md)
+ - [Event](docs/Event.md)
+ - [EventAgendaItem](docs/EventAgendaItem.md)
+ - [EventDocument](docs/EventDocument.md)
+ - [EventInclude](docs/EventInclude.md)
+ - [EventList](docs/EventList.md)
+ - [EventLocation](docs/EventLocation.md)
+ - [EventMedia](docs/EventMedia.md)
+ - [EventParticipant](docs/EventParticipant.md)
+ - [EventRelatedEntity](docs/EventRelatedEntity.md)
+ - [HTTPValidationError](docs/HTTPValidationError.md)
+ - [Jurisdiction](docs/Jurisdiction.md)
+ - [JurisdictionClassification](docs/JurisdictionClassification.md)
+ - [JurisdictionInclude](docs/JurisdictionInclude.md)
+ - [JurisdictionList](docs/JurisdictionList.md)
+ - [LegislativeSession](docs/LegislativeSession.md)
+ - [Link](docs/Link.md)
+ - [LocationInner](docs/LocationInner.md)
+ - [Office](docs/Office.md)
+ - [OrgClassification](docs/OrgClassification.md)
+ - [Organization](docs/Organization.md)
+ - [PaginationMeta](docs/PaginationMeta.md)
+ - [Person](docs/Person.md)
+ - [PersonInclude](docs/PersonInclude.md)
+ - [PersonList](docs/PersonList.md)
+ - [PersonVote](docs/PersonVote.md)
+ - [Post](docs/Post.md)
+ - [RelatedBill](docs/RelatedBill.md)
+ - [RunPlan](docs/RunPlan.md)
+ - [ValidationError](docs/ValidationError.md)
+ - [VoteCount](docs/VoteCount.md)
+ - [VoteEvent](docs/VoteEvent.md)
 
 
 <a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-
-Authentication schemes defined for the API:
-<a id="ApiKeyAuth"></a>
-### ApiKeyAuth
-
-- **Type**: API key
-- **API key parameter name**: api_key
-- **Location**: URL query string
+Endpoints do not require authorization.
 
 
 ## Recommendation

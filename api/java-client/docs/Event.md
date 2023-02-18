@@ -2,16 +2,29 @@
 
 # Event
 
-Represents a single occurrence of something interesting within the system. Some examples of events are creating a cluster, adding or removing a cache node, or rebooting a node.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**sourceIdentifier** | [**String**](String.md) |  |  [optional] |
-|**sourceType** | [**SourceType**](SourceType.md) |  |  [optional] |
-|**message** | [**String**](String.md) |  |  [optional] |
-|**date** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional] |
+|**agenda** | [**List&lt;EventAgendaItem&gt;**](EventAgendaItem.md) |  |  [optional] |
+|**allDay** | **Boolean** |  |  |
+|**classification** | **String** |  |  |
+|**deleted** | **Boolean** |  |  |
+|**description** | **String** |  |  |
+|**documents** | [**List&lt;EventDocument&gt;**](EventDocument.md) |  |  [optional] |
+|**endDate** | **String** |  |  |
+|**id** | **String** |  |  |
+|**jurisdiction** | [**CompactJurisdiction**](CompactJurisdiction.md) |  |  |
+|**links** | [**List&lt;Link&gt;**](Link.md) |  |  [optional] |
+|**location** | [**EventLocation**](EventLocation.md) |  |  [optional] |
+|**media** | [**List&lt;EventMedia&gt;**](EventMedia.md) |  |  [optional] |
+|**name** | **String** |  |  |
+|**participants** | [**List&lt;EventParticipant&gt;**](EventParticipant.md) |  |  [optional] |
+|**sources** | [**List&lt;Link&gt;**](Link.md) |  |  [optional] |
+|**startDate** | **String** |  |  |
+|**status** | **String** |  |  |
+|**upstreamId** | **String** |  |  |
 
 
 

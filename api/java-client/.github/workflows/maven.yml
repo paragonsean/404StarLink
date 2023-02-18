@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build Chomp Food Database API Documentation
+    name: Build Open States API v3
     runs-on: ubuntu-latest
     strategy:
       matrix:
