@@ -1,34 +1,31 @@
 # ProjectsApi
 
-All URIs are relative to *https://containeranalysis.googleapis.com*
+All URIs are relative to *https://monitoring.googleapis.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**containeranalysisProjectsNotesBatchCreate**](ProjectsApi.md#containeranalysisProjectsNotesBatchCreate) | **POST** /v1/{parent}/notes:batchCreate |  |
-| [**containeranalysisProjectsNotesCreate**](ProjectsApi.md#containeranalysisProjectsNotesCreate) | **POST** /v1/{parent}/notes |  |
-| [**containeranalysisProjectsNotesList**](ProjectsApi.md#containeranalysisProjectsNotesList) | **GET** /v1/{parent}/notes |  |
-| [**containeranalysisProjectsNotesOccurrencesList**](ProjectsApi.md#containeranalysisProjectsNotesOccurrencesList) | **GET** /v1/{name}/occurrences |  |
-| [**containeranalysisProjectsOccurrencesBatchCreate**](ProjectsApi.md#containeranalysisProjectsOccurrencesBatchCreate) | **POST** /v1/{parent}/occurrences:batchCreate |  |
-| [**containeranalysisProjectsOccurrencesCreate**](ProjectsApi.md#containeranalysisProjectsOccurrencesCreate) | **POST** /v1/{parent}/occurrences |  |
-| [**containeranalysisProjectsOccurrencesDelete**](ProjectsApi.md#containeranalysisProjectsOccurrencesDelete) | **DELETE** /v1/{name} |  |
-| [**containeranalysisProjectsOccurrencesGet**](ProjectsApi.md#containeranalysisProjectsOccurrencesGet) | **GET** /v1/{name} |  |
-| [**containeranalysisProjectsOccurrencesGetIamPolicy**](ProjectsApi.md#containeranalysisProjectsOccurrencesGetIamPolicy) | **POST** /v1/{resource}:getIamPolicy |  |
-| [**containeranalysisProjectsOccurrencesGetNotes**](ProjectsApi.md#containeranalysisProjectsOccurrencesGetNotes) | **GET** /v1/{name}/notes |  |
-| [**containeranalysisProjectsOccurrencesGetVulnerabilitySummary**](ProjectsApi.md#containeranalysisProjectsOccurrencesGetVulnerabilitySummary) | **GET** /v1/{parent}/occurrences:vulnerabilitySummary |  |
-| [**containeranalysisProjectsOccurrencesList**](ProjectsApi.md#containeranalysisProjectsOccurrencesList) | **GET** /v1/{parent}/occurrences |  |
-| [**containeranalysisProjectsOccurrencesPatch**](ProjectsApi.md#containeranalysisProjectsOccurrencesPatch) | **PATCH** /v1/{name} |  |
-| [**containeranalysisProjectsOccurrencesSetIamPolicy**](ProjectsApi.md#containeranalysisProjectsOccurrencesSetIamPolicy) | **POST** /v1/{resource}:setIamPolicy |  |
-| [**containeranalysisProjectsOccurrencesTestIamPermissions**](ProjectsApi.md#containeranalysisProjectsOccurrencesTestIamPermissions) | **POST** /v1/{resource}:testIamPermissions |  |
-| [**containeranalysisProjectsResourcesGeneratePackagesSummary**](ProjectsApi.md#containeranalysisProjectsResourcesGeneratePackagesSummary) | **POST** /v1/{name}:generatePackagesSummary |  |
+| [**monitoringProjectsDashboardsCreate**](ProjectsApi.md#monitoringProjectsDashboardsCreate) | **POST** /v1/{parent}/dashboards |  |
+| [**monitoringProjectsDashboardsDelete**](ProjectsApi.md#monitoringProjectsDashboardsDelete) | **DELETE** /v1/{name} |  |
+| [**monitoringProjectsDashboardsGet**](ProjectsApi.md#monitoringProjectsDashboardsGet) | **GET** /v1/{name} |  |
+| [**monitoringProjectsDashboardsList**](ProjectsApi.md#monitoringProjectsDashboardsList) | **GET** /v1/{parent}/dashboards |  |
+| [**monitoringProjectsDashboardsPatch**](ProjectsApi.md#monitoringProjectsDashboardsPatch) | **PATCH** /v1/{name} |  |
+| [**monitoringProjectsLocationPrometheusApiV1LabelValues**](ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1LabelValues) | **GET** /v1/{name}/location/{location}/prometheus/api/v1/label/{label}/values |  |
+| [**monitoringProjectsLocationPrometheusApiV1Labels**](ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1Labels) | **POST** /v1/{name}/location/{location}/prometheus/api/v1/labels |  |
+| [**monitoringProjectsLocationPrometheusApiV1LabelsList**](ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1LabelsList) | **GET** /v1/{name}/location/{location}/prometheus/api/v1/labels |  |
+| [**monitoringProjectsLocationPrometheusApiV1MetadataList**](ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1MetadataList) | **GET** /v1/{name}/location/{location}/prometheus/api/v1/metadata |  |
+| [**monitoringProjectsLocationPrometheusApiV1Query**](ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1Query) | **POST** /v1/{name}/location/{location}/prometheus/api/v1/query |  |
+| [**monitoringProjectsLocationPrometheusApiV1QueryExemplars**](ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1QueryExemplars) | **POST** /v1/{name}/location/{location}/prometheus/api/v1/query_exemplars |  |
+| [**monitoringProjectsLocationPrometheusApiV1QueryRange**](ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1QueryRange) | **POST** /v1/{name}/location/{location}/prometheus/api/v1/query_range |  |
+| [**monitoringProjectsLocationPrometheusApiV1Series**](ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1Series) | **POST** /v1/{name}/location/{location}/prometheus/api/v1/series |  |
 
 
-<a id="containeranalysisProjectsNotesBatchCreate"></a>
-# **containeranalysisProjectsNotesBatchCreate**
-> BatchCreateNotesResponse containeranalysisProjectsNotesBatchCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateNotesRequest)
+<a id="monitoringProjectsDashboardsCreate"></a>
+# **monitoringProjectsDashboardsCreate**
+> Dashboard monitoringProjectsDashboardsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard)
 
 
 
-Creates new notes in batch.
+Creates a new custom dashboard. For examples on how you can use this API to create dashboards, see Managing dashboards by API (https://cloud.google.com/monitoring/dashboards/api-dashboard). This method requires the monitoring.dashboards.create permission on the specified project. For more information about permissions, see Cloud Identity and Access Management (https://cloud.google.com/iam).
 
 ### Example
 ```java
@@ -43,7 +40,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -54,7 +51,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project in the form of `projects/[PROJECT_ID]`, under which the notes are to be created.
+    String parent = "parent_example"; // String | Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] The [PROJECT_ID_OR_NUMBER] must match the dashboard resource name.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -66,12 +63,13 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    BatchCreateNotesRequest batchCreateNotesRequest = new BatchCreateNotesRequest(); // BatchCreateNotesRequest | 
+    Boolean validateOnly = true; // Boolean | If set, validate the request and preview the review, but do not actually save it.
+    Dashboard dashboard = new Dashboard(); // Dashboard | 
     try {
-      BatchCreateNotesResponse result = apiInstance.containeranalysisProjectsNotesBatchCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateNotesRequest);
+      Dashboard result = apiInstance.monitoringProjectsDashboardsCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsNotesBatchCreate");
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsDashboardsCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -85,7 +83,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the notes are to be created. | |
+| **parent** | **String**| Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] The [PROJECT_ID_OR_NUMBER] must match the dashboard resource name. | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -97,11 +95,12 @@ public class Example {
 | **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
 | **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
 | **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **batchCreateNotesRequest** | [**BatchCreateNotesRequest**](BatchCreateNotesRequest.md)|  | [optional] |
+| **validateOnly** | **Boolean**| If set, validate the request and preview the review, but do not actually save it. | [optional] |
+| **dashboard** | [**Dashboard**](Dashboard.md)|  | [optional] |
 
 ### Return type
 
-[**BatchCreateNotesResponse**](BatchCreateNotesResponse.md)
+[**Dashboard**](Dashboard.md)
 
 ### Authorization
 
@@ -117,110 +116,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="containeranalysisProjectsNotesCreate"></a>
-# **containeranalysisProjectsNotesCreate**
-> Note containeranalysisProjectsNotesCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, noteId, note)
+<a id="monitoringProjectsDashboardsDelete"></a>
+# **monitoringProjectsDashboardsDelete**
+> Object monitoringProjectsDashboardsDelete(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
 
 
 
-Creates a new note.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project in the form of `projects/[PROJECT_ID]`, under which the note is to be created.
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String noteId = "noteId_example"; // String | Required. The ID to use for this note.
-    Note note = new Note(); // Note | 
-    try {
-      Note result = apiInstance.containeranalysisProjectsNotesCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, noteId, note);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsNotesCreate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the note is to be created. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **noteId** | **String**| Required. The ID to use for this note. | [optional] |
-| **note** | [**Note**](Note.md)|  | [optional] |
-
-### Return type
-
-[**Note**](Note.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="containeranalysisProjectsNotesList"></a>
-# **containeranalysisProjectsNotesList**
-> ListNotesResponse containeranalysisProjectsNotesList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken)
-
-
-
-Lists notes for the specified project.
+Deletes an existing custom dashboard.This method requires the monitoring.dashboards.delete permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
 
 ### Example
 ```java
@@ -235,7 +137,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -246,7 +148,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project to list notes for in the form of `projects/[PROJECT_ID]`.
+    String name = "name_example"; // String | Required. The resource name of the Dashboard. The format is: projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID] 
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -258,14 +160,11 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String filter = "filter_example"; // String | The filter expression.
-    Integer pageSize = 56; // Integer | Number of notes to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20.
-    String pageToken = "pageToken_example"; // String | Token to provide to skip to a particular spot in the list.
     try {
-      ListNotesResponse result = apiInstance.containeranalysisProjectsNotesList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
+      Object result = apiInstance.monitoringProjectsDashboardsDelete(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsNotesList");
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsDashboardsDelete");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -279,392 +178,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project to list notes for in the form of &#x60;projects/[PROJECT_ID]&#x60;. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **filter** | **String**| The filter expression. | [optional] |
-| **pageSize** | **Integer**| Number of notes to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20. | [optional] |
-| **pageToken** | **String**| Token to provide to skip to a particular spot in the list. | [optional] |
-
-### Return type
-
-[**ListNotesResponse**](ListNotesResponse.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="containeranalysisProjectsNotesOccurrencesList"></a>
-# **containeranalysisProjectsNotesOccurrencesList**
-> ListNoteOccurrencesResponse containeranalysisProjectsNotesOccurrencesList(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken)
-
-
-
-Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | Required. The name of the note to list occurrences for in the form of `projects/[PROVIDER_ID]/notes/[NOTE_ID]`.
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String filter = "filter_example"; // String | The filter expression.
-    Integer pageSize = 56; // Integer | Number of occurrences to return in the list.
-    String pageToken = "pageToken_example"; // String | Token to provide to skip to a particular spot in the list.
-    try {
-      ListNoteOccurrencesResponse result = apiInstance.containeranalysisProjectsNotesOccurrencesList(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsNotesOccurrencesList");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **name** | **String**| Required. The name of the note to list occurrences for in the form of &#x60;projects/[PROVIDER_ID]/notes/[NOTE_ID]&#x60;. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **filter** | **String**| The filter expression. | [optional] |
-| **pageSize** | **Integer**| Number of occurrences to return in the list. | [optional] |
-| **pageToken** | **String**| Token to provide to skip to a particular spot in the list. | [optional] |
-
-### Return type
-
-[**ListNoteOccurrencesResponse**](ListNoteOccurrencesResponse.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="containeranalysisProjectsOccurrencesBatchCreate"></a>
-# **containeranalysisProjectsOccurrencesBatchCreate**
-> BatchCreateOccurrencesResponse containeranalysisProjectsOccurrencesBatchCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateOccurrencesRequest)
-
-
-
-Creates new occurrences in batch.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project in the form of `projects/[PROJECT_ID]`, under which the occurrences are to be created.
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    BatchCreateOccurrencesRequest batchCreateOccurrencesRequest = new BatchCreateOccurrencesRequest(); // BatchCreateOccurrencesRequest | 
-    try {
-      BatchCreateOccurrencesResponse result = apiInstance.containeranalysisProjectsOccurrencesBatchCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateOccurrencesRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsOccurrencesBatchCreate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the occurrences are to be created. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **batchCreateOccurrencesRequest** | [**BatchCreateOccurrencesRequest**](BatchCreateOccurrencesRequest.md)|  | [optional] |
-
-### Return type
-
-[**BatchCreateOccurrencesResponse**](BatchCreateOccurrencesResponse.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="containeranalysisProjectsOccurrencesCreate"></a>
-# **containeranalysisProjectsOccurrencesCreate**
-> Occurrence containeranalysisProjectsOccurrencesCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, occurrence)
-
-
-
-Creates a new occurrence.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project in the form of `projects/[PROJECT_ID]`, under which the occurrence is to be created.
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    Occurrence occurrence = new Occurrence(); // Occurrence | 
-    try {
-      Occurrence result = apiInstance.containeranalysisProjectsOccurrencesCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, occurrence);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsOccurrencesCreate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the occurrence is to be created. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **occurrence** | [**Occurrence**](Occurrence.md)|  | [optional] |
-
-### Return type
-
-[**Occurrence**](Occurrence.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="containeranalysisProjectsOccurrencesDelete"></a>
-# **containeranalysisProjectsOccurrencesDelete**
-> Object containeranalysisProjectsOccurrencesDelete(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
-
-
-
-Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | Required. The name of the occurrence in the form of `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`.
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    try {
-      Object result = apiInstance.containeranalysisProjectsOccurrencesDelete(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsOccurrencesDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **name** | **String**| Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. | |
+| **name** | **String**| Required. The resource name of the Dashboard. The format is: projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID]  | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -695,13 +209,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="containeranalysisProjectsOccurrencesGet"></a>
-# **containeranalysisProjectsOccurrencesGet**
-> Occurrence containeranalysisProjectsOccurrencesGet(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
+<a id="monitoringProjectsDashboardsGet"></a>
+# **monitoringProjectsDashboardsGet**
+> Dashboard monitoringProjectsDashboardsGet(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
 
 
 
-Gets the specified occurrence.
+Fetches a specific dashboard.This method requires the monitoring.dashboards.get permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
 
 ### Example
 ```java
@@ -716,7 +230,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -727,7 +241,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | Required. The name of the occurrence in the form of `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`.
+    String name = "name_example"; // String | Required. The resource name of the Dashboard. The format is one of: dashboards/[DASHBOARD_ID] (for system dashboards) projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID] (for custom dashboards).
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -740,10 +254,10 @@ public class Example {
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
     try {
-      Occurrence result = apiInstance.containeranalysisProjectsOccurrencesGet(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+      Dashboard result = apiInstance.monitoringProjectsDashboardsGet(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsOccurrencesGet");
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsDashboardsGet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -757,7 +271,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | **String**| Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. | |
+| **name** | **String**| Required. The resource name of the Dashboard. The format is one of: dashboards/[DASHBOARD_ID] (for system dashboards) projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID] (for custom dashboards). | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -772,7 +286,7 @@ public class Example {
 
 ### Return type
 
-[**Occurrence**](Occurrence.md)
+[**Dashboard**](Dashboard.md)
 
 ### Authorization
 
@@ -788,108 +302,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="containeranalysisProjectsOccurrencesGetIamPolicy"></a>
-# **containeranalysisProjectsOccurrencesGetIamPolicy**
-> Policy containeranalysisProjectsOccurrencesGetIamPolicy(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, getIamPolicyRequest)
+<a id="monitoringProjectsDashboardsList"></a>
+# **monitoringProjectsDashboardsList**
+> ListDashboardsResponse monitoringProjectsDashboardsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken)
 
 
 
-Gets the access control policy for a note or an occurrence resource. Requires &#x60;containeranalysis.notes.setIamPolicy&#x60; or &#x60;containeranalysis.occurrences.setIamPolicy&#x60; permission if the resource is a note or occurrence, respectively. The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
-    
-    // Configure OAuth2 access token for authorization: Oauth2c
-    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
-    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
-
-    // Configure OAuth2 access token for authorization: Oauth2
-    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
-    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String resource = "resource_example"; // String | REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
-    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
-    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    GetIamPolicyRequest getIamPolicyRequest = new GetIamPolicyRequest(); // GetIamPolicyRequest | 
-    try {
-      Policy result = apiInstance.containeranalysisProjectsOccurrencesGetIamPolicy(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, getIamPolicyRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsOccurrencesGetIamPolicy");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **resource** | **String**| REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. | |
-| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
-| **accessToken** | **String**| OAuth access token. | [optional] |
-| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
-| **paramCallback** | **String**| JSONP | [optional] |
-| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
-| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
-| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
-| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
-| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
-| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **getIamPolicyRequest** | [**GetIamPolicyRequest**](GetIamPolicyRequest.md)|  | [optional] |
-
-### Return type
-
-[**Policy**](Policy.md)
-
-### Authorization
-
-[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful response |  -  |
-
-<a id="containeranalysisProjectsOccurrencesGetNotes"></a>
-# **containeranalysisProjectsOccurrencesGetNotes**
-> Note containeranalysisProjectsOccurrencesGetNotes(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType)
-
-
-
-Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project.
+Lists the existing dashboards.This method requires the monitoring.dashboards.list permission on the specified project. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
 
 ### Example
 ```java
@@ -904,7 +323,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -915,7 +334,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | Required. The name of the occurrence in the form of `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`.
+    String parent = "parent_example"; // String | Required. The scope of the dashboards to list. The format is: projects/[PROJECT_ID_OR_NUMBER] 
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -927,11 +346,13 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    Integer pageSize = 56; // Integer | A positive number that is the maximum number of results to return. If unspecified, a default of 1000 is used.
+    String pageToken = "pageToken_example"; // String | If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional results from the previous method call.
     try {
-      Note result = apiInstance.containeranalysisProjectsOccurrencesGetNotes(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+      ListDashboardsResponse result = apiInstance.monitoringProjectsDashboardsList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsOccurrencesGetNotes");
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsDashboardsList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -945,7 +366,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | **String**| Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. | |
+| **parent** | **String**| Required. The scope of the dashboards to list. The format is: projects/[PROJECT_ID_OR_NUMBER]  | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -957,10 +378,12 @@ public class Example {
 | **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
 | **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
 | **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **pageSize** | **Integer**| A positive number that is the maximum number of results to return. If unspecified, a default of 1000 is used. | [optional] |
+| **pageToken** | **String**| If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional results from the previous method call. | [optional] |
 
 ### Return type
 
-[**Note**](Note.md)
+[**ListDashboardsResponse**](ListDashboardsResponse.md)
 
 ### Authorization
 
@@ -976,13 +399,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="containeranalysisProjectsOccurrencesGetVulnerabilitySummary"></a>
-# **containeranalysisProjectsOccurrencesGetVulnerabilitySummary**
-> VulnerabilityOccurrencesSummary containeranalysisProjectsOccurrencesGetVulnerabilitySummary(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter)
+<a id="monitoringProjectsDashboardsPatch"></a>
+# **monitoringProjectsDashboardsPatch**
+> Dashboard monitoringProjectsDashboardsPatch(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard)
 
 
 
-Gets a summary of the number and severity of occurrences.
+Replaces an existing custom dashboard with a new definition.This method requires the monitoring.dashboards.update permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
 
 ### Example
 ```java
@@ -997,7 +420,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -1008,7 +431,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project to get a vulnerability summary for in the form of `projects/[PROJECT_ID]`.
+    String name = "name_example"; // String | Immutable. The resource name of the dashboard.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -1020,12 +443,13 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String filter = "filter_example"; // String | The filter expression.
+    Boolean validateOnly = true; // Boolean | If set, validate the request and preview the review, but do not actually save it.
+    Dashboard dashboard = new Dashboard(); // Dashboard | 
     try {
-      VulnerabilityOccurrencesSummary result = apiInstance.containeranalysisProjectsOccurrencesGetVulnerabilitySummary(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter);
+      Dashboard result = apiInstance.monitoringProjectsDashboardsPatch(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsOccurrencesGetVulnerabilitySummary");
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsDashboardsPatch");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1039,7 +463,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project to get a vulnerability summary for in the form of &#x60;projects/[PROJECT_ID]&#x60;. | |
+| **name** | **String**| Immutable. The resource name of the dashboard. | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -1051,11 +475,115 @@ public class Example {
 | **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
 | **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
 | **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **filter** | **String**| The filter expression. | [optional] |
+| **validateOnly** | **Boolean**| If set, validate the request and preview the review, but do not actually save it. | [optional] |
+| **dashboard** | [**Dashboard**](Dashboard.md)|  | [optional] |
 
 ### Return type
 
-[**VulnerabilityOccurrencesSummary**](VulnerabilityOccurrencesSummary.md)
+[**Dashboard**](Dashboard.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="monitoringProjectsLocationPrometheusApiV1LabelValues"></a>
+# **monitoringProjectsLocationPrometheusApiV1LabelValues**
+> HttpBody monitoringProjectsLocationPrometheusApiV1LabelValues(name, location, label, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start)
+
+
+
+Lists possible values for a given label name.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String name = "name_example"; // String | The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER.
+    String location = "location_example"; // String | Location of the resource information. Has to be \"global\" now.
+    String label = "label_example"; // String | The label name for which values are queried.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String end = "end_example"; // String | The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp.
+    String match = "match_example"; // String | A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them.
+    String start = "start_example"; // String | The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp.
+    try {
+      HttpBody result = apiInstance.monitoringProjectsLocationPrometheusApiV1LabelValues(name, location, label, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsLocationPrometheusApiV1LabelValues");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. | |
+| **location** | **String**| Location of the resource information. Has to be \&quot;global\&quot; now. | |
+| **label** | **String**| The label name for which values are queried. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **end** | **String**| The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. | [optional] |
+| **match** | **String**| A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. | [optional] |
+| **start** | **String**| The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. | [optional] |
+
+### Return type
+
+[**HttpBody**](HttpBody.md)
 
 ### Authorization
 
@@ -1071,13 +599,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="containeranalysisProjectsOccurrencesList"></a>
-# **containeranalysisProjectsOccurrencesList**
-> ListOccurrencesResponse containeranalysisProjectsOccurrencesList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken)
+<a id="monitoringProjectsLocationPrometheusApiV1Labels"></a>
+# **monitoringProjectsLocationPrometheusApiV1Labels**
+> HttpBody monitoringProjectsLocationPrometheusApiV1Labels(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, listLabelsRequest)
 
 
 
-Lists occurrences for the specified project.
+Lists labels for metrics.
 
 ### Example
 ```java
@@ -1092,7 +620,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -1103,7 +631,8 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String parent = "parent_example"; // String | Required. The name of the project to list occurrences for in the form of `projects/[PROJECT_ID]`.
+    String name = "name_example"; // String | The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER.
+    String location = "location_example"; // String | Location of the resource information. Has to be \"global\" now.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -1115,14 +644,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String filter = "filter_example"; // String | The filter expression.
-    Integer pageSize = 56; // Integer | Number of occurrences to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20.
-    String pageToken = "pageToken_example"; // String | Token to provide to skip to a particular spot in the list.
+    ListLabelsRequest listLabelsRequest = new ListLabelsRequest(); // ListLabelsRequest | 
     try {
-      ListOccurrencesResponse result = apiInstance.containeranalysisProjectsOccurrencesList(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
+      HttpBody result = apiInstance.monitoringProjectsLocationPrometheusApiV1Labels(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, listLabelsRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsOccurrencesList");
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsLocationPrometheusApiV1Labels");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1136,7 +663,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parent** | **String**| Required. The name of the project to list occurrences for in the form of &#x60;projects/[PROJECT_ID]&#x60;. | |
+| **name** | **String**| The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. | |
+| **location** | **String**| Location of the resource information. Has to be \&quot;global\&quot; now. | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -1148,13 +676,112 @@ public class Example {
 | **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
 | **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
 | **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **filter** | **String**| The filter expression. | [optional] |
-| **pageSize** | **Integer**| Number of occurrences to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20. | [optional] |
-| **pageToken** | **String**| Token to provide to skip to a particular spot in the list. | [optional] |
+| **listLabelsRequest** | [**ListLabelsRequest**](ListLabelsRequest.md)|  | [optional] |
 
 ### Return type
 
-[**ListOccurrencesResponse**](ListOccurrencesResponse.md)
+[**HttpBody**](HttpBody.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="monitoringProjectsLocationPrometheusApiV1LabelsList"></a>
+# **monitoringProjectsLocationPrometheusApiV1LabelsList**
+> HttpBody monitoringProjectsLocationPrometheusApiV1LabelsList(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start)
+
+
+
+Lists labels for metrics.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String name = "name_example"; // String | The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER.
+    String location = "location_example"; // String | Location of the resource information. Has to be \"global\" now.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    String end = "end_example"; // String | The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp.
+    String match = "match_example"; // String | A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them.
+    String start = "start_example"; // String | The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp.
+    try {
+      HttpBody result = apiInstance.monitoringProjectsLocationPrometheusApiV1LabelsList(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsLocationPrometheusApiV1LabelsList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. | |
+| **location** | **String**| Location of the resource information. Has to be \&quot;global\&quot; now. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **end** | **String**| The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. | [optional] |
+| **match** | **String**| A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. | [optional] |
+| **start** | **String**| The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. | [optional] |
+
+### Return type
+
+[**HttpBody**](HttpBody.md)
 
 ### Authorization
 
@@ -1170,13 +797,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="containeranalysisProjectsOccurrencesPatch"></a>
-# **containeranalysisProjectsOccurrencesPatch**
-> Occurrence containeranalysisProjectsOccurrencesPatch(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, occurrence)
+<a id="monitoringProjectsLocationPrometheusApiV1MetadataList"></a>
+# **monitoringProjectsLocationPrometheusApiV1MetadataList**
+> HttpBody monitoringProjectsLocationPrometheusApiV1MetadataList(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, limit, metric)
 
 
 
-Updates the specified occurrence.
+Lists metadata for metrics.
 
 ### Example
 ```java
@@ -1191,7 +818,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -1202,7 +829,8 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | Required. The name of the occurrence in the form of `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`.
+    String name = "name_example"; // String | Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER.
+    String location = "location_example"; // String | Location of the resource information. Has to be \"global\" for now.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -1214,13 +842,13 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String updateMask = "updateMask_example"; // String | The fields to update.
-    Occurrence occurrence = new Occurrence(); // Occurrence | 
+    String limit = "limit_example"; // String | Maximum number of metrics to return.
+    String metric = "metric_example"; // String | The metric name for which to query metadata. If unset, all metric metadata is returned.
     try {
-      Occurrence result = apiInstance.containeranalysisProjectsOccurrencesPatch(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, occurrence);
+      HttpBody result = apiInstance.monitoringProjectsLocationPrometheusApiV1MetadataList(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, limit, metric);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsOccurrencesPatch");
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsLocationPrometheusApiV1MetadataList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1234,7 +862,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | **String**| Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. | |
+| **name** | **String**| Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. | |
+| **location** | **String**| Location of the resource information. Has to be \&quot;global\&quot; for now. | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -1246,12 +875,109 @@ public class Example {
 | **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
 | **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
 | **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **updateMask** | **String**| The fields to update. | [optional] |
-| **occurrence** | [**Occurrence**](Occurrence.md)|  | [optional] |
+| **limit** | **String**| Maximum number of metrics to return. | [optional] |
+| **metric** | **String**| The metric name for which to query metadata. If unset, all metric metadata is returned. | [optional] |
 
 ### Return type
 
-[**Occurrence**](Occurrence.md)
+[**HttpBody**](HttpBody.md)
+
+### Authorization
+
+[Oauth2c](../README.md#Oauth2c), [Oauth2](../README.md#Oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+
+<a id="monitoringProjectsLocationPrometheusApiV1Query"></a>
+# **monitoringProjectsLocationPrometheusApiV1Query**
+> HttpBody monitoringProjectsLocationPrometheusApiV1Query(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryInstantRequest)
+
+
+
+Evaluate a PromQL query at a single point in time.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
+
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String name = "name_example"; // String | The project on which to execute the request. Data associcated with the project's workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine.
+    String location = "location_example"; // String | Location of the resource information. Has to be \"global\" now.
+    String $xgafv = "1"; // String | V1 error format.
+    String accessToken = "accessToken_example"; // String | OAuth access token.
+    String alt = "json"; // String | Data format for response.
+    String paramCallback = "paramCallback_example"; // String | JSONP
+    String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
+    String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+    String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
+    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
+    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    QueryInstantRequest queryInstantRequest = new QueryInstantRequest(); // QueryInstantRequest | 
+    try {
+      HttpBody result = apiInstance.monitoringProjectsLocationPrometheusApiV1Query(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryInstantRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsLocationPrometheusApiV1Query");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. | |
+| **location** | **String**| Location of the resource information. Has to be \&quot;global\&quot; now. | |
+| **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
+| **accessToken** | **String**| OAuth access token. | [optional] |
+| **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
+| **paramCallback** | **String**| JSONP | [optional] |
+| **fields** | **String**| Selector specifying which fields to include in a partial response. | [optional] |
+| **key** | **String**| API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. | [optional] |
+| **oauthToken** | **String**| OAuth 2.0 token for the current user. | [optional] |
+| **prettyPrint** | **Boolean**| Returns response with indentations and line breaks. | [optional] |
+| **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
+| **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
+| **queryInstantRequest** | [**QueryInstantRequest**](QueryInstantRequest.md)|  | [optional] |
+
+### Return type
+
+[**HttpBody**](HttpBody.md)
 
 ### Authorization
 
@@ -1267,13 +993,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="containeranalysisProjectsOccurrencesSetIamPolicy"></a>
-# **containeranalysisProjectsOccurrencesSetIamPolicy**
-> Policy containeranalysisProjectsOccurrencesSetIamPolicy(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest)
+<a id="monitoringProjectsLocationPrometheusApiV1QueryExemplars"></a>
+# **monitoringProjectsLocationPrometheusApiV1QueryExemplars**
+> HttpBody monitoringProjectsLocationPrometheusApiV1QueryExemplars(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryExemplarsRequest)
 
 
 
-Sets the access control policy on the specified note or occurrence. Requires &#x60;containeranalysis.notes.setIamPolicy&#x60; or &#x60;containeranalysis.occurrences.setIamPolicy&#x60; permission if the resource is a note or an occurrence, respectively. The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
+Lists exemplars relevant to a given PromQL query,
 
 ### Example
 ```java
@@ -1288,7 +1014,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -1299,7 +1025,8 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String resource = "resource_example"; // String | REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
+    String name = "name_example"; // String | The project on which to execute the request. Data associcated with the project's workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine.
+    String location = "location_example"; // String | Location of the resource information. Has to be \"global\" now.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -1311,12 +1038,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    SetIamPolicyRequest setIamPolicyRequest = new SetIamPolicyRequest(); // SetIamPolicyRequest | 
+    QueryExemplarsRequest queryExemplarsRequest = new QueryExemplarsRequest(); // QueryExemplarsRequest | 
     try {
-      Policy result = apiInstance.containeranalysisProjectsOccurrencesSetIamPolicy(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest);
+      HttpBody result = apiInstance.monitoringProjectsLocationPrometheusApiV1QueryExemplars(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryExemplarsRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsOccurrencesSetIamPolicy");
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsLocationPrometheusApiV1QueryExemplars");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1330,7 +1057,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **resource** | **String**| REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. | |
+| **name** | **String**| The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. | |
+| **location** | **String**| Location of the resource information. Has to be \&quot;global\&quot; now. | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -1342,11 +1070,11 @@ public class Example {
 | **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
 | **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
 | **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **setIamPolicyRequest** | [**SetIamPolicyRequest**](SetIamPolicyRequest.md)|  | [optional] |
+| **queryExemplarsRequest** | [**QueryExemplarsRequest**](QueryExemplarsRequest.md)|  | [optional] |
 
 ### Return type
 
-[**Policy**](Policy.md)
+[**HttpBody**](HttpBody.md)
 
 ### Authorization
 
@@ -1362,13 +1090,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="containeranalysisProjectsOccurrencesTestIamPermissions"></a>
-# **containeranalysisProjectsOccurrencesTestIamPermissions**
-> TestIamPermissionsResponse containeranalysisProjectsOccurrencesTestIamPermissions(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest)
+<a id="monitoringProjectsLocationPrometheusApiV1QueryRange"></a>
+# **monitoringProjectsLocationPrometheusApiV1QueryRange**
+> HttpBody monitoringProjectsLocationPrometheusApiV1QueryRange(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryRangeRequest)
 
 
 
-Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, &#x60;containeranalysis.notes.list&#x60;). The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
+Evaluate a PromQL query with start, end time range.
 
 ### Example
 ```java
@@ -1383,7 +1111,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -1394,7 +1122,8 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String resource = "resource_example"; // String | REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
+    String name = "name_example"; // String | The project on which to execute the request. Data associcated with the project's workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine.
+    String location = "location_example"; // String | Location of the resource information. Has to be \"global\" now.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -1406,12 +1135,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    TestIamPermissionsRequest testIamPermissionsRequest = new TestIamPermissionsRequest(); // TestIamPermissionsRequest | 
+    QueryRangeRequest queryRangeRequest = new QueryRangeRequest(); // QueryRangeRequest | 
     try {
-      TestIamPermissionsResponse result = apiInstance.containeranalysisProjectsOccurrencesTestIamPermissions(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest);
+      HttpBody result = apiInstance.monitoringProjectsLocationPrometheusApiV1QueryRange(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryRangeRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsOccurrencesTestIamPermissions");
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsLocationPrometheusApiV1QueryRange");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1425,7 +1154,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **resource** | **String**| REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. | |
+| **name** | **String**| The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. | |
+| **location** | **String**| Location of the resource information. Has to be \&quot;global\&quot; now. | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -1437,11 +1167,11 @@ public class Example {
 | **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
 | **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
 | **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **testIamPermissionsRequest** | [**TestIamPermissionsRequest**](TestIamPermissionsRequest.md)|  | [optional] |
+| **queryRangeRequest** | [**QueryRangeRequest**](QueryRangeRequest.md)|  | [optional] |
 
 ### Return type
 
-[**TestIamPermissionsResponse**](TestIamPermissionsResponse.md)
+[**HttpBody**](HttpBody.md)
 
 ### Authorization
 
@@ -1457,13 +1187,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 
-<a id="containeranalysisProjectsResourcesGeneratePackagesSummary"></a>
-# **containeranalysisProjectsResourcesGeneratePackagesSummary**
-> PackagesSummaryResponse containeranalysisProjectsResourcesGeneratePackagesSummary(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body)
+<a id="monitoringProjectsLocationPrometheusApiV1Series"></a>
+# **monitoringProjectsLocationPrometheusApiV1Series**
+> HttpBody monitoringProjectsLocationPrometheusApiV1Series(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, querySeriesRequest)
 
 
 
-Gets a summary of the packages within a given resource.
+Lists metadata for metrics.
 
 ### Example
 ```java
@@ -1478,7 +1208,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://containeranalysis.googleapis.com");
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -1489,7 +1219,8 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | Required. The name of the resource to get a packages summary for in the form of `projects/[PROJECT_ID]/resources/[RESOURCE_URL]`.
+    String name = "name_example"; // String | Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER.
+    String location = "location_example"; // String | Location of the resource information. Has to be \"global\" for now.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -1501,12 +1232,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    Object body = null; // Object | 
+    QuerySeriesRequest querySeriesRequest = new QuerySeriesRequest(); // QuerySeriesRequest | 
     try {
-      PackagesSummaryResponse result = apiInstance.containeranalysisProjectsResourcesGeneratePackagesSummary(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body);
+      HttpBody result = apiInstance.monitoringProjectsLocationPrometheusApiV1Series(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, querySeriesRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#containeranalysisProjectsResourcesGeneratePackagesSummary");
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsLocationPrometheusApiV1Series");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1520,7 +1251,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **name** | **String**| Required. The name of the resource to get a packages summary for in the form of &#x60;projects/[PROJECT_ID]/resources/[RESOURCE_URL]&#x60;. | |
+| **name** | **String**| Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. | |
+| **location** | **String**| Location of the resource information. Has to be \&quot;global\&quot; for now. | |
 | **$xgafv** | **String**| V1 error format. | [optional] [enum: 1, 2] |
 | **accessToken** | **String**| OAuth access token. | [optional] |
 | **alt** | **String**| Data format for response. | [optional] [enum: json, media, proto] |
@@ -1532,11 +1264,11 @@ public class Example {
 | **quotaUser** | **String**| Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. | [optional] |
 | **uploadProtocol** | **String**| Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). | [optional] |
 | **uploadType** | **String**| Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). | [optional] |
-| **body** | **Object**|  | [optional] |
+| **querySeriesRequest** | [**QuerySeriesRequest**](QuerySeriesRequest.md)|  | [optional] |
 
 ### Return type
 
-[**PackagesSummaryResponse**](PackagesSummaryResponse.md)
+[**HttpBody**](HttpBody.md)
 
 ### Authorization
 
