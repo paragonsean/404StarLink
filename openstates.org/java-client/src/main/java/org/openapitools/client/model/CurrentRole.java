@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * CurrentRole
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:51.158622-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:13.496026-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CurrentRole {
   public static final String SERIALIZED_NAME_DISTRICT = "district";
   @SerializedName(SERIALIZED_NAME_DISTRICT)

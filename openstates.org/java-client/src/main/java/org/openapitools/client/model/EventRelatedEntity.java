@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * EventRelatedEntity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:51.158622-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:13.496026-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class EventRelatedEntity {
   public static final String SERIALIZED_NAME_BILL = "bill";
   @SerializedName(SERIALIZED_NAME_BILL)
