@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Travel Partner API
+Cloud Monitoring API
 - API version: v3
-  - Build date: 2024-10-11T01:58:57.375310-04:00[America/New_York]
+  - Build date: 2024-10-11T02:01:22.830819-04:00[America/New_York]
   - Generator version: 7.9.0
 
-The Travel Partner API provides you with a RESTful interface to the Google Hotel Center platform. It enables an app to efficiently retrieve and change Hotel Center data, and is thus suitable for managing large or complex accounts.
+Manages your Cloud Monitoring data and configurations.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -85,16 +85,25 @@ Please follow the [installation](#installation) instruction and execute the foll
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.AccountsApi;
+import org.openapitools.client.api.ProjectsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://travelpartner.googleapis.com");
+    defaultClient.setBasePath("https://monitoring.googleapis.com");
+    
+    // Configure OAuth2 access token for authorization: Oauth2c
+    OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
+    Oauth2c.setAccessToken("YOUR ACCESS TOKEN");
 
-    AccountsApi apiInstance = new AccountsApi(defaultClient);
-    String parent = "parent_example"; // String | The resource name of the Hotel Center account being queried. The format is `accounts/{account_id}`.
+    // Configure OAuth2 access token for authorization: Oauth2
+    OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
+    Oauth2.setAccessToken("YOUR ACCESS TOKEN");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String name = "name_example"; // String | Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) in which to create the alerting policy. The format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent container in which the alerting policy will be written, not the name of the created policy. |name| must be a host project of a Metrics Scope, otherwise INVALID_ARGUMENT error will return. The alerting policy that is returned will have a name that contains a normalized representation of this name as a prefix but adds a suffix of the form /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -106,12 +115,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    AccountLink accountLink = new AccountLink(); // AccountLink | 
+    AlertPolicy alertPolicy = new AlertPolicy(); // AlertPolicy | 
     try {
-      AccountLink result = apiInstance.travelpartnerAccountsAccountLinksCreate(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, accountLink);
+      AlertPolicy result = apiInstance.monitoringProjectsAlertPoliciesCreate(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, alertPolicy);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountsApi#travelpartnerAccountsAccountLinksCreate");
+      System.err.println("Exception when calling ProjectsApi#monitoringProjectsAlertPoliciesCreate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -124,94 +133,187 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://travelpartner.googleapis.com*
+All URIs are relative to *https://monitoring.googleapis.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountsApi* | [**travelpartnerAccountsAccountLinksCreate**](docs/AccountsApi.md#travelpartnerAccountsAccountLinksCreate) | **POST** /v3/{parent}/accountLinks | 
-*AccountsApi* | [**travelpartnerAccountsAccountLinksDelete**](docs/AccountsApi.md#travelpartnerAccountsAccountLinksDelete) | **DELETE** /v3/{name} | 
-*AccountsApi* | [**travelpartnerAccountsAccountLinksList**](docs/AccountsApi.md#travelpartnerAccountsAccountLinksList) | **GET** /v3/{parent}/accountLinks | 
-*AccountsApi* | [**travelpartnerAccountsBrandsCreate**](docs/AccountsApi.md#travelpartnerAccountsBrandsCreate) | **POST** /v3/{parent}/brands | 
-*AccountsApi* | [**travelpartnerAccountsBrandsList**](docs/AccountsApi.md#travelpartnerAccountsBrandsList) | **GET** /v3/{parent}/brands | 
-*AccountsApi* | [**travelpartnerAccountsBrandsPatch**](docs/AccountsApi.md#travelpartnerAccountsBrandsPatch) | **PATCH** /v3/{name} | 
-*AccountsApi* | [**travelpartnerAccountsFreeBookingLinksReportViewsQuery**](docs/AccountsApi.md#travelpartnerAccountsFreeBookingLinksReportViewsQuery) | **GET** /v3/{name}/freeBookingLinksReportViews:query | 
-*AccountsApi* | [**travelpartnerAccountsHotelViewsList**](docs/AccountsApi.md#travelpartnerAccountsHotelViewsList) | **GET** /v3/{parent}/hotelViews | 
-*AccountsApi* | [**travelpartnerAccountsHotelViewsSummarize**](docs/AccountsApi.md#travelpartnerAccountsHotelViewsSummarize) | **GET** /v3/{parent}/hotelViews:summarize | 
-*AccountsApi* | [**travelpartnerAccountsHotelsSetLiveOnGoogle**](docs/AccountsApi.md#travelpartnerAccountsHotelsSetLiveOnGoogle) | **POST** /v3/{account}/hotels:setLiveOnGoogle | 
-*AccountsApi* | [**travelpartnerAccountsIconsCreate**](docs/AccountsApi.md#travelpartnerAccountsIconsCreate) | **POST** /v3/{parent}/icons | 
-*AccountsApi* | [**travelpartnerAccountsIconsList**](docs/AccountsApi.md#travelpartnerAccountsIconsList) | **GET** /v3/{parent}/icons | 
-*AccountsApi* | [**travelpartnerAccountsListingsVerify**](docs/AccountsApi.md#travelpartnerAccountsListingsVerify) | **POST** /v3/{parent}/listings:verify | 
-*AccountsApi* | [**travelpartnerAccountsParticipationReportViewsQuery**](docs/AccountsApi.md#travelpartnerAccountsParticipationReportViewsQuery) | **GET** /v3/{name}/participationReportViews:query | 
-*AccountsApi* | [**travelpartnerAccountsPriceAccuracyViewsList**](docs/AccountsApi.md#travelpartnerAccountsPriceAccuracyViewsList) | **GET** /v3/{parent}/priceAccuracyViews | 
-*AccountsApi* | [**travelpartnerAccountsPriceAccuracyViewsSummarize**](docs/AccountsApi.md#travelpartnerAccountsPriceAccuracyViewsSummarize) | **GET** /v3/{parent}/priceAccuracyViews:summarize | 
-*AccountsApi* | [**travelpartnerAccountsPriceCoverageViewsGetLatest**](docs/AccountsApi.md#travelpartnerAccountsPriceCoverageViewsGetLatest) | **GET** /v3/{parent}/priceCoverageViews:latest | 
-*AccountsApi* | [**travelpartnerAccountsPriceCoverageViewsList**](docs/AccountsApi.md#travelpartnerAccountsPriceCoverageViewsList) | **GET** /v3/{parent}/priceCoverageViews | 
-*AccountsApi* | [**travelpartnerAccountsPropertyPerformanceReportViewsQuery**](docs/AccountsApi.md#travelpartnerAccountsPropertyPerformanceReportViewsQuery) | **GET** /v3/{name}/propertyPerformanceReportViews:query | 
-*AccountsApi* | [**travelpartnerAccountsReconciliationReportsCreate**](docs/AccountsApi.md#travelpartnerAccountsReconciliationReportsCreate) | **POST** /v3/{parent}/reconciliationReports | 
-*AccountsApi* | [**travelpartnerAccountsReconciliationReportsGet**](docs/AccountsApi.md#travelpartnerAccountsReconciliationReportsGet) | **GET** /v3/{name} | 
-*AccountsApi* | [**travelpartnerAccountsReconciliationReportsList**](docs/AccountsApi.md#travelpartnerAccountsReconciliationReportsList) | **GET** /v3/{parent}/reconciliationReports | 
-*AccountsApi* | [**travelpartnerAccountsReconciliationReportsValidate**](docs/AccountsApi.md#travelpartnerAccountsReconciliationReportsValidate) | **POST** /v3/{parent}/reconciliationReports:validate | 
+*ProjectsApi* | [**monitoringProjectsAlertPoliciesCreate**](docs/ProjectsApi.md#monitoringProjectsAlertPoliciesCreate) | **POST** /v3/{name}/alertPolicies | 
+*ProjectsApi* | [**monitoringProjectsAlertPoliciesList**](docs/ProjectsApi.md#monitoringProjectsAlertPoliciesList) | **GET** /v3/{name}/alertPolicies | 
+*ProjectsApi* | [**monitoringProjectsCollectdTimeSeriesCreate**](docs/ProjectsApi.md#monitoringProjectsCollectdTimeSeriesCreate) | **POST** /v3/{name}/collectdTimeSeries | 
+*ProjectsApi* | [**monitoringProjectsGroupsCreate**](docs/ProjectsApi.md#monitoringProjectsGroupsCreate) | **POST** /v3/{name}/groups | 
+*ProjectsApi* | [**monitoringProjectsGroupsList**](docs/ProjectsApi.md#monitoringProjectsGroupsList) | **GET** /v3/{name}/groups | 
+*ProjectsApi* | [**monitoringProjectsGroupsMembersList**](docs/ProjectsApi.md#monitoringProjectsGroupsMembersList) | **GET** /v3/{name}/members | 
+*ProjectsApi* | [**monitoringProjectsGroupsUpdate**](docs/ProjectsApi.md#monitoringProjectsGroupsUpdate) | **PUT** /v3/{name} | 
+*ProjectsApi* | [**monitoringProjectsMetricDescriptorsCreate**](docs/ProjectsApi.md#monitoringProjectsMetricDescriptorsCreate) | **POST** /v3/{name}/metricDescriptors | 
+*ProjectsApi* | [**monitoringProjectsMetricDescriptorsList**](docs/ProjectsApi.md#monitoringProjectsMetricDescriptorsList) | **GET** /v3/{name}/metricDescriptors | 
+*ProjectsApi* | [**monitoringProjectsMonitoredResourceDescriptorsList**](docs/ProjectsApi.md#monitoringProjectsMonitoredResourceDescriptorsList) | **GET** /v3/{name}/monitoredResourceDescriptors | 
+*ProjectsApi* | [**monitoringProjectsNotificationChannelDescriptorsList**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelDescriptorsList) | **GET** /v3/{name}/notificationChannelDescriptors | 
+*ProjectsApi* | [**monitoringProjectsNotificationChannelsCreate**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelsCreate) | **POST** /v3/{name}/notificationChannels | 
+*ProjectsApi* | [**monitoringProjectsNotificationChannelsGetVerificationCode**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelsGetVerificationCode) | **POST** /v3/{name}:getVerificationCode | 
+*ProjectsApi* | [**monitoringProjectsNotificationChannelsList**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelsList) | **GET** /v3/{name}/notificationChannels | 
+*ProjectsApi* | [**monitoringProjectsNotificationChannelsSendVerificationCode**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelsSendVerificationCode) | **POST** /v3/{name}:sendVerificationCode | 
+*ProjectsApi* | [**monitoringProjectsNotificationChannelsVerify**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelsVerify) | **POST** /v3/{name}:verify | 
+*ProjectsApi* | [**monitoringProjectsSnoozesCreate**](docs/ProjectsApi.md#monitoringProjectsSnoozesCreate) | **POST** /v3/{parent}/snoozes | 
+*ProjectsApi* | [**monitoringProjectsSnoozesList**](docs/ProjectsApi.md#monitoringProjectsSnoozesList) | **GET** /v3/{parent}/snoozes | 
+*ProjectsApi* | [**monitoringProjectsTimeSeriesCreate**](docs/ProjectsApi.md#monitoringProjectsTimeSeriesCreate) | **POST** /v3/{name}/timeSeries | 
+*ProjectsApi* | [**monitoringProjectsTimeSeriesCreateService**](docs/ProjectsApi.md#monitoringProjectsTimeSeriesCreateService) | **POST** /v3/{name}/timeSeries:createService | 
+*ProjectsApi* | [**monitoringProjectsTimeSeriesList**](docs/ProjectsApi.md#monitoringProjectsTimeSeriesList) | **GET** /v3/{name}/timeSeries | 
+*ProjectsApi* | [**monitoringProjectsTimeSeriesQuery**](docs/ProjectsApi.md#monitoringProjectsTimeSeriesQuery) | **POST** /v3/{name}/timeSeries:query | 
+*ProjectsApi* | [**monitoringProjectsUptimeCheckConfigsCreate**](docs/ProjectsApi.md#monitoringProjectsUptimeCheckConfigsCreate) | **POST** /v3/{parent}/uptimeCheckConfigs | 
+*ProjectsApi* | [**monitoringProjectsUptimeCheckConfigsList**](docs/ProjectsApi.md#monitoringProjectsUptimeCheckConfigsList) | **GET** /v3/{parent}/uptimeCheckConfigs | 
+*ServicesApi* | [**monitoringServicesCreate**](docs/ServicesApi.md#monitoringServicesCreate) | **POST** /v3/{parent}/services | 
+*ServicesApi* | [**monitoringServicesList**](docs/ServicesApi.md#monitoringServicesList) | **GET** /v3/{parent}/services | 
+*ServicesApi* | [**monitoringServicesServiceLevelObjectivesCreate**](docs/ServicesApi.md#monitoringServicesServiceLevelObjectivesCreate) | **POST** /v3/{parent}/serviceLevelObjectives | 
+*ServicesApi* | [**monitoringServicesServiceLevelObjectivesDelete**](docs/ServicesApi.md#monitoringServicesServiceLevelObjectivesDelete) | **DELETE** /v3/{name} | 
+*ServicesApi* | [**monitoringServicesServiceLevelObjectivesGet**](docs/ServicesApi.md#monitoringServicesServiceLevelObjectivesGet) | **GET** /v3/{name} | 
+*ServicesApi* | [**monitoringServicesServiceLevelObjectivesList**](docs/ServicesApi.md#monitoringServicesServiceLevelObjectivesList) | **GET** /v3/{parent}/serviceLevelObjectives | 
+*ServicesApi* | [**monitoringServicesServiceLevelObjectivesPatch**](docs/ServicesApi.md#monitoringServicesServiceLevelObjectivesPatch) | **PATCH** /v3/{name} | 
+*UptimeCheckIpsApi* | [**monitoringUptimeCheckIpsList**](docs/UptimeCheckIpsApi.md#monitoringUptimeCheckIpsList) | **GET** /v3/uptimeCheckIps | 
 
 
 ## Documentation for Models
 
- - [AccountLink](docs/AccountLink.md)
- - [AccountLinkTarget](docs/AccountLinkTarget.md)
- - [Brand](docs/Brand.md)
- - [CreateReconciliationReportResponse](docs/CreateReconciliationReportResponse.md)
- - [DataIssueDetail](docs/DataIssueDetail.md)
- - [Date](docs/Date.md)
- - [DisplayNameDisapprovalReason](docs/DisplayNameDisapprovalReason.md)
- - [FreeBookingLinksResult](docs/FreeBookingLinksResult.md)
- - [HotelList](docs/HotelList.md)
- - [HotelPricePerItinerary](docs/HotelPricePerItinerary.md)
- - [HotelView](docs/HotelView.md)
- - [Icon](docs/Icon.md)
- - [Image](docs/Image.md)
- - [Key](docs/Key.md)
- - [LatLng](docs/LatLng.md)
- - [ListAccountLinksResponse](docs/ListAccountLinksResponse.md)
- - [ListBrandsResponse](docs/ListBrandsResponse.md)
- - [ListHotelViewsResponse](docs/ListHotelViewsResponse.md)
- - [ListIconsResponse](docs/ListIconsResponse.md)
- - [ListPriceAccuracyViewsResponse](docs/ListPriceAccuracyViewsResponse.md)
- - [ListPriceCoverageViewsResponse](docs/ListPriceCoverageViewsResponse.md)
- - [ListReconciliationReportsResponse](docs/ListReconciliationReportsResponse.md)
- - [LocalizedText](docs/LocalizedText.md)
- - [MissedParticipationCountDetails](docs/MissedParticipationCountDetails.md)
- - [NoPriceCountDetails](docs/NoPriceCountDetails.md)
- - [ParsedListing](docs/ParsedListing.md)
- - [ParticipationResult](docs/ParticipationResult.md)
- - [PriceAccuracyRow](docs/PriceAccuracyRow.md)
- - [PriceAccuracyView](docs/PriceAccuracyView.md)
- - [PriceCoverageBucket](docs/PriceCoverageBucket.md)
- - [PriceCoverageView](docs/PriceCoverageView.md)
- - [PriceMissingCountDetails](docs/PriceMissingCountDetails.md)
- - [PriceProblemCountDetails](docs/PriceProblemCountDetails.md)
- - [PriceRecord](docs/PriceRecord.md)
- - [PriceUnavailableCountDetails](docs/PriceUnavailableCountDetails.md)
- - [PriceView](docs/PriceView.md)
- - [PropertyPerformanceResult](docs/PropertyPerformanceResult.md)
- - [QueryFreeBookingLinksReportResponse](docs/QueryFreeBookingLinksReportResponse.md)
- - [QueryParticipationReportResponse](docs/QueryParticipationReportResponse.md)
- - [QueryPropertyPerformanceReportResponse](docs/QueryPropertyPerformanceReportResponse.md)
- - [Rating](docs/Rating.md)
- - [ReconciliationReport](docs/ReconciliationReport.md)
- - [ReconciliationReportValidationIssue](docs/ReconciliationReportValidationIssue.md)
- - [Review](docs/Review.md)
- - [SetLiveOnGoogleRequest](docs/SetLiveOnGoogleRequest.md)
- - [SetLiveOnGoogleResponse](docs/SetLiveOnGoogleResponse.md)
- - [SummarizeHotelViewsResponse](docs/SummarizeHotelViewsResponse.md)
- - [SummarizePriceAccuracyResponse](docs/SummarizePriceAccuracyResponse.md)
- - [ValidateReconciliationReportResponse](docs/ValidateReconciliationReportResponse.md)
- - [VerifyListingsRequest](docs/VerifyListingsRequest.md)
- - [VerifyListingsResponse](docs/VerifyListingsResponse.md)
+ - [Aggregation](docs/Aggregation.md)
+ - [AlertPolicy](docs/AlertPolicy.md)
+ - [AlertStrategy](docs/AlertStrategy.md)
+ - [AppEngine](docs/AppEngine.md)
+ - [BasicAuthentication](docs/BasicAuthentication.md)
+ - [BasicService](docs/BasicService.md)
+ - [BasicSli](docs/BasicSli.md)
+ - [BucketOptions](docs/BucketOptions.md)
+ - [CloudEndpoints](docs/CloudEndpoints.md)
+ - [CloudRun](docs/CloudRun.md)
+ - [ClusterIstio](docs/ClusterIstio.md)
+ - [CollectdPayload](docs/CollectdPayload.md)
+ - [CollectdPayloadError](docs/CollectdPayloadError.md)
+ - [CollectdValue](docs/CollectdValue.md)
+ - [CollectdValueError](docs/CollectdValueError.md)
+ - [Condition](docs/Condition.md)
+ - [ContentMatcher](docs/ContentMatcher.md)
+ - [CreateCollectdTimeSeriesRequest](docs/CreateCollectdTimeSeriesRequest.md)
+ - [CreateCollectdTimeSeriesResponse](docs/CreateCollectdTimeSeriesResponse.md)
+ - [CreateTimeSeriesRequest](docs/CreateTimeSeriesRequest.md)
+ - [CreateTimeSeriesSummary](docs/CreateTimeSeriesSummary.md)
+ - [Criteria](docs/Criteria.md)
+ - [Distribution](docs/Distribution.md)
+ - [DistributionCut](docs/DistributionCut.md)
+ - [Documentation](docs/Documentation.md)
+ - [DroppedLabels](docs/DroppedLabels.md)
+ - [Error](docs/Error.md)
+ - [Exemplar](docs/Exemplar.md)
+ - [Explicit](docs/Explicit.md)
+ - [Exponential](docs/Exponential.md)
+ - [Field](docs/Field.md)
+ - [ForecastOptions](docs/ForecastOptions.md)
+ - [GetNotificationChannelVerificationCodeRequest](docs/GetNotificationChannelVerificationCodeRequest.md)
+ - [GetNotificationChannelVerificationCodeResponse](docs/GetNotificationChannelVerificationCodeResponse.md)
+ - [GkeNamespace](docs/GkeNamespace.md)
+ - [GkeService](docs/GkeService.md)
+ - [GkeWorkload](docs/GkeWorkload.md)
+ - [GoogleMonitoringV3Range](docs/GoogleMonitoringV3Range.md)
+ - [Group](docs/Group.md)
+ - [HttpCheck](docs/HttpCheck.md)
+ - [InternalChecker](docs/InternalChecker.md)
+ - [IstioCanonicalService](docs/IstioCanonicalService.md)
+ - [JsonPathMatcher](docs/JsonPathMatcher.md)
+ - [LabelDescriptor](docs/LabelDescriptor.md)
+ - [LabelValue](docs/LabelValue.md)
+ - [LatencyCriteria](docs/LatencyCriteria.md)
+ - [Linear](docs/Linear.md)
+ - [ListAlertPoliciesResponse](docs/ListAlertPoliciesResponse.md)
+ - [ListGroupMembersResponse](docs/ListGroupMembersResponse.md)
+ - [ListGroupsResponse](docs/ListGroupsResponse.md)
+ - [ListMetricDescriptorsResponse](docs/ListMetricDescriptorsResponse.md)
+ - [ListMonitoredResourceDescriptorsResponse](docs/ListMonitoredResourceDescriptorsResponse.md)
+ - [ListNotificationChannelDescriptorsResponse](docs/ListNotificationChannelDescriptorsResponse.md)
+ - [ListNotificationChannelsResponse](docs/ListNotificationChannelsResponse.md)
+ - [ListServiceLevelObjectivesResponse](docs/ListServiceLevelObjectivesResponse.md)
+ - [ListServicesResponse](docs/ListServicesResponse.md)
+ - [ListSnoozesResponse](docs/ListSnoozesResponse.md)
+ - [ListTimeSeriesResponse](docs/ListTimeSeriesResponse.md)
+ - [ListUptimeCheckConfigsResponse](docs/ListUptimeCheckConfigsResponse.md)
+ - [ListUptimeCheckIpsResponse](docs/ListUptimeCheckIpsResponse.md)
+ - [LogMatch](docs/LogMatch.md)
+ - [MeshIstio](docs/MeshIstio.md)
+ - [Metric](docs/Metric.md)
+ - [MetricAbsence](docs/MetricAbsence.md)
+ - [MetricDescriptor](docs/MetricDescriptor.md)
+ - [MetricDescriptorMetadata](docs/MetricDescriptorMetadata.md)
+ - [MetricRange](docs/MetricRange.md)
+ - [MetricThreshold](docs/MetricThreshold.md)
+ - [MonitoredResource](docs/MonitoredResource.md)
+ - [MonitoredResourceDescriptor](docs/MonitoredResourceDescriptor.md)
+ - [MonitoredResourceMetadata](docs/MonitoredResourceMetadata.md)
+ - [MonitoringQueryLanguageCondition](docs/MonitoringQueryLanguageCondition.md)
+ - [MutationRecord](docs/MutationRecord.md)
+ - [NotificationChannel](docs/NotificationChannel.md)
+ - [NotificationChannelDescriptor](docs/NotificationChannelDescriptor.md)
+ - [NotificationChannelStrategy](docs/NotificationChannelStrategy.md)
+ - [NotificationRateLimit](docs/NotificationRateLimit.md)
+ - [OperationMetadata](docs/OperationMetadata.md)
+ - [Option](docs/Option.md)
+ - [PerformanceThreshold](docs/PerformanceThreshold.md)
+ - [PingConfig](docs/PingConfig.md)
+ - [Point](docs/Point.md)
+ - [PointData](docs/PointData.md)
+ - [QueryTimeSeriesRequest](docs/QueryTimeSeriesRequest.md)
+ - [QueryTimeSeriesResponse](docs/QueryTimeSeriesResponse.md)
+ - [Range](docs/Range.md)
+ - [RequestBasedSli](docs/RequestBasedSli.md)
+ - [ResourceGroup](docs/ResourceGroup.md)
+ - [ResponseStatusCode](docs/ResponseStatusCode.md)
+ - [Service](docs/Service.md)
+ - [ServiceLevelIndicator](docs/ServiceLevelIndicator.md)
+ - [ServiceLevelObjective](docs/ServiceLevelObjective.md)
+ - [Snooze](docs/Snooze.md)
+ - [SourceContext](docs/SourceContext.md)
+ - [SpanContext](docs/SpanContext.md)
+ - [Status](docs/Status.md)
+ - [TcpCheck](docs/TcpCheck.md)
+ - [Telemetry](docs/Telemetry.md)
+ - [TimeInterval](docs/TimeInterval.md)
+ - [TimeSeries](docs/TimeSeries.md)
+ - [TimeSeriesData](docs/TimeSeriesData.md)
+ - [TimeSeriesDescriptor](docs/TimeSeriesDescriptor.md)
+ - [TimeSeriesRatio](docs/TimeSeriesRatio.md)
+ - [Trigger](docs/Trigger.md)
+ - [Type](docs/Type.md)
+ - [TypedValue](docs/TypedValue.md)
+ - [UptimeCheckConfig](docs/UptimeCheckConfig.md)
+ - [UptimeCheckIp](docs/UptimeCheckIp.md)
+ - [ValueDescriptor](docs/ValueDescriptor.md)
+ - [VerifyNotificationChannelRequest](docs/VerifyNotificationChannelRequest.md)
+ - [WindowsBasedSli](docs/WindowsBasedSli.md)
 
 
 <a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-Endpoints do not require authorization.
+
+Authentication schemes defined for the API:
+<a id="Oauth2"></a>
+### Oauth2
+
+- **Type**: OAuth
+- **Flow**: implicit
+- **Authorization URL**: https://accounts.google.com/o/oauth2/auth
+- **Scopes**: 
+  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+  - https://www.googleapis.com/auth/monitoring: View and write monitoring data for all of your Google and third-party Cloud and API projects
+  - https://www.googleapis.com/auth/monitoring.read: View monitoring data for all of your Google Cloud and third-party projects
+  - https://www.googleapis.com/auth/monitoring.write: Publish metric data to your Google Cloud projects
+
+<a id="Oauth2c"></a>
+### Oauth2c
+
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: https://accounts.google.com/o/oauth2/auth
+- **Scopes**: 
+  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+  - https://www.googleapis.com/auth/monitoring: View and write monitoring data for all of your Google and third-party Cloud and API projects
+  - https://www.googleapis.com/auth/monitoring.read: View monitoring data for all of your Google Cloud and third-party projects
+  - https://www.googleapis.com/auth/monitoring.write: Publish metric data to your Google Cloud projects
 
 
 ## Recommendation
