@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * ConsentArtifactSchemaConsentPermissionFrequency
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:56.522348-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:18.984340-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ConsentArtifactSchemaConsentPermissionFrequency {
   public static final String SERIALIZED_NAME_REPEATS = "repeats";
   @SerializedName(SERIALIZED_NAME_REPEATS)

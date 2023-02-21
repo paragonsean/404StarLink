@@ -2,7 +2,7 @@
 
 National Institute of Electronics and Information Technology
 - API version: 3.0.0
-  - Build date: 2024-10-11T01:59:56.522348-04:00[America/New_York]
+  - Build date: 2024-10-11T02:09:18.984340-04:00[America/New_York]
   - Generator version: 7.9.0
 
 NIELIT, under Ministry of Electronics & IT (http://www.nielit.gov.in/) provides education and training in the area of Information, Electronics & Communication Technology. Certificates issued by NIELIT are made available in students' DigiLocker accounts.
