@@ -1,6 +1,6 @@
 /*
- * National Institute of Electronics and Information Technology
- * NIELIT, under Ministry of Electronics & IT (http://www.nielit.gov.in/) provides education and training in the area of Information, Electronics & Communication Technology. Certificates issued by NIELIT are made available in students' DigiLocker accounts.
+ * Maharashtra State Board of Secondary and Higher Secondary Education, Maharashtra
+ * Class X and XII marksheets and passing certificates of Maharashtra State Board of Secondary and Higher Secondary Education (https://mahahsscboard.maharashtra.gov.in/) are available in DigiLocker for years 1990 to 2017.
  *
  * The version of the OpenAPI document: 3.0.0
  * 

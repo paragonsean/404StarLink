@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build National Institute of Electronics and Information Technology
+    name: Build Maharashtra State Board of Secondary and Higher Secondary Education, Maharashtra
     runs-on: ubuntu-latest
     strategy:
       matrix:
