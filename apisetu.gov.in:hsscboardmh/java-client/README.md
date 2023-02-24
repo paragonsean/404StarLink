@@ -2,7 +2,7 @@
 
 Maharashtra State Board of Secondary and Higher Secondary Education, Maharashtra
 - API version: 3.0.0
-  - Build date: 2024-10-11T01:59:59.107637-04:00[America/New_York]
+  - Build date: 2024-10-11T02:09:26.774776-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Class X and XII marksheets and passing certificates of Maharashtra State Board of Secondary and Higher Secondary Education (https://mahahsscboard.maharashtra.gov.in/) are available in DigiLocker for years 1990 to 2017.

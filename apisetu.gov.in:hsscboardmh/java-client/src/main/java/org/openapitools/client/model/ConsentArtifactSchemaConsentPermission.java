@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * ConsentArtifactSchemaConsentPermission
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T01:59:59.107637-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:26.774776-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ConsentArtifactSchemaConsentPermission {
   public static final String SERIALIZED_NAME_ACCESS = "access";
   @SerializedName(SERIALIZED_NAME_ACCESS)
