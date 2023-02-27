@@ -1,6 +1,6 @@
 /*
- * QuickChart API
- * An API to generate charts and QR codes using QuickChart services.
+ * Maps
+ * The Maps API web services suite offers the following APIs:   - Raster   The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.   - Vector   Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.   The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -61,10 +61,10 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "https://quickchart.io";
+    private String basePath = "https://api.tomtom.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://quickchart.io",
+      "https://api.tomtom.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -100,6 +100,7 @@ public class ApiClient {
         initHttpClient();
 
         // Setup authentications (key: authentication name, value: authentication).
+        authentications.put("api_key", new ApiKeyAuth("query", "key"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -115,6 +116,7 @@ public class ApiClient {
         httpClient = client;
 
         // Setup authentications (key: authentication name, value: authentication).
+        authentications.put("api_key", new ApiKeyAuth("query", "key"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -156,7 +158,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://quickchart.io
+     * @param basePath Base path of the URL (e.g https://api.tomtom.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

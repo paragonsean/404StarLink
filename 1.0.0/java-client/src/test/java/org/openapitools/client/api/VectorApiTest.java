@@ -11,26 +11,44 @@
  */
 
 
-package org.openapitools.client.auth;
+package org.openapitools.client.api;
 
-import org.openapitools.client.Pair;
 import org.openapitools.client.ApiException;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import java.net.URI;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public interface Authentication {
+/**
+ * API tests for VectorApi
+ */
+@Disabled
+public class VectorApiTest {
+
+    private final VectorApi api = new VectorApi();
+
     /**
-     * Apply authentication settings to header and query params.
+     * Tile
      *
-     * @param queryParams List of query parameters
-     * @param headerParams Map of header parameters
-     * @param cookieParams Map of cookie parameters
-     * @param payload HTTP request body
-     * @param method HTTP method
-     * @param uri URI
-     * @throws ApiException if failed to update the parameters
+     * The Maps API Vector Service delivers vector tiles, which are representations of square sections of map data.
+     *
+     * @throws ApiException if the Api call fails
      */
-    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException;
+    @Test
+    public void mapVersionNumberTileLayerStyleZoomXYPbfGetTest() throws ApiException {
+        Integer versionNumber = null;
+        String layer = null;
+        String style = null;
+        Integer zoom = null;
+        Integer X = null;
+        Integer Y = null;
+        String view = null;
+        String language = null;
+        api.mapVersionNumberTileLayerStyleZoomXYPbfGet(versionNumber, layer, style, zoom, X, Y, view, language);
+        // TODO: test validations
+    }
+
 }
