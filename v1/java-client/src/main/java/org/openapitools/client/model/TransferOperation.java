@@ -55,7 +55,7 @@ import org.openapitools.client.JSON;
 /**
  * A description of the execution of a transfer.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:04.262691-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:35.098439-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TransferOperation {
   public static final String SERIALIZED_NAME_COUNTERS = "counters";
   @SerializedName(SERIALIZED_NAME_COUNTERS)

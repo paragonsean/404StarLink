@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Specifies the logging behavior for transfer operations. For cloud-to-cloud transfers, logs are sent to Cloud Logging. See [Read transfer logs](https://cloud.google.com/storage-transfer/docs/read-transfer-logs) for details. For transfers to or from a POSIX file system, logs are stored in the Cloud Storage bucket that is the source or sink of the transfer. See [Managing Transfer for on-premises jobs] (https://cloud.google.com/storage-transfer/docs/managing-on-prem-jobs#viewing-logs) for details.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:04.262691-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:35.098439-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class LoggingConfig {
   public static final String SERIALIZED_NAME_ENABLE_ONPREM_GCS_TRANSFER_LOGS = "enableOnpremGcsTransferLogs";
   @SerializedName(SERIALIZED_NAME_ENABLE_ONPREM_GCS_TRANSFER_LOGS)

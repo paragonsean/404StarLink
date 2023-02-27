@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Conditions that determine which objects are transferred. Applies only to Cloud Data Sources such as S3, Azure, and Cloud Storage. The \&quot;last modification time\&quot; refers to the time of the last change to the object&#39;s content or metadata — specifically, this is the &#x60;updated&#x60; property of Cloud Storage objects, the &#x60;LastModified&#x60; field of S3 objects, and the &#x60;Last-Modified&#x60; header of Azure blobs. Transfers with a PosixFilesystem source or destination don&#39;t support &#x60;ObjectConditions&#x60;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:04.262691-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:35.098439-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ObjectConditions {
   public static final String SERIALIZED_NAME_EXCLUDE_PREFIXES = "excludePrefixes";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_PREFIXES)

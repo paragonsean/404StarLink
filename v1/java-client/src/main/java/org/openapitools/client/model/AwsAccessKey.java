@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * AWS access key (see [AWS Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)). For information on our data retention policy for user credentials, see [User credentials](/storage-transfer/docs/data-retention#user-credentials).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:04.262691-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:35.098439-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsAccessKey {
   public static final String SERIALIZED_NAME_ACCESS_KEY_ID = "accessKeyId";
   @SerializedName(SERIALIZED_NAME_ACCESS_KEY_ID)
