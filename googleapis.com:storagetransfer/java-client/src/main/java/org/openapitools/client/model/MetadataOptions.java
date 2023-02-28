@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Specifies the metadata options for running a transfer.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:07.190451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:38.046248-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class MetadataOptions {
   /**
    * Specifies how each object&#39;s ACLs should be preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as ACL_DESTINATION_BUCKET_DEFAULT.

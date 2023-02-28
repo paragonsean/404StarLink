@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Specifies where the manifest is located.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:07.190451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:38.046248-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TransferManifest {
   public static final String SERIALIZED_NAME_LOCATION = "location";
   @SerializedName(SERIALIZED_NAME_LOCATION)

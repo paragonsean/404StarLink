@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * An AwsS3Data resource can be a data source, but not a data sink. In an AwsS3Data resource, an object&#39;s name is the S3 object&#39;s key name.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:07.190451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:38.046248-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AwsS3Data {
   public static final String SERIALIZED_NAME_AWS_ACCESS_KEY = "awsAccessKey";
   @SerializedName(SERIALIZED_NAME_AWS_ACCESS_KEY)

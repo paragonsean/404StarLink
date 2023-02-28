@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * An entry describing an error that has occurred.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:07.190451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:38.046248-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ErrorLogEntry {
   public static final String SERIALIZED_NAME_ERROR_DETAILS = "errorDetails";
   @SerializedName(SERIALIZED_NAME_ERROR_DETAILS)

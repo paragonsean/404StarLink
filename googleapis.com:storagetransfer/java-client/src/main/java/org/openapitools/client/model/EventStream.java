@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Specifies the Event-driven transfer options. Event-driven transfers listen to an event stream to transfer updated files.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:07.190451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:38.046248-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class EventStream {
   public static final String SERIALIZED_NAME_EVENT_STREAM_EXPIRATION_TIME = "eventStreamExpirationTime";
   @SerializedName(SERIALIZED_NAME_EVENT_STREAM_EXPIRATION_TIME)

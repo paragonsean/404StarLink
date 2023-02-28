@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Specification to configure notifications published to Pub/Sub. Notifications are published to the customer-provided topic using the following &#x60;PubsubMessage.attributes&#x60;: * &#x60;\&quot;eventType\&quot;&#x60;: one of the EventType values * &#x60;\&quot;payloadFormat\&quot;&#x60;: one of the PayloadFormat values * &#x60;\&quot;projectId\&quot;&#x60;: the project_id of the &#x60;TransferOperation&#x60; * &#x60;\&quot;transferJobName\&quot;&#x60;: the transfer_job_name of the &#x60;TransferOperation&#x60; * &#x60;\&quot;transferOperationName\&quot;&#x60;: the name of the &#x60;TransferOperation&#x60; The &#x60;PubsubMessage.data&#x60; contains a TransferOperation resource formatted according to the specified &#x60;PayloadFormat&#x60;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:07.190451-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:38.046248-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class NotificationConfig {
   /**
    * Gets or Sets eventTypes

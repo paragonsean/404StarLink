@@ -2,7 +2,7 @@
 
 Storage Transfer API
 - API version: v1
-  - Build date: 2024-10-11T02:00:07.190451-04:00[America/New_York]
+  - Build date: 2024-10-11T02:09:38.046248-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. 
