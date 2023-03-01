@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * This resource represents a long-running operation that is the result of a network API call.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:10.044635-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:40.853070-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Operation {
   public static final String SERIALIZED_NAME_DONE = "done";
   @SerializedName(SERIALIZED_NAME_DONE)

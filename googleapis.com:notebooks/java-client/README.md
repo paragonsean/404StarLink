@@ -2,7 +2,7 @@
 
 Notebooks API
 - API version: v2
-  - Build date: 2024-10-11T02:00:10.044635-04:00[America/New_York]
+  - Build date: 2024-10-11T02:09:40.853070-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Notebooks API is used to manage notebook resources in Google Cloud.
