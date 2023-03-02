@@ -1,6 +1,6 @@
 /*
- * Storage Transfer API
- * Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. 
+ * Notebooks API
+ * Notebooks API is used to manage notebook resources in Google Cloud.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -13,7 +13,7 @@
 
 package org.openapitools.client;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:35.098439-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:43.451204-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Pair {
     private String name = "";
     private String value = "";

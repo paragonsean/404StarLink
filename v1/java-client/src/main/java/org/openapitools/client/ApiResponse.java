@@ -1,6 +1,6 @@
 /*
- * Storage Transfer API
- * Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. 
+ * Notebooks API
+ * Notebooks API is used to manage notebook resources in Google Cloud.
  *
  * The version of the OpenAPI document: v1
  * 

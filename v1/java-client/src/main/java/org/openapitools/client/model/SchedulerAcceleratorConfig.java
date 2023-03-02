@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Definition of a hardware accelerator. Note that not all combinations of &#x60;type&#x60; and &#x60;core_count&#x60; are valid. Check [GPUs on Compute Engine](https://cloud.google.com/compute/docs/gpus) to find a valid combination. TPUs are not supported.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:12.602654-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:43.451204-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SchedulerAcceleratorConfig {
   public static final String SERIALIZED_NAME_CORE_COUNT = "coreCount";
   @SerializedName(SERIALIZED_NAME_CORE_COUNT)

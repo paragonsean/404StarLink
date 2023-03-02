@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Response for listing Managed Notebook Runtimes.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:12.602654-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:43.451204-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ListRuntimesResponse {
   public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "nextPageToken";
   @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)

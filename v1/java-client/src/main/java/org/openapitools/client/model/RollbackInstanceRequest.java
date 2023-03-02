@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Request for rollbacking a notebook instance
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:12.602654-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:43.451204-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class RollbackInstanceRequest {
   public static final String SERIALIZED_NAME_TARGET_SNAPSHOT = "targetSnapshot";
   @SerializedName(SERIALIZED_NAME_TARGET_SNAPSHOT)

@@ -1,6 +1,6 @@
 /*
- * Storage Transfer API
- * Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. 
+ * Notebooks API
+ * Notebooks API is used to manage notebook resources in Google Cloud.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -66,10 +66,10 @@ import org.openapitools.client.auth.OAuthFlow;
  */
 public class ApiClient {
 
-    private String basePath = "https://storagetransfer.googleapis.com";
+    private String basePath = "https://notebooks.googleapis.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://storagetransfer.googleapis.com",
+      "https://notebooks.googleapis.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -231,7 +231,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://storagetransfer.googleapis.com
+     * @param basePath Base path of the URL (e.g https://notebooks.googleapis.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

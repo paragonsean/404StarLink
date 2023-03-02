@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Definition of the types of hardware accelerators that can be used. Definition of the types of hardware accelerators that can be used. See [Compute Engine AcceleratorTypes](https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes). Examples: * &#x60;nvidia-tesla-k80&#x60; * &#x60;nvidia-tesla-p100&#x60; * &#x60;nvidia-tesla-v100&#x60; * &#x60;nvidia-tesla-p4&#x60; * &#x60;nvidia-tesla-t4&#x60; * &#x60;nvidia-tesla-a100&#x60;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:12.602654-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:43.451204-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class RuntimeAcceleratorConfig {
   public static final String SERIALIZED_NAME_CORE_COUNT = "coreCount";
   @SerializedName(SERIALIZED_NAME_CORE_COUNT)

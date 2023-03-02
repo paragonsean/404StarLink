@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Specifies the selection and configuration of software inside the runtime. The properties to set on runtime. Properties keys are specified in &#x60;key:value&#x60; format, for example: * &#x60;idle_shutdown: true&#x60; * &#x60;idle_shutdown_timeout: 180&#x60; * &#x60;enable_health_monitoring: true&#x60;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:12.602654-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:43.451204-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class RuntimeSoftwareConfig {
   public static final String SERIALIZED_NAME_CUSTOM_GPU_DRIVER_PATH = "customGpuDriverPath";
   @SerializedName(SERIALIZED_NAME_CUSTOM_GPU_DRIVER_PATH)

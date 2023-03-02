@@ -1,6 +1,6 @@
 /*
- * Storage Transfer API
- * Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. 
+ * Notebooks API
+ * Notebooks API is used to manage notebook resources in Google Cloud.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -20,9 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
-import org.openapitools.client.model.TimeOfDay;
+import java.util.List;
+import org.openapitools.client.model.Execution;
+import org.openapitools.client.model.ExecutionTemplate;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,126 +50,278 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * Transfers can be scheduled to recur or to run just once.
+ * The definition of a schedule.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:35.098439-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:43.451204-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Schedule {
-  public static final String SERIALIZED_NAME_END_TIME_OF_DAY = "endTimeOfDay";
-  @SerializedName(SERIALIZED_NAME_END_TIME_OF_DAY)
-  private TimeOfDay endTimeOfDay;
+  public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
+  @SerializedName(SERIALIZED_NAME_CREATE_TIME)
+  private String createTime;
 
-  public static final String SERIALIZED_NAME_REPEAT_INTERVAL = "repeatInterval";
-  @SerializedName(SERIALIZED_NAME_REPEAT_INTERVAL)
-  private String repeatInterval;
+  public static final String SERIALIZED_NAME_CRON_SCHEDULE = "cronSchedule";
+  @SerializedName(SERIALIZED_NAME_CRON_SCHEDULE)
+  private String cronSchedule;
 
-  public static final String SERIALIZED_NAME_SCHEDULE_END_DATE = "scheduleEndDate";
-  @SerializedName(SERIALIZED_NAME_SCHEDULE_END_DATE)
-  private Date scheduleEndDate;
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-  public static final String SERIALIZED_NAME_SCHEDULE_START_DATE = "scheduleStartDate";
-  @SerializedName(SERIALIZED_NAME_SCHEDULE_START_DATE)
-  private Date scheduleStartDate;
+  public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+  private String displayName;
 
-  public static final String SERIALIZED_NAME_START_TIME_OF_DAY = "startTimeOfDay";
-  @SerializedName(SERIALIZED_NAME_START_TIME_OF_DAY)
-  private TimeOfDay startTimeOfDay;
+  public static final String SERIALIZED_NAME_EXECUTION_TEMPLATE = "executionTemplate";
+  @SerializedName(SERIALIZED_NAME_EXECUTION_TEMPLATE)
+  private ExecutionTemplate executionTemplate;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_RECENT_EXECUTIONS = "recentExecutions";
+  @SerializedName(SERIALIZED_NAME_RECENT_EXECUTIONS)
+  private List<Execution> recentExecutions = new ArrayList<>();
+
+  /**
+   * Gets or Sets state
+   */
+  @JsonAdapter(StateEnum.Adapter.class)
+  public enum StateEnum {
+    STATE_UNSPECIFIED("STATE_UNSPECIFIED"),
+    
+    ENABLED("ENABLED"),
+    
+    PAUSED("PAUSED"),
+    
+    DISABLED("DISABLED"),
+    
+    UPDATE_FAILED("UPDATE_FAILED"),
+    
+    INITIALIZING("INITIALIZING"),
+    
+    DELETING("DELETING");
+
+    private String value;
+
+    StateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StateEnum fromValue(String value) {
+      for (StateEnum b : StateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<StateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StateEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StateEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      StateEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_STATE = "state";
+  @SerializedName(SERIALIZED_NAME_STATE)
+  private StateEnum state;
+
+  public static final String SERIALIZED_NAME_TIME_ZONE = "timeZone";
+  @SerializedName(SERIALIZED_NAME_TIME_ZONE)
+  private String timeZone;
+
+  public static final String SERIALIZED_NAME_UPDATE_TIME = "updateTime";
+  @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
+  private String updateTime;
 
   public Schedule() {
   }
 
-  public Schedule endTimeOfDay(TimeOfDay endTimeOfDay) {
-    this.endTimeOfDay = endTimeOfDay;
+  public Schedule(
+     String createTime, 
+     String displayName, 
+     String name, 
+     List<Execution> recentExecutions, 
+     String updateTime
+  ) {
+    this();
+    this.createTime = createTime;
+    this.displayName = displayName;
+    this.name = name;
+    this.recentExecutions = recentExecutions;
+    this.updateTime = updateTime;
+  }
+
+  /**
+   * Output only. Time the schedule was created.
+   * @return createTime
+   */
+  @javax.annotation.Nullable
+  public String getCreateTime() {
+    return createTime;
+  }
+
+
+
+  public Schedule cronSchedule(String cronSchedule) {
+    this.cronSchedule = cronSchedule;
     return this;
   }
 
   /**
-   * Get endTimeOfDay
-   * @return endTimeOfDay
+   * Cron-tab formatted schedule by which the job will execute. Format: minute, hour, day of month, month, day of week, e.g. &#x60;0 0 * * WED&#x60; &#x3D; every Wednesday More examples: https://crontab.guru/examples.html
+   * @return cronSchedule
    */
   @javax.annotation.Nullable
-  public TimeOfDay getEndTimeOfDay() {
-    return endTimeOfDay;
+  public String getCronSchedule() {
+    return cronSchedule;
   }
 
-  public void setEndTimeOfDay(TimeOfDay endTimeOfDay) {
-    this.endTimeOfDay = endTimeOfDay;
+  public void setCronSchedule(String cronSchedule) {
+    this.cronSchedule = cronSchedule;
   }
 
 
-  public Schedule repeatInterval(String repeatInterval) {
-    this.repeatInterval = repeatInterval;
+  public Schedule description(String description) {
+    this.description = description;
     return this;
   }
 
   /**
-   * Interval between the start of each scheduled TransferOperation. If unspecified, the default value is 24 hours. This value may not be less than 1 hour.
-   * @return repeatInterval
+   * A brief description of this environment.
+   * @return description
    */
   @javax.annotation.Nullable
-  public String getRepeatInterval() {
-    return repeatInterval;
+  public String getDescription() {
+    return description;
   }
 
-  public void setRepeatInterval(String repeatInterval) {
-    this.repeatInterval = repeatInterval;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
-  public Schedule scheduleEndDate(Date scheduleEndDate) {
-    this.scheduleEndDate = scheduleEndDate;
+  /**
+   * Output only. Display name used for UI purposes. Name can only contain alphanumeric characters, hyphens &#x60;-&#x60;, and underscores &#x60;_&#x60;.
+   * @return displayName
+   */
+  @javax.annotation.Nullable
+  public String getDisplayName() {
+    return displayName;
+  }
+
+
+
+  public Schedule executionTemplate(ExecutionTemplate executionTemplate) {
+    this.executionTemplate = executionTemplate;
     return this;
   }
 
   /**
-   * Get scheduleEndDate
-   * @return scheduleEndDate
+   * Get executionTemplate
+   * @return executionTemplate
    */
   @javax.annotation.Nullable
-  public Date getScheduleEndDate() {
-    return scheduleEndDate;
+  public ExecutionTemplate getExecutionTemplate() {
+    return executionTemplate;
   }
 
-  public void setScheduleEndDate(Date scheduleEndDate) {
-    this.scheduleEndDate = scheduleEndDate;
+  public void setExecutionTemplate(ExecutionTemplate executionTemplate) {
+    this.executionTemplate = executionTemplate;
   }
 
 
-  public Schedule scheduleStartDate(Date scheduleStartDate) {
-    this.scheduleStartDate = scheduleStartDate;
+  /**
+   * Output only. The name of this schedule. Format: &#x60;projects/{project_id}/locations/{location}/schedules/{schedule_id}&#x60;
+   * @return name
+   */
+  @javax.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+
+
+  /**
+   * Output only. The most recent execution names triggered from this schedule and their corresponding states.
+   * @return recentExecutions
+   */
+  @javax.annotation.Nullable
+  public List<Execution> getRecentExecutions() {
+    return recentExecutions;
+  }
+
+
+
+  public Schedule state(StateEnum state) {
+    this.state = state;
     return this;
   }
 
   /**
-   * Get scheduleStartDate
-   * @return scheduleStartDate
+   * Get state
+   * @return state
    */
   @javax.annotation.Nullable
-  public Date getScheduleStartDate() {
-    return scheduleStartDate;
+  public StateEnum getState() {
+    return state;
   }
 
-  public void setScheduleStartDate(Date scheduleStartDate) {
-    this.scheduleStartDate = scheduleStartDate;
+  public void setState(StateEnum state) {
+    this.state = state;
   }
 
 
-  public Schedule startTimeOfDay(TimeOfDay startTimeOfDay) {
-    this.startTimeOfDay = startTimeOfDay;
+  public Schedule timeZone(String timeZone) {
+    this.timeZone = timeZone;
     return this;
   }
 
   /**
-   * Get startTimeOfDay
-   * @return startTimeOfDay
+   * Timezone on which the cron_schedule. The value of this field must be a time zone name from the tz database. TZ Database: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones Note that some time zones include a provision for daylight savings time. The rules for daylight saving time are determined by the chosen tz. For UTC use the string \&quot;utc\&quot;. If a time zone is not specified, the default will be in UTC (also known as GMT).
+   * @return timeZone
    */
   @javax.annotation.Nullable
-  public TimeOfDay getStartTimeOfDay() {
-    return startTimeOfDay;
+  public String getTimeZone() {
+    return timeZone;
   }
 
-  public void setStartTimeOfDay(TimeOfDay startTimeOfDay) {
-    this.startTimeOfDay = startTimeOfDay;
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
   }
+
+
+  /**
+   * Output only. Time the schedule was last updated.
+   * @return updateTime
+   */
+  @javax.annotation.Nullable
+  public String getUpdateTime() {
+    return updateTime;
+  }
+
 
 
 
@@ -180,27 +334,37 @@ public class Schedule {
       return false;
     }
     Schedule schedule = (Schedule) o;
-    return Objects.equals(this.endTimeOfDay, schedule.endTimeOfDay) &&
-        Objects.equals(this.repeatInterval, schedule.repeatInterval) &&
-        Objects.equals(this.scheduleEndDate, schedule.scheduleEndDate) &&
-        Objects.equals(this.scheduleStartDate, schedule.scheduleStartDate) &&
-        Objects.equals(this.startTimeOfDay, schedule.startTimeOfDay);
+    return Objects.equals(this.createTime, schedule.createTime) &&
+        Objects.equals(this.cronSchedule, schedule.cronSchedule) &&
+        Objects.equals(this.description, schedule.description) &&
+        Objects.equals(this.displayName, schedule.displayName) &&
+        Objects.equals(this.executionTemplate, schedule.executionTemplate) &&
+        Objects.equals(this.name, schedule.name) &&
+        Objects.equals(this.recentExecutions, schedule.recentExecutions) &&
+        Objects.equals(this.state, schedule.state) &&
+        Objects.equals(this.timeZone, schedule.timeZone) &&
+        Objects.equals(this.updateTime, schedule.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTimeOfDay, repeatInterval, scheduleEndDate, scheduleStartDate, startTimeOfDay);
+    return Objects.hash(createTime, cronSchedule, description, displayName, executionTemplate, name, recentExecutions, state, timeZone, updateTime);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Schedule {\n");
-    sb.append("    endTimeOfDay: ").append(toIndentedString(endTimeOfDay)).append("\n");
-    sb.append("    repeatInterval: ").append(toIndentedString(repeatInterval)).append("\n");
-    sb.append("    scheduleEndDate: ").append(toIndentedString(scheduleEndDate)).append("\n");
-    sb.append("    scheduleStartDate: ").append(toIndentedString(scheduleStartDate)).append("\n");
-    sb.append("    startTimeOfDay: ").append(toIndentedString(startTimeOfDay)).append("\n");
+    sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    cronSchedule: ").append(toIndentedString(cronSchedule)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    executionTemplate: ").append(toIndentedString(executionTemplate)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    recentExecutions: ").append(toIndentedString(recentExecutions)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -223,11 +387,16 @@ public class Schedule {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("endTimeOfDay");
-    openapiFields.add("repeatInterval");
-    openapiFields.add("scheduleEndDate");
-    openapiFields.add("scheduleStartDate");
-    openapiFields.add("startTimeOfDay");
+    openapiFields.add("createTime");
+    openapiFields.add("cronSchedule");
+    openapiFields.add("description");
+    openapiFields.add("displayName");
+    openapiFields.add("executionTemplate");
+    openapiFields.add("name");
+    openapiFields.add("recentExecutions");
+    openapiFields.add("state");
+    openapiFields.add("timeZone");
+    openapiFields.add("updateTime");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -254,24 +423,51 @@ public class Schedule {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `endTimeOfDay`
-      if (jsonObj.get("endTimeOfDay") != null && !jsonObj.get("endTimeOfDay").isJsonNull()) {
-        TimeOfDay.validateJsonElement(jsonObj.get("endTimeOfDay"));
+      if ((jsonObj.get("createTime") != null && !jsonObj.get("createTime").isJsonNull()) && !jsonObj.get("createTime").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `createTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createTime").toString()));
       }
-      if ((jsonObj.get("repeatInterval") != null && !jsonObj.get("repeatInterval").isJsonNull()) && !jsonObj.get("repeatInterval").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `repeatInterval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("repeatInterval").toString()));
+      if ((jsonObj.get("cronSchedule") != null && !jsonObj.get("cronSchedule").isJsonNull()) && !jsonObj.get("cronSchedule").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cronSchedule` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cronSchedule").toString()));
       }
-      // validate the optional field `scheduleEndDate`
-      if (jsonObj.get("scheduleEndDate") != null && !jsonObj.get("scheduleEndDate").isJsonNull()) {
-        Date.validateJsonElement(jsonObj.get("scheduleEndDate"));
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // validate the optional field `scheduleStartDate`
-      if (jsonObj.get("scheduleStartDate") != null && !jsonObj.get("scheduleStartDate").isJsonNull()) {
-        Date.validateJsonElement(jsonObj.get("scheduleStartDate"));
+      if ((jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonNull()) && !jsonObj.get("displayName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
       }
-      // validate the optional field `startTimeOfDay`
-      if (jsonObj.get("startTimeOfDay") != null && !jsonObj.get("startTimeOfDay").isJsonNull()) {
-        TimeOfDay.validateJsonElement(jsonObj.get("startTimeOfDay"));
+      // validate the optional field `executionTemplate`
+      if (jsonObj.get("executionTemplate") != null && !jsonObj.get("executionTemplate").isJsonNull()) {
+        ExecutionTemplate.validateJsonElement(jsonObj.get("executionTemplate"));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if (jsonObj.get("recentExecutions") != null && !jsonObj.get("recentExecutions").isJsonNull()) {
+        JsonArray jsonArrayrecentExecutions = jsonObj.getAsJsonArray("recentExecutions");
+        if (jsonArrayrecentExecutions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("recentExecutions").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `recentExecutions` to be an array in the JSON string but got `%s`", jsonObj.get("recentExecutions").toString()));
+          }
+
+          // validate the optional field `recentExecutions` (array)
+          for (int i = 0; i < jsonArrayrecentExecutions.size(); i++) {
+            Execution.validateJsonElement(jsonArrayrecentExecutions.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+      }
+      // validate the optional field `state`
+      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
+        StateEnum.validateJsonElement(jsonObj.get("state"));
+      }
+      if ((jsonObj.get("timeZone") != null && !jsonObj.get("timeZone").isJsonNull()) && !jsonObj.get("timeZone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `timeZone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeZone").toString()));
+      }
+      if ((jsonObj.get("updateTime") != null && !jsonObj.get("updateTime").isJsonNull()) && !jsonObj.get("updateTime").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updateTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updateTime").toString()));
       }
   }
 
