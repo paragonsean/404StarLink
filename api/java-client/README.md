@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Storage Transfer API
-- API version: v1
-  - Build date: 2024-10-11T02:09:32.119462-04:00[America/New_York]
+Notebooks API
+- API version: v2
+  - Build date: 2024-10-11T02:09:49.148274-04:00[America/New_York]
   - Generator version: 7.9.0
 
-Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. 
+Notebooks API is used to manage notebook resources in Google Cloud.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>v1</version>
+  <version>v2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -58,7 +58,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:v1"
+     implementation "org.openapitools:openapi-java-client:v2"
   }
 ```
 
@@ -72,7 +72,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-v1.jar`
+* `target/openapi-java-client-v2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -87,12 +87,12 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.GoogleServiceAccountsApi;
+import org.openapitools.client.api.ProjectsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://storagetransfer.googleapis.com");
+    defaultClient.setBasePath("https://notebooks.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -102,8 +102,8 @@ public class Example {
     OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    GoogleServiceAccountsApi apiInstance = new GoogleServiceAccountsApi(defaultClient);
-    String projectId = "projectId_example"; // String | Required. The ID of the Google Cloud project that the Google service account is associated with.
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    String resource = "resource_example"; // String | REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -115,11 +115,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
+    Integer optionsRequestedPolicyVersion = 56; // Integer | Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
     try {
-      GoogleServiceAccount result = apiInstance.storagetransferGoogleServiceAccountsGet(projectId, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+      Policy result = apiInstance.notebooksProjectsLocationsInstancesGetIamPolicy(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, optionsRequestedPolicyVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling GoogleServiceAccountsApi#storagetransferGoogleServiceAccountsGet");
+      System.err.println("Exception when calling ProjectsApi#notebooksProjectsLocationsInstancesGetIamPolicy");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -132,64 +133,34 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://storagetransfer.googleapis.com*
+All URIs are relative to *https://notebooks.googleapis.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*GoogleServiceAccountsApi* | [**storagetransferGoogleServiceAccountsGet**](docs/GoogleServiceAccountsApi.md#storagetransferGoogleServiceAccountsGet) | **GET** /v1/googleServiceAccounts/{projectId} | 
-*ProjectsApi* | [**storagetransferProjectsAgentPoolsCreate**](docs/ProjectsApi.md#storagetransferProjectsAgentPoolsCreate) | **POST** /v1/projects/{projectId}/agentPools | 
-*ProjectsApi* | [**storagetransferProjectsAgentPoolsDelete**](docs/ProjectsApi.md#storagetransferProjectsAgentPoolsDelete) | **DELETE** /v1/{name} | 
-*ProjectsApi* | [**storagetransferProjectsAgentPoolsList**](docs/ProjectsApi.md#storagetransferProjectsAgentPoolsList) | **GET** /v1/projects/{projectId}/agentPools | 
-*ProjectsApi* | [**storagetransferProjectsAgentPoolsPatch**](docs/ProjectsApi.md#storagetransferProjectsAgentPoolsPatch) | **PATCH** /v1/{name} | 
-*TransferJobsApi* | [**storagetransferTransferJobsCreate**](docs/TransferJobsApi.md#storagetransferTransferJobsCreate) | **POST** /v1/transferJobs | 
-*TransferJobsApi* | [**storagetransferTransferJobsDelete**](docs/TransferJobsApi.md#storagetransferTransferJobsDelete) | **DELETE** /v1/{jobName} | 
-*TransferJobsApi* | [**storagetransferTransferJobsGet**](docs/TransferJobsApi.md#storagetransferTransferJobsGet) | **GET** /v1/{jobName} | 
-*TransferJobsApi* | [**storagetransferTransferJobsList**](docs/TransferJobsApi.md#storagetransferTransferJobsList) | **GET** /v1/transferJobs | 
-*TransferJobsApi* | [**storagetransferTransferJobsPatch**](docs/TransferJobsApi.md#storagetransferTransferJobsPatch) | **PATCH** /v1/{jobName} | 
-*TransferJobsApi* | [**storagetransferTransferJobsRun**](docs/TransferJobsApi.md#storagetransferTransferJobsRun) | **POST** /v1/{jobName}:run | 
-*TransferOperationsApi* | [**storagetransferTransferOperationsCancel**](docs/TransferOperationsApi.md#storagetransferTransferOperationsCancel) | **POST** /v1/{name}:cancel | 
-*TransferOperationsApi* | [**storagetransferTransferOperationsList**](docs/TransferOperationsApi.md#storagetransferTransferOperationsList) | **GET** /v1/{name} | 
-*TransferOperationsApi* | [**storagetransferTransferOperationsPause**](docs/TransferOperationsApi.md#storagetransferTransferOperationsPause) | **POST** /v1/{name}:pause | 
-*TransferOperationsApi* | [**storagetransferTransferOperationsResume**](docs/TransferOperationsApi.md#storagetransferTransferOperationsResume) | **POST** /v1/{name}:resume | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesGetIamPolicy**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesGetIamPolicy) | **GET** /v2/{resource}:getIamPolicy | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesSetIamPolicy**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesSetIamPolicy) | **POST** /v2/{resource}:setIamPolicy | 
+*ProjectsApi* | [**notebooksProjectsLocationsInstancesTestIamPermissions**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesTestIamPermissions) | **POST** /v2/{resource}:testIamPermissions | 
+*ProjectsApi* | [**notebooksProjectsLocationsList**](docs/ProjectsApi.md#notebooksProjectsLocationsList) | **GET** /v2/{name}/locations | 
+*ProjectsApi* | [**notebooksProjectsLocationsOperationsCancel**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsCancel) | **POST** /v2/{name}:cancel | 
+*ProjectsApi* | [**notebooksProjectsLocationsOperationsDelete**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsDelete) | **DELETE** /v2/{name} | 
+*ProjectsApi* | [**notebooksProjectsLocationsOperationsGet**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsGet) | **GET** /v2/{name} | 
+*ProjectsApi* | [**notebooksProjectsLocationsOperationsList**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsList) | **GET** /v2/{name}/operations | 
 
 
 ## Documentation for Models
 
- - [AgentPool](docs/AgentPool.md)
- - [AwsAccessKey](docs/AwsAccessKey.md)
- - [AwsS3CompatibleData](docs/AwsS3CompatibleData.md)
- - [AwsS3Data](docs/AwsS3Data.md)
- - [AzureBlobStorageData](docs/AzureBlobStorageData.md)
- - [AzureCredentials](docs/AzureCredentials.md)
- - [BandwidthLimit](docs/BandwidthLimit.md)
- - [Date](docs/Date.md)
- - [ErrorLogEntry](docs/ErrorLogEntry.md)
- - [ErrorSummary](docs/ErrorSummary.md)
- - [EventStream](docs/EventStream.md)
- - [GcsData](docs/GcsData.md)
- - [GoogleServiceAccount](docs/GoogleServiceAccount.md)
- - [HttpData](docs/HttpData.md)
- - [ListAgentPoolsResponse](docs/ListAgentPoolsResponse.md)
+ - [Binding](docs/Binding.md)
+ - [Expr](docs/Expr.md)
+ - [ListLocationsResponse](docs/ListLocationsResponse.md)
  - [ListOperationsResponse](docs/ListOperationsResponse.md)
- - [ListTransferJobsResponse](docs/ListTransferJobsResponse.md)
- - [LoggingConfig](docs/LoggingConfig.md)
- - [MetadataOptions](docs/MetadataOptions.md)
- - [NotificationConfig](docs/NotificationConfig.md)
- - [ObjectConditions](docs/ObjectConditions.md)
+ - [Location](docs/Location.md)
  - [Operation](docs/Operation.md)
- - [PosixFilesystem](docs/PosixFilesystem.md)
- - [RunTransferJobRequest](docs/RunTransferJobRequest.md)
- - [S3CompatibleMetadata](docs/S3CompatibleMetadata.md)
- - [Schedule](docs/Schedule.md)
+ - [OperationMetadata](docs/OperationMetadata.md)
+ - [Policy](docs/Policy.md)
+ - [SetIamPolicyRequest](docs/SetIamPolicyRequest.md)
  - [Status](docs/Status.md)
- - [TimeOfDay](docs/TimeOfDay.md)
- - [TransferCounters](docs/TransferCounters.md)
- - [TransferJob](docs/TransferJob.md)
- - [TransferManifest](docs/TransferManifest.md)
- - [TransferOperation](docs/TransferOperation.md)
- - [TransferOptions](docs/TransferOptions.md)
- - [TransferSpec](docs/TransferSpec.md)
- - [UpdateTransferJobRequest](docs/UpdateTransferJobRequest.md)
+ - [TestIamPermissionsRequest](docs/TestIamPermissionsRequest.md)
+ - [TestIamPermissionsResponse](docs/TestIamPermissionsResponse.md)
 
 
 <a id="documentation-for-authorization"></a>
