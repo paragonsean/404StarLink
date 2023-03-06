@@ -2,7 +2,7 @@
 
 Interzoid Get Company Name Match Similarity Key API
 - API version: 1.0.0
-  - Build date: 2024-10-11T02:00:18.509871-04:00[America/New_York]
+  - Build date: 2024-10-11T02:09:53.627190-04:00[America/New_York]
   - Generator version: 7.9.0
 
 This API provides a similarity key used to match with other similar company name data, including for purposes of deduplication, fuzzy matching, or merging of datasets. A much higher match rate will be achieved by matching on the algorithmically generated similarity key rather than the data itself.
