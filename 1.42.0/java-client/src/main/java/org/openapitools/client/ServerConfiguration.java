@@ -1,5 +1,5 @@
 /*
- * Twilio - Ip_messaging
+ * Twilio - Trusthub
  * This is the public Twilio REST API.
  *
  * The version of the OpenAPI document: 1.42.0
@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Representing a Server configuration.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:46.374619-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:00.928096-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ServerConfiguration {
     public String URL;
     public String description;

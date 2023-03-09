@@ -1,58 +1,66 @@
 # DefaultApi
 
-All URIs are relative to *https://ip-messaging.twilio.com*
+All URIs are relative to *https://trusthub.twilio.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createChannel**](DefaultApi.md#createChannel) | **POST** /v1/Services/{ServiceSid}/Channels |  |
-| [**createCredential**](DefaultApi.md#createCredential) | **POST** /v1/Credentials |  |
-| [**createInvite**](DefaultApi.md#createInvite) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites |  |
-| [**createMember**](DefaultApi.md#createMember) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members |  |
-| [**createMessage**](DefaultApi.md#createMessage) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages |  |
-| [**createRole**](DefaultApi.md#createRole) | **POST** /v1/Services/{ServiceSid}/Roles |  |
-| [**createService**](DefaultApi.md#createService) | **POST** /v1/Services |  |
-| [**createUser**](DefaultApi.md#createUser) | **POST** /v1/Services/{ServiceSid}/Users |  |
-| [**deleteChannel**](DefaultApi.md#deleteChannel) | **DELETE** /v1/Services/{ServiceSid}/Channels/{Sid} |  |
-| [**deleteCredential**](DefaultApi.md#deleteCredential) | **DELETE** /v1/Credentials/{Sid} |  |
-| [**deleteInvite**](DefaultApi.md#deleteInvite) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid} |  |
-| [**deleteMember**](DefaultApi.md#deleteMember) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} |  |
-| [**deleteMessage**](DefaultApi.md#deleteMessage) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} |  |
-| [**deleteRole**](DefaultApi.md#deleteRole) | **DELETE** /v1/Services/{ServiceSid}/Roles/{Sid} |  |
-| [**deleteService**](DefaultApi.md#deleteService) | **DELETE** /v1/Services/{Sid} |  |
-| [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /v1/Services/{ServiceSid}/Users/{Sid} |  |
-| [**fetchChannel**](DefaultApi.md#fetchChannel) | **GET** /v1/Services/{ServiceSid}/Channels/{Sid} |  |
-| [**fetchCredential**](DefaultApi.md#fetchCredential) | **GET** /v1/Credentials/{Sid} |  |
-| [**fetchInvite**](DefaultApi.md#fetchInvite) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid} |  |
-| [**fetchMember**](DefaultApi.md#fetchMember) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} |  |
-| [**fetchMessage**](DefaultApi.md#fetchMessage) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} |  |
-| [**fetchRole**](DefaultApi.md#fetchRole) | **GET** /v1/Services/{ServiceSid}/Roles/{Sid} |  |
-| [**fetchService**](DefaultApi.md#fetchService) | **GET** /v1/Services/{Sid} |  |
-| [**fetchUser**](DefaultApi.md#fetchUser) | **GET** /v1/Services/{ServiceSid}/Users/{Sid} |  |
-| [**listChannel**](DefaultApi.md#listChannel) | **GET** /v1/Services/{ServiceSid}/Channels |  |
-| [**listCredential**](DefaultApi.md#listCredential) | **GET** /v1/Credentials |  |
-| [**listInvite**](DefaultApi.md#listInvite) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites |  |
-| [**listMember**](DefaultApi.md#listMember) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members |  |
-| [**listMessage**](DefaultApi.md#listMessage) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages |  |
-| [**listRole**](DefaultApi.md#listRole) | **GET** /v1/Services/{ServiceSid}/Roles |  |
-| [**listService**](DefaultApi.md#listService) | **GET** /v1/Services |  |
-| [**listUser**](DefaultApi.md#listUser) | **GET** /v1/Services/{ServiceSid}/Users |  |
-| [**listUserChannel**](DefaultApi.md#listUserChannel) | **GET** /v1/Services/{ServiceSid}/Users/{UserSid}/Channels |  |
-| [**updateChannel**](DefaultApi.md#updateChannel) | **POST** /v1/Services/{ServiceSid}/Channels/{Sid} |  |
-| [**updateCredential**](DefaultApi.md#updateCredential) | **POST** /v1/Credentials/{Sid} |  |
-| [**updateMember**](DefaultApi.md#updateMember) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} |  |
-| [**updateMessage**](DefaultApi.md#updateMessage) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} |  |
-| [**updateRole**](DefaultApi.md#updateRole) | **POST** /v1/Services/{ServiceSid}/Roles/{Sid} |  |
-| [**updateService**](DefaultApi.md#updateService) | **POST** /v1/Services/{Sid} |  |
-| [**updateUser**](DefaultApi.md#updateUser) | **POST** /v1/Services/{ServiceSid}/Users/{Sid} |  |
+| [**createCustomerProfile**](DefaultApi.md#createCustomerProfile) | **POST** /v1/CustomerProfiles |  |
+| [**createCustomerProfileChannelEndpointAssignment**](DefaultApi.md#createCustomerProfileChannelEndpointAssignment) | **POST** /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments |  |
+| [**createCustomerProfileEntityAssignment**](DefaultApi.md#createCustomerProfileEntityAssignment) | **POST** /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments |  |
+| [**createCustomerProfileEvaluation**](DefaultApi.md#createCustomerProfileEvaluation) | **POST** /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations |  |
+| [**createEndUser**](DefaultApi.md#createEndUser) | **POST** /v1/EndUsers |  |
+| [**createSupportingDocument**](DefaultApi.md#createSupportingDocument) | **POST** /v1/SupportingDocuments |  |
+| [**createTrustProduct**](DefaultApi.md#createTrustProduct) | **POST** /v1/TrustProducts |  |
+| [**createTrustProductChannelEndpointAssignment**](DefaultApi.md#createTrustProductChannelEndpointAssignment) | **POST** /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments |  |
+| [**createTrustProductEntityAssignment**](DefaultApi.md#createTrustProductEntityAssignment) | **POST** /v1/TrustProducts/{TrustProductSid}/EntityAssignments |  |
+| [**createTrustProductEvaluation**](DefaultApi.md#createTrustProductEvaluation) | **POST** /v1/TrustProducts/{TrustProductSid}/Evaluations |  |
+| [**deleteCustomerProfile**](DefaultApi.md#deleteCustomerProfile) | **DELETE** /v1/CustomerProfiles/{Sid} |  |
+| [**deleteCustomerProfileChannelEndpointAssignment**](DefaultApi.md#deleteCustomerProfileChannelEndpointAssignment) | **DELETE** /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments/{Sid} |  |
+| [**deleteCustomerProfileEntityAssignment**](DefaultApi.md#deleteCustomerProfileEntityAssignment) | **DELETE** /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments/{Sid} |  |
+| [**deleteEndUser**](DefaultApi.md#deleteEndUser) | **DELETE** /v1/EndUsers/{Sid} |  |
+| [**deleteSupportingDocument**](DefaultApi.md#deleteSupportingDocument) | **DELETE** /v1/SupportingDocuments/{Sid} |  |
+| [**deleteTrustProduct**](DefaultApi.md#deleteTrustProduct) | **DELETE** /v1/TrustProducts/{Sid} |  |
+| [**deleteTrustProductChannelEndpointAssignment**](DefaultApi.md#deleteTrustProductChannelEndpointAssignment) | **DELETE** /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments/{Sid} |  |
+| [**deleteTrustProductEntityAssignment**](DefaultApi.md#deleteTrustProductEntityAssignment) | **DELETE** /v1/TrustProducts/{TrustProductSid}/EntityAssignments/{Sid} |  |
+| [**fetchCustomerProfile**](DefaultApi.md#fetchCustomerProfile) | **GET** /v1/CustomerProfiles/{Sid} |  |
+| [**fetchCustomerProfileChannelEndpointAssignment**](DefaultApi.md#fetchCustomerProfileChannelEndpointAssignment) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments/{Sid} |  |
+| [**fetchCustomerProfileEntityAssignment**](DefaultApi.md#fetchCustomerProfileEntityAssignment) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments/{Sid} |  |
+| [**fetchCustomerProfileEvaluation**](DefaultApi.md#fetchCustomerProfileEvaluation) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations/{Sid} |  |
+| [**fetchEndUser**](DefaultApi.md#fetchEndUser) | **GET** /v1/EndUsers/{Sid} |  |
+| [**fetchEndUserType**](DefaultApi.md#fetchEndUserType) | **GET** /v1/EndUserTypes/{Sid} |  |
+| [**fetchPolicies**](DefaultApi.md#fetchPolicies) | **GET** /v1/Policies/{Sid} |  |
+| [**fetchSupportingDocument**](DefaultApi.md#fetchSupportingDocument) | **GET** /v1/SupportingDocuments/{Sid} |  |
+| [**fetchSupportingDocumentType**](DefaultApi.md#fetchSupportingDocumentType) | **GET** /v1/SupportingDocumentTypes/{Sid} |  |
+| [**fetchTrustProduct**](DefaultApi.md#fetchTrustProduct) | **GET** /v1/TrustProducts/{Sid} |  |
+| [**fetchTrustProductChannelEndpointAssignment**](DefaultApi.md#fetchTrustProductChannelEndpointAssignment) | **GET** /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments/{Sid} |  |
+| [**fetchTrustProductEntityAssignment**](DefaultApi.md#fetchTrustProductEntityAssignment) | **GET** /v1/TrustProducts/{TrustProductSid}/EntityAssignments/{Sid} |  |
+| [**fetchTrustProductEvaluation**](DefaultApi.md#fetchTrustProductEvaluation) | **GET** /v1/TrustProducts/{TrustProductSid}/Evaluations/{Sid} |  |
+| [**listCustomerProfile**](DefaultApi.md#listCustomerProfile) | **GET** /v1/CustomerProfiles |  |
+| [**listCustomerProfileChannelEndpointAssignment**](DefaultApi.md#listCustomerProfileChannelEndpointAssignment) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments |  |
+| [**listCustomerProfileEntityAssignment**](DefaultApi.md#listCustomerProfileEntityAssignment) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments |  |
+| [**listCustomerProfileEvaluation**](DefaultApi.md#listCustomerProfileEvaluation) | **GET** /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations |  |
+| [**listEndUser**](DefaultApi.md#listEndUser) | **GET** /v1/EndUsers |  |
+| [**listEndUserType**](DefaultApi.md#listEndUserType) | **GET** /v1/EndUserTypes |  |
+| [**listPolicies**](DefaultApi.md#listPolicies) | **GET** /v1/Policies |  |
+| [**listSupportingDocument**](DefaultApi.md#listSupportingDocument) | **GET** /v1/SupportingDocuments |  |
+| [**listSupportingDocumentType**](DefaultApi.md#listSupportingDocumentType) | **GET** /v1/SupportingDocumentTypes |  |
+| [**listTrustProduct**](DefaultApi.md#listTrustProduct) | **GET** /v1/TrustProducts |  |
+| [**listTrustProductChannelEndpointAssignment**](DefaultApi.md#listTrustProductChannelEndpointAssignment) | **GET** /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments |  |
+| [**listTrustProductEntityAssignment**](DefaultApi.md#listTrustProductEntityAssignment) | **GET** /v1/TrustProducts/{TrustProductSid}/EntityAssignments |  |
+| [**listTrustProductEvaluation**](DefaultApi.md#listTrustProductEvaluation) | **GET** /v1/TrustProducts/{TrustProductSid}/Evaluations |  |
+| [**updateCustomerProfile**](DefaultApi.md#updateCustomerProfile) | **POST** /v1/CustomerProfiles/{Sid} |  |
+| [**updateEndUser**](DefaultApi.md#updateEndUser) | **POST** /v1/EndUsers/{Sid} |  |
+| [**updateSupportingDocument**](DefaultApi.md#updateSupportingDocument) | **POST** /v1/SupportingDocuments/{Sid} |  |
+| [**updateTrustProduct**](DefaultApi.md#updateTrustProduct) | **POST** /v1/TrustProducts/{Sid} |  |
 
 
-<a id="createChannel"></a>
-# **createChannel**
-> IpMessagingV1ServiceChannel createChannel(serviceSid, attributes, friendlyName, type, uniqueName)
+<a id="createCustomerProfile"></a>
+# **createCustomerProfile**
+> TrusthubV1CustomerProfile createCustomerProfile(email, friendlyName, policySid, statusCallback)
 
 
 
-
+Create a new Customer-Profile.
 
 ### Example
 ```java
@@ -67,7 +75,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -75,16 +83,15 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    ChannelEnumChannelType type = ChannelEnumChannelType.fromValue("public"); // ChannelEnumChannelType | 
-    String uniqueName = "uniqueName_example"; // String | 
+    String email = "email_example"; // String | The email address that will receive updates when the Customer-Profile resource changes status.
+    String friendlyName = "friendlyName_example"; // String | The string that you assigned to describe the resource.
+    String policySid = "policySid_example"; // String | The unique string of a policy that is associated to the Customer-Profile resource.
+    URI statusCallback = new URI(); // URI | The URL we call to inform your application of status changes.
     try {
-      IpMessagingV1ServiceChannel result = apiInstance.createChannel(serviceSid, attributes, friendlyName, type, uniqueName);
+      TrusthubV1CustomerProfile result = apiInstance.createCustomerProfile(email, friendlyName, policySid, statusCallback);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createChannel");
+      System.err.println("Exception when calling DefaultApi#createCustomerProfile");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -98,15 +105,14 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **type** | **ChannelEnumChannelType**|  | [optional] [enum: public, private] |
-| **uniqueName** | **String**|  | [optional] |
+| **email** | **String**| The email address that will receive updates when the Customer-Profile resource changes status. | |
+| **friendlyName** | **String**| The string that you assigned to describe the resource. | |
+| **policySid** | **String**| The unique string of a policy that is associated to the Customer-Profile resource. | |
+| **statusCallback** | **URI**| The URL we call to inform your application of status changes. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannel**](IpMessagingV1ServiceChannel.md)
+[**TrusthubV1CustomerProfile**](TrusthubV1CustomerProfile.md)
 
 ### Authorization
 
@@ -122,13 +128,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createCredential"></a>
-# **createCredential**
-> IpMessagingV1Credential createCredential(type, apiKey, certificate, friendlyName, privateKey, sandbox, secret)
+<a id="createCustomerProfileChannelEndpointAssignment"></a>
+# **createCustomerProfileChannelEndpointAssignment**
+> TrusthubV1CustomerProfileCustomerProfileChannelEndpointAssignment createCustomerProfileChannelEndpointAssignment(customerProfileSid, channelEndpointSid, channelEndpointType)
 
 
 
-
+Create a new Assigned Item.
 
 ### Example
 ```java
@@ -143,7 +149,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -151,18 +157,14 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    CredentialEnumPushService type = CredentialEnumPushService.fromValue("gcm"); // CredentialEnumPushService | 
-    String apiKey = "apiKey_example"; // String | 
-    String certificate = "certificate_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    String privateKey = "privateKey_example"; // String | 
-    Boolean sandbox = true; // Boolean | 
-    String secret = "secret_example"; // String | 
+    String customerProfileSid = "customerProfileSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String channelEndpointSid = "channelEndpointSid_example"; // String | The SID of an channel endpoint
+    String channelEndpointType = "channelEndpointType_example"; // String | The type of channel endpoint. eg: phone-number
     try {
-      IpMessagingV1Credential result = apiInstance.createCredential(type, apiKey, certificate, friendlyName, privateKey, sandbox, secret);
+      TrusthubV1CustomerProfileCustomerProfileChannelEndpointAssignment result = apiInstance.createCustomerProfileChannelEndpointAssignment(customerProfileSid, channelEndpointSid, channelEndpointType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createCredential");
+      System.err.println("Exception when calling DefaultApi#createCustomerProfileChannelEndpointAssignment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -176,17 +178,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **type** | **CredentialEnumPushService**|  | [enum: gcm, apn, fcm] |
-| **apiKey** | **String**|  | [optional] |
-| **certificate** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **privateKey** | **String**|  | [optional] |
-| **sandbox** | **Boolean**|  | [optional] |
-| **secret** | **String**|  | [optional] |
+| **customerProfileSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **channelEndpointSid** | **String**| The SID of an channel endpoint | |
+| **channelEndpointType** | **String**| The type of channel endpoint. eg: phone-number | |
 
 ### Return type
 
-[**IpMessagingV1Credential**](IpMessagingV1Credential.md)
+[**TrusthubV1CustomerProfileCustomerProfileChannelEndpointAssignment**](TrusthubV1CustomerProfileCustomerProfileChannelEndpointAssignment.md)
 
 ### Authorization
 
@@ -202,13 +200,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createInvite"></a>
-# **createInvite**
-> IpMessagingV1ServiceChannelInvite createInvite(serviceSid, channelSid, identity, roleSid)
+<a id="createCustomerProfileEntityAssignment"></a>
+# **createCustomerProfileEntityAssignment**
+> TrusthubV1CustomerProfileCustomerProfileEntityAssignment createCustomerProfileEntityAssignment(customerProfileSid, objectSid)
 
 
 
-
+Create a new Assigned Item.
 
 ### Example
 ```java
@@ -223,7 +221,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -231,15 +229,13 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String identity = "identity_example"; // String | 
-    String roleSid = "roleSid_example"; // String | 
+    String customerProfileSid = "customerProfileSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String objectSid = "objectSid_example"; // String | The SID of an object bag that holds information of the different items.
     try {
-      IpMessagingV1ServiceChannelInvite result = apiInstance.createInvite(serviceSid, channelSid, identity, roleSid);
+      TrusthubV1CustomerProfileCustomerProfileEntityAssignment result = apiInstance.createCustomerProfileEntityAssignment(customerProfileSid, objectSid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createInvite");
+      System.err.println("Exception when calling DefaultApi#createCustomerProfileEntityAssignment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -253,14 +249,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **identity** | **String**|  | |
-| **roleSid** | **String**|  | [optional] |
+| **customerProfileSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **objectSid** | **String**| The SID of an object bag that holds information of the different items. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelInvite**](IpMessagingV1ServiceChannelInvite.md)
+[**TrusthubV1CustomerProfileCustomerProfileEntityAssignment**](TrusthubV1CustomerProfileCustomerProfileEntityAssignment.md)
 
 ### Authorization
 
@@ -276,13 +270,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createMember"></a>
-# **createMember**
-> IpMessagingV1ServiceChannelMember createMember(serviceSid, channelSid, identity, roleSid)
+<a id="createCustomerProfileEvaluation"></a>
+# **createCustomerProfileEvaluation**
+> TrusthubV1CustomerProfileCustomerProfileEvaluation createCustomerProfileEvaluation(customerProfileSid, policySid)
 
 
 
-
+Create a new Evaluation
 
 ### Example
 ```java
@@ -297,7 +291,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -305,15 +299,13 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String identity = "identity_example"; // String | 
-    String roleSid = "roleSid_example"; // String | 
+    String customerProfileSid = "customerProfileSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String policySid = "policySid_example"; // String | The unique string of a policy that is associated to the customer_profile resource.
     try {
-      IpMessagingV1ServiceChannelMember result = apiInstance.createMember(serviceSid, channelSid, identity, roleSid);
+      TrusthubV1CustomerProfileCustomerProfileEvaluation result = apiInstance.createCustomerProfileEvaluation(customerProfileSid, policySid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createMember");
+      System.err.println("Exception when calling DefaultApi#createCustomerProfileEvaluation");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -327,14 +319,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **identity** | **String**|  | |
-| **roleSid** | **String**|  | [optional] |
+| **customerProfileSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **policySid** | **String**| The unique string of a policy that is associated to the customer_profile resource. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelMember**](IpMessagingV1ServiceChannelMember.md)
+[**TrusthubV1CustomerProfileCustomerProfileEvaluation**](TrusthubV1CustomerProfileCustomerProfileEvaluation.md)
 
 ### Authorization
 
@@ -350,13 +340,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createMessage"></a>
-# **createMessage**
-> IpMessagingV1ServiceChannelMessage createMessage(serviceSid, channelSid, body, attributes, from)
+<a id="createEndUser"></a>
+# **createEndUser**
+> TrusthubV1EndUser createEndUser(friendlyName, type, attributes)
 
 
 
-
+Create a new End User.
 
 ### Example
 ```java
@@ -371,7 +361,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -379,16 +369,14 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String body = "body_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String from = "from_example"; // String | 
+    String friendlyName = "friendlyName_example"; // String | The string that you assigned to describe the resource.
+    String type = "type_example"; // String | The type of end user of the Bundle resource - can be `individual` or `business`.
+    Object attributes = null; // Object | The set of parameters that are the attributes of the End User resource which are derived End User Types.
     try {
-      IpMessagingV1ServiceChannelMessage result = apiInstance.createMessage(serviceSid, channelSid, body, attributes, from);
+      TrusthubV1EndUser result = apiInstance.createEndUser(friendlyName, type, attributes);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createMessage");
+      System.err.println("Exception when calling DefaultApi#createEndUser");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -402,15 +390,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **body** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **from** | **String**|  | [optional] |
+| **friendlyName** | **String**| The string that you assigned to describe the resource. | |
+| **type** | **String**| The type of end user of the Bundle resource - can be &#x60;individual&#x60; or &#x60;business&#x60;. | |
+| **attributes** | [**Object**](Object.md)| The set of parameters that are the attributes of the End User resource which are derived End User Types. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelMessage**](IpMessagingV1ServiceChannelMessage.md)
+[**TrusthubV1EndUser**](TrusthubV1EndUser.md)
 
 ### Authorization
 
@@ -426,13 +412,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createRole"></a>
-# **createRole**
-> IpMessagingV1ServiceRole createRole(serviceSid, friendlyName, permission, type)
+<a id="createSupportingDocument"></a>
+# **createSupportingDocument**
+> TrusthubV1SupportingDocument createSupportingDocument(friendlyName, type, attributes)
 
 
 
-
+Create a new Supporting Document.
 
 ### Example
 ```java
@@ -447,7 +433,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -455,15 +441,14 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    List<String> permission = Arrays.asList(); // List<String> | 
-    RoleEnumRoleType type = RoleEnumRoleType.fromValue("channel"); // RoleEnumRoleType | 
+    String friendlyName = "friendlyName_example"; // String | The string that you assigned to describe the resource.
+    String type = "type_example"; // String | The type of the Supporting Document.
+    Object attributes = null; // Object | The set of parameters that are the attributes of the Supporting Documents resource which are derived Supporting Document Types.
     try {
-      IpMessagingV1ServiceRole result = apiInstance.createRole(serviceSid, friendlyName, permission, type);
+      TrusthubV1SupportingDocument result = apiInstance.createSupportingDocument(friendlyName, type, attributes);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createRole");
+      System.err.println("Exception when calling DefaultApi#createSupportingDocument");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -477,14 +462,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **friendlyName** | **String**|  | |
-| **permission** | [**List&lt;String&gt;**](String.md)|  | |
-| **type** | **RoleEnumRoleType**|  | [enum: channel, deployment] |
+| **friendlyName** | **String**| The string that you assigned to describe the resource. | |
+| **type** | **String**| The type of the Supporting Document. | |
+| **attributes** | [**Object**](Object.md)| The set of parameters that are the attributes of the Supporting Documents resource which are derived Supporting Document Types. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1ServiceRole**](IpMessagingV1ServiceRole.md)
+[**TrusthubV1SupportingDocument**](TrusthubV1SupportingDocument.md)
 
 ### Authorization
 
@@ -500,13 +484,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createService"></a>
-# **createService**
-> IpMessagingV1Service createService(friendlyName)
+<a id="createTrustProduct"></a>
+# **createTrustProduct**
+> TrusthubV1TrustProduct createTrustProduct(email, friendlyName, policySid, statusCallback)
 
 
 
-
+Create a new Customer-Profile.
 
 ### Example
 ```java
@@ -521,7 +505,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -529,12 +513,15 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String friendlyName = "friendlyName_example"; // String | 
+    String email = "email_example"; // String | The email address that will receive updates when the Customer-Profile resource changes status.
+    String friendlyName = "friendlyName_example"; // String | The string that you assigned to describe the resource.
+    String policySid = "policySid_example"; // String | The unique string of a policy that is associated to the Customer-Profile resource.
+    URI statusCallback = new URI(); // URI | The URL we call to inform your application of status changes.
     try {
-      IpMessagingV1Service result = apiInstance.createService(friendlyName);
+      TrusthubV1TrustProduct result = apiInstance.createTrustProduct(email, friendlyName, policySid, statusCallback);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createService");
+      System.err.println("Exception when calling DefaultApi#createTrustProduct");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -548,11 +535,14 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **friendlyName** | **String**|  | |
+| **email** | **String**| The email address that will receive updates when the Customer-Profile resource changes status. | |
+| **friendlyName** | **String**| The string that you assigned to describe the resource. | |
+| **policySid** | **String**| The unique string of a policy that is associated to the Customer-Profile resource. | |
+| **statusCallback** | **URI**| The URL we call to inform your application of status changes. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1Service**](IpMessagingV1Service.md)
+[**TrusthubV1TrustProduct**](TrusthubV1TrustProduct.md)
 
 ### Authorization
 
@@ -568,13 +558,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createUser"></a>
-# **createUser**
-> IpMessagingV1ServiceUser createUser(serviceSid, identity, attributes, friendlyName, roleSid)
+<a id="createTrustProductChannelEndpointAssignment"></a>
+# **createTrustProductChannelEndpointAssignment**
+> TrusthubV1TrustProductTrustProductChannelEndpointAssignment createTrustProductChannelEndpointAssignment(trustProductSid, channelEndpointSid, channelEndpointType)
 
 
 
-
+Create a new Assigned Item.
 
 ### Example
 ```java
@@ -589,7 +579,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -597,16 +587,14 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String identity = "identity_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    String roleSid = "roleSid_example"; // String | 
+    String trustProductSid = "trustProductSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String channelEndpointSid = "channelEndpointSid_example"; // String | The SID of an channel endpoint
+    String channelEndpointType = "channelEndpointType_example"; // String | The type of channel endpoint. eg: phone-number
     try {
-      IpMessagingV1ServiceUser result = apiInstance.createUser(serviceSid, identity, attributes, friendlyName, roleSid);
+      TrusthubV1TrustProductTrustProductChannelEndpointAssignment result = apiInstance.createTrustProductChannelEndpointAssignment(trustProductSid, channelEndpointSid, channelEndpointType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createUser");
+      System.err.println("Exception when calling DefaultApi#createTrustProductChannelEndpointAssignment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -620,15 +608,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **identity** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **roleSid** | **String**|  | [optional] |
+| **trustProductSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **channelEndpointSid** | **String**| The SID of an channel endpoint | |
+| **channelEndpointType** | **String**| The type of channel endpoint. eg: phone-number | |
 
 ### Return type
 
-[**IpMessagingV1ServiceUser**](IpMessagingV1ServiceUser.md)
+[**TrusthubV1TrustProductTrustProductChannelEndpointAssignment**](TrusthubV1TrustProductTrustProductChannelEndpointAssignment.md)
 
 ### Authorization
 
@@ -644,13 +630,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="deleteChannel"></a>
-# **deleteChannel**
-> deleteChannel(serviceSid, sid)
+<a id="createTrustProductEntityAssignment"></a>
+# **createTrustProductEntityAssignment**
+> TrusthubV1TrustProductTrustProductEntityAssignment createTrustProductEntityAssignment(trustProductSid, objectSid)
 
 
 
-
+Create a new Assigned Item.
 
 ### Example
 ```java
@@ -665,7 +651,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -673,12 +659,13 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String trustProductSid = "trustProductSid_example"; // String | The unique string that we created to identify the TrustProduct resource.
+    String objectSid = "objectSid_example"; // String | The SID of an object bag that holds information of the different items.
     try {
-      apiInstance.deleteChannel(serviceSid, sid);
+      TrusthubV1TrustProductTrustProductEntityAssignment result = apiInstance.createTrustProductEntityAssignment(trustProductSid, objectSid);
+      System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteChannel");
+      System.err.println("Exception when calling DefaultApi#createTrustProductEntityAssignment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -692,8 +679,145 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **trustProductSid** | **String**| The unique string that we created to identify the TrustProduct resource. | |
+| **objectSid** | **String**| The SID of an object bag that holds information of the different items. | |
+
+### Return type
+
+[**TrusthubV1TrustProductTrustProductEntityAssignment**](TrusthubV1TrustProductTrustProductEntityAssignment.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+
+<a id="createTrustProductEvaluation"></a>
+# **createTrustProductEvaluation**
+> TrusthubV1TrustProductTrustProductEvaluation createTrustProductEvaluation(trustProductSid, policySid)
+
+
+
+Create a new Evaluation
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String trustProductSid = "trustProductSid_example"; // String | The unique string that we created to identify the trust_product resource.
+    String policySid = "policySid_example"; // String | The unique string of a policy that is associated to the customer_profile resource.
+    try {
+      TrusthubV1TrustProductTrustProductEvaluation result = apiInstance.createTrustProductEvaluation(trustProductSid, policySid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createTrustProductEvaluation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trustProductSid** | **String**| The unique string that we created to identify the trust_product resource. | |
+| **policySid** | **String**| The unique string of a policy that is associated to the customer_profile resource. | |
+
+### Return type
+
+[**TrusthubV1TrustProductTrustProductEvaluation**](TrusthubV1TrustProductTrustProductEvaluation.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+
+<a id="deleteCustomerProfile"></a>
+# **deleteCustomerProfile**
+> deleteCustomerProfile(sid)
+
+
+
+Delete a specific Customer-Profile.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String sid = "sid_example"; // String | The unique string that we created to identify the Customer-Profile resource.
+    try {
+      apiInstance.deleteCustomerProfile(sid);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteCustomerProfile");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sid** | **String**| The unique string that we created to identify the Customer-Profile resource. | |
 
 ### Return type
 
@@ -713,13 +837,13 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | The resource was deleted successfully. |  -  |
 
-<a id="deleteCredential"></a>
-# **deleteCredential**
-> deleteCredential(sid)
+<a id="deleteCustomerProfileChannelEndpointAssignment"></a>
+# **deleteCustomerProfileChannelEndpointAssignment**
+> deleteCustomerProfileChannelEndpointAssignment(customerProfileSid, sid)
 
 
 
-
+Remove an Assignment Item Instance.
 
 ### Example
 ```java
@@ -734,7 +858,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -742,11 +866,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
+    String customerProfileSid = "customerProfileSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String sid = "sid_example"; // String | The unique string that we created to identify the resource.
     try {
-      apiInstance.deleteCredential(sid);
+      apiInstance.deleteCustomerProfileChannelEndpointAssignment(customerProfileSid, sid);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteCredential");
+      System.err.println("Exception when calling DefaultApi#deleteCustomerProfileChannelEndpointAssignment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -760,7 +885,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
+| **customerProfileSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **sid** | **String**| The unique string that we created to identify the resource. | |
 
 ### Return type
 
@@ -780,13 +906,13 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | The resource was deleted successfully. |  -  |
 
-<a id="deleteInvite"></a>
-# **deleteInvite**
-> deleteInvite(serviceSid, channelSid, sid)
+<a id="deleteCustomerProfileEntityAssignment"></a>
+# **deleteCustomerProfileEntityAssignment**
+> deleteCustomerProfileEntityAssignment(customerProfileSid, sid)
 
 
 
-
+Remove an Assignment Item Instance.
 
 ### Example
 ```java
@@ -801,7 +927,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -809,13 +935,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String customerProfileSid = "customerProfileSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String sid = "sid_example"; // String | The unique string that we created to identify the Identity resource.
     try {
-      apiInstance.deleteInvite(serviceSid, channelSid, sid);
+      apiInstance.deleteCustomerProfileEntityAssignment(customerProfileSid, sid);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteInvite");
+      System.err.println("Exception when calling DefaultApi#deleteCustomerProfileEntityAssignment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -829,9 +954,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **customerProfileSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **sid** | **String**| The unique string that we created to identify the Identity resource. | |
 
 ### Return type
 
@@ -851,13 +975,13 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | The resource was deleted successfully. |  -  |
 
-<a id="deleteMember"></a>
-# **deleteMember**
-> deleteMember(serviceSid, channelSid, sid)
+<a id="deleteEndUser"></a>
+# **deleteEndUser**
+> deleteEndUser(sid)
 
 
 
-
+Delete a specific End User.
 
 ### Example
 ```java
@@ -872,7 +996,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -880,13 +1004,11 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The unique string created by Twilio to identify the End User resource.
     try {
-      apiInstance.deleteMember(serviceSid, channelSid, sid);
+      apiInstance.deleteEndUser(sid);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteMember");
+      System.err.println("Exception when calling DefaultApi#deleteEndUser");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -900,9 +1022,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The unique string created by Twilio to identify the End User resource. | |
 
 ### Return type
 
@@ -922,13 +1042,13 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | The resource was deleted successfully. |  -  |
 
-<a id="deleteMessage"></a>
-# **deleteMessage**
-> deleteMessage(serviceSid, channelSid, sid)
+<a id="deleteSupportingDocument"></a>
+# **deleteSupportingDocument**
+> deleteSupportingDocument(sid)
 
 
 
-
+Delete a specific Supporting Document.
 
 ### Example
 ```java
@@ -943,7 +1063,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -951,13 +1071,11 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The unique string created by Twilio to identify the Supporting Document resource.
     try {
-      apiInstance.deleteMessage(serviceSid, channelSid, sid);
+      apiInstance.deleteSupportingDocument(sid);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteMessage");
+      System.err.println("Exception when calling DefaultApi#deleteSupportingDocument");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -971,9 +1089,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The unique string created by Twilio to identify the Supporting Document resource. | |
 
 ### Return type
 
@@ -993,13 +1109,13 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | The resource was deleted successfully. |  -  |
 
-<a id="deleteRole"></a>
-# **deleteRole**
-> deleteRole(serviceSid, sid)
+<a id="deleteTrustProduct"></a>
+# **deleteTrustProduct**
+> deleteTrustProduct(sid)
 
 
 
-
+Delete a specific Customer-Profile.
 
 ### Example
 ```java
@@ -1014,7 +1130,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1022,12 +1138,11 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The unique string that we created to identify the Customer-Profile resource.
     try {
-      apiInstance.deleteRole(serviceSid, sid);
+      apiInstance.deleteTrustProduct(sid);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteRole");
+      System.err.println("Exception when calling DefaultApi#deleteTrustProduct");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1041,8 +1156,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The unique string that we created to identify the Customer-Profile resource. | |
 
 ### Return type
 
@@ -1062,13 +1176,13 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | The resource was deleted successfully. |  -  |
 
-<a id="deleteService"></a>
-# **deleteService**
-> deleteService(sid)
+<a id="deleteTrustProductChannelEndpointAssignment"></a>
+# **deleteTrustProductChannelEndpointAssignment**
+> deleteTrustProductChannelEndpointAssignment(trustProductSid, sid)
 
 
 
-
+Remove an Assignment Item Instance.
 
 ### Example
 ```java
@@ -1083,7 +1197,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1091,11 +1205,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
+    String trustProductSid = "trustProductSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String sid = "sid_example"; // String | The unique string that we created to identify the resource.
     try {
-      apiInstance.deleteService(sid);
+      apiInstance.deleteTrustProductChannelEndpointAssignment(trustProductSid, sid);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteService");
+      System.err.println("Exception when calling DefaultApi#deleteTrustProductChannelEndpointAssignment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1109,7 +1224,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
+| **trustProductSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **sid** | **String**| The unique string that we created to identify the resource. | |
 
 ### Return type
 
@@ -1129,13 +1245,13 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | The resource was deleted successfully. |  -  |
 
-<a id="deleteUser"></a>
-# **deleteUser**
-> deleteUser(serviceSid, sid)
+<a id="deleteTrustProductEntityAssignment"></a>
+# **deleteTrustProductEntityAssignment**
+> deleteTrustProductEntityAssignment(trustProductSid, sid)
 
 
 
-
+Remove an Assignment Item Instance.
 
 ### Example
 ```java
@@ -1150,7 +1266,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1158,12 +1274,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String trustProductSid = "trustProductSid_example"; // String | The unique string that we created to identify the TrustProduct resource.
+    String sid = "sid_example"; // String | The unique string that we created to identify the Identity resource.
     try {
-      apiInstance.deleteUser(serviceSid, sid);
+      apiInstance.deleteTrustProductEntityAssignment(trustProductSid, sid);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteUser");
+      System.err.println("Exception when calling DefaultApi#deleteTrustProductEntityAssignment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1177,8 +1293,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **trustProductSid** | **String**| The unique string that we created to identify the TrustProduct resource. | |
+| **sid** | **String**| The unique string that we created to identify the Identity resource. | |
 
 ### Return type
 
@@ -1198,13 +1314,13 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | The resource was deleted successfully. |  -  |
 
-<a id="fetchChannel"></a>
-# **fetchChannel**
-> IpMessagingV1ServiceChannel fetchChannel(serviceSid, sid)
+<a id="fetchCustomerProfile"></a>
+# **fetchCustomerProfile**
+> TrusthubV1CustomerProfile fetchCustomerProfile(sid)
 
 
 
-
+Fetch a specific Customer-Profile instance.
 
 ### Example
 ```java
@@ -1219,7 +1335,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1227,13 +1343,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The unique string that we created to identify the Customer-Profile resource.
     try {
-      IpMessagingV1ServiceChannel result = apiInstance.fetchChannel(serviceSid, sid);
+      TrusthubV1CustomerProfile result = apiInstance.fetchCustomerProfile(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchChannel");
+      System.err.println("Exception when calling DefaultApi#fetchCustomerProfile");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1247,12 +1362,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The unique string that we created to identify the Customer-Profile resource. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannel**](IpMessagingV1ServiceChannel.md)
+[**TrusthubV1CustomerProfile**](TrusthubV1CustomerProfile.md)
 
 ### Authorization
 
@@ -1268,13 +1382,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchCredential"></a>
-# **fetchCredential**
-> IpMessagingV1Credential fetchCredential(sid)
+<a id="fetchCustomerProfileChannelEndpointAssignment"></a>
+# **fetchCustomerProfileChannelEndpointAssignment**
+> TrusthubV1CustomerProfileCustomerProfileChannelEndpointAssignment fetchCustomerProfileChannelEndpointAssignment(customerProfileSid, sid)
 
 
 
-
+Fetch specific Assigned Item Instance.
 
 ### Example
 ```java
@@ -1289,7 +1403,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1297,12 +1411,13 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
+    String customerProfileSid = "customerProfileSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String sid = "sid_example"; // String | The unique string that we created to identify the resource.
     try {
-      IpMessagingV1Credential result = apiInstance.fetchCredential(sid);
+      TrusthubV1CustomerProfileCustomerProfileChannelEndpointAssignment result = apiInstance.fetchCustomerProfileChannelEndpointAssignment(customerProfileSid, sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchCredential");
+      System.err.println("Exception when calling DefaultApi#fetchCustomerProfileChannelEndpointAssignment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1316,11 +1431,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
+| **customerProfileSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **sid** | **String**| The unique string that we created to identify the resource. | |
 
 ### Return type
 
-[**IpMessagingV1Credential**](IpMessagingV1Credential.md)
+[**TrusthubV1CustomerProfileCustomerProfileChannelEndpointAssignment**](TrusthubV1CustomerProfileCustomerProfileChannelEndpointAssignment.md)
 
 ### Authorization
 
@@ -1336,13 +1452,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchInvite"></a>
-# **fetchInvite**
-> IpMessagingV1ServiceChannelInvite fetchInvite(serviceSid, channelSid, sid)
+<a id="fetchCustomerProfileEntityAssignment"></a>
+# **fetchCustomerProfileEntityAssignment**
+> TrusthubV1CustomerProfileCustomerProfileEntityAssignment fetchCustomerProfileEntityAssignment(customerProfileSid, sid)
 
 
 
-
+Fetch specific Assigned Item Instance.
 
 ### Example
 ```java
@@ -1357,7 +1473,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1365,14 +1481,13 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String customerProfileSid = "customerProfileSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String sid = "sid_example"; // String | The unique string that we created to identify the Identity resource.
     try {
-      IpMessagingV1ServiceChannelInvite result = apiInstance.fetchInvite(serviceSid, channelSid, sid);
+      TrusthubV1CustomerProfileCustomerProfileEntityAssignment result = apiInstance.fetchCustomerProfileEntityAssignment(customerProfileSid, sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchInvite");
+      System.err.println("Exception when calling DefaultApi#fetchCustomerProfileEntityAssignment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1386,13 +1501,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **customerProfileSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **sid** | **String**| The unique string that we created to identify the Identity resource. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelInvite**](IpMessagingV1ServiceChannelInvite.md)
+[**TrusthubV1CustomerProfileCustomerProfileEntityAssignment**](TrusthubV1CustomerProfileCustomerProfileEntityAssignment.md)
 
 ### Authorization
 
@@ -1408,13 +1522,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchMember"></a>
-# **fetchMember**
-> IpMessagingV1ServiceChannelMember fetchMember(serviceSid, channelSid, sid)
+<a id="fetchCustomerProfileEvaluation"></a>
+# **fetchCustomerProfileEvaluation**
+> TrusthubV1CustomerProfileCustomerProfileEvaluation fetchCustomerProfileEvaluation(customerProfileSid, sid)
 
 
 
-
+Fetch specific Evaluation Instance.
 
 ### Example
 ```java
@@ -1429,7 +1543,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1437,14 +1551,13 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String customerProfileSid = "customerProfileSid_example"; // String | The unique string that we created to identify the customer_profile resource.
+    String sid = "sid_example"; // String | The unique string that identifies the Evaluation resource.
     try {
-      IpMessagingV1ServiceChannelMember result = apiInstance.fetchMember(serviceSid, channelSid, sid);
+      TrusthubV1CustomerProfileCustomerProfileEvaluation result = apiInstance.fetchCustomerProfileEvaluation(customerProfileSid, sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchMember");
+      System.err.println("Exception when calling DefaultApi#fetchCustomerProfileEvaluation");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1458,13 +1571,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **customerProfileSid** | **String**| The unique string that we created to identify the customer_profile resource. | |
+| **sid** | **String**| The unique string that identifies the Evaluation resource. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelMember**](IpMessagingV1ServiceChannelMember.md)
+[**TrusthubV1CustomerProfileCustomerProfileEvaluation**](TrusthubV1CustomerProfileCustomerProfileEvaluation.md)
 
 ### Authorization
 
@@ -1480,13 +1592,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchMessage"></a>
-# **fetchMessage**
-> IpMessagingV1ServiceChannelMessage fetchMessage(serviceSid, channelSid, sid)
+<a id="fetchEndUser"></a>
+# **fetchEndUser**
+> TrusthubV1EndUser fetchEndUser(sid)
 
 
 
-
+Fetch specific End User Instance.
 
 ### Example
 ```java
@@ -1501,7 +1613,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1509,14 +1621,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The unique string created by Twilio to identify the End User resource.
     try {
-      IpMessagingV1ServiceChannelMessage result = apiInstance.fetchMessage(serviceSid, channelSid, sid);
+      TrusthubV1EndUser result = apiInstance.fetchEndUser(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchMessage");
+      System.err.println("Exception when calling DefaultApi#fetchEndUser");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1530,13 +1640,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The unique string created by Twilio to identify the End User resource. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelMessage**](IpMessagingV1ServiceChannelMessage.md)
+[**TrusthubV1EndUser**](TrusthubV1EndUser.md)
 
 ### Authorization
 
@@ -1552,13 +1660,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchRole"></a>
-# **fetchRole**
-> IpMessagingV1ServiceRole fetchRole(serviceSid, sid)
+<a id="fetchEndUserType"></a>
+# **fetchEndUserType**
+> TrusthubV1EndUserType fetchEndUserType(sid)
 
 
 
-
+Fetch a specific End-User Type Instance.
 
 ### Example
 ```java
@@ -1573,7 +1681,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1581,13 +1689,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The unique string that identifies the End-User Type resource.
     try {
-      IpMessagingV1ServiceRole result = apiInstance.fetchRole(serviceSid, sid);
+      TrusthubV1EndUserType result = apiInstance.fetchEndUserType(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchRole");
+      System.err.println("Exception when calling DefaultApi#fetchEndUserType");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1601,12 +1708,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The unique string that identifies the End-User Type resource. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceRole**](IpMessagingV1ServiceRole.md)
+[**TrusthubV1EndUserType**](TrusthubV1EndUserType.md)
 
 ### Authorization
 
@@ -1622,13 +1728,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchService"></a>
-# **fetchService**
-> IpMessagingV1Service fetchService(sid)
+<a id="fetchPolicies"></a>
+# **fetchPolicies**
+> TrusthubV1Policies fetchPolicies(sid)
 
 
 
-
+Fetch specific Policy Instance.
 
 ### Example
 ```java
@@ -1643,7 +1749,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1651,12 +1757,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The unique string that identifies the Policy resource.
     try {
-      IpMessagingV1Service result = apiInstance.fetchService(sid);
+      TrusthubV1Policies result = apiInstance.fetchPolicies(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchService");
+      System.err.println("Exception when calling DefaultApi#fetchPolicies");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1670,11 +1776,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
+| **sid** | **String**| The unique string that identifies the Policy resource. | |
 
 ### Return type
 
-[**IpMessagingV1Service**](IpMessagingV1Service.md)
+[**TrusthubV1Policies**](TrusthubV1Policies.md)
 
 ### Authorization
 
@@ -1690,13 +1796,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchUser"></a>
-# **fetchUser**
-> IpMessagingV1ServiceUser fetchUser(serviceSid, sid)
+<a id="fetchSupportingDocument"></a>
+# **fetchSupportingDocument**
+> TrusthubV1SupportingDocument fetchSupportingDocument(sid)
 
 
 
-
+Fetch specific Supporting Document Instance.
 
 ### Example
 ```java
@@ -1711,7 +1817,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1719,13 +1825,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The unique string created by Twilio to identify the Supporting Document resource.
     try {
-      IpMessagingV1ServiceUser result = apiInstance.fetchUser(serviceSid, sid);
+      TrusthubV1SupportingDocument result = apiInstance.fetchSupportingDocument(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchUser");
+      System.err.println("Exception when calling DefaultApi#fetchSupportingDocument");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1739,12 +1844,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The unique string created by Twilio to identify the Supporting Document resource. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceUser**](IpMessagingV1ServiceUser.md)
+[**TrusthubV1SupportingDocument**](TrusthubV1SupportingDocument.md)
 
 ### Authorization
 
@@ -1760,13 +1864,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listChannel"></a>
-# **listChannel**
-> ListChannelResponse listChannel(serviceSid, type, pageSize, page, pageToken)
+<a id="fetchSupportingDocumentType"></a>
+# **fetchSupportingDocumentType**
+> TrusthubV1SupportingDocumentType fetchSupportingDocumentType(sid)
 
 
 
-
+Fetch a specific Supporting Document Type Instance.
 
 ### Example
 ```java
@@ -1781,7 +1885,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1789,16 +1893,363 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    List<ChannelEnumChannelType> type = Arrays.asList(); // List<ChannelEnumChannelType> | 
+    String sid = "sid_example"; // String | The unique string that identifies the Supporting Document Type resource.
+    try {
+      TrusthubV1SupportingDocumentType result = apiInstance.fetchSupportingDocumentType(sid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#fetchSupportingDocumentType");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sid** | **String**| The unique string that identifies the Supporting Document Type resource. | |
+
+### Return type
+
+[**TrusthubV1SupportingDocumentType**](TrusthubV1SupportingDocumentType.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="fetchTrustProduct"></a>
+# **fetchTrustProduct**
+> TrusthubV1TrustProduct fetchTrustProduct(sid)
+
+
+
+Fetch a specific Customer-Profile instance.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String sid = "sid_example"; // String | The unique string that we created to identify the Customer-Profile resource.
+    try {
+      TrusthubV1TrustProduct result = apiInstance.fetchTrustProduct(sid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#fetchTrustProduct");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sid** | **String**| The unique string that we created to identify the Customer-Profile resource. | |
+
+### Return type
+
+[**TrusthubV1TrustProduct**](TrusthubV1TrustProduct.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="fetchTrustProductChannelEndpointAssignment"></a>
+# **fetchTrustProductChannelEndpointAssignment**
+> TrusthubV1TrustProductTrustProductChannelEndpointAssignment fetchTrustProductChannelEndpointAssignment(trustProductSid, sid)
+
+
+
+Fetch specific Assigned Item Instance.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String trustProductSid = "trustProductSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String sid = "sid_example"; // String | The unique string that we created to identify the resource.
+    try {
+      TrusthubV1TrustProductTrustProductChannelEndpointAssignment result = apiInstance.fetchTrustProductChannelEndpointAssignment(trustProductSid, sid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#fetchTrustProductChannelEndpointAssignment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trustProductSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **sid** | **String**| The unique string that we created to identify the resource. | |
+
+### Return type
+
+[**TrusthubV1TrustProductTrustProductChannelEndpointAssignment**](TrusthubV1TrustProductTrustProductChannelEndpointAssignment.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="fetchTrustProductEntityAssignment"></a>
+# **fetchTrustProductEntityAssignment**
+> TrusthubV1TrustProductTrustProductEntityAssignment fetchTrustProductEntityAssignment(trustProductSid, sid)
+
+
+
+Fetch specific Assigned Item Instance.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String trustProductSid = "trustProductSid_example"; // String | The unique string that we created to identify the TrustProduct resource.
+    String sid = "sid_example"; // String | The unique string that we created to identify the Identity resource.
+    try {
+      TrusthubV1TrustProductTrustProductEntityAssignment result = apiInstance.fetchTrustProductEntityAssignment(trustProductSid, sid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#fetchTrustProductEntityAssignment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trustProductSid** | **String**| The unique string that we created to identify the TrustProduct resource. | |
+| **sid** | **String**| The unique string that we created to identify the Identity resource. | |
+
+### Return type
+
+[**TrusthubV1TrustProductTrustProductEntityAssignment**](TrusthubV1TrustProductTrustProductEntityAssignment.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="fetchTrustProductEvaluation"></a>
+# **fetchTrustProductEvaluation**
+> TrusthubV1TrustProductTrustProductEvaluation fetchTrustProductEvaluation(trustProductSid, sid)
+
+
+
+Fetch specific Evaluation Instance.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String trustProductSid = "trustProductSid_example"; // String | The unique string that we created to identify the trust_product resource.
+    String sid = "sid_example"; // String | The unique string that identifies the Evaluation resource.
+    try {
+      TrusthubV1TrustProductTrustProductEvaluation result = apiInstance.fetchTrustProductEvaluation(trustProductSid, sid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#fetchTrustProductEvaluation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trustProductSid** | **String**| The unique string that we created to identify the trust_product resource. | |
+| **sid** | **String**| The unique string that identifies the Evaluation resource. | |
+
+### Return type
+
+[**TrusthubV1TrustProductTrustProductEvaluation**](TrusthubV1TrustProductTrustProductEvaluation.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listCustomerProfile"></a>
+# **listCustomerProfile**
+> ListCustomerProfileResponse listCustomerProfile(status, friendlyName, policySid, pageSize, page, pageToken)
+
+
+
+Retrieve a list of all Customer-Profiles for an account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    CustomerProfileEnumStatus status = CustomerProfileEnumStatus.fromValue("draft"); // CustomerProfileEnumStatus | The verification status of the Customer-Profile resource.
+    String friendlyName = "friendlyName_example"; // String | The string that you assigned to describe the resource.
+    String policySid = "policySid_example"; // String | The unique string of a policy that is associated to the Customer-Profile resource.
     Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListChannelResponse result = apiInstance.listChannel(serviceSid, type, pageSize, page, pageToken);
+      ListCustomerProfileResponse result = apiInstance.listCustomerProfile(status, friendlyName, policySid, pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listChannel");
+      System.err.println("Exception when calling DefaultApi#listCustomerProfile");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1812,15 +2263,16 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **type** | [**List&lt;ChannelEnumChannelType&gt;**](ChannelEnumChannelType.md)|  | [optional] |
+| **status** | **CustomerProfileEnumStatus**| The verification status of the Customer-Profile resource. | [optional] [enum: draft, pending-review, in-review, twilio-rejected, twilio-approved] |
+| **friendlyName** | **String**| The string that you assigned to describe the resource. | [optional] |
+| **policySid** | **String**| The unique string of a policy that is associated to the Customer-Profile resource. | [optional] |
 | **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
 | **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
 | **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
 
 ### Return type
 
-[**ListChannelResponse**](ListChannelResponse.md)
+[**ListCustomerProfileResponse**](ListCustomerProfileResponse.md)
 
 ### Authorization
 
@@ -1836,13 +2288,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listCredential"></a>
-# **listCredential**
-> ListCredentialResponse listCredential(pageSize, page, pageToken)
+<a id="listCustomerProfileChannelEndpointAssignment"></a>
+# **listCustomerProfileChannelEndpointAssignment**
+> ListCustomerProfileChannelEndpointAssignmentResponse listCustomerProfileChannelEndpointAssignment(customerProfileSid, channelEndpointSid, channelEndpointSids, pageSize, page, pageToken)
 
 
 
-
+Retrieve a list of all Assigned Items for an account.
 
 ### Example
 ```java
@@ -1857,7 +2309,233 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String customerProfileSid = "customerProfileSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String channelEndpointSid = "channelEndpointSid_example"; // String | The SID of an channel endpoint
+    String channelEndpointSids = "channelEndpointSids_example"; // String | comma separated list of channel endpoint sids
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
+    try {
+      ListCustomerProfileChannelEndpointAssignmentResponse result = apiInstance.listCustomerProfileChannelEndpointAssignment(customerProfileSid, channelEndpointSid, channelEndpointSids, pageSize, page, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listCustomerProfileChannelEndpointAssignment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customerProfileSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **channelEndpointSid** | **String**| The SID of an channel endpoint | [optional] |
+| **channelEndpointSids** | **String**| comma separated list of channel endpoint sids | [optional] |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
+
+### Return type
+
+[**ListCustomerProfileChannelEndpointAssignmentResponse**](ListCustomerProfileChannelEndpointAssignmentResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listCustomerProfileEntityAssignment"></a>
+# **listCustomerProfileEntityAssignment**
+> ListCustomerProfileEntityAssignmentResponse listCustomerProfileEntityAssignment(customerProfileSid, pageSize, page, pageToken)
+
+
+
+Retrieve a list of all Assigned Items for an account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String customerProfileSid = "customerProfileSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
+    try {
+      ListCustomerProfileEntityAssignmentResponse result = apiInstance.listCustomerProfileEntityAssignment(customerProfileSid, pageSize, page, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listCustomerProfileEntityAssignment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customerProfileSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
+
+### Return type
+
+[**ListCustomerProfileEntityAssignmentResponse**](ListCustomerProfileEntityAssignmentResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listCustomerProfileEvaluation"></a>
+# **listCustomerProfileEvaluation**
+> ListCustomerProfileEvaluationResponse listCustomerProfileEvaluation(customerProfileSid, pageSize, page, pageToken)
+
+
+
+Retrieve a list of Evaluations associated to the customer_profile resource.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String customerProfileSid = "customerProfileSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
+    try {
+      ListCustomerProfileEvaluationResponse result = apiInstance.listCustomerProfileEvaluation(customerProfileSid, pageSize, page, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listCustomerProfileEvaluation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **customerProfileSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
+
+### Return type
+
+[**ListCustomerProfileEvaluationResponse**](ListCustomerProfileEvaluationResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listEndUser"></a>
+# **listEndUser**
+> ListEndUserResponse listEndUser(pageSize, page, pageToken)
+
+
+
+Retrieve a list of all End User for an account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1869,10 +2547,10 @@ public class Example {
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListCredentialResponse result = apiInstance.listCredential(pageSize, page, pageToken);
+      ListEndUserResponse result = apiInstance.listEndUser(pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listCredential");
+      System.err.println("Exception when calling DefaultApi#listEndUser");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1892,7 +2570,7 @@ public class Example {
 
 ### Return type
 
-[**ListCredentialResponse**](ListCredentialResponse.md)
+[**ListEndUserResponse**](ListEndUserResponse.md)
 
 ### Authorization
 
@@ -1908,91 +2586,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listInvite"></a>
-# **listInvite**
-> ListInviteResponse listInvite(serviceSid, channelSid, identity, pageSize, page, pageToken)
+<a id="listEndUserType"></a>
+# **listEndUserType**
+> ListEndUserTypeResponse listEndUserType(pageSize, page, pageToken)
 
 
 
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    List<String> identity = Arrays.asList(); // List<String> | 
-    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
-    Integer page = 56; // Integer | The page index. This value is simply for client state.
-    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
-    try {
-      ListInviteResponse result = apiInstance.listInvite(serviceSid, channelSid, identity, pageSize, page, pageToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listInvite");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **identity** | [**List&lt;String&gt;**](String.md)|  | [optional] |
-| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
-| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
-| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
-
-### Return type
-
-[**ListInviteResponse**](ListInviteResponse.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="listMember"></a>
-# **listMember**
-> ListMemberResponse listMember(serviceSid, channelSid, identity, pageSize, page, pageToken)
-
-
-
-
+Retrieve a list of all End-User Types.
 
 ### Example
 ```java
@@ -2007,237 +2607,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    List<String> identity = Arrays.asList(); // List<String> | 
-    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
-    Integer page = 56; // Integer | The page index. This value is simply for client state.
-    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
-    try {
-      ListMemberResponse result = apiInstance.listMember(serviceSid, channelSid, identity, pageSize, page, pageToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listMember");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **identity** | [**List&lt;String&gt;**](String.md)|  | [optional] |
-| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
-| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
-| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
-
-### Return type
-
-[**ListMemberResponse**](ListMemberResponse.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="listMessage"></a>
-# **listMessage**
-> ListMessageResponse listMessage(serviceSid, channelSid, order, pageSize, page, pageToken)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    MessageEnumOrderType order = MessageEnumOrderType.fromValue("asc"); // MessageEnumOrderType | 
-    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
-    Integer page = 56; // Integer | The page index. This value is simply for client state.
-    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
-    try {
-      ListMessageResponse result = apiInstance.listMessage(serviceSid, channelSid, order, pageSize, page, pageToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listMessage");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **order** | **MessageEnumOrderType**|  | [optional] [enum: asc, desc] |
-| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
-| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
-| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
-
-### Return type
-
-[**ListMessageResponse**](ListMessageResponse.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="listRole"></a>
-# **listRole**
-> ListRoleResponse listRole(serviceSid, pageSize, page, pageToken)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
-    Integer page = 56; // Integer | The page index. This value is simply for client state.
-    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
-    try {
-      ListRoleResponse result = apiInstance.listRole(serviceSid, pageSize, page, pageToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listRole");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
-| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
-| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
-
-### Return type
-
-[**ListRoleResponse**](ListRoleResponse.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="listService"></a>
-# **listService**
-> ListServiceResponse listService(pageSize, page, pageToken)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2249,10 +2619,10 @@ public class Example {
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListServiceResponse result = apiInstance.listService(pageSize, page, pageToken);
+      ListEndUserTypeResponse result = apiInstance.listEndUserType(pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listService");
+      System.err.println("Exception when calling DefaultApi#listEndUserType");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2272,7 +2642,7 @@ public class Example {
 
 ### Return type
 
-[**ListServiceResponse**](ListServiceResponse.md)
+[**ListEndUserTypeResponse**](ListEndUserTypeResponse.md)
 
 ### Authorization
 
@@ -2288,13 +2658,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listUser"></a>
-# **listUser**
-> ListUserResponse listUser(serviceSid, pageSize, page, pageToken)
+<a id="listPolicies"></a>
+# **listPolicies**
+> ListPoliciesResponse listPolicies(pageSize, page, pageToken)
 
 
 
-
+Retrieve a list of all Policys.
 
 ### Example
 ```java
@@ -2309,7 +2679,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2317,15 +2687,14 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
     Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListUserResponse result = apiInstance.listUser(serviceSid, pageSize, page, pageToken);
+      ListPoliciesResponse result = apiInstance.listPolicies(pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listUser");
+      System.err.println("Exception when calling DefaultApi#listPolicies");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2339,14 +2708,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
 | **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
 | **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
 | **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
 
 ### Return type
 
-[**ListUserResponse**](ListUserResponse.md)
+[**ListPoliciesResponse**](ListPoliciesResponse.md)
 
 ### Authorization
 
@@ -2362,13 +2730,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listUserChannel"></a>
-# **listUserChannel**
-> ListUserChannelResponse listUserChannel(serviceSid, userSid, pageSize, page, pageToken)
+<a id="listSupportingDocument"></a>
+# **listSupportingDocument**
+> ListSupportingDocumentResponse listSupportingDocument(pageSize, page, pageToken)
 
 
 
-
+Retrieve a list of all Supporting Document for an account.
 
 ### Example
 ```java
@@ -2383,7 +2751,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2391,16 +2759,14 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String userSid = "userSid_example"; // String | 
     Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListUserChannelResponse result = apiInstance.listUserChannel(serviceSid, userSid, pageSize, page, pageToken);
+      ListSupportingDocumentResponse result = apiInstance.listSupportingDocument(pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listUserChannel");
+      System.err.println("Exception when calling DefaultApi#listSupportingDocument");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2414,15 +2780,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **userSid** | **String**|  | |
 | **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
 | **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
 | **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
 
 ### Return type
 
-[**ListUserChannelResponse**](ListUserChannelResponse.md)
+[**ListSupportingDocumentResponse**](ListSupportingDocumentResponse.md)
 
 ### Authorization
 
@@ -2438,13 +2802,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="updateChannel"></a>
-# **updateChannel**
-> IpMessagingV1ServiceChannel updateChannel(serviceSid, sid, attributes, friendlyName, uniqueName)
+<a id="listSupportingDocumentType"></a>
+# **listSupportingDocumentType**
+> ListSupportingDocumentTypeResponse listSupportingDocumentType(pageSize, page, pageToken)
 
 
 
-
+Retrieve a list of all Supporting Document Types.
 
 ### Example
 ```java
@@ -2459,7 +2823,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2467,16 +2831,14 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    String uniqueName = "uniqueName_example"; // String | 
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      IpMessagingV1ServiceChannel result = apiInstance.updateChannel(serviceSid, sid, attributes, friendlyName, uniqueName);
+      ListSupportingDocumentTypeResponse result = apiInstance.listSupportingDocumentType(pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateChannel");
+      System.err.println("Exception when calling DefaultApi#listSupportingDocumentType");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2490,15 +2852,393 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **uniqueName** | **String**|  | [optional] |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannel**](IpMessagingV1ServiceChannel.md)
+[**ListSupportingDocumentTypeResponse**](ListSupportingDocumentTypeResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listTrustProduct"></a>
+# **listTrustProduct**
+> ListTrustProductResponse listTrustProduct(status, friendlyName, policySid, pageSize, page, pageToken)
+
+
+
+Retrieve a list of all Customer-Profiles for an account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    TrustProductEnumStatus status = TrustProductEnumStatus.fromValue("draft"); // TrustProductEnumStatus | The verification status of the Customer-Profile resource.
+    String friendlyName = "friendlyName_example"; // String | The string that you assigned to describe the resource.
+    String policySid = "policySid_example"; // String | The unique string of a policy that is associated to the Customer-Profile resource.
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
+    try {
+      ListTrustProductResponse result = apiInstance.listTrustProduct(status, friendlyName, policySid, pageSize, page, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listTrustProduct");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **status** | **TrustProductEnumStatus**| The verification status of the Customer-Profile resource. | [optional] [enum: draft, pending-review, in-review, twilio-rejected, twilio-approved] |
+| **friendlyName** | **String**| The string that you assigned to describe the resource. | [optional] |
+| **policySid** | **String**| The unique string of a policy that is associated to the Customer-Profile resource. | [optional] |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
+
+### Return type
+
+[**ListTrustProductResponse**](ListTrustProductResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listTrustProductChannelEndpointAssignment"></a>
+# **listTrustProductChannelEndpointAssignment**
+> ListTrustProductChannelEndpointAssignmentResponse listTrustProductChannelEndpointAssignment(trustProductSid, channelEndpointSid, channelEndpointSids, pageSize, page, pageToken)
+
+
+
+Retrieve a list of all Assigned Items for an account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String trustProductSid = "trustProductSid_example"; // String | The unique string that we created to identify the CustomerProfile resource.
+    String channelEndpointSid = "channelEndpointSid_example"; // String | The SID of an channel endpoint
+    String channelEndpointSids = "channelEndpointSids_example"; // String | comma separated list of channel endpoint sids
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
+    try {
+      ListTrustProductChannelEndpointAssignmentResponse result = apiInstance.listTrustProductChannelEndpointAssignment(trustProductSid, channelEndpointSid, channelEndpointSids, pageSize, page, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listTrustProductChannelEndpointAssignment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trustProductSid** | **String**| The unique string that we created to identify the CustomerProfile resource. | |
+| **channelEndpointSid** | **String**| The SID of an channel endpoint | [optional] |
+| **channelEndpointSids** | **String**| comma separated list of channel endpoint sids | [optional] |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
+
+### Return type
+
+[**ListTrustProductChannelEndpointAssignmentResponse**](ListTrustProductChannelEndpointAssignmentResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listTrustProductEntityAssignment"></a>
+# **listTrustProductEntityAssignment**
+> ListTrustProductEntityAssignmentResponse listTrustProductEntityAssignment(trustProductSid, pageSize, page, pageToken)
+
+
+
+Retrieve a list of all Assigned Items for an account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String trustProductSid = "trustProductSid_example"; // String | The unique string that we created to identify the TrustProduct resource.
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
+    try {
+      ListTrustProductEntityAssignmentResponse result = apiInstance.listTrustProductEntityAssignment(trustProductSid, pageSize, page, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listTrustProductEntityAssignment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trustProductSid** | **String**| The unique string that we created to identify the TrustProduct resource. | |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
+
+### Return type
+
+[**ListTrustProductEntityAssignmentResponse**](ListTrustProductEntityAssignmentResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listTrustProductEvaluation"></a>
+# **listTrustProductEvaluation**
+> ListTrustProductEvaluationResponse listTrustProductEvaluation(trustProductSid, pageSize, page, pageToken)
+
+
+
+Retrieve a list of Evaluations associated to the trust_product resource.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String trustProductSid = "trustProductSid_example"; // String | The unique string that we created to identify the trust_product resource.
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
+    try {
+      ListTrustProductEvaluationResponse result = apiInstance.listTrustProductEvaluation(trustProductSid, pageSize, page, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listTrustProductEvaluation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trustProductSid** | **String**| The unique string that we created to identify the trust_product resource. | |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
+
+### Return type
+
+[**ListTrustProductEvaluationResponse**](ListTrustProductEvaluationResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="updateCustomerProfile"></a>
+# **updateCustomerProfile**
+> TrusthubV1CustomerProfile updateCustomerProfile(sid, email, friendlyName, status, statusCallback)
+
+
+
+Updates a Customer-Profile in an account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://trusthub.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String sid = "sid_example"; // String | The unique string that we created to identify the Customer-Profile resource.
+    String email = "email_example"; // String | The email address that will receive updates when the Customer-Profile resource changes status.
+    String friendlyName = "friendlyName_example"; // String | The string that you assigned to describe the resource.
+    CustomerProfileEnumStatus status = CustomerProfileEnumStatus.fromValue("draft"); // CustomerProfileEnumStatus | 
+    URI statusCallback = new URI(); // URI | The URL we call to inform your application of status changes.
+    try {
+      TrusthubV1CustomerProfile result = apiInstance.updateCustomerProfile(sid, email, friendlyName, status, statusCallback);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateCustomerProfile");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sid** | **String**| The unique string that we created to identify the Customer-Profile resource. | |
+| **email** | **String**| The email address that will receive updates when the Customer-Profile resource changes status. | [optional] |
+| **friendlyName** | **String**| The string that you assigned to describe the resource. | [optional] |
+| **status** | **CustomerProfileEnumStatus**|  | [optional] [enum: draft, pending-review, in-review, twilio-rejected, twilio-approved] |
+| **statusCallback** | **URI**| The URL we call to inform your application of status changes. | [optional] |
+
+### Return type
+
+[**TrusthubV1CustomerProfile**](TrusthubV1CustomerProfile.md)
 
 ### Authorization
 
@@ -2514,13 +3254,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="updateCredential"></a>
-# **updateCredential**
-> IpMessagingV1Credential updateCredential(sid, apiKey, certificate, friendlyName, privateKey, sandbox, secret)
+<a id="updateEndUser"></a>
+# **updateEndUser**
+> TrusthubV1EndUser updateEndUser(sid, attributes, friendlyName)
 
 
 
-
+Update an existing End User.
 
 ### Example
 ```java
@@ -2535,7 +3275,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2543,18 +3283,14 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
-    String apiKey = "apiKey_example"; // String | 
-    String certificate = "certificate_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    String privateKey = "privateKey_example"; // String | 
-    Boolean sandbox = true; // Boolean | 
-    String secret = "secret_example"; // String | 
+    String sid = "sid_example"; // String | The unique string created by Twilio to identify the End User resource.
+    Object attributes = null; // Object | The set of parameters that are the attributes of the End User resource which are derived End User Types.
+    String friendlyName = "friendlyName_example"; // String | The string that you assigned to describe the resource.
     try {
-      IpMessagingV1Credential result = apiInstance.updateCredential(sid, apiKey, certificate, friendlyName, privateKey, sandbox, secret);
+      TrusthubV1EndUser result = apiInstance.updateEndUser(sid, attributes, friendlyName);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateCredential");
+      System.err.println("Exception when calling DefaultApi#updateEndUser");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2568,17 +3304,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
-| **apiKey** | **String**|  | [optional] |
-| **certificate** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **privateKey** | **String**|  | [optional] |
-| **sandbox** | **Boolean**|  | [optional] |
-| **secret** | **String**|  | [optional] |
+| **sid** | **String**| The unique string created by Twilio to identify the End User resource. | |
+| **attributes** | [**Object**](Object.md)| The set of parameters that are the attributes of the End User resource which are derived End User Types. | [optional] |
+| **friendlyName** | **String**| The string that you assigned to describe the resource. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1Credential**](IpMessagingV1Credential.md)
+[**TrusthubV1EndUser**](TrusthubV1EndUser.md)
 
 ### Authorization
 
@@ -2594,13 +3326,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="updateMember"></a>
-# **updateMember**
-> IpMessagingV1ServiceChannelMember updateMember(serviceSid, channelSid, sid, lastConsumedMessageIndex, roleSid)
+<a id="updateSupportingDocument"></a>
+# **updateSupportingDocument**
+> TrusthubV1SupportingDocument updateSupportingDocument(sid, attributes, friendlyName)
 
 
 
-
+Update an existing Supporting Document.
 
 ### Example
 ```java
@@ -2615,7 +3347,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2623,16 +3355,14 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    Integer lastConsumedMessageIndex = 56; // Integer | 
-    String roleSid = "roleSid_example"; // String | 
+    String sid = "sid_example"; // String | The unique string created by Twilio to identify the Supporting Document resource.
+    Object attributes = null; // Object | The set of parameters that are the attributes of the Supporting Document resource which are derived Supporting Document Types.
+    String friendlyName = "friendlyName_example"; // String | The string that you assigned to describe the resource.
     try {
-      IpMessagingV1ServiceChannelMember result = apiInstance.updateMember(serviceSid, channelSid, sid, lastConsumedMessageIndex, roleSid);
+      TrusthubV1SupportingDocument result = apiInstance.updateSupportingDocument(sid, attributes, friendlyName);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateMember");
+      System.err.println("Exception when calling DefaultApi#updateSupportingDocument");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2646,15 +3376,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
-| **lastConsumedMessageIndex** | **Integer**|  | [optional] |
-| **roleSid** | **String**|  | [optional] |
+| **sid** | **String**| The unique string created by Twilio to identify the Supporting Document resource. | |
+| **attributes** | [**Object**](Object.md)| The set of parameters that are the attributes of the Supporting Document resource which are derived Supporting Document Types. | [optional] |
+| **friendlyName** | **String**| The string that you assigned to describe the resource. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelMember**](IpMessagingV1ServiceChannelMember.md)
+[**TrusthubV1SupportingDocument**](TrusthubV1SupportingDocument.md)
 
 ### Authorization
 
@@ -2670,89 +3398,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="updateMessage"></a>
-# **updateMessage**
-> IpMessagingV1ServiceChannelMessage updateMessage(serviceSid, channelSid, sid, attributes, body)
+<a id="updateTrustProduct"></a>
+# **updateTrustProduct**
+> TrusthubV1TrustProduct updateTrustProduct(sid, email, friendlyName, status, statusCallback)
 
 
 
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String body = "body_example"; // String | 
-    try {
-      IpMessagingV1ServiceChannelMessage result = apiInstance.updateMessage(serviceSid, channelSid, sid, attributes, body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateMessage");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **body** | **String**|  | [optional] |
-
-### Return type
-
-[**IpMessagingV1ServiceChannelMessage**](IpMessagingV1ServiceChannelMessage.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="updateRole"></a>
-# **updateRole**
-> IpMessagingV1ServiceRole updateRole(serviceSid, sid, permission)
-
-
-
-
+Updates a Customer-Profile in an account.
 
 ### Example
 ```java
@@ -2767,7 +3419,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://trusthub.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2775,14 +3427,16 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    List<String> permission = Arrays.asList(); // List<String> | 
+    String sid = "sid_example"; // String | The unique string that we created to identify the Customer-Profile resource.
+    String email = "email_example"; // String | The email address that will receive updates when the Customer-Profile resource changes status.
+    String friendlyName = "friendlyName_example"; // String | The string that you assigned to describe the resource.
+    TrustProductEnumStatus status = TrustProductEnumStatus.fromValue("draft"); // TrustProductEnumStatus | 
+    URI statusCallback = new URI(); // URI | The URL we call to inform your application of status changes.
     try {
-      IpMessagingV1ServiceRole result = apiInstance.updateRole(serviceSid, sid, permission);
+      TrusthubV1TrustProduct result = apiInstance.updateTrustProduct(sid, email, friendlyName, status, statusCallback);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateRole");
+      System.err.println("Exception when calling DefaultApi#updateTrustProduct");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2796,265 +3450,15 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
-| **permission** | [**List&lt;String&gt;**](String.md)|  | |
+| **sid** | **String**| The unique string that we created to identify the Customer-Profile resource. | |
+| **email** | **String**| The email address that will receive updates when the Customer-Profile resource changes status. | [optional] |
+| **friendlyName** | **String**| The string that you assigned to describe the resource. | [optional] |
+| **status** | **TrustProductEnumStatus**|  | [optional] [enum: draft, pending-review, in-review, twilio-rejected, twilio-approved] |
+| **statusCallback** | **URI**| The URL we call to inform your application of status changes. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1ServiceRole**](IpMessagingV1ServiceRole.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="updateService"></a>
-# **updateService**
-> IpMessagingV1Service updateService(sid, consumptionReportInterval, defaultChannelCreatorRoleSid, defaultChannelRoleSid, defaultServiceRoleSid, friendlyName, limitsChannelMembers, limitsUserChannels, notificationsAddedToChannelEnabled, notificationsAddedToChannelTemplate, notificationsInvitedToChannelEnabled, notificationsInvitedToChannelTemplate, notificationsNewMessageEnabled, notificationsNewMessageTemplate, notificationsRemovedFromChannelEnabled, notificationsRemovedFromChannelTemplate, postWebhookUrl, preWebhookUrl, reachabilityEnabled, readStatusEnabled, typingIndicatorTimeout, webhookFilters, webhookMethod, webhooksOnChannelAddMethod, webhooksOnChannelAddUrl, webhooksOnChannelAddedMethod, webhooksOnChannelAddedUrl, webhooksOnChannelDestroyMethod, webhooksOnChannelDestroyUrl, webhooksOnChannelDestroyedMethod, webhooksOnChannelDestroyedUrl, webhooksOnChannelUpdateMethod, webhooksOnChannelUpdateUrl, webhooksOnChannelUpdatedMethod, webhooksOnChannelUpdatedUrl, webhooksOnMemberAddMethod, webhooksOnMemberAddUrl, webhooksOnMemberAddedMethod, webhooksOnMemberAddedUrl, webhooksOnMemberRemoveMethod, webhooksOnMemberRemoveUrl, webhooksOnMemberRemovedMethod, webhooksOnMemberRemovedUrl, webhooksOnMessageRemoveMethod, webhooksOnMessageRemoveUrl, webhooksOnMessageRemovedMethod, webhooksOnMessageRemovedUrl, webhooksOnMessageSendMethod, webhooksOnMessageSendUrl, webhooksOnMessageSentMethod, webhooksOnMessageSentUrl, webhooksOnMessageUpdateMethod, webhooksOnMessageUpdateUrl, webhooksOnMessageUpdatedMethod, webhooksOnMessageUpdatedUrl)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
-    Integer consumptionReportInterval = 56; // Integer | 
-    String defaultChannelCreatorRoleSid = "defaultChannelCreatorRoleSid_example"; // String | 
-    String defaultChannelRoleSid = "defaultChannelRoleSid_example"; // String | 
-    String defaultServiceRoleSid = "defaultServiceRoleSid_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    Integer limitsChannelMembers = 56; // Integer | 
-    Integer limitsUserChannels = 56; // Integer | 
-    Boolean notificationsAddedToChannelEnabled = true; // Boolean | 
-    String notificationsAddedToChannelTemplate = "notificationsAddedToChannelTemplate_example"; // String | 
-    Boolean notificationsInvitedToChannelEnabled = true; // Boolean | 
-    String notificationsInvitedToChannelTemplate = "notificationsInvitedToChannelTemplate_example"; // String | 
-    Boolean notificationsNewMessageEnabled = true; // Boolean | 
-    String notificationsNewMessageTemplate = "notificationsNewMessageTemplate_example"; // String | 
-    Boolean notificationsRemovedFromChannelEnabled = true; // Boolean | 
-    String notificationsRemovedFromChannelTemplate = "notificationsRemovedFromChannelTemplate_example"; // String | 
-    URI postWebhookUrl = new URI(); // URI | 
-    URI preWebhookUrl = new URI(); // URI | 
-    Boolean reachabilityEnabled = true; // Boolean | 
-    Boolean readStatusEnabled = true; // Boolean | 
-    Integer typingIndicatorTimeout = 56; // Integer | 
-    List<String> webhookFilters = Arrays.asList(); // List<String> | 
-    String webhookMethod = "HEAD"; // String | 
-    String webhooksOnChannelAddMethod = "HEAD"; // String | 
-    URI webhooksOnChannelAddUrl = new URI(); // URI | 
-    String webhooksOnChannelAddedMethod = "HEAD"; // String | 
-    URI webhooksOnChannelAddedUrl = new URI(); // URI | 
-    String webhooksOnChannelDestroyMethod = "HEAD"; // String | 
-    URI webhooksOnChannelDestroyUrl = new URI(); // URI | 
-    String webhooksOnChannelDestroyedMethod = "HEAD"; // String | 
-    URI webhooksOnChannelDestroyedUrl = new URI(); // URI | 
-    String webhooksOnChannelUpdateMethod = "HEAD"; // String | 
-    URI webhooksOnChannelUpdateUrl = new URI(); // URI | 
-    String webhooksOnChannelUpdatedMethod = "HEAD"; // String | 
-    URI webhooksOnChannelUpdatedUrl = new URI(); // URI | 
-    String webhooksOnMemberAddMethod = "HEAD"; // String | 
-    URI webhooksOnMemberAddUrl = new URI(); // URI | 
-    String webhooksOnMemberAddedMethod = "HEAD"; // String | 
-    URI webhooksOnMemberAddedUrl = new URI(); // URI | 
-    String webhooksOnMemberRemoveMethod = "HEAD"; // String | 
-    URI webhooksOnMemberRemoveUrl = new URI(); // URI | 
-    String webhooksOnMemberRemovedMethod = "HEAD"; // String | 
-    URI webhooksOnMemberRemovedUrl = new URI(); // URI | 
-    String webhooksOnMessageRemoveMethod = "HEAD"; // String | 
-    URI webhooksOnMessageRemoveUrl = new URI(); // URI | 
-    String webhooksOnMessageRemovedMethod = "HEAD"; // String | 
-    URI webhooksOnMessageRemovedUrl = new URI(); // URI | 
-    String webhooksOnMessageSendMethod = "HEAD"; // String | 
-    URI webhooksOnMessageSendUrl = new URI(); // URI | 
-    String webhooksOnMessageSentMethod = "HEAD"; // String | 
-    URI webhooksOnMessageSentUrl = new URI(); // URI | 
-    String webhooksOnMessageUpdateMethod = "HEAD"; // String | 
-    URI webhooksOnMessageUpdateUrl = new URI(); // URI | 
-    String webhooksOnMessageUpdatedMethod = "HEAD"; // String | 
-    URI webhooksOnMessageUpdatedUrl = new URI(); // URI | 
-    try {
-      IpMessagingV1Service result = apiInstance.updateService(sid, consumptionReportInterval, defaultChannelCreatorRoleSid, defaultChannelRoleSid, defaultServiceRoleSid, friendlyName, limitsChannelMembers, limitsUserChannels, notificationsAddedToChannelEnabled, notificationsAddedToChannelTemplate, notificationsInvitedToChannelEnabled, notificationsInvitedToChannelTemplate, notificationsNewMessageEnabled, notificationsNewMessageTemplate, notificationsRemovedFromChannelEnabled, notificationsRemovedFromChannelTemplate, postWebhookUrl, preWebhookUrl, reachabilityEnabled, readStatusEnabled, typingIndicatorTimeout, webhookFilters, webhookMethod, webhooksOnChannelAddMethod, webhooksOnChannelAddUrl, webhooksOnChannelAddedMethod, webhooksOnChannelAddedUrl, webhooksOnChannelDestroyMethod, webhooksOnChannelDestroyUrl, webhooksOnChannelDestroyedMethod, webhooksOnChannelDestroyedUrl, webhooksOnChannelUpdateMethod, webhooksOnChannelUpdateUrl, webhooksOnChannelUpdatedMethod, webhooksOnChannelUpdatedUrl, webhooksOnMemberAddMethod, webhooksOnMemberAddUrl, webhooksOnMemberAddedMethod, webhooksOnMemberAddedUrl, webhooksOnMemberRemoveMethod, webhooksOnMemberRemoveUrl, webhooksOnMemberRemovedMethod, webhooksOnMemberRemovedUrl, webhooksOnMessageRemoveMethod, webhooksOnMessageRemoveUrl, webhooksOnMessageRemovedMethod, webhooksOnMessageRemovedUrl, webhooksOnMessageSendMethod, webhooksOnMessageSendUrl, webhooksOnMessageSentMethod, webhooksOnMessageSentUrl, webhooksOnMessageUpdateMethod, webhooksOnMessageUpdateUrl, webhooksOnMessageUpdatedMethod, webhooksOnMessageUpdatedUrl);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateService");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
-| **consumptionReportInterval** | **Integer**|  | [optional] |
-| **defaultChannelCreatorRoleSid** | **String**|  | [optional] |
-| **defaultChannelRoleSid** | **String**|  | [optional] |
-| **defaultServiceRoleSid** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **limitsChannelMembers** | **Integer**|  | [optional] |
-| **limitsUserChannels** | **Integer**|  | [optional] |
-| **notificationsAddedToChannelEnabled** | **Boolean**|  | [optional] |
-| **notificationsAddedToChannelTemplate** | **String**|  | [optional] |
-| **notificationsInvitedToChannelEnabled** | **Boolean**|  | [optional] |
-| **notificationsInvitedToChannelTemplate** | **String**|  | [optional] |
-| **notificationsNewMessageEnabled** | **Boolean**|  | [optional] |
-| **notificationsNewMessageTemplate** | **String**|  | [optional] |
-| **notificationsRemovedFromChannelEnabled** | **Boolean**|  | [optional] |
-| **notificationsRemovedFromChannelTemplate** | **String**|  | [optional] |
-| **postWebhookUrl** | **URI**|  | [optional] |
-| **preWebhookUrl** | **URI**|  | [optional] |
-| **reachabilityEnabled** | **Boolean**|  | [optional] |
-| **readStatusEnabled** | **Boolean**|  | [optional] |
-| **typingIndicatorTimeout** | **Integer**|  | [optional] |
-| **webhookFilters** | [**List&lt;String&gt;**](String.md)|  | [optional] |
-| **webhookMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelAddMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelAddUrl** | **URI**|  | [optional] |
-| **webhooksOnChannelAddedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelAddedUrl** | **URI**|  | [optional] |
-| **webhooksOnChannelDestroyMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelDestroyUrl** | **URI**|  | [optional] |
-| **webhooksOnChannelDestroyedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelDestroyedUrl** | **URI**|  | [optional] |
-| **webhooksOnChannelUpdateMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelUpdateUrl** | **URI**|  | [optional] |
-| **webhooksOnChannelUpdatedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelUpdatedUrl** | **URI**|  | [optional] |
-| **webhooksOnMemberAddMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMemberAddUrl** | **URI**|  | [optional] |
-| **webhooksOnMemberAddedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMemberAddedUrl** | **URI**|  | [optional] |
-| **webhooksOnMemberRemoveMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMemberRemoveUrl** | **URI**|  | [optional] |
-| **webhooksOnMemberRemovedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMemberRemovedUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageRemoveMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageRemoveUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageRemovedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageRemovedUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageSendMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageSendUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageSentMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageSentUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageUpdateMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageUpdateUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageUpdatedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageUpdatedUrl** | **URI**|  | [optional] |
-
-### Return type
-
-[**IpMessagingV1Service**](IpMessagingV1Service.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="updateUser"></a>
-# **updateUser**
-> IpMessagingV1ServiceUser updateUser(serviceSid, sid, attributes, friendlyName, roleSid)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    String roleSid = "roleSid_example"; // String | 
-    try {
-      IpMessagingV1ServiceUser result = apiInstance.updateUser(serviceSid, sid, attributes, friendlyName, roleSid);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **roleSid** | **String**|  | [optional] |
-
-### Return type
-
-[**IpMessagingV1ServiceUser**](IpMessagingV1ServiceUser.md)
+[**TrusthubV1TrustProduct**](TrusthubV1TrustProduct.md)
 
 ### Authorization
 
