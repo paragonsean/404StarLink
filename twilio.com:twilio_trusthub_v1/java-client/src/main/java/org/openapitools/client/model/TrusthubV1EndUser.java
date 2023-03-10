@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * TrusthubV1EndUser
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:26.050357-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:03.855054-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TrusthubV1EndUser {
   public static final String SERIALIZED_NAME_ACCOUNT_SID = "account_sid";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_SID)
