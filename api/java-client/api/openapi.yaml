@@ -1,3690 +1,1279 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
-  contact:
-    email: support@twilio.com
-    name: Twilio Support
-    url: https://support.twilio.com
-  description: This is the public Twilio REST API.
-  license:
-    name: Apache 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0.html
-  termsOfService: https://www.twilio.com/legal/tos
-  title: Twilio - Trusthub
-  version: 1.42.0
+  description: Class X and XII marksheets and passing certificates of Maharashtra
+    State Board of Secondary and Higher Secondary Education (https://mahahsscboard.maharashtra.gov.in/)
+    are available in DigiLocker for years 1990 to 2017.
+  termsOfService: https://apisetu.gov.in/terms.php
+  title: "Maharashtra State Board of Secondary and Higher Secondary Education, Maharashtra"
+  version: 3.0.0
   x-apisguru-categories:
-  - telecom
-  - messaging
-  x-logo:
-    url: https://api.apis.guru/v2/cache/logo/https_twilio.com_docs_static_img_favicons_favicon_57.c9643fd8d.png
+  - open_data
   x-origin:
   - format: openapi
-    url: https://raw.githubusercontent.com/twilio/twilio-oai/main/spec/json/twilio_trusthub_v1.json
+    url: https://apisetu.gov.in/api_specification_v8/hsscboardmh.yaml
     version: "3.0"
-  x-providerName: twilio.com
-  x-serviceName: twilio_trusthub_v1
+  x-providerName: apisetu.gov.in
+  x-serviceName: hsscboardmh
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_apis.guru_assets_images_no-logo.svg
 servers:
-- url: https://trusthub.twilio.com
+- url: https://apisetu.gov.in/hsscboardmh/v3
 paths:
-  /v1/CustomerProfiles:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of all Customer-Profiles for an account.
-      operationId: ListCustomerProfile
-      parameters:
-      - description: The verification status of the Customer-Profile resource.
-        explode: true
-        in: query
-        name: Status
-        required: false
-        schema:
-          $ref: '#/components/schemas/customer_profile_enum_status'
-        style: form
-      - description: The string that you assigned to describe the resource.
-        explode: true
-        in: query
-        name: FriendlyName
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: The unique string of a policy that is associated to the Customer-Profile
-          resource.
-        explode: true
-        in: query
-        name: PolicySid
-        required: false
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RN[0-9a-fA-F]{32}$"
-          type: string
-        style: form
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListCustomerProfileResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
+  /hpcer/certificate:
     post:
-      description: Create a new Customer-Profile.
-      operationId: CreateCustomerProfile
+      description: API to verify Class XII Passing Certificate.
+      operationId: hpcer
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/CreateCustomerProfileRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.customer_profile'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: customer_profiles
-      defaultOutputProperties:
-      - sid
-      - policy_sid
-      - friendly_name
-      pathType: list
-  /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of all Assigned Items for an account.
-      operationId: ListCustomerProfileChannelEndpointAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: CustomerProfileSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The SID of an channel endpoint
-        explode: true
-        in: query
-        name: ChannelEndpointSid
-        required: false
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^[a-zA-Z]{2}[0-9a-fA-F]{32}$"
-          type: string
-        style: form
-      - description: comma separated list of channel endpoint sids
-        explode: true
-        in: query
-        name: ChannelEndpointSids
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
+              $ref: '#/components/schemas/hpcer_request'
+        description: Request format
       responses:
         "200":
           content:
+            application/pdf:
+              example: Response body contains contents of the certificate in PDF format.
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AcademicCertificateSchema'
+          description: "The certificate data in response body in PDF, XML or JSON\
+            \ format as requested in format parameter."
+        "400":
+          content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListCustomerProfileChannelEndpointAssignmentResponse'
-          description: OK
+                $ref: '#/components/schemas/hpcer_400_response'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_401_response'
+          description: Unauthorized access
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_404_response'
+          description: No record found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_500_response'
+          description: Internal server error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_502_response'
+          description: Bad gateway
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_503_response'
+          description: Service unavailable
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_504_response'
+          description: Gateway timeout
       security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+      - apiKey: []
+        clientId: []
+      summary: Class XII Passing Certificate
+      tags:
+      - APIs
+      x-content-type: application/json
       x-accepts:
       - application/json
+      - application/pdf
+      - application/xml
+  /hscer/certificate:
     post:
-      description: Create a new Assigned Item.
-      operationId: CreateCustomerProfileChannelEndpointAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: CustomerProfileSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
+      description: API to verify Class XII Marksheet.
+      operationId: hscer
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/CreateCustomerProfileChannelEndpointAssignmentRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      mountName: customer_profiles_channel_endpoint_assignment
-      parent: "/CustomerProfiles/{Sid}"
-      pathType: list
-  /v1/CustomerProfiles/{CustomerProfileSid}/ChannelEndpointAssignments/{Sid}:
-    delete:
-      description: Remove an Assignment Item Instance.
-      operationId: DeleteCustomerProfileChannelEndpointAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: CustomerProfileSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The unique string that we created to identify the resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RA[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch specific Assigned Item Instance.
-      operationId: FetchCustomerProfileChannelEndpointAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: CustomerProfileSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The unique string that we created to identify the resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RA[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
+              $ref: '#/components/schemas/hpcer_request'
+        description: Request format
       responses:
         "200":
           content:
-            application/json:
+            application/pdf:
+              example: Response body contains contents of the certificate in PDF format.
+            application/xml:
               schema:
-                $ref: '#/components/schemas/trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      mountName: customer_profiles_channel_endpoint_assignment
-      parent: "/CustomerProfiles/{Sid}"
-      pathType: instance
-  /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of all Assigned Items for an account.
-      operationId: ListCustomerProfileEntityAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: CustomerProfileSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
+                $ref: '#/components/schemas/AcademicCertificateSchema'
+          description: "The certificate data in response body in PDF, XML or JSON\
+            \ format as requested in format parameter."
+        "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListCustomerProfileEntityAssignmentResponse'
-          description: OK
+                $ref: '#/components/schemas/hpcer_400_response'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_401_response'
+          description: Unauthorized access
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_404_response'
+          description: No record found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_500_response'
+          description: Internal server error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_502_response'
+          description: Bad gateway
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_503_response'
+          description: Service unavailable
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_504_response'
+          description: Gateway timeout
       security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+      - apiKey: []
+        clientId: []
+      summary: Class XII Marksheet
+      tags:
+      - APIs
+      x-content-type: application/json
       x-accepts:
       - application/json
+      - application/pdf
+      - application/xml
+  /spcer/certificate:
     post:
-      description: Create a new Assigned Item.
-      operationId: CreateCustomerProfileEntityAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: CustomerProfileSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
+      description: API to verify Class X Passing Certificate.
+      operationId: spcer
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/CreateCustomerProfileEntityAssignmentRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.customer_profile.customer_profile_entity_assignment'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: customer_profiles_entity_assignments
-      defaultOutputProperties:
-      - sid
-      mountName: customer_profiles_entity_assignments
-      parent: "/CustomerProfiles/{Sid}"
-      pathType: list
-  /v1/CustomerProfiles/{CustomerProfileSid}/EntityAssignments/{Sid}:
-    delete:
-      description: Remove an Assignment Item Instance.
-      operationId: DeleteCustomerProfileEntityAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: CustomerProfileSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The unique string that we created to identify the Identity resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BV[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch specific Assigned Item Instance.
-      operationId: FetchCustomerProfileEntityAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: CustomerProfileSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The unique string that we created to identify the Identity resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BV[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
+              $ref: '#/components/schemas/spcer_request'
+        description: Request format
       responses:
         "200":
           content:
-            application/json:
+            application/pdf:
+              example: Response body contains contents of the certificate in PDF format.
+            application/xml:
               schema:
-                $ref: '#/components/schemas/trusthub.v1.customer_profile.customer_profile_entity_assignment'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: customer_profiles_entity_assignments
-      defaultOutputProperties:
-      - sid
-      mountName: customer_profiles_entity_assignments
-      parent: "/CustomerProfiles/{Sid}"
-      pathType: instance
-  /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of Evaluations associated to the customer_profile
-        resource.
-      operationId: ListCustomerProfileEvaluation
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: CustomerProfileSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
+                $ref: '#/components/schemas/AcademicCertificateSchema'
+          description: "The certificate data in response body in PDF, XML or JSON\
+            \ format as requested in format parameter."
+        "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListCustomerProfileEvaluationResponse'
-          description: OK
+                $ref: '#/components/schemas/hpcer_400_response'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_401_response'
+          description: Unauthorized access
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_404_response'
+          description: No record found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_500_response'
+          description: Internal server error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_502_response'
+          description: Bad gateway
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_503_response'
+          description: Service unavailable
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hpcer_504_response'
+          description: Gateway timeout
       security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+      - apiKey: []
+        clientId: []
+      summary: Class X Passing Certificate
+      tags:
+      - APIs
+      x-content-type: application/json
       x-accepts:
       - application/json
+      - application/pdf
+      - application/xml
+  /sscer/certificate:
     post:
-      description: Create a new Evaluation
-      operationId: CreateCustomerProfileEvaluation
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: CustomerProfileSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
+      description: API to verify Class X Marksheet.
+      operationId: sscer
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/CreateCustomerProfileEvaluationRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.customer_profile.customer_profile_evaluation'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: customer_profiles_evaluations
-      defaultOutputProperties:
-      - sid
-      mountName: customer_profiles_evaluations
-      parent: "/CustomerProfiles/{Sid}"
-      pathType: list
-  /v1/CustomerProfiles/{CustomerProfileSid}/Evaluations/{Sid}:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch specific Evaluation Instance.
-      operationId: FetchCustomerProfileEvaluation
-      parameters:
-      - description: The unique string that we created to identify the customer_profile
-          resource.
-        explode: false
-        in: path
-        name: CustomerProfileSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The unique string that identifies the Evaluation resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^EL[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
+              $ref: '#/components/schemas/spcer_request'
+        description: Request format
       responses:
         "200":
           content:
-            application/json:
+            application/pdf:
+              example: Response body contains contents of the certificate in PDF format.
+            application/xml:
               schema:
-                $ref: '#/components/schemas/trusthub.v1.customer_profile.customer_profile_evaluation'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: customer_profiles_evaluations
-      defaultOutputProperties:
-      - sid
-      mountName: customer_profiles_evaluations
-      parent: "/CustomerProfiles/{Sid}"
-      pathType: instance
-  /v1/CustomerProfiles/{Sid}:
-    delete:
-      description: Delete a specific Customer-Profile.
-      operationId: DeleteCustomerProfile
-      parameters:
-      - description: The unique string that we created to identify the Customer-Profile
-          resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch a specific Customer-Profile instance.
-      operationId: FetchCustomerProfile
-      parameters:
-      - description: The unique string that we created to identify the Customer-Profile
-          resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
+                $ref: '#/components/schemas/AcademicCertificateSchema'
+          description: "The certificate data in response body in PDF, XML or JSON\
+            \ format as requested in format parameter."
+        "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/trusthub.v1.customer_profile'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: Updates a Customer-Profile in an account.
-      operationId: UpdateCustomerProfile
-      parameters:
-      - description: The unique string that we created to identify the Customer-Profile
-          resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UpdateCustomerProfileRequest'
-      responses:
-        "200":
+                $ref: '#/components/schemas/hpcer_400_response'
+          description: Bad request
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/trusthub.v1.customer_profile'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: customer_profiles
-      defaultOutputProperties:
-      - sid
-      - policy_sid
-      - friendly_name
-      pathType: instance
-  /v1/EndUserTypes:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of all End-User Types.
-      operationId: ListEndUserType
-      parameters:
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
+                $ref: '#/components/schemas/hpcer_401_response'
+          description: Unauthorized access
+        "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListEndUserTypeResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      pathType: list
-  /v1/EndUserTypes/{Sid}:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch a specific End-User Type Instance.
-      operationId: FetchEndUserType
-      parameters:
-      - description: The unique string that identifies the End-User Type resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
+                $ref: '#/components/schemas/hpcer_404_response'
+          description: No record found
+        "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/trusthub.v1.end_user_type'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      pathType: instance
-  /v1/EndUsers:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of all End User for an account.
-      operationId: ListEndUser
-      parameters:
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
+                $ref: '#/components/schemas/hpcer_500_response'
+          description: Internal server error
+        "502":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListEndUserResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: Create a new End User.
-      operationId: CreateEndUser
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateEndUserRequest'
-      responses:
-        "201":
+                $ref: '#/components/schemas/hpcer_502_response'
+          description: Bad gateway
+        "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/trusthub.v1.end_user'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      pathType: list
-  /v1/EndUsers/{Sid}:
-    delete:
-      description: Delete a specific End User.
-      operationId: DeleteEndUser
-      parameters:
-      - description: The unique string created by Twilio to identify the End User
-          resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IT[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch specific End User Instance.
-      operationId: FetchEndUser
-      parameters:
-      - description: The unique string created by Twilio to identify the End User
-          resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IT[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
+                $ref: '#/components/schemas/hpcer_503_response'
+          description: Service unavailable
+        "504":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/trusthub.v1.end_user'
-          description: OK
+                $ref: '#/components/schemas/hpcer_504_response'
+          description: Gateway timeout
       security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+      - apiKey: []
+        clientId: []
+      summary: Class X Marksheet
+      tags:
+      - APIs
+      x-content-type: application/json
       x-accepts:
       - application/json
-    post:
-      description: Update an existing End User.
-      operationId: UpdateEndUser
-      parameters:
-      - description: The unique string created by Twilio to identify the End User
-          resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IT[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UpdateEndUserRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.end_user'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      pathType: instance
-  /v1/Policies:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of all Policys.
-      operationId: ListPolicies
-      parameters:
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListPoliciesResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: policies
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      pathType: list
-  /v1/Policies/{Sid}:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch specific Policy Instance.
-      operationId: FetchPolicies
-      parameters:
-      - description: The unique string that identifies the Policy resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RN[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.policies'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: policies
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      pathType: instance
-  /v1/SupportingDocumentTypes:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of all Supporting Document Types.
-      operationId: ListSupportingDocumentType
-      parameters:
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListSupportingDocumentTypeResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      pathType: list
-  /v1/SupportingDocumentTypes/{Sid}:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch a specific Supporting Document Type Instance.
-      operationId: FetchSupportingDocumentType
-      parameters:
-      - description: The unique string that identifies the Supporting Document Type
-          resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.supporting_document_type'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      pathType: instance
-  /v1/SupportingDocuments:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of all Supporting Document for an account.
-      operationId: ListSupportingDocument
-      parameters:
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListSupportingDocumentResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: Create a new Supporting Document.
-      operationId: CreateSupportingDocument
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateSupportingDocumentRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.supporting_document'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      pathType: list
-  /v1/SupportingDocuments/{Sid}:
-    delete:
-      description: Delete a specific Supporting Document.
-      operationId: DeleteSupportingDocument
-      parameters:
-      - description: The unique string created by Twilio to identify the Supporting
-          Document resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RD[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch specific Supporting Document Instance.
-      operationId: FetchSupportingDocument
-      parameters:
-      - description: The unique string created by Twilio to identify the Supporting
-          Document resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RD[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.supporting_document'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: Update an existing Supporting Document.
-      operationId: UpdateSupportingDocument
-      parameters:
-      - description: The unique string created by Twilio to identify the Supporting
-          Document resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RD[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UpdateSupportingDocumentRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.supporting_document'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      pathType: instance
-  /v1/TrustProducts:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of all Customer-Profiles for an account.
-      operationId: ListTrustProduct
-      parameters:
-      - description: The verification status of the Customer-Profile resource.
-        explode: true
-        in: query
-        name: Status
-        required: false
-        schema:
-          $ref: '#/components/schemas/trust_product_enum_status'
-        style: form
-      - description: The string that you assigned to describe the resource.
-        explode: true
-        in: query
-        name: FriendlyName
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: The unique string of a policy that is associated to the Customer-Profile
-          resource.
-        explode: true
-        in: query
-        name: PolicySid
-        required: false
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RN[0-9a-fA-F]{32}$"
-          type: string
-        style: form
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListTrustProductResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: Create a new Customer-Profile.
-      operationId: CreateTrustProduct
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateTrustProductRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.trust_product'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: trust_products
-      defaultOutputProperties:
-      - sid
-      - policy_sid
-      - friendly_name
-      pathType: list
-  /v1/TrustProducts/{Sid}:
-    delete:
-      description: Delete a specific Customer-Profile.
-      operationId: DeleteTrustProduct
-      parameters:
-      - description: The unique string that we created to identify the Customer-Profile
-          resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch a specific Customer-Profile instance.
-      operationId: FetchTrustProduct
-      parameters:
-      - description: The unique string that we created to identify the Customer-Profile
-          resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.trust_product'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: Updates a Customer-Profile in an account.
-      operationId: UpdateTrustProduct
-      parameters:
-      - description: The unique string that we created to identify the Customer-Profile
-          resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UpdateTrustProductRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.trust_product'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: trust_products
-      defaultOutputProperties:
-      - sid
-      - policy_sid
-      - friendly_name
-      pathType: instance
-  /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of all Assigned Items for an account.
-      operationId: ListTrustProductChannelEndpointAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: TrustProductSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The SID of an channel endpoint
-        explode: true
-        in: query
-        name: ChannelEndpointSid
-        required: false
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^[a-zA-Z]{2}[0-9a-fA-F]{32}$"
-          type: string
-        style: form
-      - description: comma separated list of channel endpoint sids
-        explode: true
-        in: query
-        name: ChannelEndpointSids
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListTrustProductChannelEndpointAssignmentResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: Create a new Assigned Item.
-      operationId: CreateTrustProductChannelEndpointAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: TrustProductSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateTrustProductChannelEndpointAssignmentRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.trust_product.trust_product_channel_endpoint_assignment'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      mountName: trust_products_channel_endpoint_assignment
-      parent: "/TrustProducts/{Sid}"
-      pathType: list
-  /v1/TrustProducts/{TrustProductSid}/ChannelEndpointAssignments/{Sid}:
-    delete:
-      description: Remove an Assignment Item Instance.
-      operationId: DeleteTrustProductChannelEndpointAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: TrustProductSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The unique string that we created to identify the resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RA[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch specific Assigned Item Instance.
-      operationId: FetchTrustProductChannelEndpointAssignment
-      parameters:
-      - description: The unique string that we created to identify the CustomerProfile
-          resource.
-        explode: false
-        in: path
-        name: TrustProductSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The unique string that we created to identify the resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RA[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.trust_product.trust_product_channel_endpoint_assignment'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      mountName: trust_products_channel_endpoint_assignment
-      parent: "/TrustProducts/{Sid}"
-      pathType: instance
-  /v1/TrustProducts/{TrustProductSid}/EntityAssignments:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of all Assigned Items for an account.
-      operationId: ListTrustProductEntityAssignment
-      parameters:
-      - description: The unique string that we created to identify the TrustProduct
-          resource.
-        explode: false
-        in: path
-        name: TrustProductSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListTrustProductEntityAssignmentResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: Create a new Assigned Item.
-      operationId: CreateTrustProductEntityAssignment
-      parameters:
-      - description: The unique string that we created to identify the TrustProduct
-          resource.
-        explode: false
-        in: path
-        name: TrustProductSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateTrustProductEntityAssignmentRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.trust_product.trust_product_entity_assignment'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: trust_products_entity_assignments
-      defaultOutputProperties:
-      - sid
-      mountName: trust_products_entity_assignments
-      parent: "/TrustProducts/{Sid}"
-      pathType: list
-  /v1/TrustProducts/{TrustProductSid}/EntityAssignments/{Sid}:
-    delete:
-      description: Remove an Assignment Item Instance.
-      operationId: DeleteTrustProductEntityAssignment
-      parameters:
-      - description: The unique string that we created to identify the TrustProduct
-          resource.
-        explode: false
-        in: path
-        name: TrustProductSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The unique string that we created to identify the Identity resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BV[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch specific Assigned Item Instance.
-      operationId: FetchTrustProductEntityAssignment
-      parameters:
-      - description: The unique string that we created to identify the TrustProduct
-          resource.
-        explode: false
-        in: path
-        name: TrustProductSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The unique string that we created to identify the Identity resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BV[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.trust_product.trust_product_entity_assignment'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: trust_products_entity_assignments
-      defaultOutputProperties:
-      - sid
-      mountName: trust_products_entity_assignments
-      parent: "/TrustProducts/{Sid}"
-      pathType: instance
-  /v1/TrustProducts/{TrustProductSid}/Evaluations:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Retrieve a list of Evaluations associated to the trust_product
-        resource.
-      operationId: ListTrustProductEvaluation
-      parameters:
-      - description: The unique string that we created to identify the trust_product
-          resource.
-        explode: false
-        in: path
-        name: TrustProductSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListTrustProductEvaluationResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: Create a new Evaluation
-      operationId: CreateTrustProductEvaluation
-      parameters:
-      - description: The unique string that we created to identify the trust_product
-          resource.
-        explode: false
-        in: path
-        name: TrustProductSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateTrustProductEvaluationRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.trust_product.trust_product_evaluation'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: trust_products_evaluations
-      defaultOutputProperties:
-      - sid
-      mountName: trust_products_evaluations
-      parent: "/TrustProducts/{Sid}"
-      pathType: list
-  /v1/TrustProducts/{TrustProductSid}/Evaluations/{Sid}:
-    description: "TODO: Resource-level docs"
-    get:
-      description: Fetch specific Evaluation Instance.
-      operationId: FetchTrustProductEvaluation
-      parameters:
-      - description: The unique string that we created to identify the trust_product
-          resource.
-        explode: false
-        in: path
-        name: TrustProductSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: The unique string that identifies the Evaluation resource.
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^EL[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/trusthub.v1.trust_product.trust_product_evaluation'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://trusthub.twilio.com
-    x-twilio:
-      className: trust_products_evaluations
-      defaultOutputProperties:
-      - sid
-      mountName: trust_products_evaluations
-      parent: "/TrustProducts/{Sid}"
-      pathType: instance
+      - application/pdf
+      - application/xml
 components:
+  responses:
+    "400Error":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/hpcer_400_response'
+      description: Bad request
+    "401Error":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/hpcer_401_response'
+      description: Unauthorized access
+    "404Error":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/hpcer_404_response'
+      description: No record found
+    "500Error":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/hpcer_500_response'
+      description: Internal server error
+    "502Error":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/hpcer_502_response'
+      description: Bad gateway
+    "503Error":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/hpcer_503_response'
+      description: Service unavailable
+    "504Error":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/hpcer_504_response'
+      description: Gateway timeout
   schemas:
-    customer_profile_enum_end_user_type:
-      enum:
-      - individual
-      - business
-      type: string
-    customer_profile_enum_status:
-      enum:
-      - draft
-      - pending-review
-      - in-review
-      - twilio-rejected
-      - twilio-approved
-      type: string
-    customer_profile_evaluation_enum_status:
-      enum:
-      - compliant
-      - noncompliant
-      type: string
-    policies_enum_end_user_type:
-      enum:
-      - individual
-      - business
-      type: string
-    supporting_document_enum_status:
-      enum:
-      - draft
-      - pending-review
-      - rejected
-      - approved
-      - expired
-      - provisionally-approved
-      type: string
-    trust_product_enum_end_user_type:
-      enum:
-      - individual
-      - business
-      type: string
-    trust_product_enum_status:
-      enum:
-      - draft
-      - pending-review
-      - in-review
-      - twilio-rejected
-      - twilio-approved
-      type: string
-    trust_product_evaluation_enum_status:
-      enum:
-      - compliant
-      - noncompliant
-      type: string
-    trusthub.v1.customer_profile:
-      example:
-        policy_sid: policy_sid
-        friendly_name: friendly_name
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        valid_until: 2000-01-23T04:56:07.000+00:00
-        date_created: 2000-01-23T04:56:07.000+00:00
-        account_sid: account_sid
-        links: "{}"
-        status_callback: https://openapi-generator.tech
-        email: email
-        url: https://openapi-generator.tech
-        sid: sid
-        status: status
+    AcademicCertificateSchema:
       properties:
-        account_sid:
-          description: "The SID of the [Account](https://www.twilio.com/docs/iam/api/account)\
-            \ that created the Customer-Profile resource."
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        date_created:
-          description: "The date and time in GMT when the resource was created specified\
-            \ in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        date_updated:
-          description: "The date and time in GMT when the resource was last updated\
-            \ specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        email:
-          description: The email address that will receive updates when the Customer-Profile
-            resource changes status.
-          nullable: true
-          type: string
-        friendly_name:
-          description: The string that you assigned to describe the resource.
-          nullable: true
-          type: string
-        links:
-          description: The URLs of the Assigned Items of the Customer-Profile resource.
-          format: uri-map
-          nullable: true
-          type: object
-        policy_sid:
-          description: The unique string of a policy that is associated to the Customer-Profile
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RN[0-9a-fA-F]{32}$"
-          type: string
-        sid:
-          description: The unique string that we created to identify the Customer-Profile
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        status:
-          $ref: '#/components/schemas/customer_profile_enum_status'
-        status_callback:
-          description: The URL we call to inform your application of status changes.
-          format: uri
-          nullable: true
-          type: string
-        url:
-          description: The absolute URL of the Customer-Profile resource.
-          format: uri
-          nullable: true
-          type: string
-        valid_until:
-          description: "The date and time in GMT in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)\
-            \ format when the resource will be valid until."
-          format: date-time
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment:
-      example:
-        channel_endpoint_sid: channel_endpoint_sid
-        customer_profile_sid: customer_profile_sid
-        date_created: 2000-01-23T04:56:07.000+00:00
-        account_sid: account_sid
-        channel_endpoint_type: channel_endpoint_type
-        url: https://openapi-generator.tech
-        sid: sid
-      properties:
-        account_sid:
-          description: "The SID of the [Account](https://www.twilio.com/docs/iam/api/account)\
-            \ that created the Item Assignment resource."
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        channel_endpoint_sid:
-          description: The SID of an channel endpoint
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^[a-zA-Z]{2}[0-9a-fA-F]{32}$"
-          type: string
-        channel_endpoint_type:
-          description: "The type of channel endpoint. eg: phone-number"
-          nullable: true
-          type: string
-        customer_profile_sid:
-          description: The unique string that we created to identify the CustomerProfile
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        date_created:
-          description: "The date and time in GMT when the resource was created specified\
-            \ in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        sid:
-          description: The unique string that we created to identify the Item Assignment
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RA[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          description: The absolute URL of the Identity resource.
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.customer_profile.customer_profile_entity_assignment:
-      example:
-        customer_profile_sid: customer_profile_sid
-        object_sid: object_sid
-        date_created: 2000-01-23T04:56:07.000+00:00
-        account_sid: account_sid
-        url: https://openapi-generator.tech
-        sid: sid
-      properties:
-        account_sid:
-          description: "The SID of the [Account](https://www.twilio.com/docs/iam/api/account)\
-            \ that created the Item Assignment resource."
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        customer_profile_sid:
-          description: The unique string that we created to identify the CustomerProfile
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        date_created:
-          description: "The date and time in GMT when the resource was created specified\
-            \ in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        object_sid:
-          description: The SID of an object bag that holds information of the different
-            items.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^[a-zA-Z]{2}[0-9a-fA-F]{32}$"
-          type: string
-        sid:
-          description: The unique string that we created to identify the Item Assignment
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^BV[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          description: The absolute URL of the Identity resource.
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.customer_profile.customer_profile_evaluation:
-      example:
-        policy_sid: policy_sid
-        customer_profile_sid: customer_profile_sid
-        date_created: 2000-01-23T04:56:07.000+00:00
-        account_sid: account_sid
-        results:
-        - ""
-        - ""
-        url: https://openapi-generator.tech
-        sid: sid
-        status: status
-      properties:
-        account_sid:
-          description: "The SID of the [Account](https://www.twilio.com/docs/iam/api/account)\
-            \ that created the customer_profile resource."
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        customer_profile_sid:
-          description: The unique string that we created to identify the customer_profile
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        date_created:
-          format: date-time
-          nullable: true
-          type: string
-        policy_sid:
-          description: The unique string of a policy that is associated to the customer_profile
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RN[0-9a-fA-F]{32}$"
-          type: string
-        results:
-          description: The results of the Evaluation which includes the valid and
-            invalid attributes.
-          items: {}
-          nullable: true
-          type: array
-        sid:
-          description: The unique string that identifies the Evaluation resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^EL[0-9a-fA-F]{32}$"
-          type: string
-        status:
-          $ref: '#/components/schemas/customer_profile_evaluation_enum_status'
-        url:
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.end_user:
-      example:
-        friendly_name: friendly_name
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        date_created: 2000-01-23T04:56:07.000+00:00
-        account_sid: account_sid
-        attributes: ""
-        type: type
-        url: https://openapi-generator.tech
-        sid: sid
-      properties:
-        account_sid:
-          description: "The SID of the [Account](https://www.twilio.com/docs/iam/api/account)\
-            \ that created the End User resource."
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        attributes:
-          description: The set of parameters that are the attributes of the End Users
-            resource which are listed in the End User Types.
-          nullable: true
-        date_created:
-          description: "The date and time in GMT when the resource was created specified\
-            \ in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        date_updated:
-          description: "The date and time in GMT when the resource was last updated\
-            \ specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        friendly_name:
-          description: The string that you assigned to describe the resource.
-          nullable: true
-          type: string
-        sid:
-          description: The unique string created by Twilio to identify the End User
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^IT[0-9a-fA-F]{32}$"
-          type: string
-        type:
-          description: The type of end user of the Bundle resource - can be `individual`
-            or `business`.
-          nullable: true
-          type: string
-        url:
-          description: The absolute URL of the End User resource.
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.end_user_type:
-      example:
-        friendly_name: friendly_name
-        fields:
-        - ""
-        - ""
-        machine_name: machine_name
-        url: https://openapi-generator.tech
-        sid: sid
-      properties:
-        fields:
-          description: The required information for creating an End-User. The required
-            fields will change as regulatory needs change and will differ for businesses
-            and individuals.
-          items: {}
-          nullable: true
-          type: array
-        friendly_name:
-          description: "A human-readable description that is assigned to describe\
-            \ the End-User Type resource. Examples can include first name, last name,\
-            \ email, business name, etc"
-          nullable: true
-          type: string
-        machine_name:
-          description: "A machine-readable description of the End-User Type resource.\
-            \ Examples can include first_name, last_name, email, business_name, etc."
-          nullable: true
-          type: string
-        sid:
-          description: The unique string that identifies the End-User Type resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^OY[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          description: The absolute URL of the End-User Type resource.
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.policies:
-      example:
-        friendly_name: friendly_name
-        requirements: ""
-        url: https://openapi-generator.tech
-        sid: sid
-      properties:
-        friendly_name:
-          description: A human-readable description that is assigned to describe the
-            Policy resource. Examples can include Primary Customer profile policy
-          nullable: true
-          type: string
-        requirements:
-          description: The SID of an object that holds the policy information
-          nullable: true
-        sid:
-          description: The unique string that identifies the Policy resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RN[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          description: The absolute URL of the Policy resource.
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.supporting_document:
-      example:
-        friendly_name: friendly_name
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        mime_type: mime_type
-        date_created: 2000-01-23T04:56:07.000+00:00
-        account_sid: account_sid
-        attributes: ""
-        type: type
-        url: https://openapi-generator.tech
-        sid: sid
-        status: status
-      properties:
-        account_sid:
-          description: "The SID of the [Account](https://www.twilio.com/docs/iam/api/account)\
-            \ that created the Document resource."
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        attributes:
-          description: The set of parameters that are the attributes of the Supporting
-            Documents resource which are listed in the Supporting Document Types.
-          nullable: true
-        date_created:
-          description: "The date and time in GMT when the resource was created specified\
-            \ in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        date_updated:
-          description: "The date and time in GMT when the resource was last updated\
-            \ specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        friendly_name:
-          description: The string that you assigned to describe the resource.
-          nullable: true
-          type: string
-        mime_type:
-          description: The image type uploaded in the Supporting Document container.
-          nullable: true
-          type: string
-        sid:
-          description: The unique string created by Twilio to identify the Supporting
-            Document resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RD[0-9a-fA-F]{32}$"
-          type: string
-        status:
-          $ref: '#/components/schemas/supporting_document_enum_status'
-        type:
-          description: The type of the Supporting Document.
-          nullable: true
-          type: string
-        url:
-          description: The absolute URL of the Supporting Document resource.
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.supporting_document_type:
-      example:
-        friendly_name: friendly_name
-        fields:
-        - ""
-        - ""
-        machine_name: machine_name
-        url: https://openapi-generator.tech
-        sid: sid
-      properties:
-        fields:
-          description: The required information for creating a Supporting Document.
-            The required fields will change as regulatory needs change and will differ
-            for businesses and individuals.
-          items: {}
-          nullable: true
-          type: array
-        friendly_name:
-          description: A human-readable description of the Supporting Document Type
-            resource.
-          nullable: true
-          type: string
-        machine_name:
-          description: The machine-readable description of the Supporting Document
-            Type resource.
-          nullable: true
-          type: string
-        sid:
-          description: The unique string that identifies the Supporting Document Type
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^OY[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          description: The absolute URL of the Supporting Document Type resource.
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.trust_product:
-      example:
-        policy_sid: policy_sid
-        friendly_name: friendly_name
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        valid_until: 2000-01-23T04:56:07.000+00:00
-        date_created: 2000-01-23T04:56:07.000+00:00
-        account_sid: account_sid
-        links: "{}"
-        status_callback: https://openapi-generator.tech
-        email: email
-        url: https://openapi-generator.tech
-        sid: sid
-        status: status
-      properties:
-        account_sid:
-          description: "The SID of the [Account](https://www.twilio.com/docs/iam/api/account)\
-            \ that created the Customer-Profile resource."
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        date_created:
-          description: "The date and time in GMT when the resource was created specified\
-            \ in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        date_updated:
-          description: "The date and time in GMT when the resource was last updated\
-            \ specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        email:
-          description: The email address that will receive updates when the Customer-Profile
-            resource changes status.
-          nullable: true
-          type: string
-        friendly_name:
-          description: The string that you assigned to describe the resource.
-          nullable: true
-          type: string
-        links:
-          description: The URLs of the Assigned Items of the Customer-Profile resource.
-          format: uri-map
-          nullable: true
-          type: object
-        policy_sid:
-          description: The unique string of a policy that is associated to the Customer-Profile
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RN[0-9a-fA-F]{32}$"
-          type: string
-        sid:
-          description: The unique string that we created to identify the Customer-Profile
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        status:
-          $ref: '#/components/schemas/trust_product_enum_status'
-        status_callback:
-          description: The URL we call to inform your application of status changes.
-          format: uri
-          nullable: true
-          type: string
-        url:
-          description: The absolute URL of the Customer-Profile resource.
-          format: uri
-          nullable: true
-          type: string
-        valid_until:
-          description: "The date and time in GMT in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)\
-            \ format when the resource will be valid until."
-          format: date-time
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.trust_product.trust_product_channel_endpoint_assignment:
-      example:
-        channel_endpoint_sid: channel_endpoint_sid
-        date_created: 2000-01-23T04:56:07.000+00:00
-        account_sid: account_sid
-        trust_product_sid: trust_product_sid
-        channel_endpoint_type: channel_endpoint_type
-        url: https://openapi-generator.tech
-        sid: sid
-      properties:
-        account_sid:
-          description: "The SID of the [Account](https://www.twilio.com/docs/iam/api/account)\
-            \ that created the Item Assignment resource."
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        channel_endpoint_sid:
-          description: The SID of an channel endpoint
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^[a-zA-Z]{2}[0-9a-fA-F]{32}$"
-          type: string
-        channel_endpoint_type:
-          description: "The type of channel endpoint. eg: phone-number"
-          nullable: true
-          type: string
-        date_created:
-          description: "The date and time in GMT when the resource was created specified\
-            \ in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        sid:
-          description: The unique string that we created to identify the Item Assignment
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RA[0-9a-fA-F]{32}$"
-          type: string
-        trust_product_sid:
-          description: The unique string that we created to identify the CustomerProfile
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          description: The absolute URL of the Identity resource.
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.trust_product.trust_product_entity_assignment:
-      example:
-        object_sid: object_sid
-        date_created: 2000-01-23T04:56:07.000+00:00
-        account_sid: account_sid
-        trust_product_sid: trust_product_sid
-        url: https://openapi-generator.tech
-        sid: sid
-      properties:
-        account_sid:
-          description: "The SID of the [Account](https://www.twilio.com/docs/iam/api/account)\
-            \ that created the Item Assignment resource."
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        date_created:
-          description: "The date and time in GMT when the resource was created specified\
-            \ in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."
-          format: date-time
-          nullable: true
-          type: string
-        object_sid:
-          description: The SID of an object bag that holds information of the different
-            items.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^[a-zA-Z]{2}[0-9a-fA-F]{32}$"
-          type: string
-        sid:
-          description: The unique string that we created to identify the Item Assignment
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^BV[0-9a-fA-F]{32}$"
-          type: string
-        trust_product_sid:
-          description: The unique string that we created to identify the TrustProduct
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          description: The absolute URL of the Identity resource.
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    trusthub.v1.trust_product.trust_product_evaluation:
-      example:
-        policy_sid: policy_sid
-        date_created: 2000-01-23T04:56:07.000+00:00
-        account_sid: account_sid
-        trust_product_sid: trust_product_sid
-        results:
-        - ""
-        - ""
-        url: https://openapi-generator.tech
-        sid: sid
-        status: status
-      properties:
-        account_sid:
-          description: "The SID of the [Account](https://www.twilio.com/docs/iam/api/account)\
-            \ that created the trust_product resource."
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        date_created:
-          format: date-time
-          nullable: true
-          type: string
-        policy_sid:
-          description: The unique string of a policy that is associated to the trust_product
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RN[0-9a-fA-F]{32}$"
-          type: string
-        results:
-          description: The results of the Evaluation which includes the valid and
-            invalid attributes.
-          items: {}
-          nullable: true
-          type: array
-        sid:
-          description: The unique string that identifies the Evaluation resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^EL[0-9a-fA-F]{32}$"
-          type: string
-        status:
-          $ref: '#/components/schemas/trust_product_evaluation_enum_status'
-        trust_product_sid:
-          description: The unique string that we created to identify the trust_product
-            resource.
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^BU[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    ListCustomerProfileResponse_meta:
-      example:
-        first_page_url: https://openapi-generator.tech
-        next_page_url: https://openapi-generator.tech
-        previous_page_url: https://openapi-generator.tech
-        page: 0
-        key: key
-        url: https://openapi-generator.tech
-        page_size: 6
-      properties:
-        first_page_url:
-          format: uri
-          type: string
-        key:
-          type: string
-        next_page_url:
-          format: uri
-          nullable: true
-          type: string
-        page:
+        CertificateData:
+          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData'
+        IssuedBy:
+          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedBy'
+        IssuedTo:
+          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo'
+        issueDate:
+          example: ' '
+          type: string
+          xml:
+            attribute: true
+        issuedAt:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        language:
+          example: "99"
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        name:
+          example: Secondary School Certificate
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        number:
+          example: 1100044
+          minLength: 1
           type: integer
-        page_size:
+          xml:
+            attribute: true
+        status:
+          example: A
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        type:
+          example: SSCER
+          type: string
+          xml:
+            attribute: true
+        validFromDate:
+          example: ' '
+          type: string
+          xml:
+            attribute: true
+      required:
+      - CertificateData
+      - IssuedBy
+      - IssuedTo
+      - issueDate
+      - issuedAt
+      - language
+      - name
+      - number
+      - status
+      - type
+      - validFromDate
+      type: object
+      xml:
+        name: Certificate
+    ConsentArtifactSchema:
+      properties:
+        consent:
+          $ref: '#/components/schemas/ConsentArtifactSchema_consent'
+        signature:
+          $ref: '#/components/schemas/ConsentArtifactSchema_signature'
+      required:
+      - consent
+      - signature
+    hpcer_request_certificateParameters:
+      properties:
+        FullName:
+          description: Full name
+          example: Sunil Kumar
+          type: string
+        exsession:
+          description: Exam Session
+          example: MAR or OCT
+          type: string
+        rollnumber:
+          description: Seat No
+          example: P183286
+          type: string
+        totalmarks:
+          description: Total Marks
+          example: "389"
+          type: string
+        year:
+          description: Year
+          example: "2015"
+          type: string
+      required:
+      - FullName
+      - exsession
+      - rollnumber
+      - totalmarks
+      - year
+      type: object
+    hpcer_request:
+      properties:
+        certificateParameters:
+          $ref: '#/components/schemas/hpcer_request_certificateParameters'
+        consentArtifact:
+          $ref: '#/components/schemas/ConsentArtifactSchema'
+        format:
+          description: The format of the certificate in response.
+          enum:
+          - xml
+          - pdf
+          type: string
+        txnId:
+          description: A unique transaction id for this request in UUID format. It
+            is used for tracking the request.
+          example: f7f1469c-29b0-4325-9dfc-c567200a70f7
+          format: uuid
+          type: string
+      required:
+      - format
+      - txnId
+      type: object
+    hpcer_400_response:
+      example:
+        errorDescription: Please provide all mandatory parameters
+        error: missing_parameter
+      properties:
+        error:
+          enum:
+          - missing_parameter
+          - invalid_parameter
+          - invalid_format
+          - invalid_txnid
+          - invalid_consentid
+          type: string
+        errorDescription:
+          enum:
+          - Please provide all mandatory parameters
+          - Bad request
+          - The format parameter is invalid
+          - The txnId parameter must be in UUID format
+          - The consentId parameter must be in UUID format
+          type: string
+      type: object
+    hpcer_401_response:
+      example:
+        errorDescription: Authentication failed
+        error: invalid_authentication
+      properties:
+        error:
+          enum:
+          - invalid_authentication
+          - invalid_authorization
+          type: string
+        errorDescription:
+          enum:
+          - Authentication failed
+          - You are not authorized to use this API
+          type: string
+      type: object
+    hpcer_404_response:
+      example:
+        errorDescription: No record found
+        error: record_not_found
+      properties:
+        error:
+          enum:
+          - record_not_found
+          - url_not_found
+          type: string
+        errorDescription:
+          enum:
+          - No record found
+          - Your API url or path is incorrect
+          type: string
+      type: object
+    hpcer_500_response:
+      example:
+        errorDescription: Internal server error
+        error: internal_server_error
+      properties:
+        error:
+          enum:
+          - internal_server_error
+          type: string
+        errorDescription:
+          enum:
+          - Internal server error
+          type: string
+      type: object
+    hpcer_502_response:
+      example:
+        errorDescription: Publisher service returned an invalid response
+        error: bad_gatewy
+      properties:
+        error:
+          enum:
+          - bad_gatewy
+          type: string
+        errorDescription:
+          enum:
+          - Publisher service returned an invalid response
+          type: string
+      type: object
+    hpcer_503_response:
+      example:
+        errorDescription: Publisher service is temporarily unavailable
+        error: service_unavailable
+      properties:
+        error:
+          enum:
+          - service_unavailable
+          type: string
+        errorDescription:
+          enum:
+          - Publisher service is temporarily unavailable
+          type: string
+      type: object
+    hpcer_504_response:
+      example:
+        errorDescription: Publisher service did not respond in time
+        error: gateway_timeout
+      properties:
+        error:
+          enum:
+          - gateway_timeout
+          type: string
+        errorDescription:
+          enum:
+          - Publisher service did not respond in time
+          type: string
+      type: object
+    spcer_request_certificateParameters:
+      properties:
+        FullName:
+          description: Full name
+          example: Sunil Kumar
+          type: string
+        exsession:
+          description: Exam Session
+          example: MAR or OCT
+          type: string
+        rollnumber:
+          description: Seat No
+          example: C183286
+          type: string
+        totalmarks:
+          description: Total Marks
+          example: "517"
+          type: string
+        year:
+          description: Year
+          example: "2015"
+          type: string
+      required:
+      - FullName
+      - exsession
+      - rollnumber
+      - totalmarks
+      - year
+      type: object
+    spcer_request:
+      properties:
+        certificateParameters:
+          $ref: '#/components/schemas/spcer_request_certificateParameters'
+        consentArtifact:
+          $ref: '#/components/schemas/ConsentArtifactSchema'
+        format:
+          description: The format of the certificate in response.
+          enum:
+          - xml
+          - pdf
+          type: string
+        txnId:
+          description: A unique transaction id for this request in UUID format. It
+            is used for tracking the request.
+          example: f7f1469c-29b0-4325-9dfc-c567200a70f7
+          format: uuid
+          type: string
+      required:
+      - format
+      - txnId
+      type: object
+    AcademicCertificateSchema_CertificateData_Examination:
+      properties:
+        month:
+          example: MARCH
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        name:
+          example: SENION SCHOOL CERTIFICATE EXAMINATION
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        year:
+          example: "2019"
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+      required:
+      - month
+      - name
+      - year
+      type: object
+    AcademicCertificateSchema_CertificateData_Performance_Subjects_inner:
+      properties:
+        code:
+          example: "30"
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        gp:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        gpMax:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        grade:
+          example: A2
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        marksMax:
           type: integer
-        previous_page_url:
-          format: uri
-          nullable: true
+          xml:
+            attribute: true
+        marksMaxPractical:
+          type: integer
+          xml:
+            attribute: true
+        marksMaxTheory:
+          type: integer
+          xml:
+            attribute: true
+        marksPractical:
+          example: 17
+          type: integer
+          xml:
+            attribute: true
+        marksTheory:
+          example: 70
+          minLength: 1
+          type: integer
+          xml:
+            attribute: true
+        marksTotal:
+          example: 87
+          minLength: 1
+          type: integer
+          xml:
+            attribute: true
+        name:
+          example: ECONOMICS
+          minLength: 1
           type: string
-        url:
-          format: uri
-          type: string
+          xml:
+            attribute: true
+      required:
+      - code
+      - gp
+      - gpMax
+      - grade
+      - marksMax
+      - marksMaxPractical
+      - marksMaxTheory
+      - marksPractical
+      - marksTheory
+      - marksTotal
+      - name
       type: object
-    ListCustomerProfileResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        results:
-        - policy_sid: policy_sid
-          friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          valid_until: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          links: "{}"
-          status_callback: https://openapi-generator.tech
-          email: email
-          url: https://openapi-generator.tech
-          sid: sid
-          status: status
-        - policy_sid: policy_sid
-          friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          valid_until: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          links: "{}"
-          status_callback: https://openapi-generator.tech
-          email: email
-          url: https://openapi-generator.tech
-          sid: sid
-          status: status
+      xml:
+        name: Subject
+    AcademicCertificateSchema_CertificateData_Performance:
       properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        results:
+        Subjects:
           items:
-            $ref: '#/components/schemas/trusthub.v1.customer_profile'
+            $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_Performance_Subjects_inner'
           type: array
-      title: ListCustomerProfileResponse
+          xml:
+            name: Subjects
+            wrapped: true
+        cgpa:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        cgpaMax:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        grade:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        marksMax:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        marksTotal:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        percentage:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        result:
+          example: PASS
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        resultDate:
+          example: 02-05-2019
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        updateDate:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+      required:
+      - Subjects
+      - cgpa
+      - cgpaMax
+      - grade
+      - marksMax
+      - marksTotal
+      - percentage
+      - result
+      - resultDate
+      - updateDate
       type: object
-    CreateCustomerProfileRequest:
+    AcademicCertificateSchema_CertificateData_School:
       properties:
-        Email:
-          description: The email address that will receive updates when the Customer-Profile
-            resource changes status.
+        code:
+          example: "20020"
+          minLength: 1
           type: string
-        FriendlyName:
-          description: The string that you assigned to describe the resource.
+          xml:
+            attribute: true
+        name:
+          example: DELHI PUBLIC SCHOOL GURGAON
+          minLength: 1
           type: string
-        PolicySid:
-          description: The unique string of a policy that is associated to the Customer-Profile
-            resource.
-          maxLength: 34
-          minLength: 34
-          pattern: "^RN[0-9a-fA-F]{32}$"
+          xml:
+            attribute: true
+      required:
+      - code
+      - name
+      type: object
+    AcademicCertificateSchema_CertificateData:
+      properties:
+        Examination:
+          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_Examination'
+        Performance:
+          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_Performance'
+        School:
+          $ref: '#/components/schemas/AcademicCertificateSchema_CertificateData_School'
+      required:
+      - Examination
+      - Performance
+      - School
+      type: object
+    AcademicCertificateSchema_IssuedBy_Organization_Address:
+      properties:
+        country:
+          example: IN
+          minLength: 1
           type: string
-        StatusCallback:
-          description: The URL we call to inform your application of status changes.
-          format: uri
+          xml:
+            attribute: true
+        district:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        house:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        landmark:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        line1:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        line2:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        locality:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        pin:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        state:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        type:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        vtc:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+      required:
+      - country
+      - district
+      - house
+      - landmark
+      - line1
+      - line2
+      - locality
+      - pin
+      - state
+      - type
+      - vtc
+      type: object
+    AcademicCertificateSchema_IssuedBy_Organization:
+      properties:
+        Address:
+          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedBy_Organization_Address'
+        code:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        name:
+          example: Central Board of Secondary Education
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        tin:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        type:
+          example: CG
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        uid:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+      required:
+      - Address
+      - code
+      - name
+      - tin
+      - type
+      - uid
+      type: object
+    AcademicCertificateSchema_IssuedBy:
+      properties:
+        Organization:
+          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedBy_Organization'
+      required:
+      - Organization
+      type: object
+    AcademicCertificateSchema_IssuedTo_Person_Address:
+      properties:
+        country:
+          example: IN
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        district:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        house:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        landmark:
+          type: string
+          xml:
+            attribute: true
+          example: null
+        line1:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        line2:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        locality:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        pin:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        state:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        type:
+          example: permanent
+          minLength: 1
+          type: string
+        vtc:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+      required:
+      - country
+      - district
+      - house
+      - landmark
+      - line1
+      - line2
+      - locality
+      - pin
+      - state
+      - type
+      - vtc
+      type: object
+    AcademicCertificateSchema_IssuedTo_Person_Photo:
+      properties:
+        format:
+          type: string
+          xml:
+            attribute: true
+      required:
+      - format
+      type: object
+    AcademicCertificateSchema_IssuedTo_Person:
+      properties:
+        Address:
+          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo_Person_Address'
+        Photo:
+          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo_Person_Photo'
+        category:
+          example: SC
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        disabilityStatus:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        dob:
+          example: 01-10-1988
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        email:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        gender:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        maritalStatus:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        motherName:
+          example: SUNITA DEVI
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        name:
+          example: ANAND KUMAR
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        phone:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        religion:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        swd:
+          example: PRAMOD KUMAR
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        swdIndicator:
+          example: S
+          minLength: 1
+          type: string
+          xml:
+            attribute: true
+        title:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+        uid:
+          example: ""
+          type: string
+          xml:
+            attribute: true
+      required:
+      - Address
+      - Photo
+      - category
+      - disabilityStatus
+      - dob
+      - email
+      - gender
+      - maritalStatus
+      - motherName
+      - name
+      - phone
+      - religion
+      - swd
+      - swdIndicator
+      - title
+      - uid
+      type: object
+    AcademicCertificateSchema_IssuedTo:
+      properties:
+        Person:
+          $ref: '#/components/schemas/AcademicCertificateSchema_IssuedTo_Person'
+      required:
+      - Person
+      type: object
+    ConsentArtifactSchema_consent_data:
+      properties:
+        id:
+          minLength: 1
           type: string
       required:
-      - Email
-      - FriendlyName
-      - PolicySid
-      title: CreateCustomerProfileRequest
+      - id
       type: object
-    ListCustomerProfileChannelEndpointAssignmentResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        results:
-        - channel_endpoint_sid: channel_endpoint_sid
-          customer_profile_sid: customer_profile_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          channel_endpoint_type: channel_endpoint_type
-          url: https://openapi-generator.tech
-          sid: sid
-        - channel_endpoint_sid: channel_endpoint_sid
-          customer_profile_sid: customer_profile_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          channel_endpoint_type: channel_endpoint_type
-          url: https://openapi-generator.tech
-          sid: sid
+    ConsentArtifactSchema_consent_permission_dateRange:
       properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        results:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.customer_profile.customer_profile_channel_endpoint_assignment'
-          type: array
-      title: ListCustomerProfileChannelEndpointAssignmentResponse
-      type: object
-    CreateCustomerProfileChannelEndpointAssignmentRequest:
-      properties:
-        ChannelEndpointSid:
-          description: The SID of an channel endpoint
-          maxLength: 34
-          minLength: 34
-          pattern: "^[a-zA-Z]{2}[0-9a-fA-F]{32}$"
+        from:
+          description: "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ"
+          format: date-time
+          minLength: 1
           type: string
-        ChannelEndpointType:
-          description: "The type of channel endpoint. eg: phone-number"
+        to:
+          description: "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ"
+          format: date-time
+          minLength: 1
           type: string
       required:
-      - ChannelEndpointSid
-      - ChannelEndpointType
-      title: CreateCustomerProfileChannelEndpointAssignmentRequest
+      - from
+      - to
       type: object
-    ListCustomerProfileEntityAssignmentResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        results:
-        - customer_profile_sid: customer_profile_sid
-          object_sid: object_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          url: https://openapi-generator.tech
-          sid: sid
-        - customer_profile_sid: customer_profile_sid
-          object_sid: object_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          url: https://openapi-generator.tech
-          sid: sid
+    ConsentArtifactSchema_consent_permission_frequency:
       properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        results:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.customer_profile.customer_profile_entity_assignment'
-          type: array
-      title: ListCustomerProfileEntityAssignmentResponse
+        repeats:
+          type: number
+        unit:
+          minLength: 1
+          type: string
+        value:
+          type: number
+      required:
+      - repeats
+      - unit
+      - value
       type: object
-    CreateCustomerProfileEntityAssignmentRequest:
+    ConsentArtifactSchema_consent_permission:
       properties:
-        ObjectSid:
-          description: The SID of an object bag that holds information of the different
-            items.
-          maxLength: 34
-          minLength: 34
-          pattern: "^[a-zA-Z]{2}[0-9a-fA-F]{32}$"
+        access:
+          minLength: 1
+          type: string
+        dateRange:
+          $ref: '#/components/schemas/ConsentArtifactSchema_consent_permission_dateRange'
+        frequency:
+          $ref: '#/components/schemas/ConsentArtifactSchema_consent_permission_frequency'
+      required:
+      - access
+      - dateRange
+      - frequency
+      type: object
+    ConsentArtifactSchema_consent_purpose:
+      properties:
+        description:
+          minLength: 1
           type: string
       required:
-      - ObjectSid
-      title: CreateCustomerProfileEntityAssignmentRequest
+      - description
       type: object
-    ListCustomerProfileEvaluationResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        results:
-        - policy_sid: policy_sid
-          customer_profile_sid: customer_profile_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          results:
-          - ""
-          - ""
-          url: https://openapi-generator.tech
-          sid: sid
-          status: status
-        - policy_sid: policy_sid
-          customer_profile_sid: customer_profile_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          results:
-          - ""
-          - ""
-          url: https://openapi-generator.tech
-          sid: sid
-          status: status
+    ConsentArtifactSchema_consent_user:
       properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        results:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.customer_profile.customer_profile_evaluation'
-          type: array
-      title: ListCustomerProfileEvaluationResponse
-      type: object
-    CreateCustomerProfileEvaluationRequest:
-      properties:
-        PolicySid:
-          description: The unique string of a policy that is associated to the customer_profile
-            resource.
-          maxLength: 34
-          minLength: 34
-          pattern: "^RN[0-9a-fA-F]{32}$"
+        email:
+          minLength: 1
+          type: string
+        idNumber:
+          minLength: 1
+          type: string
+        idType:
+          minLength: 1
+          type: string
+        mobile:
+          minLength: 1
           type: string
       required:
-      - PolicySid
-      title: CreateCustomerProfileEvaluationRequest
+      - email
+      - idNumber
+      - idType
+      - mobile
       type: object
-    UpdateCustomerProfileRequest:
+    ConsentArtifactSchema_consent:
       properties:
-        Email:
-          description: The email address that will receive updates when the Customer-Profile
-            resource changes status.
+        consentId:
+          description: A unique consent id in UUID format.
+          example: ea9c43aa-7f5a-4bf3-a0be-e1caa24737ba
+          format: uuid
+          minLength: 1
           type: string
-        FriendlyName:
-          description: The string that you assigned to describe the resource.
+        data:
+          $ref: '#/components/schemas/ConsentArtifactSchema_consent_data'
+        dataConsumer:
+          $ref: '#/components/schemas/ConsentArtifactSchema_consent_data'
+        dataProvider:
+          $ref: '#/components/schemas/ConsentArtifactSchema_consent_data'
+        permission:
+          $ref: '#/components/schemas/ConsentArtifactSchema_consent_permission'
+        purpose:
+          $ref: '#/components/schemas/ConsentArtifactSchema_consent_purpose'
+        timestamp:
+          description: "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ"
+          format: date-time
+          minLength: 1
           type: string
-        Status:
-          $ref: '#/components/schemas/customer_profile_enum_status'
-        StatusCallback:
-          description: The URL we call to inform your application of status changes.
-          format: uri
-          type: string
-      title: UpdateCustomerProfileRequest
+        user:
+          $ref: '#/components/schemas/ConsentArtifactSchema_consent_user'
+      required:
+      - consentId
+      - data
+      - dataConsumer
+      - dataProvider
+      - permission
+      - purpose
+      - timestamp
+      - user
       type: object
-    ListEndUserTypeResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        end_user_types:
-        - friendly_name: friendly_name
-          fields:
-          - ""
-          - ""
-          machine_name: machine_name
-          url: https://openapi-generator.tech
-          sid: sid
-        - friendly_name: friendly_name
-          fields:
-          - ""
-          - ""
-          machine_name: machine_name
-          url: https://openapi-generator.tech
-          sid: sid
+    ConsentArtifactSchema_signature:
       properties:
-        end_user_types:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.end_user_type'
-          type: array
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-      title: ListEndUserTypeResponse
-      type: object
-    ListEndUserResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        results:
-        - friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          attributes: ""
-          type: type
-          url: https://openapi-generator.tech
-          sid: sid
-        - friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          attributes: ""
-          type: type
-          url: https://openapi-generator.tech
-          sid: sid
-      properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        results:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.end_user'
-          type: array
-      title: ListEndUserResponse
-      type: object
-    CreateEndUserRequest:
-      properties:
-        Attributes:
-          description: The set of parameters that are the attributes of the End User
-            resource which are derived End User Types.
-        FriendlyName:
-          description: The string that you assigned to describe the resource.
-          type: string
-        Type:
-          description: The type of end user of the Bundle resource - can be `individual`
-            or `business`.
+        signature:
           type: string
       required:
-      - FriendlyName
-      - Type
-      title: CreateEndUserRequest
-      type: object
-    UpdateEndUserRequest:
-      properties:
-        Attributes:
-          description: The set of parameters that are the attributes of the End User
-            resource which are derived End User Types.
-        FriendlyName:
-          description: The string that you assigned to describe the resource.
-          type: string
-      title: UpdateEndUserRequest
-      type: object
-    ListPoliciesResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        results:
-        - friendly_name: friendly_name
-          requirements: ""
-          url: https://openapi-generator.tech
-          sid: sid
-        - friendly_name: friendly_name
-          requirements: ""
-          url: https://openapi-generator.tech
-          sid: sid
-      properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        results:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.policies'
-          type: array
-      title: ListPoliciesResponse
-      type: object
-    ListSupportingDocumentTypeResponse:
-      example:
-        supporting_document_types:
-        - friendly_name: friendly_name
-          fields:
-          - ""
-          - ""
-          machine_name: machine_name
-          url: https://openapi-generator.tech
-          sid: sid
-        - friendly_name: friendly_name
-          fields:
-          - ""
-          - ""
-          machine_name: machine_name
-          url: https://openapi-generator.tech
-          sid: sid
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-      properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        supporting_document_types:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.supporting_document_type'
-          type: array
-      title: ListSupportingDocumentTypeResponse
-      type: object
-    ListSupportingDocumentResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        results:
-        - friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          mime_type: mime_type
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          attributes: ""
-          type: type
-          url: https://openapi-generator.tech
-          sid: sid
-          status: status
-        - friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          mime_type: mime_type
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          attributes: ""
-          type: type
-          url: https://openapi-generator.tech
-          sid: sid
-          status: status
-      properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        results:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.supporting_document'
-          type: array
-      title: ListSupportingDocumentResponse
-      type: object
-    CreateSupportingDocumentRequest:
-      properties:
-        Attributes:
-          description: The set of parameters that are the attributes of the Supporting
-            Documents resource which are derived Supporting Document Types.
-        FriendlyName:
-          description: The string that you assigned to describe the resource.
-          type: string
-        Type:
-          description: The type of the Supporting Document.
-          type: string
-      required:
-      - FriendlyName
-      - Type
-      title: CreateSupportingDocumentRequest
-      type: object
-    UpdateSupportingDocumentRequest:
-      properties:
-        Attributes:
-          description: The set of parameters that are the attributes of the Supporting
-            Document resource which are derived Supporting Document Types.
-        FriendlyName:
-          description: The string that you assigned to describe the resource.
-          type: string
-      title: UpdateSupportingDocumentRequest
-      type: object
-    ListTrustProductResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        results:
-        - policy_sid: policy_sid
-          friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          valid_until: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          links: "{}"
-          status_callback: https://openapi-generator.tech
-          email: email
-          url: https://openapi-generator.tech
-          sid: sid
-          status: status
-        - policy_sid: policy_sid
-          friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          valid_until: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          links: "{}"
-          status_callback: https://openapi-generator.tech
-          email: email
-          url: https://openapi-generator.tech
-          sid: sid
-          status: status
-      properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        results:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.trust_product'
-          type: array
-      title: ListTrustProductResponse
-      type: object
-    CreateTrustProductRequest:
-      properties:
-        Email:
-          description: The email address that will receive updates when the Customer-Profile
-            resource changes status.
-          type: string
-        FriendlyName:
-          description: The string that you assigned to describe the resource.
-          type: string
-        PolicySid:
-          description: The unique string of a policy that is associated to the Customer-Profile
-            resource.
-          maxLength: 34
-          minLength: 34
-          pattern: "^RN[0-9a-fA-F]{32}$"
-          type: string
-        StatusCallback:
-          description: The URL we call to inform your application of status changes.
-          format: uri
-          type: string
-      required:
-      - Email
-      - FriendlyName
-      - PolicySid
-      title: CreateTrustProductRequest
-      type: object
-    UpdateTrustProductRequest:
-      properties:
-        Email:
-          description: The email address that will receive updates when the Customer-Profile
-            resource changes status.
-          type: string
-        FriendlyName:
-          description: The string that you assigned to describe the resource.
-          type: string
-        Status:
-          $ref: '#/components/schemas/trust_product_enum_status'
-        StatusCallback:
-          description: The URL we call to inform your application of status changes.
-          format: uri
-          type: string
-      title: UpdateTrustProductRequest
-      type: object
-    ListTrustProductChannelEndpointAssignmentResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        results:
-        - channel_endpoint_sid: channel_endpoint_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          trust_product_sid: trust_product_sid
-          channel_endpoint_type: channel_endpoint_type
-          url: https://openapi-generator.tech
-          sid: sid
-        - channel_endpoint_sid: channel_endpoint_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          trust_product_sid: trust_product_sid
-          channel_endpoint_type: channel_endpoint_type
-          url: https://openapi-generator.tech
-          sid: sid
-      properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        results:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.trust_product.trust_product_channel_endpoint_assignment'
-          type: array
-      title: ListTrustProductChannelEndpointAssignmentResponse
-      type: object
-    CreateTrustProductChannelEndpointAssignmentRequest:
-      properties:
-        ChannelEndpointSid:
-          description: The SID of an channel endpoint
-          maxLength: 34
-          minLength: 34
-          pattern: "^[a-zA-Z]{2}[0-9a-fA-F]{32}$"
-          type: string
-        ChannelEndpointType:
-          description: "The type of channel endpoint. eg: phone-number"
-          type: string
-      required:
-      - ChannelEndpointSid
-      - ChannelEndpointType
-      title: CreateTrustProductChannelEndpointAssignmentRequest
-      type: object
-    ListTrustProductEntityAssignmentResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        results:
-        - object_sid: object_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          trust_product_sid: trust_product_sid
-          url: https://openapi-generator.tech
-          sid: sid
-        - object_sid: object_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          trust_product_sid: trust_product_sid
-          url: https://openapi-generator.tech
-          sid: sid
-      properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        results:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.trust_product.trust_product_entity_assignment'
-          type: array
-      title: ListTrustProductEntityAssignmentResponse
-      type: object
-    CreateTrustProductEntityAssignmentRequest:
-      properties:
-        ObjectSid:
-          description: The SID of an object bag that holds information of the different
-            items.
-          maxLength: 34
-          minLength: 34
-          pattern: "^[a-zA-Z]{2}[0-9a-fA-F]{32}$"
-          type: string
-      required:
-      - ObjectSid
-      title: CreateTrustProductEntityAssignmentRequest
-      type: object
-    ListTrustProductEvaluationResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        results:
-        - policy_sid: policy_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          trust_product_sid: trust_product_sid
-          results:
-          - ""
-          - ""
-          url: https://openapi-generator.tech
-          sid: sid
-          status: status
-        - policy_sid: policy_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          account_sid: account_sid
-          trust_product_sid: trust_product_sid
-          results:
-          - ""
-          - ""
-          url: https://openapi-generator.tech
-          sid: sid
-          status: status
-      properties:
-        meta:
-          $ref: '#/components/schemas/ListCustomerProfileResponse_meta'
-        results:
-          items:
-            $ref: '#/components/schemas/trusthub.v1.trust_product.trust_product_evaluation'
-          type: array
-      title: ListTrustProductEvaluationResponse
-      type: object
-    CreateTrustProductEvaluationRequest:
-      properties:
-        PolicySid:
-          description: The unique string of a policy that is associated to the customer_profile
-            resource.
-          maxLength: 34
-          minLength: 34
-          pattern: "^RN[0-9a-fA-F]{32}$"
-          type: string
-      required:
-      - PolicySid
-      title: CreateTrustProductEvaluationRequest
+      - signature
       type: object
   securitySchemes:
-    accountSid_authToken:
-      scheme: basic
-      type: http
-x-maturity:
-- description: This product is Generally Available.
-  name: GA
+    apiKey:
+      in: header
+      name: X-APISETU-APIKEY
+      type: apiKey
+    clientId:
+      in: header
+      name: X-APISETU-CLIENTID
+      type: apiKey
 
