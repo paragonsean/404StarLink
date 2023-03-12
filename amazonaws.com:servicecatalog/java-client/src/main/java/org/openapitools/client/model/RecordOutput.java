@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * The output for the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:32.195618-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:09.580275-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class RecordOutput {
   public static final String SERIALIZED_NAME_OUTPUT_KEY = "OutputKey";
   @SerializedName(SERIALIZED_NAME_OUTPUT_KEY)

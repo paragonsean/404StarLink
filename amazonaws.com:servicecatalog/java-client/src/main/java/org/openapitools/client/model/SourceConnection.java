@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * A top level &lt;code&gt;ProductViewDetail&lt;/code&gt; response containing details about the product’s connection. Service Catalog returns this field for the &lt;code&gt;CreateProduct&lt;/code&gt;, &lt;code&gt;UpdateProduct&lt;/code&gt;, &lt;code&gt;DescribeProductAsAdmin&lt;/code&gt;, and &lt;code&gt;SearchProductAsAdmin&lt;/code&gt; APIs. This response contains the same fields as the &lt;code&gt;ConnectionParameters&lt;/code&gt; request, with the addition of the &lt;code&gt;LastSync&lt;/code&gt; response.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:32.195618-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:09.580275-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SourceConnection {
   public static final String SERIALIZED_NAME_TYPE = "Type";
   @SerializedName(SERIALIZED_NAME_TYPE)

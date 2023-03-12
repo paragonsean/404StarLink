@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;The user-defined preferences that will be applied during product provisioning, unless overridden by &lt;code&gt;ProvisioningPreferences&lt;/code&gt; or &lt;code&gt;UpdateProvisioningPreferences&lt;/code&gt;.&lt;/p&gt; &lt;p&gt;For more information on maximum concurrent accounts and failure tolerance, see &lt;a href&#x3D;\&quot;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options\&quot;&gt;Stack set operation options&lt;/a&gt; in the &lt;i&gt;CloudFormation User Guide&lt;/i&gt;.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:32.195618-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:09.580275-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ProvisioningArtifactPreferences {
   public static final String SERIALIZED_NAME_STACK_SET_ACCOUNTS = "StackSetAccounts";
   @SerializedName(SERIALIZED_NAME_STACK_SET_ACCOUNTS)

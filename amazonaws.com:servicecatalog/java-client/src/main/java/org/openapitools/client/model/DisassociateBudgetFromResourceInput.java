@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * DisassociateBudgetFromResourceInput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:32.195618-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:09.580275-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DisassociateBudgetFromResourceInput {
   public static final String SERIALIZED_NAME_BUDGET_NAME = "BudgetName";
   @SerializedName(SERIALIZED_NAME_BUDGET_NAME)

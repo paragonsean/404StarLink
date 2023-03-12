@@ -2,7 +2,7 @@
 
 AWS Service Catalog
 - API version: 2015-12-10
-  - Build date: 2024-10-11T02:00:32.195618-04:00[America/New_York]
+  - Build date: 2024-10-11T02:10:09.580275-04:00[America/New_York]
   - Generator version: 7.9.0
 
 <fullname>Service Catalog</fullname> <p> <a href=\"http://aws.amazon.com/servicecatalog\">Service Catalog</a> enables organizations to create and manage catalogs of IT services that are approved for Amazon Web Services. To get the most out of this documentation, you should be familiar with the terminology discussed in <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html\">Service Catalog Concepts</a>.</p>
