@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * SearchProductsOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:38.024008-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:14.779935-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SearchProductsOutput {
   public static final String SERIALIZED_NAME_PRODUCT_VIEW_SUMMARIES = "ProductViewSummaries";
   @SerializedName(SERIALIZED_NAME_PRODUCT_VIEW_SUMMARIES)

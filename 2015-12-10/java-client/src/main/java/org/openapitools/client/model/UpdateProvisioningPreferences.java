@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:38.024008-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:14.779935-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class UpdateProvisioningPreferences {
   public static final String SERIALIZED_NAME_STACK_SET_ACCOUNTS = "StackSetAccounts";
   @SerializedName(SERIALIZED_NAME_STACK_SET_ACCOUNTS)

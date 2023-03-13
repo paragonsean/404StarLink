@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * An CloudFormation stack, in a specific account and Region, that&#39;s part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given Region. A stack instance can exist without a stack—for example, if the stack couldn&#39;t be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:38.024008-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:14.779935-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class StackInstance {
   public static final String SERIALIZED_NAME_ACCOUNT = "Account";
   @SerializedName(SERIALIZED_NAME_ACCOUNT)

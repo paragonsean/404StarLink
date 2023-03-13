@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * &lt;p&gt;The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type&lt;/p&gt; &lt;p&gt;One or more Amazon Web Services accounts that will have access to the provisioned product.&lt;/p&gt; &lt;p&gt;Applicable only to a &lt;code&gt;CFN_STACKSET&lt;/code&gt; provisioned product type.&lt;/p&gt; &lt;p&gt;The Amazon Web Services accounts specified should be within the list of accounts in the &lt;code&gt;STACKSET&lt;/code&gt; constraint. To get the list of accounts in the &lt;code&gt;STACKSET&lt;/code&gt; constraint, use the &lt;code&gt;DescribeProvisioningParameters&lt;/code&gt; operation.&lt;/p&gt; &lt;p&gt;If no values are specified, the default value is all accounts from the &lt;code&gt;STACKSET&lt;/code&gt; constraint.&lt;/p&gt;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:38.024008-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:14.779935-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ProvisioningPreferences {
   public static final String SERIALIZED_NAME_STACK_SET_ACCOUNTS = "StackSetAccounts";
   @SerializedName(SERIALIZED_NAME_STACK_SET_ACCOUNTS)
