@@ -5,11 +5,15 @@
 ## Enum
 
 
-* `NOT_SHARED` (value: `"NOT_SHARED"`)
+* `NOT_STARTED` (value: `"NOT_STARTED"`)
 
-* `SHARED_WITH_ME` (value: `"SHARED_WITH_ME"`)
+* `IN_PROGRESS` (value: `"IN_PROGRESS"`)
 
-* `SHARED_BY_ME` (value: `"SHARED_BY_ME"`)
+* `COMPLETED` (value: `"COMPLETED"`)
+
+* `COMPLETED_WITH_ERRORS` (value: `"COMPLETED_WITH_ERRORS"`)
+
+* `ERROR` (value: `"ERROR"`)
 
 
 
