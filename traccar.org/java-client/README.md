@@ -2,7 +2,7 @@
 
 Traccar
 - API version: 5.6
-  - Build date: 2024-10-11T02:00:52.367631-04:00[America/New_York]
+  - Build date: 2024-10-11T02:10:36.387265-04:00[America/New_York]
   - Generator version: 7.9.0
 
 Open Source GPS Tracking Platform
