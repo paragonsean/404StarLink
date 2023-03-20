@@ -7,11 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**closeApproachCount** | **Long** | Number of Close Approach listings across all NEOs listed in NeoWs |  [optional] |
-|**lastUpdated** | **String** | TimeStamp the last time the DB was updated |  [optional] |
-|**nasaJplUrl** | [**URL**](URL.md) |  |  [optional] |
-|**nearEarthObjectCount** | **Long** | Number of NearEarthObjects listed in NeoWs |  [optional] |
-|**source** | **String** |  |  [optional] |
+|**activeDevices** | **Integer** |  |  [optional] |
+|**activeUsers** | **Integer** |  |  [optional] |
+|**captureTime** | **OffsetDateTime** | in IS0 8601 format. eg. &#x60;1963-11-22T18:30:00Z&#x60; |  [optional] |
+|**messagesReceived** | **Integer** |  |  [optional] |
+|**messagesStored** | **Integer** |  |  [optional] |
+|**requests** | **Integer** |  |  [optional] |
 
 
 

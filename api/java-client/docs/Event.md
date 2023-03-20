@@ -7,24 +7,14 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**agenda** | [**List&lt;EventAgendaItem&gt;**](EventAgendaItem.md) |  |  [optional] |
-|**allDay** | **Boolean** |  |  |
-|**classification** | **String** |  |  |
-|**deleted** | **Boolean** |  |  |
-|**description** | **String** |  |  |
-|**documents** | [**List&lt;EventDocument&gt;**](EventDocument.md) |  |  [optional] |
-|**endDate** | **String** |  |  |
-|**id** | **String** |  |  |
-|**jurisdiction** | [**CompactJurisdiction**](CompactJurisdiction.md) |  |  |
-|**links** | [**List&lt;Link&gt;**](Link.md) |  |  [optional] |
-|**location** | [**EventLocation**](EventLocation.md) |  |  [optional] |
-|**media** | [**List&lt;EventMedia&gt;**](EventMedia.md) |  |  [optional] |
-|**name** | **String** |  |  |
-|**participants** | [**List&lt;EventParticipant&gt;**](EventParticipant.md) |  |  [optional] |
-|**sources** | [**List&lt;Link&gt;**](Link.md) |  |  [optional] |
-|**startDate** | **String** |  |  |
-|**status** | **String** |  |  |
-|**upstreamId** | **String** |  |  |
+|**attributes** | **Object** |  |  [optional] |
+|**deviceId** | **Integer** |  |  [optional] |
+|**eventTime** | **OffsetDateTime** | in IS0 8601 format. eg. &#x60;1963-11-22T18:30:00Z&#x60; |  [optional] |
+|**geofenceId** | **Integer** |  |  [optional] |
+|**id** | **Integer** |  |  [optional] |
+|**maintenanceId** | **Integer** |  |  [optional] |
+|**positionId** | **Integer** |  |  [optional] |
+|**type** | **String** |  |  [optional] |
 
 
 

@@ -1,452 +1,1542 @@
 openapi: 3.0.1
 info:
   contact:
-    email: support@twilio.com
-    name: Twilio Support
-    url: https://support.twilio.com
-  description: This is the public Twilio REST API.
+    email: support@traccar.org
+    name: Traccar Support
+    url: https://www.traccar.org/
+  description: Open Source GPS Tracking Platform
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  termsOfService: https://www.twilio.com/legal/tos
-  title: Twilio - Ip_messaging
-  version: 1.42.0
+  title: Traccar
+  version: "5.6"
   x-apisguru-categories:
-  - telecom
-  - messaging
+  - location
   x-logo:
-    url: https://api.apis.guru/v2/cache/logo/https_static1.twilio.com_marketing_bundles_marketing_img_logos_wordmark-red.svg
+    url: https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_590395195268538368_oScd6DxA_400x400.png
   x-origin:
   - format: openapi
-    url: https://raw.githubusercontent.com/twilio/twilio-oai/main/spec/json/twilio_ip_messaging_v1.json
+    url: https://raw.githubusercontent.com/tananaev/traccar/master/swagger.json
     version: "3.0"
-  x-providerName: twilio.com
-  x-serviceName: twilio_ip_messaging_v1
+  x-providerName: traccar.org
 servers:
-- url: https://ip-messaging.twilio.com
+- description: Demo Server 1
+  url: https://demo.traccar.org/api
+- description: Demo Server 2
+  url: https://demo2.traccar.org/api
+- description: Demo Server 3
+  url: https://demo3.traccar.org/api
+- description: Demo Server 4
+  url: https://demo4.traccar.org/api
+- description: Subscription Server
+  url: https://server.traccar.org/api
+- description: Other Server
+  url: "http://{host}:{port}/api"
+  variables:
+    host:
+      default: localhost
+    port:
+      default: "8082"
+      enum:
+      - "8082"
+      - "80"
+security:
+- basicAuth: []
+tags:
+- description: Server information
+  name: Server
+- description: User session management
+  name: Session
+- description: Device management
+  name: Devices
+- description: Group management
+  name: Groups
+- description: User management
+  name: Users
+- description: User permissions and other object linking
+  name: Permissions
+- description: Retrieving raw location information
+  name: Positions
+- description: Retrieving event information
+  name: Events
+- description: Reports generation
+  name: Reports
+- description: User notifications management
+  name: Notifications
+- description: Geofence management
+  name: Geofences
+- description: Sending commands to devices and stored command management
+  name: Commands
+- description: Computed attributes management
+  name: Attributes
+- description: Drivers management
+  name: Drivers
+- description: Maintenance management
+  name: Maintenance
+- description: Calendar management
+  name: Calendars
+- description: Retrieving server statistics
+  name: Statistics
 paths:
-  /v1/Credentials:
-    description: "TODO: Resource-level docs"
+  /attributes/computed:
     get:
-      description: ""
-      operationId: ListCredential
+      description: "Without params, it returns a list of Attributes the user has access\
+        \ to"
       parameters:
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
+      - description: Can only be used by admins or managers to fetch all entities
         explode: true
         in: query
-        name: PageSize
+        name: all
         required: false
         schema:
-          maximum: 1000
-          minimum: 1
+          type: boolean
+        style: form
+      - description: Standard users can use this only with their own _userId_
+        explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
           type: integer
         style: form
-      - description: The page index. This value is simply for client state.
+      - description: "Standard users can use this only with _deviceId_s, they have\
+          \ access to"
         explode: true
         in: query
-        name: Page
+        name: deviceId
         required: false
         schema:
-          minimum: 0
           type: integer
         style: form
-      - description: The page token. This is provided by the API.
+      - description: "Standard users can use this only with _groupId_s, they have\
+          \ access to"
         explode: true
         in: query
-        name: PageToken
+        name: groupId
         required: false
         schema:
-          type: string
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: refresh
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListCredentialResponse'
+                items:
+                  $ref: '#/components/schemas/Attribute'
+                type: array
           description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+      summary: Fetch a list of Attributes
+      tags:
+      - Attributes
       x-accepts:
       - application/json
     post:
-      description: ""
-      operationId: CreateCredential
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/CreateCredentialRequest'
+              $ref: '#/components/schemas/Attribute'
+        required: true
       responses:
-        "201":
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ip_messaging.v1.credential'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
+                $ref: '#/components/schemas/Attribute'
+          description: OK
+      summary: Create an Attribute
+      tags:
+      - Attributes
+      x-codegen-request-body-name: body
+      x-content-type: application/json
       x-accepts:
       - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      - type
-      pathType: list
-  /v1/Credentials/{Sid}:
+  /attributes/computed/{id}:
     delete:
-      description: ""
-      operationId: DeleteCredential
       parameters:
-      - description: ""
-        explode: false
+      - explode: false
         in: path
-        name: Sid
+        name: id
         required: true
         schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^CR[0-9a-fA-F]{32}$"
-          type: string
+          type: integer
         style: simple
       responses:
         "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+          content: {}
+          description: No Content
+      summary: Delete an Attribute
+      tags:
+      - Attributes
       x-accepts:
       - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: FetchCredential
+    put:
       parameters:
-      - description: ""
-        explode: false
+      - explode: false
         in: path
-        name: Sid
+        name: id
         required: true
         schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^CR[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.credential'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: ""
-      operationId: UpdateCredential
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^CR[0-9a-fA-F]{32}$"
-          type: string
+          type: integer
         style: simple
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/UpdateCredentialRequest'
+              $ref: '#/components/schemas/Attribute'
+        required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ip_messaging.v1.credential'
+                $ref: '#/components/schemas/Attribute'
           description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
+      summary: Update an Attribute
+      tags:
+      - Attributes
+      x-codegen-request-body-name: body
+      x-content-type: application/json
       x-accepts:
       - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      - type
-      pathType: instance
-  /v1/Services:
-    description: "TODO: Resource-level docs"
+  /calendars:
     get:
-      description: ""
-      operationId: ListService
+      description: "Without params, it returns a list of Calendars the user has access\
+        \ to"
       parameters:
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
+      - description: Can only be used by admins or managers to fetch all entities
         explode: true
         in: query
-        name: PageSize
+        name: all
         required: false
         schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
+          type: boolean
         style: form
-      - description: The page index. This value is simply for client state.
+      - description: Standard users can use this only with their own _userId_
         explode: true
         in: query
-        name: Page
+        name: userId
         required: false
         schema:
-          minimum: 0
           type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
         style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListServiceResponse'
+                items:
+                  $ref: '#/components/schemas/Calendar'
+                type: array
           description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+      summary: Fetch a list of Calendars
+      tags:
+      - Calendars
       x-accepts:
       - application/json
     post:
-      description: ""
-      operationId: CreateService
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/CreateServiceRequest'
+              $ref: '#/components/schemas/Calendar'
+        required: true
       responses:
-        "201":
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
+                $ref: '#/components/schemas/Calendar'
+          description: OK
+      summary: Create a Calendar
+      tags:
+      - Calendars
+      x-codegen-request-body-name: body
+      x-content-type: application/json
       x-accepts:
       - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      - date_created
-      pathType: list
-  /v1/Services/{ServiceSid}/Channels:
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: ListChannel
+  /calendars/{id}:
+    delete:
       parameters:
-      - description: ""
-        explode: false
+      - explode: false
         in: path
-        name: ServiceSid
+        name: id
         required: true
         schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
+          type: integer
         style: simple
-      - description: ""
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete a Calendar
+      tags:
+      - Calendars
+      x-accepts:
+      - application/json
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Calendar'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Calendar'
+          description: OK
+      summary: Update a Calendar
+      tags:
+      - Calendars
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /commands:
+    get:
+      description: "Without params, it returns a list of Saved Commands the user has\
+        \ access to"
+      parameters:
+      - description: Can only be used by admins or managers to fetch all entities
         explode: true
         in: query
-        name: Type
+        name: all
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Standard users can use this only with their own _userId_
+        explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Standard users can use this only with _deviceId_s, they have\
+          \ access to"
+        explode: true
+        in: query
+        name: deviceId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Standard users can use this only with _groupId_s, they have\
+          \ access to"
+        explode: true
+        in: query
+        name: groupId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: refresh
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Command'
+                type: array
+          description: OK
+      summary: Fetch a list of Saved Commands
+      tags:
+      - Commands
+      x-accepts:
+      - application/json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Command'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Command'
+          description: OK
+      summary: Create a Saved Command
+      tags:
+      - Commands
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /commands/send:
+    get:
+      description: "Return a list of saved commands linked to Device and its groups,\
+        \ filtered by current Device protocol support"
+      parameters:
+      - description: "Standard users can use this only with _deviceId_s, they have\
+          \ access to"
+        explode: true
+        in: query
+        name: deviceId
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Command'
+                type: array
+          description: OK
+        "400":
+          content: {}
+          description: Could happen when the user doesn't have permission for the
+            device
+      summary: Fetch a list of Saved Commands supported by Device at the moment
+      tags:
+      - Commands
+      x-accepts:
+      - application/json
+    post:
+      description: Dispatch a new command or Saved Command if _body.id_ set
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Command'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Command'
+          description: Command sent
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Command'
+          description: Command queued
+        "400":
+          content: {}
+          description: Could happen when the user doesn't have permission or an incorrect
+            command _type_ for the device
+      summary: Dispatch commands to device
+      tags:
+      - Commands
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /commands/types:
+    get:
+      parameters:
+      - description: Internal device identifier. Only works if device has already
+          reported some locations
+        explode: true
+        in: query
+        name: deviceId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Protocol name. Can be used instead of device id
+        explode: true
+        in: query
+        name: protocol
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: When `true` return SMS commands. If not specified or `false`
+          return data commands
+        explode: true
+        in: query
+        name: textChannel
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CommandType'
+                type: array
+          description: OK
+        "400":
+          content: {}
+          description: Could happen when trying to fetch from a device the user does
+            not have permission
+      summary: Fetch a list of available Commands for the Device or all possible Commands
+        if Device ommited
+      tags:
+      - Commands
+      x-accepts:
+      - application/json
+  /commands/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete a Saved Command
+      tags:
+      - Commands
+      x-accepts:
+      - application/json
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Command'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Command'
+          description: OK
+      summary: Update a Saved Command
+      tags:
+      - Commands
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /devices:
+    get:
+      description: "Without any params, returns a list of the user's devices"
+      parameters:
+      - description: Can only be used by admins or managers to fetch all entities
+        explode: true
+        in: query
+        name: all
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Standard users can use this only with their own _userId_
+        explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: To fetch one or more devices. Multiple params can be passed like
+          `id=31&id=42`
+        explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: To fetch one or more devices. Multiple params can be passed like
+          `uniqueId=333331&uniqieId=44442`
+        explode: true
+        in: query
+        name: uniqueId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Device'
+                type: array
+          description: OK
+        "400":
+          content: {}
+          description: No permission
+      summary: Fetch a list of Devices
+      tags:
+      - Devices
+      x-accepts:
+      - application/json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Device'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+          description: OK
+      summary: Create a Device
+      tags:
+      - Devices
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /devices/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete a Device
+      tags:
+      - Devices
+      x-accepts:
+      - application/json
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Device'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+          description: OK
+      summary: Update a Device
+      tags:
+      - Devices
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /devices/{id}/accumulators:
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceAccumulators'
+        required: true
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Update total distance and hours of the Device
+      tags:
+      - Devices
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /drivers:
+    get:
+      description: "Without params, it returns a list of Drivers the user has access\
+        \ to"
+      parameters:
+      - description: Can only be used by admins or managers to fetch all entities
+        explode: true
+        in: query
+        name: all
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Standard users can use this only with their own _userId_
+        explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Standard users can use this only with _deviceId_s, they have\
+          \ access to"
+        explode: true
+        in: query
+        name: deviceId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Standard users can use this only with _groupId_s, they have\
+          \ access to"
+        explode: true
+        in: query
+        name: groupId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: refresh
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Driver'
+                type: array
+          description: OK
+      summary: Fetch a list of Drivers
+      tags:
+      - Drivers
+      x-accepts:
+      - application/json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+          description: OK
+      summary: Create a Driver
+      tags:
+      - Drivers
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /drivers/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete a Driver
+      tags:
+      - Drivers
+      x-accepts:
+      - application/json
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+          description: OK
+      summary: Update a Driver
+      tags:
+      - Drivers
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /events/{id}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: OK
+      tags:
+      - Events
+      x-accepts:
+      - application/json
+  /geofences:
+    get:
+      description: "Without params, it returns a list of Geofences the user has access\
+        \ to"
+      parameters:
+      - description: Can only be used by admins or managers to fetch all entities
+        explode: true
+        in: query
+        name: all
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Standard users can use this only with their own _userId_
+        explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Standard users can use this only with _deviceId_s, they have\
+          \ access to"
+        explode: true
+        in: query
+        name: deviceId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Standard users can use this only with _groupId_s, they have\
+          \ access to"
+        explode: true
+        in: query
+        name: groupId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: refresh
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Geofence'
+                type: array
+          description: OK
+      summary: Fetch a list of Geofences
+      tags:
+      - Geofences
+      x-accepts:
+      - application/json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Geofence'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Geofence'
+          description: OK
+      summary: Create a Geofence
+      tags:
+      - Geofences
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /geofences/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete a Geofence
+      tags:
+      - Geofences
+      x-accepts:
+      - application/json
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Geofence'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Geofence'
+          description: OK
+      summary: Update a Geofence
+      tags:
+      - Geofences
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /groups:
+    get:
+      description: "Without any params, returns a list of the Groups the user belongs\
+        \ to"
+      parameters:
+      - description: Can only be used by admins or managers to fetch all entities
+        explode: true
+        in: query
+        name: all
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Standard users can use this only with their own _userId_
+        explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Group'
+                type: array
+          description: OK
+      summary: Fetch a list of Groups
+      tags:
+      - Groups
+      x-accepts:
+      - application/json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: OK
+        "400":
+          content: {}
+          description: No permission
+      summary: Create a Group
+      tags:
+      - Groups
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /groups/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete a Group
+      tags:
+      - Groups
+      x-accepts:
+      - application/json
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: OK
+      summary: Update a Group
+      tags:
+      - Groups
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /maintenance:
+    get:
+      description: "Without params, it returns a list of Maintenance the user has\
+        \ access to"
+      parameters:
+      - description: Can only be used by admins or managers to fetch all entities
+        explode: true
+        in: query
+        name: all
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Standard users can use this only with their own _userId_
+        explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Standard users can use this only with _deviceId_s, they have\
+          \ access to"
+        explode: true
+        in: query
+        name: deviceId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Standard users can use this only with _groupId_s, they have\
+          \ access to"
+        explode: true
+        in: query
+        name: groupId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: refresh
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Maintenance'
+                type: array
+          description: OK
+      summary: Fetch a list of Maintenance
+      tags:
+      - Maintenance
+      x-accepts:
+      - application/json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Maintenance'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Maintenance'
+          description: OK
+      summary: Create a Maintenance
+      tags:
+      - Maintenance
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /maintenance/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete a Maintenance
+      tags:
+      - Maintenance
+      x-accepts:
+      - application/json
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Maintenance'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Maintenance'
+          description: OK
+      summary: Update a Maintenance
+      tags:
+      - Maintenance
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /notifications:
+    get:
+      description: "Without params, it returns a list of Notifications the user has\
+        \ access to"
+      parameters:
+      - description: Can only be used by admins or managers to fetch all entities
+        explode: true
+        in: query
+        name: all
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Standard users can use this only with their own _userId_
+        explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Standard users can use this only with _deviceId_s, they have\
+          \ access to"
+        explode: true
+        in: query
+        name: deviceId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Standard users can use this only with _groupId_s, they have\
+          \ access to"
+        explode: true
+        in: query
+        name: groupId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: refresh
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Notification'
+                type: array
+          description: OK
+      summary: Fetch a list of Notifications
+      tags:
+      - Notifications
+      x-accepts:
+      - application/json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+          description: OK
+      summary: Create a Notification
+      tags:
+      - Notifications
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /notifications/test:
+    post:
+      responses:
+        "204":
+          content: {}
+          description: Successful sending
+        "400":
+          content: {}
+          description: Could happen if sending has failed
+      summary: Send test notification to current user via Email and SMS
+      tags:
+      - Notifications
+      x-accepts:
+      - application/json
+  /notifications/types:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/NotificationType'
+                type: array
+          description: OK
+      summary: Fetch a list of available Notification types
+      tags:
+      - Notifications
+      x-accepts:
+      - application/json
+  /notifications/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete a Notification
+      tags:
+      - Notifications
+      x-accepts:
+      - application/json
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+          description: OK
+      summary: Update a Notification
+      tags:
+      - Notifications
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /permissions:
+    delete:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Permission'
+        required: true
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Unlink an Object from another Object
+      tags:
+      - Permissions
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Permission'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+          description: OK
+        "400":
+          content: {}
+          description: No permission
+      summary: Link an Object to another Object
+      tags:
+      - Permissions
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /positions:
+    get:
+      description: "We strongly recommend using [Traccar WebSocket API](https://www.traccar.org/traccar-api/)\
+        \ instead of periodically polling positions endpoint. Without any params,\
+        \ it returns a list of last known positions for all the user's Devices. _from_\
+        \ and _to_ fields are not required with _id_."
+      parameters:
+      - description: "_deviceId_ is optional, but requires the _from_ and _to_ parameters\
+          \ when used"
+        explode: true
+        in: query
+        name: deviceId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+        explode: true
+        in: query
+        name: from
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+        explode: true
+        in: query
+        name: to
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: To fetch one or more positions. Multiple params can be passed
+          like `id=31&id=42`
+        explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/gpx+xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Position'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Position'
+                type: array
+            text/csv:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Position'
+                type: array
+          description: OK
+      summary: Fetches a list of Positions
+      tags:
+      - Positions
+      x-accepts:
+      - application/gpx+xml
+      - application/json
+      - text/csv
+  /reports/events:
+    get:
+      description: At least one _deviceId_ or one _groupId_ must be passed
+      parameters:
+      - explode: true
+        in: query
+        name: deviceId
         required: false
         schema:
           items:
-            $ref: '#/components/schemas/channel_enum_channel_type'
+            type: integer
           type: array
         style: form
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
+      - explode: true
         in: query
-        name: PageSize
+        name: groupId
         required: false
         schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
+          items:
+            type: integer
+          type: array
         style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListChannelResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: ""
-      operationId: CreateChannel
-      parameters:
-      - description: ""
+      - description: '% can be used to return events of all types'
         explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateChannelRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.channel'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - unique_name
-      - friendly_name
-      parent: "/Services/{Sid}"
-      pathType: list
-  /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites:
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: ListInvite
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ""
-        explode: true
         in: query
-        name: Identity
+        name: type
         required: false
         schema:
           items:
             type: string
           type: array
         style: form
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
         explode: true
         in: query
-        name: PageSize
-        required: false
+        name: from
+        required: true
         schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
+          format: date-time
+          type: string
         style: form
-      - description: The page index. This value is simply for client state.
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
         explode: true
         in: query
-        name: Page
-        required: false
+        name: to
+        required: true
         schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
+          format: date-time
           type: string
         style: form
       responses:
@@ -454,225 +1544,316 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListInviteResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: ""
-      operationId: CreateInvite
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateInviteRequest'
-      responses:
-        "201":
-          content:
-            application/json:
+                items:
+                  $ref: '#/components/schemas/Event'
+                type: array
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
               schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.channel.invite'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - identity
-      - date_created
-      parent: "/Services/{ServiceSid}/Channels/{Sid}"
-      pathType: list
-  /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid}:
-    delete:
-      description: ""
-      operationId: DeleteInvite
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IN[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: FetchInvite
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IN[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.channel.invite'
+                items:
+                  $ref: '#/components/schemas/Event'
+                type: array
           description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+      summary: Fetch a list of Events within the time period for the Devices or Groups
+      tags:
+      - Reports
       x-accepts:
       - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - identity
-      - date_created
-      parent: "/Services/{ServiceSid}/Channels/{Sid}"
-      pathType: instance
-  /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members:
-    description: "TODO: Resource-level docs"
+      - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  /reports/route:
     get:
-      description: ""
-      operationId: ListMember
+      description: At least one _deviceId_ or one _groupId_ must be passed
       parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ""
-        explode: true
+      - explode: true
         in: query
-        name: Identity
+        name: deviceId
         required: false
         schema:
           items:
-            type: string
+            type: integer
           type: array
         style: form
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
+      - explode: true
         in: query
-        name: PageSize
+        name: groupId
         required: false
         schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
+          items:
+            type: integer
+          type: array
         style: form
-      - description: The page index. This value is simply for client state.
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
         explode: true
         in: query
-        name: Page
+        name: from
+        required: true
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+        explode: true
+        in: query
+        name: to
+        required: true
+        schema:
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Position'
+                type: array
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Position'
+                type: array
+          description: OK
+      summary: Fetch a list of Positions within the time period for the Devices or
+        Groups
+      tags:
+      - Reports
+      x-accepts:
+      - application/json
+      - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  /reports/stops:
+    get:
+      description: At least one _deviceId_ or one _groupId_ must be passed
+      parameters:
+      - explode: true
+        in: query
+        name: deviceId
         required: false
         schema:
-          minimum: 0
-          type: integer
+          items:
+            type: integer
+          type: array
         style: form
-      - description: The page token. This is provided by the API.
+      - explode: true
+        in: query
+        name: groupId
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
         explode: true
         in: query
-        name: PageToken
+        name: from
+        required: true
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+        explode: true
+        in: query
+        name: to
+        required: true
+        schema:
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReportStops'
+                type: array
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReportStops'
+                type: array
+          description: OK
+      summary: Fetch a list of ReportStops within the time period for the Devices
+        or Groups
+      tags:
+      - Reports
+      x-accepts:
+      - application/json
+      - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  /reports/summary:
+    get:
+      description: At least one _deviceId_ or one _groupId_ must be passed
+      parameters:
+      - explode: true
+        in: query
+        name: deviceId
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: groupId
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+        explode: true
+        in: query
+        name: from
+        required: true
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+        explode: true
+        in: query
+        name: to
+        required: true
+        schema:
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReportSummary'
+                type: array
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReportSummary'
+                type: array
+          description: OK
+      summary: Fetch a list of ReportSummary within the time period for the Devices
+        or Groups
+      tags:
+      - Reports
+      x-accepts:
+      - application/json
+      - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  /reports/trips:
+    get:
+      description: At least one _deviceId_ or one _groupId_ must be passed
+      parameters:
+      - explode: true
+        in: query
+        name: deviceId
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: groupId
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+        explode: true
+        in: query
+        name: from
+        required: true
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+        explode: true
+        in: query
+        name: to
+        required: true
+        schema:
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReportTrips'
+                type: array
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReportTrips'
+                type: array
+          description: OK
+      summary: Fetch a list of ReportTrips within the time period for the Devices
+        or Groups
+      tags:
+      - Reports
+      x-accepts:
+      - application/json
+      - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  /server:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Server'
+          description: OK
+      summary: Fetch Server information
+      tags:
+      - Server
+      x-accepts:
+      - application/json
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Server'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Server'
+          description: OK
+      summary: Update Server information
+      tags:
+      - Server
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /session:
+    delete:
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Close the Session
+      tags:
+      - Session
+      x-accepts:
+      - application/json
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: token
         required: false
         schema:
           type: string
@@ -682,2886 +1863,1019 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListMemberResponse'
+                $ref: '#/components/schemas/User'
           description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+        "404":
+          content: {}
+          description: Not Found
+      summary: Fetch Session information
+      tags:
+      - Session
       x-accepts:
       - application/json
     post:
-      description: ""
-      operationId: CreateMember
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/CreateMemberRequest'
+              $ref: '#/components/schemas/_session_post_request'
+        required: true
       responses:
-        "201":
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.channel.member'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+                $ref: '#/components/schemas/User'
+          description: OK
+        "401":
+          content: {}
+          description: Unauthorized
+      summary: Create a new Session
+      tags:
+      - Session
       x-content-type: application/x-www-form-urlencoded
       x-accepts:
       - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - identity
-      - date_created
-      parent: "/Services/{ServiceSid}/Channels/{Sid}"
-      pathType: list
-  /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid}:
-    delete:
-      description: ""
-      operationId: DeleteMember
+  /statistics:
+    get:
       parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+        explode: true
+        in: query
+        name: from
         required: true
         schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
+          format: date-time
           type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
+        style: form
+      - description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+        explode: true
+        in: query
+        name: to
         required: true
         schema:
+          format: date-time
           type: string
-        style: simple
-      - description: ""
-        explode: false
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Statistics'
+                type: array
+          description: OK
+      summary: Fetch server Statistics
+      tags:
+      - Statistics
+      x-accepts:
+      - application/json
+  /users:
+    get:
+      parameters:
+      - description: Can only be used by admin or manager users
+        explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/User'
+                type: array
+          description: OK
+        "400":
+          content: {}
+          description: No Permission
+      summary: Fetch a list of Users
+      tags:
+      - Users
+      x-accepts:
+      - application/json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: OK
+      summary: Create a User
+      tags:
+      - Users
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /users/{id}:
+    delete:
+      parameters:
+      - explode: false
         in: path
-        name: Sid
+        name: id
         required: true
         schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^MB[0-9a-fA-F]{32}$"
-          type: string
+          type: integer
         style: simple
       responses:
         "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+          content: {}
+          description: No Content
+      summary: Delete a User
+      tags:
+      - Users
       x-accepts:
       - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: FetchMember
+    put:
       parameters:
-      - description: ""
-        explode: false
+      - explode: false
         in: path
-        name: ServiceSid
+        name: id
         required: true
         schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^MB[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.channel.member'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: ""
-      operationId: UpdateMember
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^MB[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UpdateMemberRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.channel.member'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - identity
-      - date_created
-      parent: "/Services/{ServiceSid}/Channels/{Sid}"
-      pathType: instance
-  /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages:
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: ListMessage
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^CH[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: true
-        in: query
-        name: Order
-        required: false
-        schema:
-          $ref: '#/components/schemas/message_enum_order_type'
-        style: form
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
           type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListMessageResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: ""
-      operationId: CreateMessage
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^CH[0-9a-fA-F]{32}$"
-          type: string
         style: simple
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/CreateMessageRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.channel.message'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - from
-      - to
-      - date_created
-      parent: "/Services/{ServiceSid}/Channels/{Sid}"
-      pathType: list
-  /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid}:
-    delete:
-      description: ""
-      operationId: DeleteMessage
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
+              $ref: '#/components/schemas/User'
         required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^CH[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IM[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: FetchMessage
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^CH[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IM[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.channel.message'
+                $ref: '#/components/schemas/User'
           description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
+      summary: Update a User
+      tags:
+      - Users
+      x-codegen-request-body-name: body
+      x-content-type: application/json
       x-accepts:
       - application/json
-    post:
-      description: ""
-      operationId: UpdateMessage
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: ChannelSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^CH[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IM[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UpdateMessageRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.channel.message'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - from
-      - to
-      - date_created
-      parent: "/Services/{ServiceSid}/Channels/{Sid}"
-      pathType: instance
-  /v1/Services/{ServiceSid}/Channels/{Sid}:
-    delete:
-      description: ""
-      operationId: DeleteChannel
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: FetchChannel
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.channel'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: ""
-      operationId: UpdateChannel
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UpdateChannelRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.channel'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - unique_name
-      - friendly_name
-      parent: "/Services/{Sid}"
-      pathType: instance
-  /v1/Services/{ServiceSid}/Roles:
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: ListRole
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListRoleResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: ""
-      operationId: CreateRole
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateRoleRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.role'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      - type
-      parent: "/Services/{Sid}"
-      pathType: list
-  /v1/Services/{ServiceSid}/Roles/{Sid}:
-    delete:
-      description: ""
-      operationId: DeleteRole
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: FetchRole
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.role'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: ""
-      operationId: UpdateRole
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UpdateRoleRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.role'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      - type
-      parent: "/Services/{Sid}"
-      pathType: instance
-  /v1/Services/{ServiceSid}/Users:
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: ListUser
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListUserResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: ""
-      operationId: CreateUser
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateUserRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.user'
-          description: Created
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      - date_created
-      parent: "/Services/{Sid}"
-      pathType: list
-  /v1/Services/{ServiceSid}/Users/{Sid}:
-    delete:
-      description: ""
-      operationId: DeleteUser
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: FetchUser
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.user'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: ""
-      operationId: UpdateUser
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UpdateUserRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service.user'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      - date_created
-      parent: "/Services/{Sid}"
-      pathType: instance
-  /v1/Services/{ServiceSid}/Users/{UserSid}/Channels:
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: ListUserChannel
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: ServiceSid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: UserSid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: "How many resources to return in each list page. The default\
-          \ is 50, and the maximum is 1000."
-        explode: true
-        in: query
-        name: PageSize
-        required: false
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-        style: form
-      - description: The page index. This value is simply for client state.
-        explode: true
-        in: query
-        name: Page
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-        style: form
-      - description: The page token. This is provided by the API.
-        explode: true
-        in: query
-        name: PageToken
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListUserChannelResponse'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - channel_sid
-      - status
-      mountName: user_channels
-      parent: "/Services/{ServiceSid}/Users/{Sid}"
-      pathType: list
-  /v1/Services/{Sid}:
-    delete:
-      description: ""
-      operationId: DeleteService
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: The resource was deleted successfully.
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    description: "TODO: Resource-level docs"
-    get:
-      description: ""
-      operationId: FetchService
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-accepts:
-      - application/json
-    post:
-      description: ""
-      operationId: UpdateService
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: Sid
-        required: true
-        schema:
-          maxLength: 34
-          minLength: 34
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UpdateServiceRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ip_messaging.v1.service'
-          description: OK
-      security:
-      - accountSid_authToken: []
-      x-maturity:
-      - GA
-      x-content-type: application/x-www-form-urlencoded
-      x-accepts:
-      - application/json
-    servers:
-    - url: https://ip-messaging.twilio.com
-    x-twilio:
-      defaultOutputProperties:
-      - sid
-      - friendly_name
-      - date_created
-      pathType: instance
 components:
+  parameters:
+    all:
+      description: Can only be used by admins or managers to fetch all entities
+      explode: true
+      in: query
+      name: all
+      required: false
+      schema:
+        type: boolean
+      style: form
+    deviceId:
+      description: "Standard users can use this only with _deviceId_s, they have access\
+        \ to"
+      explode: true
+      in: query
+      name: deviceId
+      required: false
+      schema:
+        type: integer
+      style: form
+    deviceIdArray:
+      explode: true
+      in: query
+      name: deviceId
+      required: false
+      schema:
+        items:
+          type: integer
+        type: array
+      style: form
+    entityId:
+      explode: false
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+      style: simple
+    fromTime:
+      description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+      explode: true
+      in: query
+      name: from
+      required: true
+      schema:
+        format: date-time
+        type: string
+      style: form
+    groupId:
+      description: "Standard users can use this only with _groupId_s, they have access\
+        \ to"
+      explode: true
+      in: query
+      name: groupId
+      required: false
+      schema:
+        type: integer
+      style: form
+    groupIdArray:
+      explode: true
+      in: query
+      name: groupId
+      required: false
+      schema:
+        items:
+          type: integer
+        type: array
+      style: form
+    refresh:
+      explode: true
+      in: query
+      name: refresh
+      required: false
+      schema:
+        type: boolean
+      style: form
+    toTime:
+      description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+      explode: true
+      in: query
+      name: to
+      required: true
+      schema:
+        format: date-time
+        type: string
+      style: form
+    userId:
+      description: Standard users can use this only with their own _userId_
+      explode: true
+      in: query
+      name: userId
+      required: false
+      schema:
+        type: integer
+      style: form
+  requestBodies:
+    Attribute:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Attribute'
+      required: true
+    Calendar:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Calendar'
+      required: true
+    Command:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Command'
+      required: true
+    Device:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Device'
+      required: true
+    Driver:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Driver'
+      required: true
+    Geofence:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Geofence'
+      required: true
+    Group:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Group'
+      required: true
+    Maintenance:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Maintenance'
+      required: true
+    Notification:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Notification'
+      required: true
+    Permission:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Permission'
+      required: true
+    User:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
+      required: true
   schemas:
-    channel_enum_channel_type:
-      enum:
-      - public
-      - private
-      type: string
-    credential_enum_push_service:
-      enum:
-      - gcm
-      - apn
-      - fcm
-      type: string
-    ip_messaging.v1.credential:
+    Attribute:
       example:
-        friendly_name: friendly_name
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        date_created: 2000-01-23T04:56:07.000+00:00
-        sandbox: sandbox
-        account_sid: account_sid
+        expression: expression
+        description: description
+        attribute: attribute
+        id: 0
         type: type
-        url: https://openapi-generator.tech
-        sid: sid
       properties:
-        account_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
+        attribute:
           type: string
-        date_created:
-          format: date-time
-          nullable: true
+        description:
           type: string
-        date_updated:
-          format: date-time
-          nullable: true
+        expression:
           type: string
-        friendly_name:
-          nullable: true
-          type: string
-        sandbox:
-          nullable: true
-          type: string
-        sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^CR[0-9a-fA-F]{32}$"
-          type: string
+        id:
+          type: integer
         type:
-          $ref: '#/components/schemas/credential_enum_push_service'
-        url:
-          format: uri
-          nullable: true
+          description: String|Number|Boolean
           type: string
       type: object
-    ip_messaging.v1.service:
+    Calendar:
       example:
-        friendly_name: friendly_name
-        webhook_method: webhook_method
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        default_channel_role_sid: default_channel_role_sid
-        date_created: 2000-01-23T04:56:07.000+00:00
-        post_webhook_url: post_webhook_url
-        read_status_enabled: true
-        url: https://openapi-generator.tech
-        pre_webhook_url: pre_webhook_url
-        sid: sid
-        reachability_enabled: true
-        webhooks: ""
-        consumption_report_interval: 0
-        default_service_role_sid: default_service_role_sid
-        account_sid: account_sid
-        default_channel_creator_role_sid: default_channel_creator_role_sid
-        links: "{}"
-        typing_indicator_timeout: 6
-        webhook_filters:
-        - webhook_filters
-        - webhook_filters
-        limits: ""
-        notifications: ""
+        data: data
+        name: name
+        attributes: "{}"
+        id: 0
       properties:
-        account_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        consumption_report_interval:
-          nullable: true
-          type: integer
-        date_created:
-          format: date-time
-          nullable: true
-          type: string
-        date_updated:
-          format: date-time
-          nullable: true
-          type: string
-        default_channel_creator_role_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        default_channel_role_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        default_service_role_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        friendly_name:
-          nullable: true
-          type: string
-        limits:
-          nullable: true
-        links:
-          format: uri-map
-          nullable: true
+        attributes:
+          properties: {}
           type: object
-        notifications:
-          nullable: true
-        post_webhook_url:
-          nullable: true
+        data:
+          description: base64 encoded in iCalendar format
           type: string
-        pre_webhook_url:
-          nullable: true
-          type: string
-        reachability_enabled:
-          nullable: true
-          type: boolean
-        read_status_enabled:
-          nullable: true
-          type: boolean
-        sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        typing_indicator_timeout:
-          nullable: true
+        id:
           type: integer
-        url:
-          format: uri
-          nullable: true
+        name:
           type: string
-        webhook_filters:
-          items:
-            type: string
-          nullable: true
-          type: array
-        webhook_method:
-          nullable: true
-          type: string
-        webhooks:
-          nullable: true
       type: object
-    ip_messaging.v1.service.channel:
+    Command:
       example:
-        friendly_name: friendly_name
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        date_created: 2000-01-23T04:56:07.000+00:00
+        description: description
+        attributes: "{}"
+        id: 6
         type: type
-        created_by: created_by
-        url: https://openapi-generator.tech
-        sid: sid
-        service_sid: service_sid
-        messages_count: 6
-        unique_name: unique_name
-        account_sid: account_sid
-        attributes: attributes
-        links: "{}"
-        members_count: 0
+        deviceId: 0
       properties:
-        account_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
         attributes:
-          nullable: true
-          type: string
-        created_by:
-          nullable: true
-          type: string
-        date_created:
-          format: date-time
-          nullable: true
-          type: string
-        date_updated:
-          format: date-time
-          nullable: true
-          type: string
-        friendly_name:
-          nullable: true
-          type: string
-        links:
-          format: uri-map
-          nullable: true
+          properties: {}
           type: object
-        members_count:
-          nullable: true
-          type: integer
-        messages_count:
-          nullable: true
-          type: integer
-        service_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^IS[0-9a-fA-F]{32}$"
+        description:
           type: string
-        sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^CH[0-9a-fA-F]{32}$"
-          type: string
+        deviceId:
+          type: integer
+        id:
+          type: integer
         type:
-          $ref: '#/components/schemas/channel_enum_channel_type'
-        unique_name:
-          nullable: true
-          type: string
-        url:
-          format: uri
-          nullable: true
           type: string
       type: object
-    ip_messaging.v1.service.channel.invite:
+    CommandType:
       example:
-        service_sid: service_sid
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        role_sid: role_sid
-        date_created: 2000-01-23T04:56:07.000+00:00
-        identity: identity
-        account_sid: account_sid
-        created_by: created_by
-        channel_sid: channel_sid
-        url: https://openapi-generator.tech
-        sid: sid
-      properties:
-        account_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        channel_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^CH[0-9a-fA-F]{32}$"
-          type: string
-        created_by:
-          nullable: true
-          type: string
-        date_created:
-          format: date-time
-          nullable: true
-          type: string
-        date_updated:
-          format: date-time
-          nullable: true
-          type: string
-        identity:
-          nullable: true
-          type: string
-        role_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        service_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^IN[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    ip_messaging.v1.service.channel.member:
-      example:
-        last_consumption_timestamp: 2000-01-23T04:56:07.000+00:00
-        service_sid: service_sid
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        role_sid: role_sid
-        date_created: 2000-01-23T04:56:07.000+00:00
-        identity: identity
-        account_sid: account_sid
-        last_consumed_message_index: 0
-        channel_sid: channel_sid
-        url: https://openapi-generator.tech
-        sid: sid
-      properties:
-        account_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        channel_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^CH[0-9a-fA-F]{32}$"
-          type: string
-        date_created:
-          format: date-time
-          nullable: true
-          type: string
-        date_updated:
-          format: date-time
-          nullable: true
-          type: string
-        identity:
-          nullable: true
-          type: string
-        last_consumed_message_index:
-          nullable: true
-          type: integer
-        last_consumption_timestamp:
-          format: date-time
-          nullable: true
-          type: string
-        role_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        service_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^MB[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    ip_messaging.v1.service.channel.message:
-      example:
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        date_created: 2000-01-23T04:56:07.000+00:00
-        index: 0
-        was_edited: true
-        body: body
-        channel_sid: channel_sid
-        url: https://openapi-generator.tech
-        sid: sid
-        service_sid: service_sid
-        account_sid: account_sid
-        attributes: attributes
-        from: from
-        to: to
-      properties:
-        account_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        attributes:
-          nullable: true
-          type: string
-        body:
-          nullable: true
-          type: string
-        channel_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^CH[0-9a-fA-F]{32}$"
-          type: string
-        date_created:
-          format: date-time
-          nullable: true
-          type: string
-        date_updated:
-          format: date-time
-          nullable: true
-          type: string
-        from:
-          nullable: true
-          type: string
-        index:
-          nullable: true
-          type: integer
-        service_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^IM[0-9a-fA-F]{32}$"
-          type: string
-        to:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^CH[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          format: uri
-          nullable: true
-          type: string
-        was_edited:
-          nullable: true
-          type: boolean
-      type: object
-    ip_messaging.v1.service.role:
-      example:
-        service_sid: service_sid
-        friendly_name: friendly_name
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        date_created: 2000-01-23T04:56:07.000+00:00
-        permissions:
-        - permissions
-        - permissions
-        account_sid: account_sid
         type: type
-        url: https://openapi-generator.tech
-        sid: sid
       properties:
-        account_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        date_created:
-          format: date-time
-          nullable: true
-          type: string
-        date_updated:
-          format: date-time
-          nullable: true
-          type: string
-        friendly_name:
-          nullable: true
-          type: string
-        permissions:
-          items:
-            type: string
-          nullable: true
-          type: array
-        service_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
         type:
-          $ref: '#/components/schemas/role_enum_role_type'
-        url:
-          format: uri
-          nullable: true
           type: string
       type: object
-    ip_messaging.v1.service.user:
+    Device:
       example:
-        friendly_name: friendly_name
-        date_updated: 2000-01-23T04:56:07.000+00:00
-        role_sid: role_sid
-        date_created: 2000-01-23T04:56:07.000+00:00
-        joined_channels_count: 0
-        url: https://openapi-generator.tech
-        sid: sid
-        service_sid: service_sid
-        identity: identity
-        is_notifiable: true
-        account_sid: account_sid
-        attributes: attributes
-        links: "{}"
-        is_online: true
-      properties:
-        account_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        attributes:
-          nullable: true
-          type: string
-        date_created:
-          format: date-time
-          nullable: true
-          type: string
-        date_updated:
-          format: date-time
-          nullable: true
-          type: string
-        friendly_name:
-          nullable: true
-          type: string
-        identity:
-          nullable: true
-          type: string
-        is_notifiable:
-          nullable: true
-          type: boolean
-        is_online:
-          nullable: true
-          type: boolean
-        joined_channels_count:
-          nullable: true
-          type: integer
-        links:
-          format: uri-map
-          nullable: true
-          type: object
-        role_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        service_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^IS[0-9a-fA-F]{32}$"
-          type: string
-        sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^US[0-9a-fA-F]{32}$"
-          type: string
-        url:
-          format: uri
-          nullable: true
-          type: string
-      type: object
-    ip_messaging.v1.service.user.user_channel:
-      example:
-        service_sid: service_sid
-        account_sid: account_sid
-        last_consumed_message_index: 0
-        links: "{}"
-        member_sid: member_sid
-        unread_messages_count: 6
-        channel_sid: channel_sid
+        groupId: 6
+        positionId: 5
+        phone: phone
+        geofenceIds:
+        - 0
+        - 0
+        contact: contact
+        lastUpdate: 2000-01-23T04:56:07.000+00:00
+        name: name
+        attributes: "{}"
+        disabled: true
+        model: model
+        id: 1
+        category: category
+        uniqueId: uniqueId
         status: status
       properties:
-        account_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^AC[0-9a-fA-F]{32}$"
-          type: string
-        channel_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^CH[0-9a-fA-F]{32}$"
-          type: string
-        last_consumed_message_index:
-          nullable: true
-          type: integer
-        links:
-          format: uri-map
-          nullable: true
+        attributes:
+          properties: {}
           type: object
-        member_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^MB[0-9a-fA-F]{32}$"
+        category:
           type: string
-        service_sid:
-          maxLength: 34
-          minLength: 34
-          nullable: true
-          pattern: "^IS[0-9a-fA-F]{32}$"
+        contact:
           type: string
+        disabled:
+          type: boolean
+        geofenceIds:
+          items:
+            type: integer
+          type: array
+        groupId:
+          type: integer
+        id:
+          type: integer
+        lastUpdate:
+          description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+          format: date-time
+          type: string
+        model:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        positionId:
+          type: integer
         status:
-          $ref: '#/components/schemas/user_channel_enum_channel_status'
-        unread_messages_count:
-          nullable: true
+          type: string
+        uniqueId:
+          type: string
+      type: object
+    DeviceAccumulators:
+      example:
+        hours: 6.027456183070403
+        totalDistance: 1.4658129805029452
+        deviceId: 0
+      properties:
+        deviceId:
+          type: integer
+        hours:
+          type: number
+        totalDistance:
+          description: in meters
+          type: number
+      type: object
+    Driver:
+      example:
+        name: name
+        attributes: "{}"
+        id: 0
+        uniqueId: uniqueId
+      properties:
+        attributes:
+          properties: {}
+          type: object
+        id:
+          type: integer
+        name:
+          type: string
+        uniqueId:
+          type: string
+      type: object
+    Event:
+      example:
+        maintenanceId: 5
+        positionId: 5
+        eventTime: 2000-01-23T04:56:07.000+00:00
+        attributes: "{}"
+        geofenceId: 6
+        id: 1
+        type: type
+        deviceId: 0
+      properties:
+        attributes:
+          properties: {}
+          type: object
+        deviceId:
+          type: integer
+        eventTime:
+          description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+          format: date-time
+          type: string
+        geofenceId:
+          type: integer
+        id:
+          type: integer
+        maintenanceId:
+          type: integer
+        positionId:
+          type: integer
+        type:
+          type: string
+      type: object
+    Geofence:
+      example:
+        area: area
+        calendarId: 0
+        name: name
+        description: description
+        attributes: "{}"
+        id: 6
+      properties:
+        area:
+          type: string
+        attributes:
+          properties: {}
+          type: object
+        calendarId:
+          type: integer
+        description:
+          type: string
+        id:
+          type: integer
+        name:
+          type: string
+      type: object
+    Group:
+      example:
+        groupId: 0
+        name: name
+        attributes: "{}"
+        id: 6
+      properties:
+        attributes:
+          properties: {}
+          type: object
+        groupId:
+          type: integer
+        id:
+          type: integer
+        name:
+          type: string
+      type: object
+    Maintenance:
+      example:
+        period: 6.027456183070403
+        name: name
+        start: 1.4658129805029452
+        attributes: "{}"
+        id: 0
+        type: type
+      properties:
+        attributes:
+          properties: {}
+          type: object
+        id:
+          type: integer
+        name:
+          type: string
+        period:
+          type: number
+        start:
+          type: number
+        type:
+          type: string
+      type: object
+    Notification:
+      example:
+        always: true
+        calendarId: 0
+        mail: true
+        web: true
+        sms: true
+        attributes: "{}"
+        id: 6
+        type: type
+      properties:
+        always:
+          type: boolean
+        attributes:
+          properties: {}
+          type: object
+        calendarId:
+          type: integer
+        id:
+          type: integer
+        mail:
+          type: boolean
+        sms:
+          type: boolean
+        type:
+          type: string
+        web:
+          type: boolean
+      type: object
+    NotificationType:
+      example:
+        type: type
+      properties:
+        type:
+          type: string
+      type: object
+    Permission:
+      description: "This is a permission map that contain two object indexes. It is\
+        \ used to link/unlink objects. Order is important. Example: { deviceId:8,\
+        \ geofenceId: 16 }"
+      example:
+        attributeId: 0
+        calendarId: 6
+        driverId: 5
+        managedUserId: 7
+        groupId: 2
+        notificationId: 9
+        geofenceId: 5
+        deviceId: 1
+        userId: 3
+      properties:
+        attributeId:
+          description: "Computed Attribute Id, can be second parameter only"
+          type: integer
+        calendarId:
+          description: "Calendar Id, can be second parameter only and only in combination\
+            \ with userId"
+          type: integer
+        deviceId:
+          description: "Device Id, can be first parameter or second only in combination\
+            \ with userId"
+          type: integer
+        driverId:
+          description: "Driver Id, can be second parameter only"
+          type: integer
+        geofenceId:
+          description: "Geofence Id, can be second parameter only"
+          type: integer
+        groupId:
+          description: "Group Id, can be first parameter or second only in combination\
+            \ with userId"
+          type: integer
+        managedUserId:
+          description: "User Id, can be second parameter only and only in combination\
+            \ with userId"
+          type: integer
+        notificationId:
+          description: "Notification Id, can be second parameter only"
+          type: integer
+        userId:
+          description: "User Id, can be only first parameter"
           type: integer
       type: object
-    message_enum_order_type:
-      enum:
-      - asc
-      - desc
-      type: string
-    role_enum_role_type:
-      enum:
-      - channel
-      - deployment
-      type: string
-    user_channel_enum_channel_status:
-      enum:
-      - joined
-      - invited
-      - not_participating
-      type: string
-    ListCredentialResponse_meta:
+    Position:
       example:
-        first_page_url: https://openapi-generator.tech
-        next_page_url: https://openapi-generator.tech
-        previous_page_url: https://openapi-generator.tech
-        page: 0
-        key: key
-        url: https://openapi-generator.tech
-        page_size: 6
+        altitude: 6.027456183070403
+        address: address
+        latitude: 2.3021358869347655
+        accuracy: 0.8008281904610115
+        fixTime: 2000-01-23T04:56:07.000+00:00
+        deviceTime: 2000-01-23T04:56:07.000+00:00
+        deviceId: 5
+        speed: 9.301444243932576
+        network: "{}"
+        valid: true
+        protocol: protocol
+        outdated: true
+        course: 1.4658129805029452
+        attributes: "{}"
+        serverTime: 2000-01-23T04:56:07.000+00:00
+        id: 5
+        longitude: 7.061401241503109
       properties:
-        first_page_url:
-          format: uri
+        accuracy:
+          type: number
+        address:
           type: string
-        key:
-          type: string
-        next_page_url:
-          format: uri
-          nullable: true
-          type: string
-        page:
+        altitude:
+          type: number
+        attributes:
+          properties: {}
+          type: object
+        course:
+          type: number
+        deviceId:
           type: integer
-        page_size:
+        deviceTime:
+          description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+          format: date-time
+          type: string
+        fixTime:
+          description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+          format: date-time
+          type: string
+        id:
           type: integer
-        previous_page_url:
-          format: uri
-          nullable: true
-          type: string
-        url:
-          format: uri
-          type: string
-      type: object
-    ListCredentialResponse:
-      example:
-        credentials:
-        - friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          sandbox: sandbox
-          account_sid: account_sid
-          type: type
-          url: https://openapi-generator.tech
-          sid: sid
-        - friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          sandbox: sandbox
-          account_sid: account_sid
-          type: type
-          url: https://openapi-generator.tech
-          sid: sid
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-      properties:
-        credentials:
-          items:
-            $ref: '#/components/schemas/ip_messaging.v1.credential'
-          type: array
-        meta:
-          $ref: '#/components/schemas/ListCredentialResponse_meta'
-      title: ListCredentialResponse
-      type: object
-    CreateCredentialRequest:
-      properties:
-        ApiKey:
-          description: ""
-          type: string
-        Certificate:
-          description: ""
-          type: string
-        FriendlyName:
-          description: ""
-          type: string
-        PrivateKey:
-          description: ""
-          type: string
-        Sandbox:
-          description: ""
+        latitude:
+          type: number
+        longitude:
+          type: number
+        network:
+          properties: {}
+          type: object
+        outdated:
           type: boolean
-        Secret:
-          description: ""
+        protocol:
           type: string
-        Type:
-          $ref: '#/components/schemas/credential_enum_push_service'
-      required:
-      - Type
-      title: CreateCredentialRequest
-      type: object
-    UpdateCredentialRequest:
-      properties:
-        ApiKey:
-          description: ""
+        serverTime:
+          description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+          format: date-time
           type: string
-        Certificate:
-          description: ""
-          type: string
-        FriendlyName:
-          description: ""
-          type: string
-        PrivateKey:
-          description: ""
-          type: string
-        Sandbox:
-          description: ""
+        speed:
+          description: in knots
+          type: number
+        valid:
           type: boolean
-        Secret:
-          description: ""
-          type: string
-      title: UpdateCredentialRequest
       type: object
-    ListServiceResponse:
+    ReportStops:
       example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        services:
-        - friendly_name: friendly_name
-          webhook_method: webhook_method
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          default_channel_role_sid: default_channel_role_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          post_webhook_url: post_webhook_url
-          read_status_enabled: true
-          url: https://openapi-generator.tech
-          pre_webhook_url: pre_webhook_url
-          sid: sid
-          reachability_enabled: true
-          webhooks: ""
-          consumption_report_interval: 0
-          default_service_role_sid: default_service_role_sid
-          account_sid: account_sid
-          default_channel_creator_role_sid: default_channel_creator_role_sid
-          links: "{}"
-          typing_indicator_timeout: 6
-          webhook_filters:
-          - webhook_filters
-          - webhook_filters
-          limits: ""
-          notifications: ""
-        - friendly_name: friendly_name
-          webhook_method: webhook_method
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          default_channel_role_sid: default_channel_role_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          post_webhook_url: post_webhook_url
-          read_status_enabled: true
-          url: https://openapi-generator.tech
-          pre_webhook_url: pre_webhook_url
-          sid: sid
-          reachability_enabled: true
-          webhooks: ""
-          consumption_report_interval: 0
-          default_service_role_sid: default_service_role_sid
-          account_sid: account_sid
-          default_channel_creator_role_sid: default_channel_creator_role_sid
-          links: "{}"
-          typing_indicator_timeout: 6
-          webhook_filters:
-          - webhook_filters
-          - webhook_filters
-          limits: ""
-          notifications: ""
+        duration: 6
+        address: address
+        engineHours: 1
+        spentFuel: 2.3021358869347655
+        lon: 5.637376656633329
+        startTime: 2000-01-23T04:56:07.000+00:00
+        endTime: 2000-01-23T04:56:07.000+00:00
+        deviceId: 0
+        deviceName: deviceName
+        lat: 5.962133916683182
       properties:
-        meta:
-          $ref: '#/components/schemas/ListCredentialResponse_meta'
-        services:
-          items:
-            $ref: '#/components/schemas/ip_messaging.v1.service'
-          type: array
-      title: ListServiceResponse
-      type: object
-    CreateServiceRequest:
-      properties:
-        FriendlyName:
-          description: ""
+        address:
           type: string
-      required:
-      - FriendlyName
-      title: CreateServiceRequest
-      type: object
-    ListChannelResponse:
-      example:
-        channels:
-        - friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          type: type
-          created_by: created_by
-          url: https://openapi-generator.tech
-          sid: sid
-          service_sid: service_sid
-          messages_count: 6
-          unique_name: unique_name
-          account_sid: account_sid
-          attributes: attributes
-          links: "{}"
-          members_count: 0
-        - friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          type: type
-          created_by: created_by
-          url: https://openapi-generator.tech
-          sid: sid
-          service_sid: service_sid
-          messages_count: 6
-          unique_name: unique_name
-          account_sid: account_sid
-          attributes: attributes
-          links: "{}"
-          members_count: 0
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-      properties:
-        channels:
-          items:
-            $ref: '#/components/schemas/ip_messaging.v1.service.channel'
-          type: array
-        meta:
-          $ref: '#/components/schemas/ListCredentialResponse_meta'
-      title: ListChannelResponse
-      type: object
-    CreateChannelRequest:
-      properties:
-        Attributes:
-          description: ""
-          type: string
-        FriendlyName:
-          description: ""
-          type: string
-        Type:
-          $ref: '#/components/schemas/channel_enum_channel_type'
-        UniqueName:
-          description: ""
-          type: string
-      title: CreateChannelRequest
-      type: object
-    ListInviteResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        invites:
-        - service_sid: service_sid
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          role_sid: role_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          identity: identity
-          account_sid: account_sid
-          created_by: created_by
-          channel_sid: channel_sid
-          url: https://openapi-generator.tech
-          sid: sid
-        - service_sid: service_sid
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          role_sid: role_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          identity: identity
-          account_sid: account_sid
-          created_by: created_by
-          channel_sid: channel_sid
-          url: https://openapi-generator.tech
-          sid: sid
-      properties:
-        invites:
-          items:
-            $ref: '#/components/schemas/ip_messaging.v1.service.channel.invite'
-          type: array
-        meta:
-          $ref: '#/components/schemas/ListCredentialResponse_meta'
-      title: ListInviteResponse
-      type: object
-    CreateInviteRequest:
-      properties:
-        Identity:
-          description: ""
-          type: string
-        RoleSid:
-          description: ""
-          maxLength: 34
-          minLength: 34
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-      required:
-      - Identity
-      title: CreateInviteRequest
-      type: object
-    ListMemberResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        members:
-        - last_consumption_timestamp: 2000-01-23T04:56:07.000+00:00
-          service_sid: service_sid
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          role_sid: role_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          identity: identity
-          account_sid: account_sid
-          last_consumed_message_index: 0
-          channel_sid: channel_sid
-          url: https://openapi-generator.tech
-          sid: sid
-        - last_consumption_timestamp: 2000-01-23T04:56:07.000+00:00
-          service_sid: service_sid
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          role_sid: role_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          identity: identity
-          account_sid: account_sid
-          last_consumed_message_index: 0
-          channel_sid: channel_sid
-          url: https://openapi-generator.tech
-          sid: sid
-      properties:
-        members:
-          items:
-            $ref: '#/components/schemas/ip_messaging.v1.service.channel.member'
-          type: array
-        meta:
-          $ref: '#/components/schemas/ListCredentialResponse_meta'
-      title: ListMemberResponse
-      type: object
-    CreateMemberRequest:
-      properties:
-        Identity:
-          description: ""
-          type: string
-        RoleSid:
-          description: ""
-          maxLength: 34
-          minLength: 34
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-      required:
-      - Identity
-      title: CreateMemberRequest
-      type: object
-    UpdateMemberRequest:
-      properties:
-        LastConsumedMessageIndex:
-          description: ""
-          nullable: true
+        deviceId:
           type: integer
-        RoleSid:
-          description: ""
-          maxLength: 34
-          minLength: 34
-          pattern: "^RL[0-9a-fA-F]{32}$"
+        deviceName:
           type: string
-      title: UpdateMemberRequest
+        duration:
+          type: integer
+        endTime:
+          description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+          format: date-time
+          type: string
+        engineHours:
+          type: integer
+        lat:
+          type: number
+        lon:
+          type: number
+        spentFuel:
+          description: in liters
+          type: number
+        startTime:
+          description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+          format: date-time
+          type: string
       type: object
-    ListMessageResponse:
+    ReportSummary:
       example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        messages:
-        - date_updated: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          index: 0
-          was_edited: true
-          body: body
-          channel_sid: channel_sid
-          url: https://openapi-generator.tech
-          sid: sid
-          service_sid: service_sid
-          account_sid: account_sid
-          attributes: attributes
-          from: from
-          to: to
-        - date_updated: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          index: 0
-          was_edited: true
-          body: body
-          channel_sid: channel_sid
-          url: https://openapi-generator.tech
-          sid: sid
-          service_sid: service_sid
-          account_sid: account_sid
-          attributes: attributes
-          from: from
-          to: to
+        engineHours: 5
+        distance: 1.4658129805029452
+        spentFuel: 2.3021358869347655
+        averageSpeed: 0.8008281904610115
+        maxSpeed: 5.637376656633329
+        deviceId: 6
+        deviceName: deviceName
       properties:
-        messages:
-          items:
-            $ref: '#/components/schemas/ip_messaging.v1.service.channel.message'
-          type: array
-        meta:
-          $ref: '#/components/schemas/ListCredentialResponse_meta'
-      title: ListMessageResponse
+        averageSpeed:
+          description: in knots
+          type: number
+        deviceId:
+          type: integer
+        deviceName:
+          type: string
+        distance:
+          description: in meters
+          type: number
+        engineHours:
+          type: integer
+        maxSpeed:
+          description: in knots
+          type: number
+        spentFuel:
+          description: in liters
+          type: number
       type: object
-    CreateMessageRequest:
+    ReportTrips:
+      example:
+        startLat: 2.027123023002322
+        distance: 1.4658129805029452
+        endLon: 7.061401241503109
+        startAddress: startAddress
+        averageSpeed: 0.8008281904610115
+        maxSpeed: 9.301444243932576
+        deviceId: 6
+        deviceName: deviceName
+        duration: 5
+        endLat: 2.3021358869347655
+        spentFuel: 3.616076749251911
+        startLon: 4.145608029883936
+        driverUniqueId: 5
+        driverName: driverName
+        startTime: 2000-01-23T04:56:07.000+00:00
+        endTime: 2000-01-23T04:56:07.000+00:00
+        endAddress: endAddress
       properties:
-        Attributes:
-          description: ""
+        averageSpeed:
+          description: in knots
+          type: number
+        deviceId:
+          type: integer
+        deviceName:
           type: string
-        Body:
-          description: ""
+        distance:
+          description: in meters
+          type: number
+        driverName:
           type: string
-        From:
-          description: ""
+        driverUniqueId:
+          type: integer
+        duration:
+          type: integer
+        endAddress:
+          type: string
+        endLat:
+          type: number
+        endLon:
+          type: number
+        endTime:
+          description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+          format: date-time
+          type: string
+        maxSpeed:
+          description: in knots
+          type: number
+        spentFuel:
+          description: in liters
+          type: number
+        startAddress:
+          type: string
+        startLat:
+          type: number
+        startLon:
+          type: number
+        startTime:
+          description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+          format: date-time
+          type: string
+      type: object
+    Server:
+      example:
+        deviceReadonly: true
+        poiLayer: poiLayer
+        latitude: 6.027456183070403
+        zoom: 5
+        version: version
+        coordinateFormat: coordinateFormat
+        bingKey: bingKey
+        readonly: true
+        limitCommands: true
+        twelveHourFormat: true
+        forceSettings: true
+        mapUrl: mapUrl
+        attributes: "{}"
+        registration: true
+        id: 0
+        map: map
+        longitude: 1.4658129805029452
+      properties:
+        attributes:
+          properties: {}
+          type: object
+        bingKey:
+          type: string
+        coordinateFormat:
+          type: string
+        deviceReadonly:
+          type: boolean
+        forceSettings:
+          type: boolean
+        id:
+          type: integer
+        latitude:
+          type: number
+        limitCommands:
+          type: boolean
+        longitude:
+          type: number
+        map:
+          type: string
+        mapUrl:
+          type: string
+        poiLayer:
+          type: string
+        readonly:
+          type: boolean
+        registration:
+          type: boolean
+        twelveHourFormat:
+          type: boolean
+        version:
+          type: string
+        zoom:
+          type: integer
+      type: object
+    Statistics:
+      example:
+        captureTime: 2000-01-23T04:56:07.000+00:00
+        messagesReceived: 1
+        activeUsers: 6
+        requests: 5
+        activeDevices: 0
+        messagesStored: 5
+      properties:
+        activeDevices:
+          type: integer
+        activeUsers:
+          type: integer
+        captureTime:
+          description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+          format: date-time
+          type: string
+        messagesReceived:
+          type: integer
+        messagesStored:
+          type: integer
+        requests:
+          type: integer
+      type: object
+    User:
+      example:
+        deviceReadonly: true
+        poiLayer: poiLayer
+        latitude: 1.4658129805029452
+        zoom: 2
+        coordinateFormat: coordinateFormat
+        administrator: true
+        password: password
+        readonly: true
+        phone: phone
+        expirationTime: 2000-01-23T04:56:07.000+00:00
+        limitCommands: true
+        twelveHourFormat: true
+        name: name
+        attributes: "{}"
+        disabled: true
+        id: 6
+        userLimit: 5
+        deviceLimit: 0
+        map: map
+        email: email
+        longitude: 5.962133916683182
+      properties:
+        administrator:
+          type: boolean
+        attributes:
+          properties: {}
+          type: object
+        coordinateFormat:
+          type: string
+        deviceLimit:
+          type: integer
+        deviceReadonly:
+          type: boolean
+        disabled:
+          type: boolean
+        email:
+          type: string
+        expirationTime:
+          description: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+          format: date-time
+          type: string
+        id:
+          type: integer
+        latitude:
+          type: number
+        limitCommands:
+          type: boolean
+        longitude:
+          type: number
+        map:
+          type: string
+        name:
+          type: string
+        password:
+          type: string
+        phone:
+          type: string
+        poiLayer:
+          type: string
+        readonly:
+          type: boolean
+        twelveHourFormat:
+          type: boolean
+        userLimit:
+          type: integer
+        zoom:
+          type: integer
+      type: object
+    _session_post_request:
+      properties:
+        email:
+          type: string
+        password:
+          format: password
           type: string
       required:
-      - Body
-      title: CreateMessageRequest
-      type: object
-    UpdateMessageRequest:
-      properties:
-        Attributes:
-          description: ""
-          type: string
-        Body:
-          description: ""
-          type: string
-      title: UpdateMessageRequest
-      type: object
-    UpdateChannelRequest:
-      properties:
-        Attributes:
-          description: ""
-          type: string
-        FriendlyName:
-          description: ""
-          type: string
-        UniqueName:
-          description: ""
-          type: string
-      title: UpdateChannelRequest
-      type: object
-    ListRoleResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        roles:
-        - service_sid: service_sid
-          friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          permissions:
-          - permissions
-          - permissions
-          account_sid: account_sid
-          type: type
-          url: https://openapi-generator.tech
-          sid: sid
-        - service_sid: service_sid
-          friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          date_created: 2000-01-23T04:56:07.000+00:00
-          permissions:
-          - permissions
-          - permissions
-          account_sid: account_sid
-          type: type
-          url: https://openapi-generator.tech
-          sid: sid
-      properties:
-        meta:
-          $ref: '#/components/schemas/ListCredentialResponse_meta'
-        roles:
-          items:
-            $ref: '#/components/schemas/ip_messaging.v1.service.role'
-          type: array
-      title: ListRoleResponse
-      type: object
-    CreateRoleRequest:
-      properties:
-        FriendlyName:
-          description: ""
-          type: string
-        Permission:
-          description: ""
-          items:
-            type: string
-          type: array
-        Type:
-          $ref: '#/components/schemas/role_enum_role_type'
-      required:
-      - FriendlyName
-      - Permission
-      - Type
-      title: CreateRoleRequest
-      type: object
-    UpdateRoleRequest:
-      properties:
-        Permission:
-          description: ""
-          items:
-            type: string
-          type: array
-      required:
-      - Permission
-      title: UpdateRoleRequest
-      type: object
-    ListUserResponse:
-      example:
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-        users:
-        - friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          role_sid: role_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          joined_channels_count: 0
-          url: https://openapi-generator.tech
-          sid: sid
-          service_sid: service_sid
-          identity: identity
-          is_notifiable: true
-          account_sid: account_sid
-          attributes: attributes
-          links: "{}"
-          is_online: true
-        - friendly_name: friendly_name
-          date_updated: 2000-01-23T04:56:07.000+00:00
-          role_sid: role_sid
-          date_created: 2000-01-23T04:56:07.000+00:00
-          joined_channels_count: 0
-          url: https://openapi-generator.tech
-          sid: sid
-          service_sid: service_sid
-          identity: identity
-          is_notifiable: true
-          account_sid: account_sid
-          attributes: attributes
-          links: "{}"
-          is_online: true
-      properties:
-        meta:
-          $ref: '#/components/schemas/ListCredentialResponse_meta'
-        users:
-          items:
-            $ref: '#/components/schemas/ip_messaging.v1.service.user'
-          type: array
-      title: ListUserResponse
-      type: object
-    CreateUserRequest:
-      properties:
-        Attributes:
-          description: ""
-          type: string
-        FriendlyName:
-          description: ""
-          type: string
-        Identity:
-          description: ""
-          type: string
-        RoleSid:
-          description: ""
-          maxLength: 34
-          minLength: 34
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-      required:
-      - Identity
-      title: CreateUserRequest
-      type: object
-    UpdateUserRequest:
-      properties:
-        Attributes:
-          description: ""
-          type: string
-        FriendlyName:
-          description: ""
-          type: string
-        RoleSid:
-          description: ""
-          maxLength: 34
-          minLength: 34
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-      title: UpdateUserRequest
-      type: object
-    ListUserChannelResponse:
-      example:
-        channels:
-        - service_sid: service_sid
-          account_sid: account_sid
-          last_consumed_message_index: 0
-          links: "{}"
-          member_sid: member_sid
-          unread_messages_count: 6
-          channel_sid: channel_sid
-          status: status
-        - service_sid: service_sid
-          account_sid: account_sid
-          last_consumed_message_index: 0
-          links: "{}"
-          member_sid: member_sid
-          unread_messages_count: 6
-          channel_sid: channel_sid
-          status: status
-        meta:
-          first_page_url: https://openapi-generator.tech
-          next_page_url: https://openapi-generator.tech
-          previous_page_url: https://openapi-generator.tech
-          page: 0
-          key: key
-          url: https://openapi-generator.tech
-          page_size: 6
-      properties:
-        channels:
-          items:
-            $ref: '#/components/schemas/ip_messaging.v1.service.user.user_channel'
-          type: array
-        meta:
-          $ref: '#/components/schemas/ListCredentialResponse_meta'
-      title: ListUserChannelResponse
-      type: object
-    UpdateServiceRequest:
-      properties:
-        ConsumptionReportInterval:
-          description: ""
-          type: integer
-        DefaultChannelCreatorRoleSid:
-          description: ""
-          maxLength: 34
-          minLength: 34
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        DefaultChannelRoleSid:
-          description: ""
-          maxLength: 34
-          minLength: 34
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        DefaultServiceRoleSid:
-          description: ""
-          maxLength: 34
-          minLength: 34
-          pattern: "^RL[0-9a-fA-F]{32}$"
-          type: string
-        FriendlyName:
-          description: ""
-          type: string
-        Limits.ChannelMembers:
-          description: ""
-          type: integer
-        Limits.UserChannels:
-          description: ""
-          type: integer
-        Notifications.AddedToChannel.Enabled:
-          description: ""
-          type: boolean
-        Notifications.AddedToChannel.Template:
-          description: ""
-          type: string
-        Notifications.InvitedToChannel.Enabled:
-          description: ""
-          type: boolean
-        Notifications.InvitedToChannel.Template:
-          description: ""
-          type: string
-        Notifications.NewMessage.Enabled:
-          description: ""
-          type: boolean
-        Notifications.NewMessage.Template:
-          description: ""
-          type: string
-        Notifications.RemovedFromChannel.Enabled:
-          description: ""
-          type: boolean
-        Notifications.RemovedFromChannel.Template:
-          description: ""
-          type: string
-        PostWebhookUrl:
-          description: ""
-          format: uri
-          type: string
-        PreWebhookUrl:
-          description: ""
-          format: uri
-          type: string
-        ReachabilityEnabled:
-          description: ""
-          type: boolean
-        ReadStatusEnabled:
-          description: ""
-          type: boolean
-        TypingIndicatorTimeout:
-          description: ""
-          type: integer
-        WebhookFilters:
-          description: ""
-          items:
-            type: string
-          type: array
-        WebhookMethod:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnChannelAdd.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnChannelAdd.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnChannelAdded.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnChannelAdded.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnChannelDestroy.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnChannelDestroy.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnChannelDestroyed.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnChannelDestroyed.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnChannelUpdate.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnChannelUpdate.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnChannelUpdated.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnChannelUpdated.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnMemberAdd.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnMemberAdd.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnMemberAdded.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnMemberAdded.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnMemberRemove.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnMemberRemove.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnMemberRemoved.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnMemberRemoved.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnMessageRemove.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnMessageRemove.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnMessageRemoved.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnMessageRemoved.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnMessageSend.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnMessageSend.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnMessageSent.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnMessageSent.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnMessageUpdate.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnMessageUpdate.Url:
-          description: ""
-          format: uri
-          type: string
-        Webhooks.OnMessageUpdated.Method:
-          description: ""
-          enum:
-          - HEAD
-          - GET
-          - POST
-          - PATCH
-          - PUT
-          - DELETE
-          format: http-method
-          type: string
-        Webhooks.OnMessageUpdated.Url:
-          description: ""
-          format: uri
-          type: string
-      title: UpdateServiceRequest
-      type: object
+      - email
+      - password
   securitySchemes:
-    accountSid_authToken:
+    basicAuth:
+      description: Basic HTTP authorization with _email_ and _password_
       scheme: basic
       type: http
-x-maturity:
-- description: This product is Generally Available.
-  name: GA
 
