@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * QrPostRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:55.304127-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:42.446333-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class QrPostRequest {
   public static final String SERIALIZED_NAME_FORMAT = "format";
   @SerializedName(SERIALIZED_NAME_FORMAT)
