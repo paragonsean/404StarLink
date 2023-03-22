@@ -2,7 +2,7 @@
 
 QuickChart API
 - API version: 1.0.0
-  - Build date: 2024-10-11T02:00:57.606195-04:00[America/New_York]
+  - Build date: 2024-10-11T02:10:44.736906-04:00[America/New_York]
   - Generator version: 7.9.0
 
 An API to generate charts and QR codes using QuickChart services.
