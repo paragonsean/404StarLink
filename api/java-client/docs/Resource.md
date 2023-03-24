@@ -2,14 +2,15 @@
 
 # Resource
 
+An entity that can have metadata. For example, a Docker image.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**balancePlatform** | **String** | The unique identifier of the balance platform. |  [optional] |
-|**creationDate** | **OffsetDateTime** | The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**. |  [optional] |
-|**id** | **String** | The ID of the resource. |  [optional] |
+|**contentHash** | [**Hash**](Hash.md) |  |  [optional] |
+|**name** | **String** | Deprecated, do not use. Use uri instead. The name of the resource. For example, the name of a Docker image - \&quot;Debian\&quot;. |  [optional] |
+|**uri** | **String** | Required. The unique URI of the resource. For example, &#x60;https://gcr.io/project/image@sha256:foo&#x60; for a Docker image. |  [optional] |
 
 
 

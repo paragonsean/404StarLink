@@ -2,26 +2,14 @@
 
 # Volume
 
-Describes an instance's Amazon EBS volume.
+Volume describes a Docker container volume which is mounted into build steps in order to persist files across build step execution. Next ID: 3
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**volumeId** | [**String**](String.md) |  |  [optional] |
-|**ec2VolumeId** | [**String**](String.md) |  |  [optional] |
-|**name** | [**String**](String.md) |  |  [optional] |
-|**raidArrayId** | [**String**](String.md) |  |  [optional] |
-|**instanceId** | [**String**](String.md) |  |  [optional] |
-|**status** | [**String**](String.md) |  |  [optional] |
-|**size** | [**Integer**](Integer.md) |  |  [optional] |
-|**device** | [**String**](String.md) |  |  [optional] |
-|**mountPoint** | [**String**](String.md) |  |  [optional] |
-|**region** | [**String**](String.md) |  |  [optional] |
-|**availabilityZone** | [**String**](String.md) |  |  [optional] |
-|**volumeType** | [**String**](String.md) |  |  [optional] |
-|**iops** | [**Integer**](Integer.md) |  |  [optional] |
-|**encrypted** | [**Boolean**](Boolean.md) |  |  [optional] |
+|**name** | **String** | Name of the volume to mount. Volume names must be unique per build step and must be valid names for Docker volumes. Each named volume must be used by at least two build steps. |  [optional] |
+|**path** | **String** | Path at which to mount the volume. Paths must be absolute and cannot conflict with other volume paths on the same build step or with certain reserved volume paths. |  [optional] |
 
 
 

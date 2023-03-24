@@ -2,35 +2,39 @@
 
 # Layer
 
-Describes a layer.
+Layer holds metadata specific to a layer of a Docker image.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**arn** | [**String**](String.md) |  |  [optional] |
-|**stackId** | [**String**](String.md) |  |  [optional] |
-|**layerId** | [**String**](String.md) |  |  [optional] |
-|**type** | [**LayerType**](LayerType.md) |  |  [optional] |
-|**name** | [**String**](String.md) |  |  [optional] |
-|**shortname** | [**String**](String.md) |  |  [optional] |
-|**attributes** | [**Map**](Map.md) |  |  [optional] |
-|**cloudWatchLogsConfiguration** | [**LayerCloudWatchLogsConfiguration**](LayerCloudWatchLogsConfiguration.md) |  |  [optional] |
-|**customInstanceProfileArn** | [**String**](String.md) |  |  [optional] |
-|**customJson** | [**String**](String.md) |  |  [optional] |
-|**customSecurityGroupIds** | [**List**](List.md) |  |  [optional] |
-|**defaultSecurityGroupNames** | [**List**](List.md) |  |  [optional] |
-|**packages** | [**List**](List.md) |  |  [optional] |
-|**volumeConfigurations** | [**List**](List.md) |  |  [optional] |
-|**enableAutoHealing** | [**Boolean**](Boolean.md) |  |  [optional] |
-|**autoAssignElasticIps** | [**Boolean**](Boolean.md) |  |  [optional] |
-|**autoAssignPublicIps** | [**Boolean**](Boolean.md) |  |  [optional] |
-|**defaultRecipes** | [**LayerDefaultRecipes**](LayerDefaultRecipes.md) |  |  [optional] |
-|**customRecipes** | [**UpdateLayerRequestCustomRecipes**](UpdateLayerRequestCustomRecipes.md) |  |  [optional] |
-|**createdAt** | [**String**](String.md) |  |  [optional] |
-|**installUpdatesOnBoot** | [**Boolean**](Boolean.md) |  |  [optional] |
-|**useEbsOptimizedInstances** | [**Boolean**](Boolean.md) |  |  [optional] |
-|**lifecycleEventConfiguration** | [**LayerLifecycleEventConfiguration**](LayerLifecycleEventConfiguration.md) |  |  [optional] |
+|**arguments** | **String** | The recovered arguments to the Dockerfile directive. |  [optional] |
+|**directive** | [**DirectiveEnum**](#DirectiveEnum) | Required. The recovered Dockerfile directive used to construct this layer. |  [optional] |
+
+
+
+## Enum: DirectiveEnum
+
+| Name | Value |
+|---- | -----|
+| DIRECTIVE_UNSPECIFIED | &quot;DIRECTIVE_UNSPECIFIED&quot; |
+| MAINTAINER | &quot;MAINTAINER&quot; |
+| RUN | &quot;RUN&quot; |
+| CMD | &quot;CMD&quot; |
+| LABEL | &quot;LABEL&quot; |
+| EXPOSE | &quot;EXPOSE&quot; |
+| ENV | &quot;ENV&quot; |
+| ADD | &quot;ADD&quot; |
+| COPY | &quot;COPY&quot; |
+| ENTRYPOINT | &quot;ENTRYPOINT&quot; |
+| VOLUME | &quot;VOLUME&quot; |
+| USER | &quot;USER&quot; |
+| WORKDIR | &quot;WORKDIR&quot; |
+| ARG | &quot;ARG&quot; |
+| ONBUILD | &quot;ONBUILD&quot; |
+| STOPSIGNAL | &quot;STOPSIGNAL&quot; |
+| HEALTHCHECK | &quot;HEALTHCHECK&quot; |
+| SHELL | &quot;SHELL&quot; |
 
 
 
