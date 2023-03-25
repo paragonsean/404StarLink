@@ -1,6 +1,6 @@
 /*
- * Cloud Monitoring API
- * Manages your Cloud Monitoring data and configurations.
+ * Container Analysis API
+ * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -21,6 +21,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import org.openapitools.client.model.CloudRepoSourceContext;
+import org.openapitools.client.model.GerritSourceContext;
+import org.openapitools.client.model.GitSourceContext;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,33 +51,110 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * SourceContext represents information about the source of a protobuf element, like the file in which it is defined.
+ * A SourceContext is a reference to a tree of files. A SourceContext together with a path point to a unique revision of a single file or directory.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:16.300251-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SourceContext {
-  public static final String SERIALIZED_NAME_FILE_NAME = "fileName";
-  @SerializedName(SERIALIZED_NAME_FILE_NAME)
-  private String fileName;
+  public static final String SERIALIZED_NAME_CLOUD_REPO = "cloudRepo";
+  @SerializedName(SERIALIZED_NAME_CLOUD_REPO)
+  private CloudRepoSourceContext cloudRepo;
+
+  public static final String SERIALIZED_NAME_GERRIT = "gerrit";
+  @SerializedName(SERIALIZED_NAME_GERRIT)
+  private GerritSourceContext gerrit;
+
+  public static final String SERIALIZED_NAME_GIT = "git";
+  @SerializedName(SERIALIZED_NAME_GIT)
+  private GitSourceContext git;
+
+  public static final String SERIALIZED_NAME_LABELS = "labels";
+  @SerializedName(SERIALIZED_NAME_LABELS)
+  private Map<String, String> labels = new HashMap<>();
 
   public SourceContext() {
   }
 
-  public SourceContext fileName(String fileName) {
-    this.fileName = fileName;
+  public SourceContext cloudRepo(CloudRepoSourceContext cloudRepo) {
+    this.cloudRepo = cloudRepo;
     return this;
   }
 
   /**
-   * The path-qualified name of the .proto file that contained the associated protobuf element. For example: \&quot;google/protobuf/source_context.proto\&quot;.
-   * @return fileName
+   * Get cloudRepo
+   * @return cloudRepo
    */
   @javax.annotation.Nullable
-  public String getFileName() {
-    return fileName;
+  public CloudRepoSourceContext getCloudRepo() {
+    return cloudRepo;
   }
 
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
+  public void setCloudRepo(CloudRepoSourceContext cloudRepo) {
+    this.cloudRepo = cloudRepo;
+  }
+
+
+  public SourceContext gerrit(GerritSourceContext gerrit) {
+    this.gerrit = gerrit;
+    return this;
+  }
+
+  /**
+   * Get gerrit
+   * @return gerrit
+   */
+  @javax.annotation.Nullable
+  public GerritSourceContext getGerrit() {
+    return gerrit;
+  }
+
+  public void setGerrit(GerritSourceContext gerrit) {
+    this.gerrit = gerrit;
+  }
+
+
+  public SourceContext git(GitSourceContext git) {
+    this.git = git;
+    return this;
+  }
+
+  /**
+   * Get git
+   * @return git
+   */
+  @javax.annotation.Nullable
+  public GitSourceContext getGit() {
+    return git;
+  }
+
+  public void setGit(GitSourceContext git) {
+    this.git = git;
+  }
+
+
+  public SourceContext labels(Map<String, String> labels) {
+    this.labels = labels;
+    return this;
+  }
+
+  public SourceContext putLabelsItem(String key, String labelsItem) {
+    if (this.labels == null) {
+      this.labels = new HashMap<>();
+    }
+    this.labels.put(key, labelsItem);
+    return this;
+  }
+
+  /**
+   * Labels with user defined metadata.
+   * @return labels
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getLabels() {
+    return labels;
+  }
+
+  public void setLabels(Map<String, String> labels) {
+    this.labels = labels;
   }
 
 
@@ -86,19 +168,25 @@ public class SourceContext {
       return false;
     }
     SourceContext sourceContext = (SourceContext) o;
-    return Objects.equals(this.fileName, sourceContext.fileName);
+    return Objects.equals(this.cloudRepo, sourceContext.cloudRepo) &&
+        Objects.equals(this.gerrit, sourceContext.gerrit) &&
+        Objects.equals(this.git, sourceContext.git) &&
+        Objects.equals(this.labels, sourceContext.labels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileName);
+    return Objects.hash(cloudRepo, gerrit, git, labels);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceContext {\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    cloudRepo: ").append(toIndentedString(cloudRepo)).append("\n");
+    sb.append("    gerrit: ").append(toIndentedString(gerrit)).append("\n");
+    sb.append("    git: ").append(toIndentedString(git)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -121,7 +209,10 @@ public class SourceContext {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("fileName");
+    openapiFields.add("cloudRepo");
+    openapiFields.add("gerrit");
+    openapiFields.add("git");
+    openapiFields.add("labels");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -148,8 +239,17 @@ public class SourceContext {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("fileName") != null && !jsonObj.get("fileName").isJsonNull()) && !jsonObj.get("fileName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fileName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fileName").toString()));
+      // validate the optional field `cloudRepo`
+      if (jsonObj.get("cloudRepo") != null && !jsonObj.get("cloudRepo").isJsonNull()) {
+        CloudRepoSourceContext.validateJsonElement(jsonObj.get("cloudRepo"));
+      }
+      // validate the optional field `gerrit`
+      if (jsonObj.get("gerrit") != null && !jsonObj.get("gerrit").isJsonNull()) {
+        GerritSourceContext.validateJsonElement(jsonObj.get("gerrit"));
+      }
+      // validate the optional field `git`
+      if (jsonObj.get("git") != null && !jsonObj.get("git").isJsonNull()) {
+        GitSourceContext.validateJsonElement(jsonObj.get("git"));
       }
   }
 

@@ -1,6 +1,6 @@
 /*
- * CircleCI REST API
- * The CircleCI API is a RESTful, fully-featured API that allows you to do almost anything in CircleCI. You can access all information and trigger all actions. The only thing we don’t provide access to is billing functions, which must be done from the CircleCI web UI. 
+ * Container Analysis API
+ * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,102 +48,87 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * Artifact
+ * Artifact describes a build product.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:29.554473-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Artifact {
-  public static final String SERIALIZED_NAME_NODE_INDEX = "node_index";
-  @SerializedName(SERIALIZED_NAME_NODE_INDEX)
-  private Integer nodeIndex;
+  public static final String SERIALIZED_NAME_CHECKSUM = "checksum";
+  @SerializedName(SERIALIZED_NAME_CHECKSUM)
+  private String checksum;
 
-  public static final String SERIALIZED_NAME_PATH = "path";
-  @SerializedName(SERIALIZED_NAME_PATH)
-  private String path;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
-  public static final String SERIALIZED_NAME_PRETTY_PATH = "pretty_path";
-  @SerializedName(SERIALIZED_NAME_PRETTY_PATH)
-  private String prettyPath;
-
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
+  public static final String SERIALIZED_NAME_NAMES = "names";
+  @SerializedName(SERIALIZED_NAME_NAMES)
+  private List<String> names = new ArrayList<>();
 
   public Artifact() {
   }
 
-  public Artifact nodeIndex(Integer nodeIndex) {
-    this.nodeIndex = nodeIndex;
+  public Artifact checksum(String checksum) {
+    this.checksum = checksum;
     return this;
   }
 
   /**
-   * Get nodeIndex
-   * @return nodeIndex
+   * Hash or checksum value of a binary, or Docker Registry 2.0 digest of a container.
+   * @return checksum
    */
   @javax.annotation.Nullable
-  public Integer getNodeIndex() {
-    return nodeIndex;
+  public String getChecksum() {
+    return checksum;
   }
 
-  public void setNodeIndex(Integer nodeIndex) {
-    this.nodeIndex = nodeIndex;
+  public void setChecksum(String checksum) {
+    this.checksum = checksum;
   }
 
 
-  public Artifact path(String path) {
-    this.path = path;
+  public Artifact id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Get path
-   * @return path
+   * Artifact ID, if any; for container images, this will be a URL by digest like &#x60;gcr.io/projectID/imagename@sha256:123456&#x60;.
+   * @return id
    */
   @javax.annotation.Nullable
-  public String getPath() {
-    return path;
+  public String getId() {
+    return id;
   }
 
-  public void setPath(String path) {
-    this.path = path;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
-  public Artifact prettyPath(String prettyPath) {
-    this.prettyPath = prettyPath;
+  public Artifact names(List<String> names) {
+    this.names = names;
+    return this;
+  }
+
+  public Artifact addNamesItem(String namesItem) {
+    if (this.names == null) {
+      this.names = new ArrayList<>();
+    }
+    this.names.add(namesItem);
     return this;
   }
 
   /**
-   * Get prettyPath
-   * @return prettyPath
+   * Related artifact names. This may be the path to a binary or jar file, or in the case of a container build, the name used to push the container image to Google Container Registry, as presented to &#x60;docker push&#x60;. Note that a single Artifact ID can have multiple names, for example if two tags are applied to one image.
+   * @return names
    */
   @javax.annotation.Nullable
-  public String getPrettyPath() {
-    return prettyPath;
+  public List<String> getNames() {
+    return names;
   }
 
-  public void setPrettyPath(String prettyPath) {
-    this.prettyPath = prettyPath;
-  }
-
-
-  public Artifact url(String url) {
-    this.url = url;
-    return this;
-  }
-
-  /**
-   * Get url
-   * @return url
-   */
-  @javax.annotation.Nullable
-  public String getUrl() {
-    return url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
+  public void setNames(List<String> names) {
+    this.names = names;
   }
 
 
@@ -155,25 +142,23 @@ public class Artifact {
       return false;
     }
     Artifact artifact = (Artifact) o;
-    return Objects.equals(this.nodeIndex, artifact.nodeIndex) &&
-        Objects.equals(this.path, artifact.path) &&
-        Objects.equals(this.prettyPath, artifact.prettyPath) &&
-        Objects.equals(this.url, artifact.url);
+    return Objects.equals(this.checksum, artifact.checksum) &&
+        Objects.equals(this.id, artifact.id) &&
+        Objects.equals(this.names, artifact.names);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeIndex, path, prettyPath, url);
+    return Objects.hash(checksum, id, names);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Artifact {\n");
-    sb.append("    nodeIndex: ").append(toIndentedString(nodeIndex)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
-    sb.append("    prettyPath: ").append(toIndentedString(prettyPath)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    checksum: ").append(toIndentedString(checksum)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -196,10 +181,9 @@ public class Artifact {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("node_index");
-    openapiFields.add("path");
-    openapiFields.add("pretty_path");
-    openapiFields.add("url");
+    openapiFields.add("checksum");
+    openapiFields.add("id");
+    openapiFields.add("names");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -226,14 +210,15 @@ public class Artifact {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+      if ((jsonObj.get("checksum") != null && !jsonObj.get("checksum").isJsonNull()) && !jsonObj.get("checksum").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checksum` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checksum").toString()));
       }
-      if ((jsonObj.get("pretty_path") != null && !jsonObj.get("pretty_path").isJsonNull()) && !jsonObj.get("pretty_path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pretty_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pretty_path").toString()));
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("names") != null && !jsonObj.get("names").isJsonNull() && !jsonObj.get("names").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `names` to be an array in the JSON string but got `%s`", jsonObj.get("names").toString()));
       }
   }
 

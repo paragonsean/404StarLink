@@ -56,7 +56,7 @@ import org.openapitools.client.JSON;
 /**
  * See full explanation of fields at slsa.dev/provenance/v0.2.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:59.945291-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SlsaProvenanceZeroTwo {
   public static final String SERIALIZED_NAME_BUILD_CONFIG = "buildConfig";
   @SerializedName(SERIALIZED_NAME_BUILD_CONFIG)

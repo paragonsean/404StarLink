@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Details about files that caused a compliance check to fail. display_command is a single command that can be used to display a list of non compliant files. When there is no such command, we can also iterate a list of non compliant file using &#39;path&#39;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:59.945291-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class NonCompliantFile {
   public static final String SERIALIZED_NAME_DISPLAY_COMMAND = "displayCommand";
   @SerializedName(SERIALIZED_NAME_DISPLAY_COMMAND)

@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Pairs a secret environment variable with a SecretVersion in Secret Manager.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:59.945291-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ContaineranalysisGoogleDevtoolsCloudbuildV1SecretManagerSecret {
   public static final String SERIALIZED_NAME_ENV = "env";
   @SerializedName(SERIALIZED_NAME_ENV)

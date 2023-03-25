@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * Details on how a particular software package was installed on a system.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:59.945291-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class PackageOccurrence {
   /**
    * Output only. The CPU architecture for which packages in this distribution channel were built. Architecture will be blank for language packages.

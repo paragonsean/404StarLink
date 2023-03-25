@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * An indication that the compliance checks in the associated ComplianceNote were not satisfied for particular resources or a specified reason.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:59.945291-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ComplianceOccurrence {
   public static final String SERIALIZED_NAME_NON_COMPLIANCE_REASON = "nonComplianceReason";
   @SerializedName(SERIALIZED_NAME_NON_COMPLIANCE_REASON)

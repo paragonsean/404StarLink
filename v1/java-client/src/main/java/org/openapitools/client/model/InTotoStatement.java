@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * Spec defined at https://github.com/in-toto/attestation/tree/main/spec#statement The serialized InTotoStatement will be stored as Envelope.payload. Envelope.payloadType is always \&quot;application/vnd.in-toto+json\&quot;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:59.945291-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class InTotoStatement {
   public static final String SERIALIZED_NAME_TYPE = "_type";
   @SerializedName(SERIALIZED_NAME_TYPE)

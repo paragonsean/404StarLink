@@ -1,6 +1,6 @@
 /*
- * Notebooks API
- * Notebooks API is used to manage notebook resources in Google Cloud.
+ * Container Analysis API
+ * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * An Identity and Access Management (IAM) policy, which specifies access controls for Google Cloud resources. A &#x60;Policy&#x60; is a collection of &#x60;bindings&#x60;. A &#x60;binding&#x60; binds one or more &#x60;members&#x60;, or principals, to a single &#x60;role&#x60;. Principals can be user accounts, service accounts, Google groups, and domains (such as G Suite). A &#x60;role&#x60; is a named list of permissions; each &#x60;role&#x60; can be an IAM predefined role or a user-created custom role. For some types of Google Cloud resources, a &#x60;binding&#x60; can also specify a &#x60;condition&#x60;, which is a logical expression that allows access to a resource only if the expression evaluates to &#x60;true&#x60;. A condition can add constraints based on attributes of the request, the resource, or both. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). **JSON example:** { \&quot;bindings\&quot;: [ { \&quot;role\&quot;: \&quot;roles/resourcemanager.organizationAdmin\&quot;, \&quot;members\&quot;: [ \&quot;user:mike@example.com\&quot;, \&quot;group:admins@example.com\&quot;, \&quot;domain:google.com\&quot;, \&quot;serviceAccount:my-project-id@appspot.gserviceaccount.com\&quot; ] }, { \&quot;role\&quot;: \&quot;roles/resourcemanager.organizationViewer\&quot;, \&quot;members\&quot;: [ \&quot;user:eve@example.com\&quot; ], \&quot;condition\&quot;: { \&quot;title\&quot;: \&quot;expirable access\&quot;, \&quot;description\&quot;: \&quot;Does not grant access after Sep 2020\&quot;, \&quot;expression\&quot;: \&quot;request.time &lt; timestamp(&#39;2020-10-01T00:00:00.000Z&#39;)\&quot;, } } ], \&quot;etag\&quot;: \&quot;BwWWja0YfJA&#x3D;\&quot;, \&quot;version\&quot;: 3 } **YAML example:** bindings: - members: - user:mike@example.com - group:admins@example.com - domain:google.com - serviceAccount:my-project-id@appspot.gserviceaccount.com role: roles/resourcemanager.organizationAdmin - members: - user:eve@example.com role: roles/resourcemanager.organizationViewer condition: title: expirable access description: Does not grant access after Sep 2020 expression: request.time &lt; timestamp(&#39;2020-10-01T00:00:00.000Z&#39;) etag: BwWWja0YfJA&#x3D; version: 3 For a description of IAM and its features, see the [IAM documentation](https://cloud.google.com/iam/docs/).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:43.451204-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Policy {
   public static final String SERIALIZED_NAME_BINDINGS = "bindings";
   @SerializedName(SERIALIZED_NAME_BINDINGS)

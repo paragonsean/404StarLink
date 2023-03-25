@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * A detail for a distro and package this vulnerability occurrence was found in and its associated fix (if one is available).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:59.945291-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class PackageIssue {
   public static final String SERIALIZED_NAME_AFFECTED_CPE_URI = "affectedCpeUri";
   @SerializedName(SERIALIZED_NAME_AFFECTED_CPE_URI)

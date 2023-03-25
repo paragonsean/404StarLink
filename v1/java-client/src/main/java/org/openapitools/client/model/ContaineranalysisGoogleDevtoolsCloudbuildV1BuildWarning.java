@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A non-fatal problem encountered during the execution of the build.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:00:59.945291-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ContaineranalysisGoogleDevtoolsCloudbuildV1BuildWarning {
   /**
    * The priority for this warning.

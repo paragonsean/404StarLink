@@ -2,13 +2,16 @@
 
 # SourceContext
 
-SourceContext represents information about the source of a protobuf element, like the file in which it is defined.
+A SourceContext is a reference to a tree of files. A SourceContext together with a path point to a unique revision of a single file or directory.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**fileName** | **String** | The path-qualified name of the .proto file that contained the associated protobuf element. For example: \&quot;google/protobuf/source_context.proto\&quot;. |  [optional] |
+|**cloudRepo** | [**CloudRepoSourceContext**](CloudRepoSourceContext.md) |  |  [optional] |
+|**gerrit** | [**GerritSourceContext**](GerritSourceContext.md) |  |  [optional] |
+|**git** | [**GitSourceContext**](GitSourceContext.md) |  |  [optional] |
+|**labels** | **Map&lt;String, String&gt;** | Labels with user defined metadata. |  [optional] |
 
 
 
