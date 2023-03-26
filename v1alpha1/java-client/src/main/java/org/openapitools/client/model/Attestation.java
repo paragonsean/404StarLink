@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Occurrence that represents a single \&quot;attestation\&quot;. The authenticity of an Attestation can be verified using the attached signature. If the verifier trusts the public key of the signer, then verifying the signature is sufficient to establish trust. In this circumstance, the AttestationAuthority to which this Attestation is attached is primarily useful for look-up (how to find this Attestation if you already know the Authority and artifact to be verified) and intent (which authority was this attestation intended to sign for).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Attestation {
   public static final String SERIALIZED_NAME_PGP_SIGNED_ATTESTATION = "pgpSignedAttestation";
   @SerializedName(SERIALIZED_NAME_PGP_SIGNED_ATTESTATION)

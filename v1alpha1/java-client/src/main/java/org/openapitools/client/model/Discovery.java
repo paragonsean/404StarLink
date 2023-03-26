@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A note that indicates a type of analysis a provider would perform. This note exists in a provider&#39;s project. A &#x60;Discovery&#x60; occurrence is created in a consumer&#39;s project at the start of analysis. The occurrence&#39;s operation will indicate the status of the analysis. Absence of an occurrence linked to this note for a resource indicates that analysis hasn&#39;t started.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Discovery {
   /**
    * The kind of analysis that is handled by this discovery.

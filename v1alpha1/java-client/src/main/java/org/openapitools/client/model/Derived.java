@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * Derived describes the derived image portion (Occurrence) of the DockerImage relationship. This image would be produced from a Dockerfile with FROM .
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Derived {
   public static final String SERIALIZED_NAME_BASE_RESOURCE_URL = "baseResourceUrl";
   @SerializedName(SERIALIZED_NAME_BASE_RESOURCE_URL)

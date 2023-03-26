@@ -65,7 +65,7 @@ import org.openapitools.client.JSON;
 /**
  * &#x60;Occurrence&#x60; includes information about analysis occurrences for an image.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Occurrence {
   public static final String SERIALIZED_NAME_ATTESTATION = "attestation";
   @SerializedName(SERIALIZED_NAME_ATTESTATION)

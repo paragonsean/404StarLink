@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Note holding the version of the provider&#39;s builder and the signature of the provenance message in linked BuildDetails.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BuildType {
   public static final String SERIALIZED_NAME_BUILDER_VERSION = "builderVersion";
   @SerializedName(SERIALIZED_NAME_BUILDER_VERSION)

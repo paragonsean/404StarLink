@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * This represents a particular channel of distribution for a given package. e.g. Debian&#39;s jessie-backports dpkg mirror
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Distribution {
   /**
    * The CPU architecture for which packages in this distribution channel were built

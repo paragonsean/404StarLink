@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * VexAssessment provides all publisher provided Vex information that is related to this vulnerability.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class VexAssessment {
   public static final String SERIALIZED_NAME_CVE = "cve";
   @SerializedName(SERIALIZED_NAME_CVE)

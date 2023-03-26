@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Indicates which analysis completed successfully. Multiple types of analysis can be performed on a single resource.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AnalysisCompleted {
   public static final String SERIALIZED_NAME_ANALYSIS_TYPE = "analysisType";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_TYPE)

@@ -55,7 +55,7 @@ import org.openapitools.client.JSON;
 /**
  * Provenance of a build. Contains all information needed to verify the full details about the build from source to completion.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class BuildProvenance {
   public static final String SERIALIZED_NAME_BUILD_OPTIONS = "buildOptions";
   @SerializedName(SERIALIZED_NAME_BUILD_OPTIONS)

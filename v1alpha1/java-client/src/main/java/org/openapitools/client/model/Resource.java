@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  *  Resource is an entity that can have metadata. E.g., a Docker image.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Resource {
   public static final String SERIALIZED_NAME_CONTENT_HASH = "contentHash";
   @SerializedName(SERIALIZED_NAME_CONTENT_HASH)

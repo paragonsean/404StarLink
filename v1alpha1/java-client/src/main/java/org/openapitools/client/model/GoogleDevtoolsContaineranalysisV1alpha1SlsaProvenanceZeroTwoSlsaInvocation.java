@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Identifies the event that kicked off the build.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleDevtoolsContaineranalysisV1alpha1SlsaProvenanceZeroTwoSlsaInvocation {
   public static final String SERIALIZED_NAME_CONFIG_SOURCE = "configSource";
   @SerializedName(SERIALIZED_NAME_CONFIG_SOURCE)

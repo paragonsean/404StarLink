@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * A set of properties that uniquely identify a given Docker image.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Fingerprint {
   public static final String SERIALIZED_NAME_V1_NAME = "v1Name";
   @SerializedName(SERIALIZED_NAME_V1_NAME)

@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * The collection of artifacts that influenced the build including sources, dependencies, build tools, base images, and so on.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:03.965307-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:57.433900-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GoogleDevtoolsContaineranalysisV1alpha1SlsaProvenanceZeroTwoSlsaMaterial {
   public static final String SERIALIZED_NAME_DIGEST = "digest";
   @SerializedName(SERIALIZED_NAME_DIGEST)
