@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Pairs a set of secret environment variables mapped to encrypted values with the Cloud KMS key to use to decrypt the value.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:01.336252-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ContaineranalysisGoogleDevtoolsCloudbuildV1InlineSecret {
   public static final String SERIALIZED_NAME_ENV_MAP = "envMap";
   @SerializedName(SERIALIZED_NAME_ENV_MAP)

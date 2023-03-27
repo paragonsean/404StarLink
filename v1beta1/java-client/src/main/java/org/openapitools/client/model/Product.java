@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Product contains information about a product and how to uniquely identify it.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:01.336252-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Product {
   public static final String SERIALIZED_NAME_GENERIC_URI = "genericUri";
   @SerializedName(SERIALIZED_NAME_GENERIC_URI)

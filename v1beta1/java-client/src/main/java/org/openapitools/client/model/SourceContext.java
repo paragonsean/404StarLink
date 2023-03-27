@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * A SourceContext is a reference to a tree of files. A SourceContext together with a path point to a unique revision of a single file or directory.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:01.336252-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SourceContext {
   public static final String SERIALIZED_NAME_CLOUD_REPO = "cloudRepo";
   @SerializedName(SERIALIZED_NAME_CLOUD_REPO)

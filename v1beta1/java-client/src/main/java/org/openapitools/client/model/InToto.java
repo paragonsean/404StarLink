@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * This contains the fields corresponding to the definition of a software supply chain step in an in-toto layout. This information goes into a Grafeas note.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:01.336252-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class InToto {
   public static final String SERIALIZED_NAME_EXPECTED_COMMAND = "expectedCommand";
   @SerializedName(SERIALIZED_NAME_EXPECTED_COMMAND)

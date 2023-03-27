@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Note kind that represents a logical attestation \&quot;role\&quot; or \&quot;authority\&quot;. For example, an organization might have one &#x60;Authority&#x60; for \&quot;QA\&quot; and one for \&quot;build\&quot;. This note is intended to act strictly as a grouping mechanism for the attached occurrences (Attestations). This grouping mechanism also provides a security boundary, since IAM ACLs gate the ability for a principle to attach an occurrence to a given note. It also provides a single point of lookup to find all attached attestation occurrences, even if they don&#39;t all live in the same project.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:01.336252-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Authority {
   public static final String SERIALIZED_NAME_HINT = "hint";
   @SerializedName(SERIALIZED_NAME_HINT)

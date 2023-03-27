@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Associates &#x60;members&#x60;, or principals, with a &#x60;role&#x60;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:01.336252-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Binding {
   public static final String SERIALIZED_NAME_CONDITION = "condition";
   @SerializedName(SERIALIZED_NAME_CONDITION)

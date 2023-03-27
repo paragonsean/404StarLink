@@ -1,6 +1,6 @@
 /*
- * Serverless VPC Access API
- * API for managing VPC access connectors.
+ * Container Analysis API
+ * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
  *
  * The version of the OpenAPI document: v1beta1
  * 
@@ -27,11 +27,21 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.Connector;
-import org.openapitools.client.model.ListConnectorsResponse;
-import org.openapitools.client.model.ListLocationsResponse;
-import org.openapitools.client.model.ListOperationsResponse;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.BatchCreateNotesRequest;
+import org.openapitools.client.model.BatchCreateNotesResponse;
+import org.openapitools.client.model.BatchCreateOccurrencesRequest;
+import org.openapitools.client.model.BatchCreateOccurrencesResponse;
+import org.openapitools.client.model.GetIamPolicyRequest;
+import org.openapitools.client.model.ListNoteOccurrencesResponse;
+import org.openapitools.client.model.ListNotesResponse;
+import org.openapitools.client.model.ListOccurrencesResponse;
+import org.openapitools.client.model.Note;
+import org.openapitools.client.model.Occurrence;
+import org.openapitools.client.model.Policy;
+import org.openapitools.client.model.SetIamPolicyRequest;
+import org.openapitools.client.model.TestIamPermissionsRequest;
+import org.openapitools.client.model.TestIamPermissionsResponse;
+import org.openapitools.client.model.VulnerabilityOccurrencesSummary;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -77,8 +87,8 @@ public class ProjectsApi {
     }
 
     /**
-     * Build call for vpcaccessProjectsLocationsConnectorsCreate
-     * @param parent Required. The project and location in which the configuration should be created, specified in the format &#x60;projects/_*_/locations/_*&#x60;. (required)
+     * Build call for containeranalysisProjectsNotesBatchCreate
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the notes are to be created. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -90,8 +100,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param connectorId Required. The ID to use for this connector. (optional)
-     * @param connector  (optional)
+     * @param batchCreateNotesRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -101,7 +110,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsConnectorsCreateCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String connectorId, Connector connector, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsNotesBatchCreateCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, BatchCreateNotesRequest batchCreateNotesRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -115,10 +124,10 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = connector;
+        Object localVarPostBody = batchCreateNotesRequest;
 
         // create path and map variables
-        String localVarPath = "/v1beta1/{parent}/connectors"
+        String localVarPath = "/v1beta1/{parent}/notes:batchCreate"
             .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -171,8 +180,225 @@ public class ProjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
         }
 
-        if (connectorId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("connectorId", connectorId));
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call containeranalysisProjectsNotesBatchCreateValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, BatchCreateNotesRequest batchCreateNotesRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'parent' is set
+        if (parent == null) {
+            throw new ApiException("Missing the required parameter 'parent' when calling containeranalysisProjectsNotesBatchCreate(Async)");
+        }
+
+        return containeranalysisProjectsNotesBatchCreateCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateNotesRequest, _callback);
+
+    }
+
+    /**
+     * 
+     * Creates new notes in batch.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the notes are to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param batchCreateNotesRequest  (optional)
+     * @return BatchCreateNotesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public BatchCreateNotesResponse containeranalysisProjectsNotesBatchCreate(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, BatchCreateNotesRequest batchCreateNotesRequest) throws ApiException {
+        ApiResponse<BatchCreateNotesResponse> localVarResp = containeranalysisProjectsNotesBatchCreateWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateNotesRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Creates new notes in batch.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the notes are to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param batchCreateNotesRequest  (optional)
+     * @return ApiResponse&lt;BatchCreateNotesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BatchCreateNotesResponse> containeranalysisProjectsNotesBatchCreateWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, BatchCreateNotesRequest batchCreateNotesRequest) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsNotesBatchCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateNotesRequest, null);
+        Type localVarReturnType = new TypeToken<BatchCreateNotesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Creates new notes in batch.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the notes are to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param batchCreateNotesRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsNotesBatchCreateAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, BatchCreateNotesRequest batchCreateNotesRequest, final ApiCallback<BatchCreateNotesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = containeranalysisProjectsNotesBatchCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateNotesRequest, _callback);
+        Type localVarReturnType = new TypeToken<BatchCreateNotesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for containeranalysisProjectsNotesCreate
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the note is to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param noteId Required. The ID to use for this note. (optional)
+     * @param note  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsNotesCreateCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String noteId, Note note, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = note;
+
+        // create path and map variables
+        String localVarPath = "/v1beta1/{parent}/notes"
+            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        if (noteId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("noteId", noteId));
         }
 
         final String[] localVarAccepts = {
@@ -196,20 +422,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call vpcaccessProjectsLocationsConnectorsCreateValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String connectorId, Connector connector, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call containeranalysisProjectsNotesCreateValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String noteId, Note note, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'parent' is set
         if (parent == null) {
-            throw new ApiException("Missing the required parameter 'parent' when calling vpcaccessProjectsLocationsConnectorsCreate(Async)");
+            throw new ApiException("Missing the required parameter 'parent' when calling containeranalysisProjectsNotesCreate(Async)");
         }
 
-        return vpcaccessProjectsLocationsConnectorsCreateCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, connectorId, connector, _callback);
+        return containeranalysisProjectsNotesCreateCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, noteId, note, _callback);
 
     }
 
     /**
      * 
-     * Creates a Serverless VPC Access connector, returns an operation.
-     * @param parent Required. The project and location in which the configuration should be created, specified in the format &#x60;projects/_*_/locations/_*&#x60;. (required)
+     * Creates a new note.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the note is to be created. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -221,9 +447,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param connectorId Required. The ID to use for this connector. (optional)
-     * @param connector  (optional)
-     * @return Operation
+     * @param noteId Required. The ID to use for this note. (optional)
+     * @param note  (optional)
+     * @return Note
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -231,15 +457,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public Operation vpcaccessProjectsLocationsConnectorsCreate(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String connectorId, Connector connector) throws ApiException {
-        ApiResponse<Operation> localVarResp = vpcaccessProjectsLocationsConnectorsCreateWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, connectorId, connector);
+    public Note containeranalysisProjectsNotesCreate(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String noteId, Note note) throws ApiException {
+        ApiResponse<Note> localVarResp = containeranalysisProjectsNotesCreateWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, noteId, note);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Creates a Serverless VPC Access connector, returns an operation.
-     * @param parent Required. The project and location in which the configuration should be created, specified in the format &#x60;projects/_*_/locations/_*&#x60;. (required)
+     * Creates a new note.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the note is to be created. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -251,9 +477,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param connectorId Required. The ID to use for this connector. (optional)
-     * @param connector  (optional)
-     * @return ApiResponse&lt;Operation&gt;
+     * @param noteId Required. The ID to use for this note. (optional)
+     * @param note  (optional)
+     * @return ApiResponse&lt;Note&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -261,16 +487,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Operation> vpcaccessProjectsLocationsConnectorsCreateWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String connectorId, Connector connector) throws ApiException {
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsConnectorsCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, connectorId, connector, null);
-        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+    public ApiResponse<Note> containeranalysisProjectsNotesCreateWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String noteId, Note note) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsNotesCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, noteId, note, null);
+        Type localVarReturnType = new TypeToken<Note>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Creates a Serverless VPC Access connector, returns an operation.
-     * @param parent Required. The project and location in which the configuration should be created, specified in the format &#x60;projects/_*_/locations/_*&#x60;. (required)
+     * Creates a new note.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the note is to be created. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -282,8 +508,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param connectorId Required. The ID to use for this connector. (optional)
-     * @param connector  (optional)
+     * @param noteId Required. The ID to use for this note. (optional)
+     * @param note  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -293,16 +519,918 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsConnectorsCreateAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String connectorId, Connector connector, final ApiCallback<Operation> _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsNotesCreateAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String noteId, Note note, final ApiCallback<Note> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsConnectorsCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, connectorId, connector, _callback);
-        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+        okhttp3.Call localVarCall = containeranalysisProjectsNotesCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, noteId, note, _callback);
+        Type localVarReturnType = new TypeToken<Note>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for vpcaccessProjectsLocationsConnectorsDelete
-     * @param name Required. Name of a Serverless VPC Access connector to delete. (required)
+     * Build call for containeranalysisProjectsNotesList
+     * @param parent Required. The name of the project to list notes for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of notes to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsNotesListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1beta1/{parent}/notes"
+            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call containeranalysisProjectsNotesListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'parent' is set
+        if (parent == null) {
+            throw new ApiException("Missing the required parameter 'parent' when calling containeranalysisProjectsNotesList(Async)");
+        }
+
+        return containeranalysisProjectsNotesListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Lists notes for the specified project.
+     * @param parent Required. The name of the project to list notes for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of notes to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
+     * @return ListNotesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListNotesResponse containeranalysisProjectsNotesList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        ApiResponse<ListNotesResponse> localVarResp = containeranalysisProjectsNotesListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Lists notes for the specified project.
+     * @param parent Required. The name of the project to list notes for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of notes to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
+     * @return ApiResponse&lt;ListNotesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListNotesResponse> containeranalysisProjectsNotesListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsNotesListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListNotesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Lists notes for the specified project.
+     * @param parent Required. The name of the project to list notes for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of notes to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsNotesListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback<ListNotesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = containeranalysisProjectsNotesListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListNotesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for containeranalysisProjectsNotesOccurrencesList
+     * @param name Required. The name of the note to list occurrences for in the form of &#x60;projects/[PROVIDER_ID]/notes/[NOTE_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of occurrences to return in the list. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsNotesOccurrencesListCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1beta1/{name}/occurrences"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call containeranalysisProjectsNotesOccurrencesListValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling containeranalysisProjectsNotesOccurrencesList(Async)");
+        }
+
+        return containeranalysisProjectsNotesOccurrencesListCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note.
+     * @param name Required. The name of the note to list occurrences for in the form of &#x60;projects/[PROVIDER_ID]/notes/[NOTE_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of occurrences to return in the list. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
+     * @return ListNoteOccurrencesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListNoteOccurrencesResponse containeranalysisProjectsNotesOccurrencesList(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        ApiResponse<ListNoteOccurrencesResponse> localVarResp = containeranalysisProjectsNotesOccurrencesListWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note.
+     * @param name Required. The name of the note to list occurrences for in the form of &#x60;projects/[PROVIDER_ID]/notes/[NOTE_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of occurrences to return in the list. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
+     * @return ApiResponse&lt;ListNoteOccurrencesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListNoteOccurrencesResponse> containeranalysisProjectsNotesOccurrencesListWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsNotesOccurrencesListValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListNoteOccurrencesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note.
+     * @param name Required. The name of the note to list occurrences for in the form of &#x60;projects/[PROVIDER_ID]/notes/[NOTE_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of occurrences to return in the list. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsNotesOccurrencesListAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback<ListNoteOccurrencesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = containeranalysisProjectsNotesOccurrencesListValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListNoteOccurrencesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for containeranalysisProjectsOccurrencesBatchCreate
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the occurrences are to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param batchCreateOccurrencesRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesBatchCreateCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, BatchCreateOccurrencesRequest batchCreateOccurrencesRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = batchCreateOccurrencesRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1beta1/{parent}/occurrences:batchCreate"
+            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call containeranalysisProjectsOccurrencesBatchCreateValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, BatchCreateOccurrencesRequest batchCreateOccurrencesRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'parent' is set
+        if (parent == null) {
+            throw new ApiException("Missing the required parameter 'parent' when calling containeranalysisProjectsOccurrencesBatchCreate(Async)");
+        }
+
+        return containeranalysisProjectsOccurrencesBatchCreateCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateOccurrencesRequest, _callback);
+
+    }
+
+    /**
+     * 
+     * Creates new occurrences in batch.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the occurrences are to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param batchCreateOccurrencesRequest  (optional)
+     * @return BatchCreateOccurrencesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public BatchCreateOccurrencesResponse containeranalysisProjectsOccurrencesBatchCreate(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, BatchCreateOccurrencesRequest batchCreateOccurrencesRequest) throws ApiException {
+        ApiResponse<BatchCreateOccurrencesResponse> localVarResp = containeranalysisProjectsOccurrencesBatchCreateWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateOccurrencesRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Creates new occurrences in batch.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the occurrences are to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param batchCreateOccurrencesRequest  (optional)
+     * @return ApiResponse&lt;BatchCreateOccurrencesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BatchCreateOccurrencesResponse> containeranalysisProjectsOccurrencesBatchCreateWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, BatchCreateOccurrencesRequest batchCreateOccurrencesRequest) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesBatchCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateOccurrencesRequest, null);
+        Type localVarReturnType = new TypeToken<BatchCreateOccurrencesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Creates new occurrences in batch.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the occurrences are to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param batchCreateOccurrencesRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesBatchCreateAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, BatchCreateOccurrencesRequest batchCreateOccurrencesRequest, final ApiCallback<BatchCreateOccurrencesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesBatchCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, batchCreateOccurrencesRequest, _callback);
+        Type localVarReturnType = new TypeToken<BatchCreateOccurrencesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for containeranalysisProjectsOccurrencesCreate
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the occurrence is to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param occurrence  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesCreateCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Occurrence occurrence, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = occurrence;
+
+        // create path and map variables
+        String localVarPath = "/v1beta1/{parent}/occurrences"
+            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call containeranalysisProjectsOccurrencesCreateValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Occurrence occurrence, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'parent' is set
+        if (parent == null) {
+            throw new ApiException("Missing the required parameter 'parent' when calling containeranalysisProjectsOccurrencesCreate(Async)");
+        }
+
+        return containeranalysisProjectsOccurrencesCreateCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, occurrence, _callback);
+
+    }
+
+    /**
+     * 
+     * Creates a new occurrence.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the occurrence is to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param occurrence  (optional)
+     * @return Occurrence
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public Occurrence containeranalysisProjectsOccurrencesCreate(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Occurrence occurrence) throws ApiException {
+        ApiResponse<Occurrence> localVarResp = containeranalysisProjectsOccurrencesCreateWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, occurrence);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Creates a new occurrence.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the occurrence is to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param occurrence  (optional)
+     * @return ApiResponse&lt;Occurrence&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Occurrence> containeranalysisProjectsOccurrencesCreateWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Occurrence occurrence) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, occurrence, null);
+        Type localVarReturnType = new TypeToken<Occurrence>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Creates a new occurrence.
+     * @param parent Required. The name of the project in the form of &#x60;projects/[PROJECT_ID]&#x60;, under which the occurrence is to be created. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param occurrence  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesCreateAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Occurrence occurrence, final ApiCallback<Occurrence> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, occurrence, _callback);
+        Type localVarReturnType = new TypeToken<Occurrence>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for containeranalysisProjectsOccurrencesDelete
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -323,7 +1451,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsConnectorsDeleteCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsOccurrencesDeleteCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -413,20 +1541,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call vpcaccessProjectsLocationsConnectorsDeleteValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call containeranalysisProjectsOccurrencesDeleteValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling vpcaccessProjectsLocationsConnectorsDelete(Async)");
+            throw new ApiException("Missing the required parameter 'name' when calling containeranalysisProjectsOccurrencesDelete(Async)");
         }
 
-        return vpcaccessProjectsLocationsConnectorsDeleteCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
+        return containeranalysisProjectsOccurrencesDeleteCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
 
     }
 
     /**
      * 
-     * Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist.
-     * @param name Required. Name of a Serverless VPC Access connector to delete. (required)
+     * Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -438,7 +1566,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @return Operation
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -446,15 +1574,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public Operation vpcaccessProjectsLocationsConnectorsDelete(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
-        ApiResponse<Operation> localVarResp = vpcaccessProjectsLocationsConnectorsDeleteWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+    public Object containeranalysisProjectsOccurrencesDelete(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
+        ApiResponse<Object> localVarResp = containeranalysisProjectsOccurrencesDeleteWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist.
-     * @param name Required. Name of a Serverless VPC Access connector to delete. (required)
+     * Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -466,7 +1594,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @return ApiResponse&lt;Operation&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -474,16 +1602,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Operation> vpcaccessProjectsLocationsConnectorsDeleteWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsConnectorsDeleteValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, null);
-        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+    public ApiResponse<Object> containeranalysisProjectsOccurrencesDeleteWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesDeleteValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist.
-     * @param name Required. Name of a Serverless VPC Access connector to delete. (required)
+     * Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -504,16 +1632,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsConnectorsDeleteAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback<Operation> _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsOccurrencesDeleteAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsConnectorsDeleteValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
-        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesDeleteValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for vpcaccessProjectsLocationsConnectorsList
-     * @param parent Required. The project and location from which the routes should be listed. (required)
+     * Build call for containeranalysisProjectsOccurrencesGet
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -525,8 +1653,6 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param pageSize Maximum number of functions to return per call. (optional)
-     * @param pageToken Continuation token. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -536,7 +1662,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsConnectorsListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsOccurrencesGetCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -553,7 +1679,646 @@ public class ProjectsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1beta1/{parent}/connectors"
+        String localVarPath = "/v1beta1/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call containeranalysisProjectsOccurrencesGetValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling containeranalysisProjectsOccurrencesGet(Async)");
+        }
+
+        return containeranalysisProjectsOccurrencesGetCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
+
+    }
+
+    /**
+     * 
+     * Gets the specified occurrence.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @return Occurrence
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public Occurrence containeranalysisProjectsOccurrencesGet(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
+        ApiResponse<Occurrence> localVarResp = containeranalysisProjectsOccurrencesGetWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Gets the specified occurrence.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @return ApiResponse&lt;Occurrence&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Occurrence> containeranalysisProjectsOccurrencesGetWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesGetValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, null);
+        Type localVarReturnType = new TypeToken<Occurrence>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Gets the specified occurrence.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesGetAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback<Occurrence> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesGetValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
+        Type localVarReturnType = new TypeToken<Occurrence>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for containeranalysisProjectsOccurrencesGetIamPolicy
+     * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param getIamPolicyRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesGetIamPolicyCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, GetIamPolicyRequest getIamPolicyRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = getIamPolicyRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1beta1/{resource}:getIamPolicy"
+            .replace("{" + "resource" + "}", localVarApiClient.escapeString(resource.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call containeranalysisProjectsOccurrencesGetIamPolicyValidateBeforeCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, GetIamPolicyRequest getIamPolicyRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'resource' is set
+        if (resource == null) {
+            throw new ApiException("Missing the required parameter 'resource' when calling containeranalysisProjectsOccurrencesGetIamPolicy(Async)");
+        }
+
+        return containeranalysisProjectsOccurrencesGetIamPolicyCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, getIamPolicyRequest, _callback);
+
+    }
+
+    /**
+     * 
+     * Gets the access control policy for a note or an occurrence resource. Requires &#x60;containeranalysis.notes.setIamPolicy&#x60; or &#x60;containeranalysis.occurrences.setIamPolicy&#x60; permission if the resource is a note or occurrence, respectively. The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
+     * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param getIamPolicyRequest  (optional)
+     * @return Policy
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public Policy containeranalysisProjectsOccurrencesGetIamPolicy(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, GetIamPolicyRequest getIamPolicyRequest) throws ApiException {
+        ApiResponse<Policy> localVarResp = containeranalysisProjectsOccurrencesGetIamPolicyWithHttpInfo(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, getIamPolicyRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Gets the access control policy for a note or an occurrence resource. Requires &#x60;containeranalysis.notes.setIamPolicy&#x60; or &#x60;containeranalysis.occurrences.setIamPolicy&#x60; permission if the resource is a note or occurrence, respectively. The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
+     * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param getIamPolicyRequest  (optional)
+     * @return ApiResponse&lt;Policy&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Policy> containeranalysisProjectsOccurrencesGetIamPolicyWithHttpInfo(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, GetIamPolicyRequest getIamPolicyRequest) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesGetIamPolicyValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, getIamPolicyRequest, null);
+        Type localVarReturnType = new TypeToken<Policy>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Gets the access control policy for a note or an occurrence resource. Requires &#x60;containeranalysis.notes.setIamPolicy&#x60; or &#x60;containeranalysis.occurrences.setIamPolicy&#x60; permission if the resource is a note or occurrence, respectively. The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
+     * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param getIamPolicyRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesGetIamPolicyAsync(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, GetIamPolicyRequest getIamPolicyRequest, final ApiCallback<Policy> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesGetIamPolicyValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, getIamPolicyRequest, _callback);
+        Type localVarReturnType = new TypeToken<Policy>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for containeranalysisProjectsOccurrencesGetNotes
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesGetNotesCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1beta1/{name}/notes"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call containeranalysisProjectsOccurrencesGetNotesValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling containeranalysisProjectsOccurrencesGetNotes(Async)");
+        }
+
+        return containeranalysisProjectsOccurrencesGetNotesCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
+
+    }
+
+    /**
+     * 
+     * Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @return Note
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public Note containeranalysisProjectsOccurrencesGetNotes(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
+        ApiResponse<Note> localVarResp = containeranalysisProjectsOccurrencesGetNotesWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @return ApiResponse&lt;Note&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Note> containeranalysisProjectsOccurrencesGetNotesWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesGetNotesValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, null);
+        Type localVarReturnType = new TypeToken<Note>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesGetNotesAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback<Note> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesGetNotesValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
+        Type localVarReturnType = new TypeToken<Note>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for containeranalysisProjectsOccurrencesGetVulnerabilitySummary
+     * @param parent Required. The name of the project to get a vulnerability summary for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesGetVulnerabilitySummaryCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1beta1/{parent}/occurrences:vulnerabilitySummary"
             .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -606,6 +2371,231 @@ public class ProjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
         }
 
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call containeranalysisProjectsOccurrencesGetVulnerabilitySummaryValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'parent' is set
+        if (parent == null) {
+            throw new ApiException("Missing the required parameter 'parent' when calling containeranalysisProjectsOccurrencesGetVulnerabilitySummary(Async)");
+        }
+
+        return containeranalysisProjectsOccurrencesGetVulnerabilitySummaryCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, _callback);
+
+    }
+
+    /**
+     * 
+     * Gets a summary of the number and severity of occurrences.
+     * @param parent Required. The name of the project to get a vulnerability summary for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @return VulnerabilityOccurrencesSummary
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public VulnerabilityOccurrencesSummary containeranalysisProjectsOccurrencesGetVulnerabilitySummary(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter) throws ApiException {
+        ApiResponse<VulnerabilityOccurrencesSummary> localVarResp = containeranalysisProjectsOccurrencesGetVulnerabilitySummaryWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Gets a summary of the number and severity of occurrences.
+     * @param parent Required. The name of the project to get a vulnerability summary for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @return ApiResponse&lt;VulnerabilityOccurrencesSummary&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<VulnerabilityOccurrencesSummary> containeranalysisProjectsOccurrencesGetVulnerabilitySummaryWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesGetVulnerabilitySummaryValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, null);
+        Type localVarReturnType = new TypeToken<VulnerabilityOccurrencesSummary>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Gets a summary of the number and severity of occurrences.
+     * @param parent Required. The name of the project to get a vulnerability summary for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesGetVulnerabilitySummaryAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, final ApiCallback<VulnerabilityOccurrencesSummary> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesGetVulnerabilitySummaryValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, _callback);
+        Type localVarReturnType = new TypeToken<VulnerabilityOccurrencesSummary>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for containeranalysisProjectsOccurrencesList
+     * @param parent Required. The name of the project to list occurrences for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of occurrences to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call containeranalysisProjectsOccurrencesListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1beta1/{parent}/occurrences"
+            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
         if (pageSize != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
@@ -634,20 +2624,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call vpcaccessProjectsLocationsConnectorsListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call containeranalysisProjectsOccurrencesListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'parent' is set
         if (parent == null) {
-            throw new ApiException("Missing the required parameter 'parent' when calling vpcaccessProjectsLocationsConnectorsList(Async)");
+            throw new ApiException("Missing the required parameter 'parent' when calling containeranalysisProjectsOccurrencesList(Async)");
         }
 
-        return vpcaccessProjectsLocationsConnectorsListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, _callback);
+        return containeranalysisProjectsOccurrencesListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
 
     }
 
     /**
      * 
-     * Lists Serverless VPC Access connectors.
-     * @param parent Required. The project and location from which the routes should be listed. (required)
+     * Lists occurrences for the specified project.
+     * @param parent Required. The name of the project to list occurrences for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -659,9 +2649,10 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param pageSize Maximum number of functions to return per call. (optional)
-     * @param pageToken Continuation token. (optional)
-     * @return ListConnectorsResponse
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of occurrences to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
+     * @return ListOccurrencesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -669,15 +2660,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ListConnectorsResponse vpcaccessProjectsLocationsConnectorsList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken) throws ApiException {
-        ApiResponse<ListConnectorsResponse> localVarResp = vpcaccessProjectsLocationsConnectorsListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken);
+    public ListOccurrencesResponse containeranalysisProjectsOccurrencesList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        ApiResponse<ListOccurrencesResponse> localVarResp = containeranalysisProjectsOccurrencesListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Lists Serverless VPC Access connectors.
-     * @param parent Required. The project and location from which the routes should be listed. (required)
+     * Lists occurrences for the specified project.
+     * @param parent Required. The name of the project to list occurrences for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -689,9 +2680,10 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param pageSize Maximum number of functions to return per call. (optional)
-     * @param pageToken Continuation token. (optional)
-     * @return ApiResponse&lt;ListConnectorsResponse&gt;
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of occurrences to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
+     * @return ApiResponse&lt;ListOccurrencesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -699,16 +2691,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListConnectorsResponse> vpcaccessProjectsLocationsConnectorsListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsConnectorsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListConnectorsResponse>(){}.getType();
+    public ApiResponse<ListOccurrencesResponse> containeranalysisProjectsOccurrencesListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListOccurrencesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Lists Serverless VPC Access connectors.
-     * @param parent Required. The project and location from which the routes should be listed. (required)
+     * Lists occurrences for the specified project.
+     * @param parent Required. The name of the project to list occurrences for in the form of &#x60;projects/[PROJECT_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -720,8 +2712,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param pageSize Maximum number of functions to return per call. (optional)
-     * @param pageToken Continuation token. (optional)
+     * @param filter The filter expression. (optional)
+     * @param pageSize Number of occurrences to return in the list. Must be positive. Max allowed page size is 1000. If not specified, page size defaults to 20. (optional)
+     * @param pageToken Token to provide to skip to a particular spot in the list. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -731,16 +2724,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsConnectorsListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback<ListConnectorsResponse> _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsOccurrencesListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback<ListOccurrencesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsConnectorsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListConnectorsResponse>(){}.getType();
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListOccurrencesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for vpcaccessProjectsLocationsConnectorsPatch
-     * @param name The resource name in the format &#x60;projects/_*_/locations/_*_/connectors/_*&#x60;. (required)
+     * Build call for containeranalysisProjectsOccurrencesPatch
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -752,8 +2745,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param updateMask The fields to update on the entry group. If absent or empty, all modifiable fields are updated. (optional)
-     * @param connector  (optional)
+     * @param updateMask The fields to update. (optional)
+     * @param occurrence  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -763,7 +2756,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsConnectorsPatchCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Connector connector, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsOccurrencesPatchCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Occurrence occurrence, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -777,7 +2770,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = connector;
+        Object localVarPostBody = occurrence;
 
         // create path and map variables
         String localVarPath = "/v1beta1/{name}"
@@ -858,20 +2851,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call vpcaccessProjectsLocationsConnectorsPatchValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Connector connector, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call containeranalysisProjectsOccurrencesPatchValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Occurrence occurrence, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling vpcaccessProjectsLocationsConnectorsPatch(Async)");
+            throw new ApiException("Missing the required parameter 'name' when calling containeranalysisProjectsOccurrencesPatch(Async)");
         }
 
-        return vpcaccessProjectsLocationsConnectorsPatchCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, connector, _callback);
+        return containeranalysisProjectsOccurrencesPatchCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, occurrence, _callback);
 
     }
 
     /**
      * 
-     * Updates a Serverless VPC Access connector, returns an operation.
-     * @param name The resource name in the format &#x60;projects/_*_/locations/_*_/connectors/_*&#x60;. (required)
+     * Updates the specified occurrence.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -883,9 +2876,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param updateMask The fields to update on the entry group. If absent or empty, all modifiable fields are updated. (optional)
-     * @param connector  (optional)
-     * @return Operation
+     * @param updateMask The fields to update. (optional)
+     * @param occurrence  (optional)
+     * @return Occurrence
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -893,15 +2886,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public Operation vpcaccessProjectsLocationsConnectorsPatch(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Connector connector) throws ApiException {
-        ApiResponse<Operation> localVarResp = vpcaccessProjectsLocationsConnectorsPatchWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, connector);
+    public Occurrence containeranalysisProjectsOccurrencesPatch(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Occurrence occurrence) throws ApiException {
+        ApiResponse<Occurrence> localVarResp = containeranalysisProjectsOccurrencesPatchWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, occurrence);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Updates a Serverless VPC Access connector, returns an operation.
-     * @param name The resource name in the format &#x60;projects/_*_/locations/_*_/connectors/_*&#x60;. (required)
+     * Updates the specified occurrence.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -913,9 +2906,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param updateMask The fields to update on the entry group. If absent or empty, all modifiable fields are updated. (optional)
-     * @param connector  (optional)
-     * @return ApiResponse&lt;Operation&gt;
+     * @param updateMask The fields to update. (optional)
+     * @param occurrence  (optional)
+     * @return ApiResponse&lt;Occurrence&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -923,16 +2916,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Operation> vpcaccessProjectsLocationsConnectorsPatchWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Connector connector) throws ApiException {
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsConnectorsPatchValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, connector, null);
-        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+    public ApiResponse<Occurrence> containeranalysisProjectsOccurrencesPatchWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Occurrence occurrence) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesPatchValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, occurrence, null);
+        Type localVarReturnType = new TypeToken<Occurrence>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Updates a Serverless VPC Access connector, returns an operation.
-     * @param name The resource name in the format &#x60;projects/_*_/locations/_*_/connectors/_*&#x60;. (required)
+     * Updates the specified occurrence.
+     * @param name Required. The name of the occurrence in the form of &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60;. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -944,8 +2937,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param updateMask The fields to update on the entry group. If absent or empty, all modifiable fields are updated. (optional)
-     * @param connector  (optional)
+     * @param updateMask The fields to update. (optional)
+     * @param occurrence  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -955,16 +2948,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsConnectorsPatchAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Connector connector, final ApiCallback<Operation> _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsOccurrencesPatchAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Occurrence occurrence, final ApiCallback<Occurrence> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsConnectorsPatchValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, connector, _callback);
-        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesPatchValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, occurrence, _callback);
+        Type localVarReturnType = new TypeToken<Occurrence>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for vpcaccessProjectsLocationsList
-     * @param name The resource that owns the locations collection, if applicable. (required)
+     * Build call for containeranalysisProjectsOccurrencesSetIamPolicy
+     * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -976,9 +2969,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter A filter to narrow down results to a preferred subset. The filtering language accepts strings like &#x60;\&quot;displayName&#x3D;tokyo\&quot;&#x60;, and is documented in more detail in [AIP-160](https://google.aip.dev/160). (optional)
-     * @param pageSize The maximum number of results to return. If not set, the service selects a default. (optional)
-     * @param pageToken A page token received from the &#x60;next_page_token&#x60; field in the response. Send that page token to receive the subsequent page. (optional)
+     * @param setIamPolicyRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -988,7 +2979,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsListCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsOccurrencesSetIamPolicyCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, SetIamPolicyRequest setIamPolicyRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1002,243 +2993,11 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = setIamPolicyRequest;
 
         // create path and map variables
-        String localVarPath = "/v1beta1/{name}/locations"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call vpcaccessProjectsLocationsListValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling vpcaccessProjectsLocationsList(Async)");
-        }
-
-        return vpcaccessProjectsLocationsListCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
-
-    }
-
-    /**
-     * 
-     * Lists information about the supported locations for this service.
-     * @param name The resource that owns the locations collection, if applicable. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter A filter to narrow down results to a preferred subset. The filtering language accepts strings like &#x60;\&quot;displayName&#x3D;tokyo\&quot;&#x60;, and is documented in more detail in [AIP-160](https://google.aip.dev/160). (optional)
-     * @param pageSize The maximum number of results to return. If not set, the service selects a default. (optional)
-     * @param pageToken A page token received from the &#x60;next_page_token&#x60; field in the response. Send that page token to receive the subsequent page. (optional)
-     * @return ListLocationsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListLocationsResponse vpcaccessProjectsLocationsList(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
-        ApiResponse<ListLocationsResponse> localVarResp = vpcaccessProjectsLocationsListWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * Lists information about the supported locations for this service.
-     * @param name The resource that owns the locations collection, if applicable. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter A filter to narrow down results to a preferred subset. The filtering language accepts strings like &#x60;\&quot;displayName&#x3D;tokyo\&quot;&#x60;, and is documented in more detail in [AIP-160](https://google.aip.dev/160). (optional)
-     * @param pageSize The maximum number of results to return. If not set, the service selects a default. (optional)
-     * @param pageToken A page token received from the &#x60;next_page_token&#x60; field in the response. Send that page token to receive the subsequent page. (optional)
-     * @return ApiResponse&lt;ListLocationsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListLocationsResponse> vpcaccessProjectsLocationsListWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsListValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListLocationsResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * Lists information about the supported locations for this service.
-     * @param name The resource that owns the locations collection, if applicable. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter A filter to narrow down results to a preferred subset. The filtering language accepts strings like &#x60;\&quot;displayName&#x3D;tokyo\&quot;&#x60;, and is documented in more detail in [AIP-160](https://google.aip.dev/160). (optional)
-     * @param pageSize The maximum number of results to return. If not set, the service selects a default. (optional)
-     * @param pageToken A page token received from the &#x60;next_page_token&#x60; field in the response. Send that page token to receive the subsequent page. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call vpcaccessProjectsLocationsListAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback<ListLocationsResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsListValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListLocationsResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for vpcaccessProjectsLocationsOperationsGet
-     * @param name The name of the operation resource. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call vpcaccessProjectsLocationsOperationsGetCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1beta1/{name}"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+        String localVarPath = "/v1beta1/{resource}:setIamPolicy"
+            .replace("{" + "resource" + "}", localVarApiClient.escapeString(resource.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1299,6 +3058,7 @@ public class ProjectsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1306,24 +3066,24 @@ public class ProjectsApi {
         }
 
         String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call vpcaccessProjectsLocationsOperationsGetValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling vpcaccessProjectsLocationsOperationsGet(Async)");
+    private okhttp3.Call containeranalysisProjectsOccurrencesSetIamPolicyValidateBeforeCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, SetIamPolicyRequest setIamPolicyRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'resource' is set
+        if (resource == null) {
+            throw new ApiException("Missing the required parameter 'resource' when calling containeranalysisProjectsOccurrencesSetIamPolicy(Async)");
         }
 
-        return vpcaccessProjectsLocationsOperationsGetCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
+        return containeranalysisProjectsOccurrencesSetIamPolicyCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest, _callback);
 
     }
 
     /**
      * 
-     * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
-     * @param name The name of the operation resource. (required)
+     * Sets the access control policy on the specified note or occurrence. Requires &#x60;containeranalysis.notes.setIamPolicy&#x60; or &#x60;containeranalysis.occurrences.setIamPolicy&#x60; permission if the resource is a note or an occurrence, respectively. The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
+     * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1335,7 +3095,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @return Operation
+     * @param setIamPolicyRequest  (optional)
+     * @return Policy
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1343,15 +3104,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public Operation vpcaccessProjectsLocationsOperationsGet(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
-        ApiResponse<Operation> localVarResp = vpcaccessProjectsLocationsOperationsGetWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+    public Policy containeranalysisProjectsOccurrencesSetIamPolicy(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, SetIamPolicyRequest setIamPolicyRequest) throws ApiException {
+        ApiResponse<Policy> localVarResp = containeranalysisProjectsOccurrencesSetIamPolicyWithHttpInfo(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
-     * @param name The name of the operation resource. (required)
+     * Sets the access control policy on the specified note or occurrence. Requires &#x60;containeranalysis.notes.setIamPolicy&#x60; or &#x60;containeranalysis.occurrences.setIamPolicy&#x60; permission if the resource is a note or an occurrence, respectively. The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
+     * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1363,7 +3124,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @return ApiResponse&lt;Operation&gt;
+     * @param setIamPolicyRequest  (optional)
+     * @return ApiResponse&lt;Policy&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1371,16 +3133,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Operation> vpcaccessProjectsLocationsOperationsGetWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsOperationsGetValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, null);
-        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+    public ApiResponse<Policy> containeranalysisProjectsOccurrencesSetIamPolicyWithHttpInfo(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, SetIamPolicyRequest setIamPolicyRequest) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesSetIamPolicyValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest, null);
+        Type localVarReturnType = new TypeToken<Policy>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
-     * @param name The name of the operation resource. (required)
+     * Sets the access control policy on the specified note or occurrence. Requires &#x60;containeranalysis.notes.setIamPolicy&#x60; or &#x60;containeranalysis.occurrences.setIamPolicy&#x60; permission if the resource is a note or an occurrence, respectively. The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
+     * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1392,6 +3154,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param setIamPolicyRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1401,16 +3164,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsOperationsGetAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback<Operation> _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsOccurrencesSetIamPolicyAsync(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, SetIamPolicyRequest setIamPolicyRequest, final ApiCallback<Policy> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsOperationsGetValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
-        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesSetIamPolicyValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest, _callback);
+        Type localVarReturnType = new TypeToken<Policy>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for vpcaccessProjectsLocationsOperationsList
-     * @param name The name of the operation&#39;s parent resource. (required)
+     * Build call for containeranalysisProjectsOccurrencesTestIamPermissions
+     * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1422,9 +3185,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter The standard list filter. (optional)
-     * @param pageSize The standard list page size. (optional)
-     * @param pageToken The standard list page token. (optional)
+     * @param testIamPermissionsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1434,7 +3195,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsOperationsListCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsOccurrencesTestIamPermissionsCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, TestIamPermissionsRequest testIamPermissionsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1448,11 +3209,11 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = testIamPermissionsRequest;
 
         // create path and map variables
-        String localVarPath = "/v1beta1/{name}/operations"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+        String localVarPath = "/v1beta1/{resource}:testIamPermissions"
+            .replace("{" + "resource" + "}", localVarApiClient.escapeString(resource.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1504,18 +3265,6 @@ public class ProjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
         }
 
-        if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1525,6 +3274,7 @@ public class ProjectsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1532,24 +3282,24 @@ public class ProjectsApi {
         }
 
         String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call vpcaccessProjectsLocationsOperationsListValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling vpcaccessProjectsLocationsOperationsList(Async)");
+    private okhttp3.Call containeranalysisProjectsOccurrencesTestIamPermissionsValidateBeforeCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, TestIamPermissionsRequest testIamPermissionsRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'resource' is set
+        if (resource == null) {
+            throw new ApiException("Missing the required parameter 'resource' when calling containeranalysisProjectsOccurrencesTestIamPermissions(Async)");
         }
 
-        return vpcaccessProjectsLocationsOperationsListCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+        return containeranalysisProjectsOccurrencesTestIamPermissionsCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest, _callback);
 
     }
 
     /**
      * 
-     * Lists operations that match the specified filter in the request. If the server doesn&#39;t support this method, it returns &#x60;UNIMPLEMENTED&#x60;.
-     * @param name The name of the operation&#39;s parent resource. (required)
+     * Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, &#x60;containeranalysis.notes.list&#x60;). The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
+     * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1561,10 +3311,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter The standard list filter. (optional)
-     * @param pageSize The standard list page size. (optional)
-     * @param pageToken The standard list page token. (optional)
-     * @return ListOperationsResponse
+     * @param testIamPermissionsRequest  (optional)
+     * @return TestIamPermissionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1572,15 +3320,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ListOperationsResponse vpcaccessProjectsLocationsOperationsList(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
-        ApiResponse<ListOperationsResponse> localVarResp = vpcaccessProjectsLocationsOperationsListWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
+    public TestIamPermissionsResponse containeranalysisProjectsOccurrencesTestIamPermissions(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, TestIamPermissionsRequest testIamPermissionsRequest) throws ApiException {
+        ApiResponse<TestIamPermissionsResponse> localVarResp = containeranalysisProjectsOccurrencesTestIamPermissionsWithHttpInfo(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Lists operations that match the specified filter in the request. If the server doesn&#39;t support this method, it returns &#x60;UNIMPLEMENTED&#x60;.
-     * @param name The name of the operation&#39;s parent resource. (required)
+     * Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, &#x60;containeranalysis.notes.list&#x60;). The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
+     * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1592,10 +3340,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter The standard list filter. (optional)
-     * @param pageSize The standard list page size. (optional)
-     * @param pageToken The standard list page token. (optional)
-     * @return ApiResponse&lt;ListOperationsResponse&gt;
+     * @param testIamPermissionsRequest  (optional)
+     * @return ApiResponse&lt;TestIamPermissionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1603,16 +3349,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListOperationsResponse> vpcaccessProjectsLocationsOperationsListWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsOperationsListValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListOperationsResponse>(){}.getType();
+    public ApiResponse<TestIamPermissionsResponse> containeranalysisProjectsOccurrencesTestIamPermissionsWithHttpInfo(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, TestIamPermissionsRequest testIamPermissionsRequest) throws ApiException {
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesTestIamPermissionsValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest, null);
+        Type localVarReturnType = new TypeToken<TestIamPermissionsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Lists operations that match the specified filter in the request. If the server doesn&#39;t support this method, it returns &#x60;UNIMPLEMENTED&#x60;.
-     * @param name The name of the operation&#39;s parent resource. (required)
+     * Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, &#x60;containeranalysis.notes.list&#x60;). The resource takes the format &#x60;projects/[PROJECT_ID]/notes/[NOTE_ID]&#x60; for notes and &#x60;projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]&#x60; for occurrences.
+     * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1624,9 +3370,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param filter The standard list filter. (optional)
-     * @param pageSize The standard list page size. (optional)
-     * @param pageToken The standard list page token. (optional)
+     * @param testIamPermissionsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1636,10 +3380,10 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vpcaccessProjectsLocationsOperationsListAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback<ListOperationsResponse> _callback) throws ApiException {
+    public okhttp3.Call containeranalysisProjectsOccurrencesTestIamPermissionsAsync(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, TestIamPermissionsRequest testIamPermissionsRequest, final ApiCallback<TestIamPermissionsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = vpcaccessProjectsLocationsOperationsListValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListOperationsResponse>(){}.getType();
+        okhttp3.Call localVarCall = containeranalysisProjectsOccurrencesTestIamPermissionsValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest, _callback);
+        Type localVarReturnType = new TypeToken<TestIamPermissionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

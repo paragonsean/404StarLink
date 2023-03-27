@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * This corresponds to a signed in-toto link - it is made up of one or more signatures and the in-toto link itself. This is used for occurrences of a Grafeas in-toto note.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:01.336252-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GrafeasV1beta1IntotoDetails {
   public static final String SERIALIZED_NAME_SIGNATURES = "signatures";
   @SerializedName(SERIALIZED_NAME_SIGNATURES)

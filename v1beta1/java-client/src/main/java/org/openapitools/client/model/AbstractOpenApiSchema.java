@@ -1,6 +1,6 @@
 /*
- * Replica Pool
- * The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.
+ * Container Analysis API
+ * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
  *
  * The version of the OpenAPI document: v1beta1
  * 
@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:07:23.087479-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:01.336252-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public abstract class AbstractOpenApiSchema {
 
     // store the actual instance of the schema/object

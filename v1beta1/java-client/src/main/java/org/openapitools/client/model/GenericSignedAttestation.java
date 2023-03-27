@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * An attestation wrapper that uses the Grafeas &#x60;Signature&#x60; message. This attestation must define the &#x60;serialized_payload&#x60; that the &#x60;signatures&#x60; verify and any metadata necessary to interpret that plaintext. The signatures should always be over the &#x60;serialized_payload&#x60; bytestring.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:01.336252-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GenericSignedAttestation {
   /**
    * Type (for example schema) of the attestation payload that was signed. The verifier must ensure that the provided type is one that the verifier supports, and that the attestation payload is a valid instantiation of that type (for example by validating a JSON schema).

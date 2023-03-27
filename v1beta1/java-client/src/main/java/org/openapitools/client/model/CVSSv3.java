@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Deprecated. Common Vulnerability Scoring System version 3. For details, see https://www.first.org/cvss/specification-document
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:01.336252-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CVSSv3 {
   /**
    * Gets or Sets attackComplexity

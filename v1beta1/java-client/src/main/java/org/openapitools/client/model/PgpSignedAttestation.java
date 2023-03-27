@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * An attestation wrapper with a PGP-compatible signature. This message only supports &#x60;ATTACHED&#x60; signatures, where the payload that is signed is included alongside the signature itself in the same file.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:08.153528-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:01.336252-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class PgpSignedAttestation {
   /**
    * Type (for example schema) of the attestation payload that was signed. The verifier must ensure that the provided type is one that the verifier supports, and that the attestation payload is a valid instantiation of that type (for example by validating a JSON schema).
