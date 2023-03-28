@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ApprovalConfig describes configuration for manual approval of a build.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:12.338-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:05.225194-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ContaineranalysisGoogleDevtoolsCloudbuildV1ApprovalConfig {
   public static final String SERIALIZED_NAME_APPROVAL_REQUIRED = "approvalRequired";
   @SerializedName(SERIALIZED_NAME_APPROVAL_REQUIRED)

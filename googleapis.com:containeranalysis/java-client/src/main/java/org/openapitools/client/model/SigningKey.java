@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * This defines the format used to record keys used in the software supply chain. An in-toto link is attested using one or more keys defined in the in-toto layout. An example of this is: { \&quot;key_id\&quot;: \&quot;776a00e29f3559e0141b3b096f696abc6cfb0c657ab40f441132b345b0...\&quot;, \&quot;key_type\&quot;: \&quot;rsa\&quot;, \&quot;public_key_value\&quot;: \&quot;-----BEGIN PUBLIC KEY-----\\nMIIBojANBgkqhkiG9w0B...\&quot;, \&quot;key_scheme\&quot;: \&quot;rsassa-pss-sha256\&quot; } The format for in-toto&#39;s key definition can be found in section 4.2 of the in-toto specification.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:12.338-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:05.225194-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SigningKey {
   public static final String SERIALIZED_NAME_KEY_ID = "keyId";
   @SerializedName(SERIALIZED_NAME_KEY_ID)

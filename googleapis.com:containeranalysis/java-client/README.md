@@ -2,7 +2,7 @@
 
 Container Analysis API
 - API version: v1beta1
-  - Build date: 2024-10-11T02:01:12.338-04:00[America/New_York]
+  - Build date: 2024-10-11T02:11:05.225194-04:00[America/New_York]
   - Generator version: 7.9.0
 
 An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * An occurrence of a particular package installation found within a system&#39;s filesystem. E.g., glibc was found in &#x60;/var/lib/dpkg/status&#x60;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:12.338-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:05.225194-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Location {
   public static final String SERIALIZED_NAME_CPE_URI = "cpeUri";
   @SerializedName(SERIALIZED_NAME_CPE_URI)
