@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Groups a time series query definition with charting options.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:16.300251-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:08.946005-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DataSet {
   public static final String SERIALIZED_NAME_LEGEND_TEMPLATE = "legendTemplate";
   @SerializedName(SERIALIZED_NAME_LEGEND_TEMPLATE)

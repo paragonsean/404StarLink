@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * An object representing a resource that can be used for monitoring, logging, billing, or other purposes. Examples include virtual machine instances, databases, and storage devices such as disks. The type field identifies a MonitoredResourceDescriptor object that describes the resource&#39;s schema. Information in the labels field identifies the actual resource and its attributes according to the schema. For example, a particular Compute Engine VM instance could be represented by the following object, because the MonitoredResourceDescriptor for \&quot;gce_instance\&quot; has labels \&quot;project_id\&quot;, \&quot;instance_id\&quot; and \&quot;zone\&quot;: { \&quot;type\&quot;: \&quot;gce_instance\&quot;, \&quot;labels\&quot;: { \&quot;project_id\&quot;: \&quot;my-project\&quot;, \&quot;instance_id\&quot;: \&quot;12345678901234\&quot;, \&quot;zone\&quot;: \&quot;us-central1-a\&quot; }} 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:16.300251-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:08.946005-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class MonitoredResource {
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)

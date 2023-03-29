@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A gauge chart shows where the current value sits within a pre-defined range. The upper and lower bounds should define the possible range of values for the scorecard&#39;s query (inclusive).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:16.300251-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:08.946005-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GaugeView {
   public static final String SERIALIZED_NAME_LOWER_BOUND = "lowerBound";
   @SerializedName(SERIALIZED_NAME_LOWER_BOUND)

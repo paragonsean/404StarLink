@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * A table that displays time series data.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:16.300251-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:08.946005-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TimeSeriesTable {
   public static final String SERIALIZED_NAME_COLUMN_SETTINGS = "columnSettings";
   @SerializedName(SERIALIZED_NAME_COLUMN_SETTINGS)

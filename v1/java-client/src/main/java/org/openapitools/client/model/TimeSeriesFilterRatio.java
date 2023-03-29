@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * A pair of time series filters that define a ratio computation. The output time series is the pair-wise division of each aligned element from the numerator and denominator time series.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:16.300251-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:08.946005-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TimeSeriesFilterRatio {
   public static final String SERIALIZED_NAME_DENOMINATOR = "denominator";
   @SerializedName(SERIALIZED_NAME_DENOMINATOR)

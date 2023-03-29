@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * A chart that displays data on a 2D (X and Y axes) plane.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:16.300251-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:08.946005-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class XyChart {
   public static final String SERIALIZED_NAME_CHART_OPTIONS = "chartOptions";
   @SerializedName(SERIALIZED_NAME_CHART_OPTIONS)
