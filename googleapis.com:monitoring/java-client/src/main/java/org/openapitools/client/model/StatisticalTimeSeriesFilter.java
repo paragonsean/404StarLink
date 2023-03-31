@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A filter that ranks streams based on their statistical relation to other streams in a request. Note: This field is deprecated and completely ignored by the API.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:19.543048-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:15.949518-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class StatisticalTimeSeriesFilter {
   public static final String SERIALIZED_NAME_NUM_TIME_SERIES = "numTimeSeries";
   @SerializedName(SERIALIZED_NAME_NUM_TIME_SERIES)

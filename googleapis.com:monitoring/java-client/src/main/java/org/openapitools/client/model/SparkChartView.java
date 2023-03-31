@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A sparkChart is a small chart suitable for inclusion in a table-cell or inline in text. This message contains the configuration for a sparkChart to show up on a Scorecard, showing recent trends of the scorecard&#39;s timeseries.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:19.543048-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:15.949518-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SparkChartView {
   public static final String SERIALIZED_NAME_MIN_ALIGNMENT_PERIOD = "minAlignmentPeriod";
   @SerializedName(SERIALIZED_NAME_MIN_ALIGNMENT_PERIOD)

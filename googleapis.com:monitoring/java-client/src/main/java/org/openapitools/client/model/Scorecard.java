@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * A widget showing the latest value of a metric, and how this value relates to one or more thresholds.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:19.543048-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:15.949518-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Scorecard {
   public static final String SERIALIZED_NAME_GAUGE_VIEW = "gaugeView";
   @SerializedName(SERIALIZED_NAME_GAUGE_VIEW)

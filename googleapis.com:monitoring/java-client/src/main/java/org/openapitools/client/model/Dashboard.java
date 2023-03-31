@@ -57,7 +57,7 @@ import org.openapitools.client.JSON;
 /**
  * A Google Stackdriver dashboard. Dashboards define the content and layout of pages in the Stackdriver web application.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:19.543048-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:15.949518-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Dashboard {
   public static final String SERIALIZED_NAME_COLUMN_LAYOUT = "columnLayout";
   @SerializedName(SERIALIZED_NAME_COLUMN_LAYOUT)

@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Table display options that can be reused.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:19.543048-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:15.949518-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TableDisplayOptions {
   public static final String SERIALIZED_NAME_SHOWN_COLUMNS = "shownColumns";
   @SerializedName(SERIALIZED_NAME_SHOWN_COLUMNS)

@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * TimeSeriesQuery collects the set of supported methods for querying time series data from the Stackdriver metrics API.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:19.543048-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:15.949518-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TimeSeriesQuery {
   public static final String SERIALIZED_NAME_PROMETHEUS_QUERY = "prometheusQuery";
   @SerializedName(SERIALIZED_NAME_PROMETHEUS_QUERY)
