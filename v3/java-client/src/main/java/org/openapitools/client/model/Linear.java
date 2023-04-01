@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Specifies a linear sequence of buckets that all have the same width (except overflow and underflow). Each bucket represents a constant absolute uncertainty on the specific value in the bucket.There are num_finite_buckets + 2 (&#x3D; N) buckets. Bucket i has the following boundaries:Upper bound (0 &lt;&#x3D; i &lt; N-1): offset + (width * i).Lower bound (1 &lt;&#x3D; i &lt; N): offset + (width * (i - 1)).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Linear {
   public static final String SERIALIZED_NAME_NUM_FINITE_BUCKETS = "numFiniteBuckets";
   @SerializedName(SERIALIZED_NAME_NUM_FINITE_BUCKETS)

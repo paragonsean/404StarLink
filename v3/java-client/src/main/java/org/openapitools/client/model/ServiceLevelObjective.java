@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * A Service-Level Objective (SLO) describes a level of desired good service. It consists of a service-level indicator (SLI), a performance goal, and a period over which the objective is to be evaluated against that goal. The SLO can use SLIs defined in a number of different manners. Typical SLOs might include \&quot;99% of requests in each rolling week have latency below 200 milliseconds\&quot; or \&quot;99.5% of requests in each calendar month return successfully.\&quot;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ServiceLevelObjective {
   /**
    * A calendar period, semantically \&quot;since the start of the current \&quot;. At this time, only DAY, WEEK, FORTNIGHT, and MONTH are supported.

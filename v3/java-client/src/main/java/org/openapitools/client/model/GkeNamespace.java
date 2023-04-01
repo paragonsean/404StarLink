@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * GKE Namespace. The field names correspond to the resource metadata labels on monitored resources that fall under a namespace (for example, k8s_container or k8s_pod).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GkeNamespace {
   public static final String SERIALIZED_NAME_CLUSTER_NAME = "clusterName";
   @SerializedName(SERIALIZED_NAME_CLUSTER_NAME)

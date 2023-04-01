@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * The CreateCollectdTimeSeries response.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CreateCollectdTimeSeriesResponse {
   public static final String SERIALIZED_NAME_PAYLOAD_ERRORS = "payloadErrors";
   @SerializedName(SERIALIZED_NAME_PAYLOAD_ERRORS)

@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * GKE Service. The \&quot;service\&quot; here represents a Kubernetes service object (https://kubernetes.io/docs/concepts/services-networking/service). The field names correspond to the resource labels on k8s_service monitored resources (https://cloud.google.com/monitoring/api/resources#tag_k8s_service).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GkeService {
   public static final String SERIALIZED_NAME_CLUSTER_NAME = "clusterName";
   @SerializedName(SERIALIZED_NAME_CLUSTER_NAME)

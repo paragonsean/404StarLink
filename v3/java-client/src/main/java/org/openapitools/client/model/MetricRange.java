@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * A MetricRange is used when each window is good when the value x of a single TimeSeries satisfies range.min &lt;&#x3D; x &lt;&#x3D; range.max. The provided TimeSeries must have ValueType &#x3D; INT64 or ValueType &#x3D; DOUBLE and MetricKind &#x3D; GAUGE.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class MetricRange {
   public static final String SERIALIZED_NAME_RANGE = "range";
   @SerializedName(SERIALIZED_NAME_RANGE)

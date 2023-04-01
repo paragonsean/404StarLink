@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A GKE Workload (Deployment, StatefulSet, etc). The field names correspond to the metadata labels on monitored resources that fall under a workload (for example, k8s_container or k8s_pod).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GkeWorkload {
   public static final String SERIALIZED_NAME_CLUSTER_NAME = "clusterName";
   @SerializedName(SERIALIZED_NAME_CLUSTER_NAME)

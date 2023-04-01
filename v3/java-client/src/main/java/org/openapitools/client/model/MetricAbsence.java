@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * A condition type that checks that monitored resources are reporting data. The configuration defines a metric and a set of monitored resources. The predicate is considered in violation when a time series for the specified metric of a monitored resource does not include any data in the specified duration.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class MetricAbsence {
   public static final String SERIALIZED_NAME_AGGREGATIONS = "aggregations";
   @SerializedName(SERIALIZED_NAME_AGGREGATIONS)

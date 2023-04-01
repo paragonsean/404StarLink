@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Options used when forecasting the time series and testing the predicted value against the threshold.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ForecastOptions {
   public static final String SERIALIZED_NAME_FORECAST_HORIZON = "forecastHorizon";
   @SerializedName(SERIALIZED_NAME_FORECAST_HORIZON)

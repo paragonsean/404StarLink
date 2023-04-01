@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * Represents the values of a time series associated with a TimeSeriesDescriptor.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TimeSeriesData {
   public static final String SERIALIZED_NAME_LABEL_VALUES = "labelValues";
   @SerializedName(SERIALIZED_NAME_LABEL_VALUES)

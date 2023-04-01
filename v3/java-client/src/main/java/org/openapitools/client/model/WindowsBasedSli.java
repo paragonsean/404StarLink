@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * A WindowsBasedSli defines good_service as the count of time windows for which the provided service was of good quality. Criteria for determining if service was good are embedded in the window_criterion.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class WindowsBasedSli {
   public static final String SERIALIZED_NAME_GOOD_BAD_METRIC_FILTER = "goodBadMetricFilter";
   @SerializedName(SERIALIZED_NAME_GOOD_BAD_METRIC_FILTER)

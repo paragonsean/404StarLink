@@ -1,6 +1,6 @@
 /*
- * Google Analytics API
- * Views and manages your Google Analytics data.
+ * Cloud Monitoring API
+ * Manages your Cloud Monitoring data and configurations.
  *
  * The version of the OpenAPI document: v3
  * 

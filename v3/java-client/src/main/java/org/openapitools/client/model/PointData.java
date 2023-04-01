@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * A point&#39;s value columns and time interval. Each point has one or more point values corresponding to the entries in point_descriptors field in the TimeSeriesDescriptor associated with this object.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class PointData {
   public static final String SERIALIZED_NAME_TIME_INTERVAL = "timeInterval";
   @SerializedName(SERIALIZED_NAME_TIME_INTERVAL)

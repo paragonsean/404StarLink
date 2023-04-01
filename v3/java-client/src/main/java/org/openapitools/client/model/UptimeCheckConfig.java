@@ -58,7 +58,7 @@ import org.openapitools.client.JSON;
 /**
  * This message configures which resources and services to monitor for availability.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class UptimeCheckConfig {
   /**
    * The type of checkers to use to execute the Uptime check.

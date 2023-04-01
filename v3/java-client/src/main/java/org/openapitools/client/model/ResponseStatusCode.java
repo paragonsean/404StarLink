@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A status to accept. Either a status code class like \&quot;2xx\&quot;, or an integer status code like \&quot;200\&quot;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ResponseStatusCode {
   /**
    * A class of status codes to accept.

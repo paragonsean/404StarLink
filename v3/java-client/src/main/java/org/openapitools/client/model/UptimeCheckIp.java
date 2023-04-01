@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Contains the region, location, and list of IP addresses where checkers in the location run from.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class UptimeCheckIp {
   public static final String SERIALIZED_NAME_IP_ADDRESS = "ipAddress";
   @SerializedName(SERIALIZED_NAME_IP_ADDRESS)

@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Information involved in sending ICMP pings alongside public HTTP/TCP checks. For HTTP, the pings are performed for each part of the redirect chain.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class PingConfig {
   public static final String SERIALIZED_NAME_PINGS_COUNT = "pingsCount";
   @SerializedName(SERIALIZED_NAME_PINGS_COUNT)

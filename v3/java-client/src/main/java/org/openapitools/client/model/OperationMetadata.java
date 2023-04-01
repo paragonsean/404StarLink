@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Contains metadata for longrunning operation for the edit Metrics Scope endpoints.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class OperationMetadata {
   public static final String SERIALIZED_NAME_CREATE_TIME = "createTime";
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)

@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * A TimeSeriesRatio specifies two TimeSeries to use for computing the good_service / total_service ratio. The specified TimeSeries must have ValueType &#x3D; DOUBLE or ValueType &#x3D; INT64 and must have MetricKind &#x3D; DELTA or MetricKind &#x3D; CUMULATIVE. The TimeSeriesRatio must specify exactly two of good, bad, and total, and the relationship good_service + bad_service &#x3D; total_service will be assumed.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class TimeSeriesRatio {
   public static final String SERIALIZED_NAME_BAD_SERVICE_FILTER = "badServiceFilter";
   @SerializedName(SERIALIZED_NAME_BAD_SERVICE_FILTER)

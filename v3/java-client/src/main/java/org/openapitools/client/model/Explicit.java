@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Specifies a set of buckets with arbitrary widths.There are size(bounds) + 1 (&#x3D; N) buckets. Bucket i has the following boundaries:Upper bound (0 &lt;&#x3D; i &lt; N-1): boundsi Lower bound (1 &lt;&#x3D; i &lt; N); boundsi - 1The bounds field must contain at least one element. If bounds has only one element, then there are no finite buckets, and that single element is the common boundary of the overflow and underflow buckets.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Explicit {
   public static final String SERIALIZED_NAME_BOUNDS = "bounds";
   @SerializedName(SERIALIZED_NAME_BOUNDS)

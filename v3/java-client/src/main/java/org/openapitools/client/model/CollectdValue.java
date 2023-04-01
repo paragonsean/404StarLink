@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * A single data point from a collectd-based plugin.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class CollectdValue {
   public static final String SERIALIZED_NAME_DATA_SOURCE_NAME = "dataSourceName";
   @SerializedName(SERIALIZED_NAME_DATA_SOURCE_NAME)

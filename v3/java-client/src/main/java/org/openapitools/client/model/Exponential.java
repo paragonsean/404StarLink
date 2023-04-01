@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Specifies an exponential sequence of buckets that have a width that is proportional to the value of the lower bound. Each bucket represents a constant relative uncertainty on a specific value in the bucket.There are num_finite_buckets + 2 (&#x3D; N) buckets. Bucket i has the following boundaries:Upper bound (0 &lt;&#x3D; i &lt; N-1): scale * (growth_factor ^ i).Lower bound (1 &lt;&#x3D; i &lt; N): scale * (growth_factor ^ (i - 1)).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Exponential {
   public static final String SERIALIZED_NAME_GROWTH_FACTOR = "growthFactor";
   @SerializedName(SERIALIZED_NAME_GROWTH_FACTOR)

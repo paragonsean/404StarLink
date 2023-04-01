@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * A DistributionCut defines a TimeSeries and thresholds used for measuring good service and total service. The TimeSeries must have ValueType &#x3D; DISTRIBUTION and MetricKind &#x3D; DELTA or MetricKind &#x3D; CUMULATIVE. The computed good_service will be the estimated count of values in the Distribution that fall within the specified min and max.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:22.830819-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:19.132075-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class DistributionCut {
   public static final String SERIALIZED_NAME_DISTRIBUTION_FILTER = "distributionFilter";
   @SerializedName(SERIALIZED_NAME_DISTRIBUTION_FILTER)
