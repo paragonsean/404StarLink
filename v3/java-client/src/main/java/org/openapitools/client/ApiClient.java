@@ -1,6 +1,6 @@
 /*
- * Cloud Monitoring API
- * Manages your Cloud Monitoring data and configurations.
+ * Google Analytics API
+ * Views and manages your Google Analytics data.
  *
  * The version of the OpenAPI document: v3
  * 
@@ -66,10 +66,10 @@ import org.openapitools.client.auth.OAuthFlow;
  */
 public class ApiClient {
 
-    private String basePath = "https://monitoring.googleapis.com";
+    private String basePath = "https://analytics.googleapis.com/analytics/v3";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://monitoring.googleapis.com",
+      "https://analytics.googleapis.com/analytics/v3",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -231,7 +231,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://monitoring.googleapis.com
+     * @param basePath Base path of the URL (e.g https://analytics.googleapis.com/analytics/v3
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

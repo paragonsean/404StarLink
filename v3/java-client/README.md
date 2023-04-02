@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Cloud Monitoring API
+Google Analytics API
 - API version: v3
-  - Build date: 2024-10-11T02:11:19.132075-04:00[America/New_York]
+  - Build date: 2024-10-11T02:11:22.913673-04:00[America/New_York]
   - Generator version: 7.9.0
 
-Manages your Cloud Monitoring data and configurations.
+Views and manages your Google Analytics data.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -87,12 +87,12 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.ProjectsApi;
+import org.openapitools.client.api.DataApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://monitoring.googleapis.com");
+    defaultClient.setBasePath("https://analytics.googleapis.com/analytics/v3");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -102,25 +102,32 @@ public class Example {
     OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String name = "name_example"; // String | Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) in which to create the alerting policy. The format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent container in which the alerting policy will be written, not the name of the created policy. |name| must be a host project of a Metrics Scope, otherwise INVALID_ARGUMENT error will return. The alerting policy that is returned will have a name that contains a normalized representation of this name as a prefix but adds a suffix of the form /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
+    DataApi apiInstance = new DataApi(defaultClient);
+    String ids = "ids_example"; // String | Unique table ID for retrieving Analytics data. Table ID is of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.
+    String startDate = "startDate_example"; // String | Start date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is 7daysAgo.
+    String endDate = "endDate_example"; // String | End date for fetching Analytics data. Request can should specify an end date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is yesterday.
+    String metrics = "metrics_example"; // String | A comma-separated list of Analytics metrics. E.g., 'ga:sessions,ga:pageviews'. At least one metric must be specified.
+    String alt = "json"; // String | Data format for the response.
     String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
     String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
     String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
     Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    AlertPolicy alertPolicy = new AlertPolicy(); // AlertPolicy | 
+    String quotaUser = "quotaUser_example"; // String | An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+    String userIp = "userIp_example"; // String | Deprecated. Please use quotaUser instead.
+    String dimensions = "dimensions_example"; // String | A comma-separated list of Analytics dimensions. E.g., 'ga:browser,ga:city'.
+    String filters = "filters_example"; // String | A comma-separated list of dimension or metric filters to be applied to Analytics data.
+    Boolean includeEmptyRows = true; // Boolean | The response will include empty rows if this parameter is set to true, the default is true
+    Integer maxResults = 56; // Integer | The maximum number of entries to include in this feed.
+    String output = "dataTable"; // String | The selected format for the response. Default format is JSON.
+    String samplingLevel = "DEFAULT"; // String | The desired sampling level.
+    String segment = "segment_example"; // String | An Analytics segment to be applied to data.
+    String sort = "sort_example"; // String | A comma-separated list of dimensions or metrics that determine the sort order for Analytics data.
+    Integer startIndex = 56; // Integer | An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
     try {
-      AlertPolicy result = apiInstance.monitoringProjectsAlertPoliciesCreate(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, alertPolicy);
+      GaData result = apiInstance.analyticsDataGaGet(ids, startDate, endDate, metrics, alt, fields, key, oauthToken, prettyPrint, quotaUser, userIp, dimensions, filters, includeEmptyRows, maxResults, output, samplingLevel, segment, sort, startIndex);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#monitoringProjectsAlertPoliciesCreate");
+      System.err.println("Exception when calling DataApi#analyticsDataGaGet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -133,157 +140,206 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://monitoring.googleapis.com*
+All URIs are relative to *https://analytics.googleapis.com/analytics/v3*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ProjectsApi* | [**monitoringProjectsAlertPoliciesCreate**](docs/ProjectsApi.md#monitoringProjectsAlertPoliciesCreate) | **POST** /v3/{name}/alertPolicies | 
-*ProjectsApi* | [**monitoringProjectsAlertPoliciesList**](docs/ProjectsApi.md#monitoringProjectsAlertPoliciesList) | **GET** /v3/{name}/alertPolicies | 
-*ProjectsApi* | [**monitoringProjectsCollectdTimeSeriesCreate**](docs/ProjectsApi.md#monitoringProjectsCollectdTimeSeriesCreate) | **POST** /v3/{name}/collectdTimeSeries | 
-*ProjectsApi* | [**monitoringProjectsGroupsCreate**](docs/ProjectsApi.md#monitoringProjectsGroupsCreate) | **POST** /v3/{name}/groups | 
-*ProjectsApi* | [**monitoringProjectsGroupsList**](docs/ProjectsApi.md#monitoringProjectsGroupsList) | **GET** /v3/{name}/groups | 
-*ProjectsApi* | [**monitoringProjectsGroupsMembersList**](docs/ProjectsApi.md#monitoringProjectsGroupsMembersList) | **GET** /v3/{name}/members | 
-*ProjectsApi* | [**monitoringProjectsGroupsUpdate**](docs/ProjectsApi.md#monitoringProjectsGroupsUpdate) | **PUT** /v3/{name} | 
-*ProjectsApi* | [**monitoringProjectsMetricDescriptorsCreate**](docs/ProjectsApi.md#monitoringProjectsMetricDescriptorsCreate) | **POST** /v3/{name}/metricDescriptors | 
-*ProjectsApi* | [**monitoringProjectsMetricDescriptorsList**](docs/ProjectsApi.md#monitoringProjectsMetricDescriptorsList) | **GET** /v3/{name}/metricDescriptors | 
-*ProjectsApi* | [**monitoringProjectsMonitoredResourceDescriptorsList**](docs/ProjectsApi.md#monitoringProjectsMonitoredResourceDescriptorsList) | **GET** /v3/{name}/monitoredResourceDescriptors | 
-*ProjectsApi* | [**monitoringProjectsNotificationChannelDescriptorsList**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelDescriptorsList) | **GET** /v3/{name}/notificationChannelDescriptors | 
-*ProjectsApi* | [**monitoringProjectsNotificationChannelsCreate**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelsCreate) | **POST** /v3/{name}/notificationChannels | 
-*ProjectsApi* | [**monitoringProjectsNotificationChannelsGetVerificationCode**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelsGetVerificationCode) | **POST** /v3/{name}:getVerificationCode | 
-*ProjectsApi* | [**monitoringProjectsNotificationChannelsList**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelsList) | **GET** /v3/{name}/notificationChannels | 
-*ProjectsApi* | [**monitoringProjectsNotificationChannelsSendVerificationCode**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelsSendVerificationCode) | **POST** /v3/{name}:sendVerificationCode | 
-*ProjectsApi* | [**monitoringProjectsNotificationChannelsVerify**](docs/ProjectsApi.md#monitoringProjectsNotificationChannelsVerify) | **POST** /v3/{name}:verify | 
-*ProjectsApi* | [**monitoringProjectsSnoozesCreate**](docs/ProjectsApi.md#monitoringProjectsSnoozesCreate) | **POST** /v3/{parent}/snoozes | 
-*ProjectsApi* | [**monitoringProjectsSnoozesList**](docs/ProjectsApi.md#monitoringProjectsSnoozesList) | **GET** /v3/{parent}/snoozes | 
-*ProjectsApi* | [**monitoringProjectsTimeSeriesCreate**](docs/ProjectsApi.md#monitoringProjectsTimeSeriesCreate) | **POST** /v3/{name}/timeSeries | 
-*ProjectsApi* | [**monitoringProjectsTimeSeriesCreateService**](docs/ProjectsApi.md#monitoringProjectsTimeSeriesCreateService) | **POST** /v3/{name}/timeSeries:createService | 
-*ProjectsApi* | [**monitoringProjectsTimeSeriesList**](docs/ProjectsApi.md#monitoringProjectsTimeSeriesList) | **GET** /v3/{name}/timeSeries | 
-*ProjectsApi* | [**monitoringProjectsTimeSeriesQuery**](docs/ProjectsApi.md#monitoringProjectsTimeSeriesQuery) | **POST** /v3/{name}/timeSeries:query | 
-*ProjectsApi* | [**monitoringProjectsUptimeCheckConfigsCreate**](docs/ProjectsApi.md#monitoringProjectsUptimeCheckConfigsCreate) | **POST** /v3/{parent}/uptimeCheckConfigs | 
-*ProjectsApi* | [**monitoringProjectsUptimeCheckConfigsList**](docs/ProjectsApi.md#monitoringProjectsUptimeCheckConfigsList) | **GET** /v3/{parent}/uptimeCheckConfigs | 
-*ServicesApi* | [**monitoringServicesCreate**](docs/ServicesApi.md#monitoringServicesCreate) | **POST** /v3/{parent}/services | 
-*ServicesApi* | [**monitoringServicesList**](docs/ServicesApi.md#monitoringServicesList) | **GET** /v3/{parent}/services | 
-*ServicesApi* | [**monitoringServicesServiceLevelObjectivesCreate**](docs/ServicesApi.md#monitoringServicesServiceLevelObjectivesCreate) | **POST** /v3/{parent}/serviceLevelObjectives | 
-*ServicesApi* | [**monitoringServicesServiceLevelObjectivesDelete**](docs/ServicesApi.md#monitoringServicesServiceLevelObjectivesDelete) | **DELETE** /v3/{name} | 
-*ServicesApi* | [**monitoringServicesServiceLevelObjectivesGet**](docs/ServicesApi.md#monitoringServicesServiceLevelObjectivesGet) | **GET** /v3/{name} | 
-*ServicesApi* | [**monitoringServicesServiceLevelObjectivesList**](docs/ServicesApi.md#monitoringServicesServiceLevelObjectivesList) | **GET** /v3/{parent}/serviceLevelObjectives | 
-*ServicesApi* | [**monitoringServicesServiceLevelObjectivesPatch**](docs/ServicesApi.md#monitoringServicesServiceLevelObjectivesPatch) | **PATCH** /v3/{name} | 
-*UptimeCheckIpsApi* | [**monitoringUptimeCheckIpsList**](docs/UptimeCheckIpsApi.md#monitoringUptimeCheckIpsList) | **GET** /v3/uptimeCheckIps | 
+*DataApi* | [**analyticsDataGaGet**](docs/DataApi.md#analyticsDataGaGet) | **GET** /data/ga | 
+*DataApi* | [**analyticsDataMcfGet**](docs/DataApi.md#analyticsDataMcfGet) | **GET** /data/mcf | 
+*DataApi* | [**analyticsDataRealtimeGet**](docs/DataApi.md#analyticsDataRealtimeGet) | **GET** /data/realtime | 
+*ManagementApi* | [**analyticsManagementAccountSummariesList**](docs/ManagementApi.md#analyticsManagementAccountSummariesList) | **GET** /management/accountSummaries | 
+*ManagementApi* | [**analyticsManagementAccountUserLinksDelete**](docs/ManagementApi.md#analyticsManagementAccountUserLinksDelete) | **DELETE** /management/accounts/{accountId}/entityUserLinks/{linkId} | 
+*ManagementApi* | [**analyticsManagementAccountUserLinksInsert**](docs/ManagementApi.md#analyticsManagementAccountUserLinksInsert) | **POST** /management/accounts/{accountId}/entityUserLinks | 
+*ManagementApi* | [**analyticsManagementAccountUserLinksList**](docs/ManagementApi.md#analyticsManagementAccountUserLinksList) | **GET** /management/accounts/{accountId}/entityUserLinks | 
+*ManagementApi* | [**analyticsManagementAccountUserLinksUpdate**](docs/ManagementApi.md#analyticsManagementAccountUserLinksUpdate) | **PUT** /management/accounts/{accountId}/entityUserLinks/{linkId} | 
+*ManagementApi* | [**analyticsManagementAccountsList**](docs/ManagementApi.md#analyticsManagementAccountsList) | **GET** /management/accounts | 
+*ManagementApi* | [**analyticsManagementClientIdHashClientId**](docs/ManagementApi.md#analyticsManagementClientIdHashClientId) | **POST** /management/clientId:hashClientId | 
+*ManagementApi* | [**analyticsManagementCustomDataSourcesList**](docs/ManagementApi.md#analyticsManagementCustomDataSourcesList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources | 
+*ManagementApi* | [**analyticsManagementCustomDimensionsGet**](docs/ManagementApi.md#analyticsManagementCustomDimensionsGet) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions/{customDimensionId} | 
+*ManagementApi* | [**analyticsManagementCustomDimensionsInsert**](docs/ManagementApi.md#analyticsManagementCustomDimensionsInsert) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions | 
+*ManagementApi* | [**analyticsManagementCustomDimensionsList**](docs/ManagementApi.md#analyticsManagementCustomDimensionsList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions | 
+*ManagementApi* | [**analyticsManagementCustomDimensionsPatch**](docs/ManagementApi.md#analyticsManagementCustomDimensionsPatch) | **PATCH** /management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions/{customDimensionId} | 
+*ManagementApi* | [**analyticsManagementCustomDimensionsUpdate**](docs/ManagementApi.md#analyticsManagementCustomDimensionsUpdate) | **PUT** /management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions/{customDimensionId} | 
+*ManagementApi* | [**analyticsManagementCustomMetricsGet**](docs/ManagementApi.md#analyticsManagementCustomMetricsGet) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics/{customMetricId} | 
+*ManagementApi* | [**analyticsManagementCustomMetricsInsert**](docs/ManagementApi.md#analyticsManagementCustomMetricsInsert) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics | 
+*ManagementApi* | [**analyticsManagementCustomMetricsList**](docs/ManagementApi.md#analyticsManagementCustomMetricsList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics | 
+*ManagementApi* | [**analyticsManagementCustomMetricsPatch**](docs/ManagementApi.md#analyticsManagementCustomMetricsPatch) | **PATCH** /management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics/{customMetricId} | 
+*ManagementApi* | [**analyticsManagementCustomMetricsUpdate**](docs/ManagementApi.md#analyticsManagementCustomMetricsUpdate) | **PUT** /management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics/{customMetricId} | 
+*ManagementApi* | [**analyticsManagementExperimentsDelete**](docs/ManagementApi.md#analyticsManagementExperimentsDelete) | **DELETE** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId} | 
+*ManagementApi* | [**analyticsManagementExperimentsGet**](docs/ManagementApi.md#analyticsManagementExperimentsGet) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId} | 
+*ManagementApi* | [**analyticsManagementExperimentsInsert**](docs/ManagementApi.md#analyticsManagementExperimentsInsert) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments | 
+*ManagementApi* | [**analyticsManagementExperimentsList**](docs/ManagementApi.md#analyticsManagementExperimentsList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments | 
+*ManagementApi* | [**analyticsManagementExperimentsPatch**](docs/ManagementApi.md#analyticsManagementExperimentsPatch) | **PATCH** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId} | 
+*ManagementApi* | [**analyticsManagementExperimentsUpdate**](docs/ManagementApi.md#analyticsManagementExperimentsUpdate) | **PUT** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId} | 
+*ManagementApi* | [**analyticsManagementFiltersDelete**](docs/ManagementApi.md#analyticsManagementFiltersDelete) | **DELETE** /management/accounts/{accountId}/filters/{filterId} | 
+*ManagementApi* | [**analyticsManagementFiltersGet**](docs/ManagementApi.md#analyticsManagementFiltersGet) | **GET** /management/accounts/{accountId}/filters/{filterId} | 
+*ManagementApi* | [**analyticsManagementFiltersInsert**](docs/ManagementApi.md#analyticsManagementFiltersInsert) | **POST** /management/accounts/{accountId}/filters | 
+*ManagementApi* | [**analyticsManagementFiltersList**](docs/ManagementApi.md#analyticsManagementFiltersList) | **GET** /management/accounts/{accountId}/filters | 
+*ManagementApi* | [**analyticsManagementFiltersPatch**](docs/ManagementApi.md#analyticsManagementFiltersPatch) | **PATCH** /management/accounts/{accountId}/filters/{filterId} | 
+*ManagementApi* | [**analyticsManagementFiltersUpdate**](docs/ManagementApi.md#analyticsManagementFiltersUpdate) | **PUT** /management/accounts/{accountId}/filters/{filterId} | 
+*ManagementApi* | [**analyticsManagementGoalsGet**](docs/ManagementApi.md#analyticsManagementGoalsGet) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId} | 
+*ManagementApi* | [**analyticsManagementGoalsInsert**](docs/ManagementApi.md#analyticsManagementGoalsInsert) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals | 
+*ManagementApi* | [**analyticsManagementGoalsList**](docs/ManagementApi.md#analyticsManagementGoalsList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals | 
+*ManagementApi* | [**analyticsManagementGoalsPatch**](docs/ManagementApi.md#analyticsManagementGoalsPatch) | **PATCH** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId} | 
+*ManagementApi* | [**analyticsManagementGoalsUpdate**](docs/ManagementApi.md#analyticsManagementGoalsUpdate) | **PUT** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId} | 
+*ManagementApi* | [**analyticsManagementProfileFilterLinksDelete**](docs/ManagementApi.md#analyticsManagementProfileFilterLinksDelete) | **DELETE** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks/{linkId} | 
+*ManagementApi* | [**analyticsManagementProfileFilterLinksGet**](docs/ManagementApi.md#analyticsManagementProfileFilterLinksGet) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks/{linkId} | 
+*ManagementApi* | [**analyticsManagementProfileFilterLinksInsert**](docs/ManagementApi.md#analyticsManagementProfileFilterLinksInsert) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks | 
+*ManagementApi* | [**analyticsManagementProfileFilterLinksList**](docs/ManagementApi.md#analyticsManagementProfileFilterLinksList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks | 
+*ManagementApi* | [**analyticsManagementProfileFilterLinksPatch**](docs/ManagementApi.md#analyticsManagementProfileFilterLinksPatch) | **PATCH** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks/{linkId} | 
+*ManagementApi* | [**analyticsManagementProfileFilterLinksUpdate**](docs/ManagementApi.md#analyticsManagementProfileFilterLinksUpdate) | **PUT** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks/{linkId} | 
+*ManagementApi* | [**analyticsManagementProfileUserLinksDelete**](docs/ManagementApi.md#analyticsManagementProfileUserLinksDelete) | **DELETE** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks/{linkId} | 
+*ManagementApi* | [**analyticsManagementProfileUserLinksInsert**](docs/ManagementApi.md#analyticsManagementProfileUserLinksInsert) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks | 
+*ManagementApi* | [**analyticsManagementProfileUserLinksList**](docs/ManagementApi.md#analyticsManagementProfileUserLinksList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks | 
+*ManagementApi* | [**analyticsManagementProfileUserLinksUpdate**](docs/ManagementApi.md#analyticsManagementProfileUserLinksUpdate) | **PUT** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks/{linkId} | 
+*ManagementApi* | [**analyticsManagementProfilesDelete**](docs/ManagementApi.md#analyticsManagementProfilesDelete) | **DELETE** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId} | 
+*ManagementApi* | [**analyticsManagementProfilesGet**](docs/ManagementApi.md#analyticsManagementProfilesGet) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId} | 
+*ManagementApi* | [**analyticsManagementProfilesInsert**](docs/ManagementApi.md#analyticsManagementProfilesInsert) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles | 
+*ManagementApi* | [**analyticsManagementProfilesList**](docs/ManagementApi.md#analyticsManagementProfilesList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles | 
+*ManagementApi* | [**analyticsManagementProfilesPatch**](docs/ManagementApi.md#analyticsManagementProfilesPatch) | **PATCH** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId} | 
+*ManagementApi* | [**analyticsManagementProfilesUpdate**](docs/ManagementApi.md#analyticsManagementProfilesUpdate) | **PUT** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId} | 
+*ManagementApi* | [**analyticsManagementRemarketingAudienceDelete**](docs/ManagementApi.md#analyticsManagementRemarketingAudienceDelete) | **DELETE** /management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId} | 
+*ManagementApi* | [**analyticsManagementRemarketingAudienceGet**](docs/ManagementApi.md#analyticsManagementRemarketingAudienceGet) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId} | 
+*ManagementApi* | [**analyticsManagementRemarketingAudienceInsert**](docs/ManagementApi.md#analyticsManagementRemarketingAudienceInsert) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences | 
+*ManagementApi* | [**analyticsManagementRemarketingAudienceList**](docs/ManagementApi.md#analyticsManagementRemarketingAudienceList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences | 
+*ManagementApi* | [**analyticsManagementRemarketingAudiencePatch**](docs/ManagementApi.md#analyticsManagementRemarketingAudiencePatch) | **PATCH** /management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId} | 
+*ManagementApi* | [**analyticsManagementRemarketingAudienceUpdate**](docs/ManagementApi.md#analyticsManagementRemarketingAudienceUpdate) | **PUT** /management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId} | 
+*ManagementApi* | [**analyticsManagementSegmentsList**](docs/ManagementApi.md#analyticsManagementSegmentsList) | **GET** /management/segments | 
+*ManagementApi* | [**analyticsManagementUnsampledReportsDelete**](docs/ManagementApi.md#analyticsManagementUnsampledReportsDelete) | **DELETE** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/unsampledReports/{unsampledReportId} | 
+*ManagementApi* | [**analyticsManagementUnsampledReportsGet**](docs/ManagementApi.md#analyticsManagementUnsampledReportsGet) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/unsampledReports/{unsampledReportId} | 
+*ManagementApi* | [**analyticsManagementUnsampledReportsInsert**](docs/ManagementApi.md#analyticsManagementUnsampledReportsInsert) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/unsampledReports | 
+*ManagementApi* | [**analyticsManagementUnsampledReportsList**](docs/ManagementApi.md#analyticsManagementUnsampledReportsList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/unsampledReports | 
+*ManagementApi* | [**analyticsManagementUploadsDeleteUploadData**](docs/ManagementApi.md#analyticsManagementUploadsDeleteUploadData) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/deleteUploadData | 
+*ManagementApi* | [**analyticsManagementUploadsGet**](docs/ManagementApi.md#analyticsManagementUploadsGet) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads/{uploadId} | 
+*ManagementApi* | [**analyticsManagementUploadsList**](docs/ManagementApi.md#analyticsManagementUploadsList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads | 
+*ManagementApi* | [**analyticsManagementUploadsUploadData**](docs/ManagementApi.md#analyticsManagementUploadsUploadData) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads | 
+*ManagementApi* | [**analyticsManagementWebPropertyAdWordsLinksDelete**](docs/ManagementApi.md#analyticsManagementWebPropertyAdWordsLinksDelete) | **DELETE** /management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks/{webPropertyAdWordsLinkId} | 
+*ManagementApi* | [**analyticsManagementWebPropertyAdWordsLinksGet**](docs/ManagementApi.md#analyticsManagementWebPropertyAdWordsLinksGet) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks/{webPropertyAdWordsLinkId} | 
+*ManagementApi* | [**analyticsManagementWebPropertyAdWordsLinksInsert**](docs/ManagementApi.md#analyticsManagementWebPropertyAdWordsLinksInsert) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks | 
+*ManagementApi* | [**analyticsManagementWebPropertyAdWordsLinksList**](docs/ManagementApi.md#analyticsManagementWebPropertyAdWordsLinksList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks | 
+*ManagementApi* | [**analyticsManagementWebPropertyAdWordsLinksPatch**](docs/ManagementApi.md#analyticsManagementWebPropertyAdWordsLinksPatch) | **PATCH** /management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks/{webPropertyAdWordsLinkId} | 
+*ManagementApi* | [**analyticsManagementWebPropertyAdWordsLinksUpdate**](docs/ManagementApi.md#analyticsManagementWebPropertyAdWordsLinksUpdate) | **PUT** /management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks/{webPropertyAdWordsLinkId} | 
+*ManagementApi* | [**analyticsManagementWebpropertiesGet**](docs/ManagementApi.md#analyticsManagementWebpropertiesGet) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId} | 
+*ManagementApi* | [**analyticsManagementWebpropertiesInsert**](docs/ManagementApi.md#analyticsManagementWebpropertiesInsert) | **POST** /management/accounts/{accountId}/webproperties | 
+*ManagementApi* | [**analyticsManagementWebpropertiesList**](docs/ManagementApi.md#analyticsManagementWebpropertiesList) | **GET** /management/accounts/{accountId}/webproperties | 
+*ManagementApi* | [**analyticsManagementWebpropertiesPatch**](docs/ManagementApi.md#analyticsManagementWebpropertiesPatch) | **PATCH** /management/accounts/{accountId}/webproperties/{webPropertyId} | 
+*ManagementApi* | [**analyticsManagementWebpropertiesUpdate**](docs/ManagementApi.md#analyticsManagementWebpropertiesUpdate) | **PUT** /management/accounts/{accountId}/webproperties/{webPropertyId} | 
+*ManagementApi* | [**analyticsManagementWebpropertyUserLinksDelete**](docs/ManagementApi.md#analyticsManagementWebpropertyUserLinksDelete) | **DELETE** /management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks/{linkId} | 
+*ManagementApi* | [**analyticsManagementWebpropertyUserLinksInsert**](docs/ManagementApi.md#analyticsManagementWebpropertyUserLinksInsert) | **POST** /management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks | 
+*ManagementApi* | [**analyticsManagementWebpropertyUserLinksList**](docs/ManagementApi.md#analyticsManagementWebpropertyUserLinksList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks | 
+*ManagementApi* | [**analyticsManagementWebpropertyUserLinksUpdate**](docs/ManagementApi.md#analyticsManagementWebpropertyUserLinksUpdate) | **PUT** /management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks/{linkId} | 
+*MetadataApi* | [**analyticsMetadataColumnsList**](docs/MetadataApi.md#analyticsMetadataColumnsList) | **GET** /metadata/{reportType}/columns | 
+*ProvisioningApi* | [**analyticsProvisioningCreateAccountTicket**](docs/ProvisioningApi.md#analyticsProvisioningCreateAccountTicket) | **POST** /provisioning/createAccountTicket | 
+*ProvisioningApi* | [**analyticsProvisioningCreateAccountTree**](docs/ProvisioningApi.md#analyticsProvisioningCreateAccountTree) | **POST** /provisioning/createAccountTree | 
+*UserDeletionApi* | [**analyticsUserDeletionUserDeletionRequestUpsert**](docs/UserDeletionApi.md#analyticsUserDeletionUserDeletionRequestUpsert) | **POST** /userDeletion/userDeletionRequests:upsert | 
 
 
 ## Documentation for Models
 
- - [Aggregation](docs/Aggregation.md)
- - [AlertPolicy](docs/AlertPolicy.md)
- - [AlertStrategy](docs/AlertStrategy.md)
- - [AppEngine](docs/AppEngine.md)
- - [BasicAuthentication](docs/BasicAuthentication.md)
- - [BasicService](docs/BasicService.md)
- - [BasicSli](docs/BasicSli.md)
- - [BucketOptions](docs/BucketOptions.md)
- - [CloudEndpoints](docs/CloudEndpoints.md)
- - [CloudRun](docs/CloudRun.md)
- - [ClusterIstio](docs/ClusterIstio.md)
- - [CollectdPayload](docs/CollectdPayload.md)
- - [CollectdPayloadError](docs/CollectdPayloadError.md)
- - [CollectdValue](docs/CollectdValue.md)
- - [CollectdValueError](docs/CollectdValueError.md)
- - [Condition](docs/Condition.md)
- - [ContentMatcher](docs/ContentMatcher.md)
- - [CreateCollectdTimeSeriesRequest](docs/CreateCollectdTimeSeriesRequest.md)
- - [CreateCollectdTimeSeriesResponse](docs/CreateCollectdTimeSeriesResponse.md)
- - [CreateTimeSeriesRequest](docs/CreateTimeSeriesRequest.md)
- - [CreateTimeSeriesSummary](docs/CreateTimeSeriesSummary.md)
- - [Criteria](docs/Criteria.md)
- - [Distribution](docs/Distribution.md)
- - [DistributionCut](docs/DistributionCut.md)
- - [Documentation](docs/Documentation.md)
- - [DroppedLabels](docs/DroppedLabels.md)
- - [Error](docs/Error.md)
- - [Exemplar](docs/Exemplar.md)
- - [Explicit](docs/Explicit.md)
- - [Exponential](docs/Exponential.md)
- - [Field](docs/Field.md)
- - [ForecastOptions](docs/ForecastOptions.md)
- - [GetNotificationChannelVerificationCodeRequest](docs/GetNotificationChannelVerificationCodeRequest.md)
- - [GetNotificationChannelVerificationCodeResponse](docs/GetNotificationChannelVerificationCodeResponse.md)
- - [GkeNamespace](docs/GkeNamespace.md)
- - [GkeService](docs/GkeService.md)
- - [GkeWorkload](docs/GkeWorkload.md)
- - [GoogleMonitoringV3Range](docs/GoogleMonitoringV3Range.md)
- - [Group](docs/Group.md)
- - [HttpCheck](docs/HttpCheck.md)
- - [InternalChecker](docs/InternalChecker.md)
- - [IstioCanonicalService](docs/IstioCanonicalService.md)
- - [JsonPathMatcher](docs/JsonPathMatcher.md)
- - [LabelDescriptor](docs/LabelDescriptor.md)
- - [LabelValue](docs/LabelValue.md)
- - [LatencyCriteria](docs/LatencyCriteria.md)
- - [Linear](docs/Linear.md)
- - [ListAlertPoliciesResponse](docs/ListAlertPoliciesResponse.md)
- - [ListGroupMembersResponse](docs/ListGroupMembersResponse.md)
- - [ListGroupsResponse](docs/ListGroupsResponse.md)
- - [ListMetricDescriptorsResponse](docs/ListMetricDescriptorsResponse.md)
- - [ListMonitoredResourceDescriptorsResponse](docs/ListMonitoredResourceDescriptorsResponse.md)
- - [ListNotificationChannelDescriptorsResponse](docs/ListNotificationChannelDescriptorsResponse.md)
- - [ListNotificationChannelsResponse](docs/ListNotificationChannelsResponse.md)
- - [ListServiceLevelObjectivesResponse](docs/ListServiceLevelObjectivesResponse.md)
- - [ListServicesResponse](docs/ListServicesResponse.md)
- - [ListSnoozesResponse](docs/ListSnoozesResponse.md)
- - [ListTimeSeriesResponse](docs/ListTimeSeriesResponse.md)
- - [ListUptimeCheckConfigsResponse](docs/ListUptimeCheckConfigsResponse.md)
- - [ListUptimeCheckIpsResponse](docs/ListUptimeCheckIpsResponse.md)
- - [LogMatch](docs/LogMatch.md)
- - [MeshIstio](docs/MeshIstio.md)
- - [Metric](docs/Metric.md)
- - [MetricAbsence](docs/MetricAbsence.md)
- - [MetricDescriptor](docs/MetricDescriptor.md)
- - [MetricDescriptorMetadata](docs/MetricDescriptorMetadata.md)
- - [MetricRange](docs/MetricRange.md)
- - [MetricThreshold](docs/MetricThreshold.md)
- - [MonitoredResource](docs/MonitoredResource.md)
- - [MonitoredResourceDescriptor](docs/MonitoredResourceDescriptor.md)
- - [MonitoredResourceMetadata](docs/MonitoredResourceMetadata.md)
- - [MonitoringQueryLanguageCondition](docs/MonitoringQueryLanguageCondition.md)
- - [MutationRecord](docs/MutationRecord.md)
- - [NotificationChannel](docs/NotificationChannel.md)
- - [NotificationChannelDescriptor](docs/NotificationChannelDescriptor.md)
- - [NotificationChannelStrategy](docs/NotificationChannelStrategy.md)
- - [NotificationRateLimit](docs/NotificationRateLimit.md)
- - [OperationMetadata](docs/OperationMetadata.md)
- - [Option](docs/Option.md)
- - [PerformanceThreshold](docs/PerformanceThreshold.md)
- - [PingConfig](docs/PingConfig.md)
- - [Point](docs/Point.md)
- - [PointData](docs/PointData.md)
- - [QueryTimeSeriesRequest](docs/QueryTimeSeriesRequest.md)
- - [QueryTimeSeriesResponse](docs/QueryTimeSeriesResponse.md)
- - [Range](docs/Range.md)
- - [RequestBasedSli](docs/RequestBasedSli.md)
- - [ResourceGroup](docs/ResourceGroup.md)
- - [ResponseStatusCode](docs/ResponseStatusCode.md)
- - [Service](docs/Service.md)
- - [ServiceLevelIndicator](docs/ServiceLevelIndicator.md)
- - [ServiceLevelObjective](docs/ServiceLevelObjective.md)
- - [Snooze](docs/Snooze.md)
- - [SourceContext](docs/SourceContext.md)
- - [SpanContext](docs/SpanContext.md)
- - [Status](docs/Status.md)
- - [TcpCheck](docs/TcpCheck.md)
- - [Telemetry](docs/Telemetry.md)
- - [TimeInterval](docs/TimeInterval.md)
- - [TimeSeries](docs/TimeSeries.md)
- - [TimeSeriesData](docs/TimeSeriesData.md)
- - [TimeSeriesDescriptor](docs/TimeSeriesDescriptor.md)
- - [TimeSeriesRatio](docs/TimeSeriesRatio.md)
- - [Trigger](docs/Trigger.md)
- - [Type](docs/Type.md)
- - [TypedValue](docs/TypedValue.md)
- - [UptimeCheckConfig](docs/UptimeCheckConfig.md)
- - [UptimeCheckIp](docs/UptimeCheckIp.md)
- - [ValueDescriptor](docs/ValueDescriptor.md)
- - [VerifyNotificationChannelRequest](docs/VerifyNotificationChannelRequest.md)
- - [WindowsBasedSli](docs/WindowsBasedSli.md)
+ - [Account](docs/Account.md)
+ - [AccountChildLink](docs/AccountChildLink.md)
+ - [AccountPermissions](docs/AccountPermissions.md)
+ - [AccountRef](docs/AccountRef.md)
+ - [AccountSummaries](docs/AccountSummaries.md)
+ - [AccountSummary](docs/AccountSummary.md)
+ - [AccountTicket](docs/AccountTicket.md)
+ - [AccountTreeRequest](docs/AccountTreeRequest.md)
+ - [AccountTreeResponse](docs/AccountTreeResponse.md)
+ - [Accounts](docs/Accounts.md)
+ - [AdWordsAccount](docs/AdWordsAccount.md)
+ - [AnalyticsDataimportDeleteUploadDataRequest](docs/AnalyticsDataimportDeleteUploadDataRequest.md)
+ - [Column](docs/Column.md)
+ - [Columns](docs/Columns.md)
+ - [CustomDataSource](docs/CustomDataSource.md)
+ - [CustomDataSourceChildLink](docs/CustomDataSourceChildLink.md)
+ - [CustomDataSourceParentLink](docs/CustomDataSourceParentLink.md)
+ - [CustomDataSources](docs/CustomDataSources.md)
+ - [CustomDimension](docs/CustomDimension.md)
+ - [CustomDimensionParentLink](docs/CustomDimensionParentLink.md)
+ - [CustomDimensions](docs/CustomDimensions.md)
+ - [CustomMetric](docs/CustomMetric.md)
+ - [CustomMetricParentLink](docs/CustomMetricParentLink.md)
+ - [CustomMetrics](docs/CustomMetrics.md)
+ - [EntityAdWordsLink](docs/EntityAdWordsLink.md)
+ - [EntityAdWordsLinkEntity](docs/EntityAdWordsLinkEntity.md)
+ - [EntityAdWordsLinks](docs/EntityAdWordsLinks.md)
+ - [EntityUserLink](docs/EntityUserLink.md)
+ - [EntityUserLinkEntity](docs/EntityUserLinkEntity.md)
+ - [EntityUserLinkPermissions](docs/EntityUserLinkPermissions.md)
+ - [EntityUserLinks](docs/EntityUserLinks.md)
+ - [Experiment](docs/Experiment.md)
+ - [ExperimentParentLink](docs/ExperimentParentLink.md)
+ - [ExperimentVariationsInner](docs/ExperimentVariationsInner.md)
+ - [Experiments](docs/Experiments.md)
+ - [Filter](docs/Filter.md)
+ - [FilterAdvancedDetails](docs/FilterAdvancedDetails.md)
+ - [FilterExpression](docs/FilterExpression.md)
+ - [FilterLowercaseDetails](docs/FilterLowercaseDetails.md)
+ - [FilterParentLink](docs/FilterParentLink.md)
+ - [FilterRef](docs/FilterRef.md)
+ - [FilterSearchAndReplaceDetails](docs/FilterSearchAndReplaceDetails.md)
+ - [FilterUppercaseDetails](docs/FilterUppercaseDetails.md)
+ - [Filters](docs/Filters.md)
+ - [GaData](docs/GaData.md)
+ - [GaDataColumnHeadersInner](docs/GaDataColumnHeadersInner.md)
+ - [GaDataDataTable](docs/GaDataDataTable.md)
+ - [GaDataDataTableColsInner](docs/GaDataDataTableColsInner.md)
+ - [GaDataDataTableRowsInner](docs/GaDataDataTableRowsInner.md)
+ - [GaDataDataTableRowsInnerCInner](docs/GaDataDataTableRowsInnerCInner.md)
+ - [GaDataProfileInfo](docs/GaDataProfileInfo.md)
+ - [GaDataQuery](docs/GaDataQuery.md)
+ - [Goal](docs/Goal.md)
+ - [GoalEventDetails](docs/GoalEventDetails.md)
+ - [GoalEventDetailsEventConditionsInner](docs/GoalEventDetailsEventConditionsInner.md)
+ - [GoalParentLink](docs/GoalParentLink.md)
+ - [GoalUrlDestinationDetails](docs/GoalUrlDestinationDetails.md)
+ - [GoalUrlDestinationDetailsStepsInner](docs/GoalUrlDestinationDetailsStepsInner.md)
+ - [GoalVisitNumPagesDetails](docs/GoalVisitNumPagesDetails.md)
+ - [GoalVisitTimeOnSiteDetails](docs/GoalVisitTimeOnSiteDetails.md)
+ - [Goals](docs/Goals.md)
+ - [HashClientIdRequest](docs/HashClientIdRequest.md)
+ - [HashClientIdResponse](docs/HashClientIdResponse.md)
+ - [IncludeConditions](docs/IncludeConditions.md)
+ - [LinkedForeignAccount](docs/LinkedForeignAccount.md)
+ - [McfData](docs/McfData.md)
+ - [McfDataColumnHeadersInner](docs/McfDataColumnHeadersInner.md)
+ - [McfDataRowsInnerInner](docs/McfDataRowsInnerInner.md)
+ - [McfDataRowsInnerInnerConversionPathValueInner](docs/McfDataRowsInnerInnerConversionPathValueInner.md)
+ - [Profile](docs/Profile.md)
+ - [ProfileChildLink](docs/ProfileChildLink.md)
+ - [ProfileFilterLink](docs/ProfileFilterLink.md)
+ - [ProfileFilterLinks](docs/ProfileFilterLinks.md)
+ - [ProfileParentLink](docs/ProfileParentLink.md)
+ - [ProfilePermissions](docs/ProfilePermissions.md)
+ - [ProfileRef](docs/ProfileRef.md)
+ - [ProfileSummary](docs/ProfileSummary.md)
+ - [Profiles](docs/Profiles.md)
+ - [RealtimeData](docs/RealtimeData.md)
+ - [RealtimeDataProfileInfo](docs/RealtimeDataProfileInfo.md)
+ - [RealtimeDataQuery](docs/RealtimeDataQuery.md)
+ - [RemarketingAudience](docs/RemarketingAudience.md)
+ - [RemarketingAudienceAudienceDefinition](docs/RemarketingAudienceAudienceDefinition.md)
+ - [RemarketingAudienceStateBasedAudienceDefinition](docs/RemarketingAudienceStateBasedAudienceDefinition.md)
+ - [RemarketingAudienceStateBasedAudienceDefinitionExcludeConditions](docs/RemarketingAudienceStateBasedAudienceDefinitionExcludeConditions.md)
+ - [RemarketingAudiences](docs/RemarketingAudiences.md)
+ - [Segment](docs/Segment.md)
+ - [Segments](docs/Segments.md)
+ - [UnsampledReport](docs/UnsampledReport.md)
+ - [UnsampledReportCloudStorageDownloadDetails](docs/UnsampledReportCloudStorageDownloadDetails.md)
+ - [UnsampledReportDriveDownloadDetails](docs/UnsampledReportDriveDownloadDetails.md)
+ - [UnsampledReports](docs/UnsampledReports.md)
+ - [Upload](docs/Upload.md)
+ - [Uploads](docs/Uploads.md)
+ - [UserDeletionRequest](docs/UserDeletionRequest.md)
+ - [UserDeletionRequestId](docs/UserDeletionRequestId.md)
+ - [UserRef](docs/UserRef.md)
+ - [WebPropertyRef](docs/WebPropertyRef.md)
+ - [WebPropertySummary](docs/WebPropertySummary.md)
+ - [Webproperties](docs/Webproperties.md)
+ - [Webproperty](docs/Webproperty.md)
+ - [WebpropertyChildLink](docs/WebpropertyChildLink.md)
+ - [WebpropertyParentLink](docs/WebpropertyParentLink.md)
+ - [WebpropertyPermissions](docs/WebpropertyPermissions.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -298,10 +354,13 @@ Authentication schemes defined for the API:
 - **Flow**: implicit
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-  - https://www.googleapis.com/auth/monitoring: View and write monitoring data for all of your Google and third-party Cloud and API projects
-  - https://www.googleapis.com/auth/monitoring.read: View monitoring data for all of your Google Cloud and third-party projects
-  - https://www.googleapis.com/auth/monitoring.write: Publish metric data to your Google Cloud projects
+  - https://www.googleapis.com/auth/analytics: View and manage your Google Analytics data
+  - https://www.googleapis.com/auth/analytics.edit: Edit Google Analytics management entities
+  - https://www.googleapis.com/auth/analytics.manage.users: Manage Google Analytics Account users by email address
+  - https://www.googleapis.com/auth/analytics.manage.users.readonly: View Google Analytics user permissions
+  - https://www.googleapis.com/auth/analytics.provision: Create a new Google Analytics account along with its default property and view
+  - https://www.googleapis.com/auth/analytics.readonly: View your Google Analytics data
+  - https://www.googleapis.com/auth/analytics.user.deletion: Manage Google Analytics user deletion requests
 
 <a id="Oauth2c"></a>
 ### Oauth2c
@@ -310,10 +369,13 @@ Authentication schemes defined for the API:
 - **Flow**: accessCode
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-  - https://www.googleapis.com/auth/monitoring: View and write monitoring data for all of your Google and third-party Cloud and API projects
-  - https://www.googleapis.com/auth/monitoring.read: View monitoring data for all of your Google Cloud and third-party projects
-  - https://www.googleapis.com/auth/monitoring.write: Publish metric data to your Google Cloud projects
+  - https://www.googleapis.com/auth/analytics: View and manage your Google Analytics data
+  - https://www.googleapis.com/auth/analytics.edit: Edit Google Analytics management entities
+  - https://www.googleapis.com/auth/analytics.manage.users: Manage Google Analytics Account users by email address
+  - https://www.googleapis.com/auth/analytics.manage.users.readonly: View Google Analytics user permissions
+  - https://www.googleapis.com/auth/analytics.provision: Create a new Google Analytics account along with its default property and view
+  - https://www.googleapis.com/auth/analytics.readonly: View your Google Analytics data
+  - https://www.googleapis.com/auth/analytics.user.deletion: Manage Google Analytics user deletion requests
 
 
 ## Recommendation

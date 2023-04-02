@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * JSON template for an Google Ads account.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:26.696972-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:22.913673-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AdWordsAccount {
   public static final String SERIALIZED_NAME_AUTO_TAGGING_ENABLED = "autoTaggingEnabled";
   @SerializedName(SERIALIZED_NAME_AUTO_TAGGING_ENABLED)
