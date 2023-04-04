@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Cloud Monitoring API
-- API version: v1
-  - Build date: 2024-10-11T02:11:12.400520-04:00[America/New_York]
+Google Analytics
+- API version: v2.4
+  - Build date: 2024-10-11T02:11:28.872143-04:00[America/New_York]
   - Generator version: 7.9.0
 
-Manages your Cloud Monitoring data and configurations.
+Views and manages your Google Analytics data.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>v1</version>
+  <version>v2.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -58,7 +58,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:v1"
+     implementation "org.openapitools:openapi-java-client:v2.4"
   }
 ```
 
@@ -72,7 +72,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-v1.jar`
+* `target/openapi-java-client-v2.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -87,12 +87,12 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.LocationsApi;
+import org.openapitools.client.api.DataApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://monitoring.googleapis.com");
+    defaultClient.setBasePath("https://www.googleapis.com/analytics/v2.4");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -102,24 +102,28 @@ public class Example {
     OAuth Oauth2 = (OAuth) defaultClient.getAuthentication("Oauth2");
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    LocationsApi apiInstance = new LocationsApi(defaultClient);
-    String $xgafv = "1"; // String | V1 error format.
-    String accessToken = "accessToken_example"; // String | OAuth access token.
-    String alt = "json"; // String | Data format for response.
-    String paramCallback = "paramCallback_example"; // String | JSONP
+    DataApi apiInstance = new DataApi(defaultClient);
+    String ids = "ids_example"; // String | Unique table ID for retrieving report data. Table ID is of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.
+    String startDate = "startDate_example"; // String | Start date for fetching report data. All requests should specify a start date formatted as YYYY-MM-DD.
+    String endDate = "endDate_example"; // String | End date for fetching report data. All requests should specify an end date formatted as YYYY-MM-DD.
+    String metrics = "metrics_example"; // String | A comma-separated list of Analytics metrics. E.g., 'ga:sessions,ga:pageviews'. At least one metric must be specified to retrieve a valid Analytics report.
+    String alt = "atom"; // String | Data format for the response.
     String fields = "fields_example"; // String | Selector specifying which fields to include in a partial response.
     String key = "key_example"; // String | API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
     String oauthToken = "oauthToken_example"; // String | OAuth 2.0 token for the current user.
-    Boolean prettyPrint = true; // Boolean | Returns response with indentations and line breaks.
-    String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-    String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
-    String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    String monitoredResourceContainer = "monitoredResourceContainer_example"; // String | Required. The resource name of the Monitored Project being requested. Example: projects/{MONITORED_PROJECT_ID_OR_NUMBER}
+    Boolean prettyPrint = false; // Boolean | Returns response with indentations and line breaks.
+    String quotaUser = "quotaUser_example"; // String | An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+    String userIp = "userIp_example"; // String | Deprecated. Please use quotaUser instead.
+    String dimensions = "dimensions_example"; // String | A comma-separated list of Analytics dimensions. E.g., 'ga:browser,ga:city'.
+    String filters = "filters_example"; // String | A comma-separated list of dimension or metric filters to be applied to the report data.
+    Integer maxResults = 56; // Integer | The maximum number of entries to include in this feed.
+    String segment = "segment_example"; // String | An Analytics advanced segment to be applied to the report data.
+    String sort = "sort_example"; // String | A comma-separated list of dimensions or metrics that determine the sort order for the report data.
+    Integer startIndex = 56; // Integer | An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
     try {
-      ListMetricsScopesByMonitoredProjectResponse result = apiInstance.monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProject($xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, monitoredResourceContainer);
-      System.out.println(result);
+      apiInstance.analyticsDataGet(ids, startDate, endDate, metrics, alt, fields, key, oauthToken, prettyPrint, quotaUser, userIp, dimensions, filters, maxResults, segment, sort, startIndex);
     } catch (ApiException e) {
-      System.err.println("Exception when calling LocationsApi#monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProject");
+      System.err.println("Exception when calling DataApi#analyticsDataGet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -132,83 +136,20 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://monitoring.googleapis.com*
+All URIs are relative to *https://www.googleapis.com/analytics/v2.4*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*LocationsApi* | [**monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProject**](docs/LocationsApi.md#monitoringLocationsGlobalMetricsScopesListMetricsScopesByMonitoredProject) | **GET** /v1/locations/global/metricsScopes:listMetricsScopesByMonitoredProject | 
-*LocationsApi* | [**monitoringLocationsGlobalMetricsScopesProjectsCreate**](docs/LocationsApi.md#monitoringLocationsGlobalMetricsScopesProjectsCreate) | **POST** /v1/{parent}/projects | 
-*ProjectsApi* | [**monitoringProjectsDashboardsCreate**](docs/ProjectsApi.md#monitoringProjectsDashboardsCreate) | **POST** /v1/{parent}/dashboards | 
-*ProjectsApi* | [**monitoringProjectsDashboardsDelete**](docs/ProjectsApi.md#monitoringProjectsDashboardsDelete) | **DELETE** /v1/{name} | 
-*ProjectsApi* | [**monitoringProjectsDashboardsGet**](docs/ProjectsApi.md#monitoringProjectsDashboardsGet) | **GET** /v1/{name} | 
-*ProjectsApi* | [**monitoringProjectsDashboardsList**](docs/ProjectsApi.md#monitoringProjectsDashboardsList) | **GET** /v1/{parent}/dashboards | 
-*ProjectsApi* | [**monitoringProjectsDashboardsPatch**](docs/ProjectsApi.md#monitoringProjectsDashboardsPatch) | **PATCH** /v1/{name} | 
-*ProjectsApi* | [**monitoringProjectsLocationPrometheusApiV1LabelValues**](docs/ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1LabelValues) | **GET** /v1/{name}/location/{location}/prometheus/api/v1/label/{label}/values | 
-*ProjectsApi* | [**monitoringProjectsLocationPrometheusApiV1Labels**](docs/ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1Labels) | **POST** /v1/{name}/location/{location}/prometheus/api/v1/labels | 
-*ProjectsApi* | [**monitoringProjectsLocationPrometheusApiV1LabelsList**](docs/ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1LabelsList) | **GET** /v1/{name}/location/{location}/prometheus/api/v1/labels | 
-*ProjectsApi* | [**monitoringProjectsLocationPrometheusApiV1MetadataList**](docs/ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1MetadataList) | **GET** /v1/{name}/location/{location}/prometheus/api/v1/metadata | 
-*ProjectsApi* | [**monitoringProjectsLocationPrometheusApiV1Query**](docs/ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1Query) | **POST** /v1/{name}/location/{location}/prometheus/api/v1/query | 
-*ProjectsApi* | [**monitoringProjectsLocationPrometheusApiV1QueryExemplars**](docs/ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1QueryExemplars) | **POST** /v1/{name}/location/{location}/prometheus/api/v1/query_exemplars | 
-*ProjectsApi* | [**monitoringProjectsLocationPrometheusApiV1QueryRange**](docs/ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1QueryRange) | **POST** /v1/{name}/location/{location}/prometheus/api/v1/query_range | 
-*ProjectsApi* | [**monitoringProjectsLocationPrometheusApiV1Series**](docs/ProjectsApi.md#monitoringProjectsLocationPrometheusApiV1Series) | **POST** /v1/{name}/location/{location}/prometheus/api/v1/series | 
+*DataApi* | [**analyticsDataGet**](docs/DataApi.md#analyticsDataGet) | **GET** /data | 
+*ManagementApi* | [**analyticsManagementAccountsList**](docs/ManagementApi.md#analyticsManagementAccountsList) | **GET** /management/accounts | 
+*ManagementApi* | [**analyticsManagementGoalsList**](docs/ManagementApi.md#analyticsManagementGoalsList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals | 
+*ManagementApi* | [**analyticsManagementProfilesList**](docs/ManagementApi.md#analyticsManagementProfilesList) | **GET** /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles | 
+*ManagementApi* | [**analyticsManagementSegmentsList**](docs/ManagementApi.md#analyticsManagementSegmentsList) | **GET** /management/segments | 
+*ManagementApi* | [**analyticsManagementWebpropertiesList**](docs/ManagementApi.md#analyticsManagementWebpropertiesList) | **GET** /management/accounts/{accountId}/webproperties | 
 
 
 ## Documentation for Models
 
- - [Aggregation](docs/Aggregation.md)
- - [AlertChart](docs/AlertChart.md)
- - [Axis](docs/Axis.md)
- - [ChartOptions](docs/ChartOptions.md)
- - [CollapsibleGroup](docs/CollapsibleGroup.md)
- - [Column](docs/Column.md)
- - [ColumnLayout](docs/ColumnLayout.md)
- - [ColumnSettings](docs/ColumnSettings.md)
- - [Dashboard](docs/Dashboard.md)
- - [DashboardFilter](docs/DashboardFilter.md)
- - [DataSet](docs/DataSet.md)
- - [DroppedLabels](docs/DroppedLabels.md)
- - [Field](docs/Field.md)
- - [GaugeView](docs/GaugeView.md)
- - [GridLayout](docs/GridLayout.md)
- - [HttpBody](docs/HttpBody.md)
- - [IncidentList](docs/IncidentList.md)
- - [ListDashboardsResponse](docs/ListDashboardsResponse.md)
- - [ListLabelsRequest](docs/ListLabelsRequest.md)
- - [ListMetricsScopesByMonitoredProjectResponse](docs/ListMetricsScopesByMonitoredProjectResponse.md)
- - [LogsPanel](docs/LogsPanel.md)
- - [MetricsScope](docs/MetricsScope.md)
- - [MonitoredProject](docs/MonitoredProject.md)
- - [MonitoredResource](docs/MonitoredResource.md)
- - [MosaicLayout](docs/MosaicLayout.md)
- - [Operation](docs/Operation.md)
- - [OperationMetadata](docs/OperationMetadata.md)
- - [Option](docs/Option.md)
- - [PickTimeSeriesFilter](docs/PickTimeSeriesFilter.md)
- - [QueryExemplarsRequest](docs/QueryExemplarsRequest.md)
- - [QueryInstantRequest](docs/QueryInstantRequest.md)
- - [QueryRangeRequest](docs/QueryRangeRequest.md)
- - [QuerySeriesRequest](docs/QuerySeriesRequest.md)
- - [RatioPart](docs/RatioPart.md)
- - [Row](docs/Row.md)
- - [RowLayout](docs/RowLayout.md)
- - [Scorecard](docs/Scorecard.md)
- - [SourceContext](docs/SourceContext.md)
- - [SpanContext](docs/SpanContext.md)
- - [SparkChartView](docs/SparkChartView.md)
- - [StatisticalTimeSeriesFilter](docs/StatisticalTimeSeriesFilter.md)
- - [Status](docs/Status.md)
- - [TableDataSet](docs/TableDataSet.md)
- - [TableDisplayOptions](docs/TableDisplayOptions.md)
- - [Text](docs/Text.md)
- - [Threshold](docs/Threshold.md)
- - [Tile](docs/Tile.md)
- - [TimeSeriesFilter](docs/TimeSeriesFilter.md)
- - [TimeSeriesFilterRatio](docs/TimeSeriesFilterRatio.md)
- - [TimeSeriesQuery](docs/TimeSeriesQuery.md)
- - [TimeSeriesTable](docs/TimeSeriesTable.md)
- - [Type](docs/Type.md)
- - [Widget](docs/Widget.md)
- - [XyChart](docs/XyChart.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -223,10 +164,8 @@ Authentication schemes defined for the API:
 - **Flow**: implicit
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-  - https://www.googleapis.com/auth/monitoring: View and write monitoring data for all of your Google and third-party Cloud and API projects
-  - https://www.googleapis.com/auth/monitoring.read: View monitoring data for all of your Google Cloud and third-party projects
-  - https://www.googleapis.com/auth/monitoring.write: Publish metric data to your Google Cloud projects
+  - https://www.googleapis.com/auth/analytics: View and manage your Google Analytics data
+  - https://www.googleapis.com/auth/analytics.readonly: View your Google Analytics data
 
 <a id="Oauth2c"></a>
 ### Oauth2c
@@ -235,10 +174,8 @@ Authentication schemes defined for the API:
 - **Flow**: accessCode
 - **Authorization URL**: https://accounts.google.com/o/oauth2/auth
 - **Scopes**: 
-  - https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-  - https://www.googleapis.com/auth/monitoring: View and write monitoring data for all of your Google and third-party Cloud and API projects
-  - https://www.googleapis.com/auth/monitoring.read: View monitoring data for all of your Google Cloud and third-party projects
-  - https://www.googleapis.com/auth/monitoring.write: Publish metric data to your Google Cloud projects
+  - https://www.googleapis.com/auth/analytics: View and manage your Google Analytics data
+  - https://www.googleapis.com/auth/analytics.readonly: View your Google Analytics data
 
 
 ## Recommendation
