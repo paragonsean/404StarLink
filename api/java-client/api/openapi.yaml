@@ -1,875 +1,268 @@
-openapi: 3.0.0
+openapi: 3.0.1
 info:
   contact:
-    name: Google
-    url: https://google.com
-  description: Views and manages your Google Analytics data.
+    email: stapelberg@debian.org
+  description: OpenAPI for https://codesearch.debian.net/
   license:
-    name: Creative Commons Attribution 3.0
-    url: http://creativecommons.org/licenses/by/3.0/
-  termsOfService: https://developers.google.com/terms/
-  title: Google Analytics
-  version: v2.4
-  x-apiClientRegistration:
-    url: https://console.developers.google.com
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Debian Code Search
+  version: 1.4.0
   x-apisguru-categories:
-  - analytics
-  x-logo:
-    url: https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_analytics_64dp.png
+  - developer_tools
   x-origin:
-  - converter:
-      url: https://github.com/lucybot/api-spec-converter
-      version: 2.7.31
-    format: google
-    url: https://www.googleapis.com/discovery/v1/apis/analytics/v2.4/rest
-    version: v1
-  x-preferred: false
-  x-providerName: googleapis.com
-  x-serviceName: analytics
+  - format: openapi
+    url: https://codesearch.debian.net/openapi.yaml
+    version: "3.0"
+  x-providerName: codesearch.debian.net
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_apis.guru_assets_images_no-logo.svg
 externalDocs:
-  url: https://developers.google.com/analytics/
+  description: Get a Debian Code Search API key
+  url: https://codesearch.debian.net/apikeys/
 servers:
-- url: https://www.googleapis.com/analytics/v2.4
+- url: https://codesearch.debian.net/api/v1
 tags:
-- name: data
-- name: management
+- description: Code Search
+  name: search
 paths:
-  /data:
+  /search:
     get:
-      description: Returns Analytics report data for a view (profile).
-      operationId: analytics.data.get
+      description: |-
+        Performs a search through the full Debian Code Search corpus, blocking until all results are available (might take a few seconds depending on the search query).
+
+        Search results are ordered by their ranking (best results come first).
+      operationId: search
       parameters:
-      - description: Data format for the response.
+      - description: "The search query, for example `who knows...` (literal) or `who\
+          \ knows\\.\\.\\.` (regular expression). See https://codesearch.debian.net/faq\
+          \ for more details about which keywords are supported. The regular expression\
+          \ flavor is RE2, see https://github.com/google/re2/blob/master/doc/syntax.txt"
         explode: true
         in: query
-        name: alt
+        name: query
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: "Whether the query is to be interpreted as a literal (`literal`)\
+          \ instead of as an RE2 regular expression (`regexp`). Literal searches are\
+          \ faster and do not require escaping special characters, regular expression\
+          \ searches are more powerful."
+        explode: true
+        in: query
+        name: match_mode
         required: false
         schema:
-          default: atom
+          default: regexp
           enum:
-          - atom
+          - literal
+          - regexp
           type: string
-        style: form
-      - description: Selector specifying which fields to include in a partial response.
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "API key. Your API key identifies your project and provides you\
-          \ with API access, quota, and reports. Required unless you provide an OAuth\
-          \ 2.0 token."
-        explode: true
-        in: query
-        name: key
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: OAuth 2.0 token for the current user.
-        explode: true
-        in: query
-        name: oauth_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Returns response with indentations and line breaks.
-        explode: true
-        in: query
-        name: prettyPrint
-        required: false
-        schema:
-          default: false
-          type: boolean
-        style: form
-      - description: An opaque string that represents a user for quota purposes. Must
-          not exceed 40 characters.
-        explode: true
-        in: query
-        name: quotaUser
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Deprecated. Please use quotaUser instead.
-        explode: true
-        in: query
-        name: userIp
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Unique table ID for retrieving report data. Table ID is of the\
-          \ form ga:XXXX, where XXXX is the Analytics view (profile) ID."
-        explode: true
-        in: query
-        name: ids
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: Start date for fetching report data. All requests should specify
-          a start date formatted as YYYY-MM-DD.
-        explode: true
-        in: query
-        name: start-date
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: End date for fetching report data. All requests should specify
-          an end date formatted as YYYY-MM-DD.
-        explode: true
-        in: query
-        name: end-date
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: "A comma-separated list of Analytics metrics. E.g., 'ga:sessions,ga:pageviews'.\
-          \ At least one metric must be specified to retrieve a valid Analytics report."
-        explode: true
-        in: query
-        name: metrics
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: "A comma-separated list of Analytics dimensions. E.g., 'ga:browser,ga:city'."
-        explode: true
-        in: query
-        name: dimensions
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: A comma-separated list of dimension or metric filters to be applied
-          to the report data.
-        explode: true
-        in: query
-        name: filters
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: The maximum number of entries to include in this feed.
-        explode: true
-        in: query
-        name: max-results
-        required: false
-        schema:
-          type: integer
-        style: form
-      - description: An Analytics advanced segment to be applied to the report data.
-        explode: true
-        in: query
-        name: segment
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: A comma-separated list of dimensions or metrics that determine
-          the sort order for the report data.
-        explode: true
-        in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: An index of the first entity to retrieve. Use this parameter
-          as a pagination mechanism along with the max-results parameter.
-        explode: true
-        in: query
-        name: start-index
-        required: false
-        schema:
-          minimum: 1
-          type: integer
         style: form
       responses:
         "200":
-          description: Successful response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SearchResult'
+                type: array
+          description: All search results
+        "403":
+          content: {}
+          description: "The x-dcs-apikey header was either not set at all, or contained\
+            \ an invalid (no longer valid?) API key. Please see https://codesearch.debian.net/apikeys/\
+            \ for obtaining a key."
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics.readonly
+      - api_key: []
+      summary: Searches through source code
       tags:
-      - data
+      - search
       x-accepts:
       - application/json
-  /management/accounts:
+  /searchperpackage:
     get:
-      description: Lists all accounts to which the user has access.
-      operationId: analytics.management.accounts.list
+      description: "The search results are currently sorted arbitrarily, but we intend\
+        \ to sort them by ranking eventually: https://github.com/Debian/dcs/blob/51338e934eb7ee18d00c5c18531c0790a83cb698/cmd/dcs-web/querymanager.go#L719"
+      operationId: searchperpackage
       parameters:
-      - description: Data format for the response.
+      - description: "The search query, for example `who knows...` (literal) or `who\
+          \ knows\\.\\.\\.` (regular expression). See https://codesearch.debian.net/faq\
+          \ for more details about which keywords are supported. The regular expression\
+          \ flavor is RE2, see https://github.com/google/re2/blob/master/doc/syntax.txt"
         explode: true
         in: query
-        name: alt
+        name: query
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: "Whether the query is to be interpreted as a literal (`literal`)\
+          \ instead of as an RE2 regular expression (`regexp`). Literal searches are\
+          \ faster and do not require escaping special characters, regular expression\
+          \ searches are more powerful."
+        explode: true
+        in: query
+        name: match_mode
         required: false
         schema:
-          default: atom
+          default: regexp
           enum:
-          - atom
+          - literal
+          - regexp
           type: string
-        style: form
-      - description: Selector specifying which fields to include in a partial response.
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "API key. Your API key identifies your project and provides you\
-          \ with API access, quota, and reports. Required unless you provide an OAuth\
-          \ 2.0 token."
-        explode: true
-        in: query
-        name: key
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: OAuth 2.0 token for the current user.
-        explode: true
-        in: query
-        name: oauth_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Returns response with indentations and line breaks.
-        explode: true
-        in: query
-        name: prettyPrint
-        required: false
-        schema:
-          default: false
-          type: boolean
-        style: form
-      - description: An opaque string that represents a user for quota purposes. Must
-          not exceed 40 characters.
-        explode: true
-        in: query
-        name: quotaUser
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Deprecated. Please use quotaUser instead.
-        explode: true
-        in: query
-        name: userIp
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: The maximum number of accounts to include in this response.
-        explode: true
-        in: query
-        name: max-results
-        required: false
-        schema:
-          type: integer
-        style: form
-      - description: An index of the first account to retrieve. Use this parameter
-          as a pagination mechanism along with the max-results parameter.
-        explode: true
-        in: query
-        name: start-index
-        required: false
-        schema:
-          minimum: 1
-          type: integer
         style: form
       responses:
         "200":
-          description: Successful response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PackageSearchResult'
+                type: array
+          description: All search results
+        "403":
+          content: {}
+          description: "The x-dcs-apikey header was either not set at all, or contained\
+            \ an invalid (no longer valid?) API key. Please see https://codesearch.debian.net/apikeys/\
+            \ for obtaining a key."
       security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics.readonly
+      - api_key: []
+      summary: "Like /search, but aggregates per package"
       tags:
-      - management
-      x-accepts:
-      - application/json
-  /management/accounts/{accountId}/webproperties:
-    get:
-      description: Lists web properties to which the user has access.
-      operationId: analytics.management.webproperties.list
-      parameters:
-      - description: Data format for the response.
-        explode: true
-        in: query
-        name: alt
-        required: false
-        schema:
-          default: atom
-          enum:
-          - atom
-          type: string
-        style: form
-      - description: Selector specifying which fields to include in a partial response.
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "API key. Your API key identifies your project and provides you\
-          \ with API access, quota, and reports. Required unless you provide an OAuth\
-          \ 2.0 token."
-        explode: true
-        in: query
-        name: key
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: OAuth 2.0 token for the current user.
-        explode: true
-        in: query
-        name: oauth_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Returns response with indentations and line breaks.
-        explode: true
-        in: query
-        name: prettyPrint
-        required: false
-        schema:
-          default: false
-          type: boolean
-        style: form
-      - description: An opaque string that represents a user for quota purposes. Must
-          not exceed 40 characters.
-        explode: true
-        in: query
-        name: quotaUser
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Deprecated. Please use quotaUser instead.
-        explode: true
-        in: query
-        name: userIp
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Account ID to retrieve web properties for. Can either be a specific\
-          \ account ID or '~all', which refers to all the accounts that user has access\
-          \ to."
-        explode: false
-        in: path
-        name: accountId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The maximum number of web properties to include in this response.
-        explode: true
-        in: query
-        name: max-results
-        required: false
-        schema:
-          type: integer
-        style: form
-      - description: An index of the first entity to retrieve. Use this parameter
-          as a pagination mechanism along with the max-results parameter.
-        explode: true
-        in: query
-        name: start-index
-        required: false
-        schema:
-          minimum: 1
-          type: integer
-        style: form
-      responses:
-        "200":
-          description: Successful response
-      security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics.readonly
-      tags:
-      - management
-      x-accepts:
-      - application/json
-  /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles:
-    get:
-      description: Lists views (profiles) to which the user has access.
-      operationId: analytics.management.profiles.list
-      parameters:
-      - description: Data format for the response.
-        explode: true
-        in: query
-        name: alt
-        required: false
-        schema:
-          default: atom
-          enum:
-          - atom
-          type: string
-        style: form
-      - description: Selector specifying which fields to include in a partial response.
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "API key. Your API key identifies your project and provides you\
-          \ with API access, quota, and reports. Required unless you provide an OAuth\
-          \ 2.0 token."
-        explode: true
-        in: query
-        name: key
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: OAuth 2.0 token for the current user.
-        explode: true
-        in: query
-        name: oauth_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Returns response with indentations and line breaks.
-        explode: true
-        in: query
-        name: prettyPrint
-        required: false
-        schema:
-          default: false
-          type: boolean
-        style: form
-      - description: An opaque string that represents a user for quota purposes. Must
-          not exceed 40 characters.
-        explode: true
-        in: query
-        name: quotaUser
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Deprecated. Please use quotaUser instead.
-        explode: true
-        in: query
-        name: userIp
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Account ID for the views (profiles) to retrieve. Can either\
-          \ be a specific account ID or '~all', which refers to all the accounts to\
-          \ which the user has access."
-        explode: false
-        in: path
-        name: accountId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: "Web property ID for the views (profiles) to retrieve. Can either\
-          \ be a specific web property ID or '~all', which refers to all the web properties\
-          \ to which the user has access."
-        explode: false
-        in: path
-        name: webPropertyId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The maximum number of views (profiles) to include in this response.
-        explode: true
-        in: query
-        name: max-results
-        required: false
-        schema:
-          type: integer
-        style: form
-      - description: An index of the first entity to retrieve. Use this parameter
-          as a pagination mechanism along with the max-results parameter.
-        explode: true
-        in: query
-        name: start-index
-        required: false
-        schema:
-          minimum: 1
-          type: integer
-        style: form
-      responses:
-        "200":
-          description: Successful response
-      security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics.readonly
-      tags:
-      - management
-      x-accepts:
-      - application/json
-  /management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals:
-    get:
-      description: Lists goals to which the user has access.
-      operationId: analytics.management.goals.list
-      parameters:
-      - description: Data format for the response.
-        explode: true
-        in: query
-        name: alt
-        required: false
-        schema:
-          default: atom
-          enum:
-          - atom
-          type: string
-        style: form
-      - description: Selector specifying which fields to include in a partial response.
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "API key. Your API key identifies your project and provides you\
-          \ with API access, quota, and reports. Required unless you provide an OAuth\
-          \ 2.0 token."
-        explode: true
-        in: query
-        name: key
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: OAuth 2.0 token for the current user.
-        explode: true
-        in: query
-        name: oauth_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Returns response with indentations and line breaks.
-        explode: true
-        in: query
-        name: prettyPrint
-        required: false
-        schema:
-          default: false
-          type: boolean
-        style: form
-      - description: An opaque string that represents a user for quota purposes. Must
-          not exceed 40 characters.
-        explode: true
-        in: query
-        name: quotaUser
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Deprecated. Please use quotaUser instead.
-        explode: true
-        in: query
-        name: userIp
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Account ID to retrieve goals for. Can either be a specific account\
-          \ ID or '~all', which refers to all the accounts that user has access to."
-        explode: false
-        in: path
-        name: accountId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: "Web property ID to retrieve goals for. Can either be a specific\
-          \ web property ID or '~all', which refers to all the web properties that\
-          \ user has access to."
-        explode: false
-        in: path
-        name: webPropertyId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: "View (Profile) ID to retrieve goals for. Can either be a specific\
-          \ view (profile) ID or '~all', which refers to all the views (profiles)\
-          \ that user has access to."
-        explode: false
-        in: path
-        name: profileId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The maximum number of goals to include in this response.
-        explode: true
-        in: query
-        name: max-results
-        required: false
-        schema:
-          type: integer
-        style: form
-      - description: An index of the first goal to retrieve. Use this parameter as
-          a pagination mechanism along with the max-results parameter.
-        explode: true
-        in: query
-        name: start-index
-        required: false
-        schema:
-          minimum: 1
-          type: integer
-        style: form
-      responses:
-        "200":
-          description: Successful response
-      security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics.readonly
-      tags:
-      - management
-      x-accepts:
-      - application/json
-  /management/segments:
-    get:
-      description: Lists advanced segments to which the user has access.
-      operationId: analytics.management.segments.list
-      parameters:
-      - description: Data format for the response.
-        explode: true
-        in: query
-        name: alt
-        required: false
-        schema:
-          default: atom
-          enum:
-          - atom
-          type: string
-        style: form
-      - description: Selector specifying which fields to include in a partial response.
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "API key. Your API key identifies your project and provides you\
-          \ with API access, quota, and reports. Required unless you provide an OAuth\
-          \ 2.0 token."
-        explode: true
-        in: query
-        name: key
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: OAuth 2.0 token for the current user.
-        explode: true
-        in: query
-        name: oauth_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Returns response with indentations and line breaks.
-        explode: true
-        in: query
-        name: prettyPrint
-        required: false
-        schema:
-          default: false
-          type: boolean
-        style: form
-      - description: An opaque string that represents a user for quota purposes. Must
-          not exceed 40 characters.
-        explode: true
-        in: query
-        name: quotaUser
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Deprecated. Please use quotaUser instead.
-        explode: true
-        in: query
-        name: userIp
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: The maximum number of advanced segments to include in this response.
-        explode: true
-        in: query
-        name: max-results
-        required: false
-        schema:
-          type: integer
-        style: form
-      - description: An index of the first advanced segment to retrieve. Use this
-          parameter as a pagination mechanism along with the max-results parameter.
-        explode: true
-        in: query
-        name: start-index
-        required: false
-        schema:
-          minimum: 1
-          type: integer
-        style: form
-      responses:
-        "200":
-          description: Successful response
-      security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics
-      - Oauth2:
-        - https://www.googleapis.com/auth/analytics.readonly
-        Oauth2c:
-        - https://www.googleapis.com/auth/analytics.readonly
-      tags:
-      - management
+      - search
       x-accepts:
       - application/json
 components:
   parameters:
-    alt:
-      description: Data format for the response.
+    matchModeParam:
+      description: "Whether the query is to be interpreted as a literal (`literal`)\
+        \ instead of as an RE2 regular expression (`regexp`). Literal searches are\
+        \ faster and do not require escaping special characters, regular expression\
+        \ searches are more powerful."
       explode: true
       in: query
-      name: alt
+      name: match_mode
       required: false
       schema:
-        default: atom
+        default: regexp
         enum:
-        - atom
+        - literal
+        - regexp
         type: string
       style: form
-    fields:
-      description: Selector specifying which fields to include in a partial response.
+    queryParam:
+      description: "The search query, for example `who knows...` (literal) or `who\
+        \ knows\\.\\.\\.` (regular expression). See https://codesearch.debian.net/faq\
+        \ for more details about which keywords are supported. The regular expression\
+        \ flavor is RE2, see https://github.com/google/re2/blob/master/doc/syntax.txt"
       explode: true
       in: query
-      name: fields
-      required: false
+      name: query
+      required: true
       schema:
         type: string
       style: form
-    key:
-      description: "API key. Your API key identifies your project and provides you\
-        \ with API access, quota, and reports. Required unless you provide an OAuth\
-        \ 2.0 token."
-      explode: true
-      in: query
-      name: key
-      required: false
-      schema:
-        type: string
-      style: form
-    oauth_token:
-      description: OAuth 2.0 token for the current user.
-      explode: true
-      in: query
-      name: oauth_token
-      required: false
-      schema:
-        type: string
-      style: form
-    prettyPrint:
-      description: Returns response with indentations and line breaks.
-      explode: true
-      in: query
-      name: prettyPrint
-      required: false
-      schema:
-        default: false
-        type: boolean
-      style: form
-    quotaUser:
-      description: An opaque string that represents a user for quota purposes. Must
-        not exceed 40 characters.
-      explode: true
-      in: query
-      name: quotaUser
-      required: false
-      schema:
-        type: string
-      style: form
-    userIp:
-      description: Deprecated. Please use quotaUser instead.
-      explode: true
-      in: query
-      name: userIp
-      required: false
-      schema:
-        type: string
-      style: form
-  schemas: {}
+  schemas:
+    PackageSearchResult:
+      example:
+        package: i3-wm_4.18-1
+        results:
+        - path: i3bar/src/xcb.c
+          package: i3-wm_4.18-1
+          context_before:
+          - "    } else {"
+          - '        cursor = xcb_generate_id(xcb_connection);'
+          line: 1313
+          context: "        i3Font cursor_font = load_font(\"cursor\", false);"
+          context_after:
+          - '        xcb_create_glyph_cursor('
+          - "            xcb_connection,"
+        - path: i3bar/src/xcb.c
+          package: i3-wm_4.18-1
+          context_before:
+          - "    } else {"
+          - '        cursor = xcb_generate_id(xcb_connection);'
+          line: 1313
+          context: "        i3Font cursor_font = load_font(\"cursor\", false);"
+          context_after:
+          - '        xcb_create_glyph_cursor('
+          - "            xcb_connection,"
+      properties:
+        package:
+          description: The Debian source package for which up to 2 search results
+            have been aggregated in `results`.
+          example: i3-wm_4.18-1
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/SearchResult'
+          type: array
+      required:
+      - package
+      - results
+      type: object
+    SearchResult:
+      description: A search result matching the specified query. You can use sources.debian.org
+        to view the file contents. See https://github.com/Debian/dcs/blob/master/cmd/dcs-web/show/show.go
+        for how to construct a sources.debian.org URL from a search result.
+      example:
+        path: i3bar/src/xcb.c
+        package: i3-wm_4.18-1
+        context_before:
+        - "    } else {"
+        - '        cursor = xcb_generate_id(xcb_connection);'
+        line: 1313
+        context: "        i3Font cursor_font = load_font(\"cursor\", false);"
+        context_after:
+        - '        xcb_create_glyph_cursor('
+        - "            xcb_connection,"
+      properties:
+        context:
+          description: The full line containing the search result.
+          example: "        i3Font cursor_font = load_font(\"cursor\", false);"
+          type: string
+        context_after:
+          description: Up to 2 full lines after the search result (see `context`).
+          example:
+          - '        xcb_create_glyph_cursor('
+          - "            xcb_connection,"
+          items:
+            type: string
+          type: array
+        context_before:
+          description: Up to 2 full lines before the search result (see `context`).
+          example:
+          - "    } else {"
+          - '        cursor = xcb_generate_id(xcb_connection);'
+          items:
+            type: string
+          type: array
+        line:
+          description: Line number containing the search result.
+          example: 1313
+          format: uint32
+          type: integer
+        package:
+          description: "The Debian source package containing this search result, including\
+            \ the full Debian version number."
+          example: i3-wm_4.18-1
+          type: string
+        path:
+          description: "Path to the file containing the this search result, starting\
+            \ with `package`."
+          example: i3bar/src/xcb.c
+          type: string
+      required:
+      - context
+      - line
+      - package
+      - path
+      type: object
   securitySchemes:
-    Oauth2:
-      description: Oauth 2.0 implicit authentication
-      flows:
-        implicit:
-          authorizationUrl: https://accounts.google.com/o/oauth2/auth
-          scopes:
-            https://www.googleapis.com/auth/analytics: View and manage your Google
-              Analytics data
-            https://www.googleapis.com/auth/analytics.readonly: View your Google Analytics
-              data
-      type: oauth2
-    Oauth2c:
-      description: Oauth 2.0 accessCode authentication
-      flows:
-        authorizationCode:
-          authorizationUrl: https://accounts.google.com/o/oauth2/auth
-          scopes:
-            https://www.googleapis.com/auth/analytics: View and manage your Google
-              Analytics data
-            https://www.googleapis.com/auth/analytics.readonly: View your Google Analytics
-              data
-          tokenUrl: https://accounts.google.com/o/oauth2/token
-      type: oauth2
+    api_key:
+      in: header
+      name: x-dcs-apikey
+      type: apiKey
 
