@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -39,6 +38,3 @@ src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/PackageSearchResult.java
 src/main/java/org/openapitools/client/model/SearchResult.java
-src/test/java/org/openapitools/client/api/SearchApiTest.java
-src/test/java/org/openapitools/client/model/PackageSearchResultTest.java
-src/test/java/org/openapitools/client/model/SearchResultTest.java

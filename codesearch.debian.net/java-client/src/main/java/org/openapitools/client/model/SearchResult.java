@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * A search result matching the specified query. You can use sources.debian.org to view the file contents. See https://github.com/Debian/dcs/blob/master/cmd/dcs-web/show/show.go for how to construct a sources.debian.org URL from a search result.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:34.832459-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:35.678239-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SearchResult {
   public static final String SERIALIZED_NAME_CONTEXT = "context";
   @SerializedName(SERIALIZED_NAME_CONTEXT)
