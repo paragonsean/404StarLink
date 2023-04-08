@@ -2,7 +2,7 @@
 
 Debian Code Search
 - API version: 1.4.0
-  - Build date: 2024-10-11T02:01:37.056886-04:00[America/New_York]
+  - Build date: 2024-10-11T02:11:37.925018-04:00[America/New_York]
   - Generator version: 7.9.0
 
 OpenAPI for https://codesearch.debian.net/

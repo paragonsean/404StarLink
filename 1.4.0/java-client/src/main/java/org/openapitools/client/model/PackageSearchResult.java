@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * PackageSearchResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:37.056886-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:37.925018-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class PackageSearchResult {
   public static final String SERIALIZED_NAME_PACKAGE = "package";
   @SerializedName(SERIALIZED_NAME_PACKAGE)
