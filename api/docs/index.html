@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Debian Code Search</title>
+    <title>Maps</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,17 +179,25 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>Debian Code Search</h1>
-    <div class="app-desc">OpenAPI for https://codesearch.debian.net/</div>
+  <h1>Maps</h1>
+    <div class="app-desc"><p>The Maps API web services suite offers the following APIs:</p>
+<ul>
+<li>Raster
+The Maps Raster API renders map data that is divided into gridded sections called tiles. Tiles are square images (png or jpg format) in various sizes which are available at 19 different zoom levels, ranging from 0 to 20. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 20, the world is divided into 2<sup>40</sup> tiles.</li>
+<li>Vector
+Similar to Maps Raster API, the Maps Vector API serves data on different zoom level ranging from 0 to 22. For zoom level 0, the entire earth is displayed on one single tile, while at zoom level 22, the world is divided into 2<sup>44</sup> tiles.
+The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.</li>
+</ul>
+</div>
     <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
-    <div class="app-desc">Contact Info: <a href="stapelberg@debian.org">stapelberg@debian.org</a></div>
-    <div class="app-desc">Version: 1.4.0</div>
-    <div class="app-desc">BasePath:/api/v1</div>
-    <div class="license-info">Apache 2.0</div>
-    <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
   <h2>Access</h2>
     <ol>
-      <li>APIKey KeyParamName:x-dcs-apikey KeyInQuery:false KeyInHeader:true</li>
+      <li>APIKey KeyParamName:key KeyInQuery:true KeyInHeader:false</li>
     </ol>
 
   <h2><a name="__Methods">Methods</a></h2>
@@ -197,158 +205,739 @@ font-style: italic;
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#Search">Search</a></h4>
+  <h4><a href="#Copyrights">Copyrights</a></h4>
   <ul>
-  <li><a href="#search"><code><span class="http-method">get</span> /search</code></a></li>
-  <li><a href="#searchperpackage"><code><span class="http-method">get</span> /searchperpackage</code></a></li>
+  <li><a href="#mapVersionNumberCopyrightsCaptionFormatGet"><code><span class="http-method">get</span> /map/{versionNumber}/copyrights/caption.{format}</code></a></li>
+  <li><a href="#mapVersionNumberCopyrightsFormatGet"><code><span class="http-method">get</span> /map/{versionNumber}/copyrights.{format}</code></a></li>
+  <li><a href="#mapVersionNumberCopyrightsMinLonMinLatMaxLonMaxLatFormatGet"><code><span class="http-method">get</span> /map/{versionNumber}/copyrights/{minLon}/{minLat}/{maxLon}/{maxLat}.{format}</code></a></li>
+  <li><a href="#mapVersionNumberCopyrightsZoomXYFormatGet"><code><span class="http-method">get</span> /map/{versionNumber}/copyrights/{zoom}/{X}/{Y}.{format}</code></a></li>
+  </ul>
+  <h4><a href="#Raster">Raster</a></h4>
+  <ul>
+  <li><a href="#mapVersionNumberStaticimageGet"><code><span class="http-method">get</span> /map/{versionNumber}/staticimage</code></a></li>
+  <li><a href="#mapVersionNumberTileLayerStyleZoomXYFormatGet"><code><span class="http-method">get</span> /map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.{format}</code></a></li>
+  </ul>
+  <h4><a href="#Vector">Vector</a></h4>
+  <ul>
+  <li><a href="#mapVersionNumberTileLayerStyleZoomXYPbfGet"><code><span class="http-method">get</span> /map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.pbf</code></a></li>
+  </ul>
+  <h4><a href="#WMSWMTS">WMSWMTS</a></h4>
+  <ul>
+  <li><a href="#getCapabilities"><code><span class="http-method">get</span> /map/{versionNumber}/wms//</code></a></li>
+  <li><a href="#getMap"><code><span class="http-method">get</span> /map/{versionNumber}/wms/</code></a></li>
+  <li><a href="#mapVersionNumberWmtsKeyWmtsVersionWMTSCapabilitiesXmlGet"><code><span class="http-method">get</span> /map/{versionNumber}/wmts/{key}/{wmtsVersion}/WMTSCapabilities.xml</code></a></li>
   </ul>
 
-  <h1><a name="Search">Search</a></h1>
-  <div class="method"><a name="search"/>
+  <h1><a name="Copyrights">Copyrights</a></h1>
+  <div class="method"><a name="mapVersionNumberCopyrightsCaptionFormatGet"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /search</code></pre></div>
-    <div class="method-summary">Searches through source code (<span class="nickname">search</span>)</div>
-    <div class="method-notes"><p>Performs a search through the full Debian Code Search corpus, blocking until all results are available (might take a few seconds depending on the search query).</p>
-<p>Search results are ordered by their ranking (best results come first).</p>
-</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/copyrights/caption.{format}</code></pre></div>
+    <div class="method-summary">Captions (<span class="nickname">mapVersionNumberCopyrightsCaptionFormatGet</span>)</div>
+    <div class="method-notes">This API returns copyright captions for the map service.</div>
 
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1. default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Format of the response default: xml </div>
+    </div>  <!-- field-items -->
 
 
 
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">query (required)</div>
+      <div class="param">callback (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The search query, for example <code>who knows...</code> (literal) or <code>who knows\.\.\.</code> (regular expression). See https://codesearch.debian.net/faq for more details about which keywords are supported. The regular expression flavor is RE2, see https://github.com/google/re2/blob/master/doc/syntax.txt default: null </div><div class="param">match_mode (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Whether the query is to be interpreted as a literal (<code>literal</code>) instead of as an RE2 regular expression (<code>regexp</code>). Literal searches are faster and do not require escaping special characters, regular expression searches are more powerful. default: regexp </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. Only used when format is jsonp default: null </div>
     </div>  <!-- field-items -->
 
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      array[<a href="#SearchResult">SearchResult</a>]
-      
-    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>[ {
-  "path" : "i3bar/src/xcb.c",
-  "package" : "i3-wm_4.18-1",
-  "context_before" : [ "    } else {", "        cursor = xcb_generate_id(xcb_connection);" ],
-  "line" : 1313,
-  "context" : "        i3Font cursor_font = load_font(\"cursor\", false);",
-  "context_after" : [ "        xcb_create_glyph_cursor(", "            xcb_connection," ]
-}, {
-  "path" : "i3bar/src/xcb.c",
-  "package" : "i3-wm_4.18-1",
-  "context_before" : [ "    } else {", "        cursor = xcb_generate_id(xcb_connection);" ],
-  "line" : 1313,
-  "context" : "        i3Font cursor_font = load_font(\"cursor\", false);",
-  "context_after" : [ "        xcb_create_glyph_cursor(", "            xcb_connection," ]
-} ]</code></pre>
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    All search results
-        
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">304</h4>
+    <b>Not Modified</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Malformed request</b>: malformed syntax. Possible causes include:</p>
+<ul>
+<li>requested syntax is not available</li>
+</ul>
+
+        <a href="#"></a>
     <h4 class="field-label">403</h4>
-    The x-dcs-apikey header was either not set at all, or contained an invalid (no longer valid?) API key. Please see https://codesearch.debian.net/apikeys/ for obtaining a key.
+    <b>Forbidden</b>: Supplied API key is not valid for this request
+        <a href="#"></a>
+    <h4 class="field-label">410</h4>
+    <b>Gone</b>: Request for unsupported format
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
+API service
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="searchperpackage"/>
+  <div class="method"><a name="mapVersionNumberCopyrightsFormatGet"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /searchperpackage</code></pre></div>
-    <div class="method-summary">Like /search, but aggregates per package (<span class="nickname">searchperpackage</span>)</div>
-    <div class="method-notes">The search results are currently sorted arbitrarily, but we intend to sort them by ranking eventually: https://github.com/Debian/dcs/blob/51338e934eb7ee18d00c5c18531c0790a83cb698/cmd/dcs-web/querymanager.go#L719</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/copyrights.{format}</code></pre></div>
+    <div class="method-summary">Copyrights whole world (<span class="nickname">mapVersionNumberCopyrightsFormatGet</span>)</div>
+    <div class="method-notes">The Copyrights API returns copyright information for
+the Maps API Raster Tile Service in JSON, JSONP, or XML format.
+This call returns copyright information for the whole world.</div>
 
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Format of the response default: xml </div>
+    </div>  <!-- field-items -->
 
 
 
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">query (required)</div>
+      <div class="param">callback (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The search query, for example <code>who knows...</code> (literal) or <code>who knows\.\.\.</code> (regular expression). See https://codesearch.debian.net/faq for more details about which keywords are supported. The regular expression flavor is RE2, see https://github.com/google/re2/blob/master/doc/syntax.txt default: null </div><div class="param">match_mode (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Whether the query is to be interpreted as a literal (<code>literal</code>) instead of as an RE2 regular expression (<code>regexp</code>). Literal searches are faster and do not require escaping special characters, regular expression searches are more powerful. default: regexp </div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. Only used when format is jsonp default: null </div>
     </div>  <!-- field-items -->
 
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      array[<a href="#PackageSearchResult">PackageSearchResult</a>]
-      
-    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>[ {
-  "package" : "i3-wm_4.18-1",
-  "results" : [ {
-    "path" : "i3bar/src/xcb.c",
-    "package" : "i3-wm_4.18-1",
-    "context_before" : [ "    } else {", "        cursor = xcb_generate_id(xcb_connection);" ],
-    "line" : 1313,
-    "context" : "        i3Font cursor_font = load_font(\"cursor\", false);",
-    "context_after" : [ "        xcb_create_glyph_cursor(", "            xcb_connection," ]
-  }, {
-    "path" : "i3bar/src/xcb.c",
-    "package" : "i3-wm_4.18-1",
-    "context_before" : [ "    } else {", "        cursor = xcb_generate_id(xcb_connection);" ],
-    "line" : 1313,
-    "context" : "        i3Font cursor_font = load_font(\"cursor\", false);",
-    "context_after" : [ "        xcb_create_glyph_cursor(", "            xcb_connection," ]
-  } ]
-}, {
-  "package" : "i3-wm_4.18-1",
-  "results" : [ {
-    "path" : "i3bar/src/xcb.c",
-    "package" : "i3-wm_4.18-1",
-    "context_before" : [ "    } else {", "        cursor = xcb_generate_id(xcb_connection);" ],
-    "line" : 1313,
-    "context" : "        i3Font cursor_font = load_font(\"cursor\", false);",
-    "context_after" : [ "        xcb_create_glyph_cursor(", "            xcb_connection," ]
-  }, {
-    "path" : "i3bar/src/xcb.c",
-    "package" : "i3-wm_4.18-1",
-    "context_before" : [ "    } else {", "        cursor = xcb_generate_id(xcb_connection);" ],
-    "line" : 1313,
-    "context" : "        i3Font cursor_font = load_font(\"cursor\", false);",
-    "context_after" : [ "        xcb_create_glyph_cursor(", "            xcb_connection," ]
-  } ]
-} ]</code></pre>
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    All search results
-        
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">304</h4>
+    <b>Not Modified</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Malformed request</b>: malformed syntax. Possible causes include:</p>
+<ul>
+<li>requested syntax is not available</li>
+</ul>
+
+        <a href="#"></a>
     <h4 class="field-label">403</h4>
-    The x-dcs-apikey header was either not set at all, or contained an invalid (no longer valid?) API key. Please see https://codesearch.debian.net/apikeys/ for obtaining a key.
+    <b>Forbidden</b>: Supplied API key is not valid for this request
+        <a href="#"></a>
+    <h4 class="field-label">410</h4>
+    <b>Gone</b>: Request for unsupported format
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
+API service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mapVersionNumberCopyrightsMinLonMinLatMaxLonMaxLatFormatGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/copyrights/{minLon}/{minLat}/{maxLon}/{maxLat}.{format}</code></pre></div>
+    <div class="method-summary">Copyrights bounding box (<span class="nickname">mapVersionNumberCopyrightsMinLonMinLatMaxLonMaxLatFormatGet</span>)</div>
+    <div class="method-notes">The Copyrights API returns copyright information for
+the Maps API Raster Tile Service in JSON, JSONP, or XML format.
+This call returns copyright information for a specific bounding box.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Format of the response default: xml </div><div class="param">minLon (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Minimum longitude coordinate of bounding box defined in terms of latitude/longitude. default: null </div><div class="param">minLat (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Minimum latitude coordinate of bounding box defined in terms of latitude/longitude. default: null </div><div class="param">maxLon (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Maximum longitude coordinate of bounding box defined in terms of latitude/longitude. default: null </div><div class="param">maxLat (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Maximum latitude coordinate of bounding box defined in terms of latitude/longitude. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. Only used when format is jsonp. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">304</h4>
+    <b>Not Modified</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Malformed request</b>: malformed syntax. Possible causes include:</p>
+<ul>
+<li>requested syntax is not available</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    <p><b>Bad request</b>: Parameters out of range. Possible causes include:</p>
+<ul>
+<li>minLon n is out of range [-180,180]: the requested minimum longitude coordinate is out of possible range</li>
+<li>minLat n is out of range [-90,90]: the requested minimum latitude coordinate is out of possible range</li>
+<li>maxLon n is out of range [-180,180]: the requested maximum longitude coordinate is out of possible range</li>
+<li>maxLat n is out of range [-90,90]: the requested minimum latitude coordinate is out of possible range</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <b>Forbidden</b>: Supplied API key is not valid for this request
+        <a href="#"></a>
+    <h4 class="field-label">410</h4>
+    <b>Gone</b>: Request for unsupported format
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
+API service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mapVersionNumberCopyrightsZoomXYFormatGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/copyrights/{zoom}/{X}/{Y}.{format}</code></pre></div>
+    <div class="method-summary">Copyrights tile (<span class="nickname">mapVersionNumberCopyrightsZoomXYFormatGet</span>)</div>
+    <div class="method-notes">The Copyrights API returns copyright information for
+the Maps API Raster Tile Service in JSON, JSONP, or XML format.
+This call returns copyright information for the a specific map tile.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Format of the response default: xml </div><div class="param">zoom (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Zoom level of tile to be rendered. Only used for tile-level
+copyright calls. default: null </div><div class="param">X (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; X coordinate of the tile on zoom grid. Only used for tile-level
+copyright calls. default: null </div><div class="param">Y (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Y coordinate of the tile on zoom grid. Only used for tile-level
+copyright calls. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">callback (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Specifies the jsonp callback method. Only used when format is jsonp. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">304</h4>
+    <b>Not Modified</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Malformed request</b>: malformed syntax. Possible causes include:</p>
+<ul>
+<li>requested syntax is not available</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    <p><b>Bad request</b>: Parameters out of range. Possible causes include:</p>
+<ul>
+<li>zoom n is out of range 0 &lt;= zoom &lt; 19: the requested zoom level is out of the possible range</li>
+<li>x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+<li>y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <b>Forbidden</b>: Supplied API key is not valid for this request
+        <a href="#"></a>
+    <h4 class="field-label">410</h4>
+    <b>Gone</b>: Request for unsupported format
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
+API service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Raster">Raster</a></h1>
+  <div class="method"><a name="mapVersionNumberStaticimageGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/staticimage</code></pre></div>
+    <div class="method-summary">Static Image (<span class="nickname">mapVersionNumberStaticimageGet</span>)</div>
+    <div class="method-notes">The Static Image service renders a rectangular raster image
+in the style, size, and zoom level specified. The image can be requested
+using either a center point plus width and height or a bounding box.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">layer (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Layer of image to be rendered. <em>Hybrid</em> and <em>labels</em>
+are intended for layering with other data and are only available in <em>png</em> format. default: basic </div><div class="param">style (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Map style to be returned default: main </div><div class="param">format (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Image format to be returned default: png </div><div class="param">zoom (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Zoom level of map image to be returned. default: 12 </div><div class="param">center (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Coordinates for the center point of the image.
+Must be used with the <strong>width</strong> and
+<strong>height</strong> parameters; cannot be used with <strong>bbox</strong>.
+Uses EPSG:3857 projection (functionally equivalent to EPSG:900910). default: null </div><div class="param">width (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Width of the resulting image in pixels. Width must be a positive integer between 1 and 8192. default: 512 </div><div class="param">height (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Height of the resulting image in pixels. Height must be a positive integer between 1 and 8192. default: 512 </div><div class="param">bbox (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Bounding box for the image, using EPSG:3857 projection (functionally equivalent to EPSG:900910).
+Values <strong>must</strong> be in the order of minLon, minLat, maxLon, maxLat.
+MaxLat must be greater than minLat. Longitude values can be on both sides of the 180th meridian.
+Cannot be used with <strong>center</strong>, <strong>width</strong>, or <strong>height</strong> parameters. default: null </div><div class="param">view (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Geopolitical view. Determines rendering of disputed areas. See the <a href="/maps-api/maps-api-documentation-raster/raster-tile">documentation</a> for an explanation of how this works in live services. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Bad Request</b>: Received by the interface, but there is an error
+in the request, such as:</p>
+<ul>
+<li>one or more of the required parameters is missing</li>
+<li>unsupported or unrecognized parameter value</li>
+<li>two or more mutually exclusive parameters are used in the same query (e.g. mixing center/width/height and bbox.)</li>
+<li>minimum latitude is greater than maximum latitude in a bbox call</li>
+<li>layer containing alpha channel is requested in format not supporting the alpha channel
+This code is returned if the required parameters of the request were
+malformed. A detailed exception explanation is returned in a
+response in form of Service Exception Report.</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <p><b>Forbidden</b>:</p>
+<ul>
+<li>supplied API key is not valid for the request</li>
+<li>the requested view is not available in the country where the request was sent from</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the Static Map
+Service.
+        <a href="#"></a>
+    <h4 class="field-label">503</h4>
+    <b>Service currently unavailable.</b>
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mapVersionNumberTileLayerStyleZoomXYFormatGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.{format}</code></pre></div>
+    <div class="method-summary">Tile (<span class="nickname">mapVersionNumberTileLayerStyleZoomXYFormatGet</span>)</div>
+    <div class="method-notes">The Maps API Raster Service delivers raster tiles, which are representations of square sections of map data.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1. default: null </div><div class="param">layer (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Layer of tile to be rendered. <em>Hybrid</em> and <em>labels</em> are intended for layering with other data and are only available in <em>png</em> format. default: null </div><div class="param">style (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Style of tile to be rendered default: null </div><div class="param">zoom (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Zoom level of tile to be rendered default: null </div><div class="param">X (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; x coordinate of tile on zoom grid default: null </div><div class="param">Y (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; y coordinate of tile on zoom grid default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Format of the response. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">tileSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Tile dimensions in pixels. <em>512</em> is only available for the <em>main</em> style and <em>basic</em> or <em>labels</em> layers. default: 256 </div><div class="param">view (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Geopolitical view. Determines rendering of disputed areas. See the <a href="/maps-sdk-web/functional-examples#geopolitical-views">documentation</a> for an explanation of how this works in live services. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">302</h4>
+    <b>Found</b>: URL redirection
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Bad request</b>: Usually the result of malformed syntax:</p>
+<ul>
+<li>the given combination of layer, style, and query parameters is not supported</li>
+<li>zoom n is out of range 0 &lt;= zoom &lt; 19: the requested zoom level is out of the possible range</li>
+<li>x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+<li>y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+<li>the requested view is not supported</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <p><b>Forbidden</b>:</p>
+<ul>
+<li>the supplied API key is not valid for this request</li>
+<li>the requested view is not available in the country where the request was sent from</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">410</h4>
+    <b>Gone</b>: Request for unsupported format
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom
+Maps API Raster Tile service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Vector">Vector</a></h1>
+  <div class="method"><a name="mapVersionNumberTileLayerStyleZoomXYPbfGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.pbf</code></pre></div>
+    <div class="method-summary">Tile (<span class="nickname">mapVersionNumberTileLayerStyleZoomXYPbfGet</span>)</div>
+    <div class="method-notes">The Maps API Vector Service delivers vector tiles, which are representations of square sections of map data.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div><div class="param">layer (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Layer of tile to be rendered default: null </div><div class="param">style (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Style of tile to be rendered default: null </div><div class="param">zoom (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Zoom level of tile to be rendered default: null </div><div class="param">X (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; x coordinate of tile on zoom grid default: null </div><div class="param">Y (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; y coordinate of tile on zoom grid default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">view (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Geopolitical view. Determines rendering of disputed areas. See the <a href="/maps-api/maps-api-documentation-vector/tile">documentation</a> for an explanation of how this works in live services. default: null </div><div class="param">language (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Language to be used for labels in the response. The default is NGT: Neutral Ground Truth, which uses each place's local official language and script (where available). See the <a href="/maps-api/maps-api-documentation-vector/tile">documentation</a> for a full list of options. default: NGT </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <p><b>Bad request</b>: Usually the result of malformed syntax:</p>
+<ul>
+<li>the given combination of layer, style, and query parameters is not supported</li>
+<li>zoom n is out of range 0 &lt;= zoom &lt;= 22: the requested zoom level is out of the possible range</li>
+<li>x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+<li>y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)</li>
+<li>the requested view is not supported</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    <p><b>Forbidden</b>:</p>
+<ul>
+<li>the supplied API key is not valid for this request</li>
+<li>the requested view is not available in your country</li>
+</ul>
+
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom
+Maps API Vector Tile service
+        <a href="#"></a>
+    <h4 class="field-label">503</h4>
+    <b>Service currently unavailable</b>.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="WMSWMTS">WMSWMTS</a></h1>
+  <div class="method"><a name="getCapabilities"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/wms//</code></pre></div>
+    <div class="method-summary">GetCapabilities (<span class="nickname">getCapabilities</span>)</div>
+    <div class="method-notes">The GetCapabilities call is part of TomTom's implementation of version 1.1.1
+the Web Map Service (WMS). It provides descriptions of the other calls
+that are available in the implementation.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">service (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">request (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  default: null </div><div class="param">version (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; WMS service version default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">202</h4>
+    <p><b>Accepted</b>: Received by the interface, but there is a WMS exception in
+processing it. Possible causes include:</p>
+<ul>
+<li>one or more required parameters is missing</li>
+<li>unsupported or unrecognized parameter value</li>
+<li>malformed bounding box requested</li>
+<li>invalid map dimensions requested</li>
+</ul>
+<p>This code is returned if the parameters of the request were malformed.
+The response includes a detailed explanation in the Service Exception Report.</p>
+
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    <b>Unauthorized</b>: Supplied API key is not valid for the request
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom WMS
+service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getMap"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/wms/</code></pre></div>
+    <div class="method-summary">GetMap (<span class="nickname">getMap</span>)</div>
+    <div class="method-notes">The GetMap call implements the Web Map Service 1.1.1 standard
+to access TomTom raster map tiles. This service is described
+in the response to the GetCapabilities API call.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">request (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Request type default: null </div><div class="param">srs (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Projection used in describing the <b>bbox</b> EPSG:3857 is
+recommended, particularly at higher zoom levels. (Note that
+EPSG:3857 is functionally equivalent to EPSG:900913/EPSG:3785) default: null </div><div class="param">bbox (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Bounding box in the projection stated in <b>srs</b>
+(minLon,minLat,maxLon,maxLat) default: null </div><div class="param">width (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Width of the resulting image, in pixels Maximum value is 2048 default: null </div><div class="param">height (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Height of the resulting image, in pixels Maximum value is 2048 default: null </div><div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Image format to be returned default: null </div><div class="param">layers (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Map layers requested Currently only the basic layer is available default: null </div><div class="param">styles (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Map styles to be returned. Currently, no styles are available. This
+parameter is present for forward compatibility; it must be used and
+left blank. default: null </div><div class="param">service (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Service type default: null </div><div class="param">version (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; WMS service version default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">202</h4>
+    <p><b>Accepted</b>: Received by the interface, but there is a WMS exception in
+processing it. Possible causes include:</p>
+<ul>
+<li>one or more required parameters is missing</li>
+<li>unsupported or unrecognized parameter value</li>
+<li>malformed bounding box requested</li>
+<li>invalid map dimensions requested</li>
+</ul>
+<p>This code is returned if the parameters of the request were malformed.
+The response includes a detailed explanation in the Service Exception Report.</p>
+
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    <b>Unauthorized</b>: Supplied API key is not valid for the request
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom WMS
+service
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="mapVersionNumberWmtsKeyWmtsVersionWMTSCapabilitiesXmlGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /map/{versionNumber}/wmts/{key}/{wmtsVersion}/WMTSCapabilities.xml</code></pre></div>
+    <div class="method-summary">WMTS (<span class="nickname">mapVersionNumberWmtsKeyWmtsVersionWMTSCapabilitiesXmlGet</span>)</div>
+    <div class="method-notes">The WMTS GetCapabilities call implements version 1.0.0 of
+the <a href="http://www.opengeospatial.org/standards/wmts">Web Map Tile Service</a>
+(WMTS) standard. It returns metadata that allows compatible calling systems to construct
+calls to TomTom's raster map tile service. See the
+<a href="/maps-api/maps-api-documentation-raster/wmts">documentation</a>
+for more information on WMTS.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">versionNumber (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of the service to call. The current version is 1 default: null </div><div class="param">key (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Your API key for calling this service. default: null </div><div class="param">wmtsVersion (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    <b>OK</b>
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    <b>Bad request</b>: Probably malformed syntax
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    <b>Unauthorized</b>: Supplied API key is not valid for this request
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    <b>Internal Server Error</b>: There is a problem with the TomTom WMTS service
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
@@ -358,29 +947,7 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#PackageSearchResult"><code>PackageSearchResult</code> - </a></li>
-    <li><a href="#SearchResult"><code>SearchResult</code> - </a></li>
   </ol>
 
-  <div class="model">
-    <h3><a name="PackageSearchResult"><code>PackageSearchResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">package </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Debian source package for which up to 2 search results have been aggregated in <code>results</code>. </div>
-<div class="param">results </div><div class="param-desc"><span class="param-type"><a href="#SearchResult">array[SearchResult]</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="SearchResult"><code>SearchResult</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>A search result matching the specified query. You can use sources.debian.org to view the file contents. See https://github.com/Debian/dcs/blob/master/cmd/dcs-web/show/show.go for how to construct a sources.debian.org URL from a search result.</div>
-    <div class="field-items">
-      <div class="param">context </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The full line containing the search result. </div>
-<div class="param">context_after (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Up to 2 full lines after the search result (see <code>context</code>). </div>
-<div class="param">context_before (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Up to 2 full lines before the search result (see <code>context</code>). </div>
-<div class="param">line </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Line number containing the search result. format: uint32</div>
-<div class="param">package </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Debian source package containing this search result, including the full Debian version number. </div>
-<div class="param">path </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Path to the file containing the this search result, starting with <code>package</code>. </div>
-    </div>  <!-- field-items -->
-  </div>
   </body>
 </html>
