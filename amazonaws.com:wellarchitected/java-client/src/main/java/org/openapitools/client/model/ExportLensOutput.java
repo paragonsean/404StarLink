@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ExportLensOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:44.124838-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:47.577947-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ExportLensOutput {
   public static final String SERIALIZED_NAME_LENS_J_S_O_N = "LensJSON";
   @SerializedName(SERIALIZED_NAME_LENS_J_S_O_N)

@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ListCheckSummariesInput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:44.124838-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:47.577947-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ListCheckSummariesInput {
   public static final String SERIALIZED_NAME_NEXT_TOKEN = "NextToken";
   @SerializedName(SERIALIZED_NAME_NEXT_TOKEN)

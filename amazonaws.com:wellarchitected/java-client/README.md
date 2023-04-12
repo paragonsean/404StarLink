@@ -2,7 +2,7 @@
 
 AWS Well-Architected Tool
 - API version: 2020-03-31
-  - Build date: 2024-10-11T02:01:44.124838-04:00[America/New_York]
+  - Build date: 2024-10-11T02:11:47.577947-04:00[America/New_York]
   - Generator version: 7.9.0
 
 <fullname>Well-Architected Tool</fullname> <p>This is the <i>Well-Architected Tool API Reference</i>. The WA Tool API provides programmatic access to the <a href=\"http://aws.amazon.com/well-architected-tool\">Well-Architected Tool</a> in the <a href=\"https://console.aws.amazon.com/wellarchitected\">Amazon Web Services Management Console</a>. For information about the Well-Architected Tool, see the <a href=\"https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html\">Well-Architected Tool User Guide</a>.</p>
