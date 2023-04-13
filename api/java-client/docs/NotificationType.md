@@ -2,12 +2,12 @@
 
 # NotificationType
 
+## Enum
 
-## Properties
 
-| Name | Type | Description | Notes |
-|------------ | ------------- | ------------- | -------------|
-|**type** | **String** |  |  [optional] |
+* `UPGRADED` (value: `"LENS_VERSION_UPGRADED"`)
+
+* `DEPRECATED` (value: `"LENS_VERSION_DEPRECATED"`)
 
 
 

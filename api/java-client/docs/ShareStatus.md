@@ -5,15 +5,21 @@
 ## Enum
 
 
-* `NOT_STARTED` (value: `"NOT_STARTED"`)
+* `ACCEPTED` (value: `"ACCEPTED"`)
 
-* `IN_PROGRESS` (value: `"IN_PROGRESS"`)
+* `REJECTED` (value: `"REJECTED"`)
 
-* `COMPLETED` (value: `"COMPLETED"`)
+* `PENDING` (value: `"PENDING"`)
 
-* `COMPLETED_WITH_ERRORS` (value: `"COMPLETED_WITH_ERRORS"`)
+* `REVOKED` (value: `"REVOKED"`)
 
-* `ERROR` (value: `"ERROR"`)
+* `EXPIRED` (value: `"EXPIRED"`)
+
+* `ASSOCIATING` (value: `"ASSOCIATING"`)
+
+* `ASSOCIATED` (value: `"ASSOCIATED"`)
+
+* `FAILED` (value: `"FAILED"`)
 
 
 
