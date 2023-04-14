@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * UpdateGlobalSettingsInput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:48.152112-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:55.652547-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class UpdateGlobalSettingsInput {
   public static final String SERIALIZED_NAME_ORGANIZATION_SHARING_STATUS = "OrganizationSharingStatus";
   @SerializedName(SERIALIZED_NAME_ORGANIZATION_SHARING_STATUS)

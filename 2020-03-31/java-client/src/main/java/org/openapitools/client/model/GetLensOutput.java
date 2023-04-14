@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * GetLensOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:48.152112-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:55.652547-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GetLensOutput {
   public static final String SERIALIZED_NAME_LENS = "Lens";
   @SerializedName(SERIALIZED_NAME_LENS)
