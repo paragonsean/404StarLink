@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * MembersInterests
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:52.015048-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:59.455402-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class MembersInterests {
   public static final String SERIALIZED_NAME_INTEREST_CATEGORIES = "interestCategories";
   @SerializedName(SERIALIZED_NAME_INTEREST_CATEGORIES)

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * GovernmentDepartment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:01:52.015048-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:59.455402-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class GovernmentDepartment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
