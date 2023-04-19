@@ -1,11 +1,11 @@
 # openapi-java-client
 
-Notebooks API
+Connectors API
 - API version: v2
-  - Build date: 2024-10-11T02:09:46.736293-04:00[America/New_York]
+  - Build date: 2024-10-11T02:12:10.883196-04:00[America/New_York]
   - Generator version: 7.9.0
 
-Notebooks API is used to manage notebook resources in Google Cloud.
+Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.
 
   For more information, please visit [https://google.com](https://google.com)
 
@@ -92,7 +92,7 @@ import org.openapitools.client.api.ProjectsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://notebooks.googleapis.com");
+    defaultClient.setBasePath("https://connectors.googleapis.com");
     
     // Configure OAuth2 access token for authorization: Oauth2c
     OAuth Oauth2c = (OAuth) defaultClient.getAuthentication("Oauth2c");
@@ -103,7 +103,7 @@ public class Example {
     Oauth2.setAccessToken("YOUR ACCESS TOKEN");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    String resource = "resource_example"; // String | REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
+    String name = "name_example"; // String | Required. Resource name of the Action. Format: projects/{project}/locations/{location}/connections/{connection}/actions/{action}
     String $xgafv = "1"; // String | V1 error format.
     String accessToken = "accessToken_example"; // String | OAuth access token.
     String alt = "json"; // String | Data format for response.
@@ -115,12 +115,12 @@ public class Example {
     String quotaUser = "quotaUser_example"; // String | Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
     String uploadProtocol = "uploadProtocol_example"; // String | Upload protocol for media (e.g. \"raw\", \"multipart\").
     String uploadType = "uploadType_example"; // String | Legacy upload protocol for media (e.g. \"media\", \"multipart\").
-    Integer optionsRequestedPolicyVersion = 56; // Integer | Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+    ExecuteActionRequest executeActionRequest = new ExecuteActionRequest(); // ExecuteActionRequest | 
     try {
-      Policy result = apiInstance.notebooksProjectsLocationsInstancesGetIamPolicy(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, optionsRequestedPolicyVersion);
+      ExecuteActionResponse result = apiInstance.connectorsProjectsLocationsConnectionsActionsExecute(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, executeActionRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#notebooksProjectsLocationsInstancesGetIamPolicy");
+      System.err.println("Exception when calling ProjectsApi#connectorsProjectsLocationsConnectionsActionsExecute");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -133,34 +133,41 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://notebooks.googleapis.com*
+All URIs are relative to *https://connectors.googleapis.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesGetIamPolicy**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesGetIamPolicy) | **GET** /v2/{resource}:getIamPolicy | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesSetIamPolicy**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesSetIamPolicy) | **POST** /v2/{resource}:setIamPolicy | 
-*ProjectsApi* | [**notebooksProjectsLocationsInstancesTestIamPermissions**](docs/ProjectsApi.md#notebooksProjectsLocationsInstancesTestIamPermissions) | **POST** /v2/{resource}:testIamPermissions | 
-*ProjectsApi* | [**notebooksProjectsLocationsList**](docs/ProjectsApi.md#notebooksProjectsLocationsList) | **GET** /v2/{name}/locations | 
-*ProjectsApi* | [**notebooksProjectsLocationsOperationsCancel**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsCancel) | **POST** /v2/{name}:cancel | 
-*ProjectsApi* | [**notebooksProjectsLocationsOperationsDelete**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsDelete) | **DELETE** /v2/{name} | 
-*ProjectsApi* | [**notebooksProjectsLocationsOperationsGet**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsGet) | **GET** /v2/{name} | 
-*ProjectsApi* | [**notebooksProjectsLocationsOperationsList**](docs/ProjectsApi.md#notebooksProjectsLocationsOperationsList) | **GET** /v2/{name}/operations | 
+*ProjectsApi* | [**connectorsProjectsLocationsConnectionsActionsExecute**](docs/ProjectsApi.md#connectorsProjectsLocationsConnectionsActionsExecute) | **POST** /v2/{name}:execute | 
+*ProjectsApi* | [**connectorsProjectsLocationsConnectionsActionsList**](docs/ProjectsApi.md#connectorsProjectsLocationsConnectionsActionsList) | **GET** /v2/{parent}/actions | 
+*ProjectsApi* | [**connectorsProjectsLocationsConnectionsEntityTypesEntitiesCreate**](docs/ProjectsApi.md#connectorsProjectsLocationsConnectionsEntityTypesEntitiesCreate) | **POST** /v2/{parent}/entities | 
+*ProjectsApi* | [**connectorsProjectsLocationsConnectionsEntityTypesEntitiesDelete**](docs/ProjectsApi.md#connectorsProjectsLocationsConnectionsEntityTypesEntitiesDelete) | **DELETE** /v2/{name} | 
+*ProjectsApi* | [**connectorsProjectsLocationsConnectionsEntityTypesEntitiesDeleteEntitiesWithConditions**](docs/ProjectsApi.md#connectorsProjectsLocationsConnectionsEntityTypesEntitiesDeleteEntitiesWithConditions) | **POST** /v2/{entityType}/entities:deleteEntitiesWithConditions | 
+*ProjectsApi* | [**connectorsProjectsLocationsConnectionsEntityTypesEntitiesGet**](docs/ProjectsApi.md#connectorsProjectsLocationsConnectionsEntityTypesEntitiesGet) | **GET** /v2/{name} | 
+*ProjectsApi* | [**connectorsProjectsLocationsConnectionsEntityTypesEntitiesList**](docs/ProjectsApi.md#connectorsProjectsLocationsConnectionsEntityTypesEntitiesList) | **GET** /v2/{parent}/entities | 
+*ProjectsApi* | [**connectorsProjectsLocationsConnectionsEntityTypesEntitiesPatch**](docs/ProjectsApi.md#connectorsProjectsLocationsConnectionsEntityTypesEntitiesPatch) | **PATCH** /v2/{name} | 
+*ProjectsApi* | [**connectorsProjectsLocationsConnectionsEntityTypesEntitiesUpdateEntitiesWithConditions**](docs/ProjectsApi.md#connectorsProjectsLocationsConnectionsEntityTypesEntitiesUpdateEntitiesWithConditions) | **POST** /v2/{entityType}/entities:updateEntitiesWithConditions | 
+*ProjectsApi* | [**connectorsProjectsLocationsConnectionsEntityTypesList**](docs/ProjectsApi.md#connectorsProjectsLocationsConnectionsEntityTypesList) | **GET** /v2/{parent}/entityTypes | 
+*ProjectsApi* | [**connectorsProjectsLocationsConnectionsExecuteSqlQuery**](docs/ProjectsApi.md#connectorsProjectsLocationsConnectionsExecuteSqlQuery) | **POST** /v2/{connection}:executeSqlQuery | 
 
 
 ## Documentation for Models
 
- - [Binding](docs/Binding.md)
- - [Expr](docs/Expr.md)
- - [ListLocationsResponse](docs/ListLocationsResponse.md)
- - [ListOperationsResponse](docs/ListOperationsResponse.md)
- - [Location](docs/Location.md)
- - [Operation](docs/Operation.md)
- - [OperationMetadata](docs/OperationMetadata.md)
- - [Policy](docs/Policy.md)
- - [SetIamPolicyRequest](docs/SetIamPolicyRequest.md)
- - [Status](docs/Status.md)
- - [TestIamPermissionsRequest](docs/TestIamPermissionsRequest.md)
- - [TestIamPermissionsResponse](docs/TestIamPermissionsResponse.md)
+ - [Action](docs/Action.md)
+ - [Entity](docs/Entity.md)
+ - [EntityType](docs/EntityType.md)
+ - [ExecuteActionRequest](docs/ExecuteActionRequest.md)
+ - [ExecuteActionResponse](docs/ExecuteActionResponse.md)
+ - [ExecuteSqlQueryRequest](docs/ExecuteSqlQueryRequest.md)
+ - [ExecuteSqlQueryResponse](docs/ExecuteSqlQueryResponse.md)
+ - [Field](docs/Field.md)
+ - [InputParameter](docs/InputParameter.md)
+ - [ListActionsResponse](docs/ListActionsResponse.md)
+ - [ListEntitiesResponse](docs/ListEntitiesResponse.md)
+ - [ListEntityTypesResponse](docs/ListEntityTypesResponse.md)
+ - [Query](docs/Query.md)
+ - [Reference](docs/Reference.md)
+ - [ResultMetadata](docs/ResultMetadata.md)
+ - [UpdateEntitiesWithConditionsResponse](docs/UpdateEntitiesWithConditionsResponse.md)
 
 
 <a id="documentation-for-authorization"></a>

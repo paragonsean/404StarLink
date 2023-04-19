@@ -4,12 +4,13 @@ info:
     name: Google
     url: https://google.com
     x-twitter: youtube
-  description: Notebooks API is used to manage notebook resources in Google Cloud.
+  description: Enables users to create and manage connections to Google Cloud services
+    and third-party business applications using the Connectors interface.
   license:
     name: Creative Commons Attribution 3.0
     url: http://creativecommons.org/licenses/by/3.0/
   termsOfService: https://developers.google.com/terms/
-  title: Notebooks API
+  title: Connectors API
   version: v2
   x-apisguru-categories:
   - analytics
@@ -18,24 +19,454 @@ info:
     url: https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_e_e1_YouTube_play_buttom_icon_%282013-2017%29.svg
   x-origin:
   - format: google
-    url: https://notebooks.googleapis.com/$discovery/rest?version=v2
+    url: https://connectors.googleapis.com/$discovery/rest?version=v2
     version: v1
   x-preferred: true
   x-providerName: googleapis.com
-  x-serviceName: notebooks
+  x-serviceName: connectors
 externalDocs:
-  url: https://cloud.google.com/notebooks/docs/
+  url: https://cloud.google.com/apigee/docs/api-platform/connectors/about-connectors
 servers:
-- url: https://notebooks.googleapis.com/
+- url: https://connectors.googleapis.com/
 tags:
 - name: projects
 paths:
+  /v2/{connection}:executeSqlQuery:
+    post:
+      description: "Executes a SQL statement specified in the body of the request.\
+        \ An example of this SQL statement in the case of Salesforce connector would\
+        \ be 'select * from Account a, Order o where a.Id = o.AccountId'."
+      operationId: connectors.projects.locations.connections.executeSqlQuery
+      parameters:
+      - description: V1 error format.
+        explode: true
+        in: query
+        name: $.xgafv
+        required: false
+        schema:
+          enum:
+          - "1"
+          - "2"
+          type: string
+        style: form
+      - description: OAuth access token.
+        explode: true
+        in: query
+        name: access_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Data format for response.
+        explode: true
+        in: query
+        name: alt
+        required: false
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+        style: form
+      - description: JSONP
+        explode: true
+        in: query
+        name: callback
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Selector specifying which fields to include in a partial response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "API key. Your API key identifies your project and provides you\
+          \ with API access, quota, and reports. Required unless you provide an OAuth\
+          \ 2.0 token."
+        explode: true
+        in: query
+        name: key
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: OAuth 2.0 token for the current user.
+        explode: true
+        in: query
+        name: oauth_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns response with indentations and line breaks.
+        explode: true
+        in: query
+        name: prettyPrint
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "Available to use for quota purposes for server-side applications.\
+          \ Can be any arbitrary string assigned to a user, but should not exceed\
+          \ 40 characters."
+        explode: true
+        in: query
+        name: quotaUser
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+        explode: true
+        in: query
+        name: upload_protocol
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Legacy upload protocol for media (e.g. \"media\", \"multipart\"\
+          )."
+        explode: true
+        in: query
+        name: uploadType
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Required. Resource name of the Connection. Format: projects/{project}/locations/{location}/connections/{connection}"
+        explode: false
+        in: path
+        name: connection
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExecuteSqlQueryRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExecuteSqlQueryResponse'
+          description: Successful response
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        Oauth2c:
+        - https://www.googleapis.com/auth/cloud-platform
+      tags:
+      - projects
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v2/{entityType}/entities:deleteEntitiesWithConditions:
+    post:
+      description: Deletes entities based on conditions specified in the request and
+        not on entity id.
+      operationId: connectors.projects.locations.connections.entityTypes.entities.deleteEntitiesWithConditions
+      parameters:
+      - description: V1 error format.
+        explode: true
+        in: query
+        name: $.xgafv
+        required: false
+        schema:
+          enum:
+          - "1"
+          - "2"
+          type: string
+        style: form
+      - description: OAuth access token.
+        explode: true
+        in: query
+        name: access_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Data format for response.
+        explode: true
+        in: query
+        name: alt
+        required: false
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+        style: form
+      - description: JSONP
+        explode: true
+        in: query
+        name: callback
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Selector specifying which fields to include in a partial response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "API key. Your API key identifies your project and provides you\
+          \ with API access, quota, and reports. Required unless you provide an OAuth\
+          \ 2.0 token."
+        explode: true
+        in: query
+        name: key
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: OAuth 2.0 token for the current user.
+        explode: true
+        in: query
+        name: oauth_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns response with indentations and line breaks.
+        explode: true
+        in: query
+        name: prettyPrint
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "Available to use for quota purposes for server-side applications.\
+          \ Can be any arbitrary string assigned to a user, but should not exceed\
+          \ 40 characters."
+        explode: true
+        in: query
+        name: quotaUser
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+        explode: true
+        in: query
+        name: upload_protocol
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Legacy upload protocol for media (e.g. \"media\", \"multipart\"\
+          )."
+        explode: true
+        in: query
+        name: uploadType
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Required. Resource name of the Entity Type. Format: projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}"
+        explode: false
+        in: path
+        name: entityType
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Required. Conditions to be used when deleting entities. From\
+          \ a proto standpoint, There are no restrictions on what can be passed using\
+          \ this field. The connector documentation should have information about\
+          \ what format of filters/conditions are supported. Note: If this conditions\
+          \ field is left empty, an exception is thrown. We don't want to consider\
+          \ 'empty conditions' to be a match-all case. Connector developers can determine\
+          \ and document what a match-all case constraint would be."
+        explode: true
+        in: query
+        name: conditions
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+          description: Successful response
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        Oauth2c:
+        - https://www.googleapis.com/auth/cloud-platform
+      tags:
+      - projects
+      x-accepts:
+      - application/json
+  /v2/{entityType}/entities:updateEntitiesWithConditions:
+    post:
+      description: Updates entities based on conditions specified in the request and
+        not on entity id.
+      operationId: connectors.projects.locations.connections.entityTypes.entities.updateEntitiesWithConditions
+      parameters:
+      - description: V1 error format.
+        explode: true
+        in: query
+        name: $.xgafv
+        required: false
+        schema:
+          enum:
+          - "1"
+          - "2"
+          type: string
+        style: form
+      - description: OAuth access token.
+        explode: true
+        in: query
+        name: access_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Data format for response.
+        explode: true
+        in: query
+        name: alt
+        required: false
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+        style: form
+      - description: JSONP
+        explode: true
+        in: query
+        name: callback
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Selector specifying which fields to include in a partial response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "API key. Your API key identifies your project and provides you\
+          \ with API access, quota, and reports. Required unless you provide an OAuth\
+          \ 2.0 token."
+        explode: true
+        in: query
+        name: key
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: OAuth 2.0 token for the current user.
+        explode: true
+        in: query
+        name: oauth_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns response with indentations and line breaks.
+        explode: true
+        in: query
+        name: prettyPrint
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "Available to use for quota purposes for server-side applications.\
+          \ Can be any arbitrary string assigned to a user, but should not exceed\
+          \ 40 characters."
+        explode: true
+        in: query
+        name: quotaUser
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+        explode: true
+        in: query
+        name: upload_protocol
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Legacy upload protocol for media (e.g. \"media\", \"multipart\"\
+          )."
+        explode: true
+        in: query
+        name: uploadType
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Required. Resource name of the Entity Type. Format: projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}"
+        explode: false
+        in: path
+        name: entityType
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Required. Conditions to be used when updating entities. From\
+          \ a proto standpoint, There are no restrictions on what can be passed using\
+          \ this field. The connector documentation should have information about\
+          \ what format of filters/conditions are supported. Note: If this conditions\
+          \ field is left empty, an exception is thrown. We don't want to consider\
+          \ 'empty conditions' to be a match-all case. Connector developers can determine\
+          \ and document what a match-all case constraint would be."
+        explode: true
+        in: query
+        name: conditions
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Entity'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateEntitiesWithConditionsResponse'
+          description: Successful response
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        Oauth2c:
+        - https://www.googleapis.com/auth/cloud-platform
+      tags:
+      - projects
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /v2/{name}:
     delete:
-      description: "Deletes a long-running operation. This method indicates that the\
-        \ client is no longer interested in the operation result. It does not cancel\
-        \ the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`."
-      operationId: notebooks.projects.locations.operations.delete
+      description: Deletes an existing entity row matching the entity type and entity
+        id specified in the request.
+      operationId: connectors.projects.locations.connections.entityTypes.entities.delete
       parameters:
       - description: V1 error format.
         explode: true
@@ -137,7 +568,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: The name of the operation resource to be deleted.
+      - description: "Required. Resource name of the Entity Type. Format: projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}"
         explode: false
         in: path
         name: name
@@ -162,10 +593,9 @@ paths:
       x-accepts:
       - application/json
     get:
-      description: Gets the latest state of a long-running operation. Clients can
-        use this method to poll the operation result at intervals as recommended by
-        the API service.
-      operationId: notebooks.projects.locations.operations.get
+      description: Gets a single entity row matching the entity type and entity id
+        specified in the request.
+      operationId: connectors.projects.locations.connections.entityTypes.entities.get
       parameters:
       - description: V1 error format.
         explode: true
@@ -267,7 +697,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: The name of the operation resource.
+      - description: "Required. Resource name of the Entity Type. Format: projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}"
         explode: false
         in: path
         name: name
@@ -280,7 +710,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/Entity'
           description: Successful response
       security:
       - Oauth2:
@@ -291,10 +721,13 @@ paths:
       - projects
       x-accepts:
       - application/json
-  /v2/{name}/locations:
-    get:
-      description: Lists information about the supported locations for this service.
-      operationId: notebooks.projects.locations.list
+    patch:
+      description: Updates an existing entity row matching the entity type and entity
+        id specified in the request. The fields in the entity row that need to be
+        modified are contained in the body of the request. All unspecified fields
+        are left unchanged. The response message contains a `Entity` message object
+        returned as a response by the external system.
+      operationId: connectors.projects.locations.connections.entityTypes.entities.patch
       parameters:
       - description: V1 error format.
         explode: true
@@ -396,7 +829,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: "The resource that owns the locations collection, if applicable."
+      - description: "Output only. Resource name of the Entity. Format: projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}"
         explode: false
         in: path
         name: name
@@ -404,18 +837,279 @@ paths:
         schema:
           type: string
         style: simple
-      - description: "A filter to narrow down results to a preferred subset. The filtering\
-          \ language accepts strings like `\"displayName=tokyo\"`, and is documented\
-          \ in more detail in [AIP-160](https://google.aip.dev/160)."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Entity'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Entity'
+          description: Successful response
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        Oauth2c:
+        - https://www.googleapis.com/auth/cloud-platform
+      tags:
+      - projects
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v2/{name}:execute:
+    post:
+      description: Executes an action with the name specified in the request. The
+        input parameters for executing the action are passed through the body of the
+        ExecuteAction request.
+      operationId: connectors.projects.locations.connections.actions.execute
+      parameters:
+      - description: V1 error format.
         explode: true
         in: query
-        name: filter
+        name: $.xgafv
+        required: false
+        schema:
+          enum:
+          - "1"
+          - "2"
+          type: string
+        style: form
+      - description: OAuth access token.
+        explode: true
+        in: query
+        name: access_token
         required: false
         schema:
           type: string
         style: form
-      - description: "The maximum number of results to return. If not set, the service\
-          \ selects a default."
+      - description: Data format for response.
+        explode: true
+        in: query
+        name: alt
+        required: false
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+        style: form
+      - description: JSONP
+        explode: true
+        in: query
+        name: callback
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Selector specifying which fields to include in a partial response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "API key. Your API key identifies your project and provides you\
+          \ with API access, quota, and reports. Required unless you provide an OAuth\
+          \ 2.0 token."
+        explode: true
+        in: query
+        name: key
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: OAuth 2.0 token for the current user.
+        explode: true
+        in: query
+        name: oauth_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns response with indentations and line breaks.
+        explode: true
+        in: query
+        name: prettyPrint
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "Available to use for quota purposes for server-side applications.\
+          \ Can be any arbitrary string assigned to a user, but should not exceed\
+          \ 40 characters."
+        explode: true
+        in: query
+        name: quotaUser
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+        explode: true
+        in: query
+        name: upload_protocol
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Legacy upload protocol for media (e.g. \"media\", \"multipart\"\
+          )."
+        explode: true
+        in: query
+        name: uploadType
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Required. Resource name of the Action. Format: projects/{project}/locations/{location}/connections/{connection}/actions/{action}"
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExecuteActionRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExecuteActionResponse'
+          description: Successful response
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        Oauth2c:
+        - https://www.googleapis.com/auth/cloud-platform
+      tags:
+      - projects
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v2/{parent}/actions:
+    get:
+      description: Gets the schema of all the actions supported by the connector.
+      operationId: connectors.projects.locations.connections.actions.list
+      parameters:
+      - description: V1 error format.
+        explode: true
+        in: query
+        name: $.xgafv
+        required: false
+        schema:
+          enum:
+          - "1"
+          - "2"
+          type: string
+        style: form
+      - description: OAuth access token.
+        explode: true
+        in: query
+        name: access_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Data format for response.
+        explode: true
+        in: query
+        name: alt
+        required: false
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+        style: form
+      - description: JSONP
+        explode: true
+        in: query
+        name: callback
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Selector specifying which fields to include in a partial response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "API key. Your API key identifies your project and provides you\
+          \ with API access, quota, and reports. Required unless you provide an OAuth\
+          \ 2.0 token."
+        explode: true
+        in: query
+        name: key
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: OAuth 2.0 token for the current user.
+        explode: true
+        in: query
+        name: oauth_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns response with indentations and line breaks.
+        explode: true
+        in: query
+        name: prettyPrint
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "Available to use for quota purposes for server-side applications.\
+          \ Can be any arbitrary string assigned to a user, but should not exceed\
+          \ 40 characters."
+        explode: true
+        in: query
+        name: quotaUser
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+        explode: true
+        in: query
+        name: upload_protocol
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Legacy upload protocol for media (e.g. \"media\", \"multipart\"\
+          )."
+        explode: true
+        in: query
+        name: uploadType
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Required. Parent resource name of the Action. Format: projects/{project}/locations/{location}/connections/{connection}"
+        explode: false
+        in: path
+        name: parent
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Number of Actions to return. Defaults to 25.
         explode: true
         in: query
         name: pageSize
@@ -423,8 +1117,9 @@ paths:
         schema:
           type: integer
         style: form
-      - description: A page token received from the `next_page_token` field in the
-          response. Send that page token to receive the subsequent page.
+      - description: "Page token, return from a previous ListActions call, that can\
+          \ be used retrieve the next page of content. If unspecified, the request\
+          \ returns the first page of actions."
         explode: true
         in: query
         name: pageToken
@@ -437,7 +1132,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListLocationsResponse'
+                $ref: '#/components/schemas/ListActionsResponse'
           description: Successful response
       security:
       - Oauth2:
@@ -448,11 +1143,18 @@ paths:
       - projects
       x-accepts:
       - application/json
-  /v2/{name}/operations:
+  /v2/{parent}/entities:
     get:
-      description: "Lists operations that match the specified filter in the request.\
-        \ If the server doesn't support this method, it returns `UNIMPLEMENTED`."
-      operationId: notebooks.projects.locations.operations.list
+      description: "Lists entity rows of a particular entity type contained in the\
+        \ request. Note: 1. Currently, only max of one 'sort_by' column is supported.\
+        \ 2. If no 'sort_by' column is provided, the primary key of the table is used.\
+        \ If zero or more than one primary key is available, we default to the unpaginated\
+        \ list entities logic which only returns the first page. 3. The values of\
+        \ the 'sort_by' columns must uniquely identify an entity row, otherwise undefined\
+        \ behaviors may be observed during pagination. 4. Since transactions are not\
+        \ supported, any updates, inserts or deletes during pagination can lead to\
+        \ stale data being returned or other unexpected behaviors."
+      operationId: connectors.projects.locations.connections.entityTypes.entities.list
       parameters:
       - description: V1 error format.
         explode: true
@@ -554,23 +1256,27 @@ paths:
         schema:
           type: string
         style: form
-      - description: The name of the operation's parent resource.
+      - description: "Required. Resource name of the Entity Type. Format: projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}"
         explode: false
         in: path
-        name: name
+        name: parent
         required: true
         schema:
           type: string
         style: simple
-      - description: The standard list filter.
+      - description: "Conditions to be used when listing entities. From a proto standpoint,\
+          \ There are no restrictions on what can be passed using this field. The\
+          \ connector documentation should have information about what format of filters/conditions\
+          \ are supported."
         explode: true
         in: query
-        name: filter
+        name: conditions
         required: false
         schema:
           type: string
         style: form
-      - description: The standard list page size.
+      - description: Number of entity rows to return. Defaults page size = 25. Max
+          page size = 200.
         explode: true
         in: query
         name: pageSize
@@ -578,7 +1284,302 @@ paths:
         schema:
           type: integer
         style: form
-      - description: The standard list page token.
+      - description: Page token value if available from a previous request.
+        explode: true
+        in: query
+        name: pageToken
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: List of 'sort_by' columns to use when returning the results.
+        explode: true
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListEntitiesResponse'
+          description: Successful response
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        Oauth2c:
+        - https://www.googleapis.com/auth/cloud-platform
+      tags:
+      - projects
+      x-accepts:
+      - application/json
+    post:
+      description: Creates a new entity row of the specified entity type in the external
+        system. The field values for creating the row are contained in the body of
+        the request. The response message contains a `Entity` message object returned
+        as a response by the external system.
+      operationId: connectors.projects.locations.connections.entityTypes.entities.create
+      parameters:
+      - description: V1 error format.
+        explode: true
+        in: query
+        name: $.xgafv
+        required: false
+        schema:
+          enum:
+          - "1"
+          - "2"
+          type: string
+        style: form
+      - description: OAuth access token.
+        explode: true
+        in: query
+        name: access_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Data format for response.
+        explode: true
+        in: query
+        name: alt
+        required: false
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+        style: form
+      - description: JSONP
+        explode: true
+        in: query
+        name: callback
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Selector specifying which fields to include in a partial response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "API key. Your API key identifies your project and provides you\
+          \ with API access, quota, and reports. Required unless you provide an OAuth\
+          \ 2.0 token."
+        explode: true
+        in: query
+        name: key
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: OAuth 2.0 token for the current user.
+        explode: true
+        in: query
+        name: oauth_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns response with indentations and line breaks.
+        explode: true
+        in: query
+        name: prettyPrint
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "Available to use for quota purposes for server-side applications.\
+          \ Can be any arbitrary string assigned to a user, but should not exceed\
+          \ 40 characters."
+        explode: true
+        in: query
+        name: quotaUser
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+        explode: true
+        in: query
+        name: upload_protocol
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Legacy upload protocol for media (e.g. \"media\", \"multipart\"\
+          )."
+        explode: true
+        in: query
+        name: uploadType
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Required. Resource name of the Entity Type. Format: projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}"
+        explode: false
+        in: path
+        name: parent
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Entity'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Entity'
+          description: Successful response
+      security:
+      - Oauth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        Oauth2c:
+        - https://www.googleapis.com/auth/cloud-platform
+      tags:
+      - projects
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v2/{parent}/entityTypes:
+    get:
+      description: Lists metadata related to all entity types present in the external
+        system.
+      operationId: connectors.projects.locations.connections.entityTypes.list
+      parameters:
+      - description: V1 error format.
+        explode: true
+        in: query
+        name: $.xgafv
+        required: false
+        schema:
+          enum:
+          - "1"
+          - "2"
+          type: string
+        style: form
+      - description: OAuth access token.
+        explode: true
+        in: query
+        name: access_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Data format for response.
+        explode: true
+        in: query
+        name: alt
+        required: false
+        schema:
+          enum:
+          - json
+          - media
+          - proto
+          type: string
+        style: form
+      - description: JSONP
+        explode: true
+        in: query
+        name: callback
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Selector specifying which fields to include in a partial response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "API key. Your API key identifies your project and provides you\
+          \ with API access, quota, and reports. Required unless you provide an OAuth\
+          \ 2.0 token."
+        explode: true
+        in: query
+        name: key
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: OAuth 2.0 token for the current user.
+        explode: true
+        in: query
+        name: oauth_token
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns response with indentations and line breaks.
+        explode: true
+        in: query
+        name: prettyPrint
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "Available to use for quota purposes for server-side applications.\
+          \ Can be any arbitrary string assigned to a user, but should not exceed\
+          \ 40 characters."
+        explode: true
+        in: query
+        name: quotaUser
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+        explode: true
+        in: query
+        name: upload_protocol
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Legacy upload protocol for media (e.g. \"media\", \"multipart\"\
+          )."
+        explode: true
+        in: query
+        name: uploadType
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Required. Resource name of the Entity Type. Format: projects/{project}/locations/{location}/connections/{connection}"
+        explode: false
+        in: path
+        name: parent
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Number of entity types to return. Defaults to 25.
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Page token, return from a previous ListEntityTypes call, that\
+          \ can be used retrieve the next page of content. If unspecified, the request\
+          \ returns the first page of entity types."
         explode: true
         in: query
         name: pageToken
@@ -591,7 +1592,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListOperationsResponse'
+                $ref: '#/components/schemas/ListEntityTypesResponse'
           description: Successful response
       security:
       - Oauth2:
@@ -600,577 +1601,6 @@ paths:
         - https://www.googleapis.com/auth/cloud-platform
       tags:
       - projects
-      x-accepts:
-      - application/json
-  /v2/{name}:cancel:
-    post:
-      description: "Starts asynchronous cancellation on a long-running operation.\
-        \ The server makes a best effort to cancel the operation, but success is not\
-        \ guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.\
-        \ Clients can use Operations.GetOperation or other methods to check whether\
-        \ the cancellation succeeded or whether the operation completed despite cancellation.\
-        \ On successful cancellation, the operation is not deleted; instead, it becomes\
-        \ an operation with an Operation.error value with a google.rpc.Status.code\
-        \ of 1, corresponding to `Code.CANCELLED`."
-      operationId: notebooks.projects.locations.operations.cancel
-      parameters:
-      - description: V1 error format.
-        explode: true
-        in: query
-        name: $.xgafv
-        required: false
-        schema:
-          enum:
-          - "1"
-          - "2"
-          type: string
-        style: form
-      - description: OAuth access token.
-        explode: true
-        in: query
-        name: access_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Data format for response.
-        explode: true
-        in: query
-        name: alt
-        required: false
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-        style: form
-      - description: JSONP
-        explode: true
-        in: query
-        name: callback
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Selector specifying which fields to include in a partial response.
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "API key. Your API key identifies your project and provides you\
-          \ with API access, quota, and reports. Required unless you provide an OAuth\
-          \ 2.0 token."
-        explode: true
-        in: query
-        name: key
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: OAuth 2.0 token for the current user.
-        explode: true
-        in: query
-        name: oauth_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Returns response with indentations and line breaks.
-        explode: true
-        in: query
-        name: prettyPrint
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - description: "Available to use for quota purposes for server-side applications.\
-          \ Can be any arbitrary string assigned to a user, but should not exceed\
-          \ 40 characters."
-        explode: true
-        in: query
-        name: quotaUser
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-        explode: true
-        in: query
-        name: upload_protocol
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Legacy upload protocol for media (e.g. \"media\", \"multipart\"\
-          )."
-        explode: true
-        in: query
-        name: uploadType
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: The name of the operation resource to be cancelled.
-        explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CancelOperationRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Empty'
-          description: Successful response
-      security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/cloud-platform
-        Oauth2c:
-        - https://www.googleapis.com/auth/cloud-platform
-      tags:
-      - projects
-      x-content-type: application/json
-      x-accepts:
-      - application/json
-  /v2/{resource}:getIamPolicy:
-    get:
-      description: Gets the access control policy for a resource. Returns an empty
-        policy if the resource exists and does not have a policy set.
-      operationId: notebooks.projects.locations.instances.getIamPolicy
-      parameters:
-      - description: V1 error format.
-        explode: true
-        in: query
-        name: $.xgafv
-        required: false
-        schema:
-          enum:
-          - "1"
-          - "2"
-          type: string
-        style: form
-      - description: OAuth access token.
-        explode: true
-        in: query
-        name: access_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Data format for response.
-        explode: true
-        in: query
-        name: alt
-        required: false
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-        style: form
-      - description: JSONP
-        explode: true
-        in: query
-        name: callback
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Selector specifying which fields to include in a partial response.
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "API key. Your API key identifies your project and provides you\
-          \ with API access, quota, and reports. Required unless you provide an OAuth\
-          \ 2.0 token."
-        explode: true
-        in: query
-        name: key
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: OAuth 2.0 token for the current user.
-        explode: true
-        in: query
-        name: oauth_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Returns response with indentations and line breaks.
-        explode: true
-        in: query
-        name: prettyPrint
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - description: "Available to use for quota purposes for server-side applications.\
-          \ Can be any arbitrary string assigned to a user, but should not exceed\
-          \ 40 characters."
-        explode: true
-        in: query
-        name: quotaUser
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-        explode: true
-        in: query
-        name: upload_protocol
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Legacy upload protocol for media (e.g. \"media\", \"multipart\"\
-          )."
-        explode: true
-        in: query
-        name: uploadType
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "REQUIRED: The resource for which the policy is being requested.\
-          \ See [Resource names](https://cloud.google.com/apis/design/resource_names)\
-          \ for the appropriate value for this field."
-        explode: false
-        in: path
-        name: resource
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: "Optional. The maximum policy version that will be used to format\
-          \ the policy. Valid values are 0, 1, and 3. Requests specifying an invalid\
-          \ value will be rejected. Requests for policies with any conditional role\
-          \ bindings must specify version 3. Policies with no conditional role bindings\
-          \ may specify any valid value or leave the field unset. The policy in the\
-          \ response might use the policy version that you specified, or it might\
-          \ use a lower policy version. For example, if you specify version 3, but\
-          \ the policy has no conditional role bindings, the response uses version\
-          \ 1. To learn which resources support conditions in their IAM policies,\
-          \ see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
-        explode: true
-        in: query
-        name: options.requestedPolicyVersion
-        required: false
-        schema:
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Policy'
-          description: Successful response
-      security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/cloud-platform
-        Oauth2c:
-        - https://www.googleapis.com/auth/cloud-platform
-      tags:
-      - projects
-      x-accepts:
-      - application/json
-  /v2/{resource}:setIamPolicy:
-    post:
-      description: "Sets the access control policy on the specified resource. Replaces\
-        \ any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED`\
-        \ errors."
-      operationId: notebooks.projects.locations.instances.setIamPolicy
-      parameters:
-      - description: V1 error format.
-        explode: true
-        in: query
-        name: $.xgafv
-        required: false
-        schema:
-          enum:
-          - "1"
-          - "2"
-          type: string
-        style: form
-      - description: OAuth access token.
-        explode: true
-        in: query
-        name: access_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Data format for response.
-        explode: true
-        in: query
-        name: alt
-        required: false
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-        style: form
-      - description: JSONP
-        explode: true
-        in: query
-        name: callback
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Selector specifying which fields to include in a partial response.
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "API key. Your API key identifies your project and provides you\
-          \ with API access, quota, and reports. Required unless you provide an OAuth\
-          \ 2.0 token."
-        explode: true
-        in: query
-        name: key
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: OAuth 2.0 token for the current user.
-        explode: true
-        in: query
-        name: oauth_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Returns response with indentations and line breaks.
-        explode: true
-        in: query
-        name: prettyPrint
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - description: "Available to use for quota purposes for server-side applications.\
-          \ Can be any arbitrary string assigned to a user, but should not exceed\
-          \ 40 characters."
-        explode: true
-        in: query
-        name: quotaUser
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-        explode: true
-        in: query
-        name: upload_protocol
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Legacy upload protocol for media (e.g. \"media\", \"multipart\"\
-          )."
-        explode: true
-        in: query
-        name: uploadType
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "REQUIRED: The resource for which the policy is being specified.\
-          \ See [Resource names](https://cloud.google.com/apis/design/resource_names)\
-          \ for the appropriate value for this field."
-        explode: false
-        in: path
-        name: resource
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SetIamPolicyRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Policy'
-          description: Successful response
-      security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/cloud-platform
-        Oauth2c:
-        - https://www.googleapis.com/auth/cloud-platform
-      tags:
-      - projects
-      x-content-type: application/json
-      x-accepts:
-      - application/json
-  /v2/{resource}:testIamPermissions:
-    post:
-      description: "Returns permissions that a caller has on the specified resource.\
-        \ If the resource does not exist, this will return an empty set of permissions,\
-        \ not a `NOT_FOUND` error. Note: This operation is designed to be used for\
-        \ building permission-aware UIs and command-line tools, not for authorization\
-        \ checking. This operation may \"fail open\" without warning."
-      operationId: notebooks.projects.locations.instances.testIamPermissions
-      parameters:
-      - description: V1 error format.
-        explode: true
-        in: query
-        name: $.xgafv
-        required: false
-        schema:
-          enum:
-          - "1"
-          - "2"
-          type: string
-        style: form
-      - description: OAuth access token.
-        explode: true
-        in: query
-        name: access_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Data format for response.
-        explode: true
-        in: query
-        name: alt
-        required: false
-        schema:
-          enum:
-          - json
-          - media
-          - proto
-          type: string
-        style: form
-      - description: JSONP
-        explode: true
-        in: query
-        name: callback
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Selector specifying which fields to include in a partial response.
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "API key. Your API key identifies your project and provides you\
-          \ with API access, quota, and reports. Required unless you provide an OAuth\
-          \ 2.0 token."
-        explode: true
-        in: query
-        name: key
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: OAuth 2.0 token for the current user.
-        explode: true
-        in: query
-        name: oauth_token
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Returns response with indentations and line breaks.
-        explode: true
-        in: query
-        name: prettyPrint
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - description: "Available to use for quota purposes for server-side applications.\
-          \ Can be any arbitrary string assigned to a user, but should not exceed\
-          \ 40 characters."
-        explode: true
-        in: query
-        name: quotaUser
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-        explode: true
-        in: query
-        name: upload_protocol
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Legacy upload protocol for media (e.g. \"media\", \"multipart\"\
-          )."
-        explode: true
-        in: query
-        name: uploadType
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "REQUIRED: The resource for which the policy detail is being\
-          \ requested. See [Resource names](https://cloud.google.com/apis/design/resource_names)\
-          \ for the appropriate value for this field."
-        explode: false
-        in: path
-        name: resource
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TestIamPermissionsRequest'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TestIamPermissionsResponse'
-          description: Successful response
-      security:
-      - Oauth2:
-        - https://www.googleapis.com/auth/cloud-platform
-        Oauth2c:
-        - https://www.googleapis.com/auth/cloud-platform
-      tags:
-      - projects
-      x-content-type: application/json
       x-accepts:
       - application/json
 components:
@@ -1287,63 +1717,43 @@ components:
         type: string
       style: form
   schemas:
-    Binding:
-      description: "Associates `members`, or principals, with a `role`."
+    Action:
+      description: Action message contains metadata information about a single action
+        present in the external system.
       example:
-        condition:
-          expression: expression
+        resultMetadata:
+        - dataType: DATA_TYPE_UNSPECIFIED
+          name: name
           description: description
-          location: location
-          title: title
-        role: role
-        members:
-        - members
-        - members
+        - dataType: DATA_TYPE_UNSPECIFIED
+          name: name
+          description: description
+        name: name
+        inputParameters:
+        - nullable: true
+          defaultValue: ""
+          dataType: DATA_TYPE_UNSPECIFIED
+          name: name
+          description: description
+        - nullable: true
+          defaultValue: ""
+          dataType: DATA_TYPE_UNSPECIFIED
+          name: name
+          description: description
       properties:
-        condition:
-          $ref: '#/components/schemas/Expr'
-        members:
-          description: "Specifies the principals requesting access for a Google Cloud\
-            \ resource. `members` can have the following values: * `allUsers`: A special\
-            \ identifier that represents anyone who is on the internet; with or without\
-            \ a Google account. * `allAuthenticatedUsers`: A special identifier that\
-            \ represents anyone who is authenticated with a Google account or a service\
-            \ account. Does not include identities that come from external identity\
-            \ providers (IdPs) through identity federation. * `user:{emailid}`: An\
-            \ email address that represents a specific Google account. For example,\
-            \ `alice@example.com` . * `serviceAccount:{emailid}`: An email address\
-            \ that represents a Google service account. For example, `my-other-app@appspot.gserviceaccount.com`.\
-            \ * `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`:\
-            \ An identifier for a [Kubernetes service account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).\
-            \ For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`.\
-            \ * `group:{emailid}`: An email address that represents a Google group.\
-            \ For example, `admins@example.com`. * `domain:{domain}`: The G Suite\
-            \ domain (primary) that represents all the users of that domain. For example,\
-            \ `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:\
-            \ An email address (plus unique identifier) representing a user that has\
-            \ been recently deleted. For example, `alice@example.com?uid=123456789012345678901`.\
-            \ If the user is recovered, this value reverts to `user:{emailid}` and\
-            \ the recovered user retains the role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`:\
-            \ An email address (plus unique identifier) representing a service account\
-            \ that has been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`.\
-            \ If the service account is undeleted, this value reverts to `serviceAccount:{emailid}`\
-            \ and the undeleted service account retains the role in the binding. *\
-            \ `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique\
-            \ identifier) representing a Google group that has been recently deleted.\
-            \ For example, `admins@example.com?uid=123456789012345678901`. If the\
-            \ group is recovered, this value reverts to `group:{emailid}` and the\
-            \ recovered group retains the role in the binding."
+        inputParameters:
+          description: List containing input parameter metadata.
           items:
-            type: string
+            $ref: '#/components/schemas/InputParameter'
           type: array
-        role:
-          description: "Role that is assigned to the list of `members`, or principals.\
-            \ For example, `roles/viewer`, `roles/editor`, or `roles/owner`."
+        name:
+          description: Name of the action.
           type: string
-      type: object
-    CancelOperationRequest:
-      description: The request message for Operations.CancelOperation.
-      properties: {}
+        resultMetadata:
+          description: List containing the metadata of result fields.
+          items:
+            $ref: '#/components/schemas/ResultMetadata'
+          type: array
       type: object
     Empty:
       description: "A generic empty message that you can re-use to avoid defining\
@@ -1352,425 +1762,540 @@ components:
         \ Foo { rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }"
       properties: {}
       type: object
-    Expr:
-      description: "Represents a textual expression in the Common Expression Language\
-        \ (CEL) syntax. CEL is a C-like expression language. The syntax and semantics\
-        \ of CEL are documented at https://github.com/google/cel-spec. Example (Comparison):\
-        \ title: \"Summary size limit\" description: \"Determines if a summary is\
-        \ less than 100 chars\" expression: \"document.summary.size() < 100\" Example\
-        \ (Equality): title: \"Requestor is owner\" description: \"Determines if requestor\
-        \ is the document owner\" expression: \"document.owner == request.auth.claims.email\"\
-        \ Example (Logic): title: \"Public documents\" description: \"Determine whether\
-        \ the document should be publicly visible\" expression: \"document.type !=\
-        \ 'private' && document.type != 'internal'\" Example (Data Manipulation):\
-        \ title: \"Notification string\" description: \"Create a notification string\
-        \ with a timestamp.\" expression: \"'New message received at ' + string(document.create_time)\"\
-        \ The exact variables and functions that may be referenced within an expression\
-        \ are determined by the service that evaluates it. See the service documentation\
-        \ for additional information."
+    Entity:
+      description: '''Entity row''/ ''Entity'' refers to a single row of an entity
+        type.'
       example:
-        expression: expression
-        description: description
-        location: location
-        title: title
-      properties:
-        description:
-          description: "Optional. Description of the expression. This is a longer\
-            \ text which describes the expression, e.g. when hovered over it in a\
-            \ UI."
-          type: string
-        expression:
-          description: Textual representation of an expression in Common Expression
-            Language syntax.
-          type: string
-        location:
-          description: "Optional. String indicating the location of the expression\
-            \ for error reporting, e.g. a file name and a position in the file."
-          type: string
-        title:
-          description: "Optional. Title for the expression, i.e. a short string describing\
-            \ its purpose. This can be used e.g. in UIs which allow to enter the expression."
-          type: string
-      type: object
-    ListLocationsResponse:
-      description: The response message for Locations.ListLocations.
-      example:
-        nextPageToken: nextPageToken
-        locations:
-        - metadata:
-            key: ""
-          displayName: displayName
-          locationId: locationId
-          name: name
-          labels:
-            key: labels
-        - metadata:
-            key: ""
-          displayName: displayName
-          locationId: locationId
-          name: name
-          labels:
-            key: labels
-      properties:
-        locations:
-          description: A list of locations that matches the specified filter in the
-            request.
-          items:
-            $ref: '#/components/schemas/Location'
-          type: array
-        nextPageToken:
-          description: The standard List next-page token.
-          type: string
-      type: object
-    ListOperationsResponse:
-      description: The response message for Operations.ListOperations.
-      example:
-        operations:
-        - metadata:
-            key: ""
-          response:
-            key: ""
-          name: name
-          error:
-            code: 0
-            details:
-            - key: ""
-            - key: ""
-            message: message
-          done: true
-        - metadata:
-            key: ""
-          response:
-            key: ""
-          name: name
-          error:
-            code: 0
-            details:
-            - key: ""
-            - key: ""
-            message: message
-          done: true
-        nextPageToken: nextPageToken
-      properties:
-        nextPageToken:
-          description: The standard List next-page token.
-          type: string
-        operations:
-          description: A list of operations that matches the specified filter in the
-            request.
-          items:
-            $ref: '#/components/schemas/Operation'
-          type: array
-      type: object
-    Location:
-      description: A resource that represents Google Cloud Platform location.
-      example:
-        metadata:
-          key: ""
-        displayName: displayName
-        locationId: locationId
         name: name
-        labels:
-          key: labels
+        fields:
+          key: ""
       properties:
-        displayName:
-          description: "The friendly name for this location, typically a nearby city\
-            \ name. For example, \"Tokyo\"."
-          type: string
-        labels:
-          additionalProperties:
-            type: string
-          description: "Cross-service attributes for the location. For example {\"\
-            cloud.googleapis.com/region\": \"us-east1\"}"
-          type: object
-        locationId:
-          description: "The canonical id for this location. For example: `\"us-east1\"\
-            `."
-          type: string
-        metadata:
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type
-              URL.
-          description: Service-specific metadata. For example the available capacity
-            at the given location.
+        fields:
+          additionalProperties: {}
+          description: Fields of the entity. The key is name of the field and the
+            value contains the applicable `google.protobuf.Value` entry for this field.
           type: object
         name:
-          description: "Resource name for the location, which may vary between implementations.\
-            \ For example: `\"projects/example-project/locations/us-east1\"`"
+          description: "Output only. Resource name of the Entity. Format: projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}"
+          readOnly: true
           type: string
       type: object
-    Operation:
-      description: This resource represents a long-running operation that is the result
-        of a network API call.
+    EntityType:
+      description: EntityType message contains metadata information about a single
+        entity type present in the external system.
       example:
-        metadata:
-          key: ""
-        response:
-          key: ""
         name: name
-        error:
-          code: 0
-          details:
-          - key: ""
-          - key: ""
-          message: message
-        done: true
+        fields:
+        - reference:
+            name: name
+            type: type
+          nullable: true
+          defaultValue: ""
+          dataType: DATA_TYPE_UNSPECIFIED
+          name: name
+          description: description
+          additionalDetails:
+            key: ""
+          key: true
+        - reference:
+            name: name
+            type: type
+          nullable: true
+          defaultValue: ""
+          dataType: DATA_TYPE_UNSPECIFIED
+          name: name
+          description: description
+          additionalDetails:
+            key: ""
+          key: true
       properties:
-        done:
-          description: "If the value is `false`, it means the operation is still in\
-            \ progress. If `true`, the operation is completed, and either `error`\
-            \ or `response` is available."
-          type: boolean
-        error:
-          $ref: '#/components/schemas/Status'
-        metadata:
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type
-              URL.
-          description: "Service-specific metadata associated with the operation. It\
-            \ typically contains progress information and common metadata such as\
-            \ create time. Some services might not provide such metadata. Any method\
-            \ that returns a long-running operation should document the metadata type,\
-            \ if any."
-          type: object
-        name:
-          description: "The server-assigned name, which is only unique within the\
-            \ same service that originally returns it. If you use the default HTTP\
-            \ mapping, the `name` should be a resource name ending with `operations/{unique_id}`."
-          type: string
-        response:
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type
-              URL.
-          description: "The normal response of the operation in case of success. If\
-            \ the original method returns no data on success, such as `Delete`, the\
-            \ response is `google.protobuf.Empty`. If the original method is standard\
-            \ `Get`/`Create`/`Update`, the response should be the resource. For other\
-            \ methods, the response should have the type `XxxResponse`, where `Xxx`\
-            \ is the original method name. For example, if the original method name\
-            \ is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`."
-          type: object
-      type: object
-    OperationMetadata:
-      description: Represents the metadata of the long-running operation.
-      properties:
-        apiVersion:
-          description: API version used to start the operation.
-          type: string
-        createTime:
-          description: The time the operation was created.
-          format: google-datetime
-          type: string
-        endTime:
-          description: The time the operation finished running.
-          format: google-datetime
-          type: string
-        endpoint:
-          description: API endpoint name of this operation.
-          type: string
-        requestedCancellation:
-          description: "Identifies whether the user has requested cancellation of\
-            \ the operation. Operations that have successfully been cancelled have\
-            \ Operation.error value with a google.rpc.Status.code of 1, corresponding\
-            \ to `Code.CANCELLED`."
-          type: boolean
-        statusMessage:
-          description: "Human-readable status of the operation, if any."
-          type: string
-        target:
-          description: Server-defined resource path for the target of the operation.
-          type: string
-        verb:
-          description: Name of the verb executed by the operation.
-          type: string
-      type: object
-    Policy:
-      description: "An Identity and Access Management (IAM) policy, which specifies\
-        \ access controls for Google Cloud resources. A `Policy` is a collection of\
-        \ `bindings`. A `binding` binds one or more `members`, or principals, to a\
-        \ single `role`. Principals can be user accounts, service accounts, Google\
-        \ groups, and domains (such as G Suite). A `role` is a named list of permissions;\
-        \ each `role` can be an IAM predefined role or a user-created custom role.\
-        \ For some types of Google Cloud resources, a `binding` can also specify a\
-        \ `condition`, which is a logical expression that allows access to a resource\
-        \ only if the expression evaluates to `true`. A condition can add constraints\
-        \ based on attributes of the request, the resource, or both. To learn which\
-        \ resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).\
-        \ **JSON example:** { \"bindings\": [ { \"role\": \"roles/resourcemanager.organizationAdmin\"\
-        , \"members\": [ \"user:mike@example.com\", \"group:admins@example.com\",\
-        \ \"domain:google.com\", \"serviceAccount:my-project-id@appspot.gserviceaccount.com\"\
-        \ ] }, { \"role\": \"roles/resourcemanager.organizationViewer\", \"members\"\
-        : [ \"user:eve@example.com\" ], \"condition\": { \"title\": \"expirable access\"\
-        , \"description\": \"Does not grant access after Sep 2020\", \"expression\"\
-        : \"request.time < timestamp('2020-10-01T00:00:00.000Z')\", } } ], \"etag\"\
-        : \"BwWWja0YfJA=\", \"version\": 3 } **YAML example:** bindings: - members:\
-        \ - user:mike@example.com - group:admins@example.com - domain:google.com -\
-        \ serviceAccount:my-project-id@appspot.gserviceaccount.com role: roles/resourcemanager.organizationAdmin\
-        \ - members: - user:eve@example.com role: roles/resourcemanager.organizationViewer\
-        \ condition: title: expirable access description: Does not grant access after\
-        \ Sep 2020 expression: request.time < timestamp('2020-10-01T00:00:00.000Z')\
-        \ etag: BwWWja0YfJA= version: 3 For a description of IAM and its features,\
-        \ see the [IAM documentation](https://cloud.google.com/iam/docs/)."
-      example:
-        bindings:
-        - condition:
-            expression: expression
-            description: description
-            location: location
-            title: title
-          role: role
-          members:
-          - members
-          - members
-        - condition:
-            expression: expression
-            description: description
-            location: location
-            title: title
-          role: role
-          members:
-          - members
-          - members
-        etag: etag
-        version: 0
-      properties:
-        bindings:
-          description: "Associates a list of `members`, or principals, with a `role`.\
-            \ Optionally, may specify a `condition` that determines how and when the\
-            \ `bindings` are applied. Each of the `bindings` must contain at least\
-            \ one principal. The `bindings` in a `Policy` can refer to up to 1,500\
-            \ principals; up to 250 of these principals can be Google groups. Each\
-            \ occurrence of a principal counts towards these limits. For example,\
-            \ if the `bindings` grant 50 different roles to `user:alice@example.com`,\
-            \ and not to any other principal, then you can add another 1,450 principals\
-            \ to the `bindings` in the `Policy`."
+        fields:
+          description: List containing metadata information about each field of the
+            entity type.
           items:
-            $ref: '#/components/schemas/Binding'
+            $ref: '#/components/schemas/Field'
           type: array
-        etag:
-          description: "`etag` is used for optimistic concurrency control as a way\
-            \ to help prevent simultaneous updates of a policy from overwriting each\
-            \ other. It is strongly suggested that systems make use of the `etag`\
-            \ in the read-modify-write cycle to perform policy updates in order to\
-            \ avoid race conditions: An `etag` is returned in the response to `getIamPolicy`,\
-            \ and systems are expected to put that etag in the request to `setIamPolicy`\
-            \ to ensure that their change will be applied to the same version of the\
-            \ policy. **Important:** If you use IAM Conditions, you must include the\
-            \ `etag` field whenever you call `setIamPolicy`. If you omit this field,\
-            \ then IAM allows you to overwrite a version `3` policy with a version\
-            \ `1` policy, and all of the conditions in the version `3` policy are\
-            \ lost."
-          format: byte
+        name:
+          description: The name of the entity type.
           type: string
-        version:
-          description: "Specifies the format of the policy. Valid values are `0`,\
-            \ `1`, and `3`. Requests that specify an invalid value are rejected. Any\
-            \ operation that affects conditional role bindings must specify version\
-            \ `3`. This requirement applies to the following operations: * Getting\
-            \ a policy that includes a conditional role binding * Adding a conditional\
-            \ role binding to a policy * Changing a conditional role binding in a\
-            \ policy * Removing any role binding, with or without a condition, from\
-            \ a policy that includes conditions **Important:** If you use IAM Conditions,\
-            \ you must include the `etag` field whenever you call `setIamPolicy`.\
-            \ If you omit this field, then IAM allows you to overwrite a version `3`\
-            \ policy with a version `1` policy, and all of the conditions in the version\
-            \ `3` policy are lost. If a policy does not include any conditions, operations\
-            \ on that policy may specify any valid version or leave the field unset.\
-            \ To learn which resources support conditions in their IAM policies, see\
-            \ the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
-          format: int32
-          type: integer
       type: object
-    SetIamPolicyRequest:
-      description: Request message for `SetIamPolicy` method.
+    ExecuteActionRequest:
+      description: Request message for ActionService.ExecuteAction
       example:
-        policy:
-          bindings:
-          - condition:
-              expression: expression
-              description: description
-              location: location
-              title: title
-            role: role
-            members:
-            - members
-            - members
-          - condition:
-              expression: expression
-              description: description
-              location: location
-              title: title
-            role: role
-            members:
-            - members
-            - members
-          etag: etag
-          version: 0
+        parameters:
+          key: ""
       properties:
-        policy:
-          $ref: '#/components/schemas/Policy'
+        parameters:
+          additionalProperties:
+            description: Properties of the object.
+          description: Parameters for executing the action. The parameters can be
+            key/value pairs or nested structs.
+          type: object
       type: object
-    Status:
-      description: "The `Status` type defines a logical error model that is suitable\
-        \ for different programming environments, including REST APIs and RPC APIs.\
-        \ It is used by [gRPC](https://github.com/grpc). Each `Status` message contains\
-        \ three pieces of data: error code, error message, and error details. You\
-        \ can find out more about this error model and how to work with it in the\
-        \ [API Design Guide](https://cloud.google.com/apis/design/errors)."
+    ExecuteActionResponse:
+      description: Response message for ActionService.ExecuteAction
       example:
-        code: 0
-        details:
+        results:
         - key: ""
         - key: ""
-        message: message
       properties:
-        code:
-          description: "The status code, which should be an enum value of google.rpc.Code."
-          format: int32
-          type: integer
-        details:
-          description: A list of messages that carry the error details. There is a
-            common set of message types for APIs to use.
+        results:
+          description: "In the case of successful invocation of the specified action,\
+            \ the results Struct contains values based on the response of the action\
+            \ invoked. 1. If the action execution produces any entities as a result,\
+            \ they are returned as an array of Structs with the 'key' being the field\
+            \ name and the 'value' being the value of that field in each result row.\
+            \ { 'results': [{'key': 'value'}, ...] }"
           items:
             additionalProperties:
-              description: Properties of the object. Contains field @type with type
-                URL.
+              description: Properties of the object.
             type: object
           type: array
-        message:
-          description: "A developer-facing error message, which should be in English.\
-            \ Any user-facing error message should be localized and sent in the google.rpc.Status.details\
-            \ field, or localized by the client."
+      type: object
+    ExecuteSqlQueryRequest:
+      description: An execute sql query request containing the query and the connection
+        to execute it on.
+      example:
+        query:
+          query: query
+      properties:
+        query:
+          $ref: '#/components/schemas/Query'
+      type: object
+    ExecuteSqlQueryResponse:
+      description: A response returned by the connection after executing the sql query.
+      example:
+        results:
+        - key: ""
+        - key: ""
+      properties:
+        results:
+          description: "In the case of successful execution of the query the response\
+            \ contains results returned by the external system. For example, the result\
+            \ rows of the query are contained in the 'results' Struct list - \"results\"\
+            : [ { \"field1\": \"val1\", \"field2\": \"val2\",.. },.. ] Each Struct\
+            \ row can contain fields any type of like nested Structs or lists."
+          items:
+            additionalProperties:
+              description: Properties of the object.
+            type: object
+          type: array
+      type: object
+    Field:
+      description: Message contains EntityType's Field metadata.
+      example:
+        reference:
+          name: name
+          type: type
+        nullable: true
+        defaultValue: ""
+        dataType: DATA_TYPE_UNSPECIFIED
+        name: name
+        description: description
+        additionalDetails:
+          key: ""
+        key: true
+      properties:
+        additionalDetails:
+          additionalProperties:
+            description: Properties of the object.
+          description: "The following map contains fields that are not explicitly\
+            \ mentioned above,this give connectors the flexibility to add new metadata\
+            \ fields."
+          type: object
+        dataType:
+          description: The data type of the Field.
+          enum:
+          - DATA_TYPE_UNSPECIFIED
+          - INT
+          - SMALLINT
+          - DOUBLE
+          - DATE
+          - DATETIME
+          - TIME
+          - STRING
+          - LONG
+          - BOOLEAN
+          - DECIMAL
+          - UUID
+          - BLOB
+          - BIT
+          - TINYINT
+          - INTEGER
+          - BIGINT
+          - FLOAT
+          - REAL
+          - NUMERIC
+          - CHAR
+          - VARCHAR
+          - LONGVARCHAR
+          - TIMESTAMP
+          - NCHAR
+          - NVARCHAR
+          - LONGNVARCHAR
+          - "NULL"
+          - OTHER
+          - JAVA_OBJECT
+          - DISTINCT
+          - STRUCT
+          - ARRAY
+          - CLOB
+          - REF
+          - DATALINK
+          - ROWID
+          - BINARY
+          - VARBINARY
+          - LONGVARBINARY
+          - NCLOB
+          - SQLXML
+          - REF_CURSOR
+          - TIME_WITH_TIMEZONE
+          - TIMESTAMP_WITH_TIMEZONE
+          type: string
+        defaultValue:
+          description: The following field specifies the default value of the Field
+            provided by the external system if a value is not provided.
+        description:
+          description: A brief description of the Field.
+          type: string
+        key:
+          description: The following boolean field specifies if the current Field
+            acts as a primary key or id if the parent is of type entity.
+          type: boolean
+        name:
+          description: Name of the Field.
+          type: string
+        nullable:
+          description: Specifies whether a null value is allowed.
+          type: boolean
+        reference:
+          $ref: '#/components/schemas/Reference'
+      type: object
+    InputParameter:
+      description: Input Parameter message contains metadata about the parameters
+        required for executing an Action.
+      example:
+        nullable: true
+        defaultValue: ""
+        dataType: DATA_TYPE_UNSPECIFIED
+        name: name
+        description: description
+      properties:
+        dataType:
+          description: The data type of the Parameter
+          enum:
+          - DATA_TYPE_UNSPECIFIED
+          - INT
+          - SMALLINT
+          - DOUBLE
+          - DATE
+          - DATETIME
+          - TIME
+          - STRING
+          - LONG
+          - BOOLEAN
+          - DECIMAL
+          - UUID
+          - BLOB
+          - BIT
+          - TINYINT
+          - INTEGER
+          - BIGINT
+          - FLOAT
+          - REAL
+          - NUMERIC
+          - CHAR
+          - VARCHAR
+          - LONGVARCHAR
+          - TIMESTAMP
+          - NCHAR
+          - NVARCHAR
+          - LONGNVARCHAR
+          - "NULL"
+          - OTHER
+          - JAVA_OBJECT
+          - DISTINCT
+          - STRUCT
+          - ARRAY
+          - CLOB
+          - REF
+          - DATALINK
+          - ROWID
+          - BINARY
+          - VARBINARY
+          - LONGVARBINARY
+          - NCLOB
+          - SQLXML
+          - REF_CURSOR
+          - TIME_WITH_TIMEZONE
+          - TIMESTAMP_WITH_TIMEZONE
+          type: string
+        defaultValue:
+          description: The following field specifies the default value of the Parameter
+            provided by the external system if a value is not provided.
+        description:
+          description: A brief description of the Parameter.
+          type: string
+        name:
+          description: Name of the Parameter.
+          type: string
+        nullable:
+          description: Specifies whether a null value is allowed.
+          type: boolean
+      type: object
+    ListActionsResponse:
+      description: Response message for ActionService.ListActions
+      example:
+        unsupportedActionNames:
+        - unsupportedActionNames
+        - unsupportedActionNames
+        nextPageToken: nextPageToken
+        actions:
+        - resultMetadata:
+          - dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+          - dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+          name: name
+          inputParameters:
+          - nullable: true
+            defaultValue: ""
+            dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+          - nullable: true
+            defaultValue: ""
+            dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+        - resultMetadata:
+          - dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+          - dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+          name: name
+          inputParameters:
+          - nullable: true
+            defaultValue: ""
+            dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+          - nullable: true
+            defaultValue: ""
+            dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+      properties:
+        actions:
+          description: List of action metadata.
+          items:
+            $ref: '#/components/schemas/Action'
+          type: array
+        nextPageToken:
+          description: Next page token if more actions available.
+          type: string
+        unsupportedActionNames:
+          description: List of actions which contain unsupported Datatypes. Check
+            datatype.proto for more information.
+          items:
+            type: string
+          type: array
+      type: object
+    ListEntitiesResponse:
+      description: Response message for EntityService.ListEntities
+      example:
+        entities:
+        - name: name
+          fields:
+            key: ""
+        - name: name
+          fields:
+            key: ""
+        nextPageToken: nextPageToken
+      properties:
+        entities:
+          description: List containing entity rows.
+          items:
+            $ref: '#/components/schemas/Entity'
+          type: array
+        nextPageToken:
+          description: Next page token if more records are available.
           type: string
       type: object
-    TestIamPermissionsRequest:
-      description: Request message for `TestIamPermissions` method.
+    ListEntityTypesResponse:
+      description: Response message for EntityService.ListEntityTypes
       example:
-        permissions:
-        - permissions
-        - permissions
+        types:
+        - name: name
+          fields:
+          - reference:
+              name: name
+              type: type
+            nullable: true
+            defaultValue: ""
+            dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+            additionalDetails:
+              key: ""
+            key: true
+          - reference:
+              name: name
+              type: type
+            nullable: true
+            defaultValue: ""
+            dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+            additionalDetails:
+              key: ""
+            key: true
+        - name: name
+          fields:
+          - reference:
+              name: name
+              type: type
+            nullable: true
+            defaultValue: ""
+            dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+            additionalDetails:
+              key: ""
+            key: true
+          - reference:
+              name: name
+              type: type
+            nullable: true
+            defaultValue: ""
+            dataType: DATA_TYPE_UNSPECIFIED
+            name: name
+            description: description
+            additionalDetails:
+              key: ""
+            key: true
+        nextPageToken: nextPageToken
+        unsupportedTypeNames:
+        - unsupportedTypeNames
+        - unsupportedTypeNames
       properties:
-        permissions:
-          description: "The set of permissions to check for the `resource`. Permissions\
-            \ with wildcards (such as `*` or `storage.*`) are not allowed. For more\
-            \ information see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions)."
+        nextPageToken:
+          description: Next page token if more entity types available.
+          type: string
+        types:
+          description: List of metadata related to all entity types.
+          items:
+            $ref: '#/components/schemas/EntityType'
+          type: array
+        unsupportedTypeNames:
+          description: List of entity type names which contain unsupported Datatypes.
+            Check datatype.proto for more information.
           items:
             type: string
           type: array
       type: object
-    TestIamPermissionsResponse:
-      description: Response message for `TestIamPermissions` method.
+    Query:
+      description: "A wrapper around the SQL query statement. This is needed so that\
+        \ the JSON representation of ExecuteSqlQueryRequest has the following format:\
+        \ `{\"query\":\"select *\"}`."
       example:
-        permissions:
-        - permissions
-        - permissions
+        query: query
       properties:
-        permissions:
-          description: A subset of `TestPermissionsRequest.permissions` that the caller
-            is allowed.
-          items:
-            type: string
-          type: array
+        query:
+          description: Required. Sql query to execute.
+          type: string
+      type: object
+    Reference:
+      example:
+        name: name
+        type: type
+      properties:
+        name:
+          description: Name of the reference field.
+          type: string
+        type:
+          description: Name of reference entity type.
+          type: string
+      type: object
+    ResultMetadata:
+      description: Result Metadata message contains metadata about the result returned
+        after executing an Action.
+      example:
+        dataType: DATA_TYPE_UNSPECIFIED
+        name: name
+        description: description
+      properties:
+        dataType:
+          description: The data type of the metadata field
+          enum:
+          - DATA_TYPE_UNSPECIFIED
+          - INT
+          - SMALLINT
+          - DOUBLE
+          - DATE
+          - DATETIME
+          - TIME
+          - STRING
+          - LONG
+          - BOOLEAN
+          - DECIMAL
+          - UUID
+          - BLOB
+          - BIT
+          - TINYINT
+          - INTEGER
+          - BIGINT
+          - FLOAT
+          - REAL
+          - NUMERIC
+          - CHAR
+          - VARCHAR
+          - LONGVARCHAR
+          - TIMESTAMP
+          - NCHAR
+          - NVARCHAR
+          - LONGNVARCHAR
+          - "NULL"
+          - OTHER
+          - JAVA_OBJECT
+          - DISTINCT
+          - STRUCT
+          - ARRAY
+          - CLOB
+          - REF
+          - DATALINK
+          - ROWID
+          - BINARY
+          - VARBINARY
+          - LONGVARBINARY
+          - NCLOB
+          - SQLXML
+          - REF_CURSOR
+          - TIME_WITH_TIMEZONE
+          - TIMESTAMP_WITH_TIMEZONE
+          type: string
+        description:
+          description: A brief description of the metadata field.
+          type: string
+        name:
+          description: Name of the metadata field.
+          type: string
+      type: object
+    UpdateEntitiesWithConditionsResponse:
+      description: Response message for EntityService.UpdateEntitiesWithConditions
+      example:
+        response:
+          key: ""
+      properties:
+        response:
+          additionalProperties:
+            description: Properties of the object.
+          description: Response returned by the external system.
+          type: object
       type: object
   securitySchemes:
     Oauth2:
