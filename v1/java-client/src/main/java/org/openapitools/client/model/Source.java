@@ -1,6 +1,6 @@
 /*
- * Container Analysis API
- * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
+ * Connectors API
+ * Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -20,13 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.openapitools.client.model.FileHashes;
-import org.openapitools.client.model.SourceContext;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,118 +46,108 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * Source describes the location of the source used for the build.
+ * Source to extract the backend from.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:12:13.662521-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Source {
-  public static final String SERIALIZED_NAME_ADDITIONAL_CONTEXTS = "additionalContexts";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_CONTEXTS)
-  private List<SourceContext> additionalContexts = new ArrayList<>();
+  public static final String SERIALIZED_NAME_FIELD_ID = "fieldId";
+  @SerializedName(SERIALIZED_NAME_FIELD_ID)
+  private String fieldId;
 
-  public static final String SERIALIZED_NAME_ARTIFACT_STORAGE_SOURCE_URI = "artifactStorageSourceUri";
-  @SerializedName(SERIALIZED_NAME_ARTIFACT_STORAGE_SOURCE_URI)
-  private String artifactStorageSourceUri;
+  /**
+   * Type of the source.
+   */
+  @JsonAdapter(SourceTypeEnum.Adapter.class)
+  public enum SourceTypeEnum {
+    SOURCE_TYPE_UNSPECIFIED("SOURCE_TYPE_UNSPECIFIED"),
+    
+    CONFIG_VARIABLE("CONFIG_VARIABLE");
 
-  public static final String SERIALIZED_NAME_CONTEXT = "context";
-  @SerializedName(SERIALIZED_NAME_CONTEXT)
-  private SourceContext context;
+    private String value;
 
-  public static final String SERIALIZED_NAME_FILE_HASHES = "fileHashes";
-  @SerializedName(SERIALIZED_NAME_FILE_HASHES)
-  private Map<String, FileHashes> fileHashes = new HashMap<>();
+    SourceTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SourceTypeEnum fromValue(String value) {
+      for (SourceTypeEnum b : SourceTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SourceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SourceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SourceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SourceTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SourceTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SOURCE_TYPE = "sourceType";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+  private SourceTypeEnum sourceType;
 
   public Source() {
   }
 
-  public Source additionalContexts(List<SourceContext> additionalContexts) {
-    this.additionalContexts = additionalContexts;
-    return this;
-  }
-
-  public Source addAdditionalContextsItem(SourceContext additionalContextsItem) {
-    if (this.additionalContexts == null) {
-      this.additionalContexts = new ArrayList<>();
-    }
-    this.additionalContexts.add(additionalContextsItem);
+  public Source fieldId(String fieldId) {
+    this.fieldId = fieldId;
     return this;
   }
 
   /**
-   * If provided, some of the source code used for the build may be found in these locations, in the case where the source repository had multiple remotes or submodules. This list will not include the context specified in the context field.
-   * @return additionalContexts
+   * Field identifier. For example config vaiable name.
+   * @return fieldId
    */
   @javax.annotation.Nullable
-  public List<SourceContext> getAdditionalContexts() {
-    return additionalContexts;
+  public String getFieldId() {
+    return fieldId;
   }
 
-  public void setAdditionalContexts(List<SourceContext> additionalContexts) {
-    this.additionalContexts = additionalContexts;
+  public void setFieldId(String fieldId) {
+    this.fieldId = fieldId;
   }
 
 
-  public Source artifactStorageSourceUri(String artifactStorageSourceUri) {
-    this.artifactStorageSourceUri = artifactStorageSourceUri;
+  public Source sourceType(SourceTypeEnum sourceType) {
+    this.sourceType = sourceType;
     return this;
   }
 
   /**
-   * If provided, the input binary artifacts for the build came from this location.
-   * @return artifactStorageSourceUri
+   * Type of the source.
+   * @return sourceType
    */
   @javax.annotation.Nullable
-  public String getArtifactStorageSourceUri() {
-    return artifactStorageSourceUri;
+  public SourceTypeEnum getSourceType() {
+    return sourceType;
   }
 
-  public void setArtifactStorageSourceUri(String artifactStorageSourceUri) {
-    this.artifactStorageSourceUri = artifactStorageSourceUri;
-  }
-
-
-  public Source context(SourceContext context) {
-    this.context = context;
-    return this;
-  }
-
-  /**
-   * Get context
-   * @return context
-   */
-  @javax.annotation.Nullable
-  public SourceContext getContext() {
-    return context;
-  }
-
-  public void setContext(SourceContext context) {
-    this.context = context;
-  }
-
-
-  public Source fileHashes(Map<String, FileHashes> fileHashes) {
-    this.fileHashes = fileHashes;
-    return this;
-  }
-
-  public Source putFileHashesItem(String key, FileHashes fileHashesItem) {
-    if (this.fileHashes == null) {
-      this.fileHashes = new HashMap<>();
-    }
-    this.fileHashes.put(key, fileHashesItem);
-    return this;
-  }
-
-  /**
-   * Hash(es) of the build source, which can be used to verify that the original source integrity was maintained in the build. The keys to this map are file paths used as build source and the values contain the hash values for those files. If the build source came in a single package such as a gzipped tarfile (.tar.gz), the FileHash will be for the single path to that file.
-   * @return fileHashes
-   */
-  @javax.annotation.Nullable
-  public Map<String, FileHashes> getFileHashes() {
-    return fileHashes;
-  }
-
-  public void setFileHashes(Map<String, FileHashes> fileHashes) {
-    this.fileHashes = fileHashes;
+  public void setSourceType(SourceTypeEnum sourceType) {
+    this.sourceType = sourceType;
   }
 
 
@@ -177,25 +161,21 @@ public class Source {
       return false;
     }
     Source source = (Source) o;
-    return Objects.equals(this.additionalContexts, source.additionalContexts) &&
-        Objects.equals(this.artifactStorageSourceUri, source.artifactStorageSourceUri) &&
-        Objects.equals(this.context, source.context) &&
-        Objects.equals(this.fileHashes, source.fileHashes);
+    return Objects.equals(this.fieldId, source.fieldId) &&
+        Objects.equals(this.sourceType, source.sourceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContexts, artifactStorageSourceUri, context, fileHashes);
+    return Objects.hash(fieldId, sourceType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Source {\n");
-    sb.append("    additionalContexts: ").append(toIndentedString(additionalContexts)).append("\n");
-    sb.append("    artifactStorageSourceUri: ").append(toIndentedString(artifactStorageSourceUri)).append("\n");
-    sb.append("    context: ").append(toIndentedString(context)).append("\n");
-    sb.append("    fileHashes: ").append(toIndentedString(fileHashes)).append("\n");
+    sb.append("    fieldId: ").append(toIndentedString(fieldId)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -218,10 +198,8 @@ public class Source {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("additionalContexts");
-    openapiFields.add("artifactStorageSourceUri");
-    openapiFields.add("context");
-    openapiFields.add("fileHashes");
+    openapiFields.add("fieldId");
+    openapiFields.add("sourceType");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -248,26 +226,15 @@ public class Source {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("additionalContexts") != null && !jsonObj.get("additionalContexts").isJsonNull()) {
-        JsonArray jsonArrayadditionalContexts = jsonObj.getAsJsonArray("additionalContexts");
-        if (jsonArrayadditionalContexts != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("additionalContexts").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `additionalContexts` to be an array in the JSON string but got `%s`", jsonObj.get("additionalContexts").toString()));
-          }
-
-          // validate the optional field `additionalContexts` (array)
-          for (int i = 0; i < jsonArrayadditionalContexts.size(); i++) {
-            SourceContext.validateJsonElement(jsonArrayadditionalContexts.get(i));
-          };
-        }
+      if ((jsonObj.get("fieldId") != null && !jsonObj.get("fieldId").isJsonNull()) && !jsonObj.get("fieldId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fieldId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fieldId").toString()));
       }
-      if ((jsonObj.get("artifactStorageSourceUri") != null && !jsonObj.get("artifactStorageSourceUri").isJsonNull()) && !jsonObj.get("artifactStorageSourceUri").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `artifactStorageSourceUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifactStorageSourceUri").toString()));
+      if ((jsonObj.get("sourceType") != null && !jsonObj.get("sourceType").isJsonNull()) && !jsonObj.get("sourceType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sourceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sourceType").toString()));
       }
-      // validate the optional field `context`
-      if (jsonObj.get("context") != null && !jsonObj.get("context").isJsonNull()) {
-        SourceContext.validateJsonElement(jsonObj.get("context"));
+      // validate the optional field `sourceType`
+      if (jsonObj.get("sourceType") != null && !jsonObj.get("sourceType").isJsonNull()) {
+        SourceTypeEnum.validateJsonElement(jsonObj.get("sourceType"));
       }
   }
 

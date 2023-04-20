@@ -1,6 +1,6 @@
 /*
- * Cloud IDS API
- * Cloud IDS (Cloud Intrusion Detection System) detects malware, spyware, command-and-control attacks, and other network-based threats. Its security efficacy is industry leading, built with Palo Alto Networks technologies. When you use this product, your organization name and consumption levels will be shared with Palo Alto Networks.
+ * Connectors API
+ * Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Provides the configuration for logging a type of permissions. Example: { \&quot;audit_log_configs\&quot;: [ { \&quot;log_type\&quot;: \&quot;DATA_READ\&quot;, \&quot;exempted_members\&quot;: [ \&quot;user:jose@example.com\&quot; ] }, { \&quot;log_type\&quot;: \&quot;DATA_WRITE\&quot; } ] } This enables &#39;DATA_READ&#39; and &#39;DATA_WRITE&#39; logging, while exempting jose@example.com from DATA_READ logging.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:08:26.946950-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:12:13.662521-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class AuditLogConfig {
   public static final String SERIALIZED_NAME_EXEMPTED_MEMBERS = "exemptedMembers";
   @SerializedName(SERIALIZED_NAME_EXEMPTED_MEMBERS)

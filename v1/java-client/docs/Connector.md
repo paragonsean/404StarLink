@@ -2,36 +2,34 @@
 
 # Connector
 
-Definition of a Serverless VPC Access connector.
+Connectors indicates a specific connector type, e.x. Salesforce, SAP etc.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**connectedProjects** | **List&lt;String&gt;** | Output only. List of projects using the connector. |  [optional] [readonly] |
-|**ipCidrRange** | **String** | The range of internal addresses that follows RFC 4632 notation. Example: &#x60;10.132.0.0/28&#x60;. |  [optional] |
-|**machineType** | **String** | Machine type of VM Instance underlying connector. Default is e2-micro |  [optional] |
-|**maxInstances** | **Integer** | Maximum value of instances in autoscaling group underlying the connector. |  [optional] |
-|**maxThroughput** | **Integer** | Maximum throughput of the connector in Mbps. Default is 300, max is 1000. |  [optional] |
-|**minInstances** | **Integer** | Minimum value of instances in autoscaling group underlying the connector. |  [optional] |
-|**minThroughput** | **Integer** | Minimum throughput of the connector in Mbps. Default and min is 200. |  [optional] |
-|**name** | **String** | The resource name in the format &#x60;projects/_*_/locations/_*_/connectors/_*&#x60;. |  [optional] |
-|**network** | **String** | Name of a VPC network. |  [optional] |
-|**state** | [**StateEnum**](#StateEnum) | Output only. State of the VPC access connector. |  [optional] [readonly] |
-|**subnet** | [**Subnet**](Subnet.md) |  |  [optional] |
+|**createTime** | **String** | Output only. Created time. |  [optional] [readonly] |
+|**description** | **String** | Output only. Description of the resource. |  [optional] [readonly] |
+|**displayName** | **String** | Output only. Display name. |  [optional] [readonly] |
+|**documentationUri** | **String** | Output only. Link to documentation page. |  [optional] [readonly] |
+|**externalUri** | **String** | Output only. Link to external page. |  [optional] [readonly] |
+|**labels** | **Map&lt;String, String&gt;** | Output only. Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources |  [optional] [readonly] |
+|**launchStage** | [**LaunchStageEnum**](#LaunchStageEnum) | Output only. Flag to mark the version indicating the launch stage. |  [optional] [readonly] |
+|**name** | **String** | Output only. Resource name of the Connector. Format: projects/{project}/locations/{location}/providers/{provider}/connectors/{connector} Only global location is supported for Connector resource. |  [optional] [readonly] |
+|**updateTime** | **String** | Output only. Updated time. |  [optional] [readonly] |
+|**webAssetsLocation** | **String** | Output only. Cloud storage location of icons etc consumed by UI. |  [optional] [readonly] |
 
 
 
-## Enum: StateEnum
+## Enum: LaunchStageEnum
 
 | Name | Value |
 |---- | -----|
-| STATE_UNSPECIFIED | &quot;STATE_UNSPECIFIED&quot; |
-| READY | &quot;READY&quot; |
-| CREATING | &quot;CREATING&quot; |
-| DELETING | &quot;DELETING&quot; |
-| ERROR | &quot;ERROR&quot; |
-| UPDATING | &quot;UPDATING&quot; |
+| LAUNCH_STAGE_UNSPECIFIED | &quot;LAUNCH_STAGE_UNSPECIFIED&quot; |
+| PREVIEW | &quot;PREVIEW&quot; |
+| GA | &quot;GA&quot; |
+| DEPRECATED | &quot;DEPRECATED&quot; |
+| PRIVATE_PREVIEW | &quot;PRIVATE_PREVIEW&quot; |
 
 
 

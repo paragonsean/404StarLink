@@ -1,6 +1,6 @@
 /*
- * Cloud Monitoring API
- * Manages your Cloud Monitoring data and configurations.
+ * Connectors API
+ * Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -27,14 +27,21 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.Dashboard;
-import org.openapitools.client.model.HttpBody;
-import org.openapitools.client.model.ListDashboardsResponse;
-import org.openapitools.client.model.ListLabelsRequest;
-import org.openapitools.client.model.QueryExemplarsRequest;
-import org.openapitools.client.model.QueryInstantRequest;
-import org.openapitools.client.model.QueryRangeRequest;
-import org.openapitools.client.model.QuerySeriesRequest;
+import org.openapitools.client.model.Connection;
+import org.openapitools.client.model.ConnectorVersion;
+import org.openapitools.client.model.ListConnectionsResponse;
+import org.openapitools.client.model.ListConnectorVersionsResponse;
+import org.openapitools.client.model.ListConnectorsResponse;
+import org.openapitools.client.model.ListLocationsResponse;
+import org.openapitools.client.model.ListOperationsResponse;
+import org.openapitools.client.model.ListProvidersResponse;
+import org.openapitools.client.model.ListRuntimeActionSchemasResponse;
+import org.openapitools.client.model.ListRuntimeEntitySchemasResponse;
+import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.Policy;
+import org.openapitools.client.model.SetIamPolicyRequest;
+import org.openapitools.client.model.TestIamPermissionsRequest;
+import org.openapitools.client.model.TestIamPermissionsResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -80,8 +87,8 @@ public class ProjectsApi {
     }
 
     /**
-     * Build call for monitoringProjectsDashboardsCreate
-     * @param parent Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] The [PROJECT_ID_OR_NUMBER] must match the dashboard resource name. (required)
+     * Build call for connectorsProjectsLocationsConnectionsConnectionSchemaMetadataRefresh
+     * @param name Required. Resource name. Format: projects/{project}/locations/{location}/connections/{connection}/connectionSchemaMetadata (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -93,8 +100,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param validateOnly If set, validate the request and preview the review, but do not actually save it. (optional)
-     * @param dashboard  (optional)
+     * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -104,7 +110,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsDashboardsCreateCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Boolean validateOnly, Dashboard dashboard, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsConnectionsConnectionSchemaMetadataRefreshCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Object body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -118,10 +124,227 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = dashboard;
+        Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/v1/{parent}/dashboards"
+        String localVarPath = "/v1/{name}:refresh"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call connectorsProjectsLocationsConnectionsConnectionSchemaMetadataRefreshValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Object body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling connectorsProjectsLocationsConnectionsConnectionSchemaMetadataRefresh(Async)");
+        }
+
+        return connectorsProjectsLocationsConnectionsConnectionSchemaMetadataRefreshCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body, _callback);
+
+    }
+
+    /**
+     * 
+     * Refresh runtime schema of a connection.
+     * @param name Required. Resource name. Format: projects/{project}/locations/{location}/connections/{connection}/connectionSchemaMetadata (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param body  (optional)
+     * @return Operation
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public Operation connectorsProjectsLocationsConnectionsConnectionSchemaMetadataRefresh(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Object body) throws ApiException {
+        ApiResponse<Operation> localVarResp = connectorsProjectsLocationsConnectionsConnectionSchemaMetadataRefreshWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Refresh runtime schema of a connection.
+     * @param name Required. Resource name. Format: projects/{project}/locations/{location}/connections/{connection}/connectionSchemaMetadata (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param body  (optional)
+     * @return ApiResponse&lt;Operation&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Operation> connectorsProjectsLocationsConnectionsConnectionSchemaMetadataRefreshWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Object body) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsConnectionSchemaMetadataRefreshValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body, null);
+        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Refresh runtime schema of a connection.
+     * @param name Required. Resource name. Format: projects/{project}/locations/{location}/connections/{connection}/connectionSchemaMetadata (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param body  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsConnectionsConnectionSchemaMetadataRefreshAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Object body, final ApiCallback<Operation> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsConnectionSchemaMetadataRefreshValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body, _callback);
+        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for connectorsProjectsLocationsConnectionsCreate
+     * @param parent Required. Parent resource of the Connection, of the form: &#x60;projects/_*_/locations/_*&#x60; (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param connectionId Required. Identifier to assign to the Connection. Must be unique within scope of the parent resource. (optional)
+     * @param connection  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsConnectionsCreateCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String connectionId, Connection connection, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = connection;
+
+        // create path and map variables
+        String localVarPath = "/v1/{parent}/connections"
             .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -174,8 +397,8 @@ public class ProjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
         }
 
-        if (validateOnly != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("validateOnly", validateOnly));
+        if (connectionId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("connectionId", connectionId));
         }
 
         final String[] localVarAccepts = {
@@ -199,20 +422,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsDashboardsCreateValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Boolean validateOnly, Dashboard dashboard, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call connectorsProjectsLocationsConnectionsCreateValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String connectionId, Connection connection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'parent' is set
         if (parent == null) {
-            throw new ApiException("Missing the required parameter 'parent' when calling monitoringProjectsDashboardsCreate(Async)");
+            throw new ApiException("Missing the required parameter 'parent' when calling connectorsProjectsLocationsConnectionsCreate(Async)");
         }
 
-        return monitoringProjectsDashboardsCreateCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard, _callback);
+        return connectorsProjectsLocationsConnectionsCreateCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, connectionId, connection, _callback);
 
     }
 
     /**
      * 
-     * Creates a new custom dashboard. For examples on how you can use this API to create dashboards, see Managing dashboards by API (https://cloud.google.com/monitoring/dashboards/api-dashboard). This method requires the monitoring.dashboards.create permission on the specified project. For more information about permissions, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param parent Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] The [PROJECT_ID_OR_NUMBER] must match the dashboard resource name. (required)
+     * Creates a new Connection in a given project and location.
+     * @param parent Required. Parent resource of the Connection, of the form: &#x60;projects/_*_/locations/_*&#x60; (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -224,9 +447,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param validateOnly If set, validate the request and preview the review, but do not actually save it. (optional)
-     * @param dashboard  (optional)
-     * @return Dashboard
+     * @param connectionId Required. Identifier to assign to the Connection. Must be unique within scope of the parent resource. (optional)
+     * @param connection  (optional)
+     * @return Operation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -234,15 +457,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public Dashboard monitoringProjectsDashboardsCreate(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Boolean validateOnly, Dashboard dashboard) throws ApiException {
-        ApiResponse<Dashboard> localVarResp = monitoringProjectsDashboardsCreateWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard);
+    public Operation connectorsProjectsLocationsConnectionsCreate(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String connectionId, Connection connection) throws ApiException {
+        ApiResponse<Operation> localVarResp = connectorsProjectsLocationsConnectionsCreateWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, connectionId, connection);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Creates a new custom dashboard. For examples on how you can use this API to create dashboards, see Managing dashboards by API (https://cloud.google.com/monitoring/dashboards/api-dashboard). This method requires the monitoring.dashboards.create permission on the specified project. For more information about permissions, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param parent Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] The [PROJECT_ID_OR_NUMBER] must match the dashboard resource name. (required)
+     * Creates a new Connection in a given project and location.
+     * @param parent Required. Parent resource of the Connection, of the form: &#x60;projects/_*_/locations/_*&#x60; (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -254,9 +477,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param validateOnly If set, validate the request and preview the review, but do not actually save it. (optional)
-     * @param dashboard  (optional)
-     * @return ApiResponse&lt;Dashboard&gt;
+     * @param connectionId Required. Identifier to assign to the Connection. Must be unique within scope of the parent resource. (optional)
+     * @param connection  (optional)
+     * @return ApiResponse&lt;Operation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -264,16 +487,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Dashboard> monitoringProjectsDashboardsCreateWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Boolean validateOnly, Dashboard dashboard) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsDashboardsCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard, null);
-        Type localVarReturnType = new TypeToken<Dashboard>(){}.getType();
+    public ApiResponse<Operation> connectorsProjectsLocationsConnectionsCreateWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String connectionId, Connection connection) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, connectionId, connection, null);
+        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Creates a new custom dashboard. For examples on how you can use this API to create dashboards, see Managing dashboards by API (https://cloud.google.com/monitoring/dashboards/api-dashboard). This method requires the monitoring.dashboards.create permission on the specified project. For more information about permissions, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param parent Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] The [PROJECT_ID_OR_NUMBER] must match the dashboard resource name. (required)
+     * Creates a new Connection in a given project and location.
+     * @param parent Required. Parent resource of the Connection, of the form: &#x60;projects/_*_/locations/_*&#x60; (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -285,8 +508,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param validateOnly If set, validate the request and preview the review, but do not actually save it. (optional)
-     * @param dashboard  (optional)
+     * @param connectionId Required. Identifier to assign to the Connection. Must be unique within scope of the parent resource. (optional)
+     * @param connection  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -296,16 +519,1412 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsDashboardsCreateAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Boolean validateOnly, Dashboard dashboard, final ApiCallback<Dashboard> _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsConnectionsCreateAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String connectionId, Connection connection, final ApiCallback<Operation> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = monitoringProjectsDashboardsCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard, _callback);
-        Type localVarReturnType = new TypeToken<Dashboard>(){}.getType();
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsCreateValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, connectionId, connection, _callback);
+        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for monitoringProjectsDashboardsDelete
-     * @param name Required. The resource name of the Dashboard. The format is: projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID]  (required)
+     * Build call for connectorsProjectsLocationsConnectionsList
+     * @param parent Required. Parent resource of the Connection, of the form: &#x60;projects/_*_/locations/_*&#x60; (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Filter. (optional)
+     * @param orderBy Order by parameters. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param view Specifies which fields of the Connection are returned in the response. Defaults to &#x60;BASIC&#x60; view. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsConnectionsListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orderBy, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/{parent}/connections"
+            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (orderBy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orderBy", orderBy));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
+        }
+
+        if (view != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call connectorsProjectsLocationsConnectionsListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orderBy, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'parent' is set
+        if (parent == null) {
+            throw new ApiException("Missing the required parameter 'parent' when calling connectorsProjectsLocationsConnectionsList(Async)");
+        }
+
+        return connectorsProjectsLocationsConnectionsListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, pageSize, pageToken, view, _callback);
+
+    }
+
+    /**
+     * 
+     * Lists Connections in a given project and location.
+     * @param parent Required. Parent resource of the Connection, of the form: &#x60;projects/_*_/locations/_*&#x60; (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Filter. (optional)
+     * @param orderBy Order by parameters. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param view Specifies which fields of the Connection are returned in the response. Defaults to &#x60;BASIC&#x60; view. (optional)
+     * @return ListConnectionsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListConnectionsResponse connectorsProjectsLocationsConnectionsList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orderBy, Integer pageSize, String pageToken, String view) throws ApiException {
+        ApiResponse<ListConnectionsResponse> localVarResp = connectorsProjectsLocationsConnectionsListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, pageSize, pageToken, view);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Lists Connections in a given project and location.
+     * @param parent Required. Parent resource of the Connection, of the form: &#x60;projects/_*_/locations/_*&#x60; (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Filter. (optional)
+     * @param orderBy Order by parameters. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param view Specifies which fields of the Connection are returned in the response. Defaults to &#x60;BASIC&#x60; view. (optional)
+     * @return ApiResponse&lt;ListConnectionsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListConnectionsResponse> connectorsProjectsLocationsConnectionsListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orderBy, Integer pageSize, String pageToken, String view) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, pageSize, pageToken, view, null);
+        Type localVarReturnType = new TypeToken<ListConnectionsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Lists Connections in a given project and location.
+     * @param parent Required. Parent resource of the Connection, of the form: &#x60;projects/_*_/locations/_*&#x60; (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Filter. (optional)
+     * @param orderBy Order by parameters. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param view Specifies which fields of the Connection are returned in the response. Defaults to &#x60;BASIC&#x60; view. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsConnectionsListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, String orderBy, Integer pageSize, String pageToken, String view, final ApiCallback<ListConnectionsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, orderBy, pageSize, pageToken, view, _callback);
+        Type localVarReturnType = new TypeToken<ListConnectionsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for connectorsProjectsLocationsConnectionsPatch
+     * @param name Output only. Resource name of the Connection. Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param updateMask Required. You can modify only the fields listed below. To lock/unlock a connection: * &#x60;lock_config&#x60; To suspend/resume a connection: * &#x60;suspended&#x60; To update the connection details: * &#x60;description&#x60; * &#x60;labels&#x60; * &#x60;connector_version&#x60; * &#x60;config_variables&#x60; * &#x60;auth_config&#x60; * &#x60;destination_configs&#x60; * &#x60;node_config&#x60; (optional)
+     * @param connection  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsConnectionsPatchCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Connection connection, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = connection;
+
+        // create path and map variables
+        String localVarPath = "/v1/{name}"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        if (updateMask != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("updateMask", updateMask));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call connectorsProjectsLocationsConnectionsPatchValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Connection connection, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling connectorsProjectsLocationsConnectionsPatch(Async)");
+        }
+
+        return connectorsProjectsLocationsConnectionsPatchCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, connection, _callback);
+
+    }
+
+    /**
+     * 
+     * Updates the parameters of a single Connection.
+     * @param name Output only. Resource name of the Connection. Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param updateMask Required. You can modify only the fields listed below. To lock/unlock a connection: * &#x60;lock_config&#x60; To suspend/resume a connection: * &#x60;suspended&#x60; To update the connection details: * &#x60;description&#x60; * &#x60;labels&#x60; * &#x60;connector_version&#x60; * &#x60;config_variables&#x60; * &#x60;auth_config&#x60; * &#x60;destination_configs&#x60; * &#x60;node_config&#x60; (optional)
+     * @param connection  (optional)
+     * @return Operation
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public Operation connectorsProjectsLocationsConnectionsPatch(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Connection connection) throws ApiException {
+        ApiResponse<Operation> localVarResp = connectorsProjectsLocationsConnectionsPatchWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, connection);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Updates the parameters of a single Connection.
+     * @param name Output only. Resource name of the Connection. Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param updateMask Required. You can modify only the fields listed below. To lock/unlock a connection: * &#x60;lock_config&#x60; To suspend/resume a connection: * &#x60;suspended&#x60; To update the connection details: * &#x60;description&#x60; * &#x60;labels&#x60; * &#x60;connector_version&#x60; * &#x60;config_variables&#x60; * &#x60;auth_config&#x60; * &#x60;destination_configs&#x60; * &#x60;node_config&#x60; (optional)
+     * @param connection  (optional)
+     * @return ApiResponse&lt;Operation&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Operation> connectorsProjectsLocationsConnectionsPatchWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Connection connection) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsPatchValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, connection, null);
+        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Updates the parameters of a single Connection.
+     * @param name Output only. Resource name of the Connection. Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param updateMask Required. You can modify only the fields listed below. To lock/unlock a connection: * &#x60;lock_config&#x60; To suspend/resume a connection: * &#x60;suspended&#x60; To update the connection details: * &#x60;description&#x60; * &#x60;labels&#x60; * &#x60;connector_version&#x60; * &#x60;config_variables&#x60; * &#x60;auth_config&#x60; * &#x60;destination_configs&#x60; * &#x60;node_config&#x60; (optional)
+     * @param connection  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsConnectionsPatchAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String updateMask, Connection connection, final ApiCallback<Operation> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsPatchValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, updateMask, connection, _callback);
+        Type localVarReturnType = new TypeToken<Operation>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for connectorsProjectsLocationsConnectionsRuntimeActionSchemasList
+     * @param parent Required. Parent resource of RuntimeActionSchema Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Required. Filter Format: action&#x3D;\&quot;{actionId}\&quot; Only action field is supported with literal equality operator. Accepted filter example: action&#x3D;\&quot;CancelOrder\&quot; Wildcards are not supported in the filter currently. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsConnectionsRuntimeActionSchemasListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/{parent}/runtimeActionSchemas"
+            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call connectorsProjectsLocationsConnectionsRuntimeActionSchemasListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'parent' is set
+        if (parent == null) {
+            throw new ApiException("Missing the required parameter 'parent' when calling connectorsProjectsLocationsConnectionsRuntimeActionSchemasList(Async)");
+        }
+
+        return connectorsProjectsLocationsConnectionsRuntimeActionSchemasListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * List schema of a runtime actions filtered by action name.
+     * @param parent Required. Parent resource of RuntimeActionSchema Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Required. Filter Format: action&#x3D;\&quot;{actionId}\&quot; Only action field is supported with literal equality operator. Accepted filter example: action&#x3D;\&quot;CancelOrder\&quot; Wildcards are not supported in the filter currently. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @return ListRuntimeActionSchemasResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListRuntimeActionSchemasResponse connectorsProjectsLocationsConnectionsRuntimeActionSchemasList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        ApiResponse<ListRuntimeActionSchemasResponse> localVarResp = connectorsProjectsLocationsConnectionsRuntimeActionSchemasListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * List schema of a runtime actions filtered by action name.
+     * @param parent Required. Parent resource of RuntimeActionSchema Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Required. Filter Format: action&#x3D;\&quot;{actionId}\&quot; Only action field is supported with literal equality operator. Accepted filter example: action&#x3D;\&quot;CancelOrder\&quot; Wildcards are not supported in the filter currently. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @return ApiResponse&lt;ListRuntimeActionSchemasResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListRuntimeActionSchemasResponse> connectorsProjectsLocationsConnectionsRuntimeActionSchemasListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsRuntimeActionSchemasListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListRuntimeActionSchemasResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * List schema of a runtime actions filtered by action name.
+     * @param parent Required. Parent resource of RuntimeActionSchema Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Required. Filter Format: action&#x3D;\&quot;{actionId}\&quot; Only action field is supported with literal equality operator. Accepted filter example: action&#x3D;\&quot;CancelOrder\&quot; Wildcards are not supported in the filter currently. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsConnectionsRuntimeActionSchemasListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback<ListRuntimeActionSchemasResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsRuntimeActionSchemasListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListRuntimeActionSchemasResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for connectorsProjectsLocationsConnectionsRuntimeEntitySchemasList
+     * @param parent Required. Parent resource of RuntimeEntitySchema Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Required. Filter Format: entity&#x3D;\&quot;{entityId}\&quot; Only entity field is supported with literal equality operator. Accepted filter example: entity&#x3D;\&quot;Order\&quot; Wildcards are not supported in the filter currently. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsConnectionsRuntimeEntitySchemasListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/{parent}/runtimeEntitySchemas"
+            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call connectorsProjectsLocationsConnectionsRuntimeEntitySchemasListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'parent' is set
+        if (parent == null) {
+            throw new ApiException("Missing the required parameter 'parent' when calling connectorsProjectsLocationsConnectionsRuntimeEntitySchemasList(Async)");
+        }
+
+        return connectorsProjectsLocationsConnectionsRuntimeEntitySchemasListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * List schema of a runtime entities filtered by entity name.
+     * @param parent Required. Parent resource of RuntimeEntitySchema Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Required. Filter Format: entity&#x3D;\&quot;{entityId}\&quot; Only entity field is supported with literal equality operator. Accepted filter example: entity&#x3D;\&quot;Order\&quot; Wildcards are not supported in the filter currently. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @return ListRuntimeEntitySchemasResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListRuntimeEntitySchemasResponse connectorsProjectsLocationsConnectionsRuntimeEntitySchemasList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        ApiResponse<ListRuntimeEntitySchemasResponse> localVarResp = connectorsProjectsLocationsConnectionsRuntimeEntitySchemasListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * List schema of a runtime entities filtered by entity name.
+     * @param parent Required. Parent resource of RuntimeEntitySchema Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Required. Filter Format: entity&#x3D;\&quot;{entityId}\&quot; Only entity field is supported with literal equality operator. Accepted filter example: entity&#x3D;\&quot;Order\&quot; Wildcards are not supported in the filter currently. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @return ApiResponse&lt;ListRuntimeEntitySchemasResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListRuntimeEntitySchemasResponse> connectorsProjectsLocationsConnectionsRuntimeEntitySchemasListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsRuntimeEntitySchemasListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListRuntimeEntitySchemasResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * List schema of a runtime entities filtered by entity name.
+     * @param parent Required. Parent resource of RuntimeEntitySchema Format: projects/{project}/locations/{location}/connections/{connection} (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter Required. Filter Format: entity&#x3D;\&quot;{entityId}\&quot; Only entity field is supported with literal equality operator. Accepted filter example: entity&#x3D;\&quot;Order\&quot; Wildcards are not supported in the filter currently. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsConnectionsRuntimeEntitySchemasListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback<ListRuntimeEntitySchemasResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = connectorsProjectsLocationsConnectionsRuntimeEntitySchemasListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListRuntimeEntitySchemasResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for connectorsProjectsLocationsList
+     * @param name The resource that owns the locations collection, if applicable. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter A filter to narrow down results to a preferred subset. The filtering language accepts strings like &#x60;\&quot;displayName&#x3D;tokyo\&quot;&#x60;, and is documented in more detail in [AIP-160](https://google.aip.dev/160). (optional)
+     * @param pageSize The maximum number of results to return. If not set, the service selects a default. (optional)
+     * @param pageToken A page token received from the &#x60;next_page_token&#x60; field in the response. Send that page token to receive the subsequent page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsListCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/{name}/locations"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call connectorsProjectsLocationsListValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling connectorsProjectsLocationsList(Async)");
+        }
+
+        return connectorsProjectsLocationsListCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Lists information about the supported locations for this service.
+     * @param name The resource that owns the locations collection, if applicable. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter A filter to narrow down results to a preferred subset. The filtering language accepts strings like &#x60;\&quot;displayName&#x3D;tokyo\&quot;&#x60;, and is documented in more detail in [AIP-160](https://google.aip.dev/160). (optional)
+     * @param pageSize The maximum number of results to return. If not set, the service selects a default. (optional)
+     * @param pageToken A page token received from the &#x60;next_page_token&#x60; field in the response. Send that page token to receive the subsequent page. (optional)
+     * @return ListLocationsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListLocationsResponse connectorsProjectsLocationsList(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        ApiResponse<ListLocationsResponse> localVarResp = connectorsProjectsLocationsListWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Lists information about the supported locations for this service.
+     * @param name The resource that owns the locations collection, if applicable. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter A filter to narrow down results to a preferred subset. The filtering language accepts strings like &#x60;\&quot;displayName&#x3D;tokyo\&quot;&#x60;, and is documented in more detail in [AIP-160](https://google.aip.dev/160). (optional)
+     * @param pageSize The maximum number of results to return. If not set, the service selects a default. (optional)
+     * @param pageToken A page token received from the &#x60;next_page_token&#x60; field in the response. Send that page token to receive the subsequent page. (optional)
+     * @return ApiResponse&lt;ListLocationsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListLocationsResponse> connectorsProjectsLocationsListWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsListValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListLocationsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Lists information about the supported locations for this service.
+     * @param name The resource that owns the locations collection, if applicable. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter A filter to narrow down results to a preferred subset. The filtering language accepts strings like &#x60;\&quot;displayName&#x3D;tokyo\&quot;&#x60;, and is documented in more detail in [AIP-160](https://google.aip.dev/160). (optional)
+     * @param pageSize The maximum number of results to return. If not set, the service selects a default. (optional)
+     * @param pageToken A page token received from the &#x60;next_page_token&#x60; field in the response. Send that page token to receive the subsequent page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsListAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback<ListLocationsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = connectorsProjectsLocationsListValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListLocationsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for connectorsProjectsLocationsOperationsCancel
+     * @param name The name of the operation resource to be cancelled. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param body  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsOperationsCancelCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Object body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/v1/{name}:cancel"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call connectorsProjectsLocationsOperationsCancelValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Object body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling connectorsProjectsLocationsOperationsCancel(Async)");
+        }
+
+        return connectorsProjectsLocationsOperationsCancelCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body, _callback);
+
+    }
+
+    /**
+     * 
+     * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn&#39;t support this method, it returns &#x60;google.rpc.Code.UNIMPLEMENTED&#x60;. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to &#x60;Code.CANCELLED&#x60;.
+     * @param name The name of the operation resource to be cancelled. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param body  (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object connectorsProjectsLocationsOperationsCancel(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Object body) throws ApiException {
+        ApiResponse<Object> localVarResp = connectorsProjectsLocationsOperationsCancelWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn&#39;t support this method, it returns &#x60;google.rpc.Code.UNIMPLEMENTED&#x60;. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to &#x60;Code.CANCELLED&#x60;.
+     * @param name The name of the operation resource to be cancelled. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param body  (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> connectorsProjectsLocationsOperationsCancelWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Object body) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsOperationsCancelValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn&#39;t support this method, it returns &#x60;google.rpc.Code.UNIMPLEMENTED&#x60;. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to &#x60;Code.CANCELLED&#x60;.
+     * @param name The name of the operation resource to be cancelled. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param body  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsOperationsCancelAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Object body, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = connectorsProjectsLocationsOperationsCancelValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, body, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for connectorsProjectsLocationsOperationsDelete
+     * @param name The name of the operation resource to be deleted. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -326,7 +1945,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsDashboardsDeleteCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsOperationsDeleteCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -416,20 +2035,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsDashboardsDeleteValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call connectorsProjectsLocationsOperationsDeleteValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling monitoringProjectsDashboardsDelete(Async)");
+            throw new ApiException("Missing the required parameter 'name' when calling connectorsProjectsLocationsOperationsDelete(Async)");
         }
 
-        return monitoringProjectsDashboardsDeleteCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
+        return connectorsProjectsLocationsOperationsDeleteCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
 
     }
 
     /**
      * 
-     * Deletes an existing custom dashboard.This method requires the monitoring.dashboards.delete permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param name Required. The resource name of the Dashboard. The format is: projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID]  (required)
+     * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn&#39;t support this method, it returns &#x60;google.rpc.Code.UNIMPLEMENTED&#x60;.
+     * @param name The name of the operation resource to be deleted. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -449,15 +2068,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public Object monitoringProjectsDashboardsDelete(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
-        ApiResponse<Object> localVarResp = monitoringProjectsDashboardsDeleteWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+    public Object connectorsProjectsLocationsOperationsDelete(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
+        ApiResponse<Object> localVarResp = connectorsProjectsLocationsOperationsDeleteWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Deletes an existing custom dashboard.This method requires the monitoring.dashboards.delete permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param name Required. The resource name of the Dashboard. The format is: projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID]  (required)
+     * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn&#39;t support this method, it returns &#x60;google.rpc.Code.UNIMPLEMENTED&#x60;.
+     * @param name The name of the operation resource to be deleted. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -477,16 +2096,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> monitoringProjectsDashboardsDeleteWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsDashboardsDeleteValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, null);
+    public ApiResponse<Object> connectorsProjectsLocationsOperationsDeleteWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsOperationsDeleteValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Deletes an existing custom dashboard.This method requires the monitoring.dashboards.delete permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param name Required. The resource name of the Dashboard. The format is: projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID]  (required)
+     * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn&#39;t support this method, it returns &#x60;google.rpc.Code.UNIMPLEMENTED&#x60;.
+     * @param name The name of the operation resource to be deleted. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -507,16 +2126,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsDashboardsDeleteAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsOperationsDeleteAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = monitoringProjectsDashboardsDeleteValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
+        okhttp3.Call localVarCall = connectorsProjectsLocationsOperationsDeleteValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for monitoringProjectsDashboardsGet
-     * @param name Required. The resource name of the Dashboard. The format is one of: dashboards/[DASHBOARD_ID] (for system dashboards) projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID] (for custom dashboards). (required)
+     * Build call for connectorsProjectsLocationsOperationsList
+     * @param name The name of the operation&#39;s parent resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -528,6 +2147,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The standard list filter. (optional)
+     * @param pageSize The standard list page size. (optional)
+     * @param pageToken The standard list page token. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -537,7 +2159,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsDashboardsGetCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsOperationsListCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -554,7 +2176,7 @@ public class ProjectsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{name}"
+        String localVarPath = "/v1/{name}/operations"
             .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -607,6 +2229,18 @@ public class ProjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
         }
 
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -627,20 +2261,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsDashboardsGetValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call connectorsProjectsLocationsOperationsListValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling monitoringProjectsDashboardsGet(Async)");
+            throw new ApiException("Missing the required parameter 'name' when calling connectorsProjectsLocationsOperationsList(Async)");
         }
 
-        return monitoringProjectsDashboardsGetCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
+        return connectorsProjectsLocationsOperationsListCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
 
     }
 
     /**
      * 
-     * Fetches a specific dashboard.This method requires the monitoring.dashboards.get permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param name Required. The resource name of the Dashboard. The format is one of: dashboards/[DASHBOARD_ID] (for system dashboards) projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID] (for custom dashboards). (required)
+     * Lists operations that match the specified filter in the request. If the server doesn&#39;t support this method, it returns &#x60;UNIMPLEMENTED&#x60;.
+     * @param name The name of the operation&#39;s parent resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -652,7 +2286,10 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @return Dashboard
+     * @param filter The standard list filter. (optional)
+     * @param pageSize The standard list page size. (optional)
+     * @param pageToken The standard list page token. (optional)
+     * @return ListOperationsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -660,15 +2297,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public Dashboard monitoringProjectsDashboardsGet(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
-        ApiResponse<Dashboard> localVarResp = monitoringProjectsDashboardsGetWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType);
+    public ListOperationsResponse connectorsProjectsLocationsOperationsList(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        ApiResponse<ListOperationsResponse> localVarResp = connectorsProjectsLocationsOperationsListWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Fetches a specific dashboard.This method requires the monitoring.dashboards.get permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param name Required. The resource name of the Dashboard. The format is one of: dashboards/[DASHBOARD_ID] (for system dashboards) projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID] (for custom dashboards). (required)
+     * Lists operations that match the specified filter in the request. If the server doesn&#39;t support this method, it returns &#x60;UNIMPLEMENTED&#x60;.
+     * @param name The name of the operation&#39;s parent resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -680,7 +2317,10 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @return ApiResponse&lt;Dashboard&gt;
+     * @param filter The standard list filter. (optional)
+     * @param pageSize The standard list page size. (optional)
+     * @param pageToken The standard list page token. (optional)
+     * @return ApiResponse&lt;ListOperationsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -688,16 +2328,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Dashboard> monitoringProjectsDashboardsGetWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsDashboardsGetValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, null);
-        Type localVarReturnType = new TypeToken<Dashboard>(){}.getType();
+    public ApiResponse<ListOperationsResponse> connectorsProjectsLocationsOperationsListWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsOperationsListValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListOperationsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Fetches a specific dashboard.This method requires the monitoring.dashboards.get permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param name Required. The resource name of the Dashboard. The format is one of: dashboards/[DASHBOARD_ID] (for system dashboards) projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID] (for custom dashboards). (required)
+     * Lists operations that match the specified filter in the request. If the server doesn&#39;t support this method, it returns &#x60;UNIMPLEMENTED&#x60;.
+     * @param name The name of the operation&#39;s parent resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -709,6 +2349,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param filter The standard list filter. (optional)
+     * @param pageSize The standard list page size. (optional)
+     * @param pageToken The standard list page token. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -718,16 +2361,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsDashboardsGetAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, final ApiCallback<Dashboard> _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsOperationsListAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String filter, Integer pageSize, String pageToken, final ApiCallback<ListOperationsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = monitoringProjectsDashboardsGetValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, _callback);
-        Type localVarReturnType = new TypeToken<Dashboard>(){}.getType();
+        okhttp3.Call localVarCall = connectorsProjectsLocationsOperationsListValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, filter, pageSize, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListOperationsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for monitoringProjectsDashboardsList
-     * @param parent Required. The scope of the dashboards to list. The format is: projects/[PROJECT_ID_OR_NUMBER]  (required)
+     * Build call for connectorsProjectsLocationsProvidersConnectorsList
+     * @param parent Required. Parent resource of the connectors, of the form: &#x60;projects/_*_/locations/_*_/providers/_*&#x60; Only global location is supported for Connector resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -739,8 +2382,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param pageSize A positive number that is the maximum number of results to return. If unspecified, a default of 1000 is used. (optional)
-     * @param pageToken If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional results from the previous method call. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -750,7 +2393,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsDashboardsListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersConnectorsListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -767,7 +2410,7 @@ public class ProjectsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{parent}/dashboards"
+        String localVarPath = "/v1/{parent}/connectors"
             .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -848,20 +2491,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsDashboardsListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call connectorsProjectsLocationsProvidersConnectorsListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'parent' is set
         if (parent == null) {
-            throw new ApiException("Missing the required parameter 'parent' when calling monitoringProjectsDashboardsList(Async)");
+            throw new ApiException("Missing the required parameter 'parent' when calling connectorsProjectsLocationsProvidersConnectorsList(Async)");
         }
 
-        return monitoringProjectsDashboardsListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, _callback);
+        return connectorsProjectsLocationsProvidersConnectorsListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, _callback);
 
     }
 
     /**
      * 
-     * Lists the existing dashboards.This method requires the monitoring.dashboards.list permission on the specified project. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param parent Required. The scope of the dashboards to list. The format is: projects/[PROJECT_ID_OR_NUMBER]  (required)
+     * Lists Connectors in a given project and location.
+     * @param parent Required. Parent resource of the connectors, of the form: &#x60;projects/_*_/locations/_*_/providers/_*&#x60; Only global location is supported for Connector resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -873,9 +2516,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param pageSize A positive number that is the maximum number of results to return. If unspecified, a default of 1000 is used. (optional)
-     * @param pageToken If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional results from the previous method call. (optional)
-     * @return ListDashboardsResponse
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @return ListConnectorsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -883,15 +2526,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ListDashboardsResponse monitoringProjectsDashboardsList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken) throws ApiException {
-        ApiResponse<ListDashboardsResponse> localVarResp = monitoringProjectsDashboardsListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken);
+    public ListConnectorsResponse connectorsProjectsLocationsProvidersConnectorsList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken) throws ApiException {
+        ApiResponse<ListConnectorsResponse> localVarResp = connectorsProjectsLocationsProvidersConnectorsListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Lists the existing dashboards.This method requires the monitoring.dashboards.list permission on the specified project. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param parent Required. The scope of the dashboards to list. The format is: projects/[PROJECT_ID_OR_NUMBER]  (required)
+     * Lists Connectors in a given project and location.
+     * @param parent Required. Parent resource of the connectors, of the form: &#x60;projects/_*_/locations/_*_/providers/_*&#x60; Only global location is supported for Connector resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -903,9 +2546,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param pageSize A positive number that is the maximum number of results to return. If unspecified, a default of 1000 is used. (optional)
-     * @param pageToken If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional results from the previous method call. (optional)
-     * @return ApiResponse&lt;ListDashboardsResponse&gt;
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @return ApiResponse&lt;ListConnectorsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -913,16 +2556,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListDashboardsResponse> monitoringProjectsDashboardsListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsDashboardsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListDashboardsResponse>(){}.getType();
+    public ApiResponse<ListConnectorsResponse> connectorsProjectsLocationsProvidersConnectorsListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersConnectorsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListConnectorsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Lists the existing dashboards.This method requires the monitoring.dashboards.list permission on the specified project. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param parent Required. The scope of the dashboards to list. The format is: projects/[PROJECT_ID_OR_NUMBER]  (required)
+     * Lists Connectors in a given project and location.
+     * @param parent Required. Parent resource of the connectors, of the form: &#x60;projects/_*_/locations/_*_/providers/_*&#x60; Only global location is supported for Connector resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -934,8 +2577,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param pageSize A positive number that is the maximum number of results to return. If unspecified, a default of 1000 is used. (optional)
-     * @param pageToken If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional results from the previous method call. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -945,16 +2588,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsDashboardsListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback<ListDashboardsResponse> _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersConnectorsListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback<ListConnectorsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = monitoringProjectsDashboardsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListDashboardsResponse>(){}.getType();
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersConnectorsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListConnectorsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for monitoringProjectsDashboardsPatch
-     * @param name Immutable. The resource name of the dashboard. (required)
+     * Build call for connectorsProjectsLocationsProvidersConnectorsVersionsGet
+     * @param name Required. Resource name of the form: &#x60;projects/_*_/locations/_*_/providers/_*_/connectors/_*_/versions/_*&#x60; Only global location is supported for ConnectorVersion resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -966,8 +2609,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param validateOnly If set, validate the request and preview the review, but do not actually save it. (optional)
-     * @param dashboard  (optional)
+     * @param view Specifies which fields of the ConnectorVersion are returned in the response. Defaults to &#x60;CUSTOMER&#x60; view. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -977,7 +2619,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsDashboardsPatchCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Boolean validateOnly, Dashboard dashboard, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersConnectorsVersionsGetCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String view, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -991,7 +2633,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = dashboard;
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v1/{name}"
@@ -1047,245 +2689,8 @@ public class ProjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
         }
 
-        if (validateOnly != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("validateOnly", validateOnly));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsDashboardsPatchValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Boolean validateOnly, Dashboard dashboard, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling monitoringProjectsDashboardsPatch(Async)");
-        }
-
-        return monitoringProjectsDashboardsPatchCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard, _callback);
-
-    }
-
-    /**
-     * 
-     * Replaces an existing custom dashboard with a new definition.This method requires the monitoring.dashboards.update permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param name Immutable. The resource name of the dashboard. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param validateOnly If set, validate the request and preview the review, but do not actually save it. (optional)
-     * @param dashboard  (optional)
-     * @return Dashboard
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public Dashboard monitoringProjectsDashboardsPatch(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Boolean validateOnly, Dashboard dashboard) throws ApiException {
-        ApiResponse<Dashboard> localVarResp = monitoringProjectsDashboardsPatchWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * Replaces an existing custom dashboard with a new definition.This method requires the monitoring.dashboards.update permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param name Immutable. The resource name of the dashboard. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param validateOnly If set, validate the request and preview the review, but do not actually save it. (optional)
-     * @param dashboard  (optional)
-     * @return ApiResponse&lt;Dashboard&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Dashboard> monitoringProjectsDashboardsPatchWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Boolean validateOnly, Dashboard dashboard) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsDashboardsPatchValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard, null);
-        Type localVarReturnType = new TypeToken<Dashboard>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * Replaces an existing custom dashboard with a new definition.This method requires the monitoring.dashboards.update permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam).
-     * @param name Immutable. The resource name of the dashboard. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param validateOnly If set, validate the request and preview the review, but do not actually save it. (optional)
-     * @param dashboard  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call monitoringProjectsDashboardsPatchAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Boolean validateOnly, Dashboard dashboard, final ApiCallback<Dashboard> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = monitoringProjectsDashboardsPatchValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, validateOnly, dashboard, _callback);
-        Type localVarReturnType = new TypeToken<Dashboard>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for monitoringProjectsLocationPrometheusApiV1LabelValues
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param label The label name for which values are queried. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param end The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @param match A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. (optional)
-     * @param start The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1LabelValuesCall(String name, String location, String label, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String end, String match, String start, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/{name}/location/{location}/prometheus/api/v1/label/{label}/values"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
-            .replace("{" + "location" + "}", localVarApiClient.escapeString(location.toString()))
-            .replace("{" + "label" + "}", localVarApiClient.escapeString(label.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        if (end != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end", end));
-        }
-
-        if (match != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("match", match));
-        }
-
-        if (start != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        if (view != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
         }
 
         final String[] localVarAccepts = {
@@ -1308,32 +2713,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsLocationPrometheusApiV1LabelValuesValidateBeforeCall(String name, String location, String label, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String end, String match, String start, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call connectorsProjectsLocationsProvidersConnectorsVersionsGetValidateBeforeCall(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String view, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling monitoringProjectsLocationPrometheusApiV1LabelValues(Async)");
+            throw new ApiException("Missing the required parameter 'name' when calling connectorsProjectsLocationsProvidersConnectorsVersionsGet(Async)");
         }
 
-        // verify the required parameter 'location' is set
-        if (location == null) {
-            throw new ApiException("Missing the required parameter 'location' when calling monitoringProjectsLocationPrometheusApiV1LabelValues(Async)");
-        }
-
-        // verify the required parameter 'label' is set
-        if (label == null) {
-            throw new ApiException("Missing the required parameter 'label' when calling monitoringProjectsLocationPrometheusApiV1LabelValues(Async)");
-        }
-
-        return monitoringProjectsLocationPrometheusApiV1LabelValuesCall(name, location, label, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start, _callback);
+        return connectorsProjectsLocationsProvidersConnectorsVersionsGetCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, view, _callback);
 
     }
 
     /**
      * 
-     * Lists possible values for a given label name.
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param label The label name for which values are queried. (required)
+     * Gets details of a single connector version.
+     * @param name Required. Resource name of the form: &#x60;projects/_*_/locations/_*_/providers/_*_/connectors/_*_/versions/_*&#x60; Only global location is supported for ConnectorVersion resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1345,10 +2738,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param end The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @param match A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. (optional)
-     * @param start The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @return HttpBody
+     * @param view Specifies which fields of the ConnectorVersion are returned in the response. Defaults to &#x60;CUSTOMER&#x60; view. (optional)
+     * @return ConnectorVersion
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1356,17 +2747,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public HttpBody monitoringProjectsLocationPrometheusApiV1LabelValues(String name, String location, String label, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String end, String match, String start) throws ApiException {
-        ApiResponse<HttpBody> localVarResp = monitoringProjectsLocationPrometheusApiV1LabelValuesWithHttpInfo(name, location, label, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start);
+    public ConnectorVersion connectorsProjectsLocationsProvidersConnectorsVersionsGet(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String view) throws ApiException {
+        ApiResponse<ConnectorVersion> localVarResp = connectorsProjectsLocationsProvidersConnectorsVersionsGetWithHttpInfo(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, view);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Lists possible values for a given label name.
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param label The label name for which values are queried. (required)
+     * Gets details of a single connector version.
+     * @param name Required. Resource name of the form: &#x60;projects/_*_/locations/_*_/providers/_*_/connectors/_*_/versions/_*&#x60; Only global location is supported for ConnectorVersion resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1378,10 +2767,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param end The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @param match A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. (optional)
-     * @param start The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @return ApiResponse&lt;HttpBody&gt;
+     * @param view Specifies which fields of the ConnectorVersion are returned in the response. Defaults to &#x60;CUSTOMER&#x60; view. (optional)
+     * @return ApiResponse&lt;ConnectorVersion&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1389,18 +2776,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<HttpBody> monitoringProjectsLocationPrometheusApiV1LabelValuesWithHttpInfo(String name, String location, String label, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String end, String match, String start) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1LabelValuesValidateBeforeCall(name, location, label, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start, null);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
+    public ApiResponse<ConnectorVersion> connectorsProjectsLocationsProvidersConnectorsVersionsGetWithHttpInfo(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String view) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersConnectorsVersionsGetValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, view, null);
+        Type localVarReturnType = new TypeToken<ConnectorVersion>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Lists possible values for a given label name.
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param label The label name for which values are queried. (required)
+     * Gets details of a single connector version.
+     * @param name Required. Resource name of the form: &#x60;projects/_*_/locations/_*_/providers/_*_/connectors/_*_/versions/_*&#x60; Only global location is supported for ConnectorVersion resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1412,9 +2797,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param end The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @param match A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. (optional)
-     * @param start The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
+     * @param view Specifies which fields of the ConnectorVersion are returned in the response. Defaults to &#x60;CUSTOMER&#x60; view. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1424,17 +2807,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1LabelValuesAsync(String name, String location, String label, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String end, String match, String start, final ApiCallback<HttpBody> _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersConnectorsVersionsGetAsync(String name, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String view, final ApiCallback<ConnectorVersion> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1LabelValuesValidateBeforeCall(name, location, label, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start, _callback);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersConnectorsVersionsGetValidateBeforeCall(name, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, view, _callback);
+        Type localVarReturnType = new TypeToken<ConnectorVersion>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for monitoringProjectsLocationPrometheusApiV1Labels
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Build call for connectorsProjectsLocationsProvidersConnectorsVersionsList
+     * @param parent Required. Parent resource of the connectors, of the form: &#x60;projects/_*_/locations/_*_/providers/_*_/connectors/_*&#x60; Only global location is supported for ConnectorVersion resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1446,7 +2828,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param listLabelsRequest  (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param view Specifies which fields of the ConnectorVersion are returned in the response. Defaults to &#x60;BASIC&#x60; view. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1456,235 +2840,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1LabelsCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, ListLabelsRequest listLabelsRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = listLabelsRequest;
-
-        // create path and map variables
-        String localVarPath = "/v1/{name}/location/{location}/prometheus/api/v1/labels"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
-            .replace("{" + "location" + "}", localVarApiClient.escapeString(location.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsLocationPrometheusApiV1LabelsValidateBeforeCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, ListLabelsRequest listLabelsRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling monitoringProjectsLocationPrometheusApiV1Labels(Async)");
-        }
-
-        // verify the required parameter 'location' is set
-        if (location == null) {
-            throw new ApiException("Missing the required parameter 'location' when calling monitoringProjectsLocationPrometheusApiV1Labels(Async)");
-        }
-
-        return monitoringProjectsLocationPrometheusApiV1LabelsCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, listLabelsRequest, _callback);
-
-    }
-
-    /**
-     * 
-     * Lists labels for metrics.
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param listLabelsRequest  (optional)
-     * @return HttpBody
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public HttpBody monitoringProjectsLocationPrometheusApiV1Labels(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, ListLabelsRequest listLabelsRequest) throws ApiException {
-        ApiResponse<HttpBody> localVarResp = monitoringProjectsLocationPrometheusApiV1LabelsWithHttpInfo(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, listLabelsRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * Lists labels for metrics.
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param listLabelsRequest  (optional)
-     * @return ApiResponse&lt;HttpBody&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<HttpBody> monitoringProjectsLocationPrometheusApiV1LabelsWithHttpInfo(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, ListLabelsRequest listLabelsRequest) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1LabelsValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, listLabelsRequest, null);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * Lists labels for metrics.
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param listLabelsRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1LabelsAsync(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, ListLabelsRequest listLabelsRequest, final ApiCallback<HttpBody> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1LabelsValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, listLabelsRequest, _callback);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for monitoringProjectsLocationPrometheusApiV1LabelsList
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param end The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @param match A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. (optional)
-     * @param start The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1LabelsListCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String end, String match, String start, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersConnectorsVersionsListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1701,9 +2857,8 @@ public class ProjectsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{name}/location/{location}/prometheus/api/v1/labels"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
-            .replace("{" + "location" + "}", localVarApiClient.escapeString(location.toString()));
+        String localVarPath = "/v1/{parent}/versions"
+            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1755,16 +2910,16 @@ public class ProjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
         }
 
-        if (end != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end", end));
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
-        if (match != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("match", match));
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
         }
 
-        if (start != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        if (view != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("view", view));
         }
 
         final String[] localVarAccepts = {
@@ -1787,26 +2942,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsLocationPrometheusApiV1LabelsListValidateBeforeCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String end, String match, String start, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling monitoringProjectsLocationPrometheusApiV1LabelsList(Async)");
+    private okhttp3.Call connectorsProjectsLocationsProvidersConnectorsVersionsListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, String view, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'parent' is set
+        if (parent == null) {
+            throw new ApiException("Missing the required parameter 'parent' when calling connectorsProjectsLocationsProvidersConnectorsVersionsList(Async)");
         }
 
-        // verify the required parameter 'location' is set
-        if (location == null) {
-            throw new ApiException("Missing the required parameter 'location' when calling monitoringProjectsLocationPrometheusApiV1LabelsList(Async)");
-        }
-
-        return monitoringProjectsLocationPrometheusApiV1LabelsListCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start, _callback);
+        return connectorsProjectsLocationsProvidersConnectorsVersionsListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, view, _callback);
 
     }
 
     /**
      * 
-     * Lists labels for metrics.
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Lists Connector Versions in a given project and location.
+     * @param parent Required. Parent resource of the connectors, of the form: &#x60;projects/_*_/locations/_*_/providers/_*_/connectors/_*&#x60; Only global location is supported for ConnectorVersion resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1818,10 +2967,10 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param end The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @param match A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. (optional)
-     * @param start The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @return HttpBody
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param view Specifies which fields of the ConnectorVersion are returned in the response. Defaults to &#x60;BASIC&#x60; view. (optional)
+     * @return ListConnectorVersionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1829,16 +2978,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public HttpBody monitoringProjectsLocationPrometheusApiV1LabelsList(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String end, String match, String start) throws ApiException {
-        ApiResponse<HttpBody> localVarResp = monitoringProjectsLocationPrometheusApiV1LabelsListWithHttpInfo(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start);
+    public ListConnectorVersionsResponse connectorsProjectsLocationsProvidersConnectorsVersionsList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, String view) throws ApiException {
+        ApiResponse<ListConnectorVersionsResponse> localVarResp = connectorsProjectsLocationsProvidersConnectorsVersionsListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, view);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Lists labels for metrics.
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Lists Connector Versions in a given project and location.
+     * @param parent Required. Parent resource of the connectors, of the form: &#x60;projects/_*_/locations/_*_/providers/_*_/connectors/_*&#x60; Only global location is supported for ConnectorVersion resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1850,10 +2998,10 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param end The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @param match A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. (optional)
-     * @param start The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @return ApiResponse&lt;HttpBody&gt;
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param view Specifies which fields of the ConnectorVersion are returned in the response. Defaults to &#x60;BASIC&#x60; view. (optional)
+     * @return ApiResponse&lt;ListConnectorVersionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1861,17 +3009,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<HttpBody> monitoringProjectsLocationPrometheusApiV1LabelsListWithHttpInfo(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String end, String match, String start) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1LabelsListValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start, null);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
+    public ApiResponse<ListConnectorVersionsResponse> connectorsProjectsLocationsProvidersConnectorsVersionsListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, String view) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersConnectorsVersionsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, view, null);
+        Type localVarReturnType = new TypeToken<ListConnectorVersionsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Lists labels for metrics.
-     * @param name The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Lists Connector Versions in a given project and location.
+     * @param parent Required. Parent resource of the connectors, of the form: &#x60;projects/_*_/locations/_*_/providers/_*_/connectors/_*&#x60; Only global location is supported for ConnectorVersion resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1883,9 +3030,9 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param end The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
-     * @param match A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. (optional)
-     * @param start The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param view Specifies which fields of the ConnectorVersion are returned in the response. Defaults to &#x60;BASIC&#x60; view. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1895,17 +3042,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1LabelsListAsync(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String end, String match, String start, final ApiCallback<HttpBody> _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersConnectorsVersionsListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, String view, final ApiCallback<ListConnectorVersionsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1LabelsListValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, end, match, start, _callback);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersConnectorsVersionsListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, view, _callback);
+        Type localVarReturnType = new TypeToken<ListConnectorVersionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for monitoringProjectsLocationPrometheusApiV1MetadataList
-     * @param name Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; for now. (required)
+     * Build call for connectorsProjectsLocationsProvidersGetIamPolicy
+     * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -1917,8 +3063,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param limit Maximum number of metrics to return. (optional)
-     * @param metric The metric name for which to query metadata. If unset, all metric metadata is returned. (optional)
+     * @param optionsRequestedPolicyVersion Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1928,7 +3073,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1MetadataListCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String limit, String metric, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersGetIamPolicyCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer optionsRequestedPolicyVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1945,9 +3090,8 @@ public class ProjectsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{name}/location/{location}/prometheus/api/v1/metadata"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
-            .replace("{" + "location" + "}", localVarApiClient.escapeString(location.toString()));
+        String localVarPath = "/v1/{resource}:getIamPolicy"
+            .replace("{" + "resource" + "}", localVarApiClient.escapeString(resource.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1999,12 +3143,8 @@ public class ProjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
         }
 
-        if (limit != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
-        }
-
-        if (metric != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("metric", metric));
+        if (optionsRequestedPolicyVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("options.requestedPolicyVersion", optionsRequestedPolicyVersion));
         }
 
         final String[] localVarAccepts = {
@@ -2027,26 +3167,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsLocationPrometheusApiV1MetadataListValidateBeforeCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String limit, String metric, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling monitoringProjectsLocationPrometheusApiV1MetadataList(Async)");
+    private okhttp3.Call connectorsProjectsLocationsProvidersGetIamPolicyValidateBeforeCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer optionsRequestedPolicyVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'resource' is set
+        if (resource == null) {
+            throw new ApiException("Missing the required parameter 'resource' when calling connectorsProjectsLocationsProvidersGetIamPolicy(Async)");
         }
 
-        // verify the required parameter 'location' is set
-        if (location == null) {
-            throw new ApiException("Missing the required parameter 'location' when calling monitoringProjectsLocationPrometheusApiV1MetadataList(Async)");
-        }
-
-        return monitoringProjectsLocationPrometheusApiV1MetadataListCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, limit, metric, _callback);
+        return connectorsProjectsLocationsProvidersGetIamPolicyCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, optionsRequestedPolicyVersion, _callback);
 
     }
 
     /**
      * 
-     * Lists metadata for metrics.
-     * @param name Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; for now. (required)
+     * Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+     * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -2058,9 +3192,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param limit Maximum number of metrics to return. (optional)
-     * @param metric The metric name for which to query metadata. If unset, all metric metadata is returned. (optional)
-     * @return HttpBody
+     * @param optionsRequestedPolicyVersion Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). (optional)
+     * @return Policy
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2068,16 +3201,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public HttpBody monitoringProjectsLocationPrometheusApiV1MetadataList(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String limit, String metric) throws ApiException {
-        ApiResponse<HttpBody> localVarResp = monitoringProjectsLocationPrometheusApiV1MetadataListWithHttpInfo(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, limit, metric);
+    public Policy connectorsProjectsLocationsProvidersGetIamPolicy(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer optionsRequestedPolicyVersion) throws ApiException {
+        ApiResponse<Policy> localVarResp = connectorsProjectsLocationsProvidersGetIamPolicyWithHttpInfo(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, optionsRequestedPolicyVersion);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Lists metadata for metrics.
-     * @param name Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; for now. (required)
+     * Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+     * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -2089,9 +3221,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param limit Maximum number of metrics to return. (optional)
-     * @param metric The metric name for which to query metadata. If unset, all metric metadata is returned. (optional)
-     * @return ApiResponse&lt;HttpBody&gt;
+     * @param optionsRequestedPolicyVersion Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). (optional)
+     * @return ApiResponse&lt;Policy&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2099,17 +3230,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<HttpBody> monitoringProjectsLocationPrometheusApiV1MetadataListWithHttpInfo(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String limit, String metric) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1MetadataListValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, limit, metric, null);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
+    public ApiResponse<Policy> connectorsProjectsLocationsProvidersGetIamPolicyWithHttpInfo(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer optionsRequestedPolicyVersion) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersGetIamPolicyValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, optionsRequestedPolicyVersion, null);
+        Type localVarReturnType = new TypeToken<Policy>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Lists metadata for metrics.
-     * @param name Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; for now. (required)
+     * Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+     * @param resource REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -2121,8 +3251,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param limit Maximum number of metrics to return. (optional)
-     * @param metric The metric name for which to query metadata. If unset, all metric metadata is returned. (optional)
+     * @param optionsRequestedPolicyVersion Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2132,17 +3261,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1MetadataListAsync(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, String limit, String metric, final ApiCallback<HttpBody> _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersGetIamPolicyAsync(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer optionsRequestedPolicyVersion, final ApiCallback<Policy> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1MetadataListValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, limit, metric, _callback);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersGetIamPolicyValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, optionsRequestedPolicyVersion, _callback);
+        Type localVarReturnType = new TypeToken<Policy>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for monitoringProjectsLocationPrometheusApiV1Query
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Build call for connectorsProjectsLocationsProvidersList
+     * @param parent Required. Parent resource of the API, of the form: &#x60;projects/_*_/locations/_*&#x60; Only global location is supported for Provider resource. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -2154,7 +3282,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryInstantRequest  (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2164,7 +3293,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1QueryCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryInstantRequest queryInstantRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersListCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2178,12 +3307,237 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = queryInstantRequest;
+        Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/{name}/location/{location}/prometheus/api/v1/query"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
-            .replace("{" + "location" + "}", localVarApiClient.escapeString(location.toString()));
+        String localVarPath = "/v1/{parent}/providers"
+            .replace("{" + "parent" + "}", localVarApiClient.escapeString(parent.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if ($xgafv != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
+        }
+
+        if (accessToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
+        }
+
+        if (alt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
+        }
+
+        if (paramCallback != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
+        }
+
+        if (fields != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
+        }
+
+        if (key != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
+        }
+
+        if (oauthToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
+        }
+
+        if (prettyPrint != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
+        }
+
+        if (quotaUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
+        }
+
+        if (uploadProtocol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
+        }
+
+        if (uploadType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call connectorsProjectsLocationsProvidersListValidateBeforeCall(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'parent' is set
+        if (parent == null) {
+            throw new ApiException("Missing the required parameter 'parent' when calling connectorsProjectsLocationsProvidersList(Async)");
+        }
+
+        return connectorsProjectsLocationsProvidersListCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Lists Providers in a given project and location.
+     * @param parent Required. Parent resource of the API, of the form: &#x60;projects/_*_/locations/_*&#x60; Only global location is supported for Provider resource. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @return ListProvidersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListProvidersResponse connectorsProjectsLocationsProvidersList(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken) throws ApiException {
+        ApiResponse<ListProvidersResponse> localVarResp = connectorsProjectsLocationsProvidersListWithHttpInfo(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Lists Providers in a given project and location.
+     * @param parent Required. Parent resource of the API, of the form: &#x60;projects/_*_/locations/_*&#x60; Only global location is supported for Provider resource. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @return ApiResponse&lt;ListProvidersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListProvidersResponse> connectorsProjectsLocationsProvidersListWithHttpInfo(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListProvidersResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Lists Providers in a given project and location.
+     * @param parent Required. Parent resource of the API, of the form: &#x60;projects/_*_/locations/_*&#x60; Only global location is supported for Provider resource. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param pageSize Page size. (optional)
+     * @param pageToken Page token. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsProvidersListAsync(String parent, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, Integer pageSize, String pageToken, final ApiCallback<ListProvidersResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersListValidateBeforeCall(parent, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, pageSize, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListProvidersResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for connectorsProjectsLocationsProvidersSetIamPolicy
+     * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
+     * @param $xgafv V1 error format. (optional)
+     * @param accessToken OAuth access token. (optional)
+     * @param alt Data format for response. (optional)
+     * @param paramCallback JSONP (optional)
+     * @param fields Selector specifying which fields to include in a partial response. (optional)
+     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
+     * @param oauthToken OAuth 2.0 token for the current user. (optional)
+     * @param prettyPrint Returns response with indentations and line breaks. (optional)
+     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
+     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
+     * @param setIamPolicyRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call connectorsProjectsLocationsProvidersSetIamPolicyCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, SetIamPolicyRequest setIamPolicyRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = setIamPolicyRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1/{resource}:setIamPolicy"
+            .replace("{" + "resource" + "}", localVarApiClient.escapeString(resource.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2256,26 +3610,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsLocationPrometheusApiV1QueryValidateBeforeCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryInstantRequest queryInstantRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling monitoringProjectsLocationPrometheusApiV1Query(Async)");
+    private okhttp3.Call connectorsProjectsLocationsProvidersSetIamPolicyValidateBeforeCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, SetIamPolicyRequest setIamPolicyRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'resource' is set
+        if (resource == null) {
+            throw new ApiException("Missing the required parameter 'resource' when calling connectorsProjectsLocationsProvidersSetIamPolicy(Async)");
         }
 
-        // verify the required parameter 'location' is set
-        if (location == null) {
-            throw new ApiException("Missing the required parameter 'location' when calling monitoringProjectsLocationPrometheusApiV1Query(Async)");
-        }
-
-        return monitoringProjectsLocationPrometheusApiV1QueryCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryInstantRequest, _callback);
+        return connectorsProjectsLocationsProvidersSetIamPolicyCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest, _callback);
 
     }
 
     /**
      * 
-     * Evaluate a PromQL query at a single point in time.
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Sets the access control policy on the specified resource. Replaces any existing policy. Can return &#x60;NOT_FOUND&#x60;, &#x60;INVALID_ARGUMENT&#x60;, and &#x60;PERMISSION_DENIED&#x60; errors.
+     * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -2287,8 +3635,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryInstantRequest  (optional)
-     * @return HttpBody
+     * @param setIamPolicyRequest  (optional)
+     * @return Policy
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2296,16 +3644,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public HttpBody monitoringProjectsLocationPrometheusApiV1Query(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryInstantRequest queryInstantRequest) throws ApiException {
-        ApiResponse<HttpBody> localVarResp = monitoringProjectsLocationPrometheusApiV1QueryWithHttpInfo(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryInstantRequest);
+    public Policy connectorsProjectsLocationsProvidersSetIamPolicy(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, SetIamPolicyRequest setIamPolicyRequest) throws ApiException {
+        ApiResponse<Policy> localVarResp = connectorsProjectsLocationsProvidersSetIamPolicyWithHttpInfo(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Evaluate a PromQL query at a single point in time.
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Sets the access control policy on the specified resource. Replaces any existing policy. Can return &#x60;NOT_FOUND&#x60;, &#x60;INVALID_ARGUMENT&#x60;, and &#x60;PERMISSION_DENIED&#x60; errors.
+     * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -2317,8 +3664,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryInstantRequest  (optional)
-     * @return ApiResponse&lt;HttpBody&gt;
+     * @param setIamPolicyRequest  (optional)
+     * @return ApiResponse&lt;Policy&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2326,17 +3673,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<HttpBody> monitoringProjectsLocationPrometheusApiV1QueryWithHttpInfo(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryInstantRequest queryInstantRequest) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1QueryValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryInstantRequest, null);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
+    public ApiResponse<Policy> connectorsProjectsLocationsProvidersSetIamPolicyWithHttpInfo(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, SetIamPolicyRequest setIamPolicyRequest) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersSetIamPolicyValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest, null);
+        Type localVarReturnType = new TypeToken<Policy>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Evaluate a PromQL query at a single point in time.
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Sets the access control policy on the specified resource. Replaces any existing policy. Can return &#x60;NOT_FOUND&#x60;, &#x60;INVALID_ARGUMENT&#x60;, and &#x60;PERMISSION_DENIED&#x60; errors.
+     * @param resource REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -2348,7 +3694,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryInstantRequest  (optional)
+     * @param setIamPolicyRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2358,17 +3704,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1QueryAsync(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryInstantRequest queryInstantRequest, final ApiCallback<HttpBody> _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersSetIamPolicyAsync(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, SetIamPolicyRequest setIamPolicyRequest, final ApiCallback<Policy> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1QueryValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryInstantRequest, _callback);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersSetIamPolicyValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, setIamPolicyRequest, _callback);
+        Type localVarReturnType = new TypeToken<Policy>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for monitoringProjectsLocationPrometheusApiV1QueryExemplars
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Build call for connectorsProjectsLocationsProvidersTestIamPermissions
+     * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -2380,7 +3725,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryExemplarsRequest  (optional)
+     * @param testIamPermissionsRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2390,7 +3735,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1QueryExemplarsCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryExemplarsRequest queryExemplarsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersTestIamPermissionsCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, TestIamPermissionsRequest testIamPermissionsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2404,12 +3749,11 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = queryExemplarsRequest;
+        Object localVarPostBody = testIamPermissionsRequest;
 
         // create path and map variables
-        String localVarPath = "/v1/{name}/location/{location}/prometheus/api/v1/query_exemplars"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
-            .replace("{" + "location" + "}", localVarApiClient.escapeString(location.toString()));
+        String localVarPath = "/v1/{resource}:testIamPermissions"
+            .replace("{" + "resource" + "}", localVarApiClient.escapeString(resource.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2482,26 +3826,20 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsLocationPrometheusApiV1QueryExemplarsValidateBeforeCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryExemplarsRequest queryExemplarsRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling monitoringProjectsLocationPrometheusApiV1QueryExemplars(Async)");
+    private okhttp3.Call connectorsProjectsLocationsProvidersTestIamPermissionsValidateBeforeCall(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, TestIamPermissionsRequest testIamPermissionsRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'resource' is set
+        if (resource == null) {
+            throw new ApiException("Missing the required parameter 'resource' when calling connectorsProjectsLocationsProvidersTestIamPermissions(Async)");
         }
 
-        // verify the required parameter 'location' is set
-        if (location == null) {
-            throw new ApiException("Missing the required parameter 'location' when calling monitoringProjectsLocationPrometheusApiV1QueryExemplars(Async)");
-        }
-
-        return monitoringProjectsLocationPrometheusApiV1QueryExemplarsCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryExemplarsRequest, _callback);
+        return connectorsProjectsLocationsProvidersTestIamPermissionsCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest, _callback);
 
     }
 
     /**
      * 
-     * Lists exemplars relevant to a given PromQL query,
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a &#x60;NOT_FOUND&#x60; error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \&quot;fail open\&quot; without warning.
+     * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -2513,8 +3851,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryExemplarsRequest  (optional)
-     * @return HttpBody
+     * @param testIamPermissionsRequest  (optional)
+     * @return TestIamPermissionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2522,16 +3860,15 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public HttpBody monitoringProjectsLocationPrometheusApiV1QueryExemplars(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryExemplarsRequest queryExemplarsRequest) throws ApiException {
-        ApiResponse<HttpBody> localVarResp = monitoringProjectsLocationPrometheusApiV1QueryExemplarsWithHttpInfo(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryExemplarsRequest);
+    public TestIamPermissionsResponse connectorsProjectsLocationsProvidersTestIamPermissions(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, TestIamPermissionsRequest testIamPermissionsRequest) throws ApiException {
+        ApiResponse<TestIamPermissionsResponse> localVarResp = connectorsProjectsLocationsProvidersTestIamPermissionsWithHttpInfo(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Lists exemplars relevant to a given PromQL query,
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a &#x60;NOT_FOUND&#x60; error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \&quot;fail open\&quot; without warning.
+     * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -2543,8 +3880,8 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryExemplarsRequest  (optional)
-     * @return ApiResponse&lt;HttpBody&gt;
+     * @param testIamPermissionsRequest  (optional)
+     * @return ApiResponse&lt;TestIamPermissionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2552,17 +3889,16 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<HttpBody> monitoringProjectsLocationPrometheusApiV1QueryExemplarsWithHttpInfo(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryExemplarsRequest queryExemplarsRequest) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1QueryExemplarsValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryExemplarsRequest, null);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
+    public ApiResponse<TestIamPermissionsResponse> connectorsProjectsLocationsProvidersTestIamPermissionsWithHttpInfo(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, TestIamPermissionsRequest testIamPermissionsRequest) throws ApiException {
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersTestIamPermissionsValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest, null);
+        Type localVarReturnType = new TypeToken<TestIamPermissionsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Lists exemplars relevant to a given PromQL query,
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
+     * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a &#x60;NOT_FOUND&#x60; error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \&quot;fail open\&quot; without warning.
+     * @param resource REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. (required)
      * @param $xgafv V1 error format. (optional)
      * @param accessToken OAuth access token. (optional)
      * @param alt Data format for response. (optional)
@@ -2574,7 +3910,7 @@ public class ProjectsApi {
      * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
      * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
      * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryExemplarsRequest  (optional)
+     * @param testIamPermissionsRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2584,462 +3920,10 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1QueryExemplarsAsync(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryExemplarsRequest queryExemplarsRequest, final ApiCallback<HttpBody> _callback) throws ApiException {
+    public okhttp3.Call connectorsProjectsLocationsProvidersTestIamPermissionsAsync(String resource, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, TestIamPermissionsRequest testIamPermissionsRequest, final ApiCallback<TestIamPermissionsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1QueryExemplarsValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryExemplarsRequest, _callback);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for monitoringProjectsLocationPrometheusApiV1QueryRange
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryRangeRequest  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1QueryRangeCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryRangeRequest queryRangeRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = queryRangeRequest;
-
-        // create path and map variables
-        String localVarPath = "/v1/{name}/location/{location}/prometheus/api/v1/query_range"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
-            .replace("{" + "location" + "}", localVarApiClient.escapeString(location.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsLocationPrometheusApiV1QueryRangeValidateBeforeCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryRangeRequest queryRangeRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling monitoringProjectsLocationPrometheusApiV1QueryRange(Async)");
-        }
-
-        // verify the required parameter 'location' is set
-        if (location == null) {
-            throw new ApiException("Missing the required parameter 'location' when calling monitoringProjectsLocationPrometheusApiV1QueryRange(Async)");
-        }
-
-        return monitoringProjectsLocationPrometheusApiV1QueryRangeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryRangeRequest, _callback);
-
-    }
-
-    /**
-     * 
-     * Evaluate a PromQL query with start, end time range.
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryRangeRequest  (optional)
-     * @return HttpBody
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public HttpBody monitoringProjectsLocationPrometheusApiV1QueryRange(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryRangeRequest queryRangeRequest) throws ApiException {
-        ApiResponse<HttpBody> localVarResp = monitoringProjectsLocationPrometheusApiV1QueryRangeWithHttpInfo(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryRangeRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * Evaluate a PromQL query with start, end time range.
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryRangeRequest  (optional)
-     * @return ApiResponse&lt;HttpBody&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<HttpBody> monitoringProjectsLocationPrometheusApiV1QueryRangeWithHttpInfo(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryRangeRequest queryRangeRequest) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1QueryRangeValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryRangeRequest, null);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * Evaluate a PromQL query with start, end time range.
-     * @param name The project on which to execute the request. Data associcated with the project&#39;s workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param queryRangeRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1QueryRangeAsync(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QueryRangeRequest queryRangeRequest, final ApiCallback<HttpBody> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1QueryRangeValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, queryRangeRequest, _callback);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for monitoringProjectsLocationPrometheusApiV1Series
-     * @param name Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; for now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param querySeriesRequest  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1SeriesCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QuerySeriesRequest querySeriesRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = querySeriesRequest;
-
-        // create path and map variables
-        String localVarPath = "/v1/{name}/location/{location}/prometheus/api/v1/series"
-            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
-            .replace("{" + "location" + "}", localVarApiClient.escapeString(location.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if ($xgafv != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("$.xgafv", $xgafv));
-        }
-
-        if (accessToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_token", accessToken));
-        }
-
-        if (alt != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("alt", alt));
-        }
-
-        if (paramCallback != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("callback", paramCallback));
-        }
-
-        if (fields != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
-        }
-
-        if (key != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key", key));
-        }
-
-        if (oauthToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oauth_token", oauthToken));
-        }
-
-        if (prettyPrint != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prettyPrint", prettyPrint));
-        }
-
-        if (quotaUser != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("quotaUser", quotaUser));
-        }
-
-        if (uploadProtocol != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("upload_protocol", uploadProtocol));
-        }
-
-        if (uploadType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uploadType", uploadType));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "Oauth2c", "Oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call monitoringProjectsLocationPrometheusApiV1SeriesValidateBeforeCall(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QuerySeriesRequest querySeriesRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'name' is set
-        if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling monitoringProjectsLocationPrometheusApiV1Series(Async)");
-        }
-
-        // verify the required parameter 'location' is set
-        if (location == null) {
-            throw new ApiException("Missing the required parameter 'location' when calling monitoringProjectsLocationPrometheusApiV1Series(Async)");
-        }
-
-        return monitoringProjectsLocationPrometheusApiV1SeriesCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, querySeriesRequest, _callback);
-
-    }
-
-    /**
-     * 
-     * Lists metadata for metrics.
-     * @param name Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; for now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param querySeriesRequest  (optional)
-     * @return HttpBody
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public HttpBody monitoringProjectsLocationPrometheusApiV1Series(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QuerySeriesRequest querySeriesRequest) throws ApiException {
-        ApiResponse<HttpBody> localVarResp = monitoringProjectsLocationPrometheusApiV1SeriesWithHttpInfo(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, querySeriesRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * Lists metadata for metrics.
-     * @param name Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; for now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param querySeriesRequest  (optional)
-     * @return ApiResponse&lt;HttpBody&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<HttpBody> monitoringProjectsLocationPrometheusApiV1SeriesWithHttpInfo(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QuerySeriesRequest querySeriesRequest) throws ApiException {
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1SeriesValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, querySeriesRequest, null);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * Lists metadata for metrics.
-     * @param name Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER. (required)
-     * @param location Location of the resource information. Has to be \&quot;global\&quot; for now. (required)
-     * @param $xgafv V1 error format. (optional)
-     * @param accessToken OAuth access token. (optional)
-     * @param alt Data format for response. (optional)
-     * @param paramCallback JSONP (optional)
-     * @param fields Selector specifying which fields to include in a partial response. (optional)
-     * @param key API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. (optional)
-     * @param oauthToken OAuth 2.0 token for the current user. (optional)
-     * @param prettyPrint Returns response with indentations and line breaks. (optional)
-     * @param quotaUser Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. (optional)
-     * @param uploadProtocol Upload protocol for media (e.g. \&quot;raw\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param uploadType Legacy upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;). (optional)
-     * @param querySeriesRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call monitoringProjectsLocationPrometheusApiV1SeriesAsync(String name, String location, String $xgafv, String accessToken, String alt, String paramCallback, String fields, String key, String oauthToken, Boolean prettyPrint, String quotaUser, String uploadProtocol, String uploadType, QuerySeriesRequest querySeriesRequest, final ApiCallback<HttpBody> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = monitoringProjectsLocationPrometheusApiV1SeriesValidateBeforeCall(name, location, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, querySeriesRequest, _callback);
-        Type localVarReturnType = new TypeToken<HttpBody>(){}.getType();
+        okhttp3.Call localVarCall = connectorsProjectsLocationsProvidersTestIamPermissionsValidateBeforeCall(resource, $xgafv, accessToken, alt, paramCallback, fields, key, oauthToken, prettyPrint, quotaUser, uploadProtocol, uploadType, testIamPermissionsRequest, _callback);
+        Type localVarReturnType = new TypeToken<TestIamPermissionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

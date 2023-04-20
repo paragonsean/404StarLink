@@ -1,6 +1,6 @@
 /*
- * Serverless VPC Access API
- * API for managing VPC access connectors.
+ * Connectors API
+ * Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -49,9 +49,9 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * Response for listing Serverless VPC Access connectors.
+ * Response message for Connectors.ListConnectors.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:02:59.321628-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:12:13.662521-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ListConnectorsResponse {
   public static final String SERIALIZED_NAME_CONNECTORS = "connectors";
   @SerializedName(SERIALIZED_NAME_CONNECTORS)
@@ -60,6 +60,10 @@ public class ListConnectorsResponse {
   public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "nextPageToken";
   @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)
   private String nextPageToken;
+
+  public static final String SERIALIZED_NAME_UNREACHABLE = "unreachable";
+  @SerializedName(SERIALIZED_NAME_UNREACHABLE)
+  private List<String> unreachable = new ArrayList<>();
 
   public ListConnectorsResponse() {
   }
@@ -78,7 +82,7 @@ public class ListConnectorsResponse {
   }
 
   /**
-   * List of Serverless VPC Access connectors.
+   * A list of connectors.
    * @return connectors
    */
   @javax.annotation.Nullable
@@ -97,7 +101,7 @@ public class ListConnectorsResponse {
   }
 
   /**
-   * Continuation token.
+   * Next page token.
    * @return nextPageToken
    */
   @javax.annotation.Nullable
@@ -107,6 +111,33 @@ public class ListConnectorsResponse {
 
   public void setNextPageToken(String nextPageToken) {
     this.nextPageToken = nextPageToken;
+  }
+
+
+  public ListConnectorsResponse unreachable(List<String> unreachable) {
+    this.unreachable = unreachable;
+    return this;
+  }
+
+  public ListConnectorsResponse addUnreachableItem(String unreachableItem) {
+    if (this.unreachable == null) {
+      this.unreachable = new ArrayList<>();
+    }
+    this.unreachable.add(unreachableItem);
+    return this;
+  }
+
+  /**
+   * Locations that could not be reached.
+   * @return unreachable
+   */
+  @javax.annotation.Nullable
+  public List<String> getUnreachable() {
+    return unreachable;
+  }
+
+  public void setUnreachable(List<String> unreachable) {
+    this.unreachable = unreachable;
   }
 
 
@@ -121,12 +152,13 @@ public class ListConnectorsResponse {
     }
     ListConnectorsResponse listConnectorsResponse = (ListConnectorsResponse) o;
     return Objects.equals(this.connectors, listConnectorsResponse.connectors) &&
-        Objects.equals(this.nextPageToken, listConnectorsResponse.nextPageToken);
+        Objects.equals(this.nextPageToken, listConnectorsResponse.nextPageToken) &&
+        Objects.equals(this.unreachable, listConnectorsResponse.unreachable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectors, nextPageToken);
+    return Objects.hash(connectors, nextPageToken, unreachable);
   }
 
   @Override
@@ -135,6 +167,7 @@ public class ListConnectorsResponse {
     sb.append("class ListConnectorsResponse {\n");
     sb.append("    connectors: ").append(toIndentedString(connectors)).append("\n");
     sb.append("    nextPageToken: ").append(toIndentedString(nextPageToken)).append("\n");
+    sb.append("    unreachable: ").append(toIndentedString(unreachable)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -159,6 +192,7 @@ public class ListConnectorsResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("connectors");
     openapiFields.add("nextPageToken");
+    openapiFields.add("unreachable");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -201,6 +235,10 @@ public class ListConnectorsResponse {
       }
       if ((jsonObj.get("nextPageToken") != null && !jsonObj.get("nextPageToken").isJsonNull()) && !jsonObj.get("nextPageToken").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nextPageToken` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nextPageToken").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("unreachable") != null && !jsonObj.get("unreachable").isJsonNull() && !jsonObj.get("unreachable").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `unreachable` to be an array in the JSON string but got `%s`", jsonObj.get("unreachable").toString()));
       }
   }
 

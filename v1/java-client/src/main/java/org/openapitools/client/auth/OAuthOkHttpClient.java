@@ -1,6 +1,6 @@
 /*
- * Cloud Monitoring API
- * Manages your Cloud Monitoring data and configurations.
+ * Connectors API
+ * Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.
  *
  * The version of the OpenAPI document: v1
  * 

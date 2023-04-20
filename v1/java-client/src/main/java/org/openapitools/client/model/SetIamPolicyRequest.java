@@ -1,6 +1,6 @@
 /*
- * Container Analysis API
- * An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
+ * Connectors API
+ * Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -49,11 +49,15 @@ import org.openapitools.client.JSON;
 /**
  * Request message for &#x60;SetIamPolicy&#x60; method.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:10:53.550882-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:12:13.662521-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class SetIamPolicyRequest {
   public static final String SERIALIZED_NAME_POLICY = "policy";
   @SerializedName(SERIALIZED_NAME_POLICY)
   private Policy policy;
+
+  public static final String SERIALIZED_NAME_UPDATE_MASK = "updateMask";
+  @SerializedName(SERIALIZED_NAME_UPDATE_MASK)
+  private String updateMask;
 
   public SetIamPolicyRequest() {
   }
@@ -77,6 +81,25 @@ public class SetIamPolicyRequest {
   }
 
 
+  public SetIamPolicyRequest updateMask(String updateMask) {
+    this.updateMask = updateMask;
+    return this;
+  }
+
+  /**
+   * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used: &#x60;paths: \&quot;bindings, etag\&quot;&#x60;
+   * @return updateMask
+   */
+  @javax.annotation.Nullable
+  public String getUpdateMask() {
+    return updateMask;
+  }
+
+  public void setUpdateMask(String updateMask) {
+    this.updateMask = updateMask;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -87,12 +110,13 @@ public class SetIamPolicyRequest {
       return false;
     }
     SetIamPolicyRequest setIamPolicyRequest = (SetIamPolicyRequest) o;
-    return Objects.equals(this.policy, setIamPolicyRequest.policy);
+    return Objects.equals(this.policy, setIamPolicyRequest.policy) &&
+        Objects.equals(this.updateMask, setIamPolicyRequest.updateMask);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(policy);
+    return Objects.hash(policy, updateMask);
   }
 
   @Override
@@ -100,6 +124,7 @@ public class SetIamPolicyRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetIamPolicyRequest {\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
+    sb.append("    updateMask: ").append(toIndentedString(updateMask)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -123,6 +148,7 @@ public class SetIamPolicyRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("policy");
+    openapiFields.add("updateMask");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -152,6 +178,9 @@ public class SetIamPolicyRequest {
       // validate the optional field `policy`
       if (jsonObj.get("policy") != null && !jsonObj.get("policy").isJsonNull()) {
         Policy.validateJsonElement(jsonObj.get("policy"));
+      }
+      if ((jsonObj.get("updateMask") != null && !jsonObj.get("updateMask").isJsonNull()) && !jsonObj.get("updateMask").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updateMask` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updateMask").toString()));
       }
   }
 

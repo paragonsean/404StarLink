@@ -2,59 +2,72 @@
 
 # Field
 
-A single field of a message type.
+Metadata of an entity field.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**cardinality** | [**CardinalityEnum**](#CardinalityEnum) | The field cardinality. |  [optional] |
-|**defaultValue** | **String** | The string value of the default value of this field. Proto2 syntax only. |  [optional] |
-|**jsonName** | **String** | The field JSON name. |  [optional] |
-|**kind** | [**KindEnum**](#KindEnum) | The field type. |  [optional] |
-|**name** | **String** | The field name. |  [optional] |
-|**number** | **Integer** | The field number. |  [optional] |
-|**oneofIndex** | **Integer** | The index of the field type in Type.oneofs, for message or enumeration types. The first type has index 1; zero means the type is not in the list. |  [optional] |
-|**options** | [**List&lt;Option&gt;**](Option.md) | The protocol buffer options. |  [optional] |
-|**packed** | **Boolean** | Whether to use alternative packed wire representation. |  [optional] |
-|**typeUrl** | **String** | The field type URL, without the scheme, for message or enumeration types. Example: \&quot;type.googleapis.com/google.protobuf.Timestamp\&quot;. |  [optional] |
+|**additionalDetails** | **Map&lt;String, Object&gt;** | The following map contains fields that are not explicitly mentioned above,this give connectors the flexibility to add new metadata fields. |  [optional] |
+|**dataType** | [**DataTypeEnum**](#DataTypeEnum) | The data type of the Field. |  [optional] |
+|**defaultValue** | **Object** | The following field specifies the default value of the Field provided by the external system if a value is not provided. |  [optional] |
+|**description** | **String** | A brief description of the Field. |  [optional] |
+|**field** | **String** | Name of the Field. |  [optional] |
+|**key** | **Boolean** | The following boolean field specifies if the current Field acts as a primary key or id if the parent is of type entity. |  [optional] |
+|**nullable** | **Boolean** | Specifies whether a null value is allowed. |  [optional] |
+|**readonly** | **Boolean** | Specifies if the Field is readonly. |  [optional] |
 
 
 
-## Enum: CardinalityEnum
+## Enum: DataTypeEnum
 
 | Name | Value |
 |---- | -----|
-| UNKNOWN | &quot;CARDINALITY_UNKNOWN&quot; |
-| OPTIONAL | &quot;CARDINALITY_OPTIONAL&quot; |
-| REQUIRED | &quot;CARDINALITY_REQUIRED&quot; |
-| REPEATED | &quot;CARDINALITY_REPEATED&quot; |
-
-
-
-## Enum: KindEnum
-
-| Name | Value |
-|---- | -----|
-| UNKNOWN | &quot;TYPE_UNKNOWN&quot; |
-| DOUBLE | &quot;TYPE_DOUBLE&quot; |
-| FLOAT | &quot;TYPE_FLOAT&quot; |
-| INT64 | &quot;TYPE_INT64&quot; |
-| UINT64 | &quot;TYPE_UINT64&quot; |
-| INT32 | &quot;TYPE_INT32&quot; |
-| FIXED64 | &quot;TYPE_FIXED64&quot; |
-| FIXED32 | &quot;TYPE_FIXED32&quot; |
-| BOOL | &quot;TYPE_BOOL&quot; |
-| STRING | &quot;TYPE_STRING&quot; |
-| GROUP | &quot;TYPE_GROUP&quot; |
-| MESSAGE | &quot;TYPE_MESSAGE&quot; |
-| BYTES | &quot;TYPE_BYTES&quot; |
-| UINT32 | &quot;TYPE_UINT32&quot; |
-| ENUM | &quot;TYPE_ENUM&quot; |
-| SFIXED32 | &quot;TYPE_SFIXED32&quot; |
-| SFIXED64 | &quot;TYPE_SFIXED64&quot; |
-| SINT32 | &quot;TYPE_SINT32&quot; |
-| SINT64 | &quot;TYPE_SINT64&quot; |
+| UNSPECIFIED | &quot;DATA_TYPE_UNSPECIFIED&quot; |
+| INT | &quot;DATA_TYPE_INT&quot; |
+| SMALLINT | &quot;DATA_TYPE_SMALLINT&quot; |
+| DOUBLE | &quot;DATA_TYPE_DOUBLE&quot; |
+| DATE | &quot;DATA_TYPE_DATE&quot; |
+| DATETIME | &quot;DATA_TYPE_DATETIME&quot; |
+| TIME | &quot;DATA_TYPE_TIME&quot; |
+| STRING | &quot;DATA_TYPE_STRING&quot; |
+| LONG | &quot;DATA_TYPE_LONG&quot; |
+| BOOLEAN | &quot;DATA_TYPE_BOOLEAN&quot; |
+| DECIMAL | &quot;DATA_TYPE_DECIMAL&quot; |
+| UUID | &quot;DATA_TYPE_UUID&quot; |
+| BLOB | &quot;DATA_TYPE_BLOB&quot; |
+| BIT | &quot;DATA_TYPE_BIT&quot; |
+| TINYINT | &quot;DATA_TYPE_TINYINT&quot; |
+| INTEGER | &quot;DATA_TYPE_INTEGER&quot; |
+| BIGINT | &quot;DATA_TYPE_BIGINT&quot; |
+| FLOAT | &quot;DATA_TYPE_FLOAT&quot; |
+| REAL | &quot;DATA_TYPE_REAL&quot; |
+| NUMERIC | &quot;DATA_TYPE_NUMERIC&quot; |
+| CHAR | &quot;DATA_TYPE_CHAR&quot; |
+| VARCHAR | &quot;DATA_TYPE_VARCHAR&quot; |
+| LONGVARCHAR | &quot;DATA_TYPE_LONGVARCHAR&quot; |
+| TIMESTAMP | &quot;DATA_TYPE_TIMESTAMP&quot; |
+| NCHAR | &quot;DATA_TYPE_NCHAR&quot; |
+| NVARCHAR | &quot;DATA_TYPE_NVARCHAR&quot; |
+| LONGNVARCHAR | &quot;DATA_TYPE_LONGNVARCHAR&quot; |
+| NULL | &quot;DATA_TYPE_NULL&quot; |
+| OTHER | &quot;DATA_TYPE_OTHER&quot; |
+| JAVA_OBJECT | &quot;DATA_TYPE_JAVA_OBJECT&quot; |
+| DISTINCT | &quot;DATA_TYPE_DISTINCT&quot; |
+| STRUCT | &quot;DATA_TYPE_STRUCT&quot; |
+| ARRAY | &quot;DATA_TYPE_ARRAY&quot; |
+| CLOB | &quot;DATA_TYPE_CLOB&quot; |
+| REF | &quot;DATA_TYPE_REF&quot; |
+| DATALINK | &quot;DATA_TYPE_DATALINK&quot; |
+| ROWID | &quot;DATA_TYPE_ROWID&quot; |
+| BINARY | &quot;DATA_TYPE_BINARY&quot; |
+| VARBINARY | &quot;DATA_TYPE_VARBINARY&quot; |
+| LONGVARBINARY | &quot;DATA_TYPE_LONGVARBINARY&quot; |
+| NCLOB | &quot;DATA_TYPE_NCLOB&quot; |
+| SQLXML | &quot;DATA_TYPE_SQLXML&quot; |
+| REF_CURSOR | &quot;DATA_TYPE_REF_CURSOR&quot; |
+| TIME_WITH_TIMEZONE | &quot;DATA_TYPE_TIME_WITH_TIMEZONE&quot; |
+| TIMESTAMP_WITH_TIMEZONE | &quot;DATA_TYPE_TIMESTAMP_WITH_TIMEZONE&quot; |
 
 
 

@@ -1,6 +1,6 @@
 /*
- * Cloud Monitoring API
- * Manages your Cloud Monitoring data and configurations.
+ * Connectors API
+ * Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -20,10 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import org.openapitools.client.model.Option;
+import java.util.HashMap;
+import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,26 +49,112 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * A single field of a message type.
+ * Metadata of an entity field.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:11:08.946005-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:12:13.662521-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Field {
+  public static final String SERIALIZED_NAME_ADDITIONAL_DETAILS = "additionalDetails";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_DETAILS)
+  private Map<String, Object> additionalDetails = new HashMap<>();
+
   /**
-   * The field cardinality.
+   * The data type of the Field.
    */
-  @JsonAdapter(CardinalityEnum.Adapter.class)
-  public enum CardinalityEnum {
-    UNKNOWN("CARDINALITY_UNKNOWN"),
+  @JsonAdapter(DataTypeEnum.Adapter.class)
+  public enum DataTypeEnum {
+    UNSPECIFIED("DATA_TYPE_UNSPECIFIED"),
     
-    OPTIONAL("CARDINALITY_OPTIONAL"),
+    INT("DATA_TYPE_INT"),
     
-    REQUIRED("CARDINALITY_REQUIRED"),
+    SMALLINT("DATA_TYPE_SMALLINT"),
     
-    REPEATED("CARDINALITY_REPEATED");
+    DOUBLE("DATA_TYPE_DOUBLE"),
+    
+    DATE("DATA_TYPE_DATE"),
+    
+    DATETIME("DATA_TYPE_DATETIME"),
+    
+    TIME("DATA_TYPE_TIME"),
+    
+    STRING("DATA_TYPE_STRING"),
+    
+    LONG("DATA_TYPE_LONG"),
+    
+    BOOLEAN("DATA_TYPE_BOOLEAN"),
+    
+    DECIMAL("DATA_TYPE_DECIMAL"),
+    
+    UUID("DATA_TYPE_UUID"),
+    
+    BLOB("DATA_TYPE_BLOB"),
+    
+    BIT("DATA_TYPE_BIT"),
+    
+    TINYINT("DATA_TYPE_TINYINT"),
+    
+    INTEGER("DATA_TYPE_INTEGER"),
+    
+    BIGINT("DATA_TYPE_BIGINT"),
+    
+    FLOAT("DATA_TYPE_FLOAT"),
+    
+    REAL("DATA_TYPE_REAL"),
+    
+    NUMERIC("DATA_TYPE_NUMERIC"),
+    
+    CHAR("DATA_TYPE_CHAR"),
+    
+    VARCHAR("DATA_TYPE_VARCHAR"),
+    
+    LONGVARCHAR("DATA_TYPE_LONGVARCHAR"),
+    
+    TIMESTAMP("DATA_TYPE_TIMESTAMP"),
+    
+    NCHAR("DATA_TYPE_NCHAR"),
+    
+    NVARCHAR("DATA_TYPE_NVARCHAR"),
+    
+    LONGNVARCHAR("DATA_TYPE_LONGNVARCHAR"),
+    
+    NULL("DATA_TYPE_NULL"),
+    
+    OTHER("DATA_TYPE_OTHER"),
+    
+    JAVA_OBJECT("DATA_TYPE_JAVA_OBJECT"),
+    
+    DISTINCT("DATA_TYPE_DISTINCT"),
+    
+    STRUCT("DATA_TYPE_STRUCT"),
+    
+    ARRAY("DATA_TYPE_ARRAY"),
+    
+    CLOB("DATA_TYPE_CLOB"),
+    
+    REF("DATA_TYPE_REF"),
+    
+    DATALINK("DATA_TYPE_DATALINK"),
+    
+    ROWID("DATA_TYPE_ROWID"),
+    
+    BINARY("DATA_TYPE_BINARY"),
+    
+    VARBINARY("DATA_TYPE_VARBINARY"),
+    
+    LONGVARBINARY("DATA_TYPE_LONGVARBINARY"),
+    
+    NCLOB("DATA_TYPE_NCLOB"),
+    
+    SQLXML("DATA_TYPE_SQLXML"),
+    
+    REF_CURSOR("DATA_TYPE_REF_CURSOR"),
+    
+    TIME_WITH_TIMEZONE("DATA_TYPE_TIME_WITH_TIMEZONE"),
+    
+    TIMESTAMP_WITH_TIMEZONE("DATA_TYPE_TIMESTAMP_WITH_TIMEZONE");
 
     private String value;
 
-    CardinalityEnum(String value) {
+    DataTypeEnum(String value) {
       this.value = value;
     }
 
@@ -81,8 +167,8 @@ public class Field {
       return String.valueOf(value);
     }
 
-    public static CardinalityEnum fromValue(String value) {
-      for (CardinalityEnum b : CardinalityEnum.values()) {
+    public static DataTypeEnum fromValue(String value) {
+      for (DataTypeEnum b : DataTypeEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -90,349 +176,213 @@ public class Field {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 
-    public static class Adapter extends TypeAdapter<CardinalityEnum> {
+    public static class Adapter extends TypeAdapter<DataTypeEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final CardinalityEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final DataTypeEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public CardinalityEnum read(final JsonReader jsonReader) throws IOException {
+      public DataTypeEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return CardinalityEnum.fromValue(value);
+        return DataTypeEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       String value = jsonElement.getAsString();
-      CardinalityEnum.fromValue(value);
+      DataTypeEnum.fromValue(value);
     }
   }
 
-  public static final String SERIALIZED_NAME_CARDINALITY = "cardinality";
-  @SerializedName(SERIALIZED_NAME_CARDINALITY)
-  private CardinalityEnum cardinality;
+  public static final String SERIALIZED_NAME_DATA_TYPE = "dataType";
+  @SerializedName(SERIALIZED_NAME_DATA_TYPE)
+  private DataTypeEnum dataType;
 
   public static final String SERIALIZED_NAME_DEFAULT_VALUE = "defaultValue";
   @SerializedName(SERIALIZED_NAME_DEFAULT_VALUE)
-  private String defaultValue;
+  private Object defaultValue = null;
 
-  public static final String SERIALIZED_NAME_JSON_NAME = "jsonName";
-  @SerializedName(SERIALIZED_NAME_JSON_NAME)
-  private String jsonName;
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-  /**
-   * The field type.
-   */
-  @JsonAdapter(KindEnum.Adapter.class)
-  public enum KindEnum {
-    UNKNOWN("TYPE_UNKNOWN"),
-    
-    DOUBLE("TYPE_DOUBLE"),
-    
-    FLOAT("TYPE_FLOAT"),
-    
-    INT64("TYPE_INT64"),
-    
-    UINT64("TYPE_UINT64"),
-    
-    INT32("TYPE_INT32"),
-    
-    FIXED64("TYPE_FIXED64"),
-    
-    FIXED32("TYPE_FIXED32"),
-    
-    BOOL("TYPE_BOOL"),
-    
-    STRING("TYPE_STRING"),
-    
-    GROUP("TYPE_GROUP"),
-    
-    MESSAGE("TYPE_MESSAGE"),
-    
-    BYTES("TYPE_BYTES"),
-    
-    UINT32("TYPE_UINT32"),
-    
-    ENUM("TYPE_ENUM"),
-    
-    SFIXED32("TYPE_SFIXED32"),
-    
-    SFIXED64("TYPE_SFIXED64"),
-    
-    SINT32("TYPE_SINT32"),
-    
-    SINT64("TYPE_SINT64");
+  public static final String SERIALIZED_NAME_FIELD = "field";
+  @SerializedName(SERIALIZED_NAME_FIELD)
+  private String field;
 
-    private String value;
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private Boolean key;
 
-    KindEnum(String value) {
-      this.value = value;
-    }
+  public static final String SERIALIZED_NAME_NULLABLE = "nullable";
+  @SerializedName(SERIALIZED_NAME_NULLABLE)
+  private Boolean nullable;
 
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static KindEnum fromValue(String value) {
-      for (KindEnum b : KindEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<KindEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final KindEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public KindEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return KindEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      KindEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_KIND = "kind";
-  @SerializedName(SERIALIZED_NAME_KIND)
-  private KindEnum kind;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_NUMBER = "number";
-  @SerializedName(SERIALIZED_NAME_NUMBER)
-  private Integer number;
-
-  public static final String SERIALIZED_NAME_ONEOF_INDEX = "oneofIndex";
-  @SerializedName(SERIALIZED_NAME_ONEOF_INDEX)
-  private Integer oneofIndex;
-
-  public static final String SERIALIZED_NAME_OPTIONS = "options";
-  @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<Option> options = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_PACKED = "packed";
-  @SerializedName(SERIALIZED_NAME_PACKED)
-  private Boolean packed;
-
-  public static final String SERIALIZED_NAME_TYPE_URL = "typeUrl";
-  @SerializedName(SERIALIZED_NAME_TYPE_URL)
-  private String typeUrl;
+  public static final String SERIALIZED_NAME_READONLY = "readonly";
+  @SerializedName(SERIALIZED_NAME_READONLY)
+  private Boolean readonly;
 
   public Field() {
   }
 
-  public Field cardinality(CardinalityEnum cardinality) {
-    this.cardinality = cardinality;
+  public Field additionalDetails(Map<String, Object> additionalDetails) {
+    this.additionalDetails = additionalDetails;
+    return this;
+  }
+
+  public Field putAdditionalDetailsItem(String key, Object additionalDetailsItem) {
+    if (this.additionalDetails == null) {
+      this.additionalDetails = new HashMap<>();
+    }
+    this.additionalDetails.put(key, additionalDetailsItem);
     return this;
   }
 
   /**
-   * The field cardinality.
-   * @return cardinality
+   * The following map contains fields that are not explicitly mentioned above,this give connectors the flexibility to add new metadata fields.
+   * @return additionalDetails
    */
   @javax.annotation.Nullable
-  public CardinalityEnum getCardinality() {
-    return cardinality;
+  public Map<String, Object> getAdditionalDetails() {
+    return additionalDetails;
   }
 
-  public void setCardinality(CardinalityEnum cardinality) {
-    this.cardinality = cardinality;
+  public void setAdditionalDetails(Map<String, Object> additionalDetails) {
+    this.additionalDetails = additionalDetails;
   }
 
 
-  public Field defaultValue(String defaultValue) {
+  public Field dataType(DataTypeEnum dataType) {
+    this.dataType = dataType;
+    return this;
+  }
+
+  /**
+   * The data type of the Field.
+   * @return dataType
+   */
+  @javax.annotation.Nullable
+  public DataTypeEnum getDataType() {
+    return dataType;
+  }
+
+  public void setDataType(DataTypeEnum dataType) {
+    this.dataType = dataType;
+  }
+
+
+  public Field defaultValue(Object defaultValue) {
     this.defaultValue = defaultValue;
     return this;
   }
 
   /**
-   * The string value of the default value of this field. Proto2 syntax only.
+   * The following field specifies the default value of the Field provided by the external system if a value is not provided.
    * @return defaultValue
    */
   @javax.annotation.Nullable
-  public String getDefaultValue() {
+  public Object getDefaultValue() {
     return defaultValue;
   }
 
-  public void setDefaultValue(String defaultValue) {
+  public void setDefaultValue(Object defaultValue) {
     this.defaultValue = defaultValue;
   }
 
 
-  public Field jsonName(String jsonName) {
-    this.jsonName = jsonName;
+  public Field description(String description) {
+    this.description = description;
     return this;
   }
 
   /**
-   * The field JSON name.
-   * @return jsonName
+   * A brief description of the Field.
+   * @return description
    */
   @javax.annotation.Nullable
-  public String getJsonName() {
-    return jsonName;
+  public String getDescription() {
+    return description;
   }
 
-  public void setJsonName(String jsonName) {
-    this.jsonName = jsonName;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
-  public Field kind(KindEnum kind) {
-    this.kind = kind;
+  public Field field(String field) {
+    this.field = field;
     return this;
   }
 
   /**
-   * The field type.
-   * @return kind
+   * Name of the Field.
+   * @return field
    */
   @javax.annotation.Nullable
-  public KindEnum getKind() {
-    return kind;
+  public String getField() {
+    return field;
   }
 
-  public void setKind(KindEnum kind) {
-    this.kind = kind;
+  public void setField(String field) {
+    this.field = field;
   }
 
 
-  public Field name(String name) {
-    this.name = name;
+  public Field key(Boolean key) {
+    this.key = key;
     return this;
   }
 
   /**
-   * The field name.
-   * @return name
+   * The following boolean field specifies if the current Field acts as a primary key or id if the parent is of type entity.
+   * @return key
    */
   @javax.annotation.Nullable
-  public String getName() {
-    return name;
+  public Boolean getKey() {
+    return key;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setKey(Boolean key) {
+    this.key = key;
   }
 
 
-  public Field number(Integer number) {
-    this.number = number;
+  public Field nullable(Boolean nullable) {
+    this.nullable = nullable;
     return this;
   }
 
   /**
-   * The field number.
-   * @return number
+   * Specifies whether a null value is allowed.
+   * @return nullable
    */
   @javax.annotation.Nullable
-  public Integer getNumber() {
-    return number;
+  public Boolean getNullable() {
+    return nullable;
   }
 
-  public void setNumber(Integer number) {
-    this.number = number;
+  public void setNullable(Boolean nullable) {
+    this.nullable = nullable;
   }
 
 
-  public Field oneofIndex(Integer oneofIndex) {
-    this.oneofIndex = oneofIndex;
+  public Field readonly(Boolean readonly) {
+    this.readonly = readonly;
     return this;
   }
 
   /**
-   * The index of the field type in Type.oneofs, for message or enumeration types. The first type has index 1; zero means the type is not in the list.
-   * @return oneofIndex
+   * Specifies if the Field is readonly.
+   * @return readonly
    */
   @javax.annotation.Nullable
-  public Integer getOneofIndex() {
-    return oneofIndex;
+  public Boolean getReadonly() {
+    return readonly;
   }
 
-  public void setOneofIndex(Integer oneofIndex) {
-    this.oneofIndex = oneofIndex;
-  }
-
-
-  public Field options(List<Option> options) {
-    this.options = options;
-    return this;
-  }
-
-  public Field addOptionsItem(Option optionsItem) {
-    if (this.options == null) {
-      this.options = new ArrayList<>();
-    }
-    this.options.add(optionsItem);
-    return this;
-  }
-
-  /**
-   * The protocol buffer options.
-   * @return options
-   */
-  @javax.annotation.Nullable
-  public List<Option> getOptions() {
-    return options;
-  }
-
-  public void setOptions(List<Option> options) {
-    this.options = options;
-  }
-
-
-  public Field packed(Boolean packed) {
-    this.packed = packed;
-    return this;
-  }
-
-  /**
-   * Whether to use alternative packed wire representation.
-   * @return packed
-   */
-  @javax.annotation.Nullable
-  public Boolean getPacked() {
-    return packed;
-  }
-
-  public void setPacked(Boolean packed) {
-    this.packed = packed;
-  }
-
-
-  public Field typeUrl(String typeUrl) {
-    this.typeUrl = typeUrl;
-    return this;
-  }
-
-  /**
-   * The field type URL, without the scheme, for message or enumeration types. Example: \&quot;type.googleapis.com/google.protobuf.Timestamp\&quot;.
-   * @return typeUrl
-   */
-  @javax.annotation.Nullable
-  public String getTypeUrl() {
-    return typeUrl;
-  }
-
-  public void setTypeUrl(String typeUrl) {
-    this.typeUrl = typeUrl;
+  public void setReadonly(Boolean readonly) {
+    this.readonly = readonly;
   }
 
 
@@ -446,37 +396,44 @@ public class Field {
       return false;
     }
     Field field = (Field) o;
-    return Objects.equals(this.cardinality, field.cardinality) &&
+    return Objects.equals(this.additionalDetails, field.additionalDetails) &&
+        Objects.equals(this.dataType, field.dataType) &&
         Objects.equals(this.defaultValue, field.defaultValue) &&
-        Objects.equals(this.jsonName, field.jsonName) &&
-        Objects.equals(this.kind, field.kind) &&
-        Objects.equals(this.name, field.name) &&
-        Objects.equals(this.number, field.number) &&
-        Objects.equals(this.oneofIndex, field.oneofIndex) &&
-        Objects.equals(this.options, field.options) &&
-        Objects.equals(this.packed, field.packed) &&
-        Objects.equals(this.typeUrl, field.typeUrl);
+        Objects.equals(this.description, field.description) &&
+        Objects.equals(this.field, field.field) &&
+        Objects.equals(this.key, field.key) &&
+        Objects.equals(this.nullable, field.nullable) &&
+        Objects.equals(this.readonly, field.readonly);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardinality, defaultValue, jsonName, kind, name, number, oneofIndex, options, packed, typeUrl);
+    return Objects.hash(additionalDetails, dataType, defaultValue, description, field, key, nullable, readonly);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Field {\n");
-    sb.append("    cardinality: ").append(toIndentedString(cardinality)).append("\n");
+    sb.append("    additionalDetails: ").append(toIndentedString(additionalDetails)).append("\n");
+    sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
-    sb.append("    jsonName: ").append(toIndentedString(jsonName)).append("\n");
-    sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    number: ").append(toIndentedString(number)).append("\n");
-    sb.append("    oneofIndex: ").append(toIndentedString(oneofIndex)).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
-    sb.append("    packed: ").append(toIndentedString(packed)).append("\n");
-    sb.append("    typeUrl: ").append(toIndentedString(typeUrl)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    nullable: ").append(toIndentedString(nullable)).append("\n");
+    sb.append("    readonly: ").append(toIndentedString(readonly)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -499,16 +456,14 @@ public class Field {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("cardinality");
+    openapiFields.add("additionalDetails");
+    openapiFields.add("dataType");
     openapiFields.add("defaultValue");
-    openapiFields.add("jsonName");
-    openapiFields.add("kind");
-    openapiFields.add("name");
-    openapiFields.add("number");
-    openapiFields.add("oneofIndex");
-    openapiFields.add("options");
-    openapiFields.add("packed");
-    openapiFields.add("typeUrl");
+    openapiFields.add("description");
+    openapiFields.add("field");
+    openapiFields.add("key");
+    openapiFields.add("nullable");
+    openapiFields.add("readonly");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -535,45 +490,18 @@ public class Field {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("cardinality") != null && !jsonObj.get("cardinality").isJsonNull()) && !jsonObj.get("cardinality").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cardinality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardinality").toString()));
+      if ((jsonObj.get("dataType") != null && !jsonObj.get("dataType").isJsonNull()) && !jsonObj.get("dataType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dataType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dataType").toString()));
       }
-      // validate the optional field `cardinality`
-      if (jsonObj.get("cardinality") != null && !jsonObj.get("cardinality").isJsonNull()) {
-        CardinalityEnum.validateJsonElement(jsonObj.get("cardinality"));
+      // validate the optional field `dataType`
+      if (jsonObj.get("dataType") != null && !jsonObj.get("dataType").isJsonNull()) {
+        DataTypeEnum.validateJsonElement(jsonObj.get("dataType"));
       }
-      if ((jsonObj.get("defaultValue") != null && !jsonObj.get("defaultValue").isJsonNull()) && !jsonObj.get("defaultValue").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `defaultValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultValue").toString()));
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      if ((jsonObj.get("jsonName") != null && !jsonObj.get("jsonName").isJsonNull()) && !jsonObj.get("jsonName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `jsonName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jsonName").toString()));
-      }
-      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
-      }
-      // validate the optional field `kind`
-      if (jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) {
-        KindEnum.validateJsonElement(jsonObj.get("kind"));
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
-        JsonArray jsonArrayoptions = jsonObj.getAsJsonArray("options");
-        if (jsonArrayoptions != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("options").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `options` to be an array in the JSON string but got `%s`", jsonObj.get("options").toString()));
-          }
-
-          // validate the optional field `options` (array)
-          for (int i = 0; i < jsonArrayoptions.size(); i++) {
-            Option.validateJsonElement(jsonArrayoptions.get(i));
-          };
-        }
-      }
-      if ((jsonObj.get("typeUrl") != null && !jsonObj.get("typeUrl").isJsonNull()) && !jsonObj.get("typeUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `typeUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("typeUrl").toString()));
+      if ((jsonObj.get("field") != null && !jsonObj.get("field").isJsonNull()) && !jsonObj.get("field").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `field` to be a primitive type in the JSON string but got `%s`", jsonObj.get("field").toString()));
       }
   }
 
