@@ -34,16 +34,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DefaultApi {
+public class PluginsApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
     private String localCustomBaseUrl;
 
-    public DefaultApi() {
+    public PluginsApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public DefaultApi(ApiClient apiClient) {
+    public PluginsApi(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
     }
 
@@ -72,17 +72,17 @@ public class DefaultApi {
     }
 
     /**
-     * Build call for apiPluginsGet
+     * Build call for getProvider
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of Wellknown ai-plugins json objects. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiPluginsGetCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProviderCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -99,7 +99,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/plugins";
+        String localVarPath = "/plugins";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -126,56 +126,56 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiPluginsGetValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return apiPluginsGetCall(_callback);
+    private okhttp3.Call getProviderValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return getProviderCall(_callback);
 
     }
 
     /**
-     * 
-     * Returns a list of Wellknown ai-plugins json objects from the Wellknown ai-plugins registry.
+     * List all the Wellknown AI Plugins.
+     * List all the Wellknown AI Plugins. Returns ai-plugin.json objects in an array
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of Wellknown ai-plugins json objects. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public void apiPluginsGet() throws ApiException {
-        apiPluginsGetWithHttpInfo();
+    public void getProvider() throws ApiException {
+        getProviderWithHttpInfo();
     }
 
     /**
-     * 
-     * Returns a list of Wellknown ai-plugins json objects from the Wellknown ai-plugins registry.
+     * List all the Wellknown AI Plugins.
+     * List all the Wellknown AI Plugins. Returns ai-plugin.json objects in an array
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of Wellknown ai-plugins json objects. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiPluginsGetWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = apiPluginsGetValidateBeforeCall(null);
+    public ApiResponse<Void> getProviderWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getProviderValidateBeforeCall(null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     *  (asynchronously)
-     * Returns a list of Wellknown ai-plugins json objects from the Wellknown ai-plugins registry.
+     * List all the Wellknown AI Plugins. (asynchronously)
+     * List all the Wellknown AI Plugins. Returns ai-plugin.json objects in an array
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of Wellknown ai-plugins json objects. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiPluginsGetAsync(final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getProviderAsync(final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiPluginsGetValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = getProviderValidateBeforeCall(_callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
