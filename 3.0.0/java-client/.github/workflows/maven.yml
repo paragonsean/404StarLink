@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build IBM Containers API
+    name: Build Department of Labour, Govt of Punjab, Punjab
     runs-on: ubuntu-latest
     strategy:
       matrix:

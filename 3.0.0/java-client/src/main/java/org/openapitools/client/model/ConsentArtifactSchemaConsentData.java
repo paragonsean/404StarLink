@@ -1,6 +1,6 @@
 /*
- * Maharashtra State Board of Secondary and Higher Secondary Education, Maharashtra
- * Class X and XII marksheets and passing certificates of Maharashtra State Board of Secondary and Higher Secondary Education (https://mahahsscboard.maharashtra.gov.in/) are available in DigiLocker for years 1990 to 2017.
+ * Department of Labour, Govt of Punjab, Punjab
+ * APIs provided by Department of Labour, Govt of Punjab, Punjab.
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ConsentArtifactSchemaConsentData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:09:29.445066-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:12:30.327-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class ConsentArtifactSchemaConsentData {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
