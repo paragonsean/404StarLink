@@ -1,0 +1,2875 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Twilio - Supersim</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Twilio - Supersim</h1>
+    <div class="app-desc">This is the public Twilio REST API.</div>
+    <div class="app-desc">More information: <a href="https://support.twilio.com">https://support.twilio.com</a></div>
+    <div class="app-desc">Contact Info: <a href="support@twilio.com">support@twilio.com</a></div>
+    <div class="app-desc">Version: 1.42.0</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">https://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>HTTP Basic Authentication</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#createEsimProfile"><code><span class="http-method">post</span> /v1/ESimProfiles</code></a></li>
+  <li><a href="#createFleet"><code><span class="http-method">post</span> /v1/Fleets</code></a></li>
+  <li><a href="#createIpCommand"><code><span class="http-method">post</span> /v1/IpCommands</code></a></li>
+  <li><a href="#createNetworkAccessProfile"><code><span class="http-method">post</span> /v1/NetworkAccessProfiles</code></a></li>
+  <li><a href="#createNetworkAccessProfileNetwork"><code><span class="http-method">post</span> /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks</code></a></li>
+  <li><a href="#createSim"><code><span class="http-method">post</span> /v1/Sims</code></a></li>
+  <li><a href="#createSmsCommand"><code><span class="http-method">post</span> /v1/SmsCommands</code></a></li>
+  <li><a href="#deleteNetworkAccessProfileNetwork"><code><span class="http-method">delete</span> /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid}</code></a></li>
+  <li><a href="#fetchEsimProfile"><code><span class="http-method">get</span> /v1/ESimProfiles/{Sid}</code></a></li>
+  <li><a href="#fetchFleet"><code><span class="http-method">get</span> /v1/Fleets/{Sid}</code></a></li>
+  <li><a href="#fetchIpCommand"><code><span class="http-method">get</span> /v1/IpCommands/{Sid}</code></a></li>
+  <li><a href="#fetchNetwork"><code><span class="http-method">get</span> /v1/Networks/{Sid}</code></a></li>
+  <li><a href="#fetchNetworkAccessProfile"><code><span class="http-method">get</span> /v1/NetworkAccessProfiles/{Sid}</code></a></li>
+  <li><a href="#fetchNetworkAccessProfileNetwork"><code><span class="http-method">get</span> /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid}</code></a></li>
+  <li><a href="#fetchSim"><code><span class="http-method">get</span> /v1/Sims/{Sid}</code></a></li>
+  <li><a href="#fetchSmsCommand"><code><span class="http-method">get</span> /v1/SmsCommands/{Sid}</code></a></li>
+  <li><a href="#listBillingPeriod"><code><span class="http-method">get</span> /v1/Sims/{SimSid}/BillingPeriods</code></a></li>
+  <li><a href="#listEsimProfile"><code><span class="http-method">get</span> /v1/ESimProfiles</code></a></li>
+  <li><a href="#listFleet"><code><span class="http-method">get</span> /v1/Fleets</code></a></li>
+  <li><a href="#listIpCommand"><code><span class="http-method">get</span> /v1/IpCommands</code></a></li>
+  <li><a href="#listNetwork"><code><span class="http-method">get</span> /v1/Networks</code></a></li>
+  <li><a href="#listNetworkAccessProfile"><code><span class="http-method">get</span> /v1/NetworkAccessProfiles</code></a></li>
+  <li><a href="#listNetworkAccessProfileNetwork"><code><span class="http-method">get</span> /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks</code></a></li>
+  <li><a href="#listSettingsUpdate"><code><span class="http-method">get</span> /v1/SettingsUpdates</code></a></li>
+  <li><a href="#listSim"><code><span class="http-method">get</span> /v1/Sims</code></a></li>
+  <li><a href="#listSimIpAddress"><code><span class="http-method">get</span> /v1/Sims/{SimSid}/IpAddresses</code></a></li>
+  <li><a href="#listSmsCommand"><code><span class="http-method">get</span> /v1/SmsCommands</code></a></li>
+  <li><a href="#listUsageRecord"><code><span class="http-method">get</span> /v1/UsageRecords</code></a></li>
+  <li><a href="#updateFleet"><code><span class="http-method">post</span> /v1/Fleets/{Sid}</code></a></li>
+  <li><a href="#updateNetworkAccessProfile"><code><span class="http-method">post</span> /v1/NetworkAccessProfiles/{Sid}</code></a></li>
+  <li><a href="#updateSim"><code><span class="http-method">post</span> /v1/Sims/{Sid}</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="createEsimProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/ESimProfiles</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createEsimProfile</span>)</div>
+    <div class="method-notes">Order an eSIM Profile.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">CallbackMethod (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The HTTP method we should use to call <code>callback_url</code>. Can be: <code>GET</code> or <code>POST</code> and the default is POST. default: null format: http-method</div><div class="param">CallbackUrl (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL we should call using the <code>callback_method</code> when the status of the eSIM Profile changes. At this stage of the eSIM Profile pilot, the a request to the URL will only be called when the ESimProfile resource changes from <code>reserving</code> to <code>available</code>. default: null </div><div class="param">Eid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Identifier of the eUICC that will claim the eSIM Profile. default: null </div><div class="param">GenerateMatchingId (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; When set to <code>true</code>, a value for <code>Eid</code> does not need to be provided. Instead, when the eSIM profile is reserved, a matching ID will be generated and returned via the <code>matching_id</code> property. This identifies the specific eSIM profile that can be used by any capable device to claim and download the profile. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.esim_profile">supersim.v1.esim_profile</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "error_message" : "error_message",
+  "matching_id" : "matching_id",
+  "sim_sid" : "sim_sid",
+  "eid" : "eid",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "activation_code" : "activation_code",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "iccid" : "iccid",
+  "smdp_plus_address" : "https://openapi-generator.tech",
+  "account_sid" : "account_sid",
+  "error_code" : "error_code",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#supersim.v1.esim_profile">supersim.v1.esim_profile</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createFleet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/Fleets</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createFleet</span>)</div>
+    <div class="method-notes">Create a Fleet</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">DataEnabled (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Defines whether SIMs in the Fleet are capable of using 2G/3G/4G/LTE/CAT-M data connectivity. Defaults to <code>true</code>. default: null </div><div class="param">DataLimit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). default: null </div><div class="param">IpCommandsMethod (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; A string representing the HTTP method to use when making a request to <code>ip_commands_url</code>. Can be one of <code>POST</code> or <code>GET</code>. Defaults to <code>POST</code>. default: null format: http-method</div><div class="param">IpCommandsUrl (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. default: null format: uri</div><div class="param">NetworkAccessProfile (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet's SIMs can connect to. default: null </div><div class="param">SmsCommandsEnabled (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; Defines whether SIMs in the Fleet are capable of sending and receiving machine-to-machine SMS via Commands. Defaults to <code>true</code>. default: null </div><div class="param">SmsCommandsMethod (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; A string representing the HTTP method to use when making a request to <code>sms_commands_url</code>. Can be one of <code>POST</code> or <code>GET</code>. Defaults to <code>POST</code>. default: null format: http-method</div><div class="param">SmsCommandsUrl (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. default: null format: uri</div><div class="param">UniqueName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; An application-defined string that uniquely identifies the resource. It can be used in place of the resource's <code>sid</code> in the URL to address the resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.fleet">supersim.v1.fleet</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ip_commands_url" : "https://openapi-generator.tech",
+  "sms_commands_url" : "https://openapi-generator.tech",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "data_limit" : 0,
+  "sms_commands_method" : "HEAD",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "sms_commands_enabled" : true,
+  "ip_commands_method" : "HEAD",
+  "data_metering" : "data_metering",
+  "data_enabled" : true,
+  "network_access_profile_sid" : "network_access_profile_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "unique_name" : "unique_name",
+  "account_sid" : "account_sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#supersim.v1.fleet">supersim.v1.fleet</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createIpCommand"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/IpCommands</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createIpCommand</span>)</div>
+    <div class="method-notes">Send an IP Command to a Super SIM.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">CallbackMethod (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The HTTP method we should use to call <code>callback_url</code>. Can be <code>GET</code> or <code>POST</code>, and the default is <code>POST</code>. default: null format: http-method</div><div class="param">CallbackUrl (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL we should call using the <code>callback_method</code> after we have sent the IP Command. default: null format: uri</div><div class="param">DevicePort (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The device port to which the IP Command will be sent. default: null </div><div class="param">Payload (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The data that will be sent to the device. The payload cannot exceed 1300 bytes. If the PayloadType is set to text, the payload is encoded in UTF-8. If PayloadType is set to binary, the payload is encoded in Base64. default: null </div><div class="param">PayloadType (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null </div><div class="param">Sim (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The <code>sid</code> or <code>unique_name</code> of the <a href="https://www.twilio.com/docs/iot/supersim/api/sim-resource">Super SIM</a> to send the IP Command to. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.ip_command">supersim.v1.ip_command</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "sim_sid" : "sim_sid",
+  "payload_type" : "payload_type",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "device_port" : 0,
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "sim_iccid" : "sim_iccid",
+  "device_ip" : "device_ip",
+  "payload" : "payload",
+  "account_sid" : "account_sid",
+  "direction" : "direction",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#supersim.v1.ip_command">supersim.v1.ip_command</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createNetworkAccessProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/NetworkAccessProfiles</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createNetworkAccessProfile</span>)</div>
+    <div class="method-notes">Create a new Network Access Profile</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">Networks (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; List of Network SIDs that this Network Access Profile will allow connections to. default: null </div><div class="param">UniqueName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; An application-defined string that uniquely identifies the resource. It can be used in place of the resource's <code>sid</code> in the URL to address the resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.network_access_profile">supersim.v1.network_access_profile</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "unique_name" : "unique_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#supersim.v1.network_access_profile">supersim.v1.network_access_profile</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createNetworkAccessProfileNetwork"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createNetworkAccessProfileNetwork</span>)</div>
+    <div class="method-notes">Add a Network resource to the Network Access Profile resource.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">NetworkAccessProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that identifies the Network Access Profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">Network (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The SID of the Network resource to be added to the Network Access Profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.network_access_profile.network_access_profile_network">supersim.v1.network_access_profile.network_access_profile_network</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "iso_country" : "iso_country",
+  "identifiers" : [ "", "" ],
+  "network_access_profile_sid" : "network_access_profile_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#supersim.v1.network_access_profile.network_access_profile_network">supersim.v1.network_access_profile.network_access_profile_network</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createSim"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/Sims</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createSim</span>)</div>
+    <div class="method-notes">Register a Super SIM to your Account</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">Iccid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The <a href="https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID">ICCID</a> of the Super SIM to be added to your Account. default: null </div><div class="param">RegistrationCode (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The 10-digit code required to claim the Super SIM for your Account. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.sim">supersim.v1.sim</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "iccid" : "iccid",
+  "unique_name" : "unique_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "fleet_sid" : "fleet_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#supersim.v1.sim">supersim.v1.sim</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="createSmsCommand"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/SmsCommands</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">createSmsCommand</span>)</div>
+    <div class="method-notes">Send SMS Command to a Sim.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">CallbackMethod (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The HTTP method we should use to call <code>callback_url</code>. Can be: <code>GET</code> or <code>POST</code> and the default is POST. default: null format: http-method</div><div class="param">CallbackUrl (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL we should call using the <code>callback_method</code> after we have sent the command. default: null format: uri</div><div class="param">Payload (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The message body of the SMS Command. default: null </div><div class="param">Sim (required)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The <code>sid</code> or <code>unique_name</code> of the <a href="https://www.twilio.com/docs/iot/supersim/api/sim-resource">SIM</a> to send the SMS Command to. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.sms_command">supersim.v1.sms_command</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "sim_sid" : "sim_sid",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "payload" : "payload",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "url" : "https://openapi-generator.tech",
+  "direction" : "direction",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#supersim.v1.sms_command">supersim.v1.sms_command</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteNetworkAccessProfileNetwork"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">deleteNetworkAccessProfileNetwork</span>)</div>
+    <div class="method-notes">Remove a Network resource from the Network Access Profile resource's.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">NetworkAccessProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that identifies the Network Access Profile resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the Network resource to be removed from the Network Access Profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">204</h4>
+    The resource was deleted successfully.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchEsimProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/ESimProfiles/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchEsimProfile</span>)</div>
+    <div class="method-notes">Fetch an eSIM Profile.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the eSIM Profile resource to fetch. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.esim_profile">supersim.v1.esim_profile</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "error_message" : "error_message",
+  "matching_id" : "matching_id",
+  "sim_sid" : "sim_sid",
+  "eid" : "eid",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "activation_code" : "activation_code",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "iccid" : "iccid",
+  "smdp_plus_address" : "https://openapi-generator.tech",
+  "account_sid" : "account_sid",
+  "error_code" : "error_code",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#supersim.v1.esim_profile">supersim.v1.esim_profile</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchFleet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/Fleets/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchFleet</span>)</div>
+    <div class="method-notes">Fetch a Fleet instance from your account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the Fleet resource to fetch. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.fleet">supersim.v1.fleet</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ip_commands_url" : "https://openapi-generator.tech",
+  "sms_commands_url" : "https://openapi-generator.tech",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "data_limit" : 0,
+  "sms_commands_method" : "HEAD",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "sms_commands_enabled" : true,
+  "ip_commands_method" : "HEAD",
+  "data_metering" : "data_metering",
+  "data_enabled" : true,
+  "network_access_profile_sid" : "network_access_profile_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "unique_name" : "unique_name",
+  "account_sid" : "account_sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#supersim.v1.fleet">supersim.v1.fleet</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchIpCommand"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/IpCommands/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchIpCommand</span>)</div>
+    <div class="method-notes">Fetch IP Command instance from your account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the IP Command resource to fetch. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.ip_command">supersim.v1.ip_command</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "sim_sid" : "sim_sid",
+  "payload_type" : "payload_type",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "device_port" : 0,
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "sim_iccid" : "sim_iccid",
+  "device_ip" : "device_ip",
+  "payload" : "payload",
+  "account_sid" : "account_sid",
+  "direction" : "direction",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#supersim.v1.ip_command">supersim.v1.ip_command</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchNetwork"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/Networks/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchNetwork</span>)</div>
+    <div class="method-notes">Fetch a Network resource.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the Network resource to fetch. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.network">supersim.v1.network</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "iso_country" : "iso_country",
+  "identifiers" : [ "", "" ],
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#supersim.v1.network">supersim.v1.network</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchNetworkAccessProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/NetworkAccessProfiles/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchNetworkAccessProfile</span>)</div>
+    <div class="method-notes">Fetch a Network Access Profile instance from your account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the Network Access Profile resource to fetch. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.network_access_profile">supersim.v1.network_access_profile</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "unique_name" : "unique_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#supersim.v1.network_access_profile">supersim.v1.network_access_profile</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchNetworkAccessProfileNetwork"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchNetworkAccessProfileNetwork</span>)</div>
+    <div class="method-notes">Fetch a Network Access Profile resource's Network resource.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">NetworkAccessProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that identifies the Network Access Profile resource. default: null </div><div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the Network resource to fetch. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.network_access_profile.network_access_profile_network">supersim.v1.network_access_profile.network_access_profile_network</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "friendly_name" : "friendly_name",
+  "iso_country" : "iso_country",
+  "identifiers" : [ "", "" ],
+  "network_access_profile_sid" : "network_access_profile_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#supersim.v1.network_access_profile.network_access_profile_network">supersim.v1.network_access_profile.network_access_profile_network</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchSim"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/Sims/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchSim</span>)</div>
+    <div class="method-notes">Fetch a Super SIM instance from your account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the Sim resource to fetch. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.sim">supersim.v1.sim</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "iccid" : "iccid",
+  "unique_name" : "unique_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "fleet_sid" : "fleet_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#supersim.v1.sim">supersim.v1.sim</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="fetchSmsCommand"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/SmsCommands/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">fetchSmsCommand</span>)</div>
+    <div class="method-notes">Fetch SMS Command instance from your account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the SMS Command resource to fetch. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.sms_command">supersim.v1.sms_command</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "sim_sid" : "sim_sid",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "payload" : "payload",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "url" : "https://openapi-generator.tech",
+  "direction" : "direction",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#supersim.v1.sms_command">supersim.v1.sms_command</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listBillingPeriod"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/Sims/{SimSid}/BillingPeriods</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listBillingPeriod</span>)</div>
+    <div class="method-notes">Retrieve a list of Billing Periods for a Super SIM.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">SimSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the Super SIM to list Billing Periods for. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListBillingPeriodResponse">ListBillingPeriodResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "billing_periods" : [ {
+    "sim_sid" : "sim_sid",
+    "start_time" : "2000-01-23T04:56:07.000+00:00",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "end_time" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "period_type" : "period_type",
+    "sid" : "sid"
+  }, {
+    "sim_sid" : "sim_sid",
+    "start_time" : "2000-01-23T04:56:07.000+00:00",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "end_time" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "period_type" : "period_type",
+    "sid" : "sid"
+  } ],
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListBillingPeriodResponse">ListBillingPeriodResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listEsimProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/ESimProfiles</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listEsimProfile</span>)</div>
+    <div class="method-notes">Retrieve a list of eSIM Profiles.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">Eid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; List the eSIM Profiles that have been associated with an EId. default: null </div><div class="param">SimSid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Find the eSIM Profile resource related to a <a href="https://www.twilio.com/docs/wireless/api/sim-resource">Sim</a> resource by providing the SIM SID. Will always return an array with either 1 or 0 records. default: null </div><div class="param">Status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; List the eSIM Profiles that are in a given status. default: null </div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListEsimProfileResponse">ListEsimProfileResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "esim_profiles" : [ {
+    "error_message" : "error_message",
+    "matching_id" : "matching_id",
+    "sim_sid" : "sim_sid",
+    "eid" : "eid",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "activation_code" : "activation_code",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "iccid" : "iccid",
+    "smdp_plus_address" : "https://openapi-generator.tech",
+    "account_sid" : "account_sid",
+    "error_code" : "error_code",
+    "status" : "status"
+  }, {
+    "error_message" : "error_message",
+    "matching_id" : "matching_id",
+    "sim_sid" : "sim_sid",
+    "eid" : "eid",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "activation_code" : "activation_code",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "iccid" : "iccid",
+    "smdp_plus_address" : "https://openapi-generator.tech",
+    "account_sid" : "account_sid",
+    "error_code" : "error_code",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListEsimProfileResponse">ListEsimProfileResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listFleet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/Fleets</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listFleet</span>)</div>
+    <div class="method-notes">Retrieve a list of Fleets from your account.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">NetworkAccessProfile (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The SID or unique name of the Network Access Profile that controls which cellular networks the Fleet's SIMs can connect to. default: null </div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListFleetResponse">ListFleetResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "fleets" : [ {
+    "ip_commands_url" : "https://openapi-generator.tech",
+    "sms_commands_url" : "https://openapi-generator.tech",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "data_limit" : 0,
+    "sms_commands_method" : "HEAD",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "sms_commands_enabled" : true,
+    "ip_commands_method" : "HEAD",
+    "data_metering" : "data_metering",
+    "data_enabled" : true,
+    "network_access_profile_sid" : "network_access_profile_sid",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "unique_name" : "unique_name",
+    "account_sid" : "account_sid"
+  }, {
+    "ip_commands_url" : "https://openapi-generator.tech",
+    "sms_commands_url" : "https://openapi-generator.tech",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "data_limit" : 0,
+    "sms_commands_method" : "HEAD",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "sms_commands_enabled" : true,
+    "ip_commands_method" : "HEAD",
+    "data_metering" : "data_metering",
+    "data_enabled" : true,
+    "network_access_profile_sid" : "network_access_profile_sid",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "unique_name" : "unique_name",
+    "account_sid" : "account_sid"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListFleetResponse">ListFleetResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listIpCommand"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/IpCommands</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listIpCommand</span>)</div>
+    <div class="method-notes">Retrieve a list of IP Commands from your account.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">Sim (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The SID or unique name of the Sim resource that IP Command was sent to or from. default: null </div><div class="param">SimIccid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The ICCID of the Sim resource that IP Command was sent to or from. default: null </div><div class="param">Status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The status of the IP Command. Can be: <code>queued</code>, <code>sent</code>, <code>received</code> or <code>failed</code>. See the <a href="https://www.twilio.com/docs/wireless/api/ipcommand-resource#status-values">IP Command Status Values</a> for a description of each. default: null </div><div class="param">Direction (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The direction of the IP Command. Can be <code>to_sim</code> or <code>from_sim</code>. The value of <code>to_sim</code> is synonymous with the term <code>mobile terminated</code>, and <code>from_sim</code> is synonymous with the term <code>mobile originated</code>. default: null </div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListIpCommandResponse">ListIpCommandResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "ip_commands" : [ {
+    "sim_sid" : "sim_sid",
+    "payload_type" : "payload_type",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "device_port" : 0,
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "sim_iccid" : "sim_iccid",
+    "device_ip" : "device_ip",
+    "payload" : "payload",
+    "account_sid" : "account_sid",
+    "direction" : "direction",
+    "status" : "status"
+  }, {
+    "sim_sid" : "sim_sid",
+    "payload_type" : "payload_type",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "device_port" : 0,
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "sim_iccid" : "sim_iccid",
+    "device_ip" : "device_ip",
+    "payload" : "payload",
+    "account_sid" : "account_sid",
+    "direction" : "direction",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListIpCommandResponse">ListIpCommandResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listNetwork"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/Networks</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listNetwork</span>)</div>
+    <div class="method-notes">Retrieve a list of Network resources.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">IsoCountry (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO country code</a> of the Network resources to read. default: null </div><div class="param">Mcc (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The 'mobile country code' of a country. Network resources with this <code>mcc</code> in their <code>identifiers</code> will be read. default: null </div><div class="param">Mnc (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The 'mobile network code' of a mobile operator network. Network resources with this <code>mnc</code> in their <code>identifiers</code> will be read. default: null </div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListNetworkResponse">ListNetworkResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "networks" : [ {
+    "friendly_name" : "friendly_name",
+    "iso_country" : "iso_country",
+    "identifiers" : [ "", "" ],
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  }, {
+    "friendly_name" : "friendly_name",
+    "iso_country" : "iso_country",
+    "identifiers" : [ "", "" ],
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListNetworkResponse">ListNetworkResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listNetworkAccessProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/NetworkAccessProfiles</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listNetworkAccessProfile</span>)</div>
+    <div class="method-notes">Retrieve a list of Network Access Profiles from your account.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListNetworkAccessProfileResponse">ListNetworkAccessProfileResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "network_access_profiles" : [ {
+    "unique_name" : "unique_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "links" : "{}",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  }, {
+    "unique_name" : "unique_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "links" : "{}",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  } ],
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListNetworkAccessProfileResponse">ListNetworkAccessProfileResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listNetworkAccessProfileNetwork"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listNetworkAccessProfileNetwork</span>)</div>
+    <div class="method-notes">Retrieve a list of Network Access Profile resource's Network resource.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">NetworkAccessProfileSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique string that identifies the Network Access Profile resource. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListNetworkAccessProfileNetworkResponse">ListNetworkAccessProfileNetworkResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "networks" : [ {
+    "friendly_name" : "friendly_name",
+    "iso_country" : "iso_country",
+    "identifiers" : [ "", "" ],
+    "network_access_profile_sid" : "network_access_profile_sid",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  }, {
+    "friendly_name" : "friendly_name",
+    "iso_country" : "iso_country",
+    "identifiers" : [ "", "" ],
+    "network_access_profile_sid" : "network_access_profile_sid",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListNetworkAccessProfileNetworkResponse">ListNetworkAccessProfileNetworkResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listSettingsUpdate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/SettingsUpdates</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listSettingsUpdate</span>)</div>
+    <div class="method-notes">Retrieve a list of Settings Updates.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">Sim (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter the Settings Updates by a Super SIM's SID or UniqueName. default: null </div><div class="param">Status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Filter the Settings Updates by status. Can be <code>scheduled</code>, <code>in-progress</code>, <code>successful</code>, or <code>failed</code>. default: null </div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSettingsUpdateResponse">ListSettingsUpdateResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "settings_updates" : [ {
+    "sim_sid" : "sim_sid",
+    "iccid" : "iccid",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "date_completed" : "2000-01-23T04:56:07.000+00:00",
+    "packages" : [ "", "" ],
+    "sid" : "sid",
+    "status" : "status"
+  }, {
+    "sim_sid" : "sim_sid",
+    "iccid" : "iccid",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "date_completed" : "2000-01-23T04:56:07.000+00:00",
+    "packages" : [ "", "" ],
+    "sid" : "sid",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSettingsUpdateResponse">ListSettingsUpdateResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listSim"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/Sims</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listSim</span>)</div>
+    <div class="method-notes">Retrieve a list of Super SIMs from your account.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">Status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The status of the Sim resources to read. Can be <code>new</code>, <code>ready</code>, <code>active</code>, <code>inactive</code>, or <code>scheduled</code>. default: null </div><div class="param">Fleet (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The SID or unique name of the Fleet to which a list of Sims are assigned. default: null </div><div class="param">Iccid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The <a href="https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID">ICCID</a> associated with a Super SIM to filter the list by. Passing this parameter will always return a list containing zero or one SIMs. default: null </div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSimResponse">ListSimResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "sims" : [ {
+    "iccid" : "iccid",
+    "unique_name" : "unique_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "links" : "{}",
+    "fleet_sid" : "fleet_sid",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  }, {
+    "iccid" : "iccid",
+    "unique_name" : "unique_name",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "links" : "{}",
+    "fleet_sid" : "fleet_sid",
+    "url" : "https://openapi-generator.tech",
+    "sid" : "sid",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSimResponse">ListSimResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listSimIpAddress"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/Sims/{SimSid}/IpAddresses</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listSimIpAddress</span>)</div>
+    <div class="method-notes">Retrieve a list of IP Addresses for the given Super SIM.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">SimSid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the Super SIM to list IP Addresses for. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSimIpAddressResponse">ListSimIpAddressResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ip_addresses" : [ {
+    "ip_address_version" : "ip_address_version",
+    "ip_address" : "ip_address"
+  }, {
+    "ip_address_version" : "ip_address_version",
+    "ip_address" : "ip_address"
+  } ],
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSimIpAddressResponse">ListSimIpAddressResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listSmsCommand"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/SmsCommands</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listSmsCommand</span>)</div>
+    <div class="method-notes">Retrieve a list of SMS Commands from your account.</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">Sim (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The SID or unique name of the Sim resource that SMS Command was sent to or from. default: null </div><div class="param">Status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The status of the SMS Command. Can be: <code>queued</code>, <code>sent</code>, <code>delivered</code>, <code>received</code> or <code>failed</code>. See the <a href="https://www.twilio.com/docs/iot/supersim/api/smscommand-resource#status-values">SMS Command Status Values</a> for a description of each. default: null </div><div class="param">Direction (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The direction of the SMS Command. Can be <code>to_sim</code> or <code>from_sim</code>. The value of <code>to_sim</code> is synonymous with the term <code>mobile terminated</code>, and <code>from_sim</code> is synonymous with the term <code>mobile originated</code>. default: null </div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListSmsCommandResponse">ListSmsCommandResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "sms_commands" : [ {
+    "sim_sid" : "sim_sid",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "payload" : "payload",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "url" : "https://openapi-generator.tech",
+    "direction" : "direction",
+    "sid" : "sid",
+    "status" : "status"
+  }, {
+    "sim_sid" : "sim_sid",
+    "date_updated" : "2000-01-23T04:56:07.000+00:00",
+    "payload" : "payload",
+    "date_created" : "2000-01-23T04:56:07.000+00:00",
+    "account_sid" : "account_sid",
+    "url" : "https://openapi-generator.tech",
+    "direction" : "direction",
+    "sid" : "sid",
+    "status" : "status"
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListSmsCommandResponse">ListSmsCommandResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="listUsageRecord"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /v1/UsageRecords</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">listUsageRecord</span>)</div>
+    <div class="method-notes">List UsageRecords</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">Sim (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; SID or unique name of a Sim resource. Only show UsageRecords representing usage incurred by this Super SIM. default: null </div><div class="param">Fleet (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; SID or unique name of a Fleet resource. Only show UsageRecords representing usage for Super SIMs belonging to this Fleet resource at the time the usage occurred. default: null </div><div class="param">Network (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; SID of a Network resource. Only show UsageRecords representing usage on this network. default: null </div><div class="param">IsoCountry (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Alpha-2 ISO Country Code. Only show UsageRecords representing usage in this country. default: null format: iso-country-code</div><div class="param">Group (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Dimension over which to aggregate usage records. Can be: <code>sim</code>, <code>fleet</code>, <code>network</code>, <code>isoCountry</code>. Default is to not aggregate across any of these dimensions, UsageRecords will be aggregated into the time buckets described by the <code>Granularity</code> parameter. default: null </div><div class="param">Granularity (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Time-based grouping that UsageRecords should be aggregated by. Can be: <code>hour</code>, <code>day</code>, or <code>all</code>. Default is <code>all</code>. <code>all</code> returns one UsageRecord that describes the usage for the entire period. default: null </div><div class="param">StartTime (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Only include usage that occurred at or after this time, specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. Default is one month before the <code>end_time</code>. default: null format: date-time</div><div class="param">EndTime (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Only include usage that occurred before this time (exclusive), specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. Default is the current time. default: null format: date-time</div><div class="param">PageSize (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many resources to return in each list page. The default is 50, and the maximum is 1000. default: null </div><div class="param">Page (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page index. This value is simply for client state. default: null </div><div class="param">PageToken (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The page token. This is provided by the API. default: null </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ListUsageRecordResponse">ListUsageRecordResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "meta" : {
+    "first_page_url" : "https://openapi-generator.tech",
+    "next_page_url" : "https://openapi-generator.tech",
+    "previous_page_url" : "https://openapi-generator.tech",
+    "page" : 0,
+    "key" : "key",
+    "url" : "https://openapi-generator.tech",
+    "page_size" : 6
+  },
+  "usage_records" : [ {
+    "data_total_billed" : 1.4658129805029452,
+    "sim_sid" : "sim_sid",
+    "iso_country" : "iso_country",
+    "period" : "",
+    "data_upload" : 5,
+    "network_sid" : "network_sid",
+    "billed_unit" : "billed_unit",
+    "account_sid" : "account_sid",
+    "data_total" : 6,
+    "fleet_sid" : "fleet_sid",
+    "data_download" : 0
+  }, {
+    "data_total_billed" : 1.4658129805029452,
+    "sim_sid" : "sim_sid",
+    "iso_country" : "iso_country",
+    "period" : "",
+    "data_upload" : 5,
+    "network_sid" : "network_sid",
+    "billed_unit" : "billed_unit",
+    "account_sid" : "account_sid",
+    "data_total" : 6,
+    "fleet_sid" : "fleet_sid",
+    "data_download" : 0
+  } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ListUsageRecordResponse">ListUsageRecordResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateFleet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/Fleets/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateFleet</span>)</div>
+    <div class="method-notes">Updates the given properties of a Super SIM Fleet instance from your account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the Fleet resource to update. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">DataLimit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). default: null </div><div class="param">IpCommandsMethod (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; A string representing the HTTP method to use when making a request to <code>ip_commands_url</code>. Can be one of <code>POST</code> or <code>GET</code>. Defaults to <code>POST</code>. default: null format: http-method</div><div class="param">IpCommandsUrl (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. default: null format: uri</div><div class="param">NetworkAccessProfile (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet's SIMs can connect to. default: null </div><div class="param">SmsCommandsMethod (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; A string representing the HTTP method to use when making a request to <code>sms_commands_url</code>. Can be one of <code>POST</code> or <code>GET</code>. Defaults to <code>POST</code>. default: null format: http-method</div><div class="param">SmsCommandsUrl (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. default: null format: uri</div><div class="param">UniqueName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; An application-defined string that uniquely identifies the resource. It can be used in place of the resource's <code>sid</code> in the URL to address the resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.fleet">supersim.v1.fleet</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ip_commands_url" : "https://openapi-generator.tech",
+  "sms_commands_url" : "https://openapi-generator.tech",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "data_limit" : 0,
+  "sms_commands_method" : "HEAD",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "sms_commands_enabled" : true,
+  "ip_commands_method" : "HEAD",
+  "data_metering" : "data_metering",
+  "data_enabled" : true,
+  "network_access_profile_sid" : "network_access_profile_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "unique_name" : "unique_name",
+  "account_sid" : "account_sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#supersim.v1.fleet">supersim.v1.fleet</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateNetworkAccessProfile"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/NetworkAccessProfiles/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateNetworkAccessProfile</span>)</div>
+    <div class="method-notes">Updates the given properties of a Network Access Profile in your account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the Network Access Profile to update. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">UniqueName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The new unique name of the Network Access Profile. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.network_access_profile">supersim.v1.network_access_profile</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "unique_name" : "unique_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#supersim.v1.network_access_profile">supersim.v1.network_access_profile</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateSim"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /v1/Sims/{Sid}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">updateSim</span>)</div>
+    <div class="method-notes">Updates the given properties of a Super SIM instance from your account.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">Sid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The SID of the Sim resource to update. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">AccountSid (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The SID of the Account to which the Sim resource should belong. The Account SID can only be that of the requesting Account or that of a Subaccount of the requesting Account. Only valid when the Sim resource's status is new. default: null </div><div class="param">CallbackMethod (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The HTTP method we should use to call <code>callback_url</code>. Can be: <code>GET</code> or <code>POST</code> and the default is POST. default: null format: http-method</div><div class="param">CallbackUrl (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The URL we should call using the <code>callback_method</code> after an asynchronous update has finished. default: null format: uri</div><div class="param">Fleet (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; The SID or unique name of the Fleet to which the SIM resource should be assigned. default: null </div><div class="param">Status (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  default: null </div><div class="param">UniqueName (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash; An application-defined string that uniquely identifies the resource. It can be used in place of the resource's <code>sid</code> in the URL to address the resource. default: null </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#supersim.v1.sim">supersim.v1.sim</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "iccid" : "iccid",
+  "unique_name" : "unique_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "fleet_sid" : "fleet_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "iccid" : "iccid",
+  "unique_name" : "unique_name",
+  "date_updated" : "2000-01-23T04:56:07.000+00:00",
+  "date_created" : "2000-01-23T04:56:07.000+00:00",
+  "account_sid" : "account_sid",
+  "links" : "{}",
+  "fleet_sid" : "fleet_sid",
+  "url" : "https://openapi-generator.tech",
+  "sid" : "sid",
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#supersim.v1.sim">supersim.v1.sim</a>
+    <h4 class="field-label">202</h4>
+    Accepted
+        <a href="#supersim.v1.sim">supersim.v1.sim</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ListBillingPeriodResponse"><code>ListBillingPeriodResponse</code> - ListBillingPeriodResponse</a></li>
+    <li><a href="#ListEsimProfileResponse"><code>ListEsimProfileResponse</code> - ListEsimProfileResponse</a></li>
+    <li><a href="#ListEsimProfileResponse_meta"><code>ListEsimProfileResponse_meta</code> - </a></li>
+    <li><a href="#ListFleetResponse"><code>ListFleetResponse</code> - ListFleetResponse</a></li>
+    <li><a href="#ListIpCommandResponse"><code>ListIpCommandResponse</code> - ListIpCommandResponse</a></li>
+    <li><a href="#ListNetworkAccessProfileNetworkResponse"><code>ListNetworkAccessProfileNetworkResponse</code> - ListNetworkAccessProfileNetworkResponse</a></li>
+    <li><a href="#ListNetworkAccessProfileResponse"><code>ListNetworkAccessProfileResponse</code> - ListNetworkAccessProfileResponse</a></li>
+    <li><a href="#ListNetworkResponse"><code>ListNetworkResponse</code> - ListNetworkResponse</a></li>
+    <li><a href="#ListSettingsUpdateResponse"><code>ListSettingsUpdateResponse</code> - ListSettingsUpdateResponse</a></li>
+    <li><a href="#ListSimIpAddressResponse"><code>ListSimIpAddressResponse</code> - ListSimIpAddressResponse</a></li>
+    <li><a href="#ListSimResponse"><code>ListSimResponse</code> - ListSimResponse</a></li>
+    <li><a href="#ListSmsCommandResponse"><code>ListSmsCommandResponse</code> - ListSmsCommandResponse</a></li>
+    <li><a href="#ListUsageRecordResponse"><code>ListUsageRecordResponse</code> - ListUsageRecordResponse</a></li>
+    <li><a href="#billing_period_enum_bp_type"><code>billing_period_enum_bp_type</code> - </a></li>
+    <li><a href="#esim_profile_enum_status"><code>esim_profile_enum_status</code> - </a></li>
+    <li><a href="#fleet_enum_data_metering"><code>fleet_enum_data_metering</code> - </a></li>
+    <li><a href="#ip_command_enum_direction"><code>ip_command_enum_direction</code> - </a></li>
+    <li><a href="#ip_command_enum_payload_type"><code>ip_command_enum_payload_type</code> - </a></li>
+    <li><a href="#ip_command_enum_status"><code>ip_command_enum_status</code> - </a></li>
+    <li><a href="#settings_update_enum_status"><code>settings_update_enum_status</code> - </a></li>
+    <li><a href="#sim_enum_status"><code>sim_enum_status</code> - </a></li>
+    <li><a href="#sim_enum_status_update"><code>sim_enum_status_update</code> - </a></li>
+    <li><a href="#sim_ip_address_enum_ip_address_version"><code>sim_ip_address_enum_ip_address_version</code> - </a></li>
+    <li><a href="#sms_command_enum_direction"><code>sms_command_enum_direction</code> - </a></li>
+    <li><a href="#sms_command_enum_status"><code>sms_command_enum_status</code> - </a></li>
+    <li><a href="#supersim.v1.esim_profile"><code>supersim.v1.esim_profile</code> - </a></li>
+    <li><a href="#supersim.v1.fleet"><code>supersim.v1.fleet</code> - </a></li>
+    <li><a href="#supersim.v1.ip_command"><code>supersim.v1.ip_command</code> - </a></li>
+    <li><a href="#supersim.v1.network"><code>supersim.v1.network</code> - </a></li>
+    <li><a href="#supersim.v1.network_access_profile"><code>supersim.v1.network_access_profile</code> - </a></li>
+    <li><a href="#supersim.v1.network_access_profile.network_access_profile_network"><code>supersim.v1.network_access_profile.network_access_profile_network</code> - </a></li>
+    <li><a href="#supersim.v1.settings_update"><code>supersim.v1.settings_update</code> - </a></li>
+    <li><a href="#supersim.v1.sim"><code>supersim.v1.sim</code> - </a></li>
+    <li><a href="#supersim.v1.sim.billing_period"><code>supersim.v1.sim.billing_period</code> - </a></li>
+    <li><a href="#supersim.v1.sim.sim_ip_address"><code>supersim.v1.sim.sim_ip_address</code> - </a></li>
+    <li><a href="#supersim.v1.sms_command"><code>supersim.v1.sms_command</code> - </a></li>
+    <li><a href="#supersim.v1.usage_record"><code>supersim.v1.usage_record</code> - </a></li>
+    <li><a href="#usage_record_enum_granularity"><code>usage_record_enum_granularity</code> - </a></li>
+    <li><a href="#usage_record_enum_group"><code>usage_record_enum_group</code> - </a></li>
+    <li><a href="#usage_record_enum_sort_by"><code>usage_record_enum_sort_by</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="ListBillingPeriodResponse"><code>ListBillingPeriodResponse</code> - ListBillingPeriodResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">billing_periods (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.sim.billing_period">array[supersim.v1.sim.billing_period]</a></span>  </div>
+<div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListEsimProfileResponse"><code>ListEsimProfileResponse</code> - ListEsimProfileResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">esim_profiles (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.esim_profile">array[supersim.v1.esim_profile]</a></span>  </div>
+<div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListEsimProfileResponse_meta"><code>ListEsimProfileResponse_meta</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">first_page_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">next_page_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
+<div class="param">page (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">page_size (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">previous_page_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListFleetResponse"><code>ListFleetResponse</code> - ListFleetResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">fleets (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.fleet">array[supersim.v1.fleet]</a></span>  </div>
+<div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListIpCommandResponse"><code>ListIpCommandResponse</code> - ListIpCommandResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ip_commands (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.ip_command">array[supersim.v1.ip_command]</a></span>  </div>
+<div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListNetworkAccessProfileNetworkResponse"><code>ListNetworkAccessProfileNetworkResponse</code> - ListNetworkAccessProfileNetworkResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+<div class="param">networks (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.network_access_profile.network_access_profile_network">array[supersim.v1.network_access_profile.network_access_profile_network]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListNetworkAccessProfileResponse"><code>ListNetworkAccessProfileResponse</code> - ListNetworkAccessProfileResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+<div class="param">network_access_profiles (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.network_access_profile">array[supersim.v1.network_access_profile]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListNetworkResponse"><code>ListNetworkResponse</code> - ListNetworkResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+<div class="param">networks (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.network">array[supersim.v1.network]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListSettingsUpdateResponse"><code>ListSettingsUpdateResponse</code> - ListSettingsUpdateResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+<div class="param">settings_updates (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.settings_update">array[supersim.v1.settings_update]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListSimIpAddressResponse"><code>ListSimIpAddressResponse</code> - ListSimIpAddressResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ip_addresses (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.sim.sim_ip_address">array[supersim.v1.sim.sim_ip_address]</a></span>  </div>
+<div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListSimResponse"><code>ListSimResponse</code> - ListSimResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+<div class="param">sims (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.sim">array[supersim.v1.sim]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListSmsCommandResponse"><code>ListSmsCommandResponse</code> - ListSmsCommandResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+<div class="param">sms_commands (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.sms_command">array[supersim.v1.sms_command]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ListUsageRecordResponse"><code>ListUsageRecordResponse</code> - ListUsageRecordResponse</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">meta (optional)</div><div class="param-desc"><span class="param-type"><a href="#ListEsimProfileResponse_meta">ListEsimProfileResponse_meta</a></span>  </div>
+<div class="param">usage_records (optional)</div><div class="param-desc"><span class="param-type"><a href="#supersim.v1.usage_record">array[supersim.v1.usage_record]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="billing_period_enum_bp_type"><code>billing_period_enum_bp_type</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="esim_profile_enum_status"><code>esim_profile_enum_status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="fleet_enum_data_metering"><code>fleet_enum_data_metering</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ip_command_enum_direction"><code>ip_command_enum_direction</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ip_command_enum_payload_type"><code>ip_command_enum_payload_type</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ip_command_enum_status"><code>ip_command_enum_status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="settings_update_enum_status"><code>settings_update_enum_status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="sim_enum_status"><code>sim_enum_status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="sim_enum_status_update"><code>sim_enum_status_update</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="sim_ip_address_enum_ip_address_version"><code>sim_ip_address_enum_ip_address_version</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="sms_command_enum_direction"><code>sms_command_enum_direction</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="sms_command_enum_status"><code>sms_command_enum_status</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.esim_profile"><code>supersim.v1.esim_profile</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> to which the eSIM Profile resource belongs. </div>
+<div class="param">activation_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Combined machine-readable activation code for acquiring an eSIM Profile with the Activation Code download method. Can be used in a QR code to download an eSIM profile. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was last updated specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">eid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Identifier of the eUICC that can claim the eSIM Profile. </div>
+<div class="param">error_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Code indicating the failure if the download of the SIM Profile failed and the eSIM Profile is in <code>failed</code> state. </div>
+<div class="param">error_message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Error message describing the failure if the download of the SIM Profile failed and the eSIM Profile is in <code>failed</code> state. </div>
+<div class="param">iccid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID">ICCID</a> associated with the Sim resource. </div>
+<div class="param">matching_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique identifier of the eSIM profile that can be used to identify and download the eSIM profile from the SM-DP+ server. Populated if <code>generate_matching_id</code> is set to <code>true</code> when creating the eSIM profile reservation. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the eSIM Profile resource. </div>
+<div class="param">sim_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/wireless/api/sim-resource">Sim</a> resource that this eSIM Profile controls. </div>
+<div class="param">smdp_plus_address (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> Address of the SM-DP+ server from which the Profile will be downloaded. The URL will appear once the eSIM Profile reaches the status <code>available</code>. format: uri</div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#esim_profile_enum_status">esim_profile_enum_status</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the eSIM Profile resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.fleet"><code>supersim.v1.fleet</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the Fleet resource. </div>
+<div class="param">data_enabled (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Defines whether SIMs in the Fleet are capable of using 2G/3G/4G/LTE/CAT-M data connectivity. Defaults to <code>true</code>. </div>
+<div class="param">data_limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). </div>
+<div class="param">data_metering (optional)</div><div class="param-desc"><span class="param-type"><a href="#fleet_enum_data_metering">fleet_enum_data_metering</a></span>  </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was last updated specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">ip_commands_method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A string representing the HTTP method to use when making a request to <code>ip_commands_url</code>. Can be one of <code>POST</code> or <code>GET</code>. Defaults to <code>POST</code>. format: http-method</div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">HEAD</div><div class="param-enum">GET</div><div class="param-enum">POST</div><div class="param-enum">PATCH</div><div class="param-enum">PUT</div><div class="param-enum">DELETE</div>
+<div class="param">ip_commands_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. format: uri</div>
+<div class="param">network_access_profile_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the Network Access Profile that controls which cellular networks the Fleet's SIMs can connect to. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the Fleet resource. </div>
+<div class="param">sms_commands_enabled (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Defines whether SIMs in the Fleet are capable of sending and receiving machine-to-machine SMS via Commands. Defaults to <code>true</code>. </div>
+<div class="param">sms_commands_method (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A string representing the HTTP method to use when making a request to <code>sms_commands_url</code>. Can be one of <code>POST</code> or <code>GET</code>. Defaults to <code>POST</code>. format: http-method</div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">HEAD</div><div class="param-enum">GET</div><div class="param-enum">POST</div><div class="param-enum">PATCH</div><div class="param-enum">PUT</div><div class="param-enum">DELETE</div>
+<div class="param">sms_commands_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. format: uri</div>
+<div class="param">unique_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An application-defined string that uniquely identifies the resource. It can be used in place of the resource's <code>sid</code> in the URL to address the resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Fleet resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.ip_command"><code>supersim.v1.ip_command</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the IP Command resource. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was last updated specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">device_ip (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The IP address of the device that the IP Command was sent to or received from. For an IP Command sent to a Super SIM, <code>device_ip</code> starts out as <code>null</code>, and once the IP Command is “sent”, the <code>device_ip</code> will be filled out. An IP Command sent from a Super SIM have its <code>device_ip</code> always set. </div>
+<div class="param">device_port (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> For an IP Command sent to a Super SIM, it would be the destination port of the IP message. For an IP Command sent from a Super SIM, it would be the source port of the IP message. </div>
+<div class="param">direction (optional)</div><div class="param-desc"><span class="param-type"><a href="#ip_command_enum_direction">ip_command_enum_direction</a></span>  </div>
+<div class="param">payload (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The payload that is carried in the IP/UDP message. The payload can be encoded in either text or binary format. For text payload, UTF-8 encoding must be used.</p>
+<p>For an IP Command sent to a Super SIM, the payload is appended to the IP/UDP message “as is”. The payload should not exceed 1300 bytes.</p>
+<p>For an IP Command sent from a Super SIM, the payload from the received IP/UDP message is extracted and sent in binary encoding. For an IP Command sent from a Super SIM, the payload should not exceed 1300 bytes. If it is larger than 1300 bytes, there might be fragmentation on the upstream and the message may appear truncated.</p>
+ </div>
+<div class="param">payload_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#ip_command_enum_payload_type">ip_command_enum_payload_type</a></span>  </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the IP Command resource. </div>
+<div class="param">sim_iccid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID">ICCID</a> of the <a href="https://www.twilio.com/docs/iot/supersim/api/sim-resource">Super SIM</a> that this IP Command was sent to or from. </div>
+<div class="param">sim_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iot/supersim/api/sim-resource">Super SIM</a> that this IP Command was sent to or from. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#ip_command_enum_status">ip_command_enum_status</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the IP Command resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.network"><code>supersim.v1.network</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human readable identifier of this resource. </div>
+<div class="param">identifiers (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> Array of objects identifying the <a href="https://en.wikipedia.org/wiki/Mobile_country_code">MCC-MNCs</a> that are included in the Network resource. </div>
+<div class="param">iso_country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO country code</a> of the Network resource. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the Network resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Network resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.network_access_profile"><code>supersim.v1.network_access_profile</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that the Network Access Profile belongs to. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was last updated specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  format: uri-map</div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that identifies the Network Access Profile resource. </div>
+<div class="param">unique_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An application-defined string that uniquely identifies the resource. It can be used in place of the resource's <code>sid</code> in the URL to address the resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Network Access Profile resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.network_access_profile.network_access_profile_network"><code>supersim.v1.network_access_profile.network_access_profile_network</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">friendly_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A human readable identifier of the Network this resource refers to. </div>
+<div class="param">identifiers (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> Array of objects identifying the <a href="https://en.wikipedia.org/wiki/Mobile_country_code">MCC-MNCs</a> that are included in the Network resource. </div>
+<div class="param">iso_country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO country code</a> of the Network resource. </div>
+<div class="param">network_access_profile_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that identifies the Network resource's Network Access Profile resource. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that identifies the Network resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Network resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.settings_update"><code>supersim.v1.settings_update</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">date_completed (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The time, given in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format, when the update successfully completed and the new settings were applied to the SIM. format: date-time</div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date that this Settings Update was created, given in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date that this Settings Update was updated, given in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">iccid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://en.wikipedia.org/wiki/SIM_card#ICCID">ICCID</a> associated with the SIM. </div>
+<div class="param">packages (optional)</div><div class="param-desc"><span class="param-type"><a href="#AnyType">array[oas_any_type_not_mapped]</a></span> Array containing the different Settings Packages that will be applied to the SIM after the update completes. Each object within the array indicates the name and the version of the Settings Package that will be on the SIM if the update is successful. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique identifier of this Settings Update. </div>
+<div class="param">sim_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the Super SIM to which this Settings Update was applied. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#settings_update_enum_status">settings_update_enum_status</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.sim"><code>supersim.v1.sim</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that the Super SIM belongs to. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was last updated specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">fleet_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique ID of the Fleet configured for this SIM. </div>
+<div class="param">iccid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The <a href="https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID">ICCID</a> associated with the SIM. </div>
+<div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  format: uri-map</div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that identifies the Sim resource. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#sim_enum_status">sim_enum_status</a></span>  </div>
+<div class="param">unique_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> An application-defined string that uniquely identifies the resource. It can be used in place of the resource's <code>sid</code> in the URL to address the resource. </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the Sim Resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.sim.billing_period"><code>supersim.v1.sim.billing_period</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> the Super SIM belongs to. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was last updated specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">end_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The end time of the Billing Period specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">period_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#billing_period_enum_bp_type">billing_period_enum_bp_type</a></span>  </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the Billing Period. </div>
+<div class="param">sim_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the Super SIM the Billing Period belongs to. </div>
+<div class="param">start_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The start time of the Billing Period specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.sim.sim_ip_address"><code>supersim.v1.sim.sim_ip_address</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ip_address (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> IP address assigned to the given Super SIM </div>
+<div class="param">ip_address_version (optional)</div><div class="param-desc"><span class="param-type"><a href="#sim_ip_address_enum_ip_address_version">sim_ip_address_enum_ip_address_version</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.sms_command"><code>supersim.v1.sms_command</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that created the SMS Command resource. </div>
+<div class="param">date_created (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was created specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">date_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date and time in GMT when the resource was last updated specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. format: date-time</div>
+<div class="param">direction (optional)</div><div class="param-desc"><span class="param-type"><a href="#sms_command_enum_direction">sms_command_enum_direction</a></span>  </div>
+<div class="param">payload (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The message body of the SMS Command sent to or from the SIM. For text mode messages, this can be up to 160 characters. </div>
+<div class="param">sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique string that we created to identify the SMS Command resource. </div>
+<div class="param">sim_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iot/supersim/api/sim-resource">SIM</a> that this SMS Command was sent to or from. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#sms_command_enum_status">sms_command_enum_status</a></span>  </div>
+<div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span> The absolute URL of the SMS Command resource. format: uri</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="supersim.v1.usage_record"><code>supersim.v1.usage_record</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The SID of the <a href="https://www.twilio.com/docs/iam/api/account">Account</a> that incurred the usage. </div>
+<div class="param">billed_unit (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The currency in which the billed amounts are measured, specified in the 3 letter ISO 4127 format (e.g. <code>USD</code>, <code>EUR</code>, <code>JPY</code>). This can be null when data_toal_billed is 0 and we do not yet have billing information for the corresponding data usage. Refer to <a href="https://www.twilio.com/docs/iot/supersim/api/usage-record-resource#data-usage-processing">Data Usage Processing</a> for more details. format: currency</div>
+<div class="param">data_download (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Total data downloaded in bytes, aggregated by the query parameters. format: int64</div>
+<div class="param">data_total (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Total of data_upload and data_download. format: int64</div>
+<div class="param">data_total_billed (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span> Total amount in the <code>billed_unit</code> that was charged for the data uploaded or downloaded. Will return 0 for usage prior to February 1, 2022. Value may be 0 despite <code>data_total</code> being greater than 0 if the data usage is still being processed by Twilio's billing system. Refer to <a href="https://www.twilio.com/docs/iot/supersim/api/usage-record-resource#data-usage-processing">Data Usage Processing</a> for more details. </div>
+<div class="param">data_upload (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Total data uploaded in bytes, aggregated by the query parameters. format: int64</div>
+<div class="param">fleet_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> SID of the Fleet resource the usage occurred on. Value will only be present when either a value for the <code>Fleet</code> query parameter is provided or when UsageRecords are grouped by <code>fleet</code>. Otherwise, the value will be <code>null</code>. </div>
+<div class="param">iso_country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Alpha-2 ISO Country Code that the usage occurred in. Value will only be present when either a value for the <code>IsoCountry</code> query parameter is provided or when UsageRecords are grouped by <code>isoCountry</code>. Otherwise, the value will be <code>null</code>. format: iso-country-code</div>
+<div class="param">network_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> SID of the Network resource the usage occurred on. Value will only be present when either a value for the <code>Network</code> query parameter is provided or when UsageRecords are grouped by <code>network</code>. Otherwise, the value will be <code>null</code>. </div>
+<div class="param">period (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> The time period for which the usage is reported. The period is represented as a pair of <code>start_time</code> and <code>end_time</code> timestamps specified in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. </div>
+<div class="param">sim_sid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> SID of a Sim resource to which the UsageRecord belongs. Value will only be present when either a value for the <code>Sim</code> query parameter is provided or when UsageRecords are grouped by <code>sim</code>. Otherwise, the value will be <code>null</code>. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="usage_record_enum_granularity"><code>usage_record_enum_granularity</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="usage_record_enum_group"><code>usage_record_enum_group</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="usage_record_enum_sort_by"><code>usage_record_enum_sort_by</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
