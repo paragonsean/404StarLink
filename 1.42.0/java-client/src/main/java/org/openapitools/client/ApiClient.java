@@ -1,5 +1,5 @@
 /*
- * Twilio - Ip_messaging
+ * Twilio - Supersim
  * This is the public Twilio REST API.
  *
  * The version of the OpenAPI document: 1.42.0
@@ -61,10 +61,10 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "https://ip-messaging.twilio.com";
+    private String basePath = "https://supersim.twilio.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://ip-messaging.twilio.com",
+      "https://supersim.twilio.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -158,7 +158,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://ip-messaging.twilio.com
+     * @param basePath Base path of the URL (e.g https://supersim.twilio.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

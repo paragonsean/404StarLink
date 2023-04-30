@@ -1,5 +1,5 @@
 /*
- * Twilio - Ip_messaging
+ * Twilio - Supersim
  * This is the public Twilio REST API.
  *
  * The version of the OpenAPI document: 1.42.0
@@ -27,28 +27,39 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.ChannelEnumChannelType;
-import org.openapitools.client.model.CredentialEnumPushService;
-import org.openapitools.client.model.IpMessagingV1Credential;
-import org.openapitools.client.model.IpMessagingV1Service;
-import org.openapitools.client.model.IpMessagingV1ServiceChannel;
-import org.openapitools.client.model.IpMessagingV1ServiceChannelInvite;
-import org.openapitools.client.model.IpMessagingV1ServiceChannelMember;
-import org.openapitools.client.model.IpMessagingV1ServiceChannelMessage;
-import org.openapitools.client.model.IpMessagingV1ServiceRole;
-import org.openapitools.client.model.IpMessagingV1ServiceUser;
-import org.openapitools.client.model.ListChannelResponse;
-import org.openapitools.client.model.ListCredentialResponse;
-import org.openapitools.client.model.ListInviteResponse;
-import org.openapitools.client.model.ListMemberResponse;
-import org.openapitools.client.model.ListMessageResponse;
-import org.openapitools.client.model.ListRoleResponse;
-import org.openapitools.client.model.ListServiceResponse;
-import org.openapitools.client.model.ListUserChannelResponse;
-import org.openapitools.client.model.ListUserResponse;
-import org.openapitools.client.model.MessageEnumOrderType;
-import org.openapitools.client.model.RoleEnumRoleType;
+import org.openapitools.client.model.EsimProfileEnumStatus;
+import org.openapitools.client.model.IpCommandEnumDirection;
+import org.openapitools.client.model.IpCommandEnumPayloadType;
+import org.openapitools.client.model.IpCommandEnumStatus;
+import org.openapitools.client.model.ListBillingPeriodResponse;
+import org.openapitools.client.model.ListEsimProfileResponse;
+import org.openapitools.client.model.ListFleetResponse;
+import org.openapitools.client.model.ListIpCommandResponse;
+import org.openapitools.client.model.ListNetworkAccessProfileNetworkResponse;
+import org.openapitools.client.model.ListNetworkAccessProfileResponse;
+import org.openapitools.client.model.ListNetworkResponse;
+import org.openapitools.client.model.ListSettingsUpdateResponse;
+import org.openapitools.client.model.ListSimIpAddressResponse;
+import org.openapitools.client.model.ListSimResponse;
+import org.openapitools.client.model.ListSmsCommandResponse;
+import org.openapitools.client.model.ListUsageRecordResponse;
+import java.time.OffsetDateTime;
+import org.openapitools.client.model.SettingsUpdateEnumStatus;
+import org.openapitools.client.model.SimEnumStatus;
+import org.openapitools.client.model.SimEnumStatusUpdate;
+import org.openapitools.client.model.SmsCommandEnumDirection;
+import org.openapitools.client.model.SmsCommandEnumStatus;
+import org.openapitools.client.model.SupersimV1EsimProfile;
+import org.openapitools.client.model.SupersimV1Fleet;
+import org.openapitools.client.model.SupersimV1IpCommand;
+import org.openapitools.client.model.SupersimV1Network;
+import org.openapitools.client.model.SupersimV1NetworkAccessProfile;
+import org.openapitools.client.model.SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork;
+import org.openapitools.client.model.SupersimV1Sim;
+import org.openapitools.client.model.SupersimV1SmsCommand;
 import java.net.URI;
+import org.openapitools.client.model.UsageRecordEnumGranularity;
+import org.openapitools.client.model.UsageRecordEnumGroup;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -94,12 +105,11 @@ public class DefaultApi {
     }
 
     /**
-     * Build call for createChannel
-     * @param serviceSid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param type  (optional)
-     * @param uniqueName  (optional)
+     * Build call for createEsimProfile
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; when the status of the eSIM Profile changes. At this stage of the eSIM Profile pilot, the a request to the URL will only be called when the ESimProfile resource changes from &#x60;reserving&#x60; to &#x60;available&#x60;. (optional)
+     * @param eid Identifier of the eUICC that will claim the eSIM Profile. (optional)
+     * @param generateMatchingId When set to &#x60;true&#x60;, a value for &#x60;Eid&#x60; does not need to be provided. Instead, when the eSIM profile is reserved, a matching ID will be generated and returned via the &#x60;matching_id&#x60; property. This identifies the specific eSIM profile that can be used by any capable device to claim and download the profile. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -109,10 +119,10 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createChannelCall(String serviceSid, String attributes, String friendlyName, ChannelEnumChannelType type, String uniqueName, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createEsimProfileCall(String callbackMethod, String callbackUrl, String eid, Boolean generateMatchingId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
 
         // Determine Base Path to Use
         if (localCustomBaseUrl != null){
@@ -126,8 +136,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()));
+        String localVarPath = "/v1/ESimProfiles";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -135,16 +144,187 @@ public class DefaultApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (attributes != null) {
-            localVarFormParams.put("Attributes", attributes);
+        if (callbackMethod != null) {
+            localVarFormParams.put("CallbackMethod", callbackMethod);
         }
 
-        if (friendlyName != null) {
-            localVarFormParams.put("FriendlyName", friendlyName);
+        if (callbackUrl != null) {
+            localVarFormParams.put("CallbackUrl", callbackUrl);
         }
 
-        if (type != null) {
-            localVarFormParams.put("Type", type);
+        if (eid != null) {
+            localVarFormParams.put("Eid", eid);
+        }
+
+        if (generateMatchingId != null) {
+            localVarFormParams.put("GenerateMatchingId", generateMatchingId);
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createEsimProfileValidateBeforeCall(String callbackMethod, String callbackUrl, String eid, Boolean generateMatchingId, final ApiCallback _callback) throws ApiException {
+        return createEsimProfileCall(callbackMethod, callbackUrl, eid, generateMatchingId, _callback);
+
+    }
+
+    /**
+     * 
+     * Order an eSIM Profile.
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; when the status of the eSIM Profile changes. At this stage of the eSIM Profile pilot, the a request to the URL will only be called when the ESimProfile resource changes from &#x60;reserving&#x60; to &#x60;available&#x60;. (optional)
+     * @param eid Identifier of the eUICC that will claim the eSIM Profile. (optional)
+     * @param generateMatchingId When set to &#x60;true&#x60;, a value for &#x60;Eid&#x60; does not need to be provided. Instead, when the eSIM profile is reserved, a matching ID will be generated and returned via the &#x60;matching_id&#x60; property. This identifies the specific eSIM profile that can be used by any capable device to claim and download the profile. (optional)
+     * @return SupersimV1EsimProfile
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public SupersimV1EsimProfile createEsimProfile(String callbackMethod, String callbackUrl, String eid, Boolean generateMatchingId) throws ApiException {
+        ApiResponse<SupersimV1EsimProfile> localVarResp = createEsimProfileWithHttpInfo(callbackMethod, callbackUrl, eid, generateMatchingId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Order an eSIM Profile.
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; when the status of the eSIM Profile changes. At this stage of the eSIM Profile pilot, the a request to the URL will only be called when the ESimProfile resource changes from &#x60;reserving&#x60; to &#x60;available&#x60;. (optional)
+     * @param eid Identifier of the eUICC that will claim the eSIM Profile. (optional)
+     * @param generateMatchingId When set to &#x60;true&#x60;, a value for &#x60;Eid&#x60; does not need to be provided. Instead, when the eSIM profile is reserved, a matching ID will be generated and returned via the &#x60;matching_id&#x60; property. This identifies the specific eSIM profile that can be used by any capable device to claim and download the profile. (optional)
+     * @return ApiResponse&lt;SupersimV1EsimProfile&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SupersimV1EsimProfile> createEsimProfileWithHttpInfo(String callbackMethod, String callbackUrl, String eid, Boolean generateMatchingId) throws ApiException {
+        okhttp3.Call localVarCall = createEsimProfileValidateBeforeCall(callbackMethod, callbackUrl, eid, generateMatchingId, null);
+        Type localVarReturnType = new TypeToken<SupersimV1EsimProfile>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Order an eSIM Profile.
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; when the status of the eSIM Profile changes. At this stage of the eSIM Profile pilot, the a request to the URL will only be called when the ESimProfile resource changes from &#x60;reserving&#x60; to &#x60;available&#x60;. (optional)
+     * @param eid Identifier of the eUICC that will claim the eSIM Profile. (optional)
+     * @param generateMatchingId When set to &#x60;true&#x60;, a value for &#x60;Eid&#x60; does not need to be provided. Instead, when the eSIM profile is reserved, a matching ID will be generated and returned via the &#x60;matching_id&#x60; property. This identifies the specific eSIM profile that can be used by any capable device to claim and download the profile. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEsimProfileAsync(String callbackMethod, String callbackUrl, String eid, Boolean generateMatchingId, final ApiCallback<SupersimV1EsimProfile> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createEsimProfileValidateBeforeCall(callbackMethod, callbackUrl, eid, generateMatchingId, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1EsimProfile>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createFleet
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet&#39;s SIMs can connect to. (required)
+     * @param dataEnabled Defines whether SIMs in the Fleet are capable of using 2G/3G/4G/LTE/CAT-M data connectivity. Defaults to &#x60;true&#x60;. (optional)
+     * @param dataLimit The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). (optional)
+     * @param ipCommandsMethod A string representing the HTTP method to use when making a request to &#x60;ip_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param ipCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param smsCommandsEnabled Defines whether SIMs in the Fleet are capable of sending and receiving machine-to-machine SMS via Commands. Defaults to &#x60;true&#x60;. (optional)
+     * @param smsCommandsMethod A string representing the HTTP method to use when making a request to &#x60;sms_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param smsCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createFleetCall(String networkAccessProfile, Boolean dataEnabled, Integer dataLimit, String ipCommandsMethod, URI ipCommandsUrl, Boolean smsCommandsEnabled, String smsCommandsMethod, URI smsCommandsUrl, String uniqueName, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/Fleets";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (dataEnabled != null) {
+            localVarFormParams.put("DataEnabled", dataEnabled);
+        }
+
+        if (dataLimit != null) {
+            localVarFormParams.put("DataLimit", dataLimit);
+        }
+
+        if (ipCommandsMethod != null) {
+            localVarFormParams.put("IpCommandsMethod", ipCommandsMethod);
+        }
+
+        if (ipCommandsUrl != null) {
+            localVarFormParams.put("IpCommandsUrl", ipCommandsUrl);
+        }
+
+        if (networkAccessProfile != null) {
+            localVarFormParams.put("NetworkAccessProfile", networkAccessProfile);
+        }
+
+        if (smsCommandsEnabled != null) {
+            localVarFormParams.put("SmsCommandsEnabled", smsCommandsEnabled);
+        }
+
+        if (smsCommandsMethod != null) {
+            localVarFormParams.put("SmsCommandsMethod", smsCommandsMethod);
+        }
+
+        if (smsCommandsUrl != null) {
+            localVarFormParams.put("SmsCommandsUrl", smsCommandsUrl);
         }
 
         if (uniqueName != null) {
@@ -172,25 +352,29 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createChannelValidateBeforeCall(String serviceSid, String attributes, String friendlyName, ChannelEnumChannelType type, String uniqueName, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling createChannel(Async)");
+    private okhttp3.Call createFleetValidateBeforeCall(String networkAccessProfile, Boolean dataEnabled, Integer dataLimit, String ipCommandsMethod, URI ipCommandsUrl, Boolean smsCommandsEnabled, String smsCommandsMethod, URI smsCommandsUrl, String uniqueName, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'networkAccessProfile' is set
+        if (networkAccessProfile == null) {
+            throw new ApiException("Missing the required parameter 'networkAccessProfile' when calling createFleet(Async)");
         }
 
-        return createChannelCall(serviceSid, attributes, friendlyName, type, uniqueName, _callback);
+        return createFleetCall(networkAccessProfile, dataEnabled, dataLimit, ipCommandsMethod, ipCommandsUrl, smsCommandsEnabled, smsCommandsMethod, smsCommandsUrl, uniqueName, _callback);
 
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param type  (optional)
-     * @param uniqueName  (optional)
-     * @return IpMessagingV1ServiceChannel
+     * Create a Fleet
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet&#39;s SIMs can connect to. (required)
+     * @param dataEnabled Defines whether SIMs in the Fleet are capable of using 2G/3G/4G/LTE/CAT-M data connectivity. Defaults to &#x60;true&#x60;. (optional)
+     * @param dataLimit The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). (optional)
+     * @param ipCommandsMethod A string representing the HTTP method to use when making a request to &#x60;ip_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param ipCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param smsCommandsEnabled Defines whether SIMs in the Fleet are capable of sending and receiving machine-to-machine SMS via Commands. Defaults to &#x60;true&#x60;. (optional)
+     * @param smsCommandsMethod A string representing the HTTP method to use when making a request to &#x60;sms_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param smsCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
+     * @return SupersimV1Fleet
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -198,20 +382,24 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public IpMessagingV1ServiceChannel createChannel(String serviceSid, String attributes, String friendlyName, ChannelEnumChannelType type, String uniqueName) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceChannel> localVarResp = createChannelWithHttpInfo(serviceSid, attributes, friendlyName, type, uniqueName);
+    public SupersimV1Fleet createFleet(String networkAccessProfile, Boolean dataEnabled, Integer dataLimit, String ipCommandsMethod, URI ipCommandsUrl, Boolean smsCommandsEnabled, String smsCommandsMethod, URI smsCommandsUrl, String uniqueName) throws ApiException {
+        ApiResponse<SupersimV1Fleet> localVarResp = createFleetWithHttpInfo(networkAccessProfile, dataEnabled, dataLimit, ipCommandsMethod, ipCommandsUrl, smsCommandsEnabled, smsCommandsMethod, smsCommandsUrl, uniqueName);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param type  (optional)
-     * @param uniqueName  (optional)
-     * @return ApiResponse&lt;IpMessagingV1ServiceChannel&gt;
+     * Create a Fleet
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet&#39;s SIMs can connect to. (required)
+     * @param dataEnabled Defines whether SIMs in the Fleet are capable of using 2G/3G/4G/LTE/CAT-M data connectivity. Defaults to &#x60;true&#x60;. (optional)
+     * @param dataLimit The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). (optional)
+     * @param ipCommandsMethod A string representing the HTTP method to use when making a request to &#x60;ip_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param ipCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param smsCommandsEnabled Defines whether SIMs in the Fleet are capable of sending and receiving machine-to-machine SMS via Commands. Defaults to &#x60;true&#x60;. (optional)
+     * @param smsCommandsMethod A string representing the HTTP method to use when making a request to &#x60;sms_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param smsCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
+     * @return ApiResponse&lt;SupersimV1Fleet&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -219,20 +407,24 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IpMessagingV1ServiceChannel> createChannelWithHttpInfo(String serviceSid, String attributes, String friendlyName, ChannelEnumChannelType type, String uniqueName) throws ApiException {
-        okhttp3.Call localVarCall = createChannelValidateBeforeCall(serviceSid, attributes, friendlyName, type, uniqueName, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannel>(){}.getType();
+    public ApiResponse<SupersimV1Fleet> createFleetWithHttpInfo(String networkAccessProfile, Boolean dataEnabled, Integer dataLimit, String ipCommandsMethod, URI ipCommandsUrl, Boolean smsCommandsEnabled, String smsCommandsMethod, URI smsCommandsUrl, String uniqueName) throws ApiException {
+        okhttp3.Call localVarCall = createFleetValidateBeforeCall(networkAccessProfile, dataEnabled, dataLimit, ipCommandsMethod, ipCommandsUrl, smsCommandsEnabled, smsCommandsMethod, smsCommandsUrl, uniqueName, null);
+        Type localVarReturnType = new TypeToken<SupersimV1Fleet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param type  (optional)
-     * @param uniqueName  (optional)
+     * Create a Fleet
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet&#39;s SIMs can connect to. (required)
+     * @param dataEnabled Defines whether SIMs in the Fleet are capable of using 2G/3G/4G/LTE/CAT-M data connectivity. Defaults to &#x60;true&#x60;. (optional)
+     * @param dataLimit The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). (optional)
+     * @param ipCommandsMethod A string representing the HTTP method to use when making a request to &#x60;ip_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param ipCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param smsCommandsEnabled Defines whether SIMs in the Fleet are capable of sending and receiving machine-to-machine SMS via Commands. Defaults to &#x60;true&#x60;. (optional)
+     * @param smsCommandsMethod A string representing the HTTP method to use when making a request to &#x60;sms_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param smsCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -242,22 +434,21 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createChannelAsync(String serviceSid, String attributes, String friendlyName, ChannelEnumChannelType type, String uniqueName, final ApiCallback<IpMessagingV1ServiceChannel> _callback) throws ApiException {
+    public okhttp3.Call createFleetAsync(String networkAccessProfile, Boolean dataEnabled, Integer dataLimit, String ipCommandsMethod, URI ipCommandsUrl, Boolean smsCommandsEnabled, String smsCommandsMethod, URI smsCommandsUrl, String uniqueName, final ApiCallback<SupersimV1Fleet> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createChannelValidateBeforeCall(serviceSid, attributes, friendlyName, type, uniqueName, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannel>(){}.getType();
+        okhttp3.Call localVarCall = createFleetValidateBeforeCall(networkAccessProfile, dataEnabled, dataLimit, ipCommandsMethod, ipCommandsUrl, smsCommandsEnabled, smsCommandsMethod, smsCommandsUrl, uniqueName, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1Fleet>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for createCredential
-     * @param type  (required)
-     * @param apiKey  (optional)
-     * @param certificate  (optional)
-     * @param friendlyName  (optional)
-     * @param privateKey  (optional)
-     * @param sandbox  (optional)
-     * @param secret  (optional)
+     * Build call for createIpCommand
+     * @param devicePort The device port to which the IP Command will be sent. (required)
+     * @param payload The data that will be sent to the device. The payload cannot exceed 1300 bytes. If the PayloadType is set to text, the payload is encoded in UTF-8. If PayloadType is set to binary, the payload is encoded in Base64. (required)
+     * @param sim The &#x60;sid&#x60; or &#x60;unique_name&#x60; of the [Super SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the IP Command to. (required)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be &#x60;GET&#x60; or &#x60;POST&#x60;, and the default is &#x60;POST&#x60;. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after we have sent the IP Command. (optional)
+     * @param payloadType  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -267,10 +458,10 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCredentialCall(CredentialEnumPushService type, String apiKey, String certificate, String friendlyName, String privateKey, Boolean sandbox, String secret, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createIpCommandCall(Integer devicePort, String payload, String sim, String callbackMethod, URI callbackUrl, IpCommandEnumPayloadType payloadType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
 
         // Determine Base Path to Use
         if (localCustomBaseUrl != null){
@@ -284,7 +475,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/Credentials";
+        String localVarPath = "/v1/IpCommands";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -292,32 +483,28 @@ public class DefaultApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (apiKey != null) {
-            localVarFormParams.put("ApiKey", apiKey);
+        if (callbackMethod != null) {
+            localVarFormParams.put("CallbackMethod", callbackMethod);
         }
 
-        if (certificate != null) {
-            localVarFormParams.put("Certificate", certificate);
+        if (callbackUrl != null) {
+            localVarFormParams.put("CallbackUrl", callbackUrl);
         }
 
-        if (friendlyName != null) {
-            localVarFormParams.put("FriendlyName", friendlyName);
+        if (devicePort != null) {
+            localVarFormParams.put("DevicePort", devicePort);
         }
 
-        if (privateKey != null) {
-            localVarFormParams.put("PrivateKey", privateKey);
+        if (payload != null) {
+            localVarFormParams.put("Payload", payload);
         }
 
-        if (sandbox != null) {
-            localVarFormParams.put("Sandbox", sandbox);
+        if (payloadType != null) {
+            localVarFormParams.put("PayloadType", payloadType);
         }
 
-        if (secret != null) {
-            localVarFormParams.put("Secret", secret);
-        }
-
-        if (type != null) {
-            localVarFormParams.put("Type", type);
+        if (sim != null) {
+            localVarFormParams.put("Sim", sim);
         }
 
         final String[] localVarAccepts = {
@@ -341,27 +528,36 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCredentialValidateBeforeCall(CredentialEnumPushService type, String apiKey, String certificate, String friendlyName, String privateKey, Boolean sandbox, String secret, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'type' is set
-        if (type == null) {
-            throw new ApiException("Missing the required parameter 'type' when calling createCredential(Async)");
+    private okhttp3.Call createIpCommandValidateBeforeCall(Integer devicePort, String payload, String sim, String callbackMethod, URI callbackUrl, IpCommandEnumPayloadType payloadType, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'devicePort' is set
+        if (devicePort == null) {
+            throw new ApiException("Missing the required parameter 'devicePort' when calling createIpCommand(Async)");
         }
 
-        return createCredentialCall(type, apiKey, certificate, friendlyName, privateKey, sandbox, secret, _callback);
+        // verify the required parameter 'payload' is set
+        if (payload == null) {
+            throw new ApiException("Missing the required parameter 'payload' when calling createIpCommand(Async)");
+        }
+
+        // verify the required parameter 'sim' is set
+        if (sim == null) {
+            throw new ApiException("Missing the required parameter 'sim' when calling createIpCommand(Async)");
+        }
+
+        return createIpCommandCall(devicePort, payload, sim, callbackMethod, callbackUrl, payloadType, _callback);
 
     }
 
     /**
      * 
-     * 
-     * @param type  (required)
-     * @param apiKey  (optional)
-     * @param certificate  (optional)
-     * @param friendlyName  (optional)
-     * @param privateKey  (optional)
-     * @param sandbox  (optional)
-     * @param secret  (optional)
-     * @return IpMessagingV1Credential
+     * Send an IP Command to a Super SIM.
+     * @param devicePort The device port to which the IP Command will be sent. (required)
+     * @param payload The data that will be sent to the device. The payload cannot exceed 1300 bytes. If the PayloadType is set to text, the payload is encoded in UTF-8. If PayloadType is set to binary, the payload is encoded in Base64. (required)
+     * @param sim The &#x60;sid&#x60; or &#x60;unique_name&#x60; of the [Super SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the IP Command to. (required)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be &#x60;GET&#x60; or &#x60;POST&#x60;, and the default is &#x60;POST&#x60;. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after we have sent the IP Command. (optional)
+     * @param payloadType  (optional)
+     * @return SupersimV1IpCommand
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -369,22 +565,21 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public IpMessagingV1Credential createCredential(CredentialEnumPushService type, String apiKey, String certificate, String friendlyName, String privateKey, Boolean sandbox, String secret) throws ApiException {
-        ApiResponse<IpMessagingV1Credential> localVarResp = createCredentialWithHttpInfo(type, apiKey, certificate, friendlyName, privateKey, sandbox, secret);
+    public SupersimV1IpCommand createIpCommand(Integer devicePort, String payload, String sim, String callbackMethod, URI callbackUrl, IpCommandEnumPayloadType payloadType) throws ApiException {
+        ApiResponse<SupersimV1IpCommand> localVarResp = createIpCommandWithHttpInfo(devicePort, payload, sim, callbackMethod, callbackUrl, payloadType);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * 
-     * @param type  (required)
-     * @param apiKey  (optional)
-     * @param certificate  (optional)
-     * @param friendlyName  (optional)
-     * @param privateKey  (optional)
-     * @param sandbox  (optional)
-     * @param secret  (optional)
-     * @return ApiResponse&lt;IpMessagingV1Credential&gt;
+     * Send an IP Command to a Super SIM.
+     * @param devicePort The device port to which the IP Command will be sent. (required)
+     * @param payload The data that will be sent to the device. The payload cannot exceed 1300 bytes. If the PayloadType is set to text, the payload is encoded in UTF-8. If PayloadType is set to binary, the payload is encoded in Base64. (required)
+     * @param sim The &#x60;sid&#x60; or &#x60;unique_name&#x60; of the [Super SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the IP Command to. (required)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be &#x60;GET&#x60; or &#x60;POST&#x60;, and the default is &#x60;POST&#x60;. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after we have sent the IP Command. (optional)
+     * @param payloadType  (optional)
+     * @return ApiResponse&lt;SupersimV1IpCommand&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -392,22 +587,21 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IpMessagingV1Credential> createCredentialWithHttpInfo(CredentialEnumPushService type, String apiKey, String certificate, String friendlyName, String privateKey, Boolean sandbox, String secret) throws ApiException {
-        okhttp3.Call localVarCall = createCredentialValidateBeforeCall(type, apiKey, certificate, friendlyName, privateKey, sandbox, secret, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Credential>(){}.getType();
+    public ApiResponse<SupersimV1IpCommand> createIpCommandWithHttpInfo(Integer devicePort, String payload, String sim, String callbackMethod, URI callbackUrl, IpCommandEnumPayloadType payloadType) throws ApiException {
+        okhttp3.Call localVarCall = createIpCommandValidateBeforeCall(devicePort, payload, sim, callbackMethod, callbackUrl, payloadType, null);
+        Type localVarReturnType = new TypeToken<SupersimV1IpCommand>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * 
-     * @param type  (required)
-     * @param apiKey  (optional)
-     * @param certificate  (optional)
-     * @param friendlyName  (optional)
-     * @param privateKey  (optional)
-     * @param sandbox  (optional)
-     * @param secret  (optional)
+     * Send an IP Command to a Super SIM.
+     * @param devicePort The device port to which the IP Command will be sent. (required)
+     * @param payload The data that will be sent to the device. The payload cannot exceed 1300 bytes. If the PayloadType is set to text, the payload is encoded in UTF-8. If PayloadType is set to binary, the payload is encoded in Base64. (required)
+     * @param sim The &#x60;sid&#x60; or &#x60;unique_name&#x60; of the [Super SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the IP Command to. (required)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be &#x60;GET&#x60; or &#x60;POST&#x60;, and the default is &#x60;POST&#x60;. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after we have sent the IP Command. (optional)
+     * @param payloadType  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -417,19 +611,17 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCredentialAsync(CredentialEnumPushService type, String apiKey, String certificate, String friendlyName, String privateKey, Boolean sandbox, String secret, final ApiCallback<IpMessagingV1Credential> _callback) throws ApiException {
+    public okhttp3.Call createIpCommandAsync(Integer devicePort, String payload, String sim, String callbackMethod, URI callbackUrl, IpCommandEnumPayloadType payloadType, final ApiCallback<SupersimV1IpCommand> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createCredentialValidateBeforeCall(type, apiKey, certificate, friendlyName, privateKey, sandbox, secret, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Credential>(){}.getType();
+        okhttp3.Call localVarCall = createIpCommandValidateBeforeCall(devicePort, payload, sim, callbackMethod, callbackUrl, payloadType, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1IpCommand>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for createInvite
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (required)
-     * @param roleSid  (optional)
+     * Build call for createNetworkAccessProfile
+     * @param networks List of Network SIDs that this Network Access Profile will allow connections to. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -439,10 +631,10 @@ public class DefaultApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createInviteCall(String serviceSid, String channelSid, String identity, String roleSid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createNetworkAccessProfileCall(List<String> networks, String uniqueName, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
 
         // Determine Base Path to Use
         if (localCustomBaseUrl != null){
@@ -456,9 +648,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()));
+        String localVarPath = "/v1/NetworkAccessProfiles";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -466,4420 +656,8 @@ public class DefaultApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (identity != null) {
-            localVarFormParams.put("Identity", identity);
-        }
-
-        if (roleSid != null) {
-            localVarFormParams.put("RoleSid", roleSid);
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createInviteValidateBeforeCall(String serviceSid, String channelSid, String identity, String roleSid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling createInvite(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling createInvite(Async)");
-        }
-
-        // verify the required parameter 'identity' is set
-        if (identity == null) {
-            throw new ApiException("Missing the required parameter 'identity' when calling createInvite(Async)");
-        }
-
-        return createInviteCall(serviceSid, channelSid, identity, roleSid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (required)
-     * @param roleSid  (optional)
-     * @return IpMessagingV1ServiceChannelInvite
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1ServiceChannelInvite createInvite(String serviceSid, String channelSid, String identity, String roleSid) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceChannelInvite> localVarResp = createInviteWithHttpInfo(serviceSid, channelSid, identity, roleSid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (required)
-     * @param roleSid  (optional)
-     * @return ApiResponse&lt;IpMessagingV1ServiceChannelInvite&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1ServiceChannelInvite> createInviteWithHttpInfo(String serviceSid, String channelSid, String identity, String roleSid) throws ApiException {
-        okhttp3.Call localVarCall = createInviteValidateBeforeCall(serviceSid, channelSid, identity, roleSid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelInvite>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (required)
-     * @param roleSid  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createInviteAsync(String serviceSid, String channelSid, String identity, String roleSid, final ApiCallback<IpMessagingV1ServiceChannelInvite> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createInviteValidateBeforeCall(serviceSid, channelSid, identity, roleSid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelInvite>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createMember
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (required)
-     * @param roleSid  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createMemberCall(String serviceSid, String channelSid, String identity, String roleSid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (identity != null) {
-            localVarFormParams.put("Identity", identity);
-        }
-
-        if (roleSid != null) {
-            localVarFormParams.put("RoleSid", roleSid);
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createMemberValidateBeforeCall(String serviceSid, String channelSid, String identity, String roleSid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling createMember(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling createMember(Async)");
-        }
-
-        // verify the required parameter 'identity' is set
-        if (identity == null) {
-            throw new ApiException("Missing the required parameter 'identity' when calling createMember(Async)");
-        }
-
-        return createMemberCall(serviceSid, channelSid, identity, roleSid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (required)
-     * @param roleSid  (optional)
-     * @return IpMessagingV1ServiceChannelMember
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1ServiceChannelMember createMember(String serviceSid, String channelSid, String identity, String roleSid) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceChannelMember> localVarResp = createMemberWithHttpInfo(serviceSid, channelSid, identity, roleSid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (required)
-     * @param roleSid  (optional)
-     * @return ApiResponse&lt;IpMessagingV1ServiceChannelMember&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1ServiceChannelMember> createMemberWithHttpInfo(String serviceSid, String channelSid, String identity, String roleSid) throws ApiException {
-        okhttp3.Call localVarCall = createMemberValidateBeforeCall(serviceSid, channelSid, identity, roleSid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMember>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (required)
-     * @param roleSid  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createMemberAsync(String serviceSid, String channelSid, String identity, String roleSid, final ApiCallback<IpMessagingV1ServiceChannelMember> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createMemberValidateBeforeCall(serviceSid, channelSid, identity, roleSid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMember>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createMessage
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param body  (required)
-     * @param attributes  (optional)
-     * @param from  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createMessageCall(String serviceSid, String channelSid, String body, String attributes, String from, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (attributes != null) {
-            localVarFormParams.put("Attributes", attributes);
-        }
-
-        if (body != null) {
-            localVarFormParams.put("Body", body);
-        }
-
-        if (from != null) {
-            localVarFormParams.put("From", from);
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createMessageValidateBeforeCall(String serviceSid, String channelSid, String body, String attributes, String from, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling createMessage(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling createMessage(Async)");
-        }
-
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createMessage(Async)");
-        }
-
-        return createMessageCall(serviceSid, channelSid, body, attributes, from, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param body  (required)
-     * @param attributes  (optional)
-     * @param from  (optional)
-     * @return IpMessagingV1ServiceChannelMessage
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1ServiceChannelMessage createMessage(String serviceSid, String channelSid, String body, String attributes, String from) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceChannelMessage> localVarResp = createMessageWithHttpInfo(serviceSid, channelSid, body, attributes, from);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param body  (required)
-     * @param attributes  (optional)
-     * @param from  (optional)
-     * @return ApiResponse&lt;IpMessagingV1ServiceChannelMessage&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1ServiceChannelMessage> createMessageWithHttpInfo(String serviceSid, String channelSid, String body, String attributes, String from) throws ApiException {
-        okhttp3.Call localVarCall = createMessageValidateBeforeCall(serviceSid, channelSid, body, attributes, from, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMessage>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param body  (required)
-     * @param attributes  (optional)
-     * @param from  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createMessageAsync(String serviceSid, String channelSid, String body, String attributes, String from, final ApiCallback<IpMessagingV1ServiceChannelMessage> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createMessageValidateBeforeCall(serviceSid, channelSid, body, attributes, from, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMessage>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createRole
-     * @param serviceSid  (required)
-     * @param friendlyName  (required)
-     * @param permission  (required)
-     * @param type  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createRoleCall(String serviceSid, String friendlyName, List<String> permission, RoleEnumRoleType type, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Roles"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (friendlyName != null) {
-            localVarFormParams.put("FriendlyName", friendlyName);
-        }
-
-        if (permission != null) {
-            localVarFormParams.put("Permission", permission);
-        }
-
-        if (type != null) {
-            localVarFormParams.put("Type", type);
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRoleValidateBeforeCall(String serviceSid, String friendlyName, List<String> permission, RoleEnumRoleType type, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling createRole(Async)");
-        }
-
-        // verify the required parameter 'friendlyName' is set
-        if (friendlyName == null) {
-            throw new ApiException("Missing the required parameter 'friendlyName' when calling createRole(Async)");
-        }
-
-        // verify the required parameter 'permission' is set
-        if (permission == null) {
-            throw new ApiException("Missing the required parameter 'permission' when calling createRole(Async)");
-        }
-
-        // verify the required parameter 'type' is set
-        if (type == null) {
-            throw new ApiException("Missing the required parameter 'type' when calling createRole(Async)");
-        }
-
-        return createRoleCall(serviceSid, friendlyName, permission, type, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param friendlyName  (required)
-     * @param permission  (required)
-     * @param type  (required)
-     * @return IpMessagingV1ServiceRole
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1ServiceRole createRole(String serviceSid, String friendlyName, List<String> permission, RoleEnumRoleType type) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceRole> localVarResp = createRoleWithHttpInfo(serviceSid, friendlyName, permission, type);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param friendlyName  (required)
-     * @param permission  (required)
-     * @param type  (required)
-     * @return ApiResponse&lt;IpMessagingV1ServiceRole&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1ServiceRole> createRoleWithHttpInfo(String serviceSid, String friendlyName, List<String> permission, RoleEnumRoleType type) throws ApiException {
-        okhttp3.Call localVarCall = createRoleValidateBeforeCall(serviceSid, friendlyName, permission, type, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceRole>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param friendlyName  (required)
-     * @param permission  (required)
-     * @param type  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createRoleAsync(String serviceSid, String friendlyName, List<String> permission, RoleEnumRoleType type, final ApiCallback<IpMessagingV1ServiceRole> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createRoleValidateBeforeCall(serviceSid, friendlyName, permission, type, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceRole>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createService
-     * @param friendlyName  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createServiceCall(String friendlyName, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (friendlyName != null) {
-            localVarFormParams.put("FriendlyName", friendlyName);
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createServiceValidateBeforeCall(String friendlyName, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'friendlyName' is set
-        if (friendlyName == null) {
-            throw new ApiException("Missing the required parameter 'friendlyName' when calling createService(Async)");
-        }
-
-        return createServiceCall(friendlyName, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param friendlyName  (required)
-     * @return IpMessagingV1Service
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1Service createService(String friendlyName) throws ApiException {
-        ApiResponse<IpMessagingV1Service> localVarResp = createServiceWithHttpInfo(friendlyName);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param friendlyName  (required)
-     * @return ApiResponse&lt;IpMessagingV1Service&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1Service> createServiceWithHttpInfo(String friendlyName) throws ApiException {
-        okhttp3.Call localVarCall = createServiceValidateBeforeCall(friendlyName, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Service>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param friendlyName  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createServiceAsync(String friendlyName, final ApiCallback<IpMessagingV1Service> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createServiceValidateBeforeCall(friendlyName, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Service>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createUser
-     * @param serviceSid  (required)
-     * @param identity  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param roleSid  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createUserCall(String serviceSid, String identity, String attributes, String friendlyName, String roleSid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Users"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (attributes != null) {
-            localVarFormParams.put("Attributes", attributes);
-        }
-
-        if (friendlyName != null) {
-            localVarFormParams.put("FriendlyName", friendlyName);
-        }
-
-        if (identity != null) {
-            localVarFormParams.put("Identity", identity);
-        }
-
-        if (roleSid != null) {
-            localVarFormParams.put("RoleSid", roleSid);
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createUserValidateBeforeCall(String serviceSid, String identity, String attributes, String friendlyName, String roleSid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling createUser(Async)");
-        }
-
-        // verify the required parameter 'identity' is set
-        if (identity == null) {
-            throw new ApiException("Missing the required parameter 'identity' when calling createUser(Async)");
-        }
-
-        return createUserCall(serviceSid, identity, attributes, friendlyName, roleSid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param identity  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param roleSid  (optional)
-     * @return IpMessagingV1ServiceUser
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1ServiceUser createUser(String serviceSid, String identity, String attributes, String friendlyName, String roleSid) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceUser> localVarResp = createUserWithHttpInfo(serviceSid, identity, attributes, friendlyName, roleSid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param identity  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param roleSid  (optional)
-     * @return ApiResponse&lt;IpMessagingV1ServiceUser&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1ServiceUser> createUserWithHttpInfo(String serviceSid, String identity, String attributes, String friendlyName, String roleSid) throws ApiException {
-        okhttp3.Call localVarCall = createUserValidateBeforeCall(serviceSid, identity, attributes, friendlyName, roleSid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceUser>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param identity  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param roleSid  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createUserAsync(String serviceSid, String identity, String attributes, String friendlyName, String roleSid, final ApiCallback<IpMessagingV1ServiceUser> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createUserValidateBeforeCall(serviceSid, identity, attributes, friendlyName, roleSid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceUser>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteChannel
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteChannelCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteChannelValidateBeforeCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling deleteChannel(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling deleteChannel(Async)");
-        }
-
-        return deleteChannelCall(serviceSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public void deleteChannel(String serviceSid, String sid) throws ApiException {
-        deleteChannelWithHttpInfo(serviceSid, sid);
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> deleteChannelWithHttpInfo(String serviceSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = deleteChannelValidateBeforeCall(serviceSid, sid, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteChannelAsync(String serviceSid, String sid, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteChannelValidateBeforeCall(serviceSid, sid, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteCredential
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteCredentialCall(String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Credentials/{Sid}"
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCredentialValidateBeforeCall(String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling deleteCredential(Async)");
-        }
-
-        return deleteCredentialCall(sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param sid  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public void deleteCredential(String sid) throws ApiException {
-        deleteCredentialWithHttpInfo(sid);
-    }
-
-    /**
-     * 
-     * 
-     * @param sid  (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> deleteCredentialWithHttpInfo(String sid) throws ApiException {
-        okhttp3.Call localVarCall = deleteCredentialValidateBeforeCall(sid, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteCredentialAsync(String sid, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteCredentialValidateBeforeCall(sid, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteInvite
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteInviteCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteInviteValidateBeforeCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling deleteInvite(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling deleteInvite(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling deleteInvite(Async)");
-        }
-
-        return deleteInviteCall(serviceSid, channelSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public void deleteInvite(String serviceSid, String channelSid, String sid) throws ApiException {
-        deleteInviteWithHttpInfo(serviceSid, channelSid, sid);
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> deleteInviteWithHttpInfo(String serviceSid, String channelSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = deleteInviteValidateBeforeCall(serviceSid, channelSid, sid, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteInviteAsync(String serviceSid, String channelSid, String sid, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteInviteValidateBeforeCall(serviceSid, channelSid, sid, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteMember
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteMemberCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteMemberValidateBeforeCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling deleteMember(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling deleteMember(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling deleteMember(Async)");
-        }
-
-        return deleteMemberCall(serviceSid, channelSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public void deleteMember(String serviceSid, String channelSid, String sid) throws ApiException {
-        deleteMemberWithHttpInfo(serviceSid, channelSid, sid);
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> deleteMemberWithHttpInfo(String serviceSid, String channelSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = deleteMemberValidateBeforeCall(serviceSid, channelSid, sid, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteMemberAsync(String serviceSid, String channelSid, String sid, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteMemberValidateBeforeCall(serviceSid, channelSid, sid, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteMessage
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteMessageCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteMessageValidateBeforeCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling deleteMessage(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling deleteMessage(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling deleteMessage(Async)");
-        }
-
-        return deleteMessageCall(serviceSid, channelSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public void deleteMessage(String serviceSid, String channelSid, String sid) throws ApiException {
-        deleteMessageWithHttpInfo(serviceSid, channelSid, sid);
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> deleteMessageWithHttpInfo(String serviceSid, String channelSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = deleteMessageValidateBeforeCall(serviceSid, channelSid, sid, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteMessageAsync(String serviceSid, String channelSid, String sid, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteMessageValidateBeforeCall(serviceSid, channelSid, sid, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteRole
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteRoleCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Roles/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteRoleValidateBeforeCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling deleteRole(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling deleteRole(Async)");
-        }
-
-        return deleteRoleCall(serviceSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public void deleteRole(String serviceSid, String sid) throws ApiException {
-        deleteRoleWithHttpInfo(serviceSid, sid);
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> deleteRoleWithHttpInfo(String serviceSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = deleteRoleValidateBeforeCall(serviceSid, sid, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteRoleAsync(String serviceSid, String sid, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteRoleValidateBeforeCall(serviceSid, sid, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteService
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteServiceCall(String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{Sid}"
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteServiceValidateBeforeCall(String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling deleteService(Async)");
-        }
-
-        return deleteServiceCall(sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param sid  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public void deleteService(String sid) throws ApiException {
-        deleteServiceWithHttpInfo(sid);
-    }
-
-    /**
-     * 
-     * 
-     * @param sid  (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> deleteServiceWithHttpInfo(String sid) throws ApiException {
-        okhttp3.Call localVarCall = deleteServiceValidateBeforeCall(sid, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteServiceAsync(String sid, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteServiceValidateBeforeCall(sid, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteUser
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteUserCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Users/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteUserValidateBeforeCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling deleteUser(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling deleteUser(Async)");
-        }
-
-        return deleteUserCall(serviceSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public void deleteUser(String serviceSid, String sid) throws ApiException {
-        deleteUserWithHttpInfo(serviceSid, sid);
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> deleteUserWithHttpInfo(String serviceSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = deleteUserValidateBeforeCall(serviceSid, sid, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteUserAsync(String serviceSid, String sid, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteUserValidateBeforeCall(serviceSid, sid, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchChannel
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchChannelCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchChannelValidateBeforeCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling fetchChannel(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling fetchChannel(Async)");
-        }
-
-        return fetchChannelCall(serviceSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @return IpMessagingV1ServiceChannel
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1ServiceChannel fetchChannel(String serviceSid, String sid) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceChannel> localVarResp = fetchChannelWithHttpInfo(serviceSid, sid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;IpMessagingV1ServiceChannel&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1ServiceChannel> fetchChannelWithHttpInfo(String serviceSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = fetchChannelValidateBeforeCall(serviceSid, sid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannel>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchChannelAsync(String serviceSid, String sid, final ApiCallback<IpMessagingV1ServiceChannel> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchChannelValidateBeforeCall(serviceSid, sid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannel>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchCredential
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchCredentialCall(String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Credentials/{Sid}"
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchCredentialValidateBeforeCall(String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling fetchCredential(Async)");
-        }
-
-        return fetchCredentialCall(sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param sid  (required)
-     * @return IpMessagingV1Credential
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1Credential fetchCredential(String sid) throws ApiException {
-        ApiResponse<IpMessagingV1Credential> localVarResp = fetchCredentialWithHttpInfo(sid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param sid  (required)
-     * @return ApiResponse&lt;IpMessagingV1Credential&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1Credential> fetchCredentialWithHttpInfo(String sid) throws ApiException {
-        okhttp3.Call localVarCall = fetchCredentialValidateBeforeCall(sid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Credential>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchCredentialAsync(String sid, final ApiCallback<IpMessagingV1Credential> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchCredentialValidateBeforeCall(sid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Credential>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchInvite
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchInviteCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchInviteValidateBeforeCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling fetchInvite(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling fetchInvite(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling fetchInvite(Async)");
-        }
-
-        return fetchInviteCall(serviceSid, channelSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @return IpMessagingV1ServiceChannelInvite
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1ServiceChannelInvite fetchInvite(String serviceSid, String channelSid, String sid) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceChannelInvite> localVarResp = fetchInviteWithHttpInfo(serviceSid, channelSid, sid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;IpMessagingV1ServiceChannelInvite&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1ServiceChannelInvite> fetchInviteWithHttpInfo(String serviceSid, String channelSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = fetchInviteValidateBeforeCall(serviceSid, channelSid, sid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelInvite>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchInviteAsync(String serviceSid, String channelSid, String sid, final ApiCallback<IpMessagingV1ServiceChannelInvite> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchInviteValidateBeforeCall(serviceSid, channelSid, sid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelInvite>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchMember
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchMemberCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchMemberValidateBeforeCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling fetchMember(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling fetchMember(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling fetchMember(Async)");
-        }
-
-        return fetchMemberCall(serviceSid, channelSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @return IpMessagingV1ServiceChannelMember
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1ServiceChannelMember fetchMember(String serviceSid, String channelSid, String sid) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceChannelMember> localVarResp = fetchMemberWithHttpInfo(serviceSid, channelSid, sid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;IpMessagingV1ServiceChannelMember&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1ServiceChannelMember> fetchMemberWithHttpInfo(String serviceSid, String channelSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = fetchMemberValidateBeforeCall(serviceSid, channelSid, sid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMember>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchMemberAsync(String serviceSid, String channelSid, String sid, final ApiCallback<IpMessagingV1ServiceChannelMember> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchMemberValidateBeforeCall(serviceSid, channelSid, sid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMember>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchMessage
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchMessageCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchMessageValidateBeforeCall(String serviceSid, String channelSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling fetchMessage(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling fetchMessage(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling fetchMessage(Async)");
-        }
-
-        return fetchMessageCall(serviceSid, channelSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @return IpMessagingV1ServiceChannelMessage
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1ServiceChannelMessage fetchMessage(String serviceSid, String channelSid, String sid) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceChannelMessage> localVarResp = fetchMessageWithHttpInfo(serviceSid, channelSid, sid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;IpMessagingV1ServiceChannelMessage&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1ServiceChannelMessage> fetchMessageWithHttpInfo(String serviceSid, String channelSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = fetchMessageValidateBeforeCall(serviceSid, channelSid, sid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMessage>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchMessageAsync(String serviceSid, String channelSid, String sid, final ApiCallback<IpMessagingV1ServiceChannelMessage> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchMessageValidateBeforeCall(serviceSid, channelSid, sid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMessage>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchRole
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchRoleCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Roles/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchRoleValidateBeforeCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling fetchRole(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling fetchRole(Async)");
-        }
-
-        return fetchRoleCall(serviceSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @return IpMessagingV1ServiceRole
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1ServiceRole fetchRole(String serviceSid, String sid) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceRole> localVarResp = fetchRoleWithHttpInfo(serviceSid, sid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;IpMessagingV1ServiceRole&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1ServiceRole> fetchRoleWithHttpInfo(String serviceSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = fetchRoleValidateBeforeCall(serviceSid, sid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceRole>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchRoleAsync(String serviceSid, String sid, final ApiCallback<IpMessagingV1ServiceRole> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchRoleValidateBeforeCall(serviceSid, sid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceRole>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchService
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchServiceCall(String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{Sid}"
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchServiceValidateBeforeCall(String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling fetchService(Async)");
-        }
-
-        return fetchServiceCall(sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param sid  (required)
-     * @return IpMessagingV1Service
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1Service fetchService(String sid) throws ApiException {
-        ApiResponse<IpMessagingV1Service> localVarResp = fetchServiceWithHttpInfo(sid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param sid  (required)
-     * @return ApiResponse&lt;IpMessagingV1Service&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1Service> fetchServiceWithHttpInfo(String sid) throws ApiException {
-        okhttp3.Call localVarCall = fetchServiceValidateBeforeCall(sid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Service>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchServiceAsync(String sid, final ApiCallback<IpMessagingV1Service> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchServiceValidateBeforeCall(sid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Service>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for fetchUser
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchUserCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Users/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call fetchUserValidateBeforeCall(String serviceSid, String sid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling fetchUser(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling fetchUser(Async)");
-        }
-
-        return fetchUserCall(serviceSid, sid, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @return IpMessagingV1ServiceUser
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public IpMessagingV1ServiceUser fetchUser(String serviceSid, String sid) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceUser> localVarResp = fetchUserWithHttpInfo(serviceSid, sid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @return ApiResponse&lt;IpMessagingV1ServiceUser&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<IpMessagingV1ServiceUser> fetchUserWithHttpInfo(String serviceSid, String sid) throws ApiException {
-        okhttp3.Call localVarCall = fetchUserValidateBeforeCall(serviceSid, sid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceUser>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call fetchUserAsync(String serviceSid, String sid, final ApiCallback<IpMessagingV1ServiceUser> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = fetchUserValidateBeforeCall(serviceSid, sid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceUser>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listChannel
-     * @param serviceSid  (required)
-     * @param type  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listChannelCall(String serviceSid, List<ChannelEnumChannelType> type, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (type != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "Type", type));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listChannelValidateBeforeCall(String serviceSid, List<ChannelEnumChannelType> type, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling listChannel(Async)");
-        }
-
-        return listChannelCall(serviceSid, type, pageSize, page, pageToken, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param type  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ListChannelResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListChannelResponse listChannel(String serviceSid, List<ChannelEnumChannelType> type, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        ApiResponse<ListChannelResponse> localVarResp = listChannelWithHttpInfo(serviceSid, type, pageSize, page, pageToken);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param type  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ApiResponse&lt;ListChannelResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListChannelResponse> listChannelWithHttpInfo(String serviceSid, List<ChannelEnumChannelType> type, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listChannelValidateBeforeCall(serviceSid, type, pageSize, page, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListChannelResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param type  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listChannelAsync(String serviceSid, List<ChannelEnumChannelType> type, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListChannelResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listChannelValidateBeforeCall(serviceSid, type, pageSize, page, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListChannelResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listCredential
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listCredentialCall(Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Credentials";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCredentialValidateBeforeCall(Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        return listCredentialCall(pageSize, page, pageToken, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ListCredentialResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListCredentialResponse listCredential(Integer pageSize, Integer page, String pageToken) throws ApiException {
-        ApiResponse<ListCredentialResponse> localVarResp = listCredentialWithHttpInfo(pageSize, page, pageToken);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ApiResponse&lt;ListCredentialResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListCredentialResponse> listCredentialWithHttpInfo(Integer pageSize, Integer page, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listCredentialValidateBeforeCall(pageSize, page, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListCredentialResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listCredentialAsync(Integer pageSize, Integer page, String pageToken, final ApiCallback<ListCredentialResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listCredentialValidateBeforeCall(pageSize, page, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListCredentialResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listInvite
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listInviteCall(String serviceSid, String channelSid, List<String> identity, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (identity != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "Identity", identity));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listInviteValidateBeforeCall(String serviceSid, String channelSid, List<String> identity, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling listInvite(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling listInvite(Async)");
-        }
-
-        return listInviteCall(serviceSid, channelSid, identity, pageSize, page, pageToken, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ListInviteResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListInviteResponse listInvite(String serviceSid, String channelSid, List<String> identity, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        ApiResponse<ListInviteResponse> localVarResp = listInviteWithHttpInfo(serviceSid, channelSid, identity, pageSize, page, pageToken);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ApiResponse&lt;ListInviteResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListInviteResponse> listInviteWithHttpInfo(String serviceSid, String channelSid, List<String> identity, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listInviteValidateBeforeCall(serviceSid, channelSid, identity, pageSize, page, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListInviteResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listInviteAsync(String serviceSid, String channelSid, List<String> identity, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListInviteResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listInviteValidateBeforeCall(serviceSid, channelSid, identity, pageSize, page, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListInviteResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listMember
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listMemberCall(String serviceSid, String channelSid, List<String> identity, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (identity != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "Identity", identity));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMemberValidateBeforeCall(String serviceSid, String channelSid, List<String> identity, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling listMember(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling listMember(Async)");
-        }
-
-        return listMemberCall(serviceSid, channelSid, identity, pageSize, page, pageToken, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ListMemberResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListMemberResponse listMember(String serviceSid, String channelSid, List<String> identity, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        ApiResponse<ListMemberResponse> localVarResp = listMemberWithHttpInfo(serviceSid, channelSid, identity, pageSize, page, pageToken);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ApiResponse&lt;ListMemberResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListMemberResponse> listMemberWithHttpInfo(String serviceSid, String channelSid, List<String> identity, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listMemberValidateBeforeCall(serviceSid, channelSid, identity, pageSize, page, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListMemberResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param identity  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listMemberAsync(String serviceSid, String channelSid, List<String> identity, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListMemberResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listMemberValidateBeforeCall(serviceSid, channelSid, identity, pageSize, page, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListMemberResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listMessage
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param order  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listMessageCall(String serviceSid, String channelSid, MessageEnumOrderType order, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (order != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Order", order));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMessageValidateBeforeCall(String serviceSid, String channelSid, MessageEnumOrderType order, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling listMessage(Async)");
-        }
-
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling listMessage(Async)");
-        }
-
-        return listMessageCall(serviceSid, channelSid, order, pageSize, page, pageToken, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param order  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ListMessageResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListMessageResponse listMessage(String serviceSid, String channelSid, MessageEnumOrderType order, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        ApiResponse<ListMessageResponse> localVarResp = listMessageWithHttpInfo(serviceSid, channelSid, order, pageSize, page, pageToken);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param order  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ApiResponse&lt;ListMessageResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListMessageResponse> listMessageWithHttpInfo(String serviceSid, String channelSid, MessageEnumOrderType order, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listMessageValidateBeforeCall(serviceSid, channelSid, order, pageSize, page, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListMessageResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param order  (optional)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listMessageAsync(String serviceSid, String channelSid, MessageEnumOrderType order, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListMessageResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listMessageValidateBeforeCall(serviceSid, channelSid, order, pageSize, page, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListMessageResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listRole
-     * @param serviceSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listRoleCall(String serviceSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Roles"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listRoleValidateBeforeCall(String serviceSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling listRole(Async)");
-        }
-
-        return listRoleCall(serviceSid, pageSize, page, pageToken, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ListRoleResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListRoleResponse listRole(String serviceSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        ApiResponse<ListRoleResponse> localVarResp = listRoleWithHttpInfo(serviceSid, pageSize, page, pageToken);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ApiResponse&lt;ListRoleResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListRoleResponse> listRoleWithHttpInfo(String serviceSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listRoleValidateBeforeCall(serviceSid, pageSize, page, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListRoleResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listRoleAsync(String serviceSid, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListRoleResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listRoleValidateBeforeCall(serviceSid, pageSize, page, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListRoleResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listService
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listServiceCall(Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listServiceValidateBeforeCall(Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        return listServiceCall(pageSize, page, pageToken, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ListServiceResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListServiceResponse listService(Integer pageSize, Integer page, String pageToken) throws ApiException {
-        ApiResponse<ListServiceResponse> localVarResp = listServiceWithHttpInfo(pageSize, page, pageToken);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ApiResponse&lt;ListServiceResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListServiceResponse> listServiceWithHttpInfo(Integer pageSize, Integer page, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listServiceValidateBeforeCall(pageSize, page, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListServiceResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listServiceAsync(Integer pageSize, Integer page, String pageToken, final ApiCallback<ListServiceResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listServiceValidateBeforeCall(pageSize, page, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListServiceResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listUser
-     * @param serviceSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listUserCall(String serviceSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Users"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUserValidateBeforeCall(String serviceSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling listUser(Async)");
-        }
-
-        return listUserCall(serviceSid, pageSize, page, pageToken, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ListUserResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListUserResponse listUser(String serviceSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        ApiResponse<ListUserResponse> localVarResp = listUserWithHttpInfo(serviceSid, pageSize, page, pageToken);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ApiResponse&lt;ListUserResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListUserResponse> listUserWithHttpInfo(String serviceSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listUserValidateBeforeCall(serviceSid, pageSize, page, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListUserResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listUserAsync(String serviceSid, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListUserResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listUserValidateBeforeCall(serviceSid, pageSize, page, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListUserResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listUserChannel
-     * @param serviceSid  (required)
-     * @param userSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listUserChannelCall(String serviceSid, String userSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Users/{UserSid}/Channels"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "UserSid" + "}", localVarApiClient.escapeString(userSid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
-        }
-
-        if (pageToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUserChannelValidateBeforeCall(String serviceSid, String userSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling listUserChannel(Async)");
-        }
-
-        // verify the required parameter 'userSid' is set
-        if (userSid == null) {
-            throw new ApiException("Missing the required parameter 'userSid' when calling listUserChannel(Async)");
-        }
-
-        return listUserChannelCall(serviceSid, userSid, pageSize, page, pageToken, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param userSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ListUserChannelResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListUserChannelResponse listUserChannel(String serviceSid, String userSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        ApiResponse<ListUserChannelResponse> localVarResp = listUserChannelWithHttpInfo(serviceSid, userSid, pageSize, page, pageToken);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serviceSid  (required)
-     * @param userSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @return ApiResponse&lt;ListUserChannelResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListUserChannelResponse> listUserChannelWithHttpInfo(String serviceSid, String userSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
-        okhttp3.Call localVarCall = listUserChannelValidateBeforeCall(serviceSid, userSid, pageSize, page, pageToken, null);
-        Type localVarReturnType = new TypeToken<ListUserChannelResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param userSid  (required)
-     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
-     * @param page The page index. This value is simply for client state. (optional)
-     * @param pageToken The page token. This is provided by the API. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listUserChannelAsync(String serviceSid, String userSid, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListUserChannelResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listUserChannelValidateBeforeCall(serviceSid, userSid, pageSize, page, pageToken, _callback);
-        Type localVarReturnType = new TypeToken<ListUserChannelResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for updateChannel
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param uniqueName  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateChannelCall(String serviceSid, String sid, String attributes, String friendlyName, String uniqueName, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (attributes != null) {
-            localVarFormParams.put("Attributes", attributes);
-        }
-
-        if (friendlyName != null) {
-            localVarFormParams.put("FriendlyName", friendlyName);
+        if (networks != null) {
+            localVarFormParams.put("Networks", networks);
         }
 
         if (uniqueName != null) {
@@ -4907,110 +685,86 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateChannelValidateBeforeCall(String serviceSid, String sid, String attributes, String friendlyName, String uniqueName, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling updateChannel(Async)");
-        }
-
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling updateChannel(Async)");
-        }
-
-        return updateChannelCall(serviceSid, sid, attributes, friendlyName, uniqueName, _callback);
+    private okhttp3.Call createNetworkAccessProfileValidateBeforeCall(List<String> networks, String uniqueName, final ApiCallback _callback) throws ApiException {
+        return createNetworkAccessProfileCall(networks, uniqueName, _callback);
 
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param uniqueName  (optional)
-     * @return IpMessagingV1ServiceChannel
+     * Create a new Network Access Profile
+     * @param networks List of Network SIDs that this Network Access Profile will allow connections to. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
+     * @return SupersimV1NetworkAccessProfile
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public IpMessagingV1ServiceChannel updateChannel(String serviceSid, String sid, String attributes, String friendlyName, String uniqueName) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceChannel> localVarResp = updateChannelWithHttpInfo(serviceSid, sid, attributes, friendlyName, uniqueName);
+    public SupersimV1NetworkAccessProfile createNetworkAccessProfile(List<String> networks, String uniqueName) throws ApiException {
+        ApiResponse<SupersimV1NetworkAccessProfile> localVarResp = createNetworkAccessProfileWithHttpInfo(networks, uniqueName);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param uniqueName  (optional)
-     * @return ApiResponse&lt;IpMessagingV1ServiceChannel&gt;
+     * Create a new Network Access Profile
+     * @param networks List of Network SIDs that this Network Access Profile will allow connections to. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
+     * @return ApiResponse&lt;SupersimV1NetworkAccessProfile&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IpMessagingV1ServiceChannel> updateChannelWithHttpInfo(String serviceSid, String sid, String attributes, String friendlyName, String uniqueName) throws ApiException {
-        okhttp3.Call localVarCall = updateChannelValidateBeforeCall(serviceSid, sid, attributes, friendlyName, uniqueName, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannel>(){}.getType();
+    public ApiResponse<SupersimV1NetworkAccessProfile> createNetworkAccessProfileWithHttpInfo(List<String> networks, String uniqueName) throws ApiException {
+        okhttp3.Call localVarCall = createNetworkAccessProfileValidateBeforeCall(networks, uniqueName, null);
+        Type localVarReturnType = new TypeToken<SupersimV1NetworkAccessProfile>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param uniqueName  (optional)
+     * Create a new Network Access Profile
+     * @param networks List of Network SIDs that this Network Access Profile will allow connections to. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateChannelAsync(String serviceSid, String sid, String attributes, String friendlyName, String uniqueName, final ApiCallback<IpMessagingV1ServiceChannel> _callback) throws ApiException {
+    public okhttp3.Call createNetworkAccessProfileAsync(List<String> networks, String uniqueName, final ApiCallback<SupersimV1NetworkAccessProfile> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateChannelValidateBeforeCall(serviceSid, sid, attributes, friendlyName, uniqueName, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannel>(){}.getType();
+        okhttp3.Call localVarCall = createNetworkAccessProfileValidateBeforeCall(networks, uniqueName, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1NetworkAccessProfile>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for updateCredential
-     * @param sid  (required)
-     * @param apiKey  (optional)
-     * @param certificate  (optional)
-     * @param friendlyName  (optional)
-     * @param privateKey  (optional)
-     * @param sandbox  (optional)
-     * @param secret  (optional)
+     * Build call for createNetworkAccessProfileNetwork
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param network The SID of the Network resource to be added to the Network Access Profile resource. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCredentialCall(String sid, String apiKey, String certificate, String friendlyName, String privateKey, Boolean sandbox, String secret, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createNetworkAccessProfileNetworkCall(String networkAccessProfileSid, String network, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
 
         // Determine Base Path to Use
         if (localCustomBaseUrl != null){
@@ -5024,8 +778,8 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/Credentials/{Sid}"
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+        String localVarPath = "/v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks"
+            .replace("{" + "NetworkAccessProfileSid" + "}", localVarApiClient.escapeString(networkAccessProfileSid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5033,28 +787,8 @@ public class DefaultApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (apiKey != null) {
-            localVarFormParams.put("ApiKey", apiKey);
-        }
-
-        if (certificate != null) {
-            localVarFormParams.put("Certificate", certificate);
-        }
-
-        if (friendlyName != null) {
-            localVarFormParams.put("FriendlyName", friendlyName);
-        }
-
-        if (privateKey != null) {
-            localVarFormParams.put("PrivateKey", privateKey);
-        }
-
-        if (sandbox != null) {
-            localVarFormParams.put("Sandbox", sandbox);
-        }
-
-        if (secret != null) {
-            localVarFormParams.put("Secret", secret);
+        if (network != null) {
+            localVarFormParams.put("Network", network);
         }
 
         final String[] localVarAccepts = {
@@ -5078,109 +812,96 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCredentialValidateBeforeCall(String sid, String apiKey, String certificate, String friendlyName, String privateKey, Boolean sandbox, String secret, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling updateCredential(Async)");
+    private okhttp3.Call createNetworkAccessProfileNetworkValidateBeforeCall(String networkAccessProfileSid, String network, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'networkAccessProfileSid' is set
+        if (networkAccessProfileSid == null) {
+            throw new ApiException("Missing the required parameter 'networkAccessProfileSid' when calling createNetworkAccessProfileNetwork(Async)");
         }
 
-        return updateCredentialCall(sid, apiKey, certificate, friendlyName, privateKey, sandbox, secret, _callback);
+        // verify the required parameter 'network' is set
+        if (network == null) {
+            throw new ApiException("Missing the required parameter 'network' when calling createNetworkAccessProfileNetwork(Async)");
+        }
+
+        return createNetworkAccessProfileNetworkCall(networkAccessProfileSid, network, _callback);
 
     }
 
     /**
      * 
-     * 
-     * @param sid  (required)
-     * @param apiKey  (optional)
-     * @param certificate  (optional)
-     * @param friendlyName  (optional)
-     * @param privateKey  (optional)
-     * @param sandbox  (optional)
-     * @param secret  (optional)
-     * @return IpMessagingV1Credential
+     * Add a Network resource to the Network Access Profile resource.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param network The SID of the Network resource to be added to the Network Access Profile resource. (required)
+     * @return SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public IpMessagingV1Credential updateCredential(String sid, String apiKey, String certificate, String friendlyName, String privateKey, Boolean sandbox, String secret) throws ApiException {
-        ApiResponse<IpMessagingV1Credential> localVarResp = updateCredentialWithHttpInfo(sid, apiKey, certificate, friendlyName, privateKey, sandbox, secret);
+    public SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork createNetworkAccessProfileNetwork(String networkAccessProfileSid, String network) throws ApiException {
+        ApiResponse<SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork> localVarResp = createNetworkAccessProfileNetworkWithHttpInfo(networkAccessProfileSid, network);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * 
-     * @param sid  (required)
-     * @param apiKey  (optional)
-     * @param certificate  (optional)
-     * @param friendlyName  (optional)
-     * @param privateKey  (optional)
-     * @param sandbox  (optional)
-     * @param secret  (optional)
-     * @return ApiResponse&lt;IpMessagingV1Credential&gt;
+     * Add a Network resource to the Network Access Profile resource.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param network The SID of the Network resource to be added to the Network Access Profile resource. (required)
+     * @return ApiResponse&lt;SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IpMessagingV1Credential> updateCredentialWithHttpInfo(String sid, String apiKey, String certificate, String friendlyName, String privateKey, Boolean sandbox, String secret) throws ApiException {
-        okhttp3.Call localVarCall = updateCredentialValidateBeforeCall(sid, apiKey, certificate, friendlyName, privateKey, sandbox, secret, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Credential>(){}.getType();
+    public ApiResponse<SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork> createNetworkAccessProfileNetworkWithHttpInfo(String networkAccessProfileSid, String network) throws ApiException {
+        okhttp3.Call localVarCall = createNetworkAccessProfileNetworkValidateBeforeCall(networkAccessProfileSid, network, null);
+        Type localVarReturnType = new TypeToken<SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * 
-     * @param sid  (required)
-     * @param apiKey  (optional)
-     * @param certificate  (optional)
-     * @param friendlyName  (optional)
-     * @param privateKey  (optional)
-     * @param sandbox  (optional)
-     * @param secret  (optional)
+     * Add a Network resource to the Network Access Profile resource.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param network The SID of the Network resource to be added to the Network Access Profile resource. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCredentialAsync(String sid, String apiKey, String certificate, String friendlyName, String privateKey, Boolean sandbox, String secret, final ApiCallback<IpMessagingV1Credential> _callback) throws ApiException {
+    public okhttp3.Call createNetworkAccessProfileNetworkAsync(String networkAccessProfileSid, String network, final ApiCallback<SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCredentialValidateBeforeCall(sid, apiKey, certificate, friendlyName, privateKey, sandbox, secret, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Credential>(){}.getType();
+        okhttp3.Call localVarCall = createNetworkAccessProfileNetworkValidateBeforeCall(networkAccessProfileSid, network, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for updateMember
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param lastConsumedMessageIndex  (optional)
-     * @param roleSid  (optional)
+     * Build call for createSim
+     * @param iccid The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) of the Super SIM to be added to your Account. (required)
+     * @param registrationCode The 10-digit code required to claim the Super SIM for your Account. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateMemberCall(String serviceSid, String channelSid, String sid, Integer lastConsumedMessageIndex, String roleSid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createSimCall(String iccid, String registrationCode, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
 
         // Determine Base Path to Use
         if (localCustomBaseUrl != null){
@@ -5194,10 +915,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+        String localVarPath = "/v1/Sims";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5205,12 +923,12 @@ public class DefaultApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (lastConsumedMessageIndex != null) {
-            localVarFormParams.put("LastConsumedMessageIndex", lastConsumedMessageIndex);
+        if (iccid != null) {
+            localVarFormParams.put("Iccid", iccid);
         }
 
-        if (roleSid != null) {
-            localVarFormParams.put("RoleSid", roleSid);
+        if (registrationCode != null) {
+            localVarFormParams.put("RegistrationCode", registrationCode);
         }
 
         final String[] localVarAccepts = {
@@ -5234,113 +952,98 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateMemberValidateBeforeCall(String serviceSid, String channelSid, String sid, Integer lastConsumedMessageIndex, String roleSid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling updateMember(Async)");
+    private okhttp3.Call createSimValidateBeforeCall(String iccid, String registrationCode, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'iccid' is set
+        if (iccid == null) {
+            throw new ApiException("Missing the required parameter 'iccid' when calling createSim(Async)");
         }
 
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling updateMember(Async)");
+        // verify the required parameter 'registrationCode' is set
+        if (registrationCode == null) {
+            throw new ApiException("Missing the required parameter 'registrationCode' when calling createSim(Async)");
         }
 
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling updateMember(Async)");
-        }
-
-        return updateMemberCall(serviceSid, channelSid, sid, lastConsumedMessageIndex, roleSid, _callback);
+        return createSimCall(iccid, registrationCode, _callback);
 
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param lastConsumedMessageIndex  (optional)
-     * @param roleSid  (optional)
-     * @return IpMessagingV1ServiceChannelMember
+     * Register a Super SIM to your Account
+     * @param iccid The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) of the Super SIM to be added to your Account. (required)
+     * @param registrationCode The 10-digit code required to claim the Super SIM for your Account. (required)
+     * @return SupersimV1Sim
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public IpMessagingV1ServiceChannelMember updateMember(String serviceSid, String channelSid, String sid, Integer lastConsumedMessageIndex, String roleSid) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceChannelMember> localVarResp = updateMemberWithHttpInfo(serviceSid, channelSid, sid, lastConsumedMessageIndex, roleSid);
+    public SupersimV1Sim createSim(String iccid, String registrationCode) throws ApiException {
+        ApiResponse<SupersimV1Sim> localVarResp = createSimWithHttpInfo(iccid, registrationCode);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param lastConsumedMessageIndex  (optional)
-     * @param roleSid  (optional)
-     * @return ApiResponse&lt;IpMessagingV1ServiceChannelMember&gt;
+     * Register a Super SIM to your Account
+     * @param iccid The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) of the Super SIM to be added to your Account. (required)
+     * @param registrationCode The 10-digit code required to claim the Super SIM for your Account. (required)
+     * @return ApiResponse&lt;SupersimV1Sim&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IpMessagingV1ServiceChannelMember> updateMemberWithHttpInfo(String serviceSid, String channelSid, String sid, Integer lastConsumedMessageIndex, String roleSid) throws ApiException {
-        okhttp3.Call localVarCall = updateMemberValidateBeforeCall(serviceSid, channelSid, sid, lastConsumedMessageIndex, roleSid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMember>(){}.getType();
+    public ApiResponse<SupersimV1Sim> createSimWithHttpInfo(String iccid, String registrationCode) throws ApiException {
+        okhttp3.Call localVarCall = createSimValidateBeforeCall(iccid, registrationCode, null);
+        Type localVarReturnType = new TypeToken<SupersimV1Sim>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param lastConsumedMessageIndex  (optional)
-     * @param roleSid  (optional)
+     * Register a Super SIM to your Account
+     * @param iccid The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) of the Super SIM to be added to your Account. (required)
+     * @param registrationCode The 10-digit code required to claim the Super SIM for your Account. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateMemberAsync(String serviceSid, String channelSid, String sid, Integer lastConsumedMessageIndex, String roleSid, final ApiCallback<IpMessagingV1ServiceChannelMember> _callback) throws ApiException {
+    public okhttp3.Call createSimAsync(String iccid, String registrationCode, final ApiCallback<SupersimV1Sim> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateMemberValidateBeforeCall(serviceSid, channelSid, sid, lastConsumedMessageIndex, roleSid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMember>(){}.getType();
+        okhttp3.Call localVarCall = createSimValidateBeforeCall(iccid, registrationCode, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1Sim>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for updateMessage
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param body  (optional)
+     * Build call for createSmsCommand
+     * @param payload The message body of the SMS Command. (required)
+     * @param sim The &#x60;sid&#x60; or &#x60;unique_name&#x60; of the [SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the SMS Command to. (required)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after we have sent the command. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateMessageCall(String serviceSid, String channelSid, String sid, String attributes, String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createSmsCommandCall(String payload, String sim, String callbackMethod, URI callbackUrl, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
 
         // Determine Base Path to Use
         if (localCustomBaseUrl != null){
@@ -5354,10 +1057,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
-            .replace("{" + "ChannelSid" + "}", localVarApiClient.escapeString(channelSid.toString()))
-            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+        String localVarPath = "/v1/SmsCommands";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5365,12 +1065,20 @@ public class DefaultApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (attributes != null) {
-            localVarFormParams.put("Attributes", attributes);
+        if (callbackMethod != null) {
+            localVarFormParams.put("CallbackMethod", callbackMethod);
         }
 
-        if (body != null) {
-            localVarFormParams.put("Body", body);
+        if (callbackUrl != null) {
+            localVarFormParams.put("CallbackUrl", callbackUrl);
+        }
+
+        if (payload != null) {
+            localVarFormParams.put("Payload", payload);
+        }
+
+        if (sim != null) {
+            localVarFormParams.put("Sim", sim);
         }
 
         final String[] localVarAccepts = {
@@ -5394,111 +1102,102 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateMessageValidateBeforeCall(String serviceSid, String channelSid, String sid, String attributes, String body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling updateMessage(Async)");
+    private okhttp3.Call createSmsCommandValidateBeforeCall(String payload, String sim, String callbackMethod, URI callbackUrl, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'payload' is set
+        if (payload == null) {
+            throw new ApiException("Missing the required parameter 'payload' when calling createSmsCommand(Async)");
         }
 
-        // verify the required parameter 'channelSid' is set
-        if (channelSid == null) {
-            throw new ApiException("Missing the required parameter 'channelSid' when calling updateMessage(Async)");
+        // verify the required parameter 'sim' is set
+        if (sim == null) {
+            throw new ApiException("Missing the required parameter 'sim' when calling createSmsCommand(Async)");
         }
 
-        // verify the required parameter 'sid' is set
-        if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling updateMessage(Async)");
-        }
-
-        return updateMessageCall(serviceSid, channelSid, sid, attributes, body, _callback);
+        return createSmsCommandCall(payload, sim, callbackMethod, callbackUrl, _callback);
 
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param body  (optional)
-     * @return IpMessagingV1ServiceChannelMessage
+     * Send SMS Command to a Sim.
+     * @param payload The message body of the SMS Command. (required)
+     * @param sim The &#x60;sid&#x60; or &#x60;unique_name&#x60; of the [SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the SMS Command to. (required)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after we have sent the command. (optional)
+     * @return SupersimV1SmsCommand
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public IpMessagingV1ServiceChannelMessage updateMessage(String serviceSid, String channelSid, String sid, String attributes, String body) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceChannelMessage> localVarResp = updateMessageWithHttpInfo(serviceSid, channelSid, sid, attributes, body);
+    public SupersimV1SmsCommand createSmsCommand(String payload, String sim, String callbackMethod, URI callbackUrl) throws ApiException {
+        ApiResponse<SupersimV1SmsCommand> localVarResp = createSmsCommandWithHttpInfo(payload, sim, callbackMethod, callbackUrl);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param body  (optional)
-     * @return ApiResponse&lt;IpMessagingV1ServiceChannelMessage&gt;
+     * Send SMS Command to a Sim.
+     * @param payload The message body of the SMS Command. (required)
+     * @param sim The &#x60;sid&#x60; or &#x60;unique_name&#x60; of the [SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the SMS Command to. (required)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after we have sent the command. (optional)
+     * @return ApiResponse&lt;SupersimV1SmsCommand&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IpMessagingV1ServiceChannelMessage> updateMessageWithHttpInfo(String serviceSid, String channelSid, String sid, String attributes, String body) throws ApiException {
-        okhttp3.Call localVarCall = updateMessageValidateBeforeCall(serviceSid, channelSid, sid, attributes, body, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMessage>(){}.getType();
+    public ApiResponse<SupersimV1SmsCommand> createSmsCommandWithHttpInfo(String payload, String sim, String callbackMethod, URI callbackUrl) throws ApiException {
+        okhttp3.Call localVarCall = createSmsCommandValidateBeforeCall(payload, sim, callbackMethod, callbackUrl, null);
+        Type localVarReturnType = new TypeToken<SupersimV1SmsCommand>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param channelSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param body  (optional)
+     * Send SMS Command to a Sim.
+     * @param payload The message body of the SMS Command. (required)
+     * @param sim The &#x60;sid&#x60; or &#x60;unique_name&#x60; of the [SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the SMS Command to. (required)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after we have sent the command. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateMessageAsync(String serviceSid, String channelSid, String sid, String attributes, String body, final ApiCallback<IpMessagingV1ServiceChannelMessage> _callback) throws ApiException {
+    public okhttp3.Call createSmsCommandAsync(String payload, String sim, String callbackMethod, URI callbackUrl, final ApiCallback<SupersimV1SmsCommand> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateMessageValidateBeforeCall(serviceSid, channelSid, sid, attributes, body, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceChannelMessage>(){}.getType();
+        okhttp3.Call localVarCall = createSmsCommandValidateBeforeCall(payload, sim, callbackMethod, callbackUrl, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1SmsCommand>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for updateRole
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param permission  (required)
+     * Build call for deleteNetworkAccessProfileNetwork
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param sid The SID of the Network resource to be removed from the Network Access Profile resource. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRoleCall(String serviceSid, String sid, List<String> permission, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteNetworkAccessProfileNetworkCall(String networkAccessProfileSid, String sid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
 
         // Determine Base Path to Use
         if (localCustomBaseUrl != null){
@@ -5512,8 +1211,8 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Roles/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
+        String localVarPath = "/v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid}"
+            .replace("{" + "NetworkAccessProfileSid" + "}", localVarApiClient.escapeString(networkAccessProfileSid.toString()))
             .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5522,8 +1221,3049 @@ public class DefaultApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (permission != null) {
-            localVarFormParams.put("Permission", permission);
+        final String[] localVarAccepts = {
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteNetworkAccessProfileNetworkValidateBeforeCall(String networkAccessProfileSid, String sid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'networkAccessProfileSid' is set
+        if (networkAccessProfileSid == null) {
+            throw new ApiException("Missing the required parameter 'networkAccessProfileSid' when calling deleteNetworkAccessProfileNetwork(Async)");
+        }
+
+        // verify the required parameter 'sid' is set
+        if (sid == null) {
+            throw new ApiException("Missing the required parameter 'sid' when calling deleteNetworkAccessProfileNetwork(Async)");
+        }
+
+        return deleteNetworkAccessProfileNetworkCall(networkAccessProfileSid, sid, _callback);
+
+    }
+
+    /**
+     * 
+     * Remove a Network resource from the Network Access Profile resource&#39;s.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param sid The SID of the Network resource to be removed from the Network Access Profile resource. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteNetworkAccessProfileNetwork(String networkAccessProfileSid, String sid) throws ApiException {
+        deleteNetworkAccessProfileNetworkWithHttpInfo(networkAccessProfileSid, sid);
+    }
+
+    /**
+     * 
+     * Remove a Network resource from the Network Access Profile resource&#39;s.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param sid The SID of the Network resource to be removed from the Network Access Profile resource. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteNetworkAccessProfileNetworkWithHttpInfo(String networkAccessProfileSid, String sid) throws ApiException {
+        okhttp3.Call localVarCall = deleteNetworkAccessProfileNetworkValidateBeforeCall(networkAccessProfileSid, sid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * Remove a Network resource from the Network Access Profile resource&#39;s.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param sid The SID of the Network resource to be removed from the Network Access Profile resource. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> The resource was deleted successfully. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteNetworkAccessProfileNetworkAsync(String networkAccessProfileSid, String sid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteNetworkAccessProfileNetworkValidateBeforeCall(networkAccessProfileSid, sid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fetchEsimProfile
+     * @param sid The SID of the eSIM Profile resource to fetch. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchEsimProfileCall(String sid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/ESimProfiles/{Sid}"
+            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fetchEsimProfileValidateBeforeCall(String sid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sid' is set
+        if (sid == null) {
+            throw new ApiException("Missing the required parameter 'sid' when calling fetchEsimProfile(Async)");
+        }
+
+        return fetchEsimProfileCall(sid, _callback);
+
+    }
+
+    /**
+     * 
+     * Fetch an eSIM Profile.
+     * @param sid The SID of the eSIM Profile resource to fetch. (required)
+     * @return SupersimV1EsimProfile
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SupersimV1EsimProfile fetchEsimProfile(String sid) throws ApiException {
+        ApiResponse<SupersimV1EsimProfile> localVarResp = fetchEsimProfileWithHttpInfo(sid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Fetch an eSIM Profile.
+     * @param sid The SID of the eSIM Profile resource to fetch. (required)
+     * @return ApiResponse&lt;SupersimV1EsimProfile&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SupersimV1EsimProfile> fetchEsimProfileWithHttpInfo(String sid) throws ApiException {
+        okhttp3.Call localVarCall = fetchEsimProfileValidateBeforeCall(sid, null);
+        Type localVarReturnType = new TypeToken<SupersimV1EsimProfile>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Fetch an eSIM Profile.
+     * @param sid The SID of the eSIM Profile resource to fetch. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchEsimProfileAsync(String sid, final ApiCallback<SupersimV1EsimProfile> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fetchEsimProfileValidateBeforeCall(sid, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1EsimProfile>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fetchFleet
+     * @param sid The SID of the Fleet resource to fetch. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchFleetCall(String sid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/Fleets/{Sid}"
+            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fetchFleetValidateBeforeCall(String sid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sid' is set
+        if (sid == null) {
+            throw new ApiException("Missing the required parameter 'sid' when calling fetchFleet(Async)");
+        }
+
+        return fetchFleetCall(sid, _callback);
+
+    }
+
+    /**
+     * 
+     * Fetch a Fleet instance from your account.
+     * @param sid The SID of the Fleet resource to fetch. (required)
+     * @return SupersimV1Fleet
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SupersimV1Fleet fetchFleet(String sid) throws ApiException {
+        ApiResponse<SupersimV1Fleet> localVarResp = fetchFleetWithHttpInfo(sid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Fetch a Fleet instance from your account.
+     * @param sid The SID of the Fleet resource to fetch. (required)
+     * @return ApiResponse&lt;SupersimV1Fleet&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SupersimV1Fleet> fetchFleetWithHttpInfo(String sid) throws ApiException {
+        okhttp3.Call localVarCall = fetchFleetValidateBeforeCall(sid, null);
+        Type localVarReturnType = new TypeToken<SupersimV1Fleet>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Fetch a Fleet instance from your account.
+     * @param sid The SID of the Fleet resource to fetch. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchFleetAsync(String sid, final ApiCallback<SupersimV1Fleet> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fetchFleetValidateBeforeCall(sid, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1Fleet>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fetchIpCommand
+     * @param sid The SID of the IP Command resource to fetch. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchIpCommandCall(String sid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/IpCommands/{Sid}"
+            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fetchIpCommandValidateBeforeCall(String sid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sid' is set
+        if (sid == null) {
+            throw new ApiException("Missing the required parameter 'sid' when calling fetchIpCommand(Async)");
+        }
+
+        return fetchIpCommandCall(sid, _callback);
+
+    }
+
+    /**
+     * 
+     * Fetch IP Command instance from your account.
+     * @param sid The SID of the IP Command resource to fetch. (required)
+     * @return SupersimV1IpCommand
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SupersimV1IpCommand fetchIpCommand(String sid) throws ApiException {
+        ApiResponse<SupersimV1IpCommand> localVarResp = fetchIpCommandWithHttpInfo(sid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Fetch IP Command instance from your account.
+     * @param sid The SID of the IP Command resource to fetch. (required)
+     * @return ApiResponse&lt;SupersimV1IpCommand&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SupersimV1IpCommand> fetchIpCommandWithHttpInfo(String sid) throws ApiException {
+        okhttp3.Call localVarCall = fetchIpCommandValidateBeforeCall(sid, null);
+        Type localVarReturnType = new TypeToken<SupersimV1IpCommand>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Fetch IP Command instance from your account.
+     * @param sid The SID of the IP Command resource to fetch. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchIpCommandAsync(String sid, final ApiCallback<SupersimV1IpCommand> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fetchIpCommandValidateBeforeCall(sid, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1IpCommand>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fetchNetwork
+     * @param sid The SID of the Network resource to fetch. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchNetworkCall(String sid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/Networks/{Sid}"
+            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fetchNetworkValidateBeforeCall(String sid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sid' is set
+        if (sid == null) {
+            throw new ApiException("Missing the required parameter 'sid' when calling fetchNetwork(Async)");
+        }
+
+        return fetchNetworkCall(sid, _callback);
+
+    }
+
+    /**
+     * 
+     * Fetch a Network resource.
+     * @param sid The SID of the Network resource to fetch. (required)
+     * @return SupersimV1Network
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SupersimV1Network fetchNetwork(String sid) throws ApiException {
+        ApiResponse<SupersimV1Network> localVarResp = fetchNetworkWithHttpInfo(sid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Fetch a Network resource.
+     * @param sid The SID of the Network resource to fetch. (required)
+     * @return ApiResponse&lt;SupersimV1Network&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SupersimV1Network> fetchNetworkWithHttpInfo(String sid) throws ApiException {
+        okhttp3.Call localVarCall = fetchNetworkValidateBeforeCall(sid, null);
+        Type localVarReturnType = new TypeToken<SupersimV1Network>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Fetch a Network resource.
+     * @param sid The SID of the Network resource to fetch. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchNetworkAsync(String sid, final ApiCallback<SupersimV1Network> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fetchNetworkValidateBeforeCall(sid, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1Network>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fetchNetworkAccessProfile
+     * @param sid The SID of the Network Access Profile resource to fetch. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchNetworkAccessProfileCall(String sid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/NetworkAccessProfiles/{Sid}"
+            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fetchNetworkAccessProfileValidateBeforeCall(String sid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sid' is set
+        if (sid == null) {
+            throw new ApiException("Missing the required parameter 'sid' when calling fetchNetworkAccessProfile(Async)");
+        }
+
+        return fetchNetworkAccessProfileCall(sid, _callback);
+
+    }
+
+    /**
+     * 
+     * Fetch a Network Access Profile instance from your account.
+     * @param sid The SID of the Network Access Profile resource to fetch. (required)
+     * @return SupersimV1NetworkAccessProfile
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SupersimV1NetworkAccessProfile fetchNetworkAccessProfile(String sid) throws ApiException {
+        ApiResponse<SupersimV1NetworkAccessProfile> localVarResp = fetchNetworkAccessProfileWithHttpInfo(sid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Fetch a Network Access Profile instance from your account.
+     * @param sid The SID of the Network Access Profile resource to fetch. (required)
+     * @return ApiResponse&lt;SupersimV1NetworkAccessProfile&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SupersimV1NetworkAccessProfile> fetchNetworkAccessProfileWithHttpInfo(String sid) throws ApiException {
+        okhttp3.Call localVarCall = fetchNetworkAccessProfileValidateBeforeCall(sid, null);
+        Type localVarReturnType = new TypeToken<SupersimV1NetworkAccessProfile>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Fetch a Network Access Profile instance from your account.
+     * @param sid The SID of the Network Access Profile resource to fetch. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchNetworkAccessProfileAsync(String sid, final ApiCallback<SupersimV1NetworkAccessProfile> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fetchNetworkAccessProfileValidateBeforeCall(sid, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1NetworkAccessProfile>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fetchNetworkAccessProfileNetwork
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param sid The SID of the Network resource to fetch. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchNetworkAccessProfileNetworkCall(String networkAccessProfileSid, String sid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid}"
+            .replace("{" + "NetworkAccessProfileSid" + "}", localVarApiClient.escapeString(networkAccessProfileSid.toString()))
+            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fetchNetworkAccessProfileNetworkValidateBeforeCall(String networkAccessProfileSid, String sid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'networkAccessProfileSid' is set
+        if (networkAccessProfileSid == null) {
+            throw new ApiException("Missing the required parameter 'networkAccessProfileSid' when calling fetchNetworkAccessProfileNetwork(Async)");
+        }
+
+        // verify the required parameter 'sid' is set
+        if (sid == null) {
+            throw new ApiException("Missing the required parameter 'sid' when calling fetchNetworkAccessProfileNetwork(Async)");
+        }
+
+        return fetchNetworkAccessProfileNetworkCall(networkAccessProfileSid, sid, _callback);
+
+    }
+
+    /**
+     * 
+     * Fetch a Network Access Profile resource&#39;s Network resource.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param sid The SID of the Network resource to fetch. (required)
+     * @return SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork fetchNetworkAccessProfileNetwork(String networkAccessProfileSid, String sid) throws ApiException {
+        ApiResponse<SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork> localVarResp = fetchNetworkAccessProfileNetworkWithHttpInfo(networkAccessProfileSid, sid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Fetch a Network Access Profile resource&#39;s Network resource.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param sid The SID of the Network resource to fetch. (required)
+     * @return ApiResponse&lt;SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork> fetchNetworkAccessProfileNetworkWithHttpInfo(String networkAccessProfileSid, String sid) throws ApiException {
+        okhttp3.Call localVarCall = fetchNetworkAccessProfileNetworkValidateBeforeCall(networkAccessProfileSid, sid, null);
+        Type localVarReturnType = new TypeToken<SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Fetch a Network Access Profile resource&#39;s Network resource.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param sid The SID of the Network resource to fetch. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchNetworkAccessProfileNetworkAsync(String networkAccessProfileSid, String sid, final ApiCallback<SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fetchNetworkAccessProfileNetworkValidateBeforeCall(networkAccessProfileSid, sid, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fetchSim
+     * @param sid The SID of the Sim resource to fetch. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchSimCall(String sid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/Sims/{Sid}"
+            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fetchSimValidateBeforeCall(String sid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sid' is set
+        if (sid == null) {
+            throw new ApiException("Missing the required parameter 'sid' when calling fetchSim(Async)");
+        }
+
+        return fetchSimCall(sid, _callback);
+
+    }
+
+    /**
+     * 
+     * Fetch a Super SIM instance from your account.
+     * @param sid The SID of the Sim resource to fetch. (required)
+     * @return SupersimV1Sim
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SupersimV1Sim fetchSim(String sid) throws ApiException {
+        ApiResponse<SupersimV1Sim> localVarResp = fetchSimWithHttpInfo(sid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Fetch a Super SIM instance from your account.
+     * @param sid The SID of the Sim resource to fetch. (required)
+     * @return ApiResponse&lt;SupersimV1Sim&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SupersimV1Sim> fetchSimWithHttpInfo(String sid) throws ApiException {
+        okhttp3.Call localVarCall = fetchSimValidateBeforeCall(sid, null);
+        Type localVarReturnType = new TypeToken<SupersimV1Sim>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Fetch a Super SIM instance from your account.
+     * @param sid The SID of the Sim resource to fetch. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchSimAsync(String sid, final ApiCallback<SupersimV1Sim> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fetchSimValidateBeforeCall(sid, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1Sim>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fetchSmsCommand
+     * @param sid The SID of the SMS Command resource to fetch. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchSmsCommandCall(String sid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/SmsCommands/{Sid}"
+            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fetchSmsCommandValidateBeforeCall(String sid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sid' is set
+        if (sid == null) {
+            throw new ApiException("Missing the required parameter 'sid' when calling fetchSmsCommand(Async)");
+        }
+
+        return fetchSmsCommandCall(sid, _callback);
+
+    }
+
+    /**
+     * 
+     * Fetch SMS Command instance from your account.
+     * @param sid The SID of the SMS Command resource to fetch. (required)
+     * @return SupersimV1SmsCommand
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SupersimV1SmsCommand fetchSmsCommand(String sid) throws ApiException {
+        ApiResponse<SupersimV1SmsCommand> localVarResp = fetchSmsCommandWithHttpInfo(sid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Fetch SMS Command instance from your account.
+     * @param sid The SID of the SMS Command resource to fetch. (required)
+     * @return ApiResponse&lt;SupersimV1SmsCommand&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SupersimV1SmsCommand> fetchSmsCommandWithHttpInfo(String sid) throws ApiException {
+        okhttp3.Call localVarCall = fetchSmsCommandValidateBeforeCall(sid, null);
+        Type localVarReturnType = new TypeToken<SupersimV1SmsCommand>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Fetch SMS Command instance from your account.
+     * @param sid The SID of the SMS Command resource to fetch. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchSmsCommandAsync(String sid, final ApiCallback<SupersimV1SmsCommand> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fetchSmsCommandValidateBeforeCall(sid, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1SmsCommand>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listBillingPeriod
+     * @param simSid The SID of the Super SIM to list Billing Periods for. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBillingPeriodCall(String simSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/Sims/{SimSid}/BillingPeriods"
+            .replace("{" + "SimSid" + "}", localVarApiClient.escapeString(simSid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listBillingPeriodValidateBeforeCall(String simSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'simSid' is set
+        if (simSid == null) {
+            throw new ApiException("Missing the required parameter 'simSid' when calling listBillingPeriod(Async)");
+        }
+
+        return listBillingPeriodCall(simSid, pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Retrieve a list of Billing Periods for a Super SIM.
+     * @param simSid The SID of the Super SIM to list Billing Periods for. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListBillingPeriodResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListBillingPeriodResponse listBillingPeriod(String simSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListBillingPeriodResponse> localVarResp = listBillingPeriodWithHttpInfo(simSid, pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve a list of Billing Periods for a Super SIM.
+     * @param simSid The SID of the Super SIM to list Billing Periods for. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListBillingPeriodResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListBillingPeriodResponse> listBillingPeriodWithHttpInfo(String simSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listBillingPeriodValidateBeforeCall(simSid, pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListBillingPeriodResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve a list of Billing Periods for a Super SIM.
+     * @param simSid The SID of the Super SIM to list Billing Periods for. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBillingPeriodAsync(String simSid, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListBillingPeriodResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listBillingPeriodValidateBeforeCall(simSid, pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListBillingPeriodResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listEsimProfile
+     * @param eid List the eSIM Profiles that have been associated with an EId. (optional)
+     * @param simSid Find the eSIM Profile resource related to a [Sim](https://www.twilio.com/docs/wireless/api/sim-resource) resource by providing the SIM SID. Will always return an array with either 1 or 0 records. (optional)
+     * @param status List the eSIM Profiles that are in a given status. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listEsimProfileCall(String eid, String simSid, EsimProfileEnumStatus status, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/ESimProfiles";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (eid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Eid", eid));
+        }
+
+        if (simSid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("SimSid", simSid));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Status", status));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listEsimProfileValidateBeforeCall(String eid, String simSid, EsimProfileEnumStatus status, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        return listEsimProfileCall(eid, simSid, status, pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Retrieve a list of eSIM Profiles.
+     * @param eid List the eSIM Profiles that have been associated with an EId. (optional)
+     * @param simSid Find the eSIM Profile resource related to a [Sim](https://www.twilio.com/docs/wireless/api/sim-resource) resource by providing the SIM SID. Will always return an array with either 1 or 0 records. (optional)
+     * @param status List the eSIM Profiles that are in a given status. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListEsimProfileResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListEsimProfileResponse listEsimProfile(String eid, String simSid, EsimProfileEnumStatus status, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListEsimProfileResponse> localVarResp = listEsimProfileWithHttpInfo(eid, simSid, status, pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve a list of eSIM Profiles.
+     * @param eid List the eSIM Profiles that have been associated with an EId. (optional)
+     * @param simSid Find the eSIM Profile resource related to a [Sim](https://www.twilio.com/docs/wireless/api/sim-resource) resource by providing the SIM SID. Will always return an array with either 1 or 0 records. (optional)
+     * @param status List the eSIM Profiles that are in a given status. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListEsimProfileResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListEsimProfileResponse> listEsimProfileWithHttpInfo(String eid, String simSid, EsimProfileEnumStatus status, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listEsimProfileValidateBeforeCall(eid, simSid, status, pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListEsimProfileResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve a list of eSIM Profiles.
+     * @param eid List the eSIM Profiles that have been associated with an EId. (optional)
+     * @param simSid Find the eSIM Profile resource related to a [Sim](https://www.twilio.com/docs/wireless/api/sim-resource) resource by providing the SIM SID. Will always return an array with either 1 or 0 records. (optional)
+     * @param status List the eSIM Profiles that are in a given status. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listEsimProfileAsync(String eid, String simSid, EsimProfileEnumStatus status, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListEsimProfileResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listEsimProfileValidateBeforeCall(eid, simSid, status, pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListEsimProfileResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listFleet
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that controls which cellular networks the Fleet&#39;s SIMs can connect to. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listFleetCall(String networkAccessProfile, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/Fleets";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (networkAccessProfile != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("NetworkAccessProfile", networkAccessProfile));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listFleetValidateBeforeCall(String networkAccessProfile, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        return listFleetCall(networkAccessProfile, pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Retrieve a list of Fleets from your account.
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that controls which cellular networks the Fleet&#39;s SIMs can connect to. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListFleetResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListFleetResponse listFleet(String networkAccessProfile, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListFleetResponse> localVarResp = listFleetWithHttpInfo(networkAccessProfile, pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve a list of Fleets from your account.
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that controls which cellular networks the Fleet&#39;s SIMs can connect to. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListFleetResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListFleetResponse> listFleetWithHttpInfo(String networkAccessProfile, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listFleetValidateBeforeCall(networkAccessProfile, pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListFleetResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve a list of Fleets from your account.
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that controls which cellular networks the Fleet&#39;s SIMs can connect to. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listFleetAsync(String networkAccessProfile, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListFleetResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listFleetValidateBeforeCall(networkAccessProfile, pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListFleetResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listIpCommand
+     * @param sim The SID or unique name of the Sim resource that IP Command was sent to or from. (optional)
+     * @param simIccid The ICCID of the Sim resource that IP Command was sent to or from. (optional)
+     * @param status The status of the IP Command. Can be: &#x60;queued&#x60;, &#x60;sent&#x60;, &#x60;received&#x60; or &#x60;failed&#x60;. See the [IP Command Status Values](https://www.twilio.com/docs/wireless/api/ipcommand-resource#status-values) for a description of each. (optional)
+     * @param direction The direction of the IP Command. Can be &#x60;to_sim&#x60; or &#x60;from_sim&#x60;. The value of &#x60;to_sim&#x60; is synonymous with the term &#x60;mobile terminated&#x60;, and &#x60;from_sim&#x60; is synonymous with the term &#x60;mobile originated&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listIpCommandCall(String sim, String simIccid, IpCommandEnumStatus status, IpCommandEnumDirection direction, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/IpCommands";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (sim != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Sim", sim));
+        }
+
+        if (simIccid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("SimIccid", simIccid));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Status", status));
+        }
+
+        if (direction != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Direction", direction));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listIpCommandValidateBeforeCall(String sim, String simIccid, IpCommandEnumStatus status, IpCommandEnumDirection direction, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        return listIpCommandCall(sim, simIccid, status, direction, pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Retrieve a list of IP Commands from your account.
+     * @param sim The SID or unique name of the Sim resource that IP Command was sent to or from. (optional)
+     * @param simIccid The ICCID of the Sim resource that IP Command was sent to or from. (optional)
+     * @param status The status of the IP Command. Can be: &#x60;queued&#x60;, &#x60;sent&#x60;, &#x60;received&#x60; or &#x60;failed&#x60;. See the [IP Command Status Values](https://www.twilio.com/docs/wireless/api/ipcommand-resource#status-values) for a description of each. (optional)
+     * @param direction The direction of the IP Command. Can be &#x60;to_sim&#x60; or &#x60;from_sim&#x60;. The value of &#x60;to_sim&#x60; is synonymous with the term &#x60;mobile terminated&#x60;, and &#x60;from_sim&#x60; is synonymous with the term &#x60;mobile originated&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListIpCommandResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListIpCommandResponse listIpCommand(String sim, String simIccid, IpCommandEnumStatus status, IpCommandEnumDirection direction, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListIpCommandResponse> localVarResp = listIpCommandWithHttpInfo(sim, simIccid, status, direction, pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve a list of IP Commands from your account.
+     * @param sim The SID or unique name of the Sim resource that IP Command was sent to or from. (optional)
+     * @param simIccid The ICCID of the Sim resource that IP Command was sent to or from. (optional)
+     * @param status The status of the IP Command. Can be: &#x60;queued&#x60;, &#x60;sent&#x60;, &#x60;received&#x60; or &#x60;failed&#x60;. See the [IP Command Status Values](https://www.twilio.com/docs/wireless/api/ipcommand-resource#status-values) for a description of each. (optional)
+     * @param direction The direction of the IP Command. Can be &#x60;to_sim&#x60; or &#x60;from_sim&#x60;. The value of &#x60;to_sim&#x60; is synonymous with the term &#x60;mobile terminated&#x60;, and &#x60;from_sim&#x60; is synonymous with the term &#x60;mobile originated&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListIpCommandResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListIpCommandResponse> listIpCommandWithHttpInfo(String sim, String simIccid, IpCommandEnumStatus status, IpCommandEnumDirection direction, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listIpCommandValidateBeforeCall(sim, simIccid, status, direction, pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListIpCommandResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve a list of IP Commands from your account.
+     * @param sim The SID or unique name of the Sim resource that IP Command was sent to or from. (optional)
+     * @param simIccid The ICCID of the Sim resource that IP Command was sent to or from. (optional)
+     * @param status The status of the IP Command. Can be: &#x60;queued&#x60;, &#x60;sent&#x60;, &#x60;received&#x60; or &#x60;failed&#x60;. See the [IP Command Status Values](https://www.twilio.com/docs/wireless/api/ipcommand-resource#status-values) for a description of each. (optional)
+     * @param direction The direction of the IP Command. Can be &#x60;to_sim&#x60; or &#x60;from_sim&#x60;. The value of &#x60;to_sim&#x60; is synonymous with the term &#x60;mobile terminated&#x60;, and &#x60;from_sim&#x60; is synonymous with the term &#x60;mobile originated&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listIpCommandAsync(String sim, String simIccid, IpCommandEnumStatus status, IpCommandEnumDirection direction, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListIpCommandResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listIpCommandValidateBeforeCall(sim, simIccid, status, direction, pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListIpCommandResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listNetwork
+     * @param isoCountry The [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the Network resources to read. (optional)
+     * @param mcc The &#39;mobile country code&#39; of a country. Network resources with this &#x60;mcc&#x60; in their &#x60;identifiers&#x60; will be read. (optional)
+     * @param mnc The &#39;mobile network code&#39; of a mobile operator network. Network resources with this &#x60;mnc&#x60; in their &#x60;identifiers&#x60; will be read. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listNetworkCall(String isoCountry, String mcc, String mnc, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/Networks";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (isoCountry != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("IsoCountry", isoCountry));
+        }
+
+        if (mcc != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Mcc", mcc));
+        }
+
+        if (mnc != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Mnc", mnc));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listNetworkValidateBeforeCall(String isoCountry, String mcc, String mnc, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        return listNetworkCall(isoCountry, mcc, mnc, pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Retrieve a list of Network resources.
+     * @param isoCountry The [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the Network resources to read. (optional)
+     * @param mcc The &#39;mobile country code&#39; of a country. Network resources with this &#x60;mcc&#x60; in their &#x60;identifiers&#x60; will be read. (optional)
+     * @param mnc The &#39;mobile network code&#39; of a mobile operator network. Network resources with this &#x60;mnc&#x60; in their &#x60;identifiers&#x60; will be read. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListNetworkResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListNetworkResponse listNetwork(String isoCountry, String mcc, String mnc, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListNetworkResponse> localVarResp = listNetworkWithHttpInfo(isoCountry, mcc, mnc, pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve a list of Network resources.
+     * @param isoCountry The [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the Network resources to read. (optional)
+     * @param mcc The &#39;mobile country code&#39; of a country. Network resources with this &#x60;mcc&#x60; in their &#x60;identifiers&#x60; will be read. (optional)
+     * @param mnc The &#39;mobile network code&#39; of a mobile operator network. Network resources with this &#x60;mnc&#x60; in their &#x60;identifiers&#x60; will be read. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListNetworkResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListNetworkResponse> listNetworkWithHttpInfo(String isoCountry, String mcc, String mnc, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listNetworkValidateBeforeCall(isoCountry, mcc, mnc, pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListNetworkResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve a list of Network resources.
+     * @param isoCountry The [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the Network resources to read. (optional)
+     * @param mcc The &#39;mobile country code&#39; of a country. Network resources with this &#x60;mcc&#x60; in their &#x60;identifiers&#x60; will be read. (optional)
+     * @param mnc The &#39;mobile network code&#39; of a mobile operator network. Network resources with this &#x60;mnc&#x60; in their &#x60;identifiers&#x60; will be read. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listNetworkAsync(String isoCountry, String mcc, String mnc, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListNetworkResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listNetworkValidateBeforeCall(isoCountry, mcc, mnc, pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListNetworkResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listNetworkAccessProfile
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listNetworkAccessProfileCall(Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/NetworkAccessProfiles";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listNetworkAccessProfileValidateBeforeCall(Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        return listNetworkAccessProfileCall(pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Retrieve a list of Network Access Profiles from your account.
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListNetworkAccessProfileResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListNetworkAccessProfileResponse listNetworkAccessProfile(Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListNetworkAccessProfileResponse> localVarResp = listNetworkAccessProfileWithHttpInfo(pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve a list of Network Access Profiles from your account.
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListNetworkAccessProfileResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListNetworkAccessProfileResponse> listNetworkAccessProfileWithHttpInfo(Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listNetworkAccessProfileValidateBeforeCall(pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListNetworkAccessProfileResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve a list of Network Access Profiles from your account.
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listNetworkAccessProfileAsync(Integer pageSize, Integer page, String pageToken, final ApiCallback<ListNetworkAccessProfileResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listNetworkAccessProfileValidateBeforeCall(pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListNetworkAccessProfileResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listNetworkAccessProfileNetwork
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listNetworkAccessProfileNetworkCall(String networkAccessProfileSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks"
+            .replace("{" + "NetworkAccessProfileSid" + "}", localVarApiClient.escapeString(networkAccessProfileSid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listNetworkAccessProfileNetworkValidateBeforeCall(String networkAccessProfileSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'networkAccessProfileSid' is set
+        if (networkAccessProfileSid == null) {
+            throw new ApiException("Missing the required parameter 'networkAccessProfileSid' when calling listNetworkAccessProfileNetwork(Async)");
+        }
+
+        return listNetworkAccessProfileNetworkCall(networkAccessProfileSid, pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Retrieve a list of Network Access Profile resource&#39;s Network resource.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListNetworkAccessProfileNetworkResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListNetworkAccessProfileNetworkResponse listNetworkAccessProfileNetwork(String networkAccessProfileSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListNetworkAccessProfileNetworkResponse> localVarResp = listNetworkAccessProfileNetworkWithHttpInfo(networkAccessProfileSid, pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve a list of Network Access Profile resource&#39;s Network resource.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListNetworkAccessProfileNetworkResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListNetworkAccessProfileNetworkResponse> listNetworkAccessProfileNetworkWithHttpInfo(String networkAccessProfileSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listNetworkAccessProfileNetworkValidateBeforeCall(networkAccessProfileSid, pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListNetworkAccessProfileNetworkResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve a list of Network Access Profile resource&#39;s Network resource.
+     * @param networkAccessProfileSid The unique string that identifies the Network Access Profile resource. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listNetworkAccessProfileNetworkAsync(String networkAccessProfileSid, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListNetworkAccessProfileNetworkResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listNetworkAccessProfileNetworkValidateBeforeCall(networkAccessProfileSid, pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListNetworkAccessProfileNetworkResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSettingsUpdate
+     * @param sim Filter the Settings Updates by a Super SIM&#39;s SID or UniqueName. (optional)
+     * @param status Filter the Settings Updates by status. Can be &#x60;scheduled&#x60;, &#x60;in-progress&#x60;, &#x60;successful&#x60;, or &#x60;failed&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSettingsUpdateCall(String sim, SettingsUpdateEnumStatus status, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/SettingsUpdates";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (sim != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Sim", sim));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Status", status));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSettingsUpdateValidateBeforeCall(String sim, SettingsUpdateEnumStatus status, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        return listSettingsUpdateCall(sim, status, pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Retrieve a list of Settings Updates.
+     * @param sim Filter the Settings Updates by a Super SIM&#39;s SID or UniqueName. (optional)
+     * @param status Filter the Settings Updates by status. Can be &#x60;scheduled&#x60;, &#x60;in-progress&#x60;, &#x60;successful&#x60;, or &#x60;failed&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListSettingsUpdateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListSettingsUpdateResponse listSettingsUpdate(String sim, SettingsUpdateEnumStatus status, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListSettingsUpdateResponse> localVarResp = listSettingsUpdateWithHttpInfo(sim, status, pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve a list of Settings Updates.
+     * @param sim Filter the Settings Updates by a Super SIM&#39;s SID or UniqueName. (optional)
+     * @param status Filter the Settings Updates by status. Can be &#x60;scheduled&#x60;, &#x60;in-progress&#x60;, &#x60;successful&#x60;, or &#x60;failed&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListSettingsUpdateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListSettingsUpdateResponse> listSettingsUpdateWithHttpInfo(String sim, SettingsUpdateEnumStatus status, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listSettingsUpdateValidateBeforeCall(sim, status, pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListSettingsUpdateResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve a list of Settings Updates.
+     * @param sim Filter the Settings Updates by a Super SIM&#39;s SID or UniqueName. (optional)
+     * @param status Filter the Settings Updates by status. Can be &#x60;scheduled&#x60;, &#x60;in-progress&#x60;, &#x60;successful&#x60;, or &#x60;failed&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSettingsUpdateAsync(String sim, SettingsUpdateEnumStatus status, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListSettingsUpdateResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSettingsUpdateValidateBeforeCall(sim, status, pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListSettingsUpdateResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSim
+     * @param status The status of the Sim resources to read. Can be &#x60;new&#x60;, &#x60;ready&#x60;, &#x60;active&#x60;, &#x60;inactive&#x60;, or &#x60;scheduled&#x60;. (optional)
+     * @param fleet The SID or unique name of the Fleet to which a list of Sims are assigned. (optional)
+     * @param iccid The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) associated with a Super SIM to filter the list by. Passing this parameter will always return a list containing zero or one SIMs. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSimCall(SimEnumStatus status, String fleet, String iccid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/Sims";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Status", status));
+        }
+
+        if (fleet != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Fleet", fleet));
+        }
+
+        if (iccid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Iccid", iccid));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSimValidateBeforeCall(SimEnumStatus status, String fleet, String iccid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        return listSimCall(status, fleet, iccid, pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Retrieve a list of Super SIMs from your account.
+     * @param status The status of the Sim resources to read. Can be &#x60;new&#x60;, &#x60;ready&#x60;, &#x60;active&#x60;, &#x60;inactive&#x60;, or &#x60;scheduled&#x60;. (optional)
+     * @param fleet The SID or unique name of the Fleet to which a list of Sims are assigned. (optional)
+     * @param iccid The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) associated with a Super SIM to filter the list by. Passing this parameter will always return a list containing zero or one SIMs. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListSimResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListSimResponse listSim(SimEnumStatus status, String fleet, String iccid, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListSimResponse> localVarResp = listSimWithHttpInfo(status, fleet, iccid, pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve a list of Super SIMs from your account.
+     * @param status The status of the Sim resources to read. Can be &#x60;new&#x60;, &#x60;ready&#x60;, &#x60;active&#x60;, &#x60;inactive&#x60;, or &#x60;scheduled&#x60;. (optional)
+     * @param fleet The SID or unique name of the Fleet to which a list of Sims are assigned. (optional)
+     * @param iccid The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) associated with a Super SIM to filter the list by. Passing this parameter will always return a list containing zero or one SIMs. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListSimResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListSimResponse> listSimWithHttpInfo(SimEnumStatus status, String fleet, String iccid, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listSimValidateBeforeCall(status, fleet, iccid, pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListSimResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve a list of Super SIMs from your account.
+     * @param status The status of the Sim resources to read. Can be &#x60;new&#x60;, &#x60;ready&#x60;, &#x60;active&#x60;, &#x60;inactive&#x60;, or &#x60;scheduled&#x60;. (optional)
+     * @param fleet The SID or unique name of the Fleet to which a list of Sims are assigned. (optional)
+     * @param iccid The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) associated with a Super SIM to filter the list by. Passing this parameter will always return a list containing zero or one SIMs. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSimAsync(SimEnumStatus status, String fleet, String iccid, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListSimResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSimValidateBeforeCall(status, fleet, iccid, pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListSimResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSimIpAddress
+     * @param simSid The SID of the Super SIM to list IP Addresses for. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSimIpAddressCall(String simSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/Sims/{SimSid}/IpAddresses"
+            .replace("{" + "SimSid" + "}", localVarApiClient.escapeString(simSid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSimIpAddressValidateBeforeCall(String simSid, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'simSid' is set
+        if (simSid == null) {
+            throw new ApiException("Missing the required parameter 'simSid' when calling listSimIpAddress(Async)");
+        }
+
+        return listSimIpAddressCall(simSid, pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Retrieve a list of IP Addresses for the given Super SIM.
+     * @param simSid The SID of the Super SIM to list IP Addresses for. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListSimIpAddressResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListSimIpAddressResponse listSimIpAddress(String simSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListSimIpAddressResponse> localVarResp = listSimIpAddressWithHttpInfo(simSid, pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve a list of IP Addresses for the given Super SIM.
+     * @param simSid The SID of the Super SIM to list IP Addresses for. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListSimIpAddressResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListSimIpAddressResponse> listSimIpAddressWithHttpInfo(String simSid, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listSimIpAddressValidateBeforeCall(simSid, pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListSimIpAddressResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve a list of IP Addresses for the given Super SIM.
+     * @param simSid The SID of the Super SIM to list IP Addresses for. (required)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSimIpAddressAsync(String simSid, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListSimIpAddressResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSimIpAddressValidateBeforeCall(simSid, pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListSimIpAddressResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSmsCommand
+     * @param sim The SID or unique name of the Sim resource that SMS Command was sent to or from. (optional)
+     * @param status The status of the SMS Command. Can be: &#x60;queued&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;received&#x60; or &#x60;failed&#x60;. See the [SMS Command Status Values](https://www.twilio.com/docs/iot/supersim/api/smscommand-resource#status-values) for a description of each. (optional)
+     * @param direction The direction of the SMS Command. Can be &#x60;to_sim&#x60; or &#x60;from_sim&#x60;. The value of &#x60;to_sim&#x60; is synonymous with the term &#x60;mobile terminated&#x60;, and &#x60;from_sim&#x60; is synonymous with the term &#x60;mobile originated&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSmsCommandCall(String sim, SmsCommandEnumStatus status, SmsCommandEnumDirection direction, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/SmsCommands";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (sim != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Sim", sim));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Status", status));
+        }
+
+        if (direction != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Direction", direction));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSmsCommandValidateBeforeCall(String sim, SmsCommandEnumStatus status, SmsCommandEnumDirection direction, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        return listSmsCommandCall(sim, status, direction, pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * Retrieve a list of SMS Commands from your account.
+     * @param sim The SID or unique name of the Sim resource that SMS Command was sent to or from. (optional)
+     * @param status The status of the SMS Command. Can be: &#x60;queued&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;received&#x60; or &#x60;failed&#x60;. See the [SMS Command Status Values](https://www.twilio.com/docs/iot/supersim/api/smscommand-resource#status-values) for a description of each. (optional)
+     * @param direction The direction of the SMS Command. Can be &#x60;to_sim&#x60; or &#x60;from_sim&#x60;. The value of &#x60;to_sim&#x60; is synonymous with the term &#x60;mobile terminated&#x60;, and &#x60;from_sim&#x60; is synonymous with the term &#x60;mobile originated&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListSmsCommandResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListSmsCommandResponse listSmsCommand(String sim, SmsCommandEnumStatus status, SmsCommandEnumDirection direction, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListSmsCommandResponse> localVarResp = listSmsCommandWithHttpInfo(sim, status, direction, pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Retrieve a list of SMS Commands from your account.
+     * @param sim The SID or unique name of the Sim resource that SMS Command was sent to or from. (optional)
+     * @param status The status of the SMS Command. Can be: &#x60;queued&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;received&#x60; or &#x60;failed&#x60;. See the [SMS Command Status Values](https://www.twilio.com/docs/iot/supersim/api/smscommand-resource#status-values) for a description of each. (optional)
+     * @param direction The direction of the SMS Command. Can be &#x60;to_sim&#x60; or &#x60;from_sim&#x60;. The value of &#x60;to_sim&#x60; is synonymous with the term &#x60;mobile terminated&#x60;, and &#x60;from_sim&#x60; is synonymous with the term &#x60;mobile originated&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListSmsCommandResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListSmsCommandResponse> listSmsCommandWithHttpInfo(String sim, SmsCommandEnumStatus status, SmsCommandEnumDirection direction, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listSmsCommandValidateBeforeCall(sim, status, direction, pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListSmsCommandResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Retrieve a list of SMS Commands from your account.
+     * @param sim The SID or unique name of the Sim resource that SMS Command was sent to or from. (optional)
+     * @param status The status of the SMS Command. Can be: &#x60;queued&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;received&#x60; or &#x60;failed&#x60;. See the [SMS Command Status Values](https://www.twilio.com/docs/iot/supersim/api/smscommand-resource#status-values) for a description of each. (optional)
+     * @param direction The direction of the SMS Command. Can be &#x60;to_sim&#x60; or &#x60;from_sim&#x60;. The value of &#x60;to_sim&#x60; is synonymous with the term &#x60;mobile terminated&#x60;, and &#x60;from_sim&#x60; is synonymous with the term &#x60;mobile originated&#x60;. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSmsCommandAsync(String sim, SmsCommandEnumStatus status, SmsCommandEnumDirection direction, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListSmsCommandResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSmsCommandValidateBeforeCall(sim, status, direction, pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListSmsCommandResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listUsageRecord
+     * @param sim SID or unique name of a Sim resource. Only show UsageRecords representing usage incurred by this Super SIM. (optional)
+     * @param fleet SID or unique name of a Fleet resource. Only show UsageRecords representing usage for Super SIMs belonging to this Fleet resource at the time the usage occurred. (optional)
+     * @param network SID of a Network resource. Only show UsageRecords representing usage on this network. (optional)
+     * @param isoCountry Alpha-2 ISO Country Code. Only show UsageRecords representing usage in this country. (optional)
+     * @param group Dimension over which to aggregate usage records. Can be: &#x60;sim&#x60;, &#x60;fleet&#x60;, &#x60;network&#x60;, &#x60;isoCountry&#x60;. Default is to not aggregate across any of these dimensions, UsageRecords will be aggregated into the time buckets described by the &#x60;Granularity&#x60; parameter. (optional)
+     * @param granularity Time-based grouping that UsageRecords should be aggregated by. Can be: &#x60;hour&#x60;, &#x60;day&#x60;, or &#x60;all&#x60;. Default is &#x60;all&#x60;. &#x60;all&#x60; returns one UsageRecord that describes the usage for the entire period. (optional)
+     * @param startTime Only include usage that occurred at or after this time, specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is one month before the &#x60;end_time&#x60;. (optional)
+     * @param endTime Only include usage that occurred before this time (exclusive), specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is the current time. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listUsageRecordCall(String sim, String fleet, String network, String isoCountry, UsageRecordEnumGroup group, UsageRecordEnumGranularity granularity, OffsetDateTime startTime, OffsetDateTime endTime, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/UsageRecords";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (sim != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Sim", sim));
+        }
+
+        if (fleet != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Fleet", fleet));
+        }
+
+        if (network != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Network", network));
+        }
+
+        if (isoCountry != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("IsoCountry", isoCountry));
+        }
+
+        if (group != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Group", group));
+        }
+
+        if (granularity != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Granularity", granularity));
+        }
+
+        if (startTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("StartTime", startTime));
+        }
+
+        if (endTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("EndTime", endTime));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageSize", pageSize));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Page", page));
+        }
+
+        if (pageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("PageToken", pageToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "accountSid_authToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listUsageRecordValidateBeforeCall(String sim, String fleet, String network, String isoCountry, UsageRecordEnumGroup group, UsageRecordEnumGranularity granularity, OffsetDateTime startTime, OffsetDateTime endTime, Integer pageSize, Integer page, String pageToken, final ApiCallback _callback) throws ApiException {
+        return listUsageRecordCall(sim, fleet, network, isoCountry, group, granularity, startTime, endTime, pageSize, page, pageToken, _callback);
+
+    }
+
+    /**
+     * 
+     * List UsageRecords
+     * @param sim SID or unique name of a Sim resource. Only show UsageRecords representing usage incurred by this Super SIM. (optional)
+     * @param fleet SID or unique name of a Fleet resource. Only show UsageRecords representing usage for Super SIMs belonging to this Fleet resource at the time the usage occurred. (optional)
+     * @param network SID of a Network resource. Only show UsageRecords representing usage on this network. (optional)
+     * @param isoCountry Alpha-2 ISO Country Code. Only show UsageRecords representing usage in this country. (optional)
+     * @param group Dimension over which to aggregate usage records. Can be: &#x60;sim&#x60;, &#x60;fleet&#x60;, &#x60;network&#x60;, &#x60;isoCountry&#x60;. Default is to not aggregate across any of these dimensions, UsageRecords will be aggregated into the time buckets described by the &#x60;Granularity&#x60; parameter. (optional)
+     * @param granularity Time-based grouping that UsageRecords should be aggregated by. Can be: &#x60;hour&#x60;, &#x60;day&#x60;, or &#x60;all&#x60;. Default is &#x60;all&#x60;. &#x60;all&#x60; returns one UsageRecord that describes the usage for the entire period. (optional)
+     * @param startTime Only include usage that occurred at or after this time, specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is one month before the &#x60;end_time&#x60;. (optional)
+     * @param endTime Only include usage that occurred before this time (exclusive), specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is the current time. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ListUsageRecordResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListUsageRecordResponse listUsageRecord(String sim, String fleet, String network, String isoCountry, UsageRecordEnumGroup group, UsageRecordEnumGranularity granularity, OffsetDateTime startTime, OffsetDateTime endTime, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        ApiResponse<ListUsageRecordResponse> localVarResp = listUsageRecordWithHttpInfo(sim, fleet, network, isoCountry, group, granularity, startTime, endTime, pageSize, page, pageToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * List UsageRecords
+     * @param sim SID or unique name of a Sim resource. Only show UsageRecords representing usage incurred by this Super SIM. (optional)
+     * @param fleet SID or unique name of a Fleet resource. Only show UsageRecords representing usage for Super SIMs belonging to this Fleet resource at the time the usage occurred. (optional)
+     * @param network SID of a Network resource. Only show UsageRecords representing usage on this network. (optional)
+     * @param isoCountry Alpha-2 ISO Country Code. Only show UsageRecords representing usage in this country. (optional)
+     * @param group Dimension over which to aggregate usage records. Can be: &#x60;sim&#x60;, &#x60;fleet&#x60;, &#x60;network&#x60;, &#x60;isoCountry&#x60;. Default is to not aggregate across any of these dimensions, UsageRecords will be aggregated into the time buckets described by the &#x60;Granularity&#x60; parameter. (optional)
+     * @param granularity Time-based grouping that UsageRecords should be aggregated by. Can be: &#x60;hour&#x60;, &#x60;day&#x60;, or &#x60;all&#x60;. Default is &#x60;all&#x60;. &#x60;all&#x60; returns one UsageRecord that describes the usage for the entire period. (optional)
+     * @param startTime Only include usage that occurred at or after this time, specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is one month before the &#x60;end_time&#x60;. (optional)
+     * @param endTime Only include usage that occurred before this time (exclusive), specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is the current time. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @return ApiResponse&lt;ListUsageRecordResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListUsageRecordResponse> listUsageRecordWithHttpInfo(String sim, String fleet, String network, String isoCountry, UsageRecordEnumGroup group, UsageRecordEnumGranularity granularity, OffsetDateTime startTime, OffsetDateTime endTime, Integer pageSize, Integer page, String pageToken) throws ApiException {
+        okhttp3.Call localVarCall = listUsageRecordValidateBeforeCall(sim, fleet, network, isoCountry, group, granularity, startTime, endTime, pageSize, page, pageToken, null);
+        Type localVarReturnType = new TypeToken<ListUsageRecordResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * List UsageRecords
+     * @param sim SID or unique name of a Sim resource. Only show UsageRecords representing usage incurred by this Super SIM. (optional)
+     * @param fleet SID or unique name of a Fleet resource. Only show UsageRecords representing usage for Super SIMs belonging to this Fleet resource at the time the usage occurred. (optional)
+     * @param network SID of a Network resource. Only show UsageRecords representing usage on this network. (optional)
+     * @param isoCountry Alpha-2 ISO Country Code. Only show UsageRecords representing usage in this country. (optional)
+     * @param group Dimension over which to aggregate usage records. Can be: &#x60;sim&#x60;, &#x60;fleet&#x60;, &#x60;network&#x60;, &#x60;isoCountry&#x60;. Default is to not aggregate across any of these dimensions, UsageRecords will be aggregated into the time buckets described by the &#x60;Granularity&#x60; parameter. (optional)
+     * @param granularity Time-based grouping that UsageRecords should be aggregated by. Can be: &#x60;hour&#x60;, &#x60;day&#x60;, or &#x60;all&#x60;. Default is &#x60;all&#x60;. &#x60;all&#x60; returns one UsageRecord that describes the usage for the entire period. (optional)
+     * @param startTime Only include usage that occurred at or after this time, specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is one month before the &#x60;end_time&#x60;. (optional)
+     * @param endTime Only include usage that occurred before this time (exclusive), specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is the current time. (optional)
+     * @param pageSize How many resources to return in each list page. The default is 50, and the maximum is 1000. (optional)
+     * @param page The page index. This value is simply for client state. (optional)
+     * @param pageToken The page token. This is provided by the API. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listUsageRecordAsync(String sim, String fleet, String network, String isoCountry, UsageRecordEnumGroup group, UsageRecordEnumGranularity granularity, OffsetDateTime startTime, OffsetDateTime endTime, Integer pageSize, Integer page, String pageToken, final ApiCallback<ListUsageRecordResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listUsageRecordValidateBeforeCall(sim, fleet, network, isoCountry, group, granularity, startTime, endTime, pageSize, page, pageToken, _callback);
+        Type localVarReturnType = new TypeToken<ListUsageRecordResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateFleet
+     * @param sid The SID of the Fleet resource to update. (required)
+     * @param dataLimit The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). (optional)
+     * @param ipCommandsMethod A string representing the HTTP method to use when making a request to &#x60;ip_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param ipCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet&#39;s SIMs can connect to. (optional)
+     * @param smsCommandsMethod A string representing the HTTP method to use when making a request to &#x60;sms_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param smsCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateFleetCall(String sid, Integer dataLimit, String ipCommandsMethod, URI ipCommandsUrl, String networkAccessProfile, String smsCommandsMethod, URI smsCommandsUrl, String uniqueName, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/Fleets/{Sid}"
+            .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (dataLimit != null) {
+            localVarFormParams.put("DataLimit", dataLimit);
+        }
+
+        if (ipCommandsMethod != null) {
+            localVarFormParams.put("IpCommandsMethod", ipCommandsMethod);
+        }
+
+        if (ipCommandsUrl != null) {
+            localVarFormParams.put("IpCommandsUrl", ipCommandsUrl);
+        }
+
+        if (networkAccessProfile != null) {
+            localVarFormParams.put("NetworkAccessProfile", networkAccessProfile);
+        }
+
+        if (smsCommandsMethod != null) {
+            localVarFormParams.put("SmsCommandsMethod", smsCommandsMethod);
+        }
+
+        if (smsCommandsUrl != null) {
+            localVarFormParams.put("SmsCommandsUrl", smsCommandsUrl);
+        }
+
+        if (uniqueName != null) {
+            localVarFormParams.put("UniqueName", uniqueName);
         }
 
         final String[] localVarAccepts = {
@@ -5547,33 +4287,28 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRoleValidateBeforeCall(String serviceSid, String sid, List<String> permission, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling updateRole(Async)");
-        }
-
+    private okhttp3.Call updateFleetValidateBeforeCall(String sid, Integer dataLimit, String ipCommandsMethod, URI ipCommandsUrl, String networkAccessProfile, String smsCommandsMethod, URI smsCommandsUrl, String uniqueName, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sid' is set
         if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling updateRole(Async)");
+            throw new ApiException("Missing the required parameter 'sid' when calling updateFleet(Async)");
         }
 
-        // verify the required parameter 'permission' is set
-        if (permission == null) {
-            throw new ApiException("Missing the required parameter 'permission' when calling updateRole(Async)");
-        }
-
-        return updateRoleCall(serviceSid, sid, permission, _callback);
+        return updateFleetCall(sid, dataLimit, ipCommandsMethod, ipCommandsUrl, networkAccessProfile, smsCommandsMethod, smsCommandsUrl, uniqueName, _callback);
 
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param permission  (required)
-     * @return IpMessagingV1ServiceRole
+     * Updates the given properties of a Super SIM Fleet instance from your account.
+     * @param sid The SID of the Fleet resource to update. (required)
+     * @param dataLimit The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). (optional)
+     * @param ipCommandsMethod A string representing the HTTP method to use when making a request to &#x60;ip_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param ipCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet&#39;s SIMs can connect to. (optional)
+     * @param smsCommandsMethod A string representing the HTTP method to use when making a request to &#x60;sms_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param smsCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
+     * @return SupersimV1Fleet
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -5581,18 +4316,23 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public IpMessagingV1ServiceRole updateRole(String serviceSid, String sid, List<String> permission) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceRole> localVarResp = updateRoleWithHttpInfo(serviceSid, sid, permission);
+    public SupersimV1Fleet updateFleet(String sid, Integer dataLimit, String ipCommandsMethod, URI ipCommandsUrl, String networkAccessProfile, String smsCommandsMethod, URI smsCommandsUrl, String uniqueName) throws ApiException {
+        ApiResponse<SupersimV1Fleet> localVarResp = updateFleetWithHttpInfo(sid, dataLimit, ipCommandsMethod, ipCommandsUrl, networkAccessProfile, smsCommandsMethod, smsCommandsUrl, uniqueName);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param permission  (required)
-     * @return ApiResponse&lt;IpMessagingV1ServiceRole&gt;
+     * Updates the given properties of a Super SIM Fleet instance from your account.
+     * @param sid The SID of the Fleet resource to update. (required)
+     * @param dataLimit The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). (optional)
+     * @param ipCommandsMethod A string representing the HTTP method to use when making a request to &#x60;ip_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param ipCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet&#39;s SIMs can connect to. (optional)
+     * @param smsCommandsMethod A string representing the HTTP method to use when making a request to &#x60;sms_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param smsCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
+     * @return ApiResponse&lt;SupersimV1Fleet&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -5600,18 +4340,23 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IpMessagingV1ServiceRole> updateRoleWithHttpInfo(String serviceSid, String sid, List<String> permission) throws ApiException {
-        okhttp3.Call localVarCall = updateRoleValidateBeforeCall(serviceSid, sid, permission, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceRole>(){}.getType();
+    public ApiResponse<SupersimV1Fleet> updateFleetWithHttpInfo(String sid, Integer dataLimit, String ipCommandsMethod, URI ipCommandsUrl, String networkAccessProfile, String smsCommandsMethod, URI smsCommandsUrl, String uniqueName) throws ApiException {
+        okhttp3.Call localVarCall = updateFleetValidateBeforeCall(sid, dataLimit, ipCommandsMethod, ipCommandsUrl, networkAccessProfile, smsCommandsMethod, smsCommandsUrl, uniqueName, null);
+        Type localVarReturnType = new TypeToken<SupersimV1Fleet>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param permission  (required)
+     * Updates the given properties of a Super SIM Fleet instance from your account.
+     * @param sid The SID of the Fleet resource to update. (required)
+     * @param dataLimit The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). (optional)
+     * @param ipCommandsMethod A string representing the HTTP method to use when making a request to &#x60;ip_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param ipCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param networkAccessProfile The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet&#39;s SIMs can connect to. (optional)
+     * @param smsCommandsMethod A string representing the HTTP method to use when making a request to &#x60;sms_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. (optional)
+     * @param smsCommandsUrl The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5621,70 +4366,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRoleAsync(String serviceSid, String sid, List<String> permission, final ApiCallback<IpMessagingV1ServiceRole> _callback) throws ApiException {
+    public okhttp3.Call updateFleetAsync(String sid, Integer dataLimit, String ipCommandsMethod, URI ipCommandsUrl, String networkAccessProfile, String smsCommandsMethod, URI smsCommandsUrl, String uniqueName, final ApiCallback<SupersimV1Fleet> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRoleValidateBeforeCall(serviceSid, sid, permission, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceRole>(){}.getType();
+        okhttp3.Call localVarCall = updateFleetValidateBeforeCall(sid, dataLimit, ipCommandsMethod, ipCommandsUrl, networkAccessProfile, smsCommandsMethod, smsCommandsUrl, uniqueName, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1Fleet>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for updateService
-     * @param sid  (required)
-     * @param consumptionReportInterval  (optional)
-     * @param defaultChannelCreatorRoleSid  (optional)
-     * @param defaultChannelRoleSid  (optional)
-     * @param defaultServiceRoleSid  (optional)
-     * @param friendlyName  (optional)
-     * @param limitsChannelMembers  (optional)
-     * @param limitsUserChannels  (optional)
-     * @param notificationsAddedToChannelEnabled  (optional)
-     * @param notificationsAddedToChannelTemplate  (optional)
-     * @param notificationsInvitedToChannelEnabled  (optional)
-     * @param notificationsInvitedToChannelTemplate  (optional)
-     * @param notificationsNewMessageEnabled  (optional)
-     * @param notificationsNewMessageTemplate  (optional)
-     * @param notificationsRemovedFromChannelEnabled  (optional)
-     * @param notificationsRemovedFromChannelTemplate  (optional)
-     * @param postWebhookUrl  (optional)
-     * @param preWebhookUrl  (optional)
-     * @param reachabilityEnabled  (optional)
-     * @param readStatusEnabled  (optional)
-     * @param typingIndicatorTimeout  (optional)
-     * @param webhookFilters  (optional)
-     * @param webhookMethod  (optional)
-     * @param webhooksOnChannelAddMethod  (optional)
-     * @param webhooksOnChannelAddUrl  (optional)
-     * @param webhooksOnChannelAddedMethod  (optional)
-     * @param webhooksOnChannelAddedUrl  (optional)
-     * @param webhooksOnChannelDestroyMethod  (optional)
-     * @param webhooksOnChannelDestroyUrl  (optional)
-     * @param webhooksOnChannelDestroyedMethod  (optional)
-     * @param webhooksOnChannelDestroyedUrl  (optional)
-     * @param webhooksOnChannelUpdateMethod  (optional)
-     * @param webhooksOnChannelUpdateUrl  (optional)
-     * @param webhooksOnChannelUpdatedMethod  (optional)
-     * @param webhooksOnChannelUpdatedUrl  (optional)
-     * @param webhooksOnMemberAddMethod  (optional)
-     * @param webhooksOnMemberAddUrl  (optional)
-     * @param webhooksOnMemberAddedMethod  (optional)
-     * @param webhooksOnMemberAddedUrl  (optional)
-     * @param webhooksOnMemberRemoveMethod  (optional)
-     * @param webhooksOnMemberRemoveUrl  (optional)
-     * @param webhooksOnMemberRemovedMethod  (optional)
-     * @param webhooksOnMemberRemovedUrl  (optional)
-     * @param webhooksOnMessageRemoveMethod  (optional)
-     * @param webhooksOnMessageRemoveUrl  (optional)
-     * @param webhooksOnMessageRemovedMethod  (optional)
-     * @param webhooksOnMessageRemovedUrl  (optional)
-     * @param webhooksOnMessageSendMethod  (optional)
-     * @param webhooksOnMessageSendUrl  (optional)
-     * @param webhooksOnMessageSentMethod  (optional)
-     * @param webhooksOnMessageSentUrl  (optional)
-     * @param webhooksOnMessageUpdateMethod  (optional)
-     * @param webhooksOnMessageUpdateUrl  (optional)
-     * @param webhooksOnMessageUpdatedMethod  (optional)
-     * @param webhooksOnMessageUpdatedUrl  (optional)
+     * Build call for updateNetworkAccessProfile
+     * @param sid The SID of the Network Access Profile to update. (required)
+     * @param uniqueName The new unique name of the Network Access Profile. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5694,10 +4386,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateServiceCall(String sid, Integer consumptionReportInterval, String defaultChannelCreatorRoleSid, String defaultChannelRoleSid, String defaultServiceRoleSid, String friendlyName, Integer limitsChannelMembers, Integer limitsUserChannels, Boolean notificationsAddedToChannelEnabled, String notificationsAddedToChannelTemplate, Boolean notificationsInvitedToChannelEnabled, String notificationsInvitedToChannelTemplate, Boolean notificationsNewMessageEnabled, String notificationsNewMessageTemplate, Boolean notificationsRemovedFromChannelEnabled, String notificationsRemovedFromChannelTemplate, URI postWebhookUrl, URI preWebhookUrl, Boolean reachabilityEnabled, Boolean readStatusEnabled, Integer typingIndicatorTimeout, List<String> webhookFilters, String webhookMethod, String webhooksOnChannelAddMethod, URI webhooksOnChannelAddUrl, String webhooksOnChannelAddedMethod, URI webhooksOnChannelAddedUrl, String webhooksOnChannelDestroyMethod, URI webhooksOnChannelDestroyUrl, String webhooksOnChannelDestroyedMethod, URI webhooksOnChannelDestroyedUrl, String webhooksOnChannelUpdateMethod, URI webhooksOnChannelUpdateUrl, String webhooksOnChannelUpdatedMethod, URI webhooksOnChannelUpdatedUrl, String webhooksOnMemberAddMethod, URI webhooksOnMemberAddUrl, String webhooksOnMemberAddedMethod, URI webhooksOnMemberAddedUrl, String webhooksOnMemberRemoveMethod, URI webhooksOnMemberRemoveUrl, String webhooksOnMemberRemovedMethod, URI webhooksOnMemberRemovedUrl, String webhooksOnMessageRemoveMethod, URI webhooksOnMessageRemoveUrl, String webhooksOnMessageRemovedMethod, URI webhooksOnMessageRemovedUrl, String webhooksOnMessageSendMethod, URI webhooksOnMessageSendUrl, String webhooksOnMessageSentMethod, URI webhooksOnMessageSentUrl, String webhooksOnMessageUpdateMethod, URI webhooksOnMessageUpdateUrl, String webhooksOnMessageUpdatedMethod, URI webhooksOnMessageUpdatedUrl, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateNetworkAccessProfileCall(String sid, String uniqueName, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
 
         // Determine Base Path to Use
         if (localCustomBaseUrl != null){
@@ -5711,7 +4403,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/Services/{Sid}"
+        String localVarPath = "/v1/NetworkAccessProfiles/{Sid}"
             .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5720,220 +4412,8 @@ public class DefaultApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (consumptionReportInterval != null) {
-            localVarFormParams.put("ConsumptionReportInterval", consumptionReportInterval);
-        }
-
-        if (defaultChannelCreatorRoleSid != null) {
-            localVarFormParams.put("DefaultChannelCreatorRoleSid", defaultChannelCreatorRoleSid);
-        }
-
-        if (defaultChannelRoleSid != null) {
-            localVarFormParams.put("DefaultChannelRoleSid", defaultChannelRoleSid);
-        }
-
-        if (defaultServiceRoleSid != null) {
-            localVarFormParams.put("DefaultServiceRoleSid", defaultServiceRoleSid);
-        }
-
-        if (friendlyName != null) {
-            localVarFormParams.put("FriendlyName", friendlyName);
-        }
-
-        if (limitsChannelMembers != null) {
-            localVarFormParams.put("Limits.ChannelMembers", limitsChannelMembers);
-        }
-
-        if (limitsUserChannels != null) {
-            localVarFormParams.put("Limits.UserChannels", limitsUserChannels);
-        }
-
-        if (notificationsAddedToChannelEnabled != null) {
-            localVarFormParams.put("Notifications.AddedToChannel.Enabled", notificationsAddedToChannelEnabled);
-        }
-
-        if (notificationsAddedToChannelTemplate != null) {
-            localVarFormParams.put("Notifications.AddedToChannel.Template", notificationsAddedToChannelTemplate);
-        }
-
-        if (notificationsInvitedToChannelEnabled != null) {
-            localVarFormParams.put("Notifications.InvitedToChannel.Enabled", notificationsInvitedToChannelEnabled);
-        }
-
-        if (notificationsInvitedToChannelTemplate != null) {
-            localVarFormParams.put("Notifications.InvitedToChannel.Template", notificationsInvitedToChannelTemplate);
-        }
-
-        if (notificationsNewMessageEnabled != null) {
-            localVarFormParams.put("Notifications.NewMessage.Enabled", notificationsNewMessageEnabled);
-        }
-
-        if (notificationsNewMessageTemplate != null) {
-            localVarFormParams.put("Notifications.NewMessage.Template", notificationsNewMessageTemplate);
-        }
-
-        if (notificationsRemovedFromChannelEnabled != null) {
-            localVarFormParams.put("Notifications.RemovedFromChannel.Enabled", notificationsRemovedFromChannelEnabled);
-        }
-
-        if (notificationsRemovedFromChannelTemplate != null) {
-            localVarFormParams.put("Notifications.RemovedFromChannel.Template", notificationsRemovedFromChannelTemplate);
-        }
-
-        if (postWebhookUrl != null) {
-            localVarFormParams.put("PostWebhookUrl", postWebhookUrl);
-        }
-
-        if (preWebhookUrl != null) {
-            localVarFormParams.put("PreWebhookUrl", preWebhookUrl);
-        }
-
-        if (reachabilityEnabled != null) {
-            localVarFormParams.put("ReachabilityEnabled", reachabilityEnabled);
-        }
-
-        if (readStatusEnabled != null) {
-            localVarFormParams.put("ReadStatusEnabled", readStatusEnabled);
-        }
-
-        if (typingIndicatorTimeout != null) {
-            localVarFormParams.put("TypingIndicatorTimeout", typingIndicatorTimeout);
-        }
-
-        if (webhookFilters != null) {
-            localVarFormParams.put("WebhookFilters", webhookFilters);
-        }
-
-        if (webhookMethod != null) {
-            localVarFormParams.put("WebhookMethod", webhookMethod);
-        }
-
-        if (webhooksOnChannelAddMethod != null) {
-            localVarFormParams.put("Webhooks.OnChannelAdd.Method", webhooksOnChannelAddMethod);
-        }
-
-        if (webhooksOnChannelAddUrl != null) {
-            localVarFormParams.put("Webhooks.OnChannelAdd.Url", webhooksOnChannelAddUrl);
-        }
-
-        if (webhooksOnChannelAddedMethod != null) {
-            localVarFormParams.put("Webhooks.OnChannelAdded.Method", webhooksOnChannelAddedMethod);
-        }
-
-        if (webhooksOnChannelAddedUrl != null) {
-            localVarFormParams.put("Webhooks.OnChannelAdded.Url", webhooksOnChannelAddedUrl);
-        }
-
-        if (webhooksOnChannelDestroyMethod != null) {
-            localVarFormParams.put("Webhooks.OnChannelDestroy.Method", webhooksOnChannelDestroyMethod);
-        }
-
-        if (webhooksOnChannelDestroyUrl != null) {
-            localVarFormParams.put("Webhooks.OnChannelDestroy.Url", webhooksOnChannelDestroyUrl);
-        }
-
-        if (webhooksOnChannelDestroyedMethod != null) {
-            localVarFormParams.put("Webhooks.OnChannelDestroyed.Method", webhooksOnChannelDestroyedMethod);
-        }
-
-        if (webhooksOnChannelDestroyedUrl != null) {
-            localVarFormParams.put("Webhooks.OnChannelDestroyed.Url", webhooksOnChannelDestroyedUrl);
-        }
-
-        if (webhooksOnChannelUpdateMethod != null) {
-            localVarFormParams.put("Webhooks.OnChannelUpdate.Method", webhooksOnChannelUpdateMethod);
-        }
-
-        if (webhooksOnChannelUpdateUrl != null) {
-            localVarFormParams.put("Webhooks.OnChannelUpdate.Url", webhooksOnChannelUpdateUrl);
-        }
-
-        if (webhooksOnChannelUpdatedMethod != null) {
-            localVarFormParams.put("Webhooks.OnChannelUpdated.Method", webhooksOnChannelUpdatedMethod);
-        }
-
-        if (webhooksOnChannelUpdatedUrl != null) {
-            localVarFormParams.put("Webhooks.OnChannelUpdated.Url", webhooksOnChannelUpdatedUrl);
-        }
-
-        if (webhooksOnMemberAddMethod != null) {
-            localVarFormParams.put("Webhooks.OnMemberAdd.Method", webhooksOnMemberAddMethod);
-        }
-
-        if (webhooksOnMemberAddUrl != null) {
-            localVarFormParams.put("Webhooks.OnMemberAdd.Url", webhooksOnMemberAddUrl);
-        }
-
-        if (webhooksOnMemberAddedMethod != null) {
-            localVarFormParams.put("Webhooks.OnMemberAdded.Method", webhooksOnMemberAddedMethod);
-        }
-
-        if (webhooksOnMemberAddedUrl != null) {
-            localVarFormParams.put("Webhooks.OnMemberAdded.Url", webhooksOnMemberAddedUrl);
-        }
-
-        if (webhooksOnMemberRemoveMethod != null) {
-            localVarFormParams.put("Webhooks.OnMemberRemove.Method", webhooksOnMemberRemoveMethod);
-        }
-
-        if (webhooksOnMemberRemoveUrl != null) {
-            localVarFormParams.put("Webhooks.OnMemberRemove.Url", webhooksOnMemberRemoveUrl);
-        }
-
-        if (webhooksOnMemberRemovedMethod != null) {
-            localVarFormParams.put("Webhooks.OnMemberRemoved.Method", webhooksOnMemberRemovedMethod);
-        }
-
-        if (webhooksOnMemberRemovedUrl != null) {
-            localVarFormParams.put("Webhooks.OnMemberRemoved.Url", webhooksOnMemberRemovedUrl);
-        }
-
-        if (webhooksOnMessageRemoveMethod != null) {
-            localVarFormParams.put("Webhooks.OnMessageRemove.Method", webhooksOnMessageRemoveMethod);
-        }
-
-        if (webhooksOnMessageRemoveUrl != null) {
-            localVarFormParams.put("Webhooks.OnMessageRemove.Url", webhooksOnMessageRemoveUrl);
-        }
-
-        if (webhooksOnMessageRemovedMethod != null) {
-            localVarFormParams.put("Webhooks.OnMessageRemoved.Method", webhooksOnMessageRemovedMethod);
-        }
-
-        if (webhooksOnMessageRemovedUrl != null) {
-            localVarFormParams.put("Webhooks.OnMessageRemoved.Url", webhooksOnMessageRemovedUrl);
-        }
-
-        if (webhooksOnMessageSendMethod != null) {
-            localVarFormParams.put("Webhooks.OnMessageSend.Method", webhooksOnMessageSendMethod);
-        }
-
-        if (webhooksOnMessageSendUrl != null) {
-            localVarFormParams.put("Webhooks.OnMessageSend.Url", webhooksOnMessageSendUrl);
-        }
-
-        if (webhooksOnMessageSentMethod != null) {
-            localVarFormParams.put("Webhooks.OnMessageSent.Method", webhooksOnMessageSentMethod);
-        }
-
-        if (webhooksOnMessageSentUrl != null) {
-            localVarFormParams.put("Webhooks.OnMessageSent.Url", webhooksOnMessageSentUrl);
-        }
-
-        if (webhooksOnMessageUpdateMethod != null) {
-            localVarFormParams.put("Webhooks.OnMessageUpdate.Method", webhooksOnMessageUpdateMethod);
-        }
-
-        if (webhooksOnMessageUpdateUrl != null) {
-            localVarFormParams.put("Webhooks.OnMessageUpdate.Url", webhooksOnMessageUpdateUrl);
-        }
-
-        if (webhooksOnMessageUpdatedMethod != null) {
-            localVarFormParams.put("Webhooks.OnMessageUpdated.Method", webhooksOnMessageUpdatedMethod);
-        }
-
-        if (webhooksOnMessageUpdatedUrl != null) {
-            localVarFormParams.put("Webhooks.OnMessageUpdated.Url", webhooksOnMessageUpdatedUrl);
+        if (uniqueName != null) {
+            localVarFormParams.put("UniqueName", uniqueName);
         }
 
         final String[] localVarAccepts = {
@@ -5957,75 +4437,22 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateServiceValidateBeforeCall(String sid, Integer consumptionReportInterval, String defaultChannelCreatorRoleSid, String defaultChannelRoleSid, String defaultServiceRoleSid, String friendlyName, Integer limitsChannelMembers, Integer limitsUserChannels, Boolean notificationsAddedToChannelEnabled, String notificationsAddedToChannelTemplate, Boolean notificationsInvitedToChannelEnabled, String notificationsInvitedToChannelTemplate, Boolean notificationsNewMessageEnabled, String notificationsNewMessageTemplate, Boolean notificationsRemovedFromChannelEnabled, String notificationsRemovedFromChannelTemplate, URI postWebhookUrl, URI preWebhookUrl, Boolean reachabilityEnabled, Boolean readStatusEnabled, Integer typingIndicatorTimeout, List<String> webhookFilters, String webhookMethod, String webhooksOnChannelAddMethod, URI webhooksOnChannelAddUrl, String webhooksOnChannelAddedMethod, URI webhooksOnChannelAddedUrl, String webhooksOnChannelDestroyMethod, URI webhooksOnChannelDestroyUrl, String webhooksOnChannelDestroyedMethod, URI webhooksOnChannelDestroyedUrl, String webhooksOnChannelUpdateMethod, URI webhooksOnChannelUpdateUrl, String webhooksOnChannelUpdatedMethod, URI webhooksOnChannelUpdatedUrl, String webhooksOnMemberAddMethod, URI webhooksOnMemberAddUrl, String webhooksOnMemberAddedMethod, URI webhooksOnMemberAddedUrl, String webhooksOnMemberRemoveMethod, URI webhooksOnMemberRemoveUrl, String webhooksOnMemberRemovedMethod, URI webhooksOnMemberRemovedUrl, String webhooksOnMessageRemoveMethod, URI webhooksOnMessageRemoveUrl, String webhooksOnMessageRemovedMethod, URI webhooksOnMessageRemovedUrl, String webhooksOnMessageSendMethod, URI webhooksOnMessageSendUrl, String webhooksOnMessageSentMethod, URI webhooksOnMessageSentUrl, String webhooksOnMessageUpdateMethod, URI webhooksOnMessageUpdateUrl, String webhooksOnMessageUpdatedMethod, URI webhooksOnMessageUpdatedUrl, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateNetworkAccessProfileValidateBeforeCall(String sid, String uniqueName, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sid' is set
         if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling updateService(Async)");
+            throw new ApiException("Missing the required parameter 'sid' when calling updateNetworkAccessProfile(Async)");
         }
 
-        return updateServiceCall(sid, consumptionReportInterval, defaultChannelCreatorRoleSid, defaultChannelRoleSid, defaultServiceRoleSid, friendlyName, limitsChannelMembers, limitsUserChannels, notificationsAddedToChannelEnabled, notificationsAddedToChannelTemplate, notificationsInvitedToChannelEnabled, notificationsInvitedToChannelTemplate, notificationsNewMessageEnabled, notificationsNewMessageTemplate, notificationsRemovedFromChannelEnabled, notificationsRemovedFromChannelTemplate, postWebhookUrl, preWebhookUrl, reachabilityEnabled, readStatusEnabled, typingIndicatorTimeout, webhookFilters, webhookMethod, webhooksOnChannelAddMethod, webhooksOnChannelAddUrl, webhooksOnChannelAddedMethod, webhooksOnChannelAddedUrl, webhooksOnChannelDestroyMethod, webhooksOnChannelDestroyUrl, webhooksOnChannelDestroyedMethod, webhooksOnChannelDestroyedUrl, webhooksOnChannelUpdateMethod, webhooksOnChannelUpdateUrl, webhooksOnChannelUpdatedMethod, webhooksOnChannelUpdatedUrl, webhooksOnMemberAddMethod, webhooksOnMemberAddUrl, webhooksOnMemberAddedMethod, webhooksOnMemberAddedUrl, webhooksOnMemberRemoveMethod, webhooksOnMemberRemoveUrl, webhooksOnMemberRemovedMethod, webhooksOnMemberRemovedUrl, webhooksOnMessageRemoveMethod, webhooksOnMessageRemoveUrl, webhooksOnMessageRemovedMethod, webhooksOnMessageRemovedUrl, webhooksOnMessageSendMethod, webhooksOnMessageSendUrl, webhooksOnMessageSentMethod, webhooksOnMessageSentUrl, webhooksOnMessageUpdateMethod, webhooksOnMessageUpdateUrl, webhooksOnMessageUpdatedMethod, webhooksOnMessageUpdatedUrl, _callback);
+        return updateNetworkAccessProfileCall(sid, uniqueName, _callback);
 
     }
 
     /**
      * 
-     * 
-     * @param sid  (required)
-     * @param consumptionReportInterval  (optional)
-     * @param defaultChannelCreatorRoleSid  (optional)
-     * @param defaultChannelRoleSid  (optional)
-     * @param defaultServiceRoleSid  (optional)
-     * @param friendlyName  (optional)
-     * @param limitsChannelMembers  (optional)
-     * @param limitsUserChannels  (optional)
-     * @param notificationsAddedToChannelEnabled  (optional)
-     * @param notificationsAddedToChannelTemplate  (optional)
-     * @param notificationsInvitedToChannelEnabled  (optional)
-     * @param notificationsInvitedToChannelTemplate  (optional)
-     * @param notificationsNewMessageEnabled  (optional)
-     * @param notificationsNewMessageTemplate  (optional)
-     * @param notificationsRemovedFromChannelEnabled  (optional)
-     * @param notificationsRemovedFromChannelTemplate  (optional)
-     * @param postWebhookUrl  (optional)
-     * @param preWebhookUrl  (optional)
-     * @param reachabilityEnabled  (optional)
-     * @param readStatusEnabled  (optional)
-     * @param typingIndicatorTimeout  (optional)
-     * @param webhookFilters  (optional)
-     * @param webhookMethod  (optional)
-     * @param webhooksOnChannelAddMethod  (optional)
-     * @param webhooksOnChannelAddUrl  (optional)
-     * @param webhooksOnChannelAddedMethod  (optional)
-     * @param webhooksOnChannelAddedUrl  (optional)
-     * @param webhooksOnChannelDestroyMethod  (optional)
-     * @param webhooksOnChannelDestroyUrl  (optional)
-     * @param webhooksOnChannelDestroyedMethod  (optional)
-     * @param webhooksOnChannelDestroyedUrl  (optional)
-     * @param webhooksOnChannelUpdateMethod  (optional)
-     * @param webhooksOnChannelUpdateUrl  (optional)
-     * @param webhooksOnChannelUpdatedMethod  (optional)
-     * @param webhooksOnChannelUpdatedUrl  (optional)
-     * @param webhooksOnMemberAddMethod  (optional)
-     * @param webhooksOnMemberAddUrl  (optional)
-     * @param webhooksOnMemberAddedMethod  (optional)
-     * @param webhooksOnMemberAddedUrl  (optional)
-     * @param webhooksOnMemberRemoveMethod  (optional)
-     * @param webhooksOnMemberRemoveUrl  (optional)
-     * @param webhooksOnMemberRemovedMethod  (optional)
-     * @param webhooksOnMemberRemovedUrl  (optional)
-     * @param webhooksOnMessageRemoveMethod  (optional)
-     * @param webhooksOnMessageRemoveUrl  (optional)
-     * @param webhooksOnMessageRemovedMethod  (optional)
-     * @param webhooksOnMessageRemovedUrl  (optional)
-     * @param webhooksOnMessageSendMethod  (optional)
-     * @param webhooksOnMessageSendUrl  (optional)
-     * @param webhooksOnMessageSentMethod  (optional)
-     * @param webhooksOnMessageSentUrl  (optional)
-     * @param webhooksOnMessageUpdateMethod  (optional)
-     * @param webhooksOnMessageUpdateUrl  (optional)
-     * @param webhooksOnMessageUpdatedMethod  (optional)
-     * @param webhooksOnMessageUpdatedUrl  (optional)
-     * @return IpMessagingV1Service
+     * Updates the given properties of a Network Access Profile in your account.
+     * @param sid The SID of the Network Access Profile to update. (required)
+     * @param uniqueName The new unique name of the Network Access Profile. (optional)
+     * @return SupersimV1NetworkAccessProfile
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -6033,70 +4460,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public IpMessagingV1Service updateService(String sid, Integer consumptionReportInterval, String defaultChannelCreatorRoleSid, String defaultChannelRoleSid, String defaultServiceRoleSid, String friendlyName, Integer limitsChannelMembers, Integer limitsUserChannels, Boolean notificationsAddedToChannelEnabled, String notificationsAddedToChannelTemplate, Boolean notificationsInvitedToChannelEnabled, String notificationsInvitedToChannelTemplate, Boolean notificationsNewMessageEnabled, String notificationsNewMessageTemplate, Boolean notificationsRemovedFromChannelEnabled, String notificationsRemovedFromChannelTemplate, URI postWebhookUrl, URI preWebhookUrl, Boolean reachabilityEnabled, Boolean readStatusEnabled, Integer typingIndicatorTimeout, List<String> webhookFilters, String webhookMethod, String webhooksOnChannelAddMethod, URI webhooksOnChannelAddUrl, String webhooksOnChannelAddedMethod, URI webhooksOnChannelAddedUrl, String webhooksOnChannelDestroyMethod, URI webhooksOnChannelDestroyUrl, String webhooksOnChannelDestroyedMethod, URI webhooksOnChannelDestroyedUrl, String webhooksOnChannelUpdateMethod, URI webhooksOnChannelUpdateUrl, String webhooksOnChannelUpdatedMethod, URI webhooksOnChannelUpdatedUrl, String webhooksOnMemberAddMethod, URI webhooksOnMemberAddUrl, String webhooksOnMemberAddedMethod, URI webhooksOnMemberAddedUrl, String webhooksOnMemberRemoveMethod, URI webhooksOnMemberRemoveUrl, String webhooksOnMemberRemovedMethod, URI webhooksOnMemberRemovedUrl, String webhooksOnMessageRemoveMethod, URI webhooksOnMessageRemoveUrl, String webhooksOnMessageRemovedMethod, URI webhooksOnMessageRemovedUrl, String webhooksOnMessageSendMethod, URI webhooksOnMessageSendUrl, String webhooksOnMessageSentMethod, URI webhooksOnMessageSentUrl, String webhooksOnMessageUpdateMethod, URI webhooksOnMessageUpdateUrl, String webhooksOnMessageUpdatedMethod, URI webhooksOnMessageUpdatedUrl) throws ApiException {
-        ApiResponse<IpMessagingV1Service> localVarResp = updateServiceWithHttpInfo(sid, consumptionReportInterval, defaultChannelCreatorRoleSid, defaultChannelRoleSid, defaultServiceRoleSid, friendlyName, limitsChannelMembers, limitsUserChannels, notificationsAddedToChannelEnabled, notificationsAddedToChannelTemplate, notificationsInvitedToChannelEnabled, notificationsInvitedToChannelTemplate, notificationsNewMessageEnabled, notificationsNewMessageTemplate, notificationsRemovedFromChannelEnabled, notificationsRemovedFromChannelTemplate, postWebhookUrl, preWebhookUrl, reachabilityEnabled, readStatusEnabled, typingIndicatorTimeout, webhookFilters, webhookMethod, webhooksOnChannelAddMethod, webhooksOnChannelAddUrl, webhooksOnChannelAddedMethod, webhooksOnChannelAddedUrl, webhooksOnChannelDestroyMethod, webhooksOnChannelDestroyUrl, webhooksOnChannelDestroyedMethod, webhooksOnChannelDestroyedUrl, webhooksOnChannelUpdateMethod, webhooksOnChannelUpdateUrl, webhooksOnChannelUpdatedMethod, webhooksOnChannelUpdatedUrl, webhooksOnMemberAddMethod, webhooksOnMemberAddUrl, webhooksOnMemberAddedMethod, webhooksOnMemberAddedUrl, webhooksOnMemberRemoveMethod, webhooksOnMemberRemoveUrl, webhooksOnMemberRemovedMethod, webhooksOnMemberRemovedUrl, webhooksOnMessageRemoveMethod, webhooksOnMessageRemoveUrl, webhooksOnMessageRemovedMethod, webhooksOnMessageRemovedUrl, webhooksOnMessageSendMethod, webhooksOnMessageSendUrl, webhooksOnMessageSentMethod, webhooksOnMessageSentUrl, webhooksOnMessageUpdateMethod, webhooksOnMessageUpdateUrl, webhooksOnMessageUpdatedMethod, webhooksOnMessageUpdatedUrl);
+    public SupersimV1NetworkAccessProfile updateNetworkAccessProfile(String sid, String uniqueName) throws ApiException {
+        ApiResponse<SupersimV1NetworkAccessProfile> localVarResp = updateNetworkAccessProfileWithHttpInfo(sid, uniqueName);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * 
-     * @param sid  (required)
-     * @param consumptionReportInterval  (optional)
-     * @param defaultChannelCreatorRoleSid  (optional)
-     * @param defaultChannelRoleSid  (optional)
-     * @param defaultServiceRoleSid  (optional)
-     * @param friendlyName  (optional)
-     * @param limitsChannelMembers  (optional)
-     * @param limitsUserChannels  (optional)
-     * @param notificationsAddedToChannelEnabled  (optional)
-     * @param notificationsAddedToChannelTemplate  (optional)
-     * @param notificationsInvitedToChannelEnabled  (optional)
-     * @param notificationsInvitedToChannelTemplate  (optional)
-     * @param notificationsNewMessageEnabled  (optional)
-     * @param notificationsNewMessageTemplate  (optional)
-     * @param notificationsRemovedFromChannelEnabled  (optional)
-     * @param notificationsRemovedFromChannelTemplate  (optional)
-     * @param postWebhookUrl  (optional)
-     * @param preWebhookUrl  (optional)
-     * @param reachabilityEnabled  (optional)
-     * @param readStatusEnabled  (optional)
-     * @param typingIndicatorTimeout  (optional)
-     * @param webhookFilters  (optional)
-     * @param webhookMethod  (optional)
-     * @param webhooksOnChannelAddMethod  (optional)
-     * @param webhooksOnChannelAddUrl  (optional)
-     * @param webhooksOnChannelAddedMethod  (optional)
-     * @param webhooksOnChannelAddedUrl  (optional)
-     * @param webhooksOnChannelDestroyMethod  (optional)
-     * @param webhooksOnChannelDestroyUrl  (optional)
-     * @param webhooksOnChannelDestroyedMethod  (optional)
-     * @param webhooksOnChannelDestroyedUrl  (optional)
-     * @param webhooksOnChannelUpdateMethod  (optional)
-     * @param webhooksOnChannelUpdateUrl  (optional)
-     * @param webhooksOnChannelUpdatedMethod  (optional)
-     * @param webhooksOnChannelUpdatedUrl  (optional)
-     * @param webhooksOnMemberAddMethod  (optional)
-     * @param webhooksOnMemberAddUrl  (optional)
-     * @param webhooksOnMemberAddedMethod  (optional)
-     * @param webhooksOnMemberAddedUrl  (optional)
-     * @param webhooksOnMemberRemoveMethod  (optional)
-     * @param webhooksOnMemberRemoveUrl  (optional)
-     * @param webhooksOnMemberRemovedMethod  (optional)
-     * @param webhooksOnMemberRemovedUrl  (optional)
-     * @param webhooksOnMessageRemoveMethod  (optional)
-     * @param webhooksOnMessageRemoveUrl  (optional)
-     * @param webhooksOnMessageRemovedMethod  (optional)
-     * @param webhooksOnMessageRemovedUrl  (optional)
-     * @param webhooksOnMessageSendMethod  (optional)
-     * @param webhooksOnMessageSendUrl  (optional)
-     * @param webhooksOnMessageSentMethod  (optional)
-     * @param webhooksOnMessageSentUrl  (optional)
-     * @param webhooksOnMessageUpdateMethod  (optional)
-     * @param webhooksOnMessageUpdateUrl  (optional)
-     * @param webhooksOnMessageUpdatedMethod  (optional)
-     * @param webhooksOnMessageUpdatedUrl  (optional)
-     * @return ApiResponse&lt;IpMessagingV1Service&gt;
+     * Updates the given properties of a Network Access Profile in your account.
+     * @param sid The SID of the Network Access Profile to update. (required)
+     * @param uniqueName The new unique name of the Network Access Profile. (optional)
+     * @return ApiResponse&lt;SupersimV1NetworkAccessProfile&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -6104,70 +4478,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IpMessagingV1Service> updateServiceWithHttpInfo(String sid, Integer consumptionReportInterval, String defaultChannelCreatorRoleSid, String defaultChannelRoleSid, String defaultServiceRoleSid, String friendlyName, Integer limitsChannelMembers, Integer limitsUserChannels, Boolean notificationsAddedToChannelEnabled, String notificationsAddedToChannelTemplate, Boolean notificationsInvitedToChannelEnabled, String notificationsInvitedToChannelTemplate, Boolean notificationsNewMessageEnabled, String notificationsNewMessageTemplate, Boolean notificationsRemovedFromChannelEnabled, String notificationsRemovedFromChannelTemplate, URI postWebhookUrl, URI preWebhookUrl, Boolean reachabilityEnabled, Boolean readStatusEnabled, Integer typingIndicatorTimeout, List<String> webhookFilters, String webhookMethod, String webhooksOnChannelAddMethod, URI webhooksOnChannelAddUrl, String webhooksOnChannelAddedMethod, URI webhooksOnChannelAddedUrl, String webhooksOnChannelDestroyMethod, URI webhooksOnChannelDestroyUrl, String webhooksOnChannelDestroyedMethod, URI webhooksOnChannelDestroyedUrl, String webhooksOnChannelUpdateMethod, URI webhooksOnChannelUpdateUrl, String webhooksOnChannelUpdatedMethod, URI webhooksOnChannelUpdatedUrl, String webhooksOnMemberAddMethod, URI webhooksOnMemberAddUrl, String webhooksOnMemberAddedMethod, URI webhooksOnMemberAddedUrl, String webhooksOnMemberRemoveMethod, URI webhooksOnMemberRemoveUrl, String webhooksOnMemberRemovedMethod, URI webhooksOnMemberRemovedUrl, String webhooksOnMessageRemoveMethod, URI webhooksOnMessageRemoveUrl, String webhooksOnMessageRemovedMethod, URI webhooksOnMessageRemovedUrl, String webhooksOnMessageSendMethod, URI webhooksOnMessageSendUrl, String webhooksOnMessageSentMethod, URI webhooksOnMessageSentUrl, String webhooksOnMessageUpdateMethod, URI webhooksOnMessageUpdateUrl, String webhooksOnMessageUpdatedMethod, URI webhooksOnMessageUpdatedUrl) throws ApiException {
-        okhttp3.Call localVarCall = updateServiceValidateBeforeCall(sid, consumptionReportInterval, defaultChannelCreatorRoleSid, defaultChannelRoleSid, defaultServiceRoleSid, friendlyName, limitsChannelMembers, limitsUserChannels, notificationsAddedToChannelEnabled, notificationsAddedToChannelTemplate, notificationsInvitedToChannelEnabled, notificationsInvitedToChannelTemplate, notificationsNewMessageEnabled, notificationsNewMessageTemplate, notificationsRemovedFromChannelEnabled, notificationsRemovedFromChannelTemplate, postWebhookUrl, preWebhookUrl, reachabilityEnabled, readStatusEnabled, typingIndicatorTimeout, webhookFilters, webhookMethod, webhooksOnChannelAddMethod, webhooksOnChannelAddUrl, webhooksOnChannelAddedMethod, webhooksOnChannelAddedUrl, webhooksOnChannelDestroyMethod, webhooksOnChannelDestroyUrl, webhooksOnChannelDestroyedMethod, webhooksOnChannelDestroyedUrl, webhooksOnChannelUpdateMethod, webhooksOnChannelUpdateUrl, webhooksOnChannelUpdatedMethod, webhooksOnChannelUpdatedUrl, webhooksOnMemberAddMethod, webhooksOnMemberAddUrl, webhooksOnMemberAddedMethod, webhooksOnMemberAddedUrl, webhooksOnMemberRemoveMethod, webhooksOnMemberRemoveUrl, webhooksOnMemberRemovedMethod, webhooksOnMemberRemovedUrl, webhooksOnMessageRemoveMethod, webhooksOnMessageRemoveUrl, webhooksOnMessageRemovedMethod, webhooksOnMessageRemovedUrl, webhooksOnMessageSendMethod, webhooksOnMessageSendUrl, webhooksOnMessageSentMethod, webhooksOnMessageSentUrl, webhooksOnMessageUpdateMethod, webhooksOnMessageUpdateUrl, webhooksOnMessageUpdatedMethod, webhooksOnMessageUpdatedUrl, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Service>(){}.getType();
+    public ApiResponse<SupersimV1NetworkAccessProfile> updateNetworkAccessProfileWithHttpInfo(String sid, String uniqueName) throws ApiException {
+        okhttp3.Call localVarCall = updateNetworkAccessProfileValidateBeforeCall(sid, uniqueName, null);
+        Type localVarReturnType = new TypeToken<SupersimV1NetworkAccessProfile>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * 
-     * @param sid  (required)
-     * @param consumptionReportInterval  (optional)
-     * @param defaultChannelCreatorRoleSid  (optional)
-     * @param defaultChannelRoleSid  (optional)
-     * @param defaultServiceRoleSid  (optional)
-     * @param friendlyName  (optional)
-     * @param limitsChannelMembers  (optional)
-     * @param limitsUserChannels  (optional)
-     * @param notificationsAddedToChannelEnabled  (optional)
-     * @param notificationsAddedToChannelTemplate  (optional)
-     * @param notificationsInvitedToChannelEnabled  (optional)
-     * @param notificationsInvitedToChannelTemplate  (optional)
-     * @param notificationsNewMessageEnabled  (optional)
-     * @param notificationsNewMessageTemplate  (optional)
-     * @param notificationsRemovedFromChannelEnabled  (optional)
-     * @param notificationsRemovedFromChannelTemplate  (optional)
-     * @param postWebhookUrl  (optional)
-     * @param preWebhookUrl  (optional)
-     * @param reachabilityEnabled  (optional)
-     * @param readStatusEnabled  (optional)
-     * @param typingIndicatorTimeout  (optional)
-     * @param webhookFilters  (optional)
-     * @param webhookMethod  (optional)
-     * @param webhooksOnChannelAddMethod  (optional)
-     * @param webhooksOnChannelAddUrl  (optional)
-     * @param webhooksOnChannelAddedMethod  (optional)
-     * @param webhooksOnChannelAddedUrl  (optional)
-     * @param webhooksOnChannelDestroyMethod  (optional)
-     * @param webhooksOnChannelDestroyUrl  (optional)
-     * @param webhooksOnChannelDestroyedMethod  (optional)
-     * @param webhooksOnChannelDestroyedUrl  (optional)
-     * @param webhooksOnChannelUpdateMethod  (optional)
-     * @param webhooksOnChannelUpdateUrl  (optional)
-     * @param webhooksOnChannelUpdatedMethod  (optional)
-     * @param webhooksOnChannelUpdatedUrl  (optional)
-     * @param webhooksOnMemberAddMethod  (optional)
-     * @param webhooksOnMemberAddUrl  (optional)
-     * @param webhooksOnMemberAddedMethod  (optional)
-     * @param webhooksOnMemberAddedUrl  (optional)
-     * @param webhooksOnMemberRemoveMethod  (optional)
-     * @param webhooksOnMemberRemoveUrl  (optional)
-     * @param webhooksOnMemberRemovedMethod  (optional)
-     * @param webhooksOnMemberRemovedUrl  (optional)
-     * @param webhooksOnMessageRemoveMethod  (optional)
-     * @param webhooksOnMessageRemoveUrl  (optional)
-     * @param webhooksOnMessageRemovedMethod  (optional)
-     * @param webhooksOnMessageRemovedUrl  (optional)
-     * @param webhooksOnMessageSendMethod  (optional)
-     * @param webhooksOnMessageSendUrl  (optional)
-     * @param webhooksOnMessageSentMethod  (optional)
-     * @param webhooksOnMessageSentUrl  (optional)
-     * @param webhooksOnMessageUpdateMethod  (optional)
-     * @param webhooksOnMessageUpdateUrl  (optional)
-     * @param webhooksOnMessageUpdatedMethod  (optional)
-     * @param webhooksOnMessageUpdatedUrl  (optional)
+     * Updates the given properties of a Network Access Profile in your account.
+     * @param sid The SID of the Network Access Profile to update. (required)
+     * @param uniqueName The new unique name of the Network Access Profile. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6177,20 +4498,22 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateServiceAsync(String sid, Integer consumptionReportInterval, String defaultChannelCreatorRoleSid, String defaultChannelRoleSid, String defaultServiceRoleSid, String friendlyName, Integer limitsChannelMembers, Integer limitsUserChannels, Boolean notificationsAddedToChannelEnabled, String notificationsAddedToChannelTemplate, Boolean notificationsInvitedToChannelEnabled, String notificationsInvitedToChannelTemplate, Boolean notificationsNewMessageEnabled, String notificationsNewMessageTemplate, Boolean notificationsRemovedFromChannelEnabled, String notificationsRemovedFromChannelTemplate, URI postWebhookUrl, URI preWebhookUrl, Boolean reachabilityEnabled, Boolean readStatusEnabled, Integer typingIndicatorTimeout, List<String> webhookFilters, String webhookMethod, String webhooksOnChannelAddMethod, URI webhooksOnChannelAddUrl, String webhooksOnChannelAddedMethod, URI webhooksOnChannelAddedUrl, String webhooksOnChannelDestroyMethod, URI webhooksOnChannelDestroyUrl, String webhooksOnChannelDestroyedMethod, URI webhooksOnChannelDestroyedUrl, String webhooksOnChannelUpdateMethod, URI webhooksOnChannelUpdateUrl, String webhooksOnChannelUpdatedMethod, URI webhooksOnChannelUpdatedUrl, String webhooksOnMemberAddMethod, URI webhooksOnMemberAddUrl, String webhooksOnMemberAddedMethod, URI webhooksOnMemberAddedUrl, String webhooksOnMemberRemoveMethod, URI webhooksOnMemberRemoveUrl, String webhooksOnMemberRemovedMethod, URI webhooksOnMemberRemovedUrl, String webhooksOnMessageRemoveMethod, URI webhooksOnMessageRemoveUrl, String webhooksOnMessageRemovedMethod, URI webhooksOnMessageRemovedUrl, String webhooksOnMessageSendMethod, URI webhooksOnMessageSendUrl, String webhooksOnMessageSentMethod, URI webhooksOnMessageSentUrl, String webhooksOnMessageUpdateMethod, URI webhooksOnMessageUpdateUrl, String webhooksOnMessageUpdatedMethod, URI webhooksOnMessageUpdatedUrl, final ApiCallback<IpMessagingV1Service> _callback) throws ApiException {
+    public okhttp3.Call updateNetworkAccessProfileAsync(String sid, String uniqueName, final ApiCallback<SupersimV1NetworkAccessProfile> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateServiceValidateBeforeCall(sid, consumptionReportInterval, defaultChannelCreatorRoleSid, defaultChannelRoleSid, defaultServiceRoleSid, friendlyName, limitsChannelMembers, limitsUserChannels, notificationsAddedToChannelEnabled, notificationsAddedToChannelTemplate, notificationsInvitedToChannelEnabled, notificationsInvitedToChannelTemplate, notificationsNewMessageEnabled, notificationsNewMessageTemplate, notificationsRemovedFromChannelEnabled, notificationsRemovedFromChannelTemplate, postWebhookUrl, preWebhookUrl, reachabilityEnabled, readStatusEnabled, typingIndicatorTimeout, webhookFilters, webhookMethod, webhooksOnChannelAddMethod, webhooksOnChannelAddUrl, webhooksOnChannelAddedMethod, webhooksOnChannelAddedUrl, webhooksOnChannelDestroyMethod, webhooksOnChannelDestroyUrl, webhooksOnChannelDestroyedMethod, webhooksOnChannelDestroyedUrl, webhooksOnChannelUpdateMethod, webhooksOnChannelUpdateUrl, webhooksOnChannelUpdatedMethod, webhooksOnChannelUpdatedUrl, webhooksOnMemberAddMethod, webhooksOnMemberAddUrl, webhooksOnMemberAddedMethod, webhooksOnMemberAddedUrl, webhooksOnMemberRemoveMethod, webhooksOnMemberRemoveUrl, webhooksOnMemberRemovedMethod, webhooksOnMemberRemovedUrl, webhooksOnMessageRemoveMethod, webhooksOnMessageRemoveUrl, webhooksOnMessageRemovedMethod, webhooksOnMessageRemovedUrl, webhooksOnMessageSendMethod, webhooksOnMessageSendUrl, webhooksOnMessageSentMethod, webhooksOnMessageSentUrl, webhooksOnMessageUpdateMethod, webhooksOnMessageUpdateUrl, webhooksOnMessageUpdatedMethod, webhooksOnMessageUpdatedUrl, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1Service>(){}.getType();
+        okhttp3.Call localVarCall = updateNetworkAccessProfileValidateBeforeCall(sid, uniqueName, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1NetworkAccessProfile>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for updateUser
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param roleSid  (optional)
+     * Build call for updateSim
+     * @param sid The SID of the Sim resource to update. (required)
+     * @param accountSid The SID of the Account to which the Sim resource should belong. The Account SID can only be that of the requesting Account or that of a Subaccount of the requesting Account. Only valid when the Sim resource&#39;s status is new. (optional)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after an asynchronous update has finished. (optional)
+     * @param fleet The SID or unique name of the Fleet to which the SIM resource should be assigned. (optional)
+     * @param status  (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6198,12 +4521,13 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserCall(String serviceSid, String sid, String attributes, String friendlyName, String roleSid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateSimCall(String sid, String accountSid, String callbackMethod, URI callbackUrl, String fleet, SimEnumStatusUpdate status, String uniqueName, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] { "https://ip-messaging.twilio.com" };
+        String[] localBasePaths = new String[] { "https://supersim.twilio.com" };
 
         // Determine Base Path to Use
         if (localCustomBaseUrl != null){
@@ -6217,8 +4541,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v1/Services/{ServiceSid}/Users/{Sid}"
-            .replace("{" + "ServiceSid" + "}", localVarApiClient.escapeString(serviceSid.toString()))
+        String localVarPath = "/v1/Sims/{Sid}"
             .replace("{" + "Sid" + "}", localVarApiClient.escapeString(sid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -6227,16 +4550,28 @@ public class DefaultApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (attributes != null) {
-            localVarFormParams.put("Attributes", attributes);
+        if (accountSid != null) {
+            localVarFormParams.put("AccountSid", accountSid);
         }
 
-        if (friendlyName != null) {
-            localVarFormParams.put("FriendlyName", friendlyName);
+        if (callbackMethod != null) {
+            localVarFormParams.put("CallbackMethod", callbackMethod);
         }
 
-        if (roleSid != null) {
-            localVarFormParams.put("RoleSid", roleSid);
+        if (callbackUrl != null) {
+            localVarFormParams.put("CallbackUrl", callbackUrl);
+        }
+
+        if (fleet != null) {
+            localVarFormParams.put("Fleet", fleet);
+        }
+
+        if (status != null) {
+            localVarFormParams.put("Status", status);
+        }
+
+        if (uniqueName != null) {
+            localVarFormParams.put("UniqueName", uniqueName);
         }
 
         final String[] localVarAccepts = {
@@ -6260,72 +4595,75 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateUserValidateBeforeCall(String serviceSid, String sid, String attributes, String friendlyName, String roleSid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serviceSid' is set
-        if (serviceSid == null) {
-            throw new ApiException("Missing the required parameter 'serviceSid' when calling updateUser(Async)");
-        }
-
+    private okhttp3.Call updateSimValidateBeforeCall(String sid, String accountSid, String callbackMethod, URI callbackUrl, String fleet, SimEnumStatusUpdate status, String uniqueName, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sid' is set
         if (sid == null) {
-            throw new ApiException("Missing the required parameter 'sid' when calling updateUser(Async)");
+            throw new ApiException("Missing the required parameter 'sid' when calling updateSim(Async)");
         }
 
-        return updateUserCall(serviceSid, sid, attributes, friendlyName, roleSid, _callback);
+        return updateSimCall(sid, accountSid, callbackMethod, callbackUrl, fleet, status, uniqueName, _callback);
 
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param roleSid  (optional)
-     * @return IpMessagingV1ServiceUser
+     * Updates the given properties of a Super SIM instance from your account.
+     * @param sid The SID of the Sim resource to update. (required)
+     * @param accountSid The SID of the Account to which the Sim resource should belong. The Account SID can only be that of the requesting Account or that of a Subaccount of the requesting Account. Only valid when the Sim resource&#39;s status is new. (optional)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after an asynchronous update has finished. (optional)
+     * @param fleet The SID or unique name of the Fleet to which the SIM resource should be assigned. (optional)
+     * @param status  (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
+     * @return SupersimV1Sim
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
      </table>
      */
-    public IpMessagingV1ServiceUser updateUser(String serviceSid, String sid, String attributes, String friendlyName, String roleSid) throws ApiException {
-        ApiResponse<IpMessagingV1ServiceUser> localVarResp = updateUserWithHttpInfo(serviceSid, sid, attributes, friendlyName, roleSid);
+    public SupersimV1Sim updateSim(String sid, String accountSid, String callbackMethod, URI callbackUrl, String fleet, SimEnumStatusUpdate status, String uniqueName) throws ApiException {
+        ApiResponse<SupersimV1Sim> localVarResp = updateSimWithHttpInfo(sid, accountSid, callbackMethod, callbackUrl, fleet, status, uniqueName);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param roleSid  (optional)
-     * @return ApiResponse&lt;IpMessagingV1ServiceUser&gt;
+     * Updates the given properties of a Super SIM instance from your account.
+     * @param sid The SID of the Sim resource to update. (required)
+     * @param accountSid The SID of the Account to which the Sim resource should belong. The Account SID can only be that of the requesting Account or that of a Subaccount of the requesting Account. Only valid when the Sim resource&#39;s status is new. (optional)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after an asynchronous update has finished. (optional)
+     * @param fleet The SID or unique name of the Fleet to which the SIM resource should be assigned. (optional)
+     * @param status  (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
+     * @return ApiResponse&lt;SupersimV1Sim&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IpMessagingV1ServiceUser> updateUserWithHttpInfo(String serviceSid, String sid, String attributes, String friendlyName, String roleSid) throws ApiException {
-        okhttp3.Call localVarCall = updateUserValidateBeforeCall(serviceSid, sid, attributes, friendlyName, roleSid, null);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceUser>(){}.getType();
+    public ApiResponse<SupersimV1Sim> updateSimWithHttpInfo(String sid, String accountSid, String callbackMethod, URI callbackUrl, String fleet, SimEnumStatusUpdate status, String uniqueName) throws ApiException {
+        okhttp3.Call localVarCall = updateSimValidateBeforeCall(sid, accountSid, callbackMethod, callbackUrl, fleet, status, uniqueName, null);
+        Type localVarReturnType = new TypeToken<SupersimV1Sim>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * 
-     * @param serviceSid  (required)
-     * @param sid  (required)
-     * @param attributes  (optional)
-     * @param friendlyName  (optional)
-     * @param roleSid  (optional)
+     * Updates the given properties of a Super SIM instance from your account.
+     * @param sid The SID of the Sim resource to update. (required)
+     * @param accountSid The SID of the Account to which the Sim resource should belong. The Account SID can only be that of the requesting Account or that of a Subaccount of the requesting Account. Only valid when the Sim resource&#39;s status is new. (optional)
+     * @param callbackMethod The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. (optional)
+     * @param callbackUrl The URL we should call using the &#x60;callback_method&#x60; after an asynchronous update has finished. (optional)
+     * @param fleet The SID or unique name of the Fleet to which the SIM resource should be assigned. (optional)
+     * @param status  (optional)
+     * @param uniqueName An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6333,12 +4671,13 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserAsync(String serviceSid, String sid, String attributes, String friendlyName, String roleSid, final ApiCallback<IpMessagingV1ServiceUser> _callback) throws ApiException {
+    public okhttp3.Call updateSimAsync(String sid, String accountSid, String callbackMethod, URI callbackUrl, String fleet, SimEnumStatusUpdate status, String uniqueName, final ApiCallback<SupersimV1Sim> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateUserValidateBeforeCall(serviceSid, sid, attributes, friendlyName, roleSid, _callback);
-        Type localVarReturnType = new TypeToken<IpMessagingV1ServiceUser>(){}.getType();
+        okhttp3.Call localVarCall = updateSimValidateBeforeCall(sid, accountSid, callbackMethod, callbackUrl, fleet, status, uniqueName, _callback);
+        Type localVarReturnType = new TypeToken<SupersimV1Sim>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

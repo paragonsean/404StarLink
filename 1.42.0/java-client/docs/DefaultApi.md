@@ -1,58 +1,49 @@
 # DefaultApi
 
-All URIs are relative to *https://ip-messaging.twilio.com*
+All URIs are relative to *https://supersim.twilio.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createChannel**](DefaultApi.md#createChannel) | **POST** /v1/Services/{ServiceSid}/Channels |  |
-| [**createCredential**](DefaultApi.md#createCredential) | **POST** /v1/Credentials |  |
-| [**createInvite**](DefaultApi.md#createInvite) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites |  |
-| [**createMember**](DefaultApi.md#createMember) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members |  |
-| [**createMessage**](DefaultApi.md#createMessage) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages |  |
-| [**createRole**](DefaultApi.md#createRole) | **POST** /v1/Services/{ServiceSid}/Roles |  |
-| [**createService**](DefaultApi.md#createService) | **POST** /v1/Services |  |
-| [**createUser**](DefaultApi.md#createUser) | **POST** /v1/Services/{ServiceSid}/Users |  |
-| [**deleteChannel**](DefaultApi.md#deleteChannel) | **DELETE** /v1/Services/{ServiceSid}/Channels/{Sid} |  |
-| [**deleteCredential**](DefaultApi.md#deleteCredential) | **DELETE** /v1/Credentials/{Sid} |  |
-| [**deleteInvite**](DefaultApi.md#deleteInvite) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid} |  |
-| [**deleteMember**](DefaultApi.md#deleteMember) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} |  |
-| [**deleteMessage**](DefaultApi.md#deleteMessage) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} |  |
-| [**deleteRole**](DefaultApi.md#deleteRole) | **DELETE** /v1/Services/{ServiceSid}/Roles/{Sid} |  |
-| [**deleteService**](DefaultApi.md#deleteService) | **DELETE** /v1/Services/{Sid} |  |
-| [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /v1/Services/{ServiceSid}/Users/{Sid} |  |
-| [**fetchChannel**](DefaultApi.md#fetchChannel) | **GET** /v1/Services/{ServiceSid}/Channels/{Sid} |  |
-| [**fetchCredential**](DefaultApi.md#fetchCredential) | **GET** /v1/Credentials/{Sid} |  |
-| [**fetchInvite**](DefaultApi.md#fetchInvite) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid} |  |
-| [**fetchMember**](DefaultApi.md#fetchMember) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} |  |
-| [**fetchMessage**](DefaultApi.md#fetchMessage) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} |  |
-| [**fetchRole**](DefaultApi.md#fetchRole) | **GET** /v1/Services/{ServiceSid}/Roles/{Sid} |  |
-| [**fetchService**](DefaultApi.md#fetchService) | **GET** /v1/Services/{Sid} |  |
-| [**fetchUser**](DefaultApi.md#fetchUser) | **GET** /v1/Services/{ServiceSid}/Users/{Sid} |  |
-| [**listChannel**](DefaultApi.md#listChannel) | **GET** /v1/Services/{ServiceSid}/Channels |  |
-| [**listCredential**](DefaultApi.md#listCredential) | **GET** /v1/Credentials |  |
-| [**listInvite**](DefaultApi.md#listInvite) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites |  |
-| [**listMember**](DefaultApi.md#listMember) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members |  |
-| [**listMessage**](DefaultApi.md#listMessage) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages |  |
-| [**listRole**](DefaultApi.md#listRole) | **GET** /v1/Services/{ServiceSid}/Roles |  |
-| [**listService**](DefaultApi.md#listService) | **GET** /v1/Services |  |
-| [**listUser**](DefaultApi.md#listUser) | **GET** /v1/Services/{ServiceSid}/Users |  |
-| [**listUserChannel**](DefaultApi.md#listUserChannel) | **GET** /v1/Services/{ServiceSid}/Users/{UserSid}/Channels |  |
-| [**updateChannel**](DefaultApi.md#updateChannel) | **POST** /v1/Services/{ServiceSid}/Channels/{Sid} |  |
-| [**updateCredential**](DefaultApi.md#updateCredential) | **POST** /v1/Credentials/{Sid} |  |
-| [**updateMember**](DefaultApi.md#updateMember) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} |  |
-| [**updateMessage**](DefaultApi.md#updateMessage) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} |  |
-| [**updateRole**](DefaultApi.md#updateRole) | **POST** /v1/Services/{ServiceSid}/Roles/{Sid} |  |
-| [**updateService**](DefaultApi.md#updateService) | **POST** /v1/Services/{Sid} |  |
-| [**updateUser**](DefaultApi.md#updateUser) | **POST** /v1/Services/{ServiceSid}/Users/{Sid} |  |
+| [**createEsimProfile**](DefaultApi.md#createEsimProfile) | **POST** /v1/ESimProfiles |  |
+| [**createFleet**](DefaultApi.md#createFleet) | **POST** /v1/Fleets |  |
+| [**createIpCommand**](DefaultApi.md#createIpCommand) | **POST** /v1/IpCommands |  |
+| [**createNetworkAccessProfile**](DefaultApi.md#createNetworkAccessProfile) | **POST** /v1/NetworkAccessProfiles |  |
+| [**createNetworkAccessProfileNetwork**](DefaultApi.md#createNetworkAccessProfileNetwork) | **POST** /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks |  |
+| [**createSim**](DefaultApi.md#createSim) | **POST** /v1/Sims |  |
+| [**createSmsCommand**](DefaultApi.md#createSmsCommand) | **POST** /v1/SmsCommands |  |
+| [**deleteNetworkAccessProfileNetwork**](DefaultApi.md#deleteNetworkAccessProfileNetwork) | **DELETE** /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid} |  |
+| [**fetchEsimProfile**](DefaultApi.md#fetchEsimProfile) | **GET** /v1/ESimProfiles/{Sid} |  |
+| [**fetchFleet**](DefaultApi.md#fetchFleet) | **GET** /v1/Fleets/{Sid} |  |
+| [**fetchIpCommand**](DefaultApi.md#fetchIpCommand) | **GET** /v1/IpCommands/{Sid} |  |
+| [**fetchNetwork**](DefaultApi.md#fetchNetwork) | **GET** /v1/Networks/{Sid} |  |
+| [**fetchNetworkAccessProfile**](DefaultApi.md#fetchNetworkAccessProfile) | **GET** /v1/NetworkAccessProfiles/{Sid} |  |
+| [**fetchNetworkAccessProfileNetwork**](DefaultApi.md#fetchNetworkAccessProfileNetwork) | **GET** /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid} |  |
+| [**fetchSim**](DefaultApi.md#fetchSim) | **GET** /v1/Sims/{Sid} |  |
+| [**fetchSmsCommand**](DefaultApi.md#fetchSmsCommand) | **GET** /v1/SmsCommands/{Sid} |  |
+| [**listBillingPeriod**](DefaultApi.md#listBillingPeriod) | **GET** /v1/Sims/{SimSid}/BillingPeriods |  |
+| [**listEsimProfile**](DefaultApi.md#listEsimProfile) | **GET** /v1/ESimProfiles |  |
+| [**listFleet**](DefaultApi.md#listFleet) | **GET** /v1/Fleets |  |
+| [**listIpCommand**](DefaultApi.md#listIpCommand) | **GET** /v1/IpCommands |  |
+| [**listNetwork**](DefaultApi.md#listNetwork) | **GET** /v1/Networks |  |
+| [**listNetworkAccessProfile**](DefaultApi.md#listNetworkAccessProfile) | **GET** /v1/NetworkAccessProfiles |  |
+| [**listNetworkAccessProfileNetwork**](DefaultApi.md#listNetworkAccessProfileNetwork) | **GET** /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks |  |
+| [**listSettingsUpdate**](DefaultApi.md#listSettingsUpdate) | **GET** /v1/SettingsUpdates |  |
+| [**listSim**](DefaultApi.md#listSim) | **GET** /v1/Sims |  |
+| [**listSimIpAddress**](DefaultApi.md#listSimIpAddress) | **GET** /v1/Sims/{SimSid}/IpAddresses |  |
+| [**listSmsCommand**](DefaultApi.md#listSmsCommand) | **GET** /v1/SmsCommands |  |
+| [**listUsageRecord**](DefaultApi.md#listUsageRecord) | **GET** /v1/UsageRecords |  |
+| [**updateFleet**](DefaultApi.md#updateFleet) | **POST** /v1/Fleets/{Sid} |  |
+| [**updateNetworkAccessProfile**](DefaultApi.md#updateNetworkAccessProfile) | **POST** /v1/NetworkAccessProfiles/{Sid} |  |
+| [**updateSim**](DefaultApi.md#updateSim) | **POST** /v1/Sims/{Sid} |  |
 
 
-<a id="createChannel"></a>
-# **createChannel**
-> IpMessagingV1ServiceChannel createChannel(serviceSid, attributes, friendlyName, type, uniqueName)
+<a id="createEsimProfile"></a>
+# **createEsimProfile**
+> SupersimV1EsimProfile createEsimProfile(callbackMethod, callbackUrl, eid, generateMatchingId)
 
 
 
-
+Order an eSIM Profile.
 
 ### Example
 ```java
@@ -67,7 +58,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -75,16 +66,15 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    ChannelEnumChannelType type = ChannelEnumChannelType.fromValue("public"); // ChannelEnumChannelType | 
-    String uniqueName = "uniqueName_example"; // String | 
+    String callbackMethod = "HEAD"; // String | The HTTP method we should use to call `callback_url`. Can be: `GET` or `POST` and the default is POST.
+    String callbackUrl = "callbackUrl_example"; // String | The URL we should call using the `callback_method` when the status of the eSIM Profile changes. At this stage of the eSIM Profile pilot, the a request to the URL will only be called when the ESimProfile resource changes from `reserving` to `available`.
+    String eid = "eid_example"; // String | Identifier of the eUICC that will claim the eSIM Profile.
+    Boolean generateMatchingId = true; // Boolean | When set to `true`, a value for `Eid` does not need to be provided. Instead, when the eSIM profile is reserved, a matching ID will be generated and returned via the `matching_id` property. This identifies the specific eSIM profile that can be used by any capable device to claim and download the profile.
     try {
-      IpMessagingV1ServiceChannel result = apiInstance.createChannel(serviceSid, attributes, friendlyName, type, uniqueName);
+      SupersimV1EsimProfile result = apiInstance.createEsimProfile(callbackMethod, callbackUrl, eid, generateMatchingId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createChannel");
+      System.err.println("Exception when calling DefaultApi#createEsimProfile");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -98,15 +88,14 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **type** | **ChannelEnumChannelType**|  | [optional] [enum: public, private] |
-| **uniqueName** | **String**|  | [optional] |
+| **callbackMethod** | **String**| The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
+| **callbackUrl** | **String**| The URL we should call using the &#x60;callback_method&#x60; when the status of the eSIM Profile changes. At this stage of the eSIM Profile pilot, the a request to the URL will only be called when the ESimProfile resource changes from &#x60;reserving&#x60; to &#x60;available&#x60;. | [optional] |
+| **eid** | **String**| Identifier of the eUICC that will claim the eSIM Profile. | [optional] |
+| **generateMatchingId** | **Boolean**| When set to &#x60;true&#x60;, a value for &#x60;Eid&#x60; does not need to be provided. Instead, when the eSIM profile is reserved, a matching ID will be generated and returned via the &#x60;matching_id&#x60; property. This identifies the specific eSIM profile that can be used by any capable device to claim and download the profile. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannel**](IpMessagingV1ServiceChannel.md)
+[**SupersimV1EsimProfile**](SupersimV1EsimProfile.md)
 
 ### Authorization
 
@@ -122,13 +111,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createCredential"></a>
-# **createCredential**
-> IpMessagingV1Credential createCredential(type, apiKey, certificate, friendlyName, privateKey, sandbox, secret)
+<a id="createFleet"></a>
+# **createFleet**
+> SupersimV1Fleet createFleet(networkAccessProfile, dataEnabled, dataLimit, ipCommandsMethod, ipCommandsUrl, smsCommandsEnabled, smsCommandsMethod, smsCommandsUrl, uniqueName)
 
 
 
-
+Create a Fleet
 
 ### Example
 ```java
@@ -143,7 +132,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -151,18 +140,20 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    CredentialEnumPushService type = CredentialEnumPushService.fromValue("gcm"); // CredentialEnumPushService | 
-    String apiKey = "apiKey_example"; // String | 
-    String certificate = "certificate_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    String privateKey = "privateKey_example"; // String | 
-    Boolean sandbox = true; // Boolean | 
-    String secret = "secret_example"; // String | 
+    String networkAccessProfile = "networkAccessProfile_example"; // String | The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet's SIMs can connect to.
+    Boolean dataEnabled = true; // Boolean | Defines whether SIMs in the Fleet are capable of using 2G/3G/4G/LTE/CAT-M data connectivity. Defaults to `true`.
+    Integer dataLimit = 56; // Integer | The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000).
+    String ipCommandsMethod = "HEAD"; // String | A string representing the HTTP method to use when making a request to `ip_commands_url`. Can be one of `POST` or `GET`. Defaults to `POST`.
+    URI ipCommandsUrl = new URI(); // URI | The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored.
+    Boolean smsCommandsEnabled = true; // Boolean | Defines whether SIMs in the Fleet are capable of sending and receiving machine-to-machine SMS via Commands. Defaults to `true`.
+    String smsCommandsMethod = "HEAD"; // String | A string representing the HTTP method to use when making a request to `sms_commands_url`. Can be one of `POST` or `GET`. Defaults to `POST`.
+    URI smsCommandsUrl = new URI(); // URI | The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored.
+    String uniqueName = "uniqueName_example"; // String | An application-defined string that uniquely identifies the resource. It can be used in place of the resource's `sid` in the URL to address the resource.
     try {
-      IpMessagingV1Credential result = apiInstance.createCredential(type, apiKey, certificate, friendlyName, privateKey, sandbox, secret);
+      SupersimV1Fleet result = apiInstance.createFleet(networkAccessProfile, dataEnabled, dataLimit, ipCommandsMethod, ipCommandsUrl, smsCommandsEnabled, smsCommandsMethod, smsCommandsUrl, uniqueName);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createCredential");
+      System.err.println("Exception when calling DefaultApi#createFleet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -176,17 +167,19 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **type** | **CredentialEnumPushService**|  | [enum: gcm, apn, fcm] |
-| **apiKey** | **String**|  | [optional] |
-| **certificate** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **privateKey** | **String**|  | [optional] |
-| **sandbox** | **Boolean**|  | [optional] |
-| **secret** | **String**|  | [optional] |
+| **networkAccessProfile** | **String**| The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet&#39;s SIMs can connect to. | |
+| **dataEnabled** | **Boolean**| Defines whether SIMs in the Fleet are capable of using 2G/3G/4G/LTE/CAT-M data connectivity. Defaults to &#x60;true&#x60;. | [optional] |
+| **dataLimit** | **Integer**| The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). | [optional] |
+| **ipCommandsMethod** | **String**| A string representing the HTTP method to use when making a request to &#x60;ip_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
+| **ipCommandsUrl** | **URI**| The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. | [optional] |
+| **smsCommandsEnabled** | **Boolean**| Defines whether SIMs in the Fleet are capable of sending and receiving machine-to-machine SMS via Commands. Defaults to &#x60;true&#x60;. | [optional] |
+| **smsCommandsMethod** | **String**| A string representing the HTTP method to use when making a request to &#x60;sms_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
+| **smsCommandsUrl** | **URI**| The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. | [optional] |
+| **uniqueName** | **String**| An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1Credential**](IpMessagingV1Credential.md)
+[**SupersimV1Fleet**](SupersimV1Fleet.md)
 
 ### Authorization
 
@@ -202,13 +195,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createInvite"></a>
-# **createInvite**
-> IpMessagingV1ServiceChannelInvite createInvite(serviceSid, channelSid, identity, roleSid)
+<a id="createIpCommand"></a>
+# **createIpCommand**
+> SupersimV1IpCommand createIpCommand(devicePort, payload, sim, callbackMethod, callbackUrl, payloadType)
 
 
 
-
+Send an IP Command to a Super SIM.
 
 ### Example
 ```java
@@ -223,7 +216,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -231,15 +224,17 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String identity = "identity_example"; // String | 
-    String roleSid = "roleSid_example"; // String | 
+    Integer devicePort = 56; // Integer | The device port to which the IP Command will be sent.
+    String payload = "payload_example"; // String | The data that will be sent to the device. The payload cannot exceed 1300 bytes. If the PayloadType is set to text, the payload is encoded in UTF-8. If PayloadType is set to binary, the payload is encoded in Base64.
+    String sim = "sim_example"; // String | The `sid` or `unique_name` of the [Super SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the IP Command to.
+    String callbackMethod = "HEAD"; // String | The HTTP method we should use to call `callback_url`. Can be `GET` or `POST`, and the default is `POST`.
+    URI callbackUrl = new URI(); // URI | The URL we should call using the `callback_method` after we have sent the IP Command.
+    IpCommandEnumPayloadType payloadType = IpCommandEnumPayloadType.fromValue("text"); // IpCommandEnumPayloadType | 
     try {
-      IpMessagingV1ServiceChannelInvite result = apiInstance.createInvite(serviceSid, channelSid, identity, roleSid);
+      SupersimV1IpCommand result = apiInstance.createIpCommand(devicePort, payload, sim, callbackMethod, callbackUrl, payloadType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createInvite");
+      System.err.println("Exception when calling DefaultApi#createIpCommand");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -253,14 +248,16 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **identity** | **String**|  | |
-| **roleSid** | **String**|  | [optional] |
+| **devicePort** | **Integer**| The device port to which the IP Command will be sent. | |
+| **payload** | **String**| The data that will be sent to the device. The payload cannot exceed 1300 bytes. If the PayloadType is set to text, the payload is encoded in UTF-8. If PayloadType is set to binary, the payload is encoded in Base64. | |
+| **sim** | **String**| The &#x60;sid&#x60; or &#x60;unique_name&#x60; of the [Super SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the IP Command to. | |
+| **callbackMethod** | **String**| The HTTP method we should use to call &#x60;callback_url&#x60;. Can be &#x60;GET&#x60; or &#x60;POST&#x60;, and the default is &#x60;POST&#x60;. | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
+| **callbackUrl** | **URI**| The URL we should call using the &#x60;callback_method&#x60; after we have sent the IP Command. | [optional] |
+| **payloadType** | **IpCommandEnumPayloadType**|  | [optional] [enum: text, binary] |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelInvite**](IpMessagingV1ServiceChannelInvite.md)
+[**SupersimV1IpCommand**](SupersimV1IpCommand.md)
 
 ### Authorization
 
@@ -276,13 +273,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createMember"></a>
-# **createMember**
-> IpMessagingV1ServiceChannelMember createMember(serviceSid, channelSid, identity, roleSid)
+<a id="createNetworkAccessProfile"></a>
+# **createNetworkAccessProfile**
+> SupersimV1NetworkAccessProfile createNetworkAccessProfile(networks, uniqueName)
 
 
 
-
+Create a new Network Access Profile
 
 ### Example
 ```java
@@ -297,7 +294,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -305,15 +302,13 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String identity = "identity_example"; // String | 
-    String roleSid = "roleSid_example"; // String | 
+    List<String> networks = Arrays.asList(); // List<String> | List of Network SIDs that this Network Access Profile will allow connections to.
+    String uniqueName = "uniqueName_example"; // String | An application-defined string that uniquely identifies the resource. It can be used in place of the resource's `sid` in the URL to address the resource.
     try {
-      IpMessagingV1ServiceChannelMember result = apiInstance.createMember(serviceSid, channelSid, identity, roleSid);
+      SupersimV1NetworkAccessProfile result = apiInstance.createNetworkAccessProfile(networks, uniqueName);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createMember");
+      System.err.println("Exception when calling DefaultApi#createNetworkAccessProfile");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -327,14 +322,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **identity** | **String**|  | |
-| **roleSid** | **String**|  | [optional] |
+| **networks** | [**List&lt;String&gt;**](String.md)| List of Network SIDs that this Network Access Profile will allow connections to. | [optional] |
+| **uniqueName** | **String**| An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelMember**](IpMessagingV1ServiceChannelMember.md)
+[**SupersimV1NetworkAccessProfile**](SupersimV1NetworkAccessProfile.md)
 
 ### Authorization
 
@@ -350,13 +343,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createMessage"></a>
-# **createMessage**
-> IpMessagingV1ServiceChannelMessage createMessage(serviceSid, channelSid, body, attributes, from)
+<a id="createNetworkAccessProfileNetwork"></a>
+# **createNetworkAccessProfileNetwork**
+> SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork createNetworkAccessProfileNetwork(networkAccessProfileSid, network)
 
 
 
-
+Add a Network resource to the Network Access Profile resource.
 
 ### Example
 ```java
@@ -371,7 +364,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -379,16 +372,13 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String body = "body_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String from = "from_example"; // String | 
+    String networkAccessProfileSid = "networkAccessProfileSid_example"; // String | The unique string that identifies the Network Access Profile resource.
+    String network = "network_example"; // String | The SID of the Network resource to be added to the Network Access Profile resource.
     try {
-      IpMessagingV1ServiceChannelMessage result = apiInstance.createMessage(serviceSid, channelSid, body, attributes, from);
+      SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork result = apiInstance.createNetworkAccessProfileNetwork(networkAccessProfileSid, network);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createMessage");
+      System.err.println("Exception when calling DefaultApi#createNetworkAccessProfileNetwork");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -402,15 +392,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **body** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **from** | **String**|  | [optional] |
+| **networkAccessProfileSid** | **String**| The unique string that identifies the Network Access Profile resource. | |
+| **network** | **String**| The SID of the Network resource to be added to the Network Access Profile resource. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelMessage**](IpMessagingV1ServiceChannelMessage.md)
+[**SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork**](SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork.md)
 
 ### Authorization
 
@@ -426,13 +413,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createRole"></a>
-# **createRole**
-> IpMessagingV1ServiceRole createRole(serviceSid, friendlyName, permission, type)
+<a id="createSim"></a>
+# **createSim**
+> SupersimV1Sim createSim(iccid, registrationCode)
 
 
 
-
+Register a Super SIM to your Account
 
 ### Example
 ```java
@@ -447,7 +434,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -455,15 +442,13 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    List<String> permission = Arrays.asList(); // List<String> | 
-    RoleEnumRoleType type = RoleEnumRoleType.fromValue("channel"); // RoleEnumRoleType | 
+    String iccid = "iccid_example"; // String | The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) of the Super SIM to be added to your Account.
+    String registrationCode = "registrationCode_example"; // String | The 10-digit code required to claim the Super SIM for your Account.
     try {
-      IpMessagingV1ServiceRole result = apiInstance.createRole(serviceSid, friendlyName, permission, type);
+      SupersimV1Sim result = apiInstance.createSim(iccid, registrationCode);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createRole");
+      System.err.println("Exception when calling DefaultApi#createSim");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -477,14 +462,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **friendlyName** | **String**|  | |
-| **permission** | [**List&lt;String&gt;**](String.md)|  | |
-| **type** | **RoleEnumRoleType**|  | [enum: channel, deployment] |
+| **iccid** | **String**| The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) of the Super SIM to be added to your Account. | |
+| **registrationCode** | **String**| The 10-digit code required to claim the Super SIM for your Account. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceRole**](IpMessagingV1ServiceRole.md)
+[**SupersimV1Sim**](SupersimV1Sim.md)
 
 ### Authorization
 
@@ -500,13 +483,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createService"></a>
-# **createService**
-> IpMessagingV1Service createService(friendlyName)
+<a id="createSmsCommand"></a>
+# **createSmsCommand**
+> SupersimV1SmsCommand createSmsCommand(payload, sim, callbackMethod, callbackUrl)
 
 
 
-
+Send SMS Command to a Sim.
 
 ### Example
 ```java
@@ -521,7 +504,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -529,12 +512,15 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String friendlyName = "friendlyName_example"; // String | 
+    String payload = "payload_example"; // String | The message body of the SMS Command.
+    String sim = "sim_example"; // String | The `sid` or `unique_name` of the [SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the SMS Command to.
+    String callbackMethod = "HEAD"; // String | The HTTP method we should use to call `callback_url`. Can be: `GET` or `POST` and the default is POST.
+    URI callbackUrl = new URI(); // URI | The URL we should call using the `callback_method` after we have sent the command.
     try {
-      IpMessagingV1Service result = apiInstance.createService(friendlyName);
+      SupersimV1SmsCommand result = apiInstance.createSmsCommand(payload, sim, callbackMethod, callbackUrl);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createService");
+      System.err.println("Exception when calling DefaultApi#createSmsCommand");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -548,11 +534,14 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **friendlyName** | **String**|  | |
+| **payload** | **String**| The message body of the SMS Command. | |
+| **sim** | **String**| The &#x60;sid&#x60; or &#x60;unique_name&#x60; of the [SIM](https://www.twilio.com/docs/iot/supersim/api/sim-resource) to send the SMS Command to. | |
+| **callbackMethod** | **String**| The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
+| **callbackUrl** | **URI**| The URL we should call using the &#x60;callback_method&#x60; after we have sent the command. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1Service**](IpMessagingV1Service.md)
+[**SupersimV1SmsCommand**](SupersimV1SmsCommand.md)
 
 ### Authorization
 
@@ -568,89 +557,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 
-<a id="createUser"></a>
-# **createUser**
-> IpMessagingV1ServiceUser createUser(serviceSid, identity, attributes, friendlyName, roleSid)
+<a id="deleteNetworkAccessProfileNetwork"></a>
+# **deleteNetworkAccessProfileNetwork**
+> deleteNetworkAccessProfileNetwork(networkAccessProfileSid, sid)
 
 
 
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String identity = "identity_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    String roleSid = "roleSid_example"; // String | 
-    try {
-      IpMessagingV1ServiceUser result = apiInstance.createUser(serviceSid, identity, attributes, friendlyName, roleSid);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **identity** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **roleSid** | **String**|  | [optional] |
-
-### Return type
-
-[**IpMessagingV1ServiceUser**](IpMessagingV1ServiceUser.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Created |  -  |
-
-<a id="deleteChannel"></a>
-# **deleteChannel**
-> deleteChannel(serviceSid, sid)
-
-
-
-
+Remove a Network resource from the Network Access Profile resource&#39;s.
 
 ### Example
 ```java
@@ -665,7 +578,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -673,12 +586,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String networkAccessProfileSid = "networkAccessProfileSid_example"; // String | The unique string that identifies the Network Access Profile resource.
+    String sid = "sid_example"; // String | The SID of the Network resource to be removed from the Network Access Profile resource.
     try {
-      apiInstance.deleteChannel(serviceSid, sid);
+      apiInstance.deleteNetworkAccessProfileNetwork(networkAccessProfileSid, sid);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteChannel");
+      System.err.println("Exception when calling DefaultApi#deleteNetworkAccessProfileNetwork");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -692,8 +605,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **networkAccessProfileSid** | **String**| The unique string that identifies the Network Access Profile resource. | |
+| **sid** | **String**| The SID of the Network resource to be removed from the Network Access Profile resource. | |
 
 ### Return type
 
@@ -713,80 +626,13 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | The resource was deleted successfully. |  -  |
 
-<a id="deleteCredential"></a>
-# **deleteCredential**
-> deleteCredential(sid)
+<a id="fetchEsimProfile"></a>
+# **fetchEsimProfile**
+> SupersimV1EsimProfile fetchEsimProfile(sid)
 
 
 
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
-    try {
-      apiInstance.deleteCredential(sid);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteCredential");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | The resource was deleted successfully. |  -  |
-
-<a id="deleteInvite"></a>
-# **deleteInvite**
-> deleteInvite(serviceSid, channelSid, sid)
-
-
-
-
+Fetch an eSIM Profile.
 
 ### Example
 ```java
@@ -801,7 +647,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -809,431 +655,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The SID of the eSIM Profile resource to fetch.
     try {
-      apiInstance.deleteInvite(serviceSid, channelSid, sid);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteInvite");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | The resource was deleted successfully. |  -  |
-
-<a id="deleteMember"></a>
-# **deleteMember**
-> deleteMember(serviceSid, channelSid, sid)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    try {
-      apiInstance.deleteMember(serviceSid, channelSid, sid);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteMember");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | The resource was deleted successfully. |  -  |
-
-<a id="deleteMessage"></a>
-# **deleteMessage**
-> deleteMessage(serviceSid, channelSid, sid)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    try {
-      apiInstance.deleteMessage(serviceSid, channelSid, sid);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteMessage");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | The resource was deleted successfully. |  -  |
-
-<a id="deleteRole"></a>
-# **deleteRole**
-> deleteRole(serviceSid, sid)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    try {
-      apiInstance.deleteRole(serviceSid, sid);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteRole");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | The resource was deleted successfully. |  -  |
-
-<a id="deleteService"></a>
-# **deleteService**
-> deleteService(sid)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
-    try {
-      apiInstance.deleteService(sid);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteService");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | The resource was deleted successfully. |  -  |
-
-<a id="deleteUser"></a>
-# **deleteUser**
-> deleteUser(serviceSid, sid)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    try {
-      apiInstance.deleteUser(serviceSid, sid);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | The resource was deleted successfully. |  -  |
-
-<a id="fetchChannel"></a>
-# **fetchChannel**
-> IpMessagingV1ServiceChannel fetchChannel(serviceSid, sid)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    try {
-      IpMessagingV1ServiceChannel result = apiInstance.fetchChannel(serviceSid, sid);
+      SupersimV1EsimProfile result = apiInstance.fetchEsimProfile(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchChannel");
+      System.err.println("Exception when calling DefaultApi#fetchEsimProfile");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1247,12 +674,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The SID of the eSIM Profile resource to fetch. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannel**](IpMessagingV1ServiceChannel.md)
+[**SupersimV1EsimProfile**](SupersimV1EsimProfile.md)
 
 ### Authorization
 
@@ -1268,13 +694,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchCredential"></a>
-# **fetchCredential**
-> IpMessagingV1Credential fetchCredential(sid)
+<a id="fetchFleet"></a>
+# **fetchFleet**
+> SupersimV1Fleet fetchFleet(sid)
 
 
 
-
+Fetch a Fleet instance from your account.
 
 ### Example
 ```java
@@ -1289,7 +715,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1297,12 +723,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The SID of the Fleet resource to fetch.
     try {
-      IpMessagingV1Credential result = apiInstance.fetchCredential(sid);
+      SupersimV1Fleet result = apiInstance.fetchFleet(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchCredential");
+      System.err.println("Exception when calling DefaultApi#fetchFleet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1316,11 +742,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
+| **sid** | **String**| The SID of the Fleet resource to fetch. | |
 
 ### Return type
 
-[**IpMessagingV1Credential**](IpMessagingV1Credential.md)
+[**SupersimV1Fleet**](SupersimV1Fleet.md)
 
 ### Authorization
 
@@ -1336,13 +762,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchInvite"></a>
-# **fetchInvite**
-> IpMessagingV1ServiceChannelInvite fetchInvite(serviceSid, channelSid, sid)
+<a id="fetchIpCommand"></a>
+# **fetchIpCommand**
+> SupersimV1IpCommand fetchIpCommand(sid)
 
 
 
-
+Fetch IP Command instance from your account.
 
 ### Example
 ```java
@@ -1357,7 +783,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1365,14 +791,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The SID of the IP Command resource to fetch.
     try {
-      IpMessagingV1ServiceChannelInvite result = apiInstance.fetchInvite(serviceSid, channelSid, sid);
+      SupersimV1IpCommand result = apiInstance.fetchIpCommand(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchInvite");
+      System.err.println("Exception when calling DefaultApi#fetchIpCommand");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1386,13 +810,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The SID of the IP Command resource to fetch. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelInvite**](IpMessagingV1ServiceChannelInvite.md)
+[**SupersimV1IpCommand**](SupersimV1IpCommand.md)
 
 ### Authorization
 
@@ -1408,13 +830,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchMember"></a>
-# **fetchMember**
-> IpMessagingV1ServiceChannelMember fetchMember(serviceSid, channelSid, sid)
+<a id="fetchNetwork"></a>
+# **fetchNetwork**
+> SupersimV1Network fetchNetwork(sid)
 
 
 
-
+Fetch a Network resource.
 
 ### Example
 ```java
@@ -1429,7 +851,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1437,14 +859,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The SID of the Network resource to fetch.
     try {
-      IpMessagingV1ServiceChannelMember result = apiInstance.fetchMember(serviceSid, channelSid, sid);
+      SupersimV1Network result = apiInstance.fetchNetwork(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchMember");
+      System.err.println("Exception when calling DefaultApi#fetchNetwork");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1458,13 +878,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The SID of the Network resource to fetch. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelMember**](IpMessagingV1ServiceChannelMember.md)
+[**SupersimV1Network**](SupersimV1Network.md)
 
 ### Authorization
 
@@ -1480,13 +898,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchMessage"></a>
-# **fetchMessage**
-> IpMessagingV1ServiceChannelMessage fetchMessage(serviceSid, channelSid, sid)
+<a id="fetchNetworkAccessProfile"></a>
+# **fetchNetworkAccessProfile**
+> SupersimV1NetworkAccessProfile fetchNetworkAccessProfile(sid)
 
 
 
-
+Fetch a Network Access Profile instance from your account.
 
 ### Example
 ```java
@@ -1501,7 +919,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1509,14 +927,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The SID of the Network Access Profile resource to fetch.
     try {
-      IpMessagingV1ServiceChannelMessage result = apiInstance.fetchMessage(serviceSid, channelSid, sid);
+      SupersimV1NetworkAccessProfile result = apiInstance.fetchNetworkAccessProfile(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchMessage");
+      System.err.println("Exception when calling DefaultApi#fetchNetworkAccessProfile");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1530,13 +946,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The SID of the Network Access Profile resource to fetch. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelMessage**](IpMessagingV1ServiceChannelMessage.md)
+[**SupersimV1NetworkAccessProfile**](SupersimV1NetworkAccessProfile.md)
 
 ### Authorization
 
@@ -1552,13 +966,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchRole"></a>
-# **fetchRole**
-> IpMessagingV1ServiceRole fetchRole(serviceSid, sid)
+<a id="fetchNetworkAccessProfileNetwork"></a>
+# **fetchNetworkAccessProfileNetwork**
+> SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork fetchNetworkAccessProfileNetwork(networkAccessProfileSid, sid)
 
 
 
-
+Fetch a Network Access Profile resource&#39;s Network resource.
 
 ### Example
 ```java
@@ -1573,7 +987,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1581,13 +995,13 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String networkAccessProfileSid = "networkAccessProfileSid_example"; // String | The unique string that identifies the Network Access Profile resource.
+    String sid = "sid_example"; // String | The SID of the Network resource to fetch.
     try {
-      IpMessagingV1ServiceRole result = apiInstance.fetchRole(serviceSid, sid);
+      SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork result = apiInstance.fetchNetworkAccessProfileNetwork(networkAccessProfileSid, sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchRole");
+      System.err.println("Exception when calling DefaultApi#fetchNetworkAccessProfileNetwork");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1601,12 +1015,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **networkAccessProfileSid** | **String**| The unique string that identifies the Network Access Profile resource. | |
+| **sid** | **String**| The SID of the Network resource to fetch. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceRole**](IpMessagingV1ServiceRole.md)
+[**SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork**](SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork.md)
 
 ### Authorization
 
@@ -1622,13 +1036,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchService"></a>
-# **fetchService**
-> IpMessagingV1Service fetchService(sid)
+<a id="fetchSim"></a>
+# **fetchSim**
+> SupersimV1Sim fetchSim(sid)
 
 
 
-
+Fetch a Super SIM instance from your account.
 
 ### Example
 ```java
@@ -1643,7 +1057,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1651,12 +1065,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The SID of the Sim resource to fetch.
     try {
-      IpMessagingV1Service result = apiInstance.fetchService(sid);
+      SupersimV1Sim result = apiInstance.fetchSim(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchService");
+      System.err.println("Exception when calling DefaultApi#fetchSim");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1670,11 +1084,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
+| **sid** | **String**| The SID of the Sim resource to fetch. | |
 
 ### Return type
 
-[**IpMessagingV1Service**](IpMessagingV1Service.md)
+[**SupersimV1Sim**](SupersimV1Sim.md)
 
 ### Authorization
 
@@ -1690,13 +1104,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="fetchUser"></a>
-# **fetchUser**
-> IpMessagingV1ServiceUser fetchUser(serviceSid, sid)
+<a id="fetchSmsCommand"></a>
+# **fetchSmsCommand**
+> SupersimV1SmsCommand fetchSmsCommand(sid)
 
 
 
-
+Fetch SMS Command instance from your account.
 
 ### Example
 ```java
@@ -1711,7 +1125,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1719,13 +1133,12 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
+    String sid = "sid_example"; // String | The SID of the SMS Command resource to fetch.
     try {
-      IpMessagingV1ServiceUser result = apiInstance.fetchUser(serviceSid, sid);
+      SupersimV1SmsCommand result = apiInstance.fetchSmsCommand(sid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#fetchUser");
+      System.err.println("Exception when calling DefaultApi#fetchSmsCommand");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1739,12 +1152,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
+| **sid** | **String**| The SID of the SMS Command resource to fetch. | |
 
 ### Return type
 
-[**IpMessagingV1ServiceUser**](IpMessagingV1ServiceUser.md)
+[**SupersimV1SmsCommand**](SupersimV1SmsCommand.md)
 
 ### Authorization
 
@@ -1760,13 +1172,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listChannel"></a>
-# **listChannel**
-> ListChannelResponse listChannel(serviceSid, type, pageSize, page, pageToken)
+<a id="listBillingPeriod"></a>
+# **listBillingPeriod**
+> ListBillingPeriodResponse listBillingPeriod(simSid, pageSize, page, pageToken)
 
 
 
-
+Retrieve a list of Billing Periods for a Super SIM.
 
 ### Example
 ```java
@@ -1781,7 +1193,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1789,16 +1201,15 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    List<ChannelEnumChannelType> type = Arrays.asList(); // List<ChannelEnumChannelType> | 
+    String simSid = "simSid_example"; // String | The SID of the Super SIM to list Billing Periods for.
     Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListChannelResponse result = apiInstance.listChannel(serviceSid, type, pageSize, page, pageToken);
+      ListBillingPeriodResponse result = apiInstance.listBillingPeriod(simSid, pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listChannel");
+      System.err.println("Exception when calling DefaultApi#listBillingPeriod");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1812,15 +1223,14 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **type** | [**List&lt;ChannelEnumChannelType&gt;**](ChannelEnumChannelType.md)|  | [optional] |
+| **simSid** | **String**| The SID of the Super SIM to list Billing Periods for. | |
 | **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
 | **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
 | **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
 
 ### Return type
 
-[**ListChannelResponse**](ListChannelResponse.md)
+[**ListBillingPeriodResponse**](ListBillingPeriodResponse.md)
 
 ### Authorization
 
@@ -1836,13 +1246,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listCredential"></a>
-# **listCredential**
-> ListCredentialResponse listCredential(pageSize, page, pageToken)
+<a id="listEsimProfile"></a>
+# **listEsimProfile**
+> ListEsimProfileResponse listEsimProfile(eid, simSid, status, pageSize, page, pageToken)
 
 
 
-
+Retrieve a list of eSIM Profiles.
 
 ### Example
 ```java
@@ -1857,7 +1267,317 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String eid = "eid_example"; // String | List the eSIM Profiles that have been associated with an EId.
+    String simSid = "simSid_example"; // String | Find the eSIM Profile resource related to a [Sim](https://www.twilio.com/docs/wireless/api/sim-resource) resource by providing the SIM SID. Will always return an array with either 1 or 0 records.
+    EsimProfileEnumStatus status = EsimProfileEnumStatus.fromValue("new"); // EsimProfileEnumStatus | List the eSIM Profiles that are in a given status.
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
+    try {
+      ListEsimProfileResponse result = apiInstance.listEsimProfile(eid, simSid, status, pageSize, page, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listEsimProfile");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **eid** | **String**| List the eSIM Profiles that have been associated with an EId. | [optional] |
+| **simSid** | **String**| Find the eSIM Profile resource related to a [Sim](https://www.twilio.com/docs/wireless/api/sim-resource) resource by providing the SIM SID. Will always return an array with either 1 or 0 records. | [optional] |
+| **status** | **EsimProfileEnumStatus**| List the eSIM Profiles that are in a given status. | [optional] [enum: new, reserving, available, downloaded, installed, failed] |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
+
+### Return type
+
+[**ListEsimProfileResponse**](ListEsimProfileResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listFleet"></a>
+# **listFleet**
+> ListFleetResponse listFleet(networkAccessProfile, pageSize, page, pageToken)
+
+
+
+Retrieve a list of Fleets from your account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://supersim.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String networkAccessProfile = "networkAccessProfile_example"; // String | The SID or unique name of the Network Access Profile that controls which cellular networks the Fleet's SIMs can connect to.
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
+    try {
+      ListFleetResponse result = apiInstance.listFleet(networkAccessProfile, pageSize, page, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listFleet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **networkAccessProfile** | **String**| The SID or unique name of the Network Access Profile that controls which cellular networks the Fleet&#39;s SIMs can connect to. | [optional] |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
+
+### Return type
+
+[**ListFleetResponse**](ListFleetResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listIpCommand"></a>
+# **listIpCommand**
+> ListIpCommandResponse listIpCommand(sim, simIccid, status, direction, pageSize, page, pageToken)
+
+
+
+Retrieve a list of IP Commands from your account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://supersim.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String sim = "sim_example"; // String | The SID or unique name of the Sim resource that IP Command was sent to or from.
+    String simIccid = "simIccid_example"; // String | The ICCID of the Sim resource that IP Command was sent to or from.
+    IpCommandEnumStatus status = IpCommandEnumStatus.fromValue("queued"); // IpCommandEnumStatus | The status of the IP Command. Can be: `queued`, `sent`, `received` or `failed`. See the [IP Command Status Values](https://www.twilio.com/docs/wireless/api/ipcommand-resource#status-values) for a description of each.
+    IpCommandEnumDirection direction = IpCommandEnumDirection.fromValue("to_sim"); // IpCommandEnumDirection | The direction of the IP Command. Can be `to_sim` or `from_sim`. The value of `to_sim` is synonymous with the term `mobile terminated`, and `from_sim` is synonymous with the term `mobile originated`.
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
+    try {
+      ListIpCommandResponse result = apiInstance.listIpCommand(sim, simIccid, status, direction, pageSize, page, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listIpCommand");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sim** | **String**| The SID or unique name of the Sim resource that IP Command was sent to or from. | [optional] |
+| **simIccid** | **String**| The ICCID of the Sim resource that IP Command was sent to or from. | [optional] |
+| **status** | **IpCommandEnumStatus**| The status of the IP Command. Can be: &#x60;queued&#x60;, &#x60;sent&#x60;, &#x60;received&#x60; or &#x60;failed&#x60;. See the [IP Command Status Values](https://www.twilio.com/docs/wireless/api/ipcommand-resource#status-values) for a description of each. | [optional] [enum: queued, sent, received, failed] |
+| **direction** | **IpCommandEnumDirection**| The direction of the IP Command. Can be &#x60;to_sim&#x60; or &#x60;from_sim&#x60;. The value of &#x60;to_sim&#x60; is synonymous with the term &#x60;mobile terminated&#x60;, and &#x60;from_sim&#x60; is synonymous with the term &#x60;mobile originated&#x60;. | [optional] [enum: to_sim, from_sim] |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
+
+### Return type
+
+[**ListIpCommandResponse**](ListIpCommandResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listNetwork"></a>
+# **listNetwork**
+> ListNetworkResponse listNetwork(isoCountry, mcc, mnc, pageSize, page, pageToken)
+
+
+
+Retrieve a list of Network resources.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://supersim.twilio.com");
+    
+    // Configure HTTP basic authorization: accountSid_authToken
+    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
+    accountSid_authToken.setUsername("YOUR USERNAME");
+    accountSid_authToken.setPassword("YOUR PASSWORD");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String isoCountry = "isoCountry_example"; // String | The [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the Network resources to read.
+    String mcc = "mcc_example"; // String | The 'mobile country code' of a country. Network resources with this `mcc` in their `identifiers` will be read.
+    String mnc = "mnc_example"; // String | The 'mobile network code' of a mobile operator network. Network resources with this `mnc` in their `identifiers` will be read.
+    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
+    Integer page = 56; // Integer | The page index. This value is simply for client state.
+    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
+    try {
+      ListNetworkResponse result = apiInstance.listNetwork(isoCountry, mcc, mnc, pageSize, page, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listNetwork");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **isoCountry** | **String**| The [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the Network resources to read. | [optional] |
+| **mcc** | **String**| The &#39;mobile country code&#39; of a country. Network resources with this &#x60;mcc&#x60; in their &#x60;identifiers&#x60; will be read. | [optional] |
+| **mnc** | **String**| The &#39;mobile network code&#39; of a mobile operator network. Network resources with this &#x60;mnc&#x60; in their &#x60;identifiers&#x60; will be read. | [optional] |
+| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
+| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
+| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
+
+### Return type
+
+[**ListNetworkResponse**](ListNetworkResponse.md)
+
+### Authorization
+
+[accountSid_authToken](../README.md#accountSid_authToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="listNetworkAccessProfile"></a>
+# **listNetworkAccessProfile**
+> ListNetworkAccessProfileResponse listNetworkAccessProfile(pageSize, page, pageToken)
+
+
+
+Retrieve a list of Network Access Profiles from your account.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1869,10 +1589,10 @@ public class Example {
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListCredentialResponse result = apiInstance.listCredential(pageSize, page, pageToken);
+      ListNetworkAccessProfileResponse result = apiInstance.listNetworkAccessProfile(pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listCredential");
+      System.err.println("Exception when calling DefaultApi#listNetworkAccessProfile");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1892,7 +1612,7 @@ public class Example {
 
 ### Return type
 
-[**ListCredentialResponse**](ListCredentialResponse.md)
+[**ListNetworkAccessProfileResponse**](ListNetworkAccessProfileResponse.md)
 
 ### Authorization
 
@@ -1908,13 +1628,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listInvite"></a>
-# **listInvite**
-> ListInviteResponse listInvite(serviceSid, channelSid, identity, pageSize, page, pageToken)
+<a id="listNetworkAccessProfileNetwork"></a>
+# **listNetworkAccessProfileNetwork**
+> ListNetworkAccessProfileNetworkResponse listNetworkAccessProfileNetwork(networkAccessProfileSid, pageSize, page, pageToken)
 
 
 
-
+Retrieve a list of Network Access Profile resource&#39;s Network resource.
 
 ### Example
 ```java
@@ -1929,7 +1649,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -1937,17 +1657,15 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    List<String> identity = Arrays.asList(); // List<String> | 
+    String networkAccessProfileSid = "networkAccessProfileSid_example"; // String | The unique string that identifies the Network Access Profile resource.
     Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListInviteResponse result = apiInstance.listInvite(serviceSid, channelSid, identity, pageSize, page, pageToken);
+      ListNetworkAccessProfileNetworkResponse result = apiInstance.listNetworkAccessProfileNetwork(networkAccessProfileSid, pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listInvite");
+      System.err.println("Exception when calling DefaultApi#listNetworkAccessProfileNetwork");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1961,16 +1679,14 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **identity** | [**List&lt;String&gt;**](String.md)|  | [optional] |
+| **networkAccessProfileSid** | **String**| The unique string that identifies the Network Access Profile resource. | |
 | **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
 | **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
 | **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
 
 ### Return type
 
-[**ListInviteResponse**](ListInviteResponse.md)
+[**ListNetworkAccessProfileNetworkResponse**](ListNetworkAccessProfileNetworkResponse.md)
 
 ### Authorization
 
@@ -1986,13 +1702,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listMember"></a>
-# **listMember**
-> ListMemberResponse listMember(serviceSid, channelSid, identity, pageSize, page, pageToken)
+<a id="listSettingsUpdate"></a>
+# **listSettingsUpdate**
+> ListSettingsUpdateResponse listSettingsUpdate(sim, status, pageSize, page, pageToken)
 
 
 
-
+Retrieve a list of Settings Updates.
 
 ### Example
 ```java
@@ -2007,7 +1723,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2015,17 +1731,16 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    List<String> identity = Arrays.asList(); // List<String> | 
+    String sim = "sim_example"; // String | Filter the Settings Updates by a Super SIM's SID or UniqueName.
+    SettingsUpdateEnumStatus status = SettingsUpdateEnumStatus.fromValue("scheduled"); // SettingsUpdateEnumStatus | Filter the Settings Updates by status. Can be `scheduled`, `in-progress`, `successful`, or `failed`.
     Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListMemberResponse result = apiInstance.listMember(serviceSid, channelSid, identity, pageSize, page, pageToken);
+      ListSettingsUpdateResponse result = apiInstance.listSettingsUpdate(sim, status, pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listMember");
+      System.err.println("Exception when calling DefaultApi#listSettingsUpdate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2039,16 +1754,15 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **identity** | [**List&lt;String&gt;**](String.md)|  | [optional] |
+| **sim** | **String**| Filter the Settings Updates by a Super SIM&#39;s SID or UniqueName. | [optional] |
+| **status** | **SettingsUpdateEnumStatus**| Filter the Settings Updates by status. Can be &#x60;scheduled&#x60;, &#x60;in-progress&#x60;, &#x60;successful&#x60;, or &#x60;failed&#x60;. | [optional] [enum: scheduled, in-progress, successful, failed] |
 | **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
 | **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
 | **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
 
 ### Return type
 
-[**ListMemberResponse**](ListMemberResponse.md)
+[**ListSettingsUpdateResponse**](ListSettingsUpdateResponse.md)
 
 ### Authorization
 
@@ -2064,13 +1778,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listMessage"></a>
-# **listMessage**
-> ListMessageResponse listMessage(serviceSid, channelSid, order, pageSize, page, pageToken)
+<a id="listSim"></a>
+# **listSim**
+> ListSimResponse listSim(status, fleet, iccid, pageSize, page, pageToken)
 
 
 
-
+Retrieve a list of Super SIMs from your account.
 
 ### Example
 ```java
@@ -2085,7 +1799,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2093,17 +1807,17 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    MessageEnumOrderType order = MessageEnumOrderType.fromValue("asc"); // MessageEnumOrderType | 
+    SimEnumStatus status = SimEnumStatus.fromValue("new"); // SimEnumStatus | The status of the Sim resources to read. Can be `new`, `ready`, `active`, `inactive`, or `scheduled`.
+    String fleet = "fleet_example"; // String | The SID or unique name of the Fleet to which a list of Sims are assigned.
+    String iccid = "iccid_example"; // String | The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) associated with a Super SIM to filter the list by. Passing this parameter will always return a list containing zero or one SIMs.
     Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListMessageResponse result = apiInstance.listMessage(serviceSid, channelSid, order, pageSize, page, pageToken);
+      ListSimResponse result = apiInstance.listSim(status, fleet, iccid, pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listMessage");
+      System.err.println("Exception when calling DefaultApi#listSim");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2117,16 +1831,16 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **order** | **MessageEnumOrderType**|  | [optional] [enum: asc, desc] |
+| **status** | **SimEnumStatus**| The status of the Sim resources to read. Can be &#x60;new&#x60;, &#x60;ready&#x60;, &#x60;active&#x60;, &#x60;inactive&#x60;, or &#x60;scheduled&#x60;. | [optional] [enum: new, ready, active, inactive, scheduled] |
+| **fleet** | **String**| The SID or unique name of the Fleet to which a list of Sims are assigned. | [optional] |
+| **iccid** | **String**| The [ICCID](https://en.wikipedia.org/wiki/Subscriber_identity_module#ICCID) associated with a Super SIM to filter the list by. Passing this parameter will always return a list containing zero or one SIMs. | [optional] |
 | **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
 | **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
 | **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
 
 ### Return type
 
-[**ListMessageResponse**](ListMessageResponse.md)
+[**ListSimResponse**](ListSimResponse.md)
 
 ### Authorization
 
@@ -2142,13 +1856,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listRole"></a>
-# **listRole**
-> ListRoleResponse listRole(serviceSid, pageSize, page, pageToken)
+<a id="listSimIpAddress"></a>
+# **listSimIpAddress**
+> ListSimIpAddressResponse listSimIpAddress(simSid, pageSize, page, pageToken)
 
 
 
-
+Retrieve a list of IP Addresses for the given Super SIM.
 
 ### Example
 ```java
@@ -2163,7 +1877,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2171,15 +1885,15 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
+    String simSid = "simSid_example"; // String | The SID of the Super SIM to list IP Addresses for.
     Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListRoleResponse result = apiInstance.listRole(serviceSid, pageSize, page, pageToken);
+      ListSimIpAddressResponse result = apiInstance.listSimIpAddress(simSid, pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listRole");
+      System.err.println("Exception when calling DefaultApi#listSimIpAddress");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2193,14 +1907,14 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
+| **simSid** | **String**| The SID of the Super SIM to list IP Addresses for. | |
 | **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
 | **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
 | **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
 
 ### Return type
 
-[**ListRoleResponse**](ListRoleResponse.md)
+[**ListSimIpAddressResponse**](ListSimIpAddressResponse.md)
 
 ### Authorization
 
@@ -2216,13 +1930,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listService"></a>
-# **listService**
-> ListServiceResponse listService(pageSize, page, pageToken)
+<a id="listSmsCommand"></a>
+# **listSmsCommand**
+> ListSmsCommandResponse listSmsCommand(sim, status, direction, pageSize, page, pageToken)
 
 
 
-
+Retrieve a list of SMS Commands from your account.
 
 ### Example
 ```java
@@ -2237,7 +1951,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2245,14 +1959,17 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String sim = "sim_example"; // String | The SID or unique name of the Sim resource that SMS Command was sent to or from.
+    SmsCommandEnumStatus status = SmsCommandEnumStatus.fromValue("queued"); // SmsCommandEnumStatus | The status of the SMS Command. Can be: `queued`, `sent`, `delivered`, `received` or `failed`. See the [SMS Command Status Values](https://www.twilio.com/docs/iot/supersim/api/smscommand-resource#status-values) for a description of each.
+    SmsCommandEnumDirection direction = SmsCommandEnumDirection.fromValue("to_sim"); // SmsCommandEnumDirection | The direction of the SMS Command. Can be `to_sim` or `from_sim`. The value of `to_sim` is synonymous with the term `mobile terminated`, and `from_sim` is synonymous with the term `mobile originated`.
     Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListServiceResponse result = apiInstance.listService(pageSize, page, pageToken);
+      ListSmsCommandResponse result = apiInstance.listSmsCommand(sim, status, direction, pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listService");
+      System.err.println("Exception when calling DefaultApi#listSmsCommand");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2266,13 +1983,16 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **sim** | **String**| The SID or unique name of the Sim resource that SMS Command was sent to or from. | [optional] |
+| **status** | **SmsCommandEnumStatus**| The status of the SMS Command. Can be: &#x60;queued&#x60;, &#x60;sent&#x60;, &#x60;delivered&#x60;, &#x60;received&#x60; or &#x60;failed&#x60;. See the [SMS Command Status Values](https://www.twilio.com/docs/iot/supersim/api/smscommand-resource#status-values) for a description of each. | [optional] [enum: queued, sent, delivered, received, failed] |
+| **direction** | **SmsCommandEnumDirection**| The direction of the SMS Command. Can be &#x60;to_sim&#x60; or &#x60;from_sim&#x60;. The value of &#x60;to_sim&#x60; is synonymous with the term &#x60;mobile terminated&#x60;, and &#x60;from_sim&#x60; is synonymous with the term &#x60;mobile originated&#x60;. | [optional] [enum: to_sim, from_sim] |
 | **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
 | **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
 | **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
 
 ### Return type
 
-[**ListServiceResponse**](ListServiceResponse.md)
+[**ListSmsCommandResponse**](ListSmsCommandResponse.md)
 
 ### Authorization
 
@@ -2288,13 +2008,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listUser"></a>
-# **listUser**
-> ListUserResponse listUser(serviceSid, pageSize, page, pageToken)
+<a id="listUsageRecord"></a>
+# **listUsageRecord**
+> ListUsageRecordResponse listUsageRecord(sim, fleet, network, isoCountry, group, granularity, startTime, endTime, pageSize, page, pageToken)
 
 
 
-
+List UsageRecords
 
 ### Example
 ```java
@@ -2309,7 +2029,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2317,15 +2037,22 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
+    String sim = "sim_example"; // String | SID or unique name of a Sim resource. Only show UsageRecords representing usage incurred by this Super SIM.
+    String fleet = "fleet_example"; // String | SID or unique name of a Fleet resource. Only show UsageRecords representing usage for Super SIMs belonging to this Fleet resource at the time the usage occurred.
+    String network = "network_example"; // String | SID of a Network resource. Only show UsageRecords representing usage on this network.
+    String isoCountry = "isoCountry_example"; // String | Alpha-2 ISO Country Code. Only show UsageRecords representing usage in this country.
+    UsageRecordEnumGroup group = UsageRecordEnumGroup.fromValue("sim"); // UsageRecordEnumGroup | Dimension over which to aggregate usage records. Can be: `sim`, `fleet`, `network`, `isoCountry`. Default is to not aggregate across any of these dimensions, UsageRecords will be aggregated into the time buckets described by the `Granularity` parameter.
+    UsageRecordEnumGranularity granularity = UsageRecordEnumGranularity.fromValue("hour"); // UsageRecordEnumGranularity | Time-based grouping that UsageRecords should be aggregated by. Can be: `hour`, `day`, or `all`. Default is `all`. `all` returns one UsageRecord that describes the usage for the entire period.
+    OffsetDateTime startTime = OffsetDateTime.now(); // OffsetDateTime | Only include usage that occurred at or after this time, specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is one month before the `end_time`.
+    OffsetDateTime endTime = OffsetDateTime.now(); // OffsetDateTime | Only include usage that occurred before this time (exclusive), specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is the current time.
     Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
     Integer page = 56; // Integer | The page index. This value is simply for client state.
     String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
     try {
-      ListUserResponse result = apiInstance.listUser(serviceSid, pageSize, page, pageToken);
+      ListUsageRecordResponse result = apiInstance.listUsageRecord(sim, fleet, network, isoCountry, group, granularity, startTime, endTime, pageSize, page, pageToken);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listUser");
+      System.err.println("Exception when calling DefaultApi#listUsageRecord");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2339,14 +2066,21 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
+| **sim** | **String**| SID or unique name of a Sim resource. Only show UsageRecords representing usage incurred by this Super SIM. | [optional] |
+| **fleet** | **String**| SID or unique name of a Fleet resource. Only show UsageRecords representing usage for Super SIMs belonging to this Fleet resource at the time the usage occurred. | [optional] |
+| **network** | **String**| SID of a Network resource. Only show UsageRecords representing usage on this network. | [optional] |
+| **isoCountry** | **String**| Alpha-2 ISO Country Code. Only show UsageRecords representing usage in this country. | [optional] |
+| **group** | **UsageRecordEnumGroup**| Dimension over which to aggregate usage records. Can be: &#x60;sim&#x60;, &#x60;fleet&#x60;, &#x60;network&#x60;, &#x60;isoCountry&#x60;. Default is to not aggregate across any of these dimensions, UsageRecords will be aggregated into the time buckets described by the &#x60;Granularity&#x60; parameter. | [optional] [enum: sim, fleet, network, isoCountry] |
+| **granularity** | **UsageRecordEnumGranularity**| Time-based grouping that UsageRecords should be aggregated by. Can be: &#x60;hour&#x60;, &#x60;day&#x60;, or &#x60;all&#x60;. Default is &#x60;all&#x60;. &#x60;all&#x60; returns one UsageRecord that describes the usage for the entire period. | [optional] [enum: hour, day, all] |
+| **startTime** | **OffsetDateTime**| Only include usage that occurred at or after this time, specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is one month before the &#x60;end_time&#x60;. | [optional] |
+| **endTime** | **OffsetDateTime**| Only include usage that occurred before this time (exclusive), specified in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Default is the current time. | [optional] |
 | **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
 | **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
 | **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
 
 ### Return type
 
-[**ListUserResponse**](ListUserResponse.md)
+[**ListUsageRecordResponse**](ListUsageRecordResponse.md)
 
 ### Authorization
 
@@ -2362,89 +2096,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="listUserChannel"></a>
-# **listUserChannel**
-> ListUserChannelResponse listUserChannel(serviceSid, userSid, pageSize, page, pageToken)
+<a id="updateFleet"></a>
+# **updateFleet**
+> SupersimV1Fleet updateFleet(sid, dataLimit, ipCommandsMethod, ipCommandsUrl, networkAccessProfile, smsCommandsMethod, smsCommandsUrl, uniqueName)
 
 
 
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String userSid = "userSid_example"; // String | 
-    Integer pageSize = 56; // Integer | How many resources to return in each list page. The default is 50, and the maximum is 1000.
-    Integer page = 56; // Integer | The page index. This value is simply for client state.
-    String pageToken = "pageToken_example"; // String | The page token. This is provided by the API.
-    try {
-      ListUserChannelResponse result = apiInstance.listUserChannel(serviceSid, userSid, pageSize, page, pageToken);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#listUserChannel");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **userSid** | **String**|  | |
-| **pageSize** | **Integer**| How many resources to return in each list page. The default is 50, and the maximum is 1000. | [optional] |
-| **page** | **Integer**| The page index. This value is simply for client state. | [optional] |
-| **pageToken** | **String**| The page token. This is provided by the API. | [optional] |
-
-### Return type
-
-[**ListUserChannelResponse**](ListUserChannelResponse.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="updateChannel"></a>
-# **updateChannel**
-> IpMessagingV1ServiceChannel updateChannel(serviceSid, sid, attributes, friendlyName, uniqueName)
-
-
-
-
+Updates the given properties of a Super SIM Fleet instance from your account.
 
 ### Example
 ```java
@@ -2459,7 +2117,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2467,16 +2125,19 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    String uniqueName = "uniqueName_example"; // String | 
+    String sid = "sid_example"; // String | The SID of the Fleet resource to update.
+    Integer dataLimit = 56; // Integer | The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000).
+    String ipCommandsMethod = "HEAD"; // String | A string representing the HTTP method to use when making a request to `ip_commands_url`. Can be one of `POST` or `GET`. Defaults to `POST`.
+    URI ipCommandsUrl = new URI(); // URI | The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored.
+    String networkAccessProfile = "networkAccessProfile_example"; // String | The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet's SIMs can connect to.
+    String smsCommandsMethod = "HEAD"; // String | A string representing the HTTP method to use when making a request to `sms_commands_url`. Can be one of `POST` or `GET`. Defaults to `POST`.
+    URI smsCommandsUrl = new URI(); // URI | The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored.
+    String uniqueName = "uniqueName_example"; // String | An application-defined string that uniquely identifies the resource. It can be used in place of the resource's `sid` in the URL to address the resource.
     try {
-      IpMessagingV1ServiceChannel result = apiInstance.updateChannel(serviceSid, sid, attributes, friendlyName, uniqueName);
+      SupersimV1Fleet result = apiInstance.updateFleet(sid, dataLimit, ipCommandsMethod, ipCommandsUrl, networkAccessProfile, smsCommandsMethod, smsCommandsUrl, uniqueName);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateChannel");
+      System.err.println("Exception when calling DefaultApi#updateFleet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2490,15 +2151,18 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **uniqueName** | **String**|  | [optional] |
+| **sid** | **String**| The SID of the Fleet resource to update. | |
+| **dataLimit** | **Integer**| The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000). | [optional] |
+| **ipCommandsMethod** | **String**| A string representing the HTTP method to use when making a request to &#x60;ip_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
+| **ipCommandsUrl** | **URI**| The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. | [optional] |
+| **networkAccessProfile** | **String**| The SID or unique name of the Network Access Profile that will control which cellular networks the Fleet&#39;s SIMs can connect to. | [optional] |
+| **smsCommandsMethod** | **String**| A string representing the HTTP method to use when making a request to &#x60;sms_commands_url&#x60;. Can be one of &#x60;POST&#x60; or &#x60;GET&#x60;. Defaults to &#x60;POST&#x60;. | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
+| **smsCommandsUrl** | **URI**| The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the SMS Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored. | [optional] |
+| **uniqueName** | **String**| An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannel**](IpMessagingV1ServiceChannel.md)
+[**SupersimV1Fleet**](SupersimV1Fleet.md)
 
 ### Authorization
 
@@ -2514,13 +2178,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="updateCredential"></a>
-# **updateCredential**
-> IpMessagingV1Credential updateCredential(sid, apiKey, certificate, friendlyName, privateKey, sandbox, secret)
+<a id="updateNetworkAccessProfile"></a>
+# **updateNetworkAccessProfile**
+> SupersimV1NetworkAccessProfile updateNetworkAccessProfile(sid, uniqueName)
 
 
 
-
+Updates the given properties of a Network Access Profile in your account.
 
 ### Example
 ```java
@@ -2535,7 +2199,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2543,18 +2207,13 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
-    String apiKey = "apiKey_example"; // String | 
-    String certificate = "certificate_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    String privateKey = "privateKey_example"; // String | 
-    Boolean sandbox = true; // Boolean | 
-    String secret = "secret_example"; // String | 
+    String sid = "sid_example"; // String | The SID of the Network Access Profile to update.
+    String uniqueName = "uniqueName_example"; // String | The new unique name of the Network Access Profile.
     try {
-      IpMessagingV1Credential result = apiInstance.updateCredential(sid, apiKey, certificate, friendlyName, privateKey, sandbox, secret);
+      SupersimV1NetworkAccessProfile result = apiInstance.updateNetworkAccessProfile(sid, uniqueName);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateCredential");
+      System.err.println("Exception when calling DefaultApi#updateNetworkAccessProfile");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2568,17 +2227,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
-| **apiKey** | **String**|  | [optional] |
-| **certificate** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **privateKey** | **String**|  | [optional] |
-| **sandbox** | **Boolean**|  | [optional] |
-| **secret** | **String**|  | [optional] |
+| **sid** | **String**| The SID of the Network Access Profile to update. | |
+| **uniqueName** | **String**| The new unique name of the Network Access Profile. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1Credential**](IpMessagingV1Credential.md)
+[**SupersimV1NetworkAccessProfile**](SupersimV1NetworkAccessProfile.md)
 
 ### Authorization
 
@@ -2594,89 +2248,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="updateMember"></a>
-# **updateMember**
-> IpMessagingV1ServiceChannelMember updateMember(serviceSid, channelSid, sid, lastConsumedMessageIndex, roleSid)
+<a id="updateSim"></a>
+# **updateSim**
+> SupersimV1Sim updateSim(sid, accountSid, callbackMethod, callbackUrl, fleet, status, uniqueName)
 
 
 
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    Integer lastConsumedMessageIndex = 56; // Integer | 
-    String roleSid = "roleSid_example"; // String | 
-    try {
-      IpMessagingV1ServiceChannelMember result = apiInstance.updateMember(serviceSid, channelSid, sid, lastConsumedMessageIndex, roleSid);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateMember");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
-| **lastConsumedMessageIndex** | **Integer**|  | [optional] |
-| **roleSid** | **String**|  | [optional] |
-
-### Return type
-
-[**IpMessagingV1ServiceChannelMember**](IpMessagingV1ServiceChannelMember.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="updateMessage"></a>
-# **updateMessage**
-> IpMessagingV1ServiceChannelMessage updateMessage(serviceSid, channelSid, sid, attributes, body)
-
-
-
-
+Updates the given properties of a Super SIM instance from your account.
 
 ### Example
 ```java
@@ -2691,7 +2269,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -2699,16 +2277,18 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String channelSid = "channelSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String body = "body_example"; // String | 
+    String sid = "sid_example"; // String | The SID of the Sim resource to update.
+    String accountSid = "accountSid_example"; // String | The SID of the Account to which the Sim resource should belong. The Account SID can only be that of the requesting Account or that of a Subaccount of the requesting Account. Only valid when the Sim resource's status is new.
+    String callbackMethod = "HEAD"; // String | The HTTP method we should use to call `callback_url`. Can be: `GET` or `POST` and the default is POST.
+    URI callbackUrl = new URI(); // URI | The URL we should call using the `callback_method` after an asynchronous update has finished.
+    String fleet = "fleet_example"; // String | The SID or unique name of the Fleet to which the SIM resource should be assigned.
+    SimEnumStatusUpdate status = SimEnumStatusUpdate.fromValue("ready"); // SimEnumStatusUpdate | 
+    String uniqueName = "uniqueName_example"; // String | An application-defined string that uniquely identifies the resource. It can be used in place of the resource's `sid` in the URL to address the resource.
     try {
-      IpMessagingV1ServiceChannelMessage result = apiInstance.updateMessage(serviceSid, channelSid, sid, attributes, body);
+      SupersimV1Sim result = apiInstance.updateSim(sid, accountSid, callbackMethod, callbackUrl, fleet, status, uniqueName);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateMessage");
+      System.err.println("Exception when calling DefaultApi#updateSim");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2722,15 +2302,17 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **channelSid** | **String**|  | |
-| **sid** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **body** | **String**|  | [optional] |
+| **sid** | **String**| The SID of the Sim resource to update. | |
+| **accountSid** | **String**| The SID of the Account to which the Sim resource should belong. The Account SID can only be that of the requesting Account or that of a Subaccount of the requesting Account. Only valid when the Sim resource&#39;s status is new. | [optional] |
+| **callbackMethod** | **String**| The HTTP method we should use to call &#x60;callback_url&#x60;. Can be: &#x60;GET&#x60; or &#x60;POST&#x60; and the default is POST. | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
+| **callbackUrl** | **URI**| The URL we should call using the &#x60;callback_method&#x60; after an asynchronous update has finished. | [optional] |
+| **fleet** | **String**| The SID or unique name of the Fleet to which the SIM resource should be assigned. | [optional] |
+| **status** | **SimEnumStatusUpdate**|  | [optional] [enum: ready, active, inactive] |
+| **uniqueName** | **String**| An application-defined string that uniquely identifies the resource. It can be used in place of the resource&#39;s &#x60;sid&#x60; in the URL to address the resource. | [optional] |
 
 ### Return type
 
-[**IpMessagingV1ServiceChannelMessage**](IpMessagingV1ServiceChannelMessage.md)
+[**SupersimV1Sim**](SupersimV1Sim.md)
 
 ### Authorization
 
@@ -2745,328 +2327,5 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-
-<a id="updateRole"></a>
-# **updateRole**
-> IpMessagingV1ServiceRole updateRole(serviceSid, sid, permission)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    List<String> permission = Arrays.asList(); // List<String> | 
-    try {
-      IpMessagingV1ServiceRole result = apiInstance.updateRole(serviceSid, sid, permission);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateRole");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
-| **permission** | [**List&lt;String&gt;**](String.md)|  | |
-
-### Return type
-
-[**IpMessagingV1ServiceRole**](IpMessagingV1ServiceRole.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="updateService"></a>
-# **updateService**
-> IpMessagingV1Service updateService(sid, consumptionReportInterval, defaultChannelCreatorRoleSid, defaultChannelRoleSid, defaultServiceRoleSid, friendlyName, limitsChannelMembers, limitsUserChannels, notificationsAddedToChannelEnabled, notificationsAddedToChannelTemplate, notificationsInvitedToChannelEnabled, notificationsInvitedToChannelTemplate, notificationsNewMessageEnabled, notificationsNewMessageTemplate, notificationsRemovedFromChannelEnabled, notificationsRemovedFromChannelTemplate, postWebhookUrl, preWebhookUrl, reachabilityEnabled, readStatusEnabled, typingIndicatorTimeout, webhookFilters, webhookMethod, webhooksOnChannelAddMethod, webhooksOnChannelAddUrl, webhooksOnChannelAddedMethod, webhooksOnChannelAddedUrl, webhooksOnChannelDestroyMethod, webhooksOnChannelDestroyUrl, webhooksOnChannelDestroyedMethod, webhooksOnChannelDestroyedUrl, webhooksOnChannelUpdateMethod, webhooksOnChannelUpdateUrl, webhooksOnChannelUpdatedMethod, webhooksOnChannelUpdatedUrl, webhooksOnMemberAddMethod, webhooksOnMemberAddUrl, webhooksOnMemberAddedMethod, webhooksOnMemberAddedUrl, webhooksOnMemberRemoveMethod, webhooksOnMemberRemoveUrl, webhooksOnMemberRemovedMethod, webhooksOnMemberRemovedUrl, webhooksOnMessageRemoveMethod, webhooksOnMessageRemoveUrl, webhooksOnMessageRemovedMethod, webhooksOnMessageRemovedUrl, webhooksOnMessageSendMethod, webhooksOnMessageSendUrl, webhooksOnMessageSentMethod, webhooksOnMessageSentUrl, webhooksOnMessageUpdateMethod, webhooksOnMessageUpdateUrl, webhooksOnMessageUpdatedMethod, webhooksOnMessageUpdatedUrl)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String sid = "sid_example"; // String | 
-    Integer consumptionReportInterval = 56; // Integer | 
-    String defaultChannelCreatorRoleSid = "defaultChannelCreatorRoleSid_example"; // String | 
-    String defaultChannelRoleSid = "defaultChannelRoleSid_example"; // String | 
-    String defaultServiceRoleSid = "defaultServiceRoleSid_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    Integer limitsChannelMembers = 56; // Integer | 
-    Integer limitsUserChannels = 56; // Integer | 
-    Boolean notificationsAddedToChannelEnabled = true; // Boolean | 
-    String notificationsAddedToChannelTemplate = "notificationsAddedToChannelTemplate_example"; // String | 
-    Boolean notificationsInvitedToChannelEnabled = true; // Boolean | 
-    String notificationsInvitedToChannelTemplate = "notificationsInvitedToChannelTemplate_example"; // String | 
-    Boolean notificationsNewMessageEnabled = true; // Boolean | 
-    String notificationsNewMessageTemplate = "notificationsNewMessageTemplate_example"; // String | 
-    Boolean notificationsRemovedFromChannelEnabled = true; // Boolean | 
-    String notificationsRemovedFromChannelTemplate = "notificationsRemovedFromChannelTemplate_example"; // String | 
-    URI postWebhookUrl = new URI(); // URI | 
-    URI preWebhookUrl = new URI(); // URI | 
-    Boolean reachabilityEnabled = true; // Boolean | 
-    Boolean readStatusEnabled = true; // Boolean | 
-    Integer typingIndicatorTimeout = 56; // Integer | 
-    List<String> webhookFilters = Arrays.asList(); // List<String> | 
-    String webhookMethod = "HEAD"; // String | 
-    String webhooksOnChannelAddMethod = "HEAD"; // String | 
-    URI webhooksOnChannelAddUrl = new URI(); // URI | 
-    String webhooksOnChannelAddedMethod = "HEAD"; // String | 
-    URI webhooksOnChannelAddedUrl = new URI(); // URI | 
-    String webhooksOnChannelDestroyMethod = "HEAD"; // String | 
-    URI webhooksOnChannelDestroyUrl = new URI(); // URI | 
-    String webhooksOnChannelDestroyedMethod = "HEAD"; // String | 
-    URI webhooksOnChannelDestroyedUrl = new URI(); // URI | 
-    String webhooksOnChannelUpdateMethod = "HEAD"; // String | 
-    URI webhooksOnChannelUpdateUrl = new URI(); // URI | 
-    String webhooksOnChannelUpdatedMethod = "HEAD"; // String | 
-    URI webhooksOnChannelUpdatedUrl = new URI(); // URI | 
-    String webhooksOnMemberAddMethod = "HEAD"; // String | 
-    URI webhooksOnMemberAddUrl = new URI(); // URI | 
-    String webhooksOnMemberAddedMethod = "HEAD"; // String | 
-    URI webhooksOnMemberAddedUrl = new URI(); // URI | 
-    String webhooksOnMemberRemoveMethod = "HEAD"; // String | 
-    URI webhooksOnMemberRemoveUrl = new URI(); // URI | 
-    String webhooksOnMemberRemovedMethod = "HEAD"; // String | 
-    URI webhooksOnMemberRemovedUrl = new URI(); // URI | 
-    String webhooksOnMessageRemoveMethod = "HEAD"; // String | 
-    URI webhooksOnMessageRemoveUrl = new URI(); // URI | 
-    String webhooksOnMessageRemovedMethod = "HEAD"; // String | 
-    URI webhooksOnMessageRemovedUrl = new URI(); // URI | 
-    String webhooksOnMessageSendMethod = "HEAD"; // String | 
-    URI webhooksOnMessageSendUrl = new URI(); // URI | 
-    String webhooksOnMessageSentMethod = "HEAD"; // String | 
-    URI webhooksOnMessageSentUrl = new URI(); // URI | 
-    String webhooksOnMessageUpdateMethod = "HEAD"; // String | 
-    URI webhooksOnMessageUpdateUrl = new URI(); // URI | 
-    String webhooksOnMessageUpdatedMethod = "HEAD"; // String | 
-    URI webhooksOnMessageUpdatedUrl = new URI(); // URI | 
-    try {
-      IpMessagingV1Service result = apiInstance.updateService(sid, consumptionReportInterval, defaultChannelCreatorRoleSid, defaultChannelRoleSid, defaultServiceRoleSid, friendlyName, limitsChannelMembers, limitsUserChannels, notificationsAddedToChannelEnabled, notificationsAddedToChannelTemplate, notificationsInvitedToChannelEnabled, notificationsInvitedToChannelTemplate, notificationsNewMessageEnabled, notificationsNewMessageTemplate, notificationsRemovedFromChannelEnabled, notificationsRemovedFromChannelTemplate, postWebhookUrl, preWebhookUrl, reachabilityEnabled, readStatusEnabled, typingIndicatorTimeout, webhookFilters, webhookMethod, webhooksOnChannelAddMethod, webhooksOnChannelAddUrl, webhooksOnChannelAddedMethod, webhooksOnChannelAddedUrl, webhooksOnChannelDestroyMethod, webhooksOnChannelDestroyUrl, webhooksOnChannelDestroyedMethod, webhooksOnChannelDestroyedUrl, webhooksOnChannelUpdateMethod, webhooksOnChannelUpdateUrl, webhooksOnChannelUpdatedMethod, webhooksOnChannelUpdatedUrl, webhooksOnMemberAddMethod, webhooksOnMemberAddUrl, webhooksOnMemberAddedMethod, webhooksOnMemberAddedUrl, webhooksOnMemberRemoveMethod, webhooksOnMemberRemoveUrl, webhooksOnMemberRemovedMethod, webhooksOnMemberRemovedUrl, webhooksOnMessageRemoveMethod, webhooksOnMessageRemoveUrl, webhooksOnMessageRemovedMethod, webhooksOnMessageRemovedUrl, webhooksOnMessageSendMethod, webhooksOnMessageSendUrl, webhooksOnMessageSentMethod, webhooksOnMessageSentUrl, webhooksOnMessageUpdateMethod, webhooksOnMessageUpdateUrl, webhooksOnMessageUpdatedMethod, webhooksOnMessageUpdatedUrl);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateService");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **sid** | **String**|  | |
-| **consumptionReportInterval** | **Integer**|  | [optional] |
-| **defaultChannelCreatorRoleSid** | **String**|  | [optional] |
-| **defaultChannelRoleSid** | **String**|  | [optional] |
-| **defaultServiceRoleSid** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **limitsChannelMembers** | **Integer**|  | [optional] |
-| **limitsUserChannels** | **Integer**|  | [optional] |
-| **notificationsAddedToChannelEnabled** | **Boolean**|  | [optional] |
-| **notificationsAddedToChannelTemplate** | **String**|  | [optional] |
-| **notificationsInvitedToChannelEnabled** | **Boolean**|  | [optional] |
-| **notificationsInvitedToChannelTemplate** | **String**|  | [optional] |
-| **notificationsNewMessageEnabled** | **Boolean**|  | [optional] |
-| **notificationsNewMessageTemplate** | **String**|  | [optional] |
-| **notificationsRemovedFromChannelEnabled** | **Boolean**|  | [optional] |
-| **notificationsRemovedFromChannelTemplate** | **String**|  | [optional] |
-| **postWebhookUrl** | **URI**|  | [optional] |
-| **preWebhookUrl** | **URI**|  | [optional] |
-| **reachabilityEnabled** | **Boolean**|  | [optional] |
-| **readStatusEnabled** | **Boolean**|  | [optional] |
-| **typingIndicatorTimeout** | **Integer**|  | [optional] |
-| **webhookFilters** | [**List&lt;String&gt;**](String.md)|  | [optional] |
-| **webhookMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelAddMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelAddUrl** | **URI**|  | [optional] |
-| **webhooksOnChannelAddedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelAddedUrl** | **URI**|  | [optional] |
-| **webhooksOnChannelDestroyMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelDestroyUrl** | **URI**|  | [optional] |
-| **webhooksOnChannelDestroyedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelDestroyedUrl** | **URI**|  | [optional] |
-| **webhooksOnChannelUpdateMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelUpdateUrl** | **URI**|  | [optional] |
-| **webhooksOnChannelUpdatedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnChannelUpdatedUrl** | **URI**|  | [optional] |
-| **webhooksOnMemberAddMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMemberAddUrl** | **URI**|  | [optional] |
-| **webhooksOnMemberAddedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMemberAddedUrl** | **URI**|  | [optional] |
-| **webhooksOnMemberRemoveMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMemberRemoveUrl** | **URI**|  | [optional] |
-| **webhooksOnMemberRemovedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMemberRemovedUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageRemoveMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageRemoveUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageRemovedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageRemovedUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageSendMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageSendUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageSentMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageSentUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageUpdateMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageUpdateUrl** | **URI**|  | [optional] |
-| **webhooksOnMessageUpdatedMethod** | **String**|  | [optional] [enum: HEAD, GET, POST, PATCH, PUT, DELETE] |
-| **webhooksOnMessageUpdatedUrl** | **URI**|  | [optional] |
-
-### Return type
-
-[**IpMessagingV1Service**](IpMessagingV1Service.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="updateUser"></a>
-# **updateUser**
-> IpMessagingV1ServiceUser updateUser(serviceSid, sid, attributes, friendlyName, roleSid)
-
-
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
-    
-    // Configure HTTP basic authorization: accountSid_authToken
-    HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
-    accountSid_authToken.setUsername("YOUR USERNAME");
-    accountSid_authToken.setPassword("YOUR PASSWORD");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String sid = "sid_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    String roleSid = "roleSid_example"; // String | 
-    try {
-      IpMessagingV1ServiceUser result = apiInstance.updateUser(serviceSid, sid, attributes, friendlyName, roleSid);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#updateUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **serviceSid** | **String**|  | |
-| **sid** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **friendlyName** | **String**|  | [optional] |
-| **roleSid** | **String**|  | [optional] |
-
-### Return type
-
-[**IpMessagingV1ServiceUser**](IpMessagingV1ServiceUser.md)
-
-### Authorization
-
-[accountSid_authToken](../README.md#accountSid_authToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **202** | Accepted |  -  |
 

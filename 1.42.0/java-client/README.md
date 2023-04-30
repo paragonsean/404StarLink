@@ -1,8 +1,8 @@
 # openapi-java-client
 
-Twilio - Ip_messaging
+Twilio - Supersim
 - API version: 1.42.0
-  - Build date: 2024-10-11T02:10:30.608709-04:00[America/New_York]
+  - Build date: 2024-10-11T02:12:44.745013-04:00[America/New_York]
   - Generator version: 7.9.0
 
 This is the public Twilio REST API.
@@ -92,7 +92,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://ip-messaging.twilio.com");
+    defaultClient.setBasePath("https://supersim.twilio.com");
     
     // Configure HTTP basic authorization: accountSid_authToken
     HttpBasicAuth accountSid_authToken = (HttpBasicAuth) defaultClient.getAuthentication("accountSid_authToken");
@@ -100,16 +100,15 @@ public class Example {
     accountSid_authToken.setPassword("YOUR PASSWORD");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String serviceSid = "serviceSid_example"; // String | 
-    String attributes = "attributes_example"; // String | 
-    String friendlyName = "friendlyName_example"; // String | 
-    ChannelEnumChannelType type = ChannelEnumChannelType.fromValue("public"); // ChannelEnumChannelType | 
-    String uniqueName = "uniqueName_example"; // String | 
+    String callbackMethod = "HEAD"; // String | The HTTP method we should use to call `callback_url`. Can be: `GET` or `POST` and the default is POST.
+    String callbackUrl = "callbackUrl_example"; // String | The URL we should call using the `callback_method` when the status of the eSIM Profile changes. At this stage of the eSIM Profile pilot, the a request to the URL will only be called when the ESimProfile resource changes from `reserving` to `available`.
+    String eid = "eid_example"; // String | Identifier of the eUICC that will claim the eSIM Profile.
+    Boolean generateMatchingId = true; // Boolean | When set to `true`, a value for `Eid` does not need to be provided. Instead, when the eSIM profile is reserved, a matching ID will be generated and returned via the `matching_id` property. This identifies the specific eSIM profile that can be used by any capable device to claim and download the profile.
     try {
-      IpMessagingV1ServiceChannel result = apiInstance.createChannel(serviceSid, attributes, friendlyName, type, uniqueName);
+      SupersimV1EsimProfile result = apiInstance.createEsimProfile(callbackMethod, callbackUrl, eid, generateMatchingId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createChannel");
+      System.err.println("Exception when calling DefaultApi#createEsimProfile");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -122,78 +121,85 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://ip-messaging.twilio.com*
+All URIs are relative to *https://supersim.twilio.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**createChannel**](docs/DefaultApi.md#createChannel) | **POST** /v1/Services/{ServiceSid}/Channels | 
-*DefaultApi* | [**createCredential**](docs/DefaultApi.md#createCredential) | **POST** /v1/Credentials | 
-*DefaultApi* | [**createInvite**](docs/DefaultApi.md#createInvite) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites | 
-*DefaultApi* | [**createMember**](docs/DefaultApi.md#createMember) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members | 
-*DefaultApi* | [**createMessage**](docs/DefaultApi.md#createMessage) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages | 
-*DefaultApi* | [**createRole**](docs/DefaultApi.md#createRole) | **POST** /v1/Services/{ServiceSid}/Roles | 
-*DefaultApi* | [**createService**](docs/DefaultApi.md#createService) | **POST** /v1/Services | 
-*DefaultApi* | [**createUser**](docs/DefaultApi.md#createUser) | **POST** /v1/Services/{ServiceSid}/Users | 
-*DefaultApi* | [**deleteChannel**](docs/DefaultApi.md#deleteChannel) | **DELETE** /v1/Services/{ServiceSid}/Channels/{Sid} | 
-*DefaultApi* | [**deleteCredential**](docs/DefaultApi.md#deleteCredential) | **DELETE** /v1/Credentials/{Sid} | 
-*DefaultApi* | [**deleteInvite**](docs/DefaultApi.md#deleteInvite) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid} | 
-*DefaultApi* | [**deleteMember**](docs/DefaultApi.md#deleteMember) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} | 
-*DefaultApi* | [**deleteMessage**](docs/DefaultApi.md#deleteMessage) | **DELETE** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} | 
-*DefaultApi* | [**deleteRole**](docs/DefaultApi.md#deleteRole) | **DELETE** /v1/Services/{ServiceSid}/Roles/{Sid} | 
-*DefaultApi* | [**deleteService**](docs/DefaultApi.md#deleteService) | **DELETE** /v1/Services/{Sid} | 
-*DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /v1/Services/{ServiceSid}/Users/{Sid} | 
-*DefaultApi* | [**fetchChannel**](docs/DefaultApi.md#fetchChannel) | **GET** /v1/Services/{ServiceSid}/Channels/{Sid} | 
-*DefaultApi* | [**fetchCredential**](docs/DefaultApi.md#fetchCredential) | **GET** /v1/Credentials/{Sid} | 
-*DefaultApi* | [**fetchInvite**](docs/DefaultApi.md#fetchInvite) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid} | 
-*DefaultApi* | [**fetchMember**](docs/DefaultApi.md#fetchMember) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} | 
-*DefaultApi* | [**fetchMessage**](docs/DefaultApi.md#fetchMessage) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} | 
-*DefaultApi* | [**fetchRole**](docs/DefaultApi.md#fetchRole) | **GET** /v1/Services/{ServiceSid}/Roles/{Sid} | 
-*DefaultApi* | [**fetchService**](docs/DefaultApi.md#fetchService) | **GET** /v1/Services/{Sid} | 
-*DefaultApi* | [**fetchUser**](docs/DefaultApi.md#fetchUser) | **GET** /v1/Services/{ServiceSid}/Users/{Sid} | 
-*DefaultApi* | [**listChannel**](docs/DefaultApi.md#listChannel) | **GET** /v1/Services/{ServiceSid}/Channels | 
-*DefaultApi* | [**listCredential**](docs/DefaultApi.md#listCredential) | **GET** /v1/Credentials | 
-*DefaultApi* | [**listInvite**](docs/DefaultApi.md#listInvite) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites | 
-*DefaultApi* | [**listMember**](docs/DefaultApi.md#listMember) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members | 
-*DefaultApi* | [**listMessage**](docs/DefaultApi.md#listMessage) | **GET** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages | 
-*DefaultApi* | [**listRole**](docs/DefaultApi.md#listRole) | **GET** /v1/Services/{ServiceSid}/Roles | 
-*DefaultApi* | [**listService**](docs/DefaultApi.md#listService) | **GET** /v1/Services | 
-*DefaultApi* | [**listUser**](docs/DefaultApi.md#listUser) | **GET** /v1/Services/{ServiceSid}/Users | 
-*DefaultApi* | [**listUserChannel**](docs/DefaultApi.md#listUserChannel) | **GET** /v1/Services/{ServiceSid}/Users/{UserSid}/Channels | 
-*DefaultApi* | [**updateChannel**](docs/DefaultApi.md#updateChannel) | **POST** /v1/Services/{ServiceSid}/Channels/{Sid} | 
-*DefaultApi* | [**updateCredential**](docs/DefaultApi.md#updateCredential) | **POST** /v1/Credentials/{Sid} | 
-*DefaultApi* | [**updateMember**](docs/DefaultApi.md#updateMember) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid} | 
-*DefaultApi* | [**updateMessage**](docs/DefaultApi.md#updateMessage) | **POST** /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid} | 
-*DefaultApi* | [**updateRole**](docs/DefaultApi.md#updateRole) | **POST** /v1/Services/{ServiceSid}/Roles/{Sid} | 
-*DefaultApi* | [**updateService**](docs/DefaultApi.md#updateService) | **POST** /v1/Services/{Sid} | 
-*DefaultApi* | [**updateUser**](docs/DefaultApi.md#updateUser) | **POST** /v1/Services/{ServiceSid}/Users/{Sid} | 
+*DefaultApi* | [**createEsimProfile**](docs/DefaultApi.md#createEsimProfile) | **POST** /v1/ESimProfiles | 
+*DefaultApi* | [**createFleet**](docs/DefaultApi.md#createFleet) | **POST** /v1/Fleets | 
+*DefaultApi* | [**createIpCommand**](docs/DefaultApi.md#createIpCommand) | **POST** /v1/IpCommands | 
+*DefaultApi* | [**createNetworkAccessProfile**](docs/DefaultApi.md#createNetworkAccessProfile) | **POST** /v1/NetworkAccessProfiles | 
+*DefaultApi* | [**createNetworkAccessProfileNetwork**](docs/DefaultApi.md#createNetworkAccessProfileNetwork) | **POST** /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks | 
+*DefaultApi* | [**createSim**](docs/DefaultApi.md#createSim) | **POST** /v1/Sims | 
+*DefaultApi* | [**createSmsCommand**](docs/DefaultApi.md#createSmsCommand) | **POST** /v1/SmsCommands | 
+*DefaultApi* | [**deleteNetworkAccessProfileNetwork**](docs/DefaultApi.md#deleteNetworkAccessProfileNetwork) | **DELETE** /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid} | 
+*DefaultApi* | [**fetchEsimProfile**](docs/DefaultApi.md#fetchEsimProfile) | **GET** /v1/ESimProfiles/{Sid} | 
+*DefaultApi* | [**fetchFleet**](docs/DefaultApi.md#fetchFleet) | **GET** /v1/Fleets/{Sid} | 
+*DefaultApi* | [**fetchIpCommand**](docs/DefaultApi.md#fetchIpCommand) | **GET** /v1/IpCommands/{Sid} | 
+*DefaultApi* | [**fetchNetwork**](docs/DefaultApi.md#fetchNetwork) | **GET** /v1/Networks/{Sid} | 
+*DefaultApi* | [**fetchNetworkAccessProfile**](docs/DefaultApi.md#fetchNetworkAccessProfile) | **GET** /v1/NetworkAccessProfiles/{Sid} | 
+*DefaultApi* | [**fetchNetworkAccessProfileNetwork**](docs/DefaultApi.md#fetchNetworkAccessProfileNetwork) | **GET** /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid} | 
+*DefaultApi* | [**fetchSim**](docs/DefaultApi.md#fetchSim) | **GET** /v1/Sims/{Sid} | 
+*DefaultApi* | [**fetchSmsCommand**](docs/DefaultApi.md#fetchSmsCommand) | **GET** /v1/SmsCommands/{Sid} | 
+*DefaultApi* | [**listBillingPeriod**](docs/DefaultApi.md#listBillingPeriod) | **GET** /v1/Sims/{SimSid}/BillingPeriods | 
+*DefaultApi* | [**listEsimProfile**](docs/DefaultApi.md#listEsimProfile) | **GET** /v1/ESimProfiles | 
+*DefaultApi* | [**listFleet**](docs/DefaultApi.md#listFleet) | **GET** /v1/Fleets | 
+*DefaultApi* | [**listIpCommand**](docs/DefaultApi.md#listIpCommand) | **GET** /v1/IpCommands | 
+*DefaultApi* | [**listNetwork**](docs/DefaultApi.md#listNetwork) | **GET** /v1/Networks | 
+*DefaultApi* | [**listNetworkAccessProfile**](docs/DefaultApi.md#listNetworkAccessProfile) | **GET** /v1/NetworkAccessProfiles | 
+*DefaultApi* | [**listNetworkAccessProfileNetwork**](docs/DefaultApi.md#listNetworkAccessProfileNetwork) | **GET** /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks | 
+*DefaultApi* | [**listSettingsUpdate**](docs/DefaultApi.md#listSettingsUpdate) | **GET** /v1/SettingsUpdates | 
+*DefaultApi* | [**listSim**](docs/DefaultApi.md#listSim) | **GET** /v1/Sims | 
+*DefaultApi* | [**listSimIpAddress**](docs/DefaultApi.md#listSimIpAddress) | **GET** /v1/Sims/{SimSid}/IpAddresses | 
+*DefaultApi* | [**listSmsCommand**](docs/DefaultApi.md#listSmsCommand) | **GET** /v1/SmsCommands | 
+*DefaultApi* | [**listUsageRecord**](docs/DefaultApi.md#listUsageRecord) | **GET** /v1/UsageRecords | 
+*DefaultApi* | [**updateFleet**](docs/DefaultApi.md#updateFleet) | **POST** /v1/Fleets/{Sid} | 
+*DefaultApi* | [**updateNetworkAccessProfile**](docs/DefaultApi.md#updateNetworkAccessProfile) | **POST** /v1/NetworkAccessProfiles/{Sid} | 
+*DefaultApi* | [**updateSim**](docs/DefaultApi.md#updateSim) | **POST** /v1/Sims/{Sid} | 
 
 
 ## Documentation for Models
 
- - [ChannelEnumChannelType](docs/ChannelEnumChannelType.md)
- - [CredentialEnumPushService](docs/CredentialEnumPushService.md)
- - [IpMessagingV1Credential](docs/IpMessagingV1Credential.md)
- - [IpMessagingV1Service](docs/IpMessagingV1Service.md)
- - [IpMessagingV1ServiceChannel](docs/IpMessagingV1ServiceChannel.md)
- - [IpMessagingV1ServiceChannelInvite](docs/IpMessagingV1ServiceChannelInvite.md)
- - [IpMessagingV1ServiceChannelMember](docs/IpMessagingV1ServiceChannelMember.md)
- - [IpMessagingV1ServiceChannelMessage](docs/IpMessagingV1ServiceChannelMessage.md)
- - [IpMessagingV1ServiceRole](docs/IpMessagingV1ServiceRole.md)
- - [IpMessagingV1ServiceUser](docs/IpMessagingV1ServiceUser.md)
- - [IpMessagingV1ServiceUserUserChannel](docs/IpMessagingV1ServiceUserUserChannel.md)
- - [ListChannelResponse](docs/ListChannelResponse.md)
- - [ListCredentialResponse](docs/ListCredentialResponse.md)
- - [ListCredentialResponseMeta](docs/ListCredentialResponseMeta.md)
- - [ListInviteResponse](docs/ListInviteResponse.md)
- - [ListMemberResponse](docs/ListMemberResponse.md)
- - [ListMessageResponse](docs/ListMessageResponse.md)
- - [ListRoleResponse](docs/ListRoleResponse.md)
- - [ListServiceResponse](docs/ListServiceResponse.md)
- - [ListUserChannelResponse](docs/ListUserChannelResponse.md)
- - [ListUserResponse](docs/ListUserResponse.md)
- - [MessageEnumOrderType](docs/MessageEnumOrderType.md)
- - [RoleEnumRoleType](docs/RoleEnumRoleType.md)
- - [UserChannelEnumChannelStatus](docs/UserChannelEnumChannelStatus.md)
+ - [BillingPeriodEnumBpType](docs/BillingPeriodEnumBpType.md)
+ - [EsimProfileEnumStatus](docs/EsimProfileEnumStatus.md)
+ - [FleetEnumDataMetering](docs/FleetEnumDataMetering.md)
+ - [IpCommandEnumDirection](docs/IpCommandEnumDirection.md)
+ - [IpCommandEnumPayloadType](docs/IpCommandEnumPayloadType.md)
+ - [IpCommandEnumStatus](docs/IpCommandEnumStatus.md)
+ - [ListBillingPeriodResponse](docs/ListBillingPeriodResponse.md)
+ - [ListEsimProfileResponse](docs/ListEsimProfileResponse.md)
+ - [ListEsimProfileResponseMeta](docs/ListEsimProfileResponseMeta.md)
+ - [ListFleetResponse](docs/ListFleetResponse.md)
+ - [ListIpCommandResponse](docs/ListIpCommandResponse.md)
+ - [ListNetworkAccessProfileNetworkResponse](docs/ListNetworkAccessProfileNetworkResponse.md)
+ - [ListNetworkAccessProfileResponse](docs/ListNetworkAccessProfileResponse.md)
+ - [ListNetworkResponse](docs/ListNetworkResponse.md)
+ - [ListSettingsUpdateResponse](docs/ListSettingsUpdateResponse.md)
+ - [ListSimIpAddressResponse](docs/ListSimIpAddressResponse.md)
+ - [ListSimResponse](docs/ListSimResponse.md)
+ - [ListSmsCommandResponse](docs/ListSmsCommandResponse.md)
+ - [ListUsageRecordResponse](docs/ListUsageRecordResponse.md)
+ - [SettingsUpdateEnumStatus](docs/SettingsUpdateEnumStatus.md)
+ - [SimEnumStatus](docs/SimEnumStatus.md)
+ - [SimEnumStatusUpdate](docs/SimEnumStatusUpdate.md)
+ - [SimIpAddressEnumIpAddressVersion](docs/SimIpAddressEnumIpAddressVersion.md)
+ - [SmsCommandEnumDirection](docs/SmsCommandEnumDirection.md)
+ - [SmsCommandEnumStatus](docs/SmsCommandEnumStatus.md)
+ - [SupersimV1EsimProfile](docs/SupersimV1EsimProfile.md)
+ - [SupersimV1Fleet](docs/SupersimV1Fleet.md)
+ - [SupersimV1IpCommand](docs/SupersimV1IpCommand.md)
+ - [SupersimV1Network](docs/SupersimV1Network.md)
+ - [SupersimV1NetworkAccessProfile](docs/SupersimV1NetworkAccessProfile.md)
+ - [SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork](docs/SupersimV1NetworkAccessProfileNetworkAccessProfileNetwork.md)
+ - [SupersimV1SettingsUpdate](docs/SupersimV1SettingsUpdate.md)
+ - [SupersimV1Sim](docs/SupersimV1Sim.md)
+ - [SupersimV1SimBillingPeriod](docs/SupersimV1SimBillingPeriod.md)
+ - [SupersimV1SimSimIpAddress](docs/SupersimV1SimSimIpAddress.md)
+ - [SupersimV1SmsCommand](docs/SupersimV1SmsCommand.md)
+ - [SupersimV1UsageRecord](docs/SupersimV1UsageRecord.md)
+ - [UsageRecordEnumGranularity](docs/UsageRecordEnumGranularity.md)
+ - [UsageRecordEnumGroup](docs/UsageRecordEnumGroup.md)
+ - [UsageRecordEnumSortBy](docs/UsageRecordEnumSortBy.md)
 
 
 <a id="documentation-for-authorization"></a>

@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build Twilio - Ip_messaging
+    name: Build Twilio - Supersim
     runs-on: ubuntu-latest
     strategy:
       matrix:
