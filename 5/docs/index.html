@@ -1,0 +1,2580 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Fund API</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Fund API</h1>
+    <div class="app-desc"><p>This API is used for the classic integration. If you are just starting your implementation, refer to our <a href="https://docs.adyen.com/marketplaces-and-platforms">new integration guide</a> instead.</p>
+<p>The Fund API provides endpoints for managing the funds in the accounts on your platform. These management operations include, for example, the transfer of funds from one account to another, the payout of funds to an account holder, and the retrieval of balances in an account.</p>
+<p>For more information, refer to our <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/">documentation</a>.</p>
+<h2>Authentication</h2>
+<p>Your Adyen contact will provide your API credential and an API key. To connect to the API, add an <code>X-API-Key</code> header with the API key as the value, for example:</p>
+<pre><code>curl
+-H &quot;Content-Type: application/json&quot; \
+-H &quot;X-API-Key: YOUR_API_KEY&quot; \
+...
+</code></pre>
+<p>Alternatively, you can use the username and password to connect to the API using basic authentication. For example:</p>
+<pre><code>curl
+-U &quot;ws@MarketPlace.YOUR_PLATFORM_ACCOUNT&quot;:&quot;YOUR_WS_PASSWORD&quot; \
+-H &quot;Content-Type: application/json&quot; \
+...
+</code></pre>
+<p>When going live, you need to generate new web service user credentials to access the <a href="https://docs.adyen.com/development-resources/live-endpoints">live endpoints</a>.</p>
+<h2>Versioning</h2>
+<p>The Fund API supports <a href="https://docs.adyen.com/development-resources/versioning">versioning</a> using a version suffix in the endpoint URL. This suffix has the following format: &quot;vXX&quot;, where XX is the version number.</p>
+<p>For example:</p>
+<pre><code>https://cal-test.adyen.com/cal/services/Fund/v5/accountHolderBalance
+</code></pre>
+</div>
+    <div class="app-desc">More information: <a href="https://www.adyen.help/hc/en-us/community/topics">https://www.adyen.help/hc/en-us/community/topics</a></div>
+    <div class="app-desc">Contact Info: <a href="developer-experience@adyen.com">developer-experience@adyen.com</a></div>
+    <div class="app-desc">Version: 5</div>
+    <div class="app-desc">BasePath:/cal/services/Fund/v5</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:X-API-Key KeyInQuery:false KeyInHeader:true</li>
+      <li>HTTP Basic Authentication</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#General">General</a></h4>
+  <ul>
+  <li><a href="#postAccountHolderBalance"><code><span class="http-method">post</span> /accountHolderBalance</code></a></li>
+  <li><a href="#postAccountHolderTransactionList"><code><span class="http-method">post</span> /accountHolderTransactionList</code></a></li>
+  <li><a href="#postDebitAccountHolder"><code><span class="http-method">post</span> /debitAccountHolder</code></a></li>
+  <li><a href="#postPayoutAccountHolder"><code><span class="http-method">post</span> /payoutAccountHolder</code></a></li>
+  <li><a href="#postRefundFundsTransfer"><code><span class="http-method">post</span> /refundFundsTransfer</code></a></li>
+  <li><a href="#postRefundNotPaidOutTransfers"><code><span class="http-method">post</span> /refundNotPaidOutTransfers</code></a></li>
+  <li><a href="#postSetupBeneficiary"><code><span class="http-method">post</span> /setupBeneficiary</code></a></li>
+  <li><a href="#postTransferFunds"><code><span class="http-method">post</span> /transferFunds</code></a></li>
+  </ul>
+
+  <h1><a name="General">General</a></h1>
+  <div class="method"><a name="postAccountHolderBalance"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /accountHolderBalance</code></pre></div>
+    <div class="method-summary">Get the balances of an account holder (<span class="nickname">postAccountHolderBalance</span>)</div>
+    <div class="method-notes">Returns the account balances of an account holder. An account's balances are organized according by currencies. This mean that an account may have multiple balances: one for each currency.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">AccountHolderBalanceRequest <a href="#AccountHolderBalanceRequest">AccountHolderBalanceRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#AccountHolderBalanceResponse">AccountHolderBalanceResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "totalBalance" : {
+    "pendingBalance" : [ {
+      "currency" : "currency",
+      "value" : 0
+    }, {
+      "currency" : "currency",
+      "value" : 0
+    } ],
+    "balance" : [ {
+      "currency" : "currency",
+      "value" : 0
+    }, {
+      "currency" : "currency",
+      "value" : 0
+    } ],
+    "onHoldBalance" : [ {
+      "currency" : "currency",
+      "value" : 0
+    }, {
+      "currency" : "currency",
+      "value" : 0
+    } ]
+  },
+  "resultCode" : "resultCode",
+  "balancePerAccount" : [ {
+    "detailBalance" : {
+      "pendingBalance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ],
+      "balance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ],
+      "onHoldBalance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ]
+    },
+    "accountCode" : "accountCode"
+  }, {
+    "detailBalance" : {
+      "pendingBalance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ],
+      "balance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ],
+      "onHoldBalance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ]
+    },
+    "accountCode" : "accountCode"
+  } ],
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "totalBalance" : {
+    "pendingBalance" : [ {
+      "currency" : "currency",
+      "value" : 0
+    }, {
+      "currency" : "currency",
+      "value" : 0
+    } ],
+    "balance" : [ {
+      "currency" : "currency",
+      "value" : 0
+    }, {
+      "currency" : "currency",
+      "value" : 0
+    } ],
+    "onHoldBalance" : [ {
+      "currency" : "currency",
+      "value" : 0
+    }, {
+      "currency" : "currency",
+      "value" : 0
+    } ]
+  },
+  "resultCode" : "resultCode",
+  "balancePerAccount" : [ {
+    "detailBalance" : {
+      "pendingBalance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ],
+      "balance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ],
+      "onHoldBalance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ]
+    },
+    "accountCode" : "accountCode"
+  }, {
+    "detailBalance" : {
+      "pendingBalance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ],
+      "balance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ],
+      "onHoldBalance" : [ {
+        "currency" : "currency",
+        "value" : 0
+      }, {
+        "currency" : "currency",
+        "value" : 0
+      } ]
+    },
+    "accountCode" : "accountCode"
+  } ],
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK - the request has succeeded.
+        <a href="#AccountHolderBalanceResponse">AccountHolderBalanceResponse</a>
+    <h4 class="field-label">202</h4>
+    Accepted - the request has been accepted for processing, but the processing has not been completed.
+        <a href="#AccountHolderBalanceResponse">AccountHolderBalanceResponse</a>
+    <h4 class="field-label">400</h4>
+    Bad Request - a problem reading or understanding the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized - authentication required.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">403</h4>
+    Forbidden - insufficient permissions to process the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity - a request validation error.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error - the server could not process the request.
+        <a href="#ServiceError">ServiceError</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postAccountHolderTransactionList"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /accountHolderTransactionList</code></pre></div>
+    <div class="method-summary">Get a list of transactions (<span class="nickname">postAccountHolderTransactionList</span>)</div>
+    <div class="method-notes">Returns a list of transactions for an account holder's accounts. You can specify the accounts and transaction statuses to be included on the list. The call returns a maximum of 50 transactions for each account. To retrieve all transactions, you must make another call with the 'page' value incremented. Transactions are listed in chronological order, with the most recent transaction first.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">AccountHolderTransactionListRequest <a href="#AccountHolderTransactionListRequest">AccountHolderTransactionListRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#AccountHolderTransactionListResponse">AccountHolderTransactionListResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "accountTransactionLists" : [ {
+    "accountCode" : "accountCode",
+    "hasNextPage" : true,
+    "transactions" : [ {
+      "captureMerchantReference" : "captureMerchantReference",
+      "amount" : {
+        "currency" : "currency",
+        "value" : 0
+      },
+      "sourceAccountCode" : "sourceAccountCode",
+      "transactionStatus" : "BalanceNotPaidOutTransfer",
+      "paymentPspReference" : "paymentPspReference",
+      "description" : "description",
+      "disputePspReference" : "disputePspReference",
+      "disputeReasonCode" : "disputeReasonCode",
+      "payoutPspReference" : "payoutPspReference",
+      "creationDate" : "2000-01-23T04:56:07.000+00:00",
+      "destinationAccountCode" : "destinationAccountCode",
+      "transferCode" : "transferCode",
+      "bankAccountDetail" : {
+        "ownerNationality" : "ownerNationality",
+        "ownerPostalCode" : "ownerPostalCode",
+        "ownerCountryCode" : "ownerCountryCode",
+        "bankName" : "bankName",
+        "bankAccountReference" : "bankAccountReference",
+        "ownerState" : "ownerState",
+        "bankAccountUUID" : "bankAccountUUID",
+        "ownerName" : "ownerName",
+        "bankBicSwift" : "bankBicSwift",
+        "countryCode" : "countryCode",
+        "ownerDateOfBirth" : "ownerDateOfBirth",
+        "ownerStreet" : "ownerStreet",
+        "bankAccountName" : "bankAccountName",
+        "ownerHouseNumberOrName" : "ownerHouseNumberOrName",
+        "bankCode" : "bankCode",
+        "accountType" : "accountType",
+        "accountNumber" : "accountNumber",
+        "primaryAccount" : true,
+        "bankCity" : "bankCity",
+        "checkCode" : "checkCode",
+        "branchCode" : "branchCode",
+        "taxId" : "taxId",
+        "iban" : "iban",
+        "ownerCity" : "ownerCity",
+        "urlForVerification" : "urlForVerification",
+        "currencyCode" : "currencyCode"
+      },
+      "capturePspReference" : "capturePspReference",
+      "merchantReference" : "merchantReference",
+      "pspReference" : "pspReference"
+    }, {
+      "captureMerchantReference" : "captureMerchantReference",
+      "amount" : {
+        "currency" : "currency",
+        "value" : 0
+      },
+      "sourceAccountCode" : "sourceAccountCode",
+      "transactionStatus" : "BalanceNotPaidOutTransfer",
+      "paymentPspReference" : "paymentPspReference",
+      "description" : "description",
+      "disputePspReference" : "disputePspReference",
+      "disputeReasonCode" : "disputeReasonCode",
+      "payoutPspReference" : "payoutPspReference",
+      "creationDate" : "2000-01-23T04:56:07.000+00:00",
+      "destinationAccountCode" : "destinationAccountCode",
+      "transferCode" : "transferCode",
+      "bankAccountDetail" : {
+        "ownerNationality" : "ownerNationality",
+        "ownerPostalCode" : "ownerPostalCode",
+        "ownerCountryCode" : "ownerCountryCode",
+        "bankName" : "bankName",
+        "bankAccountReference" : "bankAccountReference",
+        "ownerState" : "ownerState",
+        "bankAccountUUID" : "bankAccountUUID",
+        "ownerName" : "ownerName",
+        "bankBicSwift" : "bankBicSwift",
+        "countryCode" : "countryCode",
+        "ownerDateOfBirth" : "ownerDateOfBirth",
+        "ownerStreet" : "ownerStreet",
+        "bankAccountName" : "bankAccountName",
+        "ownerHouseNumberOrName" : "ownerHouseNumberOrName",
+        "bankCode" : "bankCode",
+        "accountType" : "accountType",
+        "accountNumber" : "accountNumber",
+        "primaryAccount" : true,
+        "bankCity" : "bankCity",
+        "checkCode" : "checkCode",
+        "branchCode" : "branchCode",
+        "taxId" : "taxId",
+        "iban" : "iban",
+        "ownerCity" : "ownerCity",
+        "urlForVerification" : "urlForVerification",
+        "currencyCode" : "currencyCode"
+      },
+      "capturePspReference" : "capturePspReference",
+      "merchantReference" : "merchantReference",
+      "pspReference" : "pspReference"
+    } ]
+  }, {
+    "accountCode" : "accountCode",
+    "hasNextPage" : true,
+    "transactions" : [ {
+      "captureMerchantReference" : "captureMerchantReference",
+      "amount" : {
+        "currency" : "currency",
+        "value" : 0
+      },
+      "sourceAccountCode" : "sourceAccountCode",
+      "transactionStatus" : "BalanceNotPaidOutTransfer",
+      "paymentPspReference" : "paymentPspReference",
+      "description" : "description",
+      "disputePspReference" : "disputePspReference",
+      "disputeReasonCode" : "disputeReasonCode",
+      "payoutPspReference" : "payoutPspReference",
+      "creationDate" : "2000-01-23T04:56:07.000+00:00",
+      "destinationAccountCode" : "destinationAccountCode",
+      "transferCode" : "transferCode",
+      "bankAccountDetail" : {
+        "ownerNationality" : "ownerNationality",
+        "ownerPostalCode" : "ownerPostalCode",
+        "ownerCountryCode" : "ownerCountryCode",
+        "bankName" : "bankName",
+        "bankAccountReference" : "bankAccountReference",
+        "ownerState" : "ownerState",
+        "bankAccountUUID" : "bankAccountUUID",
+        "ownerName" : "ownerName",
+        "bankBicSwift" : "bankBicSwift",
+        "countryCode" : "countryCode",
+        "ownerDateOfBirth" : "ownerDateOfBirth",
+        "ownerStreet" : "ownerStreet",
+        "bankAccountName" : "bankAccountName",
+        "ownerHouseNumberOrName" : "ownerHouseNumberOrName",
+        "bankCode" : "bankCode",
+        "accountType" : "accountType",
+        "accountNumber" : "accountNumber",
+        "primaryAccount" : true,
+        "bankCity" : "bankCity",
+        "checkCode" : "checkCode",
+        "branchCode" : "branchCode",
+        "taxId" : "taxId",
+        "iban" : "iban",
+        "ownerCity" : "ownerCity",
+        "urlForVerification" : "urlForVerification",
+        "currencyCode" : "currencyCode"
+      },
+      "capturePspReference" : "capturePspReference",
+      "merchantReference" : "merchantReference",
+      "pspReference" : "pspReference"
+    }, {
+      "captureMerchantReference" : "captureMerchantReference",
+      "amount" : {
+        "currency" : "currency",
+        "value" : 0
+      },
+      "sourceAccountCode" : "sourceAccountCode",
+      "transactionStatus" : "BalanceNotPaidOutTransfer",
+      "paymentPspReference" : "paymentPspReference",
+      "description" : "description",
+      "disputePspReference" : "disputePspReference",
+      "disputeReasonCode" : "disputeReasonCode",
+      "payoutPspReference" : "payoutPspReference",
+      "creationDate" : "2000-01-23T04:56:07.000+00:00",
+      "destinationAccountCode" : "destinationAccountCode",
+      "transferCode" : "transferCode",
+      "bankAccountDetail" : {
+        "ownerNationality" : "ownerNationality",
+        "ownerPostalCode" : "ownerPostalCode",
+        "ownerCountryCode" : "ownerCountryCode",
+        "bankName" : "bankName",
+        "bankAccountReference" : "bankAccountReference",
+        "ownerState" : "ownerState",
+        "bankAccountUUID" : "bankAccountUUID",
+        "ownerName" : "ownerName",
+        "bankBicSwift" : "bankBicSwift",
+        "countryCode" : "countryCode",
+        "ownerDateOfBirth" : "ownerDateOfBirth",
+        "ownerStreet" : "ownerStreet",
+        "bankAccountName" : "bankAccountName",
+        "ownerHouseNumberOrName" : "ownerHouseNumberOrName",
+        "bankCode" : "bankCode",
+        "accountType" : "accountType",
+        "accountNumber" : "accountNumber",
+        "primaryAccount" : true,
+        "bankCity" : "bankCity",
+        "checkCode" : "checkCode",
+        "branchCode" : "branchCode",
+        "taxId" : "taxId",
+        "iban" : "iban",
+        "ownerCity" : "ownerCity",
+        "urlForVerification" : "urlForVerification",
+        "currencyCode" : "currencyCode"
+      },
+      "capturePspReference" : "capturePspReference",
+      "merchantReference" : "merchantReference",
+      "pspReference" : "pspReference"
+    } ]
+  } ],
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "accountTransactionLists" : [ {
+    "accountCode" : "accountCode",
+    "hasNextPage" : true,
+    "transactions" : [ {
+      "captureMerchantReference" : "captureMerchantReference",
+      "amount" : {
+        "currency" : "currency",
+        "value" : 0
+      },
+      "sourceAccountCode" : "sourceAccountCode",
+      "transactionStatus" : "BalanceNotPaidOutTransfer",
+      "paymentPspReference" : "paymentPspReference",
+      "description" : "description",
+      "disputePspReference" : "disputePspReference",
+      "disputeReasonCode" : "disputeReasonCode",
+      "payoutPspReference" : "payoutPspReference",
+      "creationDate" : "2000-01-23T04:56:07.000+00:00",
+      "destinationAccountCode" : "destinationAccountCode",
+      "transferCode" : "transferCode",
+      "bankAccountDetail" : {
+        "ownerNationality" : "ownerNationality",
+        "ownerPostalCode" : "ownerPostalCode",
+        "ownerCountryCode" : "ownerCountryCode",
+        "bankName" : "bankName",
+        "bankAccountReference" : "bankAccountReference",
+        "ownerState" : "ownerState",
+        "bankAccountUUID" : "bankAccountUUID",
+        "ownerName" : "ownerName",
+        "bankBicSwift" : "bankBicSwift",
+        "countryCode" : "countryCode",
+        "ownerDateOfBirth" : "ownerDateOfBirth",
+        "ownerStreet" : "ownerStreet",
+        "bankAccountName" : "bankAccountName",
+        "ownerHouseNumberOrName" : "ownerHouseNumberOrName",
+        "bankCode" : "bankCode",
+        "accountType" : "accountType",
+        "accountNumber" : "accountNumber",
+        "primaryAccount" : true,
+        "bankCity" : "bankCity",
+        "checkCode" : "checkCode",
+        "branchCode" : "branchCode",
+        "taxId" : "taxId",
+        "iban" : "iban",
+        "ownerCity" : "ownerCity",
+        "urlForVerification" : "urlForVerification",
+        "currencyCode" : "currencyCode"
+      },
+      "capturePspReference" : "capturePspReference",
+      "merchantReference" : "merchantReference",
+      "pspReference" : "pspReference"
+    }, {
+      "captureMerchantReference" : "captureMerchantReference",
+      "amount" : {
+        "currency" : "currency",
+        "value" : 0
+      },
+      "sourceAccountCode" : "sourceAccountCode",
+      "transactionStatus" : "BalanceNotPaidOutTransfer",
+      "paymentPspReference" : "paymentPspReference",
+      "description" : "description",
+      "disputePspReference" : "disputePspReference",
+      "disputeReasonCode" : "disputeReasonCode",
+      "payoutPspReference" : "payoutPspReference",
+      "creationDate" : "2000-01-23T04:56:07.000+00:00",
+      "destinationAccountCode" : "destinationAccountCode",
+      "transferCode" : "transferCode",
+      "bankAccountDetail" : {
+        "ownerNationality" : "ownerNationality",
+        "ownerPostalCode" : "ownerPostalCode",
+        "ownerCountryCode" : "ownerCountryCode",
+        "bankName" : "bankName",
+        "bankAccountReference" : "bankAccountReference",
+        "ownerState" : "ownerState",
+        "bankAccountUUID" : "bankAccountUUID",
+        "ownerName" : "ownerName",
+        "bankBicSwift" : "bankBicSwift",
+        "countryCode" : "countryCode",
+        "ownerDateOfBirth" : "ownerDateOfBirth",
+        "ownerStreet" : "ownerStreet",
+        "bankAccountName" : "bankAccountName",
+        "ownerHouseNumberOrName" : "ownerHouseNumberOrName",
+        "bankCode" : "bankCode",
+        "accountType" : "accountType",
+        "accountNumber" : "accountNumber",
+        "primaryAccount" : true,
+        "bankCity" : "bankCity",
+        "checkCode" : "checkCode",
+        "branchCode" : "branchCode",
+        "taxId" : "taxId",
+        "iban" : "iban",
+        "ownerCity" : "ownerCity",
+        "urlForVerification" : "urlForVerification",
+        "currencyCode" : "currencyCode"
+      },
+      "capturePspReference" : "capturePspReference",
+      "merchantReference" : "merchantReference",
+      "pspReference" : "pspReference"
+    } ]
+  }, {
+    "accountCode" : "accountCode",
+    "hasNextPage" : true,
+    "transactions" : [ {
+      "captureMerchantReference" : "captureMerchantReference",
+      "amount" : {
+        "currency" : "currency",
+        "value" : 0
+      },
+      "sourceAccountCode" : "sourceAccountCode",
+      "transactionStatus" : "BalanceNotPaidOutTransfer",
+      "paymentPspReference" : "paymentPspReference",
+      "description" : "description",
+      "disputePspReference" : "disputePspReference",
+      "disputeReasonCode" : "disputeReasonCode",
+      "payoutPspReference" : "payoutPspReference",
+      "creationDate" : "2000-01-23T04:56:07.000+00:00",
+      "destinationAccountCode" : "destinationAccountCode",
+      "transferCode" : "transferCode",
+      "bankAccountDetail" : {
+        "ownerNationality" : "ownerNationality",
+        "ownerPostalCode" : "ownerPostalCode",
+        "ownerCountryCode" : "ownerCountryCode",
+        "bankName" : "bankName",
+        "bankAccountReference" : "bankAccountReference",
+        "ownerState" : "ownerState",
+        "bankAccountUUID" : "bankAccountUUID",
+        "ownerName" : "ownerName",
+        "bankBicSwift" : "bankBicSwift",
+        "countryCode" : "countryCode",
+        "ownerDateOfBirth" : "ownerDateOfBirth",
+        "ownerStreet" : "ownerStreet",
+        "bankAccountName" : "bankAccountName",
+        "ownerHouseNumberOrName" : "ownerHouseNumberOrName",
+        "bankCode" : "bankCode",
+        "accountType" : "accountType",
+        "accountNumber" : "accountNumber",
+        "primaryAccount" : true,
+        "bankCity" : "bankCity",
+        "checkCode" : "checkCode",
+        "branchCode" : "branchCode",
+        "taxId" : "taxId",
+        "iban" : "iban",
+        "ownerCity" : "ownerCity",
+        "urlForVerification" : "urlForVerification",
+        "currencyCode" : "currencyCode"
+      },
+      "capturePspReference" : "capturePspReference",
+      "merchantReference" : "merchantReference",
+      "pspReference" : "pspReference"
+    }, {
+      "captureMerchantReference" : "captureMerchantReference",
+      "amount" : {
+        "currency" : "currency",
+        "value" : 0
+      },
+      "sourceAccountCode" : "sourceAccountCode",
+      "transactionStatus" : "BalanceNotPaidOutTransfer",
+      "paymentPspReference" : "paymentPspReference",
+      "description" : "description",
+      "disputePspReference" : "disputePspReference",
+      "disputeReasonCode" : "disputeReasonCode",
+      "payoutPspReference" : "payoutPspReference",
+      "creationDate" : "2000-01-23T04:56:07.000+00:00",
+      "destinationAccountCode" : "destinationAccountCode",
+      "transferCode" : "transferCode",
+      "bankAccountDetail" : {
+        "ownerNationality" : "ownerNationality",
+        "ownerPostalCode" : "ownerPostalCode",
+        "ownerCountryCode" : "ownerCountryCode",
+        "bankName" : "bankName",
+        "bankAccountReference" : "bankAccountReference",
+        "ownerState" : "ownerState",
+        "bankAccountUUID" : "bankAccountUUID",
+        "ownerName" : "ownerName",
+        "bankBicSwift" : "bankBicSwift",
+        "countryCode" : "countryCode",
+        "ownerDateOfBirth" : "ownerDateOfBirth",
+        "ownerStreet" : "ownerStreet",
+        "bankAccountName" : "bankAccountName",
+        "ownerHouseNumberOrName" : "ownerHouseNumberOrName",
+        "bankCode" : "bankCode",
+        "accountType" : "accountType",
+        "accountNumber" : "accountNumber",
+        "primaryAccount" : true,
+        "bankCity" : "bankCity",
+        "checkCode" : "checkCode",
+        "branchCode" : "branchCode",
+        "taxId" : "taxId",
+        "iban" : "iban",
+        "ownerCity" : "ownerCity",
+        "urlForVerification" : "urlForVerification",
+        "currencyCode" : "currencyCode"
+      },
+      "capturePspReference" : "capturePspReference",
+      "merchantReference" : "merchantReference",
+      "pspReference" : "pspReference"
+    } ]
+  } ],
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK - the request has succeeded.
+        <a href="#AccountHolderTransactionListResponse">AccountHolderTransactionListResponse</a>
+    <h4 class="field-label">202</h4>
+    Accepted - the request has been accepted for processing, but the processing has not been completed.
+        <a href="#AccountHolderTransactionListResponse">AccountHolderTransactionListResponse</a>
+    <h4 class="field-label">400</h4>
+    Bad Request - a problem reading or understanding the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized - authentication required.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">403</h4>
+    Forbidden - insufficient permissions to process the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity - a request validation error.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error - the server could not process the request.
+        <a href="#ServiceError">ServiceError</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postDebitAccountHolder"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /debitAccountHolder</code></pre></div>
+    <div class="method-summary">Send a direct debit request (<span class="nickname">postDebitAccountHolder</span>)</div>
+    <div class="method-notes"><p>Sends a direct debit request to an account holder's bank account. If the direct debit is successful, the funds are settled in the accounts specified in the split instructions. Adyen sends the result of the direct debit in a <a href="https://docs.adyen.com/api-explorer/#/NotificationService/latest/post/DIRECT_DEBIT_INITIATED"><code>DIRECT_DEBIT_INITIATED</code></a> notification webhook.</p>
+<p>To learn more about direct debits, see <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/top-up-accounts">Top up accounts</a>.</p>
+</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">DebitAccountHolderRequest <a href="#DebitAccountHolderRequest">DebitAccountHolderRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#DebitAccountHolderResponse">DebitAccountHolderResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "accountHolderCode" : "accountHolderCode",
+  "bankAccountUUID" : "bankAccountUUID",
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "merchantReferences" : [ "merchantReferences", "merchantReferences" ],
+  "resultCode" : "resultCode",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "accountHolderCode" : "accountHolderCode",
+  "bankAccountUUID" : "bankAccountUUID",
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "merchantReferences" : [ "merchantReferences", "merchantReferences" ],
+  "resultCode" : "resultCode",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK - the request has succeeded.
+        <a href="#DebitAccountHolderResponse">DebitAccountHolderResponse</a>
+    <h4 class="field-label">202</h4>
+    Accepted - the request has been accepted for processing, but the processing has not been completed.
+        <a href="#DebitAccountHolderResponse">DebitAccountHolderResponse</a>
+    <h4 class="field-label">400</h4>
+    Bad Request - a problem reading or understanding the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized - authentication required.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">403</h4>
+    Forbidden - insufficient permissions to process the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity - a request validation error.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error - the server could not process the request.
+        <a href="#ServiceError">ServiceError</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postPayoutAccountHolder"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /payoutAccountHolder</code></pre></div>
+    <div class="method-summary">Pay out from an account to the account holder (<span class="nickname">postPayoutAccountHolder</span>)</div>
+    <div class="method-notes">Pays out a specified amount from an account to the bank account of account holder.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">PayoutAccountHolderRequest <a href="#PayoutAccountHolderRequest">PayoutAccountHolderRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#PayoutAccountHolderResponse">PayoutAccountHolderResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bankAccountUUID" : "bankAccountUUID",
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "merchantReference" : "merchantReference",
+  "pspReference" : "pspReference",
+  "payoutSpeed" : "STANDARD"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "bankAccountUUID" : "bankAccountUUID",
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "merchantReference" : "merchantReference",
+  "pspReference" : "pspReference",
+  "payoutSpeed" : "STANDARD"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK - the request has succeeded.
+        <a href="#PayoutAccountHolderResponse">PayoutAccountHolderResponse</a>
+    <h4 class="field-label">202</h4>
+    Accepted - the request has been accepted for processing, but the processing has not been completed.
+        <a href="#PayoutAccountHolderResponse">PayoutAccountHolderResponse</a>
+    <h4 class="field-label">400</h4>
+    Bad Request - a problem reading or understanding the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized - authentication required.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">403</h4>
+    Forbidden - insufficient permissions to process the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity - a request validation error.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error - the server could not process the request.
+        <a href="#ServiceError">ServiceError</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postRefundFundsTransfer"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /refundFundsTransfer</code></pre></div>
+    <div class="method-summary">Refund a funds transfer (<span class="nickname">postRefundFundsTransfer</span>)</div>
+    <div class="method-notes">Refunds funds transferred from one account to another. Both accounts must be in the same platform, but can have different account holders.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">RefundFundsTransferRequest <a href="#RefundFundsTransferRequest">RefundFundsTransferRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#RefundFundsTransferResponse">RefundFundsTransferResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "originalReference" : "originalReference",
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "message" : "message",
+  "merchantReference" : "merchantReference",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "originalReference" : "originalReference",
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "message" : "message",
+  "merchantReference" : "merchantReference",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK - the request has succeeded.
+        <a href="#RefundFundsTransferResponse">RefundFundsTransferResponse</a>
+    <h4 class="field-label">202</h4>
+    Accepted - the request has been accepted for processing, but the processing has not been completed.
+        <a href="#RefundFundsTransferResponse">RefundFundsTransferResponse</a>
+    <h4 class="field-label">400</h4>
+    Bad Request - a problem reading or understanding the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized - authentication required.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">403</h4>
+    Forbidden - insufficient permissions to process the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity - a request validation error.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error - the server could not process the request.
+        <a href="#ServiceError">ServiceError</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postRefundNotPaidOutTransfers"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /refundNotPaidOutTransfers</code></pre></div>
+    <div class="method-summary">Refund all transactions of an account since the most recent payout (<span class="nickname">postRefundNotPaidOutTransfers</span>)</div>
+    <div class="method-notes">Refunds all the transactions of an account that have taken place since the most recent payout. This request is on a account basis (as opposed to a payment basis), so only the portion of the payment that was made to the specified account is refunded. The commissions, fees, and payments to other accounts remain in the accounts to which they were sent as designated by the original payment's split details.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">RefundNotPaidOutTransfersRequest <a href="#RefundNotPaidOutTransfersRequest">RefundNotPaidOutTransfersRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#RefundNotPaidOutTransfersResponse">RefundNotPaidOutTransfersResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK - the request has succeeded.
+        <a href="#RefundNotPaidOutTransfersResponse">RefundNotPaidOutTransfersResponse</a>
+    <h4 class="field-label">202</h4>
+    Accepted - the request has been accepted for processing, but the processing has not been completed.
+        <a href="#RefundNotPaidOutTransfersResponse">RefundNotPaidOutTransfersResponse</a>
+    <h4 class="field-label">400</h4>
+    Bad Request - a problem reading or understanding the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized - authentication required.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">403</h4>
+    Forbidden - insufficient permissions to process the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity - a request validation error.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error - the server could not process the request.
+        <a href="#ServiceError">ServiceError</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postSetupBeneficiary"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /setupBeneficiary</code></pre></div>
+    <div class="method-summary">Designate a beneficiary account and transfer the benefactor's current balance (<span class="nickname">postSetupBeneficiary</span>)</div>
+    <div class="method-notes">Defines a benefactor and a beneficiary relationship between two accounts. At the time of benefactor/beneficiary setup, the funds in the benefactor account are transferred to the beneficiary account, and any further payments to the benefactor account are automatically sent to the beneficiary account. A series of benefactor/beneficiaries may not exceed four beneficiaries and may not have a cycle in it.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">SetupBeneficiaryRequest <a href="#SetupBeneficiaryRequest">SetupBeneficiaryRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#SetupBeneficiaryResponse">SetupBeneficiaryResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK - the request has succeeded.
+        <a href="#SetupBeneficiaryResponse">SetupBeneficiaryResponse</a>
+    <h4 class="field-label">202</h4>
+    Accepted - the request has been accepted for processing, but the processing has not been completed.
+        <a href="#SetupBeneficiaryResponse">SetupBeneficiaryResponse</a>
+    <h4 class="field-label">400</h4>
+    Bad Request - a problem reading or understanding the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized - authentication required.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">403</h4>
+    Forbidden - insufficient permissions to process the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity - a request validation error.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error - the server could not process the request.
+        <a href="#ServiceError">ServiceError</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postTransferFunds"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /transferFunds</code></pre></div>
+    <div class="method-summary">Transfer funds between platform accounts (<span class="nickname">postTransferFunds</span>)</div>
+    <div class="method-notes">Transfers funds from one account to another account. Both accounts must be in the same platform, but can have different account holders. The transfer must include a transfer code, which should be determined by the platform, in compliance with local regulations.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">TransferFundsRequest <a href="#TransferFundsRequest">TransferFundsRequest</a> (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#TransferFundsResponse">TransferFundsResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "merchantReference" : "merchantReference",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "invalidFields" : [ {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  }, {
+    "errorDescription" : "errorDescription",
+    "errorCode" : 6,
+    "fieldType" : {
+      "fieldName" : "accountCode",
+      "field" : "field",
+      "shareholderCode" : "shareholderCode"
+    }
+  } ],
+  "resultCode" : "resultCode",
+  "merchantReference" : "merchantReference",
+  "pspReference" : "pspReference"
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "errorType" : "errorType",
+  "errorCode" : "errorCode",
+  "message" : "message",
+  "pspReference" : "pspReference",
+  "status" : 1
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK - the request has succeeded.
+        <a href="#TransferFundsResponse">TransferFundsResponse</a>
+    <h4 class="field-label">202</h4>
+    Accepted - the request has been accepted for processing, but the processing has not been completed.
+        <a href="#TransferFundsResponse">TransferFundsResponse</a>
+    <h4 class="field-label">400</h4>
+    Bad Request - a problem reading or understanding the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized - authentication required.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">403</h4>
+    Forbidden - insufficient permissions to process the request.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">422</h4>
+    Unprocessable Entity - a request validation error.
+        <a href="#ServiceError">ServiceError</a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error - the server could not process the request.
+        <a href="#ServiceError">ServiceError</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#AccountDetailBalance"><code>AccountDetailBalance</code> - </a></li>
+    <li><a href="#AccountHolderBalanceRequest"><code>AccountHolderBalanceRequest</code> - </a></li>
+    <li><a href="#AccountHolderBalanceResponse"><code>AccountHolderBalanceResponse</code> - </a></li>
+    <li><a href="#AccountHolderTransactionListRequest"><code>AccountHolderTransactionListRequest</code> - </a></li>
+    <li><a href="#AccountHolderTransactionListResponse"><code>AccountHolderTransactionListResponse</code> - </a></li>
+    <li><a href="#AccountTransactionList"><code>AccountTransactionList</code> - </a></li>
+    <li><a href="#Amount"><code>Amount</code> - </a></li>
+    <li><a href="#BankAccountDetail"><code>BankAccountDetail</code> - </a></li>
+    <li><a href="#DebitAccountHolderRequest"><code>DebitAccountHolderRequest</code> - </a></li>
+    <li><a href="#DebitAccountHolderResponse"><code>DebitAccountHolderResponse</code> - </a></li>
+    <li><a href="#DetailBalance"><code>DetailBalance</code> - </a></li>
+    <li><a href="#ErrorFieldType"><code>ErrorFieldType</code> - </a></li>
+    <li><a href="#FieldType"><code>FieldType</code> - </a></li>
+    <li><a href="#PayoutAccountHolderRequest"><code>PayoutAccountHolderRequest</code> - </a></li>
+    <li><a href="#PayoutAccountHolderResponse"><code>PayoutAccountHolderResponse</code> - </a></li>
+    <li><a href="#RefundFundsTransferRequest"><code>RefundFundsTransferRequest</code> - </a></li>
+    <li><a href="#RefundFundsTransferResponse"><code>RefundFundsTransferResponse</code> - </a></li>
+    <li><a href="#RefundNotPaidOutTransfersRequest"><code>RefundNotPaidOutTransfersRequest</code> - </a></li>
+    <li><a href="#RefundNotPaidOutTransfersResponse"><code>RefundNotPaidOutTransfersResponse</code> - </a></li>
+    <li><a href="#ServiceError"><code>ServiceError</code> - </a></li>
+    <li><a href="#SetupBeneficiaryRequest"><code>SetupBeneficiaryRequest</code> - </a></li>
+    <li><a href="#SetupBeneficiaryResponse"><code>SetupBeneficiaryResponse</code> - </a></li>
+    <li><a href="#Split"><code>Split</code> - </a></li>
+    <li><a href="#SplitAmount"><code>SplitAmount</code> - </a></li>
+    <li><a href="#Transaction"><code>Transaction</code> - </a></li>
+    <li><a href="#TransactionListForAccount"><code>TransactionListForAccount</code> - </a></li>
+    <li><a href="#TransferFundsRequest"><code>TransferFundsRequest</code> - </a></li>
+    <li><a href="#TransferFundsResponse"><code>TransferFundsResponse</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="AccountDetailBalance"><code>AccountDetailBalance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the account that holds the balance. </div>
+<div class="param">detailBalance (optional)</div><div class="param-desc"><span class="param-type"><a href="#DetailBalance">DetailBalance</a></span> Details of the balance held by the account. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AccountHolderBalanceRequest"><code>AccountHolderBalanceRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountHolderCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the Account Holder of which to retrieve the balance. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AccountHolderBalanceResponse"><code>AccountHolderBalanceResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">balancePerAccount (optional)</div><div class="param-desc"><span class="param-type"><a href="#AccountDetailBalance">array[AccountDetailBalance]</a></span> A list of each account and their balances. </div>
+<div class="param">invalidFields (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorFieldType">array[ErrorFieldType]</a></span> Contains field validation errors that would prevent requests from being processed. </div>
+<div class="param">pspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reference of a request. Can be used to uniquely identify the request. </div>
+<div class="param">resultCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The result code. </div>
+<div class="param">totalBalance (optional)</div><div class="param-desc"><span class="param-type"><a href="#DetailBalance">DetailBalance</a></span> The total balance of the account holder. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AccountHolderTransactionListRequest"><code>AccountHolderTransactionListRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountHolderCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the account holder that owns the account(s) of which retrieve the transaction list. </div>
+<div class="param">transactionListsPerAccount (optional)</div><div class="param-desc"><span class="param-type"><a href="#TransactionListForAccount">array[TransactionListForAccount]</a></span> A list of accounts to include in the transaction list. If left blank, the last fifty (50) transactions for all accounts of the account holder will be included. </div>
+<div class="param">transactionStatuses (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> <p>A list of statuses to include in the transaction list. If left blank, all transactions will be included.</p>
+<blockquote>
+<p>Permitted values:</p>
+<ul>
+<li><code>PendingCredit</code> - a pending balance credit.</li>
+<li><code>CreditFailed</code> - a pending credit failure; the balance will not be credited.</li>
+<li><code>Credited</code> - a credited balance.</li>
+<li><code>PendingDebit</code> - a pending balance debit (e.g., a refund).</li>
+<li><code>CreditClosed</code> - a pending credit closed; the balance will not be credited.</li>
+<li><code>CreditSuspended</code> - a pending credit closed; the balance will not be credited.</li>
+<li><code>DebitFailed</code> - a pending debit failure; the balance will not be debited.</li>
+<li><code>Debited</code> - a debited balance (e.g., a refund).</li>
+<li><code>DebitReversedReceived</code> - a pending refund reversal.</li>
+<li><code>DebitedReversed</code> - a reversed refund.</li>
+<li><code>ChargebackReceived</code> - a received chargeback request.</li>
+<li><code>Chargeback</code> - a processed chargeback.</li>
+<li><code>ChargebackReversedReceived</code> - a pending chargeback reversal.</li>
+<li><code>ChargebackReversed</code> - a reversed chargeback.</li>
+<li><code>Converted</code> - converted.</li>
+<li><code>ManualCorrected</code> - manual booking/adjustment by Adyen.</li>
+<li><code>Payout</code> - a payout.</li>
+<li><code>PayoutReversed</code> - a reversed payout.</li>
+<li><code>PendingFundTransfer</code> - a pending transfer of funds from one account to another.</li>
+<li><code>FundTransfer</code> - a transfer of funds from one account to another.</li>
+</ul>
+</blockquote>
+ </div>
+        <div class="param-enum-header">Enum:</div>
+        
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AccountHolderTransactionListResponse"><code>AccountHolderTransactionListResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountTransactionLists (optional)</div><div class="param-desc"><span class="param-type"><a href="#AccountTransactionList">array[AccountTransactionList]</a></span> A list of the transactions. </div>
+<div class="param">invalidFields (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorFieldType">array[ErrorFieldType]</a></span> Contains field validation errors that would prevent requests from being processed. </div>
+<div class="param">pspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reference of a request. Can be used to uniquely identify the request. </div>
+<div class="param">resultCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The result code. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AccountTransactionList"><code>AccountTransactionList</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the account. </div>
+<div class="param">hasNextPage (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> Indicates whether there is a next page of transactions available. </div>
+<div class="param">transactions (optional)</div><div class="param-desc"><span class="param-type"><a href="#Transaction">array[Transaction]</a></span> The list of transactions. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Amount"><code>Amount</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">currency </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The three-character <a href="https://docs.adyen.com/development-resources/currency-codes">ISO currency code</a>. </div>
+<div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> The amount of the transaction, in <a href="https://docs.adyen.com/development-resources/currency-codes">minor units</a>. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BankAccountDetail"><code>BankAccountDetail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The bank account number (without separators).</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">accountType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The type of bank account.
+Only applicable to bank accounts held in the USA.
+The permitted values are: <code>checking</code>, <code>savings</code>.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">bankAccountName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the bank account. </div>
+<div class="param">bankAccountReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Merchant reference to the bank account. </div>
+<div class="param">bankAccountUUID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The unique identifier (UUID) of the Bank Account.</p>
+<blockquote>
+<p>If, during an account holder create or update request, this field is left blank (but other fields provided), a new Bank Account will be created with a procedurally-generated UUID.</p>
+</blockquote>
+<blockquote>
+<p>If, during an account holder create request, a UUID is provided, the creation of the Bank Account will fail while the creation of the account holder will continue.</p>
+</blockquote>
+<blockquote>
+<p>If, during an account holder update request, a UUID that is not correlated with an existing Bank Account is provided, the update of the account holder will fail.</p>
+</blockquote>
+<blockquote>
+<p>If, during an account holder update request, a UUID that is correlated with an existing Bank Account is provided, the existing Bank Account will be updated.</p>
+</blockquote>
+ </div>
+<div class="param">bankBicSwift (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The bank identifier code.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">bankCity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The city in which the bank branch is located.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">bankCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The bank code of the banking institution with which the bank account is registered.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">bankName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The name of the banking institution with which the bank account is held.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">branchCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The branch code of the branch under which the bank account is registered. The value to be specified in this parameter depends on the country of the bank account:</p>
+<ul>
+<li>United States - Routing number</li>
+<li>United Kingdom - Sort code</li>
+<li>Germany - Bankleitzahl</li>
+</ul>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">checkCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The check code of the bank account.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">countryCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The two-letter country code in which the bank account is registered.</p>
+<blockquote>
+<p>The permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').</p>
+</blockquote>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">currencyCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The currency in which the bank account deals.</p>
+<blockquote>
+<p>The permitted currency codes are defined in ISO-4217 (e.g. 'EUR').</p>
+</blockquote>
+ </div>
+<div class="param">iban (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The international bank account number.</p>
+<blockquote>
+<p>The IBAN standard is defined in ISO-13616.</p>
+</blockquote>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">ownerCity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The city of residence of the bank account owner.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">ownerCountryCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The country code of the country of residence of the bank account owner.</p>
+<blockquote>
+<p>The permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').</p>
+</blockquote>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">ownerDateOfBirth (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The date of birth of the bank account owner.
+The date should be in ISO-8601 format yyyy-mm-dd (e.g. 2000-01-31). </div>
+<div class="param">ownerHouseNumberOrName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The house name or number of the residence of the bank account owner.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">ownerName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The name of the bank account owner.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">ownerNationality (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The country code of the country of nationality of the bank account owner.</p>
+<blockquote>
+<p>The permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').</p>
+</blockquote>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">ownerPostalCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The postal code of the residence of the bank account owner.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">ownerState (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The state of residence of the bank account owner.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">ownerStreet (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The street name of the residence of the bank account owner.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">primaryAccount (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> If set to true, the bank account is a primary account. </div>
+<div class="param">taxId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The tax ID number.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+<div class="param">urlForVerification (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The URL to be used for bank account verification.
+This may be generated on bank account creation.</p>
+<blockquote>
+<p>Refer to <a href="https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process/required-information">Required information</a> for details on field requirements.</p>
+</blockquote>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DebitAccountHolderRequest"><code>DebitAccountHolderRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountHolderCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the account holder. </div>
+<div class="param">amount </div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span> The amount to be debited from the account holder's bank account. </div>
+<div class="param">bankAccountUUID </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Adyen-generated unique alphanumeric identifier (UUID) of the account holder's bank account. </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>A description of the direct debit. Maximum length: 35 characters.</p>
+<p>Allowed characters: <strong>a-z</strong>, <strong>A-Z</strong>, <strong>0-9</strong>, and special characters <strong>/?:().,'+ &quot;;</strong>.</p>
+ </div>
+<div class="param">merchantAccount </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Your merchant account. </div>
+<div class="param">splits </div><div class="param-desc"><span class="param-type"><a href="#Split">array[Split]</a></span> Contains instructions on how to split the funds between the accounts in your platform. The request must have at least one split item. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DebitAccountHolderResponse"><code>DebitAccountHolderResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountHolderCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the account holder. </div>
+<div class="param">bankAccountUUID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The Adyen-generated unique alphanumeric identifier (UUID) of the account holder's bank account. </div>
+<div class="param">invalidFields (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorFieldType">array[ErrorFieldType]</a></span> Contains field validation errors that would prevent requests from being processed. </div>
+<div class="param">merchantReferences (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> List of the <code>reference</code> values from the <code>split</code> array in the request. </div>
+<div class="param">pspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reference of a request. Can be used to uniquely identify the request. </div>
+<div class="param">resultCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The result code. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DetailBalance"><code>DetailBalance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">balance (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">array[Amount]</a></span> The list of balances held by the account. </div>
+<div class="param">onHoldBalance (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">array[Amount]</a></span> The list of on hold balances held by the account. </div>
+<div class="param">pendingBalance (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">array[Amount]</a></span> The list of pending balances held by the account. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ErrorFieldType"><code>ErrorFieldType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">errorCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The validation error code. format: int32</div>
+<div class="param">errorDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A description of the validation error. </div>
+<div class="param">fieldType (optional)</div><div class="param-desc"><span class="param-type"><a href="#FieldType">FieldType</a></span> The type of error field. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="FieldType"><code>FieldType</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">field (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The full name of the property. </div>
+<div class="param">fieldName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of the field. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">accountCode</div><div class="param-enum">accountHolderCode</div><div class="param-enum">accountHolderDetails</div><div class="param-enum">accountNumber</div><div class="param-enum">accountStateType</div><div class="param-enum">accountStatus</div><div class="param-enum">accountType</div><div class="param-enum">address</div><div class="param-enum">balanceAccount</div><div class="param-enum">balanceAccountActive</div><div class="param-enum">balanceAccountCode</div><div class="param-enum">balanceAccountId</div><div class="param-enum">bankAccount</div><div class="param-enum">bankAccountCode</div><div class="param-enum">bankAccountName</div><div class="param-enum">bankAccountUUID</div><div class="param-enum">bankBicSwift</div><div class="param-enum">bankCity</div><div class="param-enum">bankCode</div><div class="param-enum">bankName</div><div class="param-enum">bankStatement</div><div class="param-enum">branchCode</div><div class="param-enum">businessContact</div><div class="param-enum">cardToken</div><div class="param-enum">checkCode</div><div class="param-enum">city</div><div class="param-enum">companyRegistration</div><div class="param-enum">constitutionalDocument</div><div class="param-enum">controller</div><div class="param-enum">country</div><div class="param-enum">countryCode</div><div class="param-enum">currency</div><div class="param-enum">currencyCode</div><div class="param-enum">dateOfBirth</div><div class="param-enum">description</div><div class="param-enum">destinationAccountCode</div><div class="param-enum">document</div><div class="param-enum">documentContent</div><div class="param-enum">documentExpirationDate</div><div class="param-enum">documentIssuerCountry</div><div class="param-enum">documentIssuerState</div><div class="param-enum">documentName</div><div class="param-enum">documentNumber</div><div class="param-enum">documentType</div><div class="param-enum">doingBusinessAs</div><div class="param-enum">drivingLicence</div><div class="param-enum">drivingLicenceBack</div><div class="param-enum">drivingLicenceFront</div><div class="param-enum">drivingLicense</div><div class="param-enum">email</div><div class="param-enum">firstName</div><div class="param-enum">formType</div><div class="param-enum">fullPhoneNumber</div><div class="param-enum">gender</div><div class="param-enum">hopWebserviceUser</div><div class="param-enum">houseNumberOrName</div><div class="param-enum">iban</div><div class="param-enum">idCard</div><div class="param-enum">idCardBack</div><div class="param-enum">idCardFront</div><div class="param-enum">idNumber</div><div class="param-enum">identityDocument</div><div class="param-enum">individualDetails</div><div class="param-enum">infix</div><div class="param-enum">jobTitle</div><div class="param-enum">lastName</div><div class="param-enum">lastReviewDate</div><div class="param-enum">legalArrangement</div><div class="param-enum">legalArrangementCode</div><div class="param-enum">legalArrangementEntity</div><div class="param-enum">legalArrangementEntityCode</div><div class="param-enum">legalArrangementLegalForm</div><div class="param-enum">legalArrangementMember</div><div class="param-enum">legalArrangementMembers</div><div class="param-enum">legalArrangementName</div><div class="param-enum">legalArrangementReference</div><div class="param-enum">legalArrangementRegistrationNumber</div><div class="param-enum">legalArrangementTaxNumber</div><div class="param-enum">legalArrangementType</div><div class="param-enum">legalBusinessName</div><div class="param-enum">legalEntity</div><div class="param-enum">legalEntityType</div><div class="param-enum">logo</div><div class="param-enum">merchantAccount</div><div class="param-enum">merchantCategoryCode</div><div class="param-enum">merchantHouseNumber</div><div class="param-enum">merchantReference</div><div class="param-enum">microDeposit</div><div class="param-enum">name</div><div class="param-enum">nationality</div><div class="param-enum">originalReference</div><div class="param-enum">ownerCity</div><div class="param-enum">ownerCountryCode</div><div class="param-enum">ownerDateOfBirth</div><div class="param-enum">ownerHouseNumberOrName</div><div class="param-enum">ownerName</div><div class="param-enum">ownerPostalCode</div><div class="param-enum">ownerState</div><div class="param-enum">ownerStreet</div><div class="param-enum">passport</div><div class="param-enum">passportNumber</div><div class="param-enum">payoutMethodCode</div><div class="param-enum">payoutSchedule</div><div class="param-enum">pciSelfAssessment</div><div class="param-enum">personalData</div><div class="param-enum">phoneCountryCode</div><div class="param-enum">phoneNumber</div><div class="param-enum">postalCode</div><div class="param-enum">primaryCurrency</div><div class="param-enum">reason</div><div class="param-enum">registrationNumber</div><div class="param-enum">returnUrl</div><div class="param-enum">schedule</div><div class="param-enum">shareholder</div><div class="param-enum">shareholderCode</div><div class="param-enum">shareholderCodeAndSignatoryCode</div><div class="param-enum">shareholderCodeOrSignatoryCode</div><div class="param-enum">shareholderType</div><div class="param-enum">shareholderTypes</div><div class="param-enum">shopperInteraction</div><div class="param-enum">signatory</div><div class="param-enum">signatoryCode</div><div class="param-enum">socialSecurityNumber</div><div class="param-enum">sourceAccountCode</div><div class="param-enum">splitAccount</div><div class="param-enum">splitConfigurationUUID</div><div class="param-enum">splitCurrency</div><div class="param-enum">splitValue</div><div class="param-enum">splits</div><div class="param-enum">stateOrProvince</div><div class="param-enum">status</div><div class="param-enum">stockExchange</div><div class="param-enum">stockNumber</div><div class="param-enum">stockTicker</div><div class="param-enum">store</div><div class="param-enum">storeDetail</div><div class="param-enum">storeName</div><div class="param-enum">storeReference</div><div class="param-enum">street</div><div class="param-enum">taxId</div><div class="param-enum">tier</div><div class="param-enum">tierNumber</div><div class="param-enum">transferCode</div><div class="param-enum">ultimateParentCompany</div><div class="param-enum">ultimateParentCompanyAddressDetails</div><div class="param-enum">ultimateParentCompanyAddressDetailsCountry</div><div class="param-enum">ultimateParentCompanyBusinessDetails</div><div class="param-enum">ultimateParentCompanyBusinessDetailsLegalBusinessName</div><div class="param-enum">ultimateParentCompanyBusinessDetailsRegistrationNumber</div><div class="param-enum">ultimateParentCompanyCode</div><div class="param-enum">ultimateParentCompanyStockExchange</div><div class="param-enum">ultimateParentCompanyStockNumber</div><div class="param-enum">ultimateParentCompanyStockNumberOrStockTicker</div><div class="param-enum">ultimateParentCompanyStockTicker</div><div class="param-enum">unknown</div><div class="param-enum">value</div><div class="param-enum">verificationType</div><div class="param-enum">virtualAccount</div><div class="param-enum">visaNumber</div><div class="param-enum">webAddress</div><div class="param-enum">year</div>
+<div class="param">shareholderCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PayoutAccountHolderRequest"><code>PayoutAccountHolderRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the account from which the payout is to be made. </div>
+<div class="param">accountHolderCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the Account Holder who owns the account from which the payout is to be made.
+The Account Holder is the party to which the payout will be made. </div>
+<div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span> An object containing the currency and value of the payout.
+If the account has multiple currencies, specify the currency to be used.
+If the <code>bankAccountUUID</code> is provided in the request, the currency supported by the bank is used.
+If the <code>payoutMethodCode</code> is provided in the request, the specified payout method is selected. </div>
+<div class="param">bankAccountUUID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique ID of the Bank Account held by the Account Holder to which the payout is to be made.
+If left blank, a bank account is automatically selected. </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A description of the payout. Maximum 200 characters.
+Allowed: <strong>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/?:().,'+ &quot;;</strong> </div>
+<div class="param">merchantReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A value that can be supplied at the discretion of the executing user in order to link multiple transactions to one another. </div>
+<div class="param">payoutMethodCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique ID of the payout method held by the Account Holder to which the payout is to be made.
+If left blank, a payout instrument is automatically selected. </div>
+<div class="param">payoutSpeed (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Speed with which payouts for this account are processed. Permitted values: <code>STANDARD</code>, <code>SAME_DAY</code>. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INSTANT</div><div class="param-enum">SAME_DAY</div><div class="param-enum">STANDARD</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PayoutAccountHolderResponse"><code>PayoutAccountHolderResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">bankAccountUUID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The unique ID of the Bank Account to which the payout was made. </div>
+<div class="param">invalidFields (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorFieldType">array[ErrorFieldType]</a></span> Contains field validation errors that would prevent requests from being processed. </div>
+<div class="param">merchantReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The value supplied by the executing user when initiating the transfer; may be used to link multiple transactions. </div>
+<div class="param">payoutSpeed (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Speed with which payouts for this account are processed. Permitted values: <code>STANDARD</code>, <code>SAME_DAY</code>. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INSTANT</div><div class="param-enum">SAME_DAY</div><div class="param-enum">STANDARD</div>
+<div class="param">pspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reference of a request. Can be used to uniquely identify the request. </div>
+<div class="param">resultCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The result code. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RefundFundsTransferRequest"><code>RefundFundsTransferRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">amount </div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span> The amount to be transferred. </div>
+<div class="param">merchantReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A value that can be supplied at the discretion of the executing user in order to link multiple transactions to one another. </div>
+<div class="param">originalReference </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A PSP reference of the original fund transfer. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RefundFundsTransferResponse"><code>RefundFundsTransferResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">invalidFields (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorFieldType">array[ErrorFieldType]</a></span> Contains field validation errors that would prevent requests from being processed. </div>
+<div class="param">merchantReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The value supplied by the executing user when initiating the transfer refund; may be used to link multiple transactions. </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The message of the response. </div>
+<div class="param">originalReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A PSP reference of the original fund transfer. </div>
+<div class="param">pspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reference of a request. Can be used to uniquely identify the request. </div>
+<div class="param">resultCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The result code. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RefundNotPaidOutTransfersRequest"><code>RefundNotPaidOutTransfersRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the account from which to perform the refund(s). </div>
+<div class="param">accountHolderCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the Account Holder which owns the account from which to perform the refund(s). </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RefundNotPaidOutTransfersResponse"><code>RefundNotPaidOutTransfersResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">invalidFields (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorFieldType">array[ErrorFieldType]</a></span> Contains field validation errors that would prevent requests from being processed. </div>
+<div class="param">pspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reference of a request. Can be used to uniquely identify the request. </div>
+<div class="param">resultCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The result code. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ServiceError"><code>ServiceError</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">errorCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The error code mapped to the error message. </div>
+<div class="param">errorType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The category of the error. </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A short explanation of the issue. </div>
+<div class="param">pspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The PSP reference of the payment. </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The HTTP response status. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SetupBeneficiaryRequest"><code>SetupBeneficiaryRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">destinationAccountCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The destination account code. </div>
+<div class="param">merchantReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A value that can be supplied at the discretion of the executing user. </div>
+<div class="param">sourceAccountCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The benefactor account. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SetupBeneficiaryResponse"><code>SetupBeneficiaryResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">invalidFields (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorFieldType">array[ErrorFieldType]</a></span> Contains field validation errors that would prevent requests from being processed. </div>
+<div class="param">pspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reference of a request. Can be used to uniquely identify the request. </div>
+<div class="param">resultCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The result code. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Split"><code>Split</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique identifier of the account where the split amount should be sent. This is required if <code>type</code> is <strong>MarketPlace</strong> or <strong>BalanceAccount</strong>. </div>
+<div class="param">amount </div><div class="param-desc"><span class="param-type"><a href="#SplitAmount">SplitAmount</a></span> The amount of this split. </div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A description of this split. </div>
+<div class="param">reference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>Your reference for the split, which you can use to link the split to other operations such as captures and refunds.</p>
+<p>This is required if <code>type</code> is <strong>MarketPlace</strong> or <strong>BalanceAccount</strong>. For the other types, we also recommend sending a reference so you can reconcile the split and the associated payment in the transaction overview and in the reports. If the reference is not provided, the split is reported as part of the aggregated <a href="https://docs.adyen.com/reporting/marketpay-payments-accounting-report">TransferBalance record type</a> in Adyen for Platforms.</p>
+ </div>
+<div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The type of split.
+Possible values: <strong>Default</strong>, <strong>PaymentFee</strong>, <strong>VAT</strong>, <strong>Commission</strong>, <strong>MarketPlace</strong>, <strong>BalanceAccount</strong>, <strong>Remainder</strong>, <strong>Surcharge</strong>, <strong>Tip</strong>. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">BalanceAccount</div><div class="param-enum">Commission</div><div class="param-enum">Default</div><div class="param-enum">MarketPlace</div><div class="param-enum">PaymentFee</div><div class="param-enum">Remainder</div><div class="param-enum">Surcharge</div><div class="param-enum">Tip</div><div class="param-enum">VAT</div><div class="param-enum">Verification</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SplitAmount"><code>SplitAmount</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The three-character <a href="https://docs.adyen.com/development-resources/currency-codes">ISO currency code</a>.</p>
+<p>If this value is not provided, the currency in which the payment is made will be used.</p>
+ </div>
+<div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> The amount in <a href="https://docs.adyen.com/development-resources/currency-codes">minor units</a>. format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Transaction"><code>Transaction</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span> The amount of the transaction. </div>
+<div class="param">bankAccountDetail (optional)</div><div class="param-desc"><span class="param-type"><a href="#BankAccountDetail">BankAccountDetail</a></span> The details of the bank account to where a payout was made. </div>
+<div class="param">captureMerchantReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The merchant reference of a related capture. </div>
+<div class="param">capturePspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The psp reference of a related capture. </div>
+<div class="param">creationDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> The date on which the transaction was performed. format: date-time</div>
+<div class="param">description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A description of the transaction. </div>
+<div class="param">destinationAccountCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the account to which funds were credited during an outgoing fund transfer. </div>
+<div class="param">disputePspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The psp reference of the related dispute. </div>
+<div class="param">disputeReasonCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reason code of a dispute. </div>
+<div class="param">merchantReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The merchant reference of a transaction. </div>
+<div class="param">paymentPspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The psp reference of the related authorisation or transfer. </div>
+<div class="param">payoutPspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The psp reference of the related payout. </div>
+<div class="param">pspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The psp reference of a transaction. </div>
+<div class="param">sourceAccountCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The code of the account from which funds were debited during an incoming fund transfer. </div>
+<div class="param">transactionStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The status of the transaction.</p>
+<blockquote>
+<p>Permitted values: <code>PendingCredit</code>, <code>CreditFailed</code>, <code>CreditClosed</code>, <code>CreditSuspended</code>, <code>Credited</code>, <code>Converted</code>, <code>PendingDebit</code>, <code>DebitFailed</code>, <code>Debited</code>, <code>DebitReversedReceived</code>, <code>DebitedReversed</code>, <code>ChargebackReceived</code>, <code>Chargeback</code>, <code>ChargebackReversedReceived</code>, <code>ChargebackReversed</code>, <code>Payout</code>, <code>PayoutReversed</code>, <code>FundTransfer</code>, <code>PendingFundTransfer</code>, <code>ManualCorrected</code>.</p>
+</blockquote>
+ </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">BalanceNotPaidOutTransfer</div><div class="param-enum">BalancePlatformSweep</div><div class="param-enum">BalancePlatformSweepReturned</div><div class="param-enum">Chargeback</div><div class="param-enum">ChargebackCorrection</div><div class="param-enum">ChargebackCorrectionReceived</div><div class="param-enum">ChargebackReceived</div><div class="param-enum">ChargebackReversed</div><div class="param-enum">ChargebackReversedCorrection</div><div class="param-enum">ChargebackReversedCorrectionReceived</div><div class="param-enum">ChargebackReversedReceived</div><div class="param-enum">Converted</div><div class="param-enum">CreditClosed</div><div class="param-enum">CreditFailed</div><div class="param-enum">CreditReversed</div><div class="param-enum">CreditReversedReceived</div><div class="param-enum">CreditSuspended</div><div class="param-enum">Credited</div><div class="param-enum">DebitFailed</div><div class="param-enum">DebitReversedReceived</div><div class="param-enum">Debited</div><div class="param-enum">DebitedReversed</div><div class="param-enum">DepositCorrectionCredited</div><div class="param-enum">DepositCorrectionDebited</div><div class="param-enum">Fee</div><div class="param-enum">FundTransfer</div><div class="param-enum">FundTransferReversed</div><div class="param-enum">InvoiceDeductionCredited</div><div class="param-enum">InvoiceDeductionDebited</div><div class="param-enum">ManualCorrected</div><div class="param-enum">ManualCorrectionCredited</div><div class="param-enum">ManualCorrectionDebited</div><div class="param-enum">MerchantPayin</div><div class="param-enum">MerchantPayinReversed</div><div class="param-enum">Payout</div><div class="param-enum">PayoutReversed</div><div class="param-enum">PendingCredit</div><div class="param-enum">PendingDebit</div><div class="param-enum">PendingFundTransfer</div><div class="param-enum">ReCredited</div><div class="param-enum">ReCreditedReceived</div><div class="param-enum">SecondChargeback</div><div class="param-enum">SecondChargebackCorrection</div><div class="param-enum">SecondChargebackCorrectionReceived</div><div class="param-enum">SecondChargebackReceived</div>
+<div class="param">transferCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The transfer code of the transaction. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TransactionListForAccount"><code>TransactionListForAccount</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The account for which to retrieve the transactions. </div>
+<div class="param">page </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The page of transactions to retrieve.
+Each page lists fifty (50) transactions.  The most recent transactions are included on page 1. format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TransferFundsRequest"><code>TransferFundsRequest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">amount </div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span> The amount to be transferred. </div>
+<div class="param">destinationAccountCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The code of the account to which the funds are to be credited.</p>
+<blockquote>
+<p>The state of the Account Holder of this account must be Active.</p>
+</blockquote>
+ </div>
+<div class="param">merchantReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A value that can be supplied at the discretion of the executing user in order to link multiple transactions to one another. </div>
+<div class="param">sourceAccountCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The code of the account from which the funds are to be debited.</p>
+<blockquote>
+<p>The state of the Account Holder of this account must be Active and allow payouts.</p>
+</blockquote>
+ </div>
+<div class="param">transferCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> <p>The code related to the type of transfer being performed.</p>
+<blockquote>
+<p>The permitted codes differ for each platform account and are defined in their service level agreement.</p>
+</blockquote>
+ </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TransferFundsResponse"><code>TransferFundsResponse</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">invalidFields (optional)</div><div class="param-desc"><span class="param-type"><a href="#ErrorFieldType">array[ErrorFieldType]</a></span> Contains field validation errors that would prevent requests from being processed. </div>
+<div class="param">merchantReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The value supplied by the executing user when initiating the transfer; may be used to link multiple transactions. </div>
+<div class="param">pspReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reference of a request. Can be used to uniquely identify the request. </div>
+<div class="param">resultCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The result code. </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
