@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Wellknown</title>
+    <title>Interzoid Convert Currency Rate API</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,14 +179,14 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>Wellknown</h1>
-    <div class="app-desc">A registry of AI Plugins.</div>
-    <div class="app-desc">More information: <a href="https://wellknown.ai">https://wellknown.ai</a></div>
-    <div class="app-desc">Contact Info: <a href="cfortuner@gmail.com">cfortuner@gmail.com</a></div>
+  <h1>Interzoid Convert Currency Rate API</h1>
+    <div class="app-desc">This API enables you to convert an amount of one currency into another currency using current foreign exchange rates.</div>
+    <div class="app-desc">More information: <a href="https://www.interzoid.com">https://www.interzoid.com</a></div>
+    <div class="app-desc">Contact Info: <a href="support@interzoid.com">support@interzoid.com</a></div>
     <div class="app-desc">Version: 1.0.0</div>
-    <div class="app-desc">BasePath:/api</div>
-    <div class="license-info">All rights reserved</div>
-    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">Interzoid license</div>
+    <div class="license-url">https://www.interzoid.com/license</div>
   <h2>Access</h2>
 
   <h2><a name="__Methods">Methods</a></h2>
@@ -194,62 +194,82 @@ font-style: italic;
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#Default">Default</a></h4>
+  <h4><a href="#LiveCurrencyRateConversion">LiveCurrencyRateConversion</a></h4>
   <ul>
-  <li><a href="#apiPluginsGet"><code><span class="http-method">get</span> /api/plugins</code></a></li>
-  </ul>
-  <h4><a href="#Plugins">Plugins</a></h4>
-  <ul>
-  <li><a href="#getProvider"><code><span class="http-method">get</span> /plugins</code></a></li>
+  <li><a href="#convertcurrency"><code><span class="http-method">get</span> /convertcurrency</code></a></li>
   </ul>
 
-  <h1><a name="Default">Default</a></h1>
-  <div class="method"><a name="apiPluginsGet"/>
+  <h1><a name="LiveCurrencyRateConversion">LiveCurrencyRateConversion</a></h1>
+  <div class="method"><a name="convertcurrency"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/plugins</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">apiPluginsGet</span>)</div>
-    <div class="method-notes">Returns a list of Wellknown ai-plugins json objects from the Wellknown ai-plugins registry.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /convertcurrency</code></pre></div>
+    <div class="method-summary">Converts amount in one currency to that of another (<span class="nickname">convertcurrency</span>)</div>
+    <div class="method-notes">Provide an amount in one currency (EUR, GBP, CNY, JPY, AUD, etc.), and also a second currency to convert it to. The API will return the result using current foreign exchange rates. See the API home page for a list of all supported currencies.</div>
 
 
 
 
 
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">license (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Your Interzoid license API key. Register at www.interzoid.com/register default: null </div><div class="param">from (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Currency symbol for the converted from amount default: null </div><div class="param">to (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Currency symbol for the converted to amount default: null </div><div class="param">amount (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The amount of currency to be converted default: null </div>
+    </div>  <!-- field-items -->
 
 
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#convertcurrency_200_response">convertcurrency_200_response</a>
+      
+    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Credits" : "Credits",
+  "Currency" : "Currency",
+  "Converted" : "Converted",
+  "Code" : "Code"
+}</code></pre>
 
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    A list of Wellknown ai-plugins json objects.
+    Currency rate data to one US DOllar
+        <a href="#convertcurrency_200_response">convertcurrency_200_response</a>
+    <h4 class="field-label">400</h4>
+    bad request - insufficient parameters
         <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <h1><a name="Plugins">Plugins</a></h1>
-  <div class="method"><a name="getProvider"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /plugins</code></pre></div>
-    <div class="method-summary">List all the Wellknown AI Plugins. (<span class="nickname">getProvider</span>)</div>
-    <div class="method-notes">List all the Wellknown AI Plugins. Returns ai-plugin.json objects in an array</div>
-
-
-
-
-
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    OK
+    <h4 class="field-label">402</h4>
+    credits exhausted
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    invalid license API key
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    currency symbol not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    method not allowed
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    internal server error
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
@@ -259,7 +279,18 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
+    <li><a href="#convertcurrency_200_response"><code>convertcurrency_200_response</code> - </a></li>
   </ol>
 
+  <div class="model">
+    <h3><a name="convertcurrency_200_response"><code>convertcurrency_200_response</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Converted (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Credits (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Currency (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
   </body>
 </html>

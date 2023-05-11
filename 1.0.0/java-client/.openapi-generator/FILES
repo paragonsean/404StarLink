@@ -5,8 +5,8 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
-docs/DefaultApi.md
-docs/PluginsApi.md
+docs/Convertcurrency200Response.md
+docs/LiveCurrencyRateConversionApi.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -29,11 +29,12 @@ src/main/java/org/openapitools/client/ProgressResponseBody.java
 src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
-src/main/java/org/openapitools/client/api/DefaultApi.java
-src/main/java/org/openapitools/client/api/PluginsApi.java
+src/main/java/org/openapitools/client/api/LiveCurrencyRateConversionApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java
 src/main/java/org/openapitools/client/auth/Authentication.java
 src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
 src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
-src/test/java/org/openapitools/client/api/PluginsApiTest.java
+src/main/java/org/openapitools/client/model/Convertcurrency200Response.java
+src/test/java/org/openapitools/client/api/LiveCurrencyRateConversionApiTest.java
+src/test/java/org/openapitools/client/model/Convertcurrency200ResponseTest.java
