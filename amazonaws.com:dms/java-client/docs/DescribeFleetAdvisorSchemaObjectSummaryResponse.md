@@ -1,0 +1,14 @@
+
+
+# DescribeFleetAdvisorSchemaObjectSummaryResponse
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**fleetAdvisorSchemaObjects** | [**List**](List.md) |  |  [optional] |
+|**nextToken** | [**String**](String.md) |  |  [optional] |
+
+
+
