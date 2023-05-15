@@ -1,0 +1,2080 @@
+<!doctype html>
+<html>
+  <head>
+    <title>LoL v3 Scores</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>LoL v3 Scores</h1>
+    <div class="app-desc">LoL v3 Scores</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 1.0</div>
+    <div class="app-desc">BasePath:/v3/lol/scores</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:Ocp-Apim-Subscription-Key KeyInQuery:false KeyInHeader:true</li>
+      <li>APIKey KeyParamName:key KeyInQuery:true KeyInHeader:false</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#areasCountries"><code><span class="http-method">get</span> /{format}/Areas</code></a></li>
+  <li><a href="#competitionFixturesLeagueDetails"><code><span class="http-method">get</span> /{format}/CompetitionDetails/{competitionid}</code></a></li>
+  <li><a href="#competitionsLeagues"><code><span class="http-method">get</span> /{format}/Competitions</code></a></li>
+  <li><a href="#gamesByDate"><code><span class="http-method">get</span> /{format}/GamesByDate/{date}</code></a></li>
+  <li><a href="#membershipsActive"><code><span class="http-method">get</span> /{format}/ActiveMemberships</code></a></li>
+  <li><a href="#membershipsByTeamActive"><code><span class="http-method">get</span> /{format}/MembershipsByTeam/{teamid}</code></a></li>
+  <li><a href="#membershipsByTeamHistorical"><code><span class="http-method">get</span> /{format}/HistoricalMembershipsByTeam/{teamid}</code></a></li>
+  <li><a href="#membershipsHistorical"><code><span class="http-method">get</span> /{format}/HistoricalMemberships</code></a></li>
+  <li><a href="#player"><code><span class="http-method">get</span> /{format}/Player/{playerid}</code></a></li>
+  <li><a href="#players"><code><span class="http-method">get</span> /{format}/Players</code></a></li>
+  <li><a href="#playersByTeam"><code><span class="http-method">get</span> /{format}/PlayersByTeam/{teamid}</code></a></li>
+  <li><a href="#schedule"><code><span class="http-method">get</span> /{format}/Schedule/{roundid}</code></a></li>
+  <li><a href="#seasonTeams"><code><span class="http-method">get</span> /{format}/SeasonTeams/{seasonid}</code></a></li>
+  <li><a href="#standings"><code><span class="http-method">get</span> /{format}/Standings/{roundid}</code></a></li>
+  <li><a href="#teams"><code><span class="http-method">get</span> /{format}/Teams</code></a></li>
+  <li><a href="#venues"><code><span class="http-method">get</span> /{format}/Venues</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="areasCountries"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Areas</code></pre></div>
+    <div class="method-summary">Areas (Countries) (<span class="nickname">areasCountries</span>)</div>
+    <div class="method-notes">Areas (Countries)</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Area">Area</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "AreaId" : 0,
+  "CountryCode" : "CountryCode",
+  "Name" : "Name"
+}, {
+  "AreaId" : 0,
+  "CountryCode" : "CountryCode",
+  "Name" : "Name"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="competitionFixturesLeagueDetails"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/CompetitionDetails/{competitionid}</code></pre></div>
+    <div class="method-summary">Competition Fixtures (League Details) (<span class="nickname">competitionFixturesLeagueDetails</span>)</div>
+    <div class="method-notes">Competition Fixtures (League Details)</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">competitionid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; A LoL competition/league unique CompetitionId. Possible values include: <code>100000009</code>, etc. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#CompetitionDetail">CompetitionDetail</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "AreaName" : "AreaName",
+  "PlayerStatsCoverage" : true,
+  "Type" : "Type",
+  "Format" : "Format",
+  "CurrentSeason" : {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  },
+  "Games" : [ {
+    "Group" : "Group",
+    "TeamAKey" : "TeamAKey",
+    "TeamAMoneyLine" : 1,
+    "IsClosed" : true,
+    "TeamBMoneyLine" : 9,
+    "DateTime" : "DateTime",
+    "TeamBId" : 9,
+    "TeamAName" : "TeamAName",
+    "DrawMoneyLine" : 4,
+    "TeamAScore" : 5,
+    "Season" : 1,
+    "BestOf" : "BestOf",
+    "TeamBName" : "TeamBName",
+    "Status" : "Status",
+    "RoundId" : 1,
+    "Updated" : "Updated",
+    "TeamBPointSpreadPayout" : 6,
+    "TeamBKey" : "TeamBKey",
+    "Winner" : "Winner",
+    "TeamAId" : 7,
+    "SeasonType" : 6,
+    "PointSpread" : 1.2315135367772556,
+    "TeamAPointSpreadPayout" : 4,
+    "VenueType" : "VenueType",
+    "UpdatedUtc" : "UpdatedUtc",
+    "VenueId" : 9,
+    "Day" : "Day",
+    "Week" : 6,
+    "GameId" : 7,
+    "TeamBScore" : 8
+  }, {
+    "Group" : "Group",
+    "TeamAKey" : "TeamAKey",
+    "TeamAMoneyLine" : 1,
+    "IsClosed" : true,
+    "TeamBMoneyLine" : 9,
+    "DateTime" : "DateTime",
+    "TeamBId" : 9,
+    "TeamAName" : "TeamAName",
+    "DrawMoneyLine" : 4,
+    "TeamAScore" : 5,
+    "Season" : 1,
+    "BestOf" : "BestOf",
+    "TeamBName" : "TeamBName",
+    "Status" : "Status",
+    "RoundId" : 1,
+    "Updated" : "Updated",
+    "TeamBPointSpreadPayout" : 6,
+    "TeamBKey" : "TeamBKey",
+    "Winner" : "Winner",
+    "TeamAId" : 7,
+    "SeasonType" : 6,
+    "PointSpread" : 1.2315135367772556,
+    "TeamAPointSpreadPayout" : 4,
+    "VenueType" : "VenueType",
+    "UpdatedUtc" : "UpdatedUtc",
+    "VenueId" : 9,
+    "Day" : "Day",
+    "Week" : 6,
+    "GameId" : 7,
+    "TeamBScore" : 8
+  } ],
+  "AreaId" : 0,
+  "Teams" : [ {
+    "Email" : "Email",
+    "Founded" : 6,
+    "AreaId" : 3,
+    "Twitter" : "Twitter",
+    "Website" : "Website",
+    "ShortName" : "ShortName",
+    "TertiaryColor" : "TertiaryColor",
+    "Gender" : "Gender",
+    "TeamId" : 2,
+    "YouTube" : "YouTube",
+    "Name" : "Name",
+    "AreaName" : "AreaName",
+    "Active" : true,
+    "Type" : "Type",
+    "PrimaryColor" : "PrimaryColor",
+    "SecondaryColor" : "SecondaryColor",
+    "Instagram" : "Instagram",
+    "Facebook" : "Facebook",
+    "Key" : "Key",
+    "QuaternaryColor" : "QuaternaryColor",
+    "Players" : [ {
+      "PlayerId" : 1,
+      "Updated" : "Updated",
+      "Position" : "Position",
+      "FirstName" : "FirstName",
+      "BirthCity" : "BirthCity",
+      "MatchName" : "MatchName",
+      "Gender" : "Gender",
+      "LastName" : "LastName",
+      "BirthCountry" : "BirthCountry",
+      "Nationality" : "Nationality",
+      "BirthDate" : "BirthDate",
+      "CommonName" : "CommonName"
+    }, {
+      "PlayerId" : 1,
+      "Updated" : "Updated",
+      "Position" : "Position",
+      "FirstName" : "FirstName",
+      "BirthCity" : "BirthCity",
+      "MatchName" : "MatchName",
+      "Gender" : "Gender",
+      "LastName" : "LastName",
+      "BirthCountry" : "BirthCountry",
+      "Nationality" : "Nationality",
+      "BirthDate" : "BirthDate",
+      "CommonName" : "CommonName"
+    } ]
+  }, {
+    "Email" : "Email",
+    "Founded" : 6,
+    "AreaId" : 3,
+    "Twitter" : "Twitter",
+    "Website" : "Website",
+    "ShortName" : "ShortName",
+    "TertiaryColor" : "TertiaryColor",
+    "Gender" : "Gender",
+    "TeamId" : 2,
+    "YouTube" : "YouTube",
+    "Name" : "Name",
+    "AreaName" : "AreaName",
+    "Active" : true,
+    "Type" : "Type",
+    "PrimaryColor" : "PrimaryColor",
+    "SecondaryColor" : "SecondaryColor",
+    "Instagram" : "Instagram",
+    "Facebook" : "Facebook",
+    "Key" : "Key",
+    "QuaternaryColor" : "QuaternaryColor",
+    "Players" : [ {
+      "PlayerId" : 1,
+      "Updated" : "Updated",
+      "Position" : "Position",
+      "FirstName" : "FirstName",
+      "BirthCity" : "BirthCity",
+      "MatchName" : "MatchName",
+      "Gender" : "Gender",
+      "LastName" : "LastName",
+      "BirthCountry" : "BirthCountry",
+      "Nationality" : "Nationality",
+      "BirthDate" : "BirthDate",
+      "CommonName" : "CommonName"
+    }, {
+      "PlayerId" : 1,
+      "Updated" : "Updated",
+      "Position" : "Position",
+      "FirstName" : "FirstName",
+      "BirthCity" : "BirthCity",
+      "MatchName" : "MatchName",
+      "Gender" : "Gender",
+      "LastName" : "LastName",
+      "BirthCountry" : "BirthCountry",
+      "Nationality" : "Nationality",
+      "BirthDate" : "BirthDate",
+      "CommonName" : "CommonName"
+    } ]
+  } ],
+  "Gender" : "Gender",
+  "Seasons" : [ {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  }, {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  } ],
+  "CompetitionId" : 6,
+  "Name" : "Name"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        <a href="#CompetitionDetail">CompetitionDetail</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="competitionsLeagues"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Competitions</code></pre></div>
+    <div class="method-summary">Competitions (Leagues) (<span class="nickname">competitionsLeagues</span>)</div>
+    <div class="method-notes">Competitions (Leagues)</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Competition">Competition</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "AreaName" : "AreaName",
+  "PlayerStatsCoverage" : true,
+  "Type" : "Type",
+  "Format" : "Format",
+  "AreaId" : 0,
+  "Gender" : "Gender",
+  "Seasons" : [ {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  }, {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  } ],
+  "CompetitionId" : 6,
+  "Name" : "Name"
+}, {
+  "AreaName" : "AreaName",
+  "PlayerStatsCoverage" : true,
+  "Type" : "Type",
+  "Format" : "Format",
+  "AreaId" : 0,
+  "Gender" : "Gender",
+  "Seasons" : [ {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  }, {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  } ],
+  "CompetitionId" : 6,
+  "Name" : "Name"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="gamesByDate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/GamesByDate/{date}</code></pre></div>
+    <div class="method-summary">Games by Date (<span class="nickname">gamesByDate</span>)</div>
+    <div class="method-notes">Games by Date</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">date (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The date of the game(s).
+<br>Examples: <code>2018-01-13</code>, <code>2018-06-13</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Game">Game</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Group" : "Group",
+  "TeamAKey" : "TeamAKey",
+  "TeamAMoneyLine" : 1,
+  "IsClosed" : true,
+  "TeamBMoneyLine" : 9,
+  "DateTime" : "DateTime",
+  "TeamBId" : 9,
+  "TeamAName" : "TeamAName",
+  "DrawMoneyLine" : 4,
+  "TeamAScore" : 5,
+  "Season" : 1,
+  "BestOf" : "BestOf",
+  "TeamBName" : "TeamBName",
+  "Status" : "Status",
+  "RoundId" : 1,
+  "Updated" : "Updated",
+  "TeamBPointSpreadPayout" : 6,
+  "TeamBKey" : "TeamBKey",
+  "Winner" : "Winner",
+  "TeamAId" : 7,
+  "SeasonType" : 6,
+  "PointSpread" : 1.2315135367772556,
+  "TeamAPointSpreadPayout" : 4,
+  "VenueType" : "VenueType",
+  "UpdatedUtc" : "UpdatedUtc",
+  "VenueId" : 9,
+  "Day" : "Day",
+  "Week" : 6,
+  "GameId" : 7,
+  "TeamBScore" : 8
+}, {
+  "Group" : "Group",
+  "TeamAKey" : "TeamAKey",
+  "TeamAMoneyLine" : 1,
+  "IsClosed" : true,
+  "TeamBMoneyLine" : 9,
+  "DateTime" : "DateTime",
+  "TeamBId" : 9,
+  "TeamAName" : "TeamAName",
+  "DrawMoneyLine" : 4,
+  "TeamAScore" : 5,
+  "Season" : 1,
+  "BestOf" : "BestOf",
+  "TeamBName" : "TeamBName",
+  "Status" : "Status",
+  "RoundId" : 1,
+  "Updated" : "Updated",
+  "TeamBPointSpreadPayout" : 6,
+  "TeamBKey" : "TeamBKey",
+  "Winner" : "Winner",
+  "TeamAId" : 7,
+  "SeasonType" : 6,
+  "PointSpread" : 1.2315135367772556,
+  "TeamAPointSpreadPayout" : 4,
+  "VenueType" : "VenueType",
+  "UpdatedUtc" : "UpdatedUtc",
+  "VenueId" : 9,
+  "Day" : "Day",
+  "Week" : 6,
+  "GameId" : 7,
+  "TeamBScore" : 8
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="membershipsActive"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/ActiveMemberships</code></pre></div>
+    <div class="method-summary">Memberships (Active) (<span class="nickname">membershipsActive</span>)</div>
+    <div class="method-notes">Memberships (Active)</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Membership">Membership</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+}, {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="membershipsByTeamActive"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/MembershipsByTeam/{teamid}</code></pre></div>
+    <div class="method-summary">Memberships by Team (Active) (<span class="nickname">membershipsByTeamActive</span>)</div>
+    <div class="method-notes">Memberships by Team (Active)</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">teamid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Team ID.
+Example:<code>100000001</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Membership">Membership</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+}, {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="membershipsByTeamHistorical"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/HistoricalMembershipsByTeam/{teamid}</code></pre></div>
+    <div class="method-summary">Memberships by Team (Historical) (<span class="nickname">membershipsByTeamHistorical</span>)</div>
+    <div class="method-notes">Memberships by Team (Historical)</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">teamid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Team ID.
+Example:<code>100000001</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Membership">Membership</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+}, {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="membershipsHistorical"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/HistoricalMemberships</code></pre></div>
+    <div class="method-summary">Memberships (Historical) (<span class="nickname">membershipsHistorical</span>)</div>
+    <div class="method-notes">Memberships (Historical)</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Membership">Membership</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+}, {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="player"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Player/{playerid}</code></pre></div>
+    <div class="method-summary">Player (<span class="nickname">player</span>)</div>
+    <div class="method-notes">Player</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">playerid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Player ID.
+Example:<code>100000576</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Player">Player</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "PlayerId" : 1,
+  "Updated" : "Updated",
+  "Position" : "Position",
+  "FirstName" : "FirstName",
+  "BirthCity" : "BirthCity",
+  "MatchName" : "MatchName",
+  "Gender" : "Gender",
+  "LastName" : "LastName",
+  "BirthCountry" : "BirthCountry",
+  "Nationality" : "Nationality",
+  "BirthDate" : "BirthDate",
+  "CommonName" : "CommonName"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        <a href="#Player">Player</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="players"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Players</code></pre></div>
+    <div class="method-summary">Players (<span class="nickname">players</span>)</div>
+    <div class="method-notes">Players</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Player">Player</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "PlayerId" : 1,
+  "Updated" : "Updated",
+  "Position" : "Position",
+  "FirstName" : "FirstName",
+  "BirthCity" : "BirthCity",
+  "MatchName" : "MatchName",
+  "Gender" : "Gender",
+  "LastName" : "LastName",
+  "BirthCountry" : "BirthCountry",
+  "Nationality" : "Nationality",
+  "BirthDate" : "BirthDate",
+  "CommonName" : "CommonName"
+}, {
+  "PlayerId" : 1,
+  "Updated" : "Updated",
+  "Position" : "Position",
+  "FirstName" : "FirstName",
+  "BirthCity" : "BirthCity",
+  "MatchName" : "MatchName",
+  "Gender" : "Gender",
+  "LastName" : "LastName",
+  "BirthCountry" : "BirthCountry",
+  "Nationality" : "Nationality",
+  "BirthDate" : "BirthDate",
+  "CommonName" : "CommonName"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="playersByTeam"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/PlayersByTeam/{teamid}</code></pre></div>
+    <div class="method-summary">Players by Team (<span class="nickname">playersByTeam</span>)</div>
+    <div class="method-notes">Players by Team</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">teamid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Team ID.
+Example:<code>100000001</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Player">Player</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "PlayerId" : 1,
+  "Updated" : "Updated",
+  "Position" : "Position",
+  "FirstName" : "FirstName",
+  "BirthCity" : "BirthCity",
+  "MatchName" : "MatchName",
+  "Gender" : "Gender",
+  "LastName" : "LastName",
+  "BirthCountry" : "BirthCountry",
+  "Nationality" : "Nationality",
+  "BirthDate" : "BirthDate",
+  "CommonName" : "CommonName"
+}, {
+  "PlayerId" : 1,
+  "Updated" : "Updated",
+  "Position" : "Position",
+  "FirstName" : "FirstName",
+  "BirthCity" : "BirthCity",
+  "MatchName" : "MatchName",
+  "Gender" : "Gender",
+  "LastName" : "LastName",
+  "BirthCountry" : "BirthCountry",
+  "Nationality" : "Nationality",
+  "BirthDate" : "BirthDate",
+  "CommonName" : "CommonName"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="schedule"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Schedule/{roundid}</code></pre></div>
+    <div class="method-summary">Schedule (<span class="nickname">schedule</span>)</div>
+    <div class="method-notes">Schedule</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">roundid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.
+Examples: <code>100000138</code>, <code>1000001412</code>, etc default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Game">Game</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Group" : "Group",
+  "TeamAKey" : "TeamAKey",
+  "TeamAMoneyLine" : 1,
+  "IsClosed" : true,
+  "TeamBMoneyLine" : 9,
+  "DateTime" : "DateTime",
+  "TeamBId" : 9,
+  "TeamAName" : "TeamAName",
+  "DrawMoneyLine" : 4,
+  "TeamAScore" : 5,
+  "Season" : 1,
+  "BestOf" : "BestOf",
+  "TeamBName" : "TeamBName",
+  "Status" : "Status",
+  "RoundId" : 1,
+  "Updated" : "Updated",
+  "TeamBPointSpreadPayout" : 6,
+  "TeamBKey" : "TeamBKey",
+  "Winner" : "Winner",
+  "TeamAId" : 7,
+  "SeasonType" : 6,
+  "PointSpread" : 1.2315135367772556,
+  "TeamAPointSpreadPayout" : 4,
+  "VenueType" : "VenueType",
+  "UpdatedUtc" : "UpdatedUtc",
+  "VenueId" : 9,
+  "Day" : "Day",
+  "Week" : 6,
+  "GameId" : 7,
+  "TeamBScore" : 8
+}, {
+  "Group" : "Group",
+  "TeamAKey" : "TeamAKey",
+  "TeamAMoneyLine" : 1,
+  "IsClosed" : true,
+  "TeamBMoneyLine" : 9,
+  "DateTime" : "DateTime",
+  "TeamBId" : 9,
+  "TeamAName" : "TeamAName",
+  "DrawMoneyLine" : 4,
+  "TeamAScore" : 5,
+  "Season" : 1,
+  "BestOf" : "BestOf",
+  "TeamBName" : "TeamBName",
+  "Status" : "Status",
+  "RoundId" : 1,
+  "Updated" : "Updated",
+  "TeamBPointSpreadPayout" : 6,
+  "TeamBKey" : "TeamBKey",
+  "Winner" : "Winner",
+  "TeamAId" : 7,
+  "SeasonType" : 6,
+  "PointSpread" : 1.2315135367772556,
+  "TeamAPointSpreadPayout" : 4,
+  "VenueType" : "VenueType",
+  "UpdatedUtc" : "UpdatedUtc",
+  "VenueId" : 9,
+  "Day" : "Day",
+  "Week" : 6,
+  "GameId" : 7,
+  "TeamBScore" : 8
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="seasonTeams"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/SeasonTeams/{seasonid}</code></pre></div>
+    <div class="method-summary">Season Teams (<span class="nickname">seasonTeams</span>)</div>
+    <div class="method-notes">Season Teams</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">seasonid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Season ID. SeasonIDs can be found in the Competitions and Competition Details endpoints.
+Examples: <code>100000023</code>, <code>100000024</code>, etc default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#SeasonTeam">SeasonTeam</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Active" : true,
+  "Type" : "Type",
+  "SeasonTeamId" : 6,
+  "Team" : {
+    "Email" : "Email",
+    "Founded" : 5,
+    "AreaId" : 1,
+    "Twitter" : "Twitter",
+    "Website" : "Website",
+    "ShortName" : "ShortName",
+    "TertiaryColor" : "TertiaryColor",
+    "Gender" : "Gender",
+    "TeamId" : 5,
+    "YouTube" : "YouTube",
+    "Name" : "Name",
+    "AreaName" : "AreaName",
+    "Active" : true,
+    "Type" : "Type",
+    "PrimaryColor" : "PrimaryColor",
+    "SecondaryColor" : "SecondaryColor",
+    "Instagram" : "Instagram",
+    "Facebook" : "Facebook",
+    "Key" : "Key",
+    "QuaternaryColor" : "QuaternaryColor"
+  },
+  "Gender" : "Gender",
+  "SeasonId" : 0,
+  "TeamName" : "TeamName",
+  "TeamId" : 2
+}, {
+  "Active" : true,
+  "Type" : "Type",
+  "SeasonTeamId" : 6,
+  "Team" : {
+    "Email" : "Email",
+    "Founded" : 5,
+    "AreaId" : 1,
+    "Twitter" : "Twitter",
+    "Website" : "Website",
+    "ShortName" : "ShortName",
+    "TertiaryColor" : "TertiaryColor",
+    "Gender" : "Gender",
+    "TeamId" : 5,
+    "YouTube" : "YouTube",
+    "Name" : "Name",
+    "AreaName" : "AreaName",
+    "Active" : true,
+    "Type" : "Type",
+    "PrimaryColor" : "PrimaryColor",
+    "SecondaryColor" : "SecondaryColor",
+    "Instagram" : "Instagram",
+    "Facebook" : "Facebook",
+    "Key" : "Key",
+    "QuaternaryColor" : "QuaternaryColor"
+  },
+  "Gender" : "Gender",
+  "SeasonId" : 0,
+  "TeamName" : "TeamName",
+  "TeamId" : 2
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="standings"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Standings/{roundid}</code></pre></div>
+    <div class="method-summary">Standings (<span class="nickname">standings</span>)</div>
+    <div class="method-notes">Standings</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">roundid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.
+Example: <code>100000138</code>, etc default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Standing">Standing</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Order" : 1,
+  "Group" : "Group",
+  "RoundId" : 5,
+  "ScoreDifference" : 7,
+  "TeamId" : 2,
+  "Name" : "Name",
+  "Points" : 5,
+  "Losses" : 6,
+  "StandingId" : 3,
+  "Games" : 0,
+  "ScoreAgainst" : 2,
+  "ScoreFor" : 9,
+  "Wins" : 4
+}, {
+  "Order" : 1,
+  "Group" : "Group",
+  "RoundId" : 5,
+  "ScoreDifference" : 7,
+  "TeamId" : 2,
+  "Name" : "Name",
+  "Points" : 5,
+  "Losses" : 6,
+  "StandingId" : 3,
+  "Games" : 0,
+  "ScoreAgainst" : 2,
+  "ScoreFor" : 9,
+  "Wins" : 4
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="teams"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Teams</code></pre></div>
+    <div class="method-summary">Teams (<span class="nickname">teams</span>)</div>
+    <div class="method-notes">Teams</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Team">Team</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Email" : "Email",
+  "Founded" : 5,
+  "AreaId" : 1,
+  "Twitter" : "Twitter",
+  "Website" : "Website",
+  "ShortName" : "ShortName",
+  "TertiaryColor" : "TertiaryColor",
+  "Gender" : "Gender",
+  "TeamId" : 5,
+  "YouTube" : "YouTube",
+  "Name" : "Name",
+  "AreaName" : "AreaName",
+  "Active" : true,
+  "Type" : "Type",
+  "PrimaryColor" : "PrimaryColor",
+  "SecondaryColor" : "SecondaryColor",
+  "Instagram" : "Instagram",
+  "Facebook" : "Facebook",
+  "Key" : "Key",
+  "QuaternaryColor" : "QuaternaryColor"
+}, {
+  "Email" : "Email",
+  "Founded" : 5,
+  "AreaId" : 1,
+  "Twitter" : "Twitter",
+  "Website" : "Website",
+  "ShortName" : "ShortName",
+  "TertiaryColor" : "TertiaryColor",
+  "Gender" : "Gender",
+  "TeamId" : 5,
+  "YouTube" : "YouTube",
+  "Name" : "Name",
+  "AreaName" : "AreaName",
+  "Active" : true,
+  "Type" : "Type",
+  "PrimaryColor" : "PrimaryColor",
+  "SecondaryColor" : "SecondaryColor",
+  "Instagram" : "Instagram",
+  "Facebook" : "Facebook",
+  "Key" : "Key",
+  "QuaternaryColor" : "QuaternaryColor"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="venues"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Venues</code></pre></div>
+    <div class="method-summary">Venues (<span class="nickname">venues</span>)</div>
+    <div class="method-notes">Venues</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Venue">Venue</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Zip" : "Zip",
+  "Opened" : 5,
+  "Address" : "Address",
+  "GeoLat" : 6.027456183070403,
+  "City" : "City",
+  "Name" : "Name",
+  "Open" : true,
+  "Nickname1" : "Nickname1",
+  "Nickname2" : "Nickname2",
+  "Capacity" : 0,
+  "Country" : "Country",
+  "GeoLong" : 1.4658129805029452,
+  "VenueId" : 5
+}, {
+  "Zip" : "Zip",
+  "Opened" : 5,
+  "Address" : "Address",
+  "GeoLat" : 6.027456183070403,
+  "City" : "City",
+  "Name" : "Name",
+  "Open" : true,
+  "Nickname1" : "Nickname1",
+  "Nickname2" : "Nickname2",
+  "Capacity" : 0,
+  "Country" : "Country",
+  "GeoLong" : 1.4658129805029452,
+  "VenueId" : 5
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Area"><code>Area</code> - </a></li>
+    <li><a href="#Competition"><code>Competition</code> - </a></li>
+    <li><a href="#CompetitionDetail"><code>CompetitionDetail</code> - </a></li>
+    <li><a href="#Game"><code>Game</code> - </a></li>
+    <li><a href="#Membership"><code>Membership</code> - </a></li>
+    <li><a href="#Player"><code>Player</code> - </a></li>
+    <li><a href="#Round"><code>Round</code> - </a></li>
+    <li><a href="#Season"><code>Season</code> - </a></li>
+    <li><a href="#SeasonTeam"><code>SeasonTeam</code> - </a></li>
+    <li><a href="#Standing"><code>Standing</code> - </a></li>
+    <li><a href="#Team"><code>Team</code> - </a></li>
+    <li><a href="#TeamDetail"><code>TeamDetail</code> - </a></li>
+    <li><a href="#Venue"><code>Venue</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Area"><code>Area</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">AreaId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">CountryCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Competition"><code>Competition</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">AreaId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AreaName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CompetitionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Format (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PlayerStatsCoverage (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">Seasons (optional)</div><div class="param-desc"><span class="param-type"><a href="#Season">array[Season]</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CompetitionDetail"><code>CompetitionDetail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">AreaId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AreaName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CompetitionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">CurrentSeason (optional)</div><div class="param-desc"><span class="param-type"><a href="#Season">Season</a></span>  </div>
+<div class="param">Format (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Games (optional)</div><div class="param-desc"><span class="param-type"><a href="#Game">array[Game]</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PlayerStatsCoverage (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">Seasons (optional)</div><div class="param-desc"><span class="param-type"><a href="#Season">array[Season]</a></span>  </div>
+<div class="param">Teams (optional)</div><div class="param-desc"><span class="param-type"><a href="#TeamDetail">array[TeamDetail]</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Game"><code>Game</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">BestOf (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Day (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DrawMoneyLine (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GameId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Group (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IsClosed (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">PointSpread (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">RoundId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Season (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonType (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamAId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamAKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamAMoneyLine (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamAName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamAPointSpreadPayout (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamAScore (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamBId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamBKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamBMoneyLine (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamBName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamBPointSpreadPayout (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamBScore (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UpdatedUtc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">VenueId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">VenueType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Week (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Winner (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Membership"><code>Membership</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Active (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">EndDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MembershipId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">PlayerId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">PlayerName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StartDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamArea (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Player"><code>Player</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">BirthCity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">BirthCountry (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">BirthDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CommonName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">FirstName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">LastName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MatchName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Nationality (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PlayerId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Position (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Round"><code>Round</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">CurrentRound (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">CurrentWeek (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">EndDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">RoundId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Season (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonType (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StartDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Season"><code>Season</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">CompetitionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">CompetitionName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CurrentSeason (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">EndDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Rounds (optional)</div><div class="param-desc"><span class="param-type"><a href="#Round">array[Round]</a></span>  </div>
+<div class="param">Season (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StartDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SeasonTeam"><code>SeasonTeam</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Active (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SeasonId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonTeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Team (optional)</div><div class="param-desc"><span class="param-type"><a href="#Team">Team</a></span>  </div>
+<div class="param">TeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Standing"><code>Standing</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Games (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Group (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Losses (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Order (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Points (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">RoundId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ScoreAgainst (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ScoreDifference (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ScoreFor (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StandingId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Wins (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Team"><code>Team</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Active (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">AreaId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AreaName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Facebook (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Founded (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Instagram (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PrimaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">QuaternaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SecondaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ShortName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TertiaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Twitter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Website (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">YouTube (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TeamDetail"><code>TeamDetail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Active (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">AreaId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AreaName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Facebook (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Founded (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Instagram (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Players (optional)</div><div class="param-desc"><span class="param-type"><a href="#Player">array[Player]</a></span>  </div>
+<div class="param">PrimaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">QuaternaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SecondaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ShortName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TertiaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Twitter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Website (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">YouTube (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Venue"><code>Venue</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Address (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Capacity (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">City (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GeoLat (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">GeoLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Nickname1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Nickname2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Open (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">Opened (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">VenueId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Zip (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
