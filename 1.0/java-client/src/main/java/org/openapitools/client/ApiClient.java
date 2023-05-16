@@ -1,6 +1,6 @@
 /*
- * NeoWs - (Near Earth Object Web Service)
- * A web service for near earth objects. All the data is from the <a href=\"http://neo.jpl.nasa.gov/\" target=\"_blank\">NASA JPL Asteroid team</a>.      NeoWs is proud to power AsteroidTracker on <a href=\"https://itunes.apple.com/us/app/asteroid-tracker/id689684901?mt=8\" target=\"_blank\">iOS</a> and <a href=\"https://play.google.com/store/apps/details?id=com.vitruviussoftware.bunifish.asteroidtracker&feature\" target=\"_blank\">Android</a> as well as related apps.    Follow us on <a href=\"https://twitter.com/AsteroidTracker\" target=\"_blank\">Twitter</a>
+ * LoL v3 Scores
+ * LoL v3 Scores
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -61,10 +61,15 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "http://www.neowsapp.com";
+    private String basePath = "http://azure-api.sportsdata.io/v3/lol/scores";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "http://www.neowsapp.com",
+      "http://azure-api.sportsdata.io/v3/lol/scores",
+      "No description provided",
+      new HashMap<String, ServerVariable>()
+    ),
+    new ServerConfiguration(
+      "https://azure-api.sportsdata.io/v3/lol/scores",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -100,6 +105,8 @@ public class ApiClient {
         initHttpClient();
 
         // Setup authentications (key: authentication name, value: authentication).
+        authentications.put("apiKeyHeader", new ApiKeyAuth("header", "Ocp-Apim-Subscription-Key"));
+        authentications.put("apiKeyQuery", new ApiKeyAuth("query", "key"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -115,6 +122,8 @@ public class ApiClient {
         httpClient = client;
 
         // Setup authentications (key: authentication name, value: authentication).
+        authentications.put("apiKeyHeader", new ApiKeyAuth("header", "Ocp-Apim-Subscription-Key"));
+        authentications.put("apiKeyQuery", new ApiKeyAuth("query", "key"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -156,7 +165,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g http://www.neowsapp.com
+     * @param basePath Base path of the URL (e.g http://azure-api.sportsdata.io/v3/lol/scores
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

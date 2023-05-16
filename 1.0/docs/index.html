@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>NeoWs - (Near Earth Object Web Service)</title>
+    <title>LoL v3 Scores</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,319 +179,58 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>NeoWs - (Near Earth Object Web Service)</h1>
-    <div class="app-desc"><p>A web service for near earth objects. All the data is from the <a href="http://neo.jpl.nasa.gov/" target="_blank">NASA JPL Asteroid team</a>.</p>
-<p>NeoWs is proud to power AsteroidTracker on <a href="https://itunes.apple.com/us/app/asteroid-tracker/id689684901?mt=8" target="_blank">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.vitruviussoftware.bunifish.asteroidtracker&feature" target="_blank">Android</a> as well as related apps.</p>
-<p>Follow us on <a href="https://twitter.com/AsteroidTracker" target="_blank">Twitter</a></p>
-</div>
+  <h1>LoL v3 Scores</h1>
+    <div class="app-desc">LoL v3 Scores</div>
     <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
     <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
     <div class="app-desc">Version: 1.0</div>
-    <div class="app-desc">BasePath:</div>
+    <div class="app-desc">BasePath:/v3/lol/scores</div>
     <div class="license-info">All rights reserved</div>
     <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
   <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:Ocp-Apim-Subscription-Key KeyInQuery:false KeyInHeader:true</li>
+      <li>APIKey KeyParamName:key KeyInQuery:true KeyInHeader:false</li>
+    </ol>
 
   <h2><a name="__Methods">Methods</a></h2>
   [ Jump to <a href="#__Models">Models</a> ]
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#Feed">Feed</a></h4>
+  <h4><a href="#Default">Default</a></h4>
   <ul>
-  <li><a href="#retrieveNEOFeedToday"><code><span class="http-method">get</span> /rest/v1/feed/today</code></a></li>
-  <li><a href="#retrieveNearEarthObjectFeed"><code><span class="http-method">get</span> /rest/v1/feed</code></a></li>
-  </ul>
-  <h4><a href="#Neo">Neo</a></h4>
-  <ul>
-  <li><a href="#browseNearEarthObjects"><code><span class="http-method">get</span> /rest/v1/neo/browse</code></a></li>
-  <li><a href="#retrieveNearEarthObjectById"><code><span class="http-method">get</span> /rest/v1/neo/{asteroid_id}</code></a></li>
-  </ul>
-  <h4><a href="#Neosentry">Neosentry</a></h4>
-  <ul>
-  <li><a href="#retrieveSentryRiskData"><code><span class="http-method">get</span> /rest/v1/neo/sentry</code></a></li>
-  <li><a href="#retrieveSentryRiskDataById"><code><span class="http-method">get</span> /rest/v1/neo/sentry/{asteroid_id}</code></a></li>
-  </ul>
-  <h4><a href="#Stats">Stats</a></h4>
-  <ul>
-  <li><a href="#retrieveCurrentNeoStatistics"><code><span class="http-method">get</span> /rest/v1/stats</code></a></li>
+  <li><a href="#areasCountries"><code><span class="http-method">get</span> /{format}/Areas</code></a></li>
+  <li><a href="#competitionFixturesLeagueDetails"><code><span class="http-method">get</span> /{format}/CompetitionDetails/{competitionid}</code></a></li>
+  <li><a href="#competitionsLeagues"><code><span class="http-method">get</span> /{format}/Competitions</code></a></li>
+  <li><a href="#gamesByDate"><code><span class="http-method">get</span> /{format}/GamesByDate/{date}</code></a></li>
+  <li><a href="#membershipsActive"><code><span class="http-method">get</span> /{format}/ActiveMemberships</code></a></li>
+  <li><a href="#membershipsByTeamActive"><code><span class="http-method">get</span> /{format}/MembershipsByTeam/{teamid}</code></a></li>
+  <li><a href="#membershipsByTeamHistorical"><code><span class="http-method">get</span> /{format}/HistoricalMembershipsByTeam/{teamid}</code></a></li>
+  <li><a href="#membershipsHistorical"><code><span class="http-method">get</span> /{format}/HistoricalMemberships</code></a></li>
+  <li><a href="#player"><code><span class="http-method">get</span> /{format}/Player/{playerid}</code></a></li>
+  <li><a href="#players"><code><span class="http-method">get</span> /{format}/Players</code></a></li>
+  <li><a href="#playersByTeam"><code><span class="http-method">get</span> /{format}/PlayersByTeam/{teamid}</code></a></li>
+  <li><a href="#schedule"><code><span class="http-method">get</span> /{format}/Schedule/{roundid}</code></a></li>
+  <li><a href="#seasonTeams"><code><span class="http-method">get</span> /{format}/SeasonTeams/{seasonid}</code></a></li>
+  <li><a href="#standings"><code><span class="http-method">get</span> /{format}/Standings/{roundid}</code></a></li>
+  <li><a href="#teams"><code><span class="http-method">get</span> /{format}/Teams</code></a></li>
+  <li><a href="#venues"><code><span class="http-method">get</span> /{format}/Venues</code></a></li>
   </ul>
 
-  <h1><a name="Feed">Feed</a></h1>
-  <div class="method"><a name="retrieveNEOFeedToday"/>
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="areasCountries"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /rest/v1/feed/today</code></pre></div>
-    <div class="method-summary">Find Near Earth Objects for today (<span class="nickname">retrieveNEOFeedToday</span>)</div>
-    <div class="method-notes">Get a list of Near Earth Objects for today</div>
-
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">detailed (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; detailed default: null </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#NearEarthObjectList">NearEarthObjectList</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "near_earth_objects" : "",
-  "element_count" : 0,
-  "links" : "{}"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    OK
-        <a href="#NearEarthObjectList">NearEarthObjectList</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">403</h4>
-    Forbidden
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="retrieveNearEarthObjectFeed"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /rest/v1/feed</code></pre></div>
-    <div class="method-summary">Find Near Earth Objects by date (<span class="nickname">retrieveNearEarthObjectFeed</span>)</div>
-    <div class="method-notes">Get a list of Near Earth Objects within a date range, The max range in one query is 7 days</div>
-
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">start_date (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start of date range search, format: yyyy-MM-dd - (ex: 2015-04-28) default: null </div><div class="param">end_date (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End of date range search, format: yyyy-MM-dd - (ex: 2015-04-28). If left off search will extends 7 days from start_date default: null </div><div class="param">detailed (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; detailed default: null </div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#NearEarthObjectList">NearEarthObjectList</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "near_earth_objects" : "",
-  "element_count" : 0,
-  "links" : "{}"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    OK
-        <a href="#NearEarthObjectList">NearEarthObjectList</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">403</h4>
-    Forbidden
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <h1><a name="Neo">Neo</a></h1>
-  <div class="method"><a name="browseNearEarthObjects"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /rest/v1/neo/browse</code></pre></div>
-    <div class="method-summary">Browse the Near Earth Objects service (<span class="nickname">browseNearEarthObjects</span>)</div>
-    <div class="method-notes">Retieve a paginated list of Near Earth Objects</div>
-
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">page (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; page default: 0 format: int32</div><div class="param">size (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; size default: 20 format: int32</div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#NearEarthObject">NearEarthObject</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "estimated_diameter" : {
-    "feet" : {
-      "estimated_diameter_max" : 1.4658129805029452,
-      "estimated_diameter_min" : 5.962133916683182
-    },
-    "kilometers" : {
-      "estimated_diameter_max" : 1.4658129805029452,
-      "estimated_diameter_min" : 5.962133916683182
-    },
-    "meters" : {
-      "estimated_diameter_max" : 1.4658129805029452,
-      "estimated_diameter_min" : 5.962133916683182
-    },
-    "miles" : {
-      "estimated_diameter_max" : 1.4658129805029452,
-      "estimated_diameter_min" : 5.962133916683182
-    }
-  },
-  "is_potentially_hazardous_asteroid" : true,
-  "nasa_jpl_url" : "nasa_jpl_url",
-  "neo_reference_id" : "neo_reference_id",
-  "orbital_data" : {
-    "inclination" : "inclination",
-    "mean_anomaly" : "mean_anomaly",
-    "minimum_orbit_intersection" : "minimum_orbit_intersection",
-    "orbit_determination_date" : "orbit_determination_date",
-    "perihelion_argument" : "perihelion_argument",
-    "orbit_class" : {
-      "orbit_class_description" : "orbit_class_description",
-      "orbit_class_range" : "orbit_class_range",
-      "orbit_class_type" : "IEO"
-    },
-    "aphelion_distance" : "aphelion_distance",
-    "eccentricity" : "eccentricity",
-    "last_observation_date" : "last_observation_date",
-    "perihelion_distance" : "perihelion_distance",
-    "perihelion_time" : "perihelion_time",
-    "first_observation_date" : "first_observation_date",
-    "data_arc_in_days" : 5,
-    "orbit_id" : "orbit_id",
-    "jupiter_tisserand_invariant" : "jupiter_tisserand_invariant",
-    "orbital_period" : "orbital_period",
-    "semi_major_axis" : "semi_major_axis",
-    "epoch_osculation" : "epoch_osculation",
-    "orbit_uncertainty" : "orbit_uncertainty",
-    "ascending_node_longitude" : "ascending_node_longitude",
-    "mean_motion" : "mean_motion",
-    "equinox" : "equinox",
-    "observations_used" : 2
-  },
-  "is_sentry_object" : true,
-  "name_limited" : "name_limited",
-  "name" : "name",
-  "absolute_magnitude_h" : 0.8008281904610115,
-  "sentry_data" : "sentry_data",
-  "designation" : "designation",
-  "close_approach_data" : [ {
-    "relative_velocity" : {
-      "kilometers_per_hour" : "kilometers_per_hour",
-      "miles_per_hour" : "miles_per_hour"
-    },
-    "orbiting_body" : "orbiting_body",
-    "close_approach_date" : "close_approach_date",
-    "epoch_date_close_approach" : 6,
-    "close_approach_date_full" : "close_approach_date_full",
-    "miss_distance" : {
-      "astronomical" : "astronomical",
-      "kilometers" : "kilometers",
-      "lunar" : "lunar",
-      "miles" : "miles"
-    }
-  }, {
-    "relative_velocity" : {
-      "kilometers_per_hour" : "kilometers_per_hour",
-      "miles_per_hour" : "miles_per_hour"
-    },
-    "orbiting_body" : "orbiting_body",
-    "close_approach_date" : "close_approach_date",
-    "epoch_date_close_approach" : 6,
-    "close_approach_date_full" : "close_approach_date_full",
-    "miss_distance" : {
-      "astronomical" : "astronomical",
-      "kilometers" : "kilometers",
-      "lunar" : "lunar",
-      "miles" : "miles"
-    }
-  } ]
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    OK
-        <a href="#NearEarthObject">NearEarthObject</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">403</h4>
-    Forbidden
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="retrieveNearEarthObjectById"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /rest/v1/neo/{asteroid_id}</code></pre></div>
-    <div class="method-summary">Find Near Earth Objects by id (<span class="nickname">retrieveNearEarthObjectById</span>)</div>
-    <div class="method-notes">Retrieve a Near Earth Objects with a given id</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Areas</code></pre></div>
+    <div class="method-summary">Areas (Countries) (<span class="nickname">areasCountries</span>)</div>
+    <div class="method-notes">Areas (Countries)</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">asteroid_id (required)</div>
+      <div class="param">format (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of Near Earth Object - (ex: 3729835) default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
     </div>  <!-- field-items -->
 
 
@@ -501,7 +240,7 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#NearEarthObject">NearEarthObject</a>
+      array[<a href="#Area">Area</a>]
       
     </div>
 
@@ -509,95 +248,15 @@ font-style: italic;
 
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "estimated_diameter" : {
-    "feet" : {
-      "estimated_diameter_max" : 1.4658129805029452,
-      "estimated_diameter_min" : 5.962133916683182
-    },
-    "kilometers" : {
-      "estimated_diameter_max" : 1.4658129805029452,
-      "estimated_diameter_min" : 5.962133916683182
-    },
-    "meters" : {
-      "estimated_diameter_max" : 1.4658129805029452,
-      "estimated_diameter_min" : 5.962133916683182
-    },
-    "miles" : {
-      "estimated_diameter_max" : 1.4658129805029452,
-      "estimated_diameter_min" : 5.962133916683182
-    }
-  },
-  "is_potentially_hazardous_asteroid" : true,
-  "nasa_jpl_url" : "nasa_jpl_url",
-  "neo_reference_id" : "neo_reference_id",
-  "orbital_data" : {
-    "inclination" : "inclination",
-    "mean_anomaly" : "mean_anomaly",
-    "minimum_orbit_intersection" : "minimum_orbit_intersection",
-    "orbit_determination_date" : "orbit_determination_date",
-    "perihelion_argument" : "perihelion_argument",
-    "orbit_class" : {
-      "orbit_class_description" : "orbit_class_description",
-      "orbit_class_range" : "orbit_class_range",
-      "orbit_class_type" : "IEO"
-    },
-    "aphelion_distance" : "aphelion_distance",
-    "eccentricity" : "eccentricity",
-    "last_observation_date" : "last_observation_date",
-    "perihelion_distance" : "perihelion_distance",
-    "perihelion_time" : "perihelion_time",
-    "first_observation_date" : "first_observation_date",
-    "data_arc_in_days" : 5,
-    "orbit_id" : "orbit_id",
-    "jupiter_tisserand_invariant" : "jupiter_tisserand_invariant",
-    "orbital_period" : "orbital_period",
-    "semi_major_axis" : "semi_major_axis",
-    "epoch_osculation" : "epoch_osculation",
-    "orbit_uncertainty" : "orbit_uncertainty",
-    "ascending_node_longitude" : "ascending_node_longitude",
-    "mean_motion" : "mean_motion",
-    "equinox" : "equinox",
-    "observations_used" : 2
-  },
-  "is_sentry_object" : true,
-  "name_limited" : "name_limited",
-  "name" : "name",
-  "absolute_magnitude_h" : 0.8008281904610115,
-  "sentry_data" : "sentry_data",
-  "designation" : "designation",
-  "close_approach_data" : [ {
-    "relative_velocity" : {
-      "kilometers_per_hour" : "kilometers_per_hour",
-      "miles_per_hour" : "miles_per_hour"
-    },
-    "orbiting_body" : "orbiting_body",
-    "close_approach_date" : "close_approach_date",
-    "epoch_date_close_approach" : 6,
-    "close_approach_date_full" : "close_approach_date_full",
-    "miss_distance" : {
-      "astronomical" : "astronomical",
-      "kilometers" : "kilometers",
-      "lunar" : "lunar",
-      "miles" : "miles"
-    }
-  }, {
-    "relative_velocity" : {
-      "kilometers_per_hour" : "kilometers_per_hour",
-      "miles_per_hour" : "miles_per_hour"
-    },
-    "orbiting_body" : "orbiting_body",
-    "close_approach_date" : "close_approach_date",
-    "epoch_date_close_approach" : 6,
-    "close_approach_date_full" : "close_approach_date_full",
-    "miss_distance" : {
-      "astronomical" : "astronomical",
-      "kilometers" : "kilometers",
-      "lunar" : "lunar",
-      "miles" : "miles"
-    }
-  } ]
-}</code></pre>
+    <pre class="example"><code>[ {
+  "AreaId" : 0,
+  "CountryCode" : "CountryCode",
+  "Name" : "Name"
+}, {
+  "AreaId" : 0,
+  "CountryCode" : "CountryCode",
+  "Name" : "Name"
+} ]</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -608,136 +267,24 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    OK
-        <a href="#NearEarthObject">NearEarthObject</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">403</h4>
-    Forbidden
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
+    
+        
   </div> <!-- method -->
   <hr/>
-  <h1><a name="Neosentry">Neosentry</a></h1>
-  <div class="method"><a name="retrieveSentryRiskData"/>
+  <div class="method"><a name="competitionFixturesLeagueDetails"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /rest/v1/neo/sentry</code></pre></div>
-    <div class="method-summary">Retrieve Sentry (Impact Risk ) Near Earth Objects (<span class="nickname">retrieveSentryRiskData</span>)</div>
-    <div class="method-notes">Retrieves Near Earth Objects listed in the NASA sentry data set</div>
-
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">is_active (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; show current list of Sentry objects, or show removed Sentry objects default: true </div><div class="param">page (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; page default: 0 format: int32</div><div class="param">size (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; size default: 50 format: int32</div>
-    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#SentryObjectPagingDto">SentryObjectPagingDto</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "links" : "{}",
-  "page" : {
-    "number" : 0,
-    "size" : 6,
-    "total_elements" : 1,
-    "total_pages" : 5
-  },
-  "sentry_objects" : [ {
-    "estimated_diameter" : "estimated_diameter",
-    "is_active_sentry_object" : true,
-    "v_infinity" : "v_infinity",
-    "palermo_scale_ave" : "palermo_scale_ave",
-    "removal_date" : "removal_date",
-    "year_range_max" : "year_range_max",
-    "absolute_magnitude" : "absolute_magnitude",
-    "last_obs_jd" : "last_obs_jd",
-    "year_range_min" : "year_range_min",
-    "Palermo_scale_max" : "Palermo_scale_max",
-    "potential_impacts" : "potential_impacts",
-    "sentryId" : "sentryId",
-    "average_lunar_distance" : 5.637376656633329,
-    "designation" : "designation",
-    "fullname" : "fullname",
-    "torino_scale" : "torino_scale",
-    "impact_probability" : "impact_probability",
-    "last_obs" : "last_obs"
-  }, {
-    "estimated_diameter" : "estimated_diameter",
-    "is_active_sentry_object" : true,
-    "v_infinity" : "v_infinity",
-    "palermo_scale_ave" : "palermo_scale_ave",
-    "removal_date" : "removal_date",
-    "year_range_max" : "year_range_max",
-    "absolute_magnitude" : "absolute_magnitude",
-    "last_obs_jd" : "last_obs_jd",
-    "year_range_min" : "year_range_min",
-    "Palermo_scale_max" : "Palermo_scale_max",
-    "potential_impacts" : "potential_impacts",
-    "sentryId" : "sentryId",
-    "average_lunar_distance" : 5.637376656633329,
-    "designation" : "designation",
-    "fullname" : "fullname",
-    "torino_scale" : "torino_scale",
-    "impact_probability" : "impact_probability",
-    "last_obs" : "last_obs"
-  } ]
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    OK
-        <a href="#SentryObjectPagingDto">SentryObjectPagingDto</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">403</h4>
-    Forbidden
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="retrieveSentryRiskDataById"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /rest/v1/neo/sentry/{asteroid_id}</code></pre></div>
-    <div class="method-summary">Retrieve Sentry (Impact Risk ) Near Earth Objectby ID (<span class="nickname">retrieveSentryRiskDataById</span>)</div>
-    <div class="method-notes">Retrieves Sentry Near Earth Object by ID</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/CompetitionDetails/{competitionid}</code></pre></div>
+    <div class="method-summary">Competition Fixtures (League Details) (<span class="nickname">competitionFixturesLeagueDetails</span>)</div>
+    <div class="method-notes">Competition Fixtures (League Details)</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">asteroid_id (required)</div>
+      <div class="param">format (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of NearEarth object.  ID can be SPK_ID, Asteroid des (designation) or Sentry ID default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">competitionid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; A LoL competition/league unique CompetitionId. Possible values include: <code>100000009</code>, etc. default: null </div>
     </div>  <!-- field-items -->
 
 
@@ -747,7 +294,7 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#SentryImpactRiskObject">SentryImpactRiskObject</a>
+      <a href="#CompetitionDetail">CompetitionDetail</a>
       
     </div>
 
@@ -756,24 +303,272 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "estimated_diameter" : "estimated_diameter",
-  "is_active_sentry_object" : true,
-  "v_infinity" : "v_infinity",
-  "palermo_scale_ave" : "palermo_scale_ave",
-  "removal_date" : "removal_date",
-  "year_range_max" : "year_range_max",
-  "absolute_magnitude" : "absolute_magnitude",
-  "last_obs_jd" : "last_obs_jd",
-  "year_range_min" : "year_range_min",
-  "Palermo_scale_max" : "Palermo_scale_max",
-  "potential_impacts" : "potential_impacts",
-  "sentryId" : "sentryId",
-  "average_lunar_distance" : 5.637376656633329,
-  "designation" : "designation",
-  "fullname" : "fullname",
-  "torino_scale" : "torino_scale",
-  "impact_probability" : "impact_probability",
-  "last_obs" : "last_obs"
+  "AreaName" : "AreaName",
+  "PlayerStatsCoverage" : true,
+  "Type" : "Type",
+  "Format" : "Format",
+  "CurrentSeason" : {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  },
+  "Games" : [ {
+    "Group" : "Group",
+    "TeamAKey" : "TeamAKey",
+    "TeamAMoneyLine" : 1,
+    "IsClosed" : true,
+    "TeamBMoneyLine" : 9,
+    "DateTime" : "DateTime",
+    "TeamBId" : 9,
+    "TeamAName" : "TeamAName",
+    "DrawMoneyLine" : 4,
+    "TeamAScore" : 5,
+    "Season" : 1,
+    "BestOf" : "BestOf",
+    "TeamBName" : "TeamBName",
+    "Status" : "Status",
+    "RoundId" : 1,
+    "Updated" : "Updated",
+    "TeamBPointSpreadPayout" : 6,
+    "TeamBKey" : "TeamBKey",
+    "Winner" : "Winner",
+    "TeamAId" : 7,
+    "SeasonType" : 6,
+    "PointSpread" : 1.2315135367772556,
+    "TeamAPointSpreadPayout" : 4,
+    "VenueType" : "VenueType",
+    "UpdatedUtc" : "UpdatedUtc",
+    "VenueId" : 9,
+    "Day" : "Day",
+    "Week" : 6,
+    "GameId" : 7,
+    "TeamBScore" : 8
+  }, {
+    "Group" : "Group",
+    "TeamAKey" : "TeamAKey",
+    "TeamAMoneyLine" : 1,
+    "IsClosed" : true,
+    "TeamBMoneyLine" : 9,
+    "DateTime" : "DateTime",
+    "TeamBId" : 9,
+    "TeamAName" : "TeamAName",
+    "DrawMoneyLine" : 4,
+    "TeamAScore" : 5,
+    "Season" : 1,
+    "BestOf" : "BestOf",
+    "TeamBName" : "TeamBName",
+    "Status" : "Status",
+    "RoundId" : 1,
+    "Updated" : "Updated",
+    "TeamBPointSpreadPayout" : 6,
+    "TeamBKey" : "TeamBKey",
+    "Winner" : "Winner",
+    "TeamAId" : 7,
+    "SeasonType" : 6,
+    "PointSpread" : 1.2315135367772556,
+    "TeamAPointSpreadPayout" : 4,
+    "VenueType" : "VenueType",
+    "UpdatedUtc" : "UpdatedUtc",
+    "VenueId" : 9,
+    "Day" : "Day",
+    "Week" : 6,
+    "GameId" : 7,
+    "TeamBScore" : 8
+  } ],
+  "AreaId" : 0,
+  "Teams" : [ {
+    "Email" : "Email",
+    "Founded" : 6,
+    "AreaId" : 3,
+    "Twitter" : "Twitter",
+    "Website" : "Website",
+    "ShortName" : "ShortName",
+    "TertiaryColor" : "TertiaryColor",
+    "Gender" : "Gender",
+    "TeamId" : 2,
+    "YouTube" : "YouTube",
+    "Name" : "Name",
+    "AreaName" : "AreaName",
+    "Active" : true,
+    "Type" : "Type",
+    "PrimaryColor" : "PrimaryColor",
+    "SecondaryColor" : "SecondaryColor",
+    "Instagram" : "Instagram",
+    "Facebook" : "Facebook",
+    "Key" : "Key",
+    "QuaternaryColor" : "QuaternaryColor",
+    "Players" : [ {
+      "PlayerId" : 1,
+      "Updated" : "Updated",
+      "Position" : "Position",
+      "FirstName" : "FirstName",
+      "BirthCity" : "BirthCity",
+      "MatchName" : "MatchName",
+      "Gender" : "Gender",
+      "LastName" : "LastName",
+      "BirthCountry" : "BirthCountry",
+      "Nationality" : "Nationality",
+      "BirthDate" : "BirthDate",
+      "CommonName" : "CommonName"
+    }, {
+      "PlayerId" : 1,
+      "Updated" : "Updated",
+      "Position" : "Position",
+      "FirstName" : "FirstName",
+      "BirthCity" : "BirthCity",
+      "MatchName" : "MatchName",
+      "Gender" : "Gender",
+      "LastName" : "LastName",
+      "BirthCountry" : "BirthCountry",
+      "Nationality" : "Nationality",
+      "BirthDate" : "BirthDate",
+      "CommonName" : "CommonName"
+    } ]
+  }, {
+    "Email" : "Email",
+    "Founded" : 6,
+    "AreaId" : 3,
+    "Twitter" : "Twitter",
+    "Website" : "Website",
+    "ShortName" : "ShortName",
+    "TertiaryColor" : "TertiaryColor",
+    "Gender" : "Gender",
+    "TeamId" : 2,
+    "YouTube" : "YouTube",
+    "Name" : "Name",
+    "AreaName" : "AreaName",
+    "Active" : true,
+    "Type" : "Type",
+    "PrimaryColor" : "PrimaryColor",
+    "SecondaryColor" : "SecondaryColor",
+    "Instagram" : "Instagram",
+    "Facebook" : "Facebook",
+    "Key" : "Key",
+    "QuaternaryColor" : "QuaternaryColor",
+    "Players" : [ {
+      "PlayerId" : 1,
+      "Updated" : "Updated",
+      "Position" : "Position",
+      "FirstName" : "FirstName",
+      "BirthCity" : "BirthCity",
+      "MatchName" : "MatchName",
+      "Gender" : "Gender",
+      "LastName" : "LastName",
+      "BirthCountry" : "BirthCountry",
+      "Nationality" : "Nationality",
+      "BirthDate" : "BirthDate",
+      "CommonName" : "CommonName"
+    }, {
+      "PlayerId" : 1,
+      "Updated" : "Updated",
+      "Position" : "Position",
+      "FirstName" : "FirstName",
+      "BirthCity" : "BirthCity",
+      "MatchName" : "MatchName",
+      "Gender" : "Gender",
+      "LastName" : "LastName",
+      "BirthCountry" : "BirthCountry",
+      "Nationality" : "Nationality",
+      "BirthDate" : "BirthDate",
+      "CommonName" : "CommonName"
+    } ]
+  } ],
+  "Gender" : "Gender",
+  "Seasons" : [ {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  }, {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  } ],
+  "CompetitionId" : 6,
+  "Name" : "Name"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -785,27 +580,23 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    OK
-        <a href="#SentryImpactRiskObject">SentryImpactRiskObject</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">403</h4>
-    Forbidden
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
+    
+        <a href="#CompetitionDetail">CompetitionDetail</a>
   </div> <!-- method -->
   <hr/>
-  <h1><a name="Stats">Stats</a></h1>
-  <div class="method"><a name="retrieveCurrentNeoStatistics"/>
+  <div class="method"><a name="competitionsLeagues"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /rest/v1/stats</code></pre></div>
-    <div class="method-summary">Get the Near Earth Object data set totals (<span class="nickname">retrieveCurrentNeoStatistics</span>)</div>
-    <div class="method-notes">retrieveCurrentNeoStatistics</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Competitions</code></pre></div>
+    <div class="method-summary">Competitions (Leagues) (<span class="nickname">competitionsLeagues</span>)</div>
+    <div class="method-notes">Competitions (Leagues)</div>
 
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
 
 
 
@@ -814,7 +605,581 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#Statistics">Statistics</a>
+      array[<a href="#Competition">Competition</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "AreaName" : "AreaName",
+  "PlayerStatsCoverage" : true,
+  "Type" : "Type",
+  "Format" : "Format",
+  "AreaId" : 0,
+  "Gender" : "Gender",
+  "Seasons" : [ {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  }, {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  } ],
+  "CompetitionId" : 6,
+  "Name" : "Name"
+}, {
+  "AreaName" : "AreaName",
+  "PlayerStatsCoverage" : true,
+  "Type" : "Type",
+  "Format" : "Format",
+  "AreaId" : 0,
+  "Gender" : "Gender",
+  "Seasons" : [ {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  }, {
+    "StartDate" : "StartDate",
+    "Rounds" : [ {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    }, {
+      "StartDate" : "StartDate",
+      "Type" : "Type",
+      "SeasonType" : 9,
+      "RoundId" : 5,
+      "CurrentRound" : true,
+      "SeasonId" : 7,
+      "CurrentWeek" : 5,
+      "Season" : 2,
+      "EndDate" : "EndDate",
+      "Name" : "Name"
+    } ],
+    "CurrentSeason" : true,
+    "CompetitionName" : "CompetitionName",
+    "SeasonId" : 2,
+    "Season" : 3,
+    "CompetitionId" : 1,
+    "EndDate" : "EndDate",
+    "Name" : "Name"
+  } ],
+  "CompetitionId" : 6,
+  "Name" : "Name"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="gamesByDate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/GamesByDate/{date}</code></pre></div>
+    <div class="method-summary">Games by Date (<span class="nickname">gamesByDate</span>)</div>
+    <div class="method-notes">Games by Date</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">date (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The date of the game(s).
+<br>Examples: <code>2018-01-13</code>, <code>2018-06-13</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Game">Game</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Group" : "Group",
+  "TeamAKey" : "TeamAKey",
+  "TeamAMoneyLine" : 1,
+  "IsClosed" : true,
+  "TeamBMoneyLine" : 9,
+  "DateTime" : "DateTime",
+  "TeamBId" : 9,
+  "TeamAName" : "TeamAName",
+  "DrawMoneyLine" : 4,
+  "TeamAScore" : 5,
+  "Season" : 1,
+  "BestOf" : "BestOf",
+  "TeamBName" : "TeamBName",
+  "Status" : "Status",
+  "RoundId" : 1,
+  "Updated" : "Updated",
+  "TeamBPointSpreadPayout" : 6,
+  "TeamBKey" : "TeamBKey",
+  "Winner" : "Winner",
+  "TeamAId" : 7,
+  "SeasonType" : 6,
+  "PointSpread" : 1.2315135367772556,
+  "TeamAPointSpreadPayout" : 4,
+  "VenueType" : "VenueType",
+  "UpdatedUtc" : "UpdatedUtc",
+  "VenueId" : 9,
+  "Day" : "Day",
+  "Week" : 6,
+  "GameId" : 7,
+  "TeamBScore" : 8
+}, {
+  "Group" : "Group",
+  "TeamAKey" : "TeamAKey",
+  "TeamAMoneyLine" : 1,
+  "IsClosed" : true,
+  "TeamBMoneyLine" : 9,
+  "DateTime" : "DateTime",
+  "TeamBId" : 9,
+  "TeamAName" : "TeamAName",
+  "DrawMoneyLine" : 4,
+  "TeamAScore" : 5,
+  "Season" : 1,
+  "BestOf" : "BestOf",
+  "TeamBName" : "TeamBName",
+  "Status" : "Status",
+  "RoundId" : 1,
+  "Updated" : "Updated",
+  "TeamBPointSpreadPayout" : 6,
+  "TeamBKey" : "TeamBKey",
+  "Winner" : "Winner",
+  "TeamAId" : 7,
+  "SeasonType" : 6,
+  "PointSpread" : 1.2315135367772556,
+  "TeamAPointSpreadPayout" : 4,
+  "VenueType" : "VenueType",
+  "UpdatedUtc" : "UpdatedUtc",
+  "VenueId" : 9,
+  "Day" : "Day",
+  "Week" : 6,
+  "GameId" : 7,
+  "TeamBScore" : 8
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="membershipsActive"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/ActiveMemberships</code></pre></div>
+    <div class="method-summary">Memberships (Active) (<span class="nickname">membershipsActive</span>)</div>
+    <div class="method-notes">Memberships (Active)</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Membership">Membership</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+}, {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="membershipsByTeamActive"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/MembershipsByTeam/{teamid}</code></pre></div>
+    <div class="method-summary">Memberships by Team (Active) (<span class="nickname">membershipsByTeamActive</span>)</div>
+    <div class="method-notes">Memberships by Team (Active)</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">teamid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Team ID.
+Example:<code>100000001</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Membership">Membership</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+}, {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="membershipsByTeamHistorical"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/HistoricalMembershipsByTeam/{teamid}</code></pre></div>
+    <div class="method-summary">Memberships by Team (Historical) (<span class="nickname">membershipsByTeamHistorical</span>)</div>
+    <div class="method-notes">Memberships by Team (Historical)</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">teamid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Team ID.
+Example:<code>100000001</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Membership">Membership</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+}, {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="membershipsHistorical"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/HistoricalMemberships</code></pre></div>
+    <div class="method-summary">Memberships (Historical) (<span class="nickname">membershipsHistorical</span>)</div>
+    <div class="method-notes">Memberships (Historical)</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Membership">Membership</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+}, {
+  "StartDate" : "StartDate",
+  "PlayerId" : 6,
+  "Active" : true,
+  "Updated" : "Updated",
+  "MembershipId" : 0,
+  "PlayerName" : "PlayerName",
+  "TeamArea" : "TeamArea",
+  "TeamName" : "TeamName",
+  "TeamId" : 1,
+  "EndDate" : "EndDate"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="player"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Player/{playerid}</code></pre></div>
+    <div class="method-summary">Player (<span class="nickname">player</span>)</div>
+    <div class="method-notes">Player</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">playerid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Player ID.
+Example:<code>100000576</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Player">Player</a>
       
     </div>
 
@@ -823,23 +1188,18 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "last_updated" : "last_updated",
-  "nasa_jpl_url" : {
-    "defaultPort" : 6,
-    "path" : "path",
-    "userInfo" : "userInfo",
-    "protocol" : "protocol",
-    "ref" : "ref",
-    "file" : "file",
-    "port" : 1,
-    "authority" : "authority",
-    "query" : "query",
-    "host" : "host",
-    "content" : "{}"
-  },
-  "near_earth_object_count" : 5,
-  "source" : "source",
-  "close_approach_count" : 0
+  "PlayerId" : 1,
+  "Updated" : "Updated",
+  "Position" : "Position",
+  "FirstName" : "FirstName",
+  "BirthCity" : "BirthCity",
+  "MatchName" : "MatchName",
+  "Gender" : "Gender",
+  "LastName" : "LastName",
+  "BirthCountry" : "BirthCountry",
+  "Nationality" : "Nationality",
+  "BirthDate" : "BirthDate",
+  "CommonName" : "CommonName"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -851,17 +1211,600 @@ font-style: italic;
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    OK
-        <a href="#Statistics">Statistics</a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">403</h4>
-    Forbidden
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
+    
+        <a href="#Player">Player</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="players"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Players</code></pre></div>
+    <div class="method-summary">Players (<span class="nickname">players</span>)</div>
+    <div class="method-notes">Players</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Player">Player</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "PlayerId" : 1,
+  "Updated" : "Updated",
+  "Position" : "Position",
+  "FirstName" : "FirstName",
+  "BirthCity" : "BirthCity",
+  "MatchName" : "MatchName",
+  "Gender" : "Gender",
+  "LastName" : "LastName",
+  "BirthCountry" : "BirthCountry",
+  "Nationality" : "Nationality",
+  "BirthDate" : "BirthDate",
+  "CommonName" : "CommonName"
+}, {
+  "PlayerId" : 1,
+  "Updated" : "Updated",
+  "Position" : "Position",
+  "FirstName" : "FirstName",
+  "BirthCity" : "BirthCity",
+  "MatchName" : "MatchName",
+  "Gender" : "Gender",
+  "LastName" : "LastName",
+  "BirthCountry" : "BirthCountry",
+  "Nationality" : "Nationality",
+  "BirthDate" : "BirthDate",
+  "CommonName" : "CommonName"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="playersByTeam"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/PlayersByTeam/{teamid}</code></pre></div>
+    <div class="method-summary">Players by Team (<span class="nickname">playersByTeam</span>)</div>
+    <div class="method-notes">Players by Team</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">teamid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Team ID.
+Example:<code>100000001</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Player">Player</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "PlayerId" : 1,
+  "Updated" : "Updated",
+  "Position" : "Position",
+  "FirstName" : "FirstName",
+  "BirthCity" : "BirthCity",
+  "MatchName" : "MatchName",
+  "Gender" : "Gender",
+  "LastName" : "LastName",
+  "BirthCountry" : "BirthCountry",
+  "Nationality" : "Nationality",
+  "BirthDate" : "BirthDate",
+  "CommonName" : "CommonName"
+}, {
+  "PlayerId" : 1,
+  "Updated" : "Updated",
+  "Position" : "Position",
+  "FirstName" : "FirstName",
+  "BirthCity" : "BirthCity",
+  "MatchName" : "MatchName",
+  "Gender" : "Gender",
+  "LastName" : "LastName",
+  "BirthCountry" : "BirthCountry",
+  "Nationality" : "Nationality",
+  "BirthDate" : "BirthDate",
+  "CommonName" : "CommonName"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="schedule"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Schedule/{roundid}</code></pre></div>
+    <div class="method-summary">Schedule (<span class="nickname">schedule</span>)</div>
+    <div class="method-notes">Schedule</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">roundid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.
+Examples: <code>100000138</code>, <code>1000001412</code>, etc default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Game">Game</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Group" : "Group",
+  "TeamAKey" : "TeamAKey",
+  "TeamAMoneyLine" : 1,
+  "IsClosed" : true,
+  "TeamBMoneyLine" : 9,
+  "DateTime" : "DateTime",
+  "TeamBId" : 9,
+  "TeamAName" : "TeamAName",
+  "DrawMoneyLine" : 4,
+  "TeamAScore" : 5,
+  "Season" : 1,
+  "BestOf" : "BestOf",
+  "TeamBName" : "TeamBName",
+  "Status" : "Status",
+  "RoundId" : 1,
+  "Updated" : "Updated",
+  "TeamBPointSpreadPayout" : 6,
+  "TeamBKey" : "TeamBKey",
+  "Winner" : "Winner",
+  "TeamAId" : 7,
+  "SeasonType" : 6,
+  "PointSpread" : 1.2315135367772556,
+  "TeamAPointSpreadPayout" : 4,
+  "VenueType" : "VenueType",
+  "UpdatedUtc" : "UpdatedUtc",
+  "VenueId" : 9,
+  "Day" : "Day",
+  "Week" : 6,
+  "GameId" : 7,
+  "TeamBScore" : 8
+}, {
+  "Group" : "Group",
+  "TeamAKey" : "TeamAKey",
+  "TeamAMoneyLine" : 1,
+  "IsClosed" : true,
+  "TeamBMoneyLine" : 9,
+  "DateTime" : "DateTime",
+  "TeamBId" : 9,
+  "TeamAName" : "TeamAName",
+  "DrawMoneyLine" : 4,
+  "TeamAScore" : 5,
+  "Season" : 1,
+  "BestOf" : "BestOf",
+  "TeamBName" : "TeamBName",
+  "Status" : "Status",
+  "RoundId" : 1,
+  "Updated" : "Updated",
+  "TeamBPointSpreadPayout" : 6,
+  "TeamBKey" : "TeamBKey",
+  "Winner" : "Winner",
+  "TeamAId" : 7,
+  "SeasonType" : 6,
+  "PointSpread" : 1.2315135367772556,
+  "TeamAPointSpreadPayout" : 4,
+  "VenueType" : "VenueType",
+  "UpdatedUtc" : "UpdatedUtc",
+  "VenueId" : 9,
+  "Day" : "Day",
+  "Week" : 6,
+  "GameId" : 7,
+  "TeamBScore" : 8
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="seasonTeams"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/SeasonTeams/{seasonid}</code></pre></div>
+    <div class="method-summary">Season Teams (<span class="nickname">seasonTeams</span>)</div>
+    <div class="method-notes">Season Teams</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">seasonid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Season ID. SeasonIDs can be found in the Competitions and Competition Details endpoints.
+Examples: <code>100000023</code>, <code>100000024</code>, etc default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#SeasonTeam">SeasonTeam</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Active" : true,
+  "Type" : "Type",
+  "SeasonTeamId" : 6,
+  "Team" : {
+    "Email" : "Email",
+    "Founded" : 5,
+    "AreaId" : 1,
+    "Twitter" : "Twitter",
+    "Website" : "Website",
+    "ShortName" : "ShortName",
+    "TertiaryColor" : "TertiaryColor",
+    "Gender" : "Gender",
+    "TeamId" : 5,
+    "YouTube" : "YouTube",
+    "Name" : "Name",
+    "AreaName" : "AreaName",
+    "Active" : true,
+    "Type" : "Type",
+    "PrimaryColor" : "PrimaryColor",
+    "SecondaryColor" : "SecondaryColor",
+    "Instagram" : "Instagram",
+    "Facebook" : "Facebook",
+    "Key" : "Key",
+    "QuaternaryColor" : "QuaternaryColor"
+  },
+  "Gender" : "Gender",
+  "SeasonId" : 0,
+  "TeamName" : "TeamName",
+  "TeamId" : 2
+}, {
+  "Active" : true,
+  "Type" : "Type",
+  "SeasonTeamId" : 6,
+  "Team" : {
+    "Email" : "Email",
+    "Founded" : 5,
+    "AreaId" : 1,
+    "Twitter" : "Twitter",
+    "Website" : "Website",
+    "ShortName" : "ShortName",
+    "TertiaryColor" : "TertiaryColor",
+    "Gender" : "Gender",
+    "TeamId" : 5,
+    "YouTube" : "YouTube",
+    "Name" : "Name",
+    "AreaName" : "AreaName",
+    "Active" : true,
+    "Type" : "Type",
+    "PrimaryColor" : "PrimaryColor",
+    "SecondaryColor" : "SecondaryColor",
+    "Instagram" : "Instagram",
+    "Facebook" : "Facebook",
+    "Key" : "Key",
+    "QuaternaryColor" : "QuaternaryColor"
+  },
+  "Gender" : "Gender",
+  "SeasonId" : 0,
+  "TeamName" : "TeamName",
+  "TeamId" : 2
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="standings"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Standings/{roundid}</code></pre></div>
+    <div class="method-summary">Standings (<span class="nickname">standings</span>)</div>
+    <div class="method-notes">Standings</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div><div class="param">roundid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.
+Example: <code>100000138</code>, etc default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Standing">Standing</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Order" : 1,
+  "Group" : "Group",
+  "RoundId" : 5,
+  "ScoreDifference" : 7,
+  "TeamId" : 2,
+  "Name" : "Name",
+  "Points" : 5,
+  "Losses" : 6,
+  "StandingId" : 3,
+  "Games" : 0,
+  "ScoreAgainst" : 2,
+  "ScoreFor" : 9,
+  "Wins" : 4
+}, {
+  "Order" : 1,
+  "Group" : "Group",
+  "RoundId" : 5,
+  "ScoreDifference" : 7,
+  "TeamId" : 2,
+  "Name" : "Name",
+  "Points" : 5,
+  "Losses" : 6,
+  "StandingId" : 3,
+  "Games" : 0,
+  "ScoreAgainst" : 2,
+  "ScoreFor" : 9,
+  "Wins" : 4
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="teams"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Teams</code></pre></div>
+    <div class="method-summary">Teams (<span class="nickname">teams</span>)</div>
+    <div class="method-notes">Teams</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Team">Team</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Email" : "Email",
+  "Founded" : 5,
+  "AreaId" : 1,
+  "Twitter" : "Twitter",
+  "Website" : "Website",
+  "ShortName" : "ShortName",
+  "TertiaryColor" : "TertiaryColor",
+  "Gender" : "Gender",
+  "TeamId" : 5,
+  "YouTube" : "YouTube",
+  "Name" : "Name",
+  "AreaName" : "AreaName",
+  "Active" : true,
+  "Type" : "Type",
+  "PrimaryColor" : "PrimaryColor",
+  "SecondaryColor" : "SecondaryColor",
+  "Instagram" : "Instagram",
+  "Facebook" : "Facebook",
+  "Key" : "Key",
+  "QuaternaryColor" : "QuaternaryColor"
+}, {
+  "Email" : "Email",
+  "Founded" : 5,
+  "AreaId" : 1,
+  "Twitter" : "Twitter",
+  "Website" : "Website",
+  "ShortName" : "ShortName",
+  "TertiaryColor" : "TertiaryColor",
+  "Gender" : "Gender",
+  "TeamId" : 5,
+  "YouTube" : "YouTube",
+  "Name" : "Name",
+  "AreaName" : "AreaName",
+  "Active" : true,
+  "Type" : "Type",
+  "PrimaryColor" : "PrimaryColor",
+  "SecondaryColor" : "SecondaryColor",
+  "Instagram" : "Instagram",
+  "Facebook" : "Facebook",
+  "Key" : "Key",
+  "QuaternaryColor" : "QuaternaryColor"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="venues"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Venues</code></pre></div>
+    <div class="method-summary">Venues (<span class="nickname">venues</span>)</div>
+    <div class="method-notes">Venues</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Venue">Venue</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "Zip" : "Zip",
+  "Opened" : 5,
+  "Address" : "Address",
+  "GeoLat" : 6.027456183070403,
+  "City" : "City",
+  "Name" : "Name",
+  "Open" : true,
+  "Nickname1" : "Nickname1",
+  "Nickname2" : "Nickname2",
+  "Capacity" : 0,
+  "Country" : "Country",
+  "GeoLong" : 1.4658129805029452,
+  "VenueId" : 5
+}, {
+  "Zip" : "Zip",
+  "Opened" : 5,
+  "Address" : "Address",
+  "GeoLat" : 6.027456183070403,
+  "City" : "City",
+  "Name" : "Name",
+  "Open" : true,
+  "Nickname1" : "Nickname1",
+  "Nickname2" : "Nickname2",
+  "Capacity" : 0,
+  "Country" : "Country",
+  "GeoLong" : 1.4658129805029452,
+  "VenueId" : 5
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
   </div> <!-- method -->
   <hr/>
 
@@ -870,206 +1813,267 @@ font-style: italic;
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#CloseApproachData"><code>CloseApproachData</code> - </a></li>
-    <li><a href="#EstimatedDiameter"><code>EstimatedDiameter</code> - </a></li>
-    <li><a href="#EstimatedDiameterContainer"><code>EstimatedDiameterContainer</code> - </a></li>
-    <li><a href="#MissDistance"><code>MissDistance</code> - </a></li>
-    <li><a href="#NearEarthObject"><code>NearEarthObject</code> - </a></li>
-    <li><a href="#NearEarthObjectList"><code>NearEarthObjectList</code> - </a></li>
-    <li><a href="#OrbitClass"><code>OrbitClass</code> - </a></li>
-    <li><a href="#OrbitalData"><code>OrbitalData</code> - </a></li>
-    <li><a href="#PageMetaData"><code>PageMetaData</code> - </a></li>
-    <li><a href="#RelVelocity"><code>RelVelocity</code> - </a></li>
-    <li><a href="#SentryImpactRiskObject"><code>SentryImpactRiskObject</code> - </a></li>
-    <li><a href="#SentryObjectPagingDto"><code>SentryObjectPagingDto</code> - </a></li>
-    <li><a href="#Statistics"><code>Statistics</code> - </a></li>
-    <li><a href="#URL"><code>URL</code> - </a></li>
+    <li><a href="#Area"><code>Area</code> - </a></li>
+    <li><a href="#Competition"><code>Competition</code> - </a></li>
+    <li><a href="#CompetitionDetail"><code>CompetitionDetail</code> - </a></li>
+    <li><a href="#Game"><code>Game</code> - </a></li>
+    <li><a href="#Membership"><code>Membership</code> - </a></li>
+    <li><a href="#Player"><code>Player</code> - </a></li>
+    <li><a href="#Round"><code>Round</code> - </a></li>
+    <li><a href="#Season"><code>Season</code> - </a></li>
+    <li><a href="#SeasonTeam"><code>SeasonTeam</code> - </a></li>
+    <li><a href="#Standing"><code>Standing</code> - </a></li>
+    <li><a href="#Team"><code>Team</code> - </a></li>
+    <li><a href="#TeamDetail"><code>TeamDetail</code> - </a></li>
+    <li><a href="#Venue"><code>Venue</code> - </a></li>
   </ol>
 
   <div class="model">
-    <h3><a name="CloseApproachData"><code>CloseApproachData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Area"><code>Area</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">close_approach_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">close_approach_date_full (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">epoch_date_close_approach (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">miss_distance (optional)</div><div class="param-desc"><span class="param-type"><a href="#MissDistance">MissDistance</a></span>  </div>
-<div class="param">orbiting_body (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">relative_velocity (optional)</div><div class="param-desc"><span class="param-type"><a href="#RelVelocity">RelVelocity</a></span>  </div>
+      <div class="param">AreaId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">CountryCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="EstimatedDiameter"><code>EstimatedDiameter</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Competition"><code>Competition</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">estimated_diameter_max (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> An estimate of the maximum size of the Asteroid - bases on the abosolute magnitude format: double</div>
-<div class="param">estimated_diameter_min (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> An estimate of the minimum size of the Asteroid - bases on the abosolute magnitude format: double</div>
+      <div class="param">AreaId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AreaName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CompetitionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Format (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PlayerStatsCoverage (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">Seasons (optional)</div><div class="param-desc"><span class="param-type"><a href="#Season">array[Season]</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="EstimatedDiameterContainer"><code>EstimatedDiameterContainer</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="CompetitionDetail"><code>CompetitionDetail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">feet (optional)</div><div class="param-desc"><span class="param-type"><a href="#EstimatedDiameter">EstimatedDiameter</a></span>  </div>
-<div class="param">kilometers (optional)</div><div class="param-desc"><span class="param-type"><a href="#EstimatedDiameter">EstimatedDiameter</a></span>  </div>
-<div class="param">meters (optional)</div><div class="param-desc"><span class="param-type"><a href="#EstimatedDiameter">EstimatedDiameter</a></span>  </div>
-<div class="param">miles (optional)</div><div class="param-desc"><span class="param-type"><a href="#EstimatedDiameter">EstimatedDiameter</a></span>  </div>
+      <div class="param">AreaId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AreaName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CompetitionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">CurrentSeason (optional)</div><div class="param-desc"><span class="param-type"><a href="#Season">Season</a></span>  </div>
+<div class="param">Format (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Games (optional)</div><div class="param-desc"><span class="param-type"><a href="#Game">array[Game]</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PlayerStatsCoverage (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">Seasons (optional)</div><div class="param-desc"><span class="param-type"><a href="#Season">array[Season]</a></span>  </div>
+<div class="param">Teams (optional)</div><div class="param-desc"><span class="param-type"><a href="#TeamDetail">array[TeamDetail]</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="MissDistance"><code>MissDistance</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Game"><code>Game</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">astronomical (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">kilometers (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">lunar (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">miles (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">BestOf (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Day (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DrawMoneyLine (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GameId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Group (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IsClosed (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">PointSpread (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">RoundId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Season (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonType (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamAId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamAKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamAMoneyLine (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamAName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamAPointSpreadPayout (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamAScore (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamBId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamBKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamBMoneyLine (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamBName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamBPointSpreadPayout (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamBScore (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UpdatedUtc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">VenueId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">VenueType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Week (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Winner (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="NearEarthObject"><code>NearEarthObject</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Membership"><code>Membership</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">absolute_magnitude_h (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span> Is a measure of an asteroids brightness format: double</div>
-<div class="param">close_approach_data (optional)</div><div class="param-desc"><span class="param-type"><a href="#CloseApproachData">array[CloseApproachData]</a></span> Close approach information of the Asteroid </div>
-<div class="param">designation (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">estimated_diameter (optional)</div><div class="param-desc"><span class="param-type"><a href="#EstimatedDiameterContainer">EstimatedDiameterContainer</a></span>  </div>
-<div class="param">is_potentially_hazardous_asteroid (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">is_sentry_object (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">name_limited (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">nasa_jpl_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A Link to the NASA JPL Small-Body Database website </div>
-<div class="param">neo_reference_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reference ID of the Asteroid - This correlates to the SPK ID for the JPL NEO data </div>
-<div class="param">orbital_data (optional)</div><div class="param-desc"><span class="param-type"><a href="#OrbitalData">OrbitalData</a></span>  </div>
-<div class="param">sentry_data (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">Active (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">EndDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MembershipId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">PlayerId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">PlayerName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StartDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamArea (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="NearEarthObjectList"><code>NearEarthObjectList</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Player"><code>Player</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">element_count (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Number of NEOs in list format: int32</div>
-<div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span> Hypermedia links to collection </div>
-<div class="param">near_earth_objects (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span>  </div>
+      <div class="param">BirthCity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">BirthCountry (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">BirthDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CommonName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">FirstName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">LastName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MatchName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Nationality (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PlayerId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Position (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="OrbitClass"><code>OrbitClass</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Round"><code>Round</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">orbit_class_description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">orbit_class_range (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">orbit_class_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">IEO</div><div class="param-enum">ATE</div><div class="param-enum">APO</div><div class="param-enum">AMO</div><div class="param-enum">MCA</div><div class="param-enum">IMB</div><div class="param-enum">MBA</div><div class="param-enum">OMB</div><div class="param-enum">TJN</div><div class="param-enum">CEN</div><div class="param-enum">TNO</div><div class="param-enum">PAA</div><div class="param-enum">HYA</div><div class="param-enum">HYP</div><div class="param-enum">PAR</div><div class="param-enum">COM</div><div class="param-enum">JFC</div><div class="param-enum">HTC</div><div class="param-enum">ETC</div><div class="param-enum">CTC</div><div class="param-enum">JFc</div>
+      <div class="param">CurrentRound (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">CurrentWeek (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">EndDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">RoundId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Season (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonType (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StartDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="OrbitalData"><code>OrbitalData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Season"><code>Season</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">aphelion_distance (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">ascending_node_longitude (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">data_arc_in_days (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">eccentricity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">epoch_osculation (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">equinox (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">first_observation_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">inclination (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">jupiter_tisserand_invariant (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">last_observation_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">mean_anomaly (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">mean_motion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">minimum_orbit_intersection (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">observations_used (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">orbit_class (optional)</div><div class="param-desc"><span class="param-type"><a href="#OrbitClass">OrbitClass</a></span>  </div>
-<div class="param">orbit_determination_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">orbit_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">orbit_uncertainty (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">orbital_period (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">perihelion_argument (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">perihelion_distance (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">perihelion_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">semi_major_axis (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">CompetitionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">CompetitionName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CurrentSeason (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">EndDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Rounds (optional)</div><div class="param-desc"><span class="param-type"><a href="#Round">array[Round]</a></span>  </div>
+<div class="param">Season (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StartDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="PageMetaData"><code>PageMetaData</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="SeasonTeam"><code>SeasonTeam</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">size (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">total_elements (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">total_pages (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+      <div class="param">Active (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SeasonId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonTeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Team (optional)</div><div class="param-desc"><span class="param-type"><a href="#Team">Team</a></span>  </div>
+<div class="param">TeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="RelVelocity"><code>RelVelocity</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Standing"><code>Standing</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">kilometers_per_hour (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">miles_per_hour (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">Games (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Group (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Losses (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Order (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Points (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">RoundId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ScoreAgainst (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ScoreDifference (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ScoreFor (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StandingId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Wins (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="SentryImpactRiskObject"><code>SentryImpactRiskObject</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Team"><code>Team</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">Palermo_scale_max (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">absolute_magnitude (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">average_lunar_distance (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
-<div class="param">designation (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">estimated_diameter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">fullname (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">impact_probability (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">is_active_sentry_object (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">last_obs (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">last_obs_jd (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">palermo_scale_ave (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">potential_impacts (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">removal_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">sentryId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">torino_scale (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">v_infinity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">year_range_max (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">year_range_min (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">Active (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">AreaId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AreaName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Facebook (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Founded (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Instagram (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PrimaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">QuaternaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SecondaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ShortName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TertiaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Twitter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Website (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">YouTube (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="SentryObjectPagingDto"><code>SentryObjectPagingDto</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="TeamDetail"><code>TeamDetail</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">links (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
-<div class="param">page (optional)</div><div class="param-desc"><span class="param-type"><a href="#PageMetaData">PageMetaData</a></span>  </div>
-<div class="param">sentry_objects (optional)</div><div class="param-desc"><span class="param-type"><a href="#SentryImpactRiskObject">array[SentryImpactRiskObject]</a></span>  </div>
+      <div class="param">Active (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">AreaId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AreaName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Facebook (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Founded (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Gender (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Instagram (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Players (optional)</div><div class="param-desc"><span class="param-type"><a href="#Player">array[Player]</a></span>  </div>
+<div class="param">PrimaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">QuaternaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SecondaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ShortName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TertiaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Twitter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Website (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">YouTube (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Statistics"><code>Statistics</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Venue"><code>Venue</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">close_approach_count (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Number of Close Approach listings across all NEOs listed in NeoWs format: int64</div>
-<div class="param">last_updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> TimeStamp the last time the DB was updated </div>
-<div class="param">nasa_jpl_url (optional)</div><div class="param-desc"><span class="param-type"><a href="#URL">URL</a></span>  </div>
-<div class="param">near_earth_object_count (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Number of NearEarthObjects listed in NeoWs format: int64</div>
-<div class="param">source (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="URL"><code>URL</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">authority (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">content (optional)</div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
-<div class="param">defaultPort (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">file (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">host (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">path (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">port (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
-<div class="param">protocol (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">query (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">ref (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">userInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">Address (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Capacity (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">City (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GeoLat (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">GeoLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Nickname1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Nickname2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Open (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">Opened (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">VenueId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Zip (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   </body>
