@@ -1,6 +1,6 @@
 /*
- * Fun Generators API
- * Below is the documentation for the API calls. You can try them out right here.  
+ * Shakespeare API
+ * Shakespeare API. Generate random Shakespeare quotes, names, insults, lorem ipsum etc. Translate normal English to Shakespeare English.  [Click here to subscribe](http://fungenerators.com/api/shakespeare/)  
  *
  * The version of the OpenAPI document: 1.5
  * 

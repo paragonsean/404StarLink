@@ -1,6 +1,6 @@
 /*
- * Fun Generators API
- * Below is the documentation for the API calls. You can try them out right here.  
+ * Shakespeare API
+ * Shakespeare API. Generate random Shakespeare quotes, names, insults, lorem ipsum etc. Translate normal English to Shakespeare English.  [Click here to subscribe](http://fungenerators.com/api/shakespeare/)  
  *
  * The version of the OpenAPI document: 1.5
  * 
@@ -61,15 +61,15 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "https://api.fungenerators.com";
+    private String basePath = "http://api.fungenerators.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://api.fungenerators.com",
+      "http://api.fungenerators.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     ),
     new ServerConfiguration(
-      "http://api.fungenerators.com",
+      "https://api.fungenerators.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -163,7 +163,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://api.fungenerators.com
+     * @param basePath Base path of the URL (e.g http://api.fungenerators.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

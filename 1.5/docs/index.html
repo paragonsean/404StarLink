@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Fun Generators API</title>
+    <title>Shakespeare API</title>
     <style type="text/css">
       body {
 	font-family: Trebuchet MS, sans-serif;
@@ -179,9 +179,9 @@ font-style: italic;
     </style>
   </head>
   <body>
-  <h1>Fun Generators API</h1>
-    <div class="app-desc">Below is the documentation for the API calls. You can try them out right here.</div>
-    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+  <h1>Shakespeare API</h1>
+    <div class="app-desc">Shakespeare API. Generate random Shakespeare quotes, names, insults, lorem ipsum etc. Translate normal English to Shakespeare English.  <a href="http://fungenerators.com/api/shakespeare/">Click here to subscribe</a></div>
+    <div class="app-desc">More information: <a href="http://fungenerators.com/api/shakespeare/">http://fungenerators.com/api/shakespeare/</a></div>
     <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
     <div class="app-desc">Version: 1.5</div>
     <div class="app-desc">BasePath:</div>
@@ -197,26 +197,28 @@ font-style: italic;
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#PrivateRiddles">PrivateRiddles</a></h4>
+  <h4><a href="#Generation">Generation</a></h4>
   <ul>
-  <li><a href="#riddleDelete"><code><span class="http-method">delete</span> /riddle</code></a></li>
-  <li><a href="#riddleGet"><code><span class="http-method">get</span> /riddle</code></a></li>
-  <li><a href="#riddlePost"><code><span class="http-method">post</span> /riddle</code></a></li>
-  <li><a href="#riddlePut"><code><span class="http-method">put</span> /riddle</code></a></li>
+  <li><a href="#shakespeareGenerateInsultGet"><code><span class="http-method">get</span> /shakespeare/generate/insult</code></a></li>
+  <li><a href="#shakespeareGenerateLoremIpsumGet"><code><span class="http-method">get</span> /shakespeare/generate/lorem-ipsum</code></a></li>
+  <li><a href="#shakespeareGenerateNameGet"><code><span class="http-method">get</span> /shakespeare/generate/name</code></a></li>
   </ul>
-  <h4><a href="#RandomRiddle">RandomRiddle</a></h4>
+  <h4><a href="#Translation">Translation</a></h4>
   <ul>
-  <li><a href="#riddleRandomGet"><code><span class="http-method">get</span> /riddle/random</code></a></li>
-  <li><a href="#riddleSearchGet"><code><span class="http-method">get</span> /riddle/search</code></a></li>
+  <li><a href="#shakespeareTranslateGet"><code><span class="http-method">get</span> /shakespeare/translate</code></a></li>
+  </ul>
+  <h4><a href="#Works">Works</a></h4>
+  <ul>
+  <li><a href="#shakespeareQuoteGet"><code><span class="http-method">get</span> /shakespeare/quote</code></a></li>
   </ul>
 
-  <h1><a name="PrivateRiddles">PrivateRiddles</a></h1>
-  <div class="method"><a name="riddleDelete"/>
+  <h1><a name="Generation">Generation</a></h1>
+  <div class="method"><a name="shakespeareGenerateInsultGet"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /riddle</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">riddleDelete</span>)</div>
-    <div class="method-notes">Create a random Riddle entry.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /shakespeare/generate/insult</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">shakespeareGenerateInsultGet</span>)</div>
+    <div class="method-notes">Generate random Shakespeare style insults.</div>
 
 
 
@@ -224,9 +226,9 @@ font-style: italic;
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">id (required)</div>
+      <div class="param">limit (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Riddle ID default: null format: string</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; No of insults to generate default: null format: integer</div>
     </div>  <!-- field-items -->
 
 
@@ -250,12 +252,12 @@ font-style: italic;
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="riddleGet"/>
+  <div class="method"><a name="shakespeareGenerateLoremIpsumGet"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /riddle</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">riddleGet</span>)</div>
-    <div class="method-notes">Get a Riddle entry for a given id. Retrieves a riddle question and answer based on the id.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /shakespeare/generate/lorem-ipsum</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">shakespeareGenerateLoremIpsumGet</span>)</div>
+    <div class="method-notes">Generate Shakespeare lorem ipsum.</div>
 
 
 
@@ -263,9 +265,11 @@ font-style: italic;
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">id (optional)</div>
+      <div class="param">type (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; ID of the riddle to fetch default: null format: string</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Type of element to generate <code>paragraphs/sentences/words</code>. default: null format: string</div><div class="param">limit (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; No of elements to generate default: null format: integer</div>
     </div>  <!-- field-items -->
 
 
@@ -289,12 +293,12 @@ font-style: italic;
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="riddlePost"/>
+  <div class="method"><a name="shakespeareGenerateNameGet"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /riddle</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">riddlePost</span>)</div>
-    <div class="method-notes">Create a random Riddle entry. Same as 'PUT' but can be used when some of the client libraries don't support 'PUT'.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /shakespeare/generate/name</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">shakespeareGenerateNameGet</span>)</div>
+    <div class="method-notes">Generate random Shakespearen names.</div>
 
 
 
@@ -302,13 +306,11 @@ font-style: italic;
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">question (required)</div>
+      <div class="param">variation (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Riddle Question default: null format: string</div><div class="param">category (required)</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Variation to generate <code>male/female</code>. default: null format: string</div><div class="param">limit (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Category of the riddle default: null format: string</div><div class="param">answer (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Answer(s) to the riddle question default: null format: string</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; No of names to generate default: null format: integer</div>
     </div>  <!-- field-items -->
 
 
@@ -332,12 +334,13 @@ font-style: italic;
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="riddlePut"/>
+  <h1><a name="Translation">Translation</a></h1>
+  <div class="method"><a name="shakespeareTranslateGet"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="put"><code class="huge"><span class="http-method">put</span> /riddle</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">riddlePut</span>)</div>
-    <div class="method-notes">Create a random Riddle entry.</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /shakespeare/translate</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">shakespeareTranslateGet</span>)</div>
+    <div class="method-notes">Translate from English to Shakespeare English.</div>
 
 
 
@@ -345,13 +348,9 @@ font-style: italic;
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">question (required)</div>
+      <div class="param">text (required)</div>
 
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Riddle Question default: null format: string</div><div class="param">category (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Category of the riddle default: null format: string</div><div class="param">answer (required)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Answer(s) to the riddle question default: null format: string</div>
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Text to translate to Shakespeare English. default: null format: string</div>
     </div>  <!-- field-items -->
 
 
@@ -375,65 +374,18 @@ font-style: italic;
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <h1><a name="RandomRiddle">RandomRiddle</a></h1>
-  <div class="method"><a name="riddleRandomGet"/>
+  <h1><a name="Works">Works</a></h1>
+  <div class="method"><a name="shakespeareQuoteGet"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /riddle/random</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">riddleRandomGet</span>)</div>
-    <div class="method-notes">Get a random riddle for a given category(optional)</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /shakespeare/quote</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">shakespeareQuoteGet</span>)</div>
+    <div class="method-notes">Get a random Shakespeare quote.</div>
 
 
 
 
 
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">category (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Category to get the riddle from default: null format: string</div>
-    </div>  <!-- field-items -->
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    200  response
-        <a href="#"></a>
-    <h4 class="field-label">401</h4>
-    401  response
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="riddleSearchGet"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /riddle/search</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">riddleSearchGet</span>)</div>
-    <div class="method-notes">Search for random riddle which has the text in the query, for a given category(optional).</div>
-
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">query (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Text to search for in the riddle default: null format: string</div><div class="param">category (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Category to get the riddle from default: null format: string</div>
-    </div>  <!-- field-items -->
 
 
 
