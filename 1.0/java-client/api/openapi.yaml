@@ -1,1677 +1,2357 @@
 openapi: 3.0.0
 info:
   contact:
-    x-twitter: nfldata
-  description: LoL v3 Scores
-  title: LoL v3 Scores
+    email: support@giphy.com
+  description: Giphy API
+  termsOfService: https://developers.giphy.com/
+  title: Giphy API
   version: "1.0"
   x-apisguru-categories:
-  - entertainment
+  - media
   x-logo:
-    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_nfldata_profile_image.jpeg
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_GIPHY_profile_image.png
   x-origin:
-  - format: swagger
-    url: https://fantasydata.com/downloads/swagger/lol-v3-scores.json
-    version: "2.0"
-  x-providerName: sportsdata.io
-  x-serviceName: lol-v3-scores
+  - format: openapi
+    url: https://raw.githubusercontent.com/faragorn/open-api-specs/master/specs/giphy_api/1.0/index.yml
+    version: "3.0"
+  x-providerName: giphy.com
+externalDocs:
+  description: Official Giphy Documentation
+  url: https://developers.giphy.com/docs/
 servers:
-- url: http://azure-api.sportsdata.io/v3/lol/scores
-- url: https://azure-api.sportsdata.io/v3/lol/scores
+- url: https://api.giphy.com/v1
 security:
-- apiKeyHeader: []
-- apiKeyQuery: []
+- api_key: []
+tags:
+- name: gifs
+- name: stickers
 paths:
-  /{format}/ActiveMemberships:
+  /gifs:
     get:
-      description: Memberships (Active)
-      operationId: MembershipsActive
+      description: |
+        A multiget version of the get GIF by ID endpoint.
+      operationId: getGifsById
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
+      - description: "Filters results by specified GIF IDs, separated by commas."
+        explode: true
+        in: query
+        name: ids
+        required: false
         schema:
-          default: xml
-          enum:
-          - xml
-          - json
           type: string
-        style: simple
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Membership'
-                type: array
+                $ref: '#/components/schemas/getGifsById_200_response'
           description: ""
-      summary: Memberships (Active)
+        "400":
+          description: Your request was formatted incorrectly or missing required
+            parameters.
+        "403":
+          description: You weren't authorized to make your request; most likely this
+            indicates an issue with your API Key.
+        "404":
+          description: "The particular GIF you are requesting was not found. This\
+            \ occurs, for example, if you request a GIF by an id that does not exist."
+        "429":
+          description: |
+            Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.
+      summary: Get GIFs by ID
+      tags:
+      - gifs
       x-accepts:
       - application/json
-  /{format}/Areas:
+  /gifs/random:
     get:
-      description: Areas (Countries)
-      operationId: AreasCountries
+      description: |
+        Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the GIPHY catalog.
+      operationId: randomGif
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
+      - description: Filters results by specified tag.
+        explode: true
+        in: query
+        name: tag
+        required: false
         schema:
-          default: xml
-          enum:
-          - xml
-          - json
           type: string
-        style: simple
+        style: form
+      - description: Filters results by specified rating.
+        explode: true
+        in: query
+        name: rating
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Area'
-                type: array
+                $ref: '#/components/schemas/randomGif_200_response'
           description: ""
-      summary: Areas (Countries)
+        "400":
+          description: Your request was formatted incorrectly or missing required
+            parameters.
+        "403":
+          description: You weren't authorized to make your request; most likely this
+            indicates an issue with your API Key.
+        "404":
+          description: "The particular GIF you are requesting was not found. This\
+            \ occurs, for example, if you request a GIF by an id that does not exist."
+        "429":
+          description: |
+            Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.
+      summary: Random GIF
+      tags:
+      - gifs
       x-accepts:
       - application/json
-  /{format}/CompetitionDetails/{competitionid}:
+  /gifs/search:
     get:
-      description: Competition Fixtures (League Details)
-      operationId: CompetitionFixturesLeagueDetails
+      description: |
+        Search all GIPHY GIFs for a word or phrase. Punctuation will be stripped and ignored.  Use a plus or url encode for phrases. Example paul+rudd, ryan+gosling or american+psycho.
+      operationId: searchGifs
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
-        schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
-        style: simple
-      - description: "A LoL competition/league unique CompetitionId. Possible values\
-          \ include: <code>100000009</code>, etc."
-        explode: false
-        in: path
-        name: competitionid
+      - description: Search query term or prhase.
+        explode: true
+        in: query
+        name: q
         required: true
         schema:
           type: string
-        style: simple
+        style: form
+      - description: The maximum number of records to return.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: An optional results offset.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: Filters results by specified rating.
+        explode: true
+        in: query
+        name: rating
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Specify default language for regional content; use a 2-letter
+          ISO 639-1 language code.
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CompetitionDetail'
-          description: ""
-      summary: Competition Fixtures (League Details)
+                $ref: '#/components/schemas/getGifsById_200_response'
+          description: Search results
+        "400":
+          description: Your request was formatted incorrectly or missing required
+            parameters.
+        "403":
+          description: You weren't authorized to make your request; most likely this
+            indicates an issue with your API Key.
+        "404":
+          description: "The particular GIF you are requesting was not found. This\
+            \ occurs, for example, if you request a GIF by an id that does not exist."
+        "429":
+          description: |
+            Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.
+      summary: Search GIFs
+      tags:
+      - gifs
       x-accepts:
       - application/json
-  /{format}/Competitions:
+  /gifs/translate:
     get:
-      description: Competitions (Leagues)
-      operationId: CompetitionsLeagues
+      description: |
+        The translate API draws on search, but uses the GIPHY `special sauce` to handle translating from one vocabulary to another. In this case, words and phrases to GIF
+      operationId: translateGif
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
+      - description: Search term.
+        explode: true
+        in: query
+        name: s
         required: true
         schema:
-          default: xml
-          enum:
-          - xml
-          - json
           type: string
-        style: simple
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Competition'
-                type: array
+                $ref: '#/components/schemas/randomGif_200_response'
           description: ""
-      summary: Competitions (Leagues)
+        "400":
+          description: Your request was formatted incorrectly or missing required
+            parameters.
+        "403":
+          description: You weren't authorized to make your request; most likely this
+            indicates an issue with your API Key.
+        "404":
+          description: "The particular GIF you are requesting was not found. This\
+            \ occurs, for example, if you request a GIF by an id that does not exist."
+        "429":
+          description: |
+            Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.
+      summary: Translate phrase to GIF
+      tags:
+      - gifs
       x-accepts:
       - application/json
-  /{format}/GamesByDate/{date}:
+  /gifs/trending:
     get:
-      description: Games by Date
-      operationId: GamesByDate
+      description: |
+        Fetch GIFs currently trending online. Hand curated by the GIPHY editorial team.  The data returned mirrors the GIFs showcased on the GIPHY homepage. Returns 25 results by default.
+      operationId: trendingGifs
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
+      - description: The maximum number of records to return.
+        explode: true
+        in: query
+        name: limit
+        required: false
         schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
-        style: simple
-      - description: |-
-          The date of the game(s).
-          <br>Examples: <code>2018-01-13</code>, <code>2018-06-13</code>.
-        explode: false
-        in: path
-        name: date
-        required: true
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: An optional results offset.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: Filters results by specified rating.
+        explode: true
+        in: query
+        name: rating
+        required: false
         schema:
           type: string
-        style: simple
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Game'
-                type: array
+                $ref: '#/components/schemas/getGifsById_200_response'
           description: ""
-      summary: Games by Date
+        "400":
+          description: Your request was formatted incorrectly or missing required
+            parameters.
+        "403":
+          description: You weren't authorized to make your request; most likely this
+            indicates an issue with your API Key.
+        "404":
+          description: "The particular GIF you are requesting was not found. This\
+            \ occurs, for example, if you request a GIF by an id that does not exist."
+        "429":
+          description: |
+            Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.
+      summary: Trending GIFs
+      tags:
+      - gifs
       x-accepts:
       - application/json
-  /{format}/HistoricalMemberships:
+  /gifs/{gifId}:
     get:
-      description: Memberships (Historical)
-      operationId: MembershipsHistorical
+      description: |
+        Returns a GIF given that GIF's unique ID
+      operationId: getGifById
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
+      - description: Filters results by specified GIF ID.
         explode: false
         in: path
-        name: format
+        name: gifId
         required: true
         schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
+          format: int32
+          type: integer
         style: simple
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Membership'
-                type: array
+                $ref: '#/components/schemas/randomGif_200_response'
           description: ""
-      summary: Memberships (Historical)
+        "400":
+          description: Your request was formatted incorrectly or missing required
+            parameters.
+        "403":
+          description: You weren't authorized to make your request; most likely this
+            indicates an issue with your API Key.
+        "404":
+          description: "The particular GIF you are requesting was not found. This\
+            \ occurs, for example, if you request a GIF by an id that does not exist."
+        "429":
+          description: |
+            Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.
+      summary: Get GIF by Id
+      tags:
+      - gifs
       x-accepts:
       - application/json
-  /{format}/HistoricalMembershipsByTeam/{teamid}:
+  /stickers/random:
     get:
-      description: Memberships by Team (Historical)
-      operationId: MembershipsByTeamHistorical
+      description: |
+        Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the GIPHY catalog.
+      operationId: randomSticker
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
-        schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
-        style: simple
-      - description: "Unique FantasyData Team ID. \nExample:<code>100000001</code>."
-        explode: false
-        in: path
-        name: teamid
-        required: true
+      - description: Filters results by specified tag.
+        explode: true
+        in: query
+        name: tag
+        required: false
         schema:
           type: string
-        style: simple
+        style: form
+      - description: Filters results by specified rating.
+        explode: true
+        in: query
+        name: rating
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Membership'
-                type: array
+                $ref: '#/components/schemas/randomGif_200_response'
           description: ""
-      summary: Memberships by Team (Historical)
+        "400":
+          description: Your request was formatted incorrectly or missing required
+            parameters.
+        "403":
+          description: You weren't authorized to make your request; most likely this
+            indicates an issue with your API Key.
+        "404":
+          description: "The particular GIF you are requesting was not found. This\
+            \ occurs, for example, if you request a GIF by an id that does not exist."
+        "429":
+          description: |
+            Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.
+      summary: Random Sticker
+      tags:
+      - stickers
       x-accepts:
       - application/json
-  /{format}/MembershipsByTeam/{teamid}:
+  /stickers/search:
     get:
-      description: Memberships by Team (Active)
-      operationId: MembershipsByTeamActive
+      description: |
+        Replicates the functionality and requirements of the classic GIPHY search, but returns animated stickers rather than GIFs.
+      operationId: searchStickers
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
-        schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
-        style: simple
-      - description: "Unique FantasyData Team ID. \nExample:<code>100000001</code>."
-        explode: false
-        in: path
-        name: teamid
+      - description: Search query term or prhase.
+        explode: true
+        in: query
+        name: q
         required: true
         schema:
           type: string
-        style: simple
+        style: form
+      - description: The maximum number of records to return.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: An optional results offset.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: Filters results by specified rating.
+        explode: true
+        in: query
+        name: rating
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Specify default language for regional content; use a 2-letter
+          ISO 639-1 language code.
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Membership'
-                type: array
-          description: ""
-      summary: Memberships by Team (Active)
+                $ref: '#/components/schemas/getGifsById_200_response'
+          description: Search results
+        "400":
+          description: Your request was formatted incorrectly or missing required
+            parameters.
+        "403":
+          description: You weren't authorized to make your request; most likely this
+            indicates an issue with your API Key.
+        "404":
+          description: "The particular GIF you are requesting was not found. This\
+            \ occurs, for example, if you request a GIF by an id that does not exist."
+        "429":
+          description: |
+            Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.
+      summary: Search Stickers
+      tags:
+      - stickers
       x-accepts:
       - application/json
-  /{format}/Player/{playerid}:
+  /stickers/translate:
     get:
-      description: Player
-      operationId: Player
+      description: |
+        The translate API draws on search, but uses the GIPHY `special sauce` to handle translating from one vocabulary to another. In this case, words and phrases to GIFs.
+      operationId: translateSticker
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
-        schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
-        style: simple
-      - description: |-
-          Unique FantasyData Player ID.
-          Example:<code>100000576</code>.
-        explode: false
-        in: path
-        name: playerid
+      - description: Search term.
+        explode: true
+        in: query
+        name: s
         required: true
         schema:
           type: string
-        style: simple
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Player'
+                $ref: '#/components/schemas/randomGif_200_response'
           description: ""
-      summary: Player
+        "400":
+          description: Your request was formatted incorrectly or missing required
+            parameters.
+        "403":
+          description: You weren't authorized to make your request; most likely this
+            indicates an issue with your API Key.
+        "404":
+          description: "The particular GIF you are requesting was not found. This\
+            \ occurs, for example, if you request a GIF by an id that does not exist."
+        "429":
+          description: |
+            Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.
+      summary: Translate phrase to Sticker
+      tags:
+      - stickers
       x-accepts:
       - application/json
-  /{format}/Players:
+  /stickers/trending:
     get:
-      description: Players
-      operationId: Players
+      description: |
+        Fetch Stickers currently trending online. Hand curated by the GIPHY editorial team. Returns 25 results by default.
+      operationId: trendingStickers
       parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
+      - description: The maximum number of records to return.
+        explode: true
+        in: query
+        name: limit
+        required: false
         schema:
-          default: xml
-          enum:
-          - xml
-          - json
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: An optional results offset.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: Filters results by specified rating.
+        explode: true
+        in: query
+        name: rating
+        required: false
+        schema:
           type: string
-        style: simple
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Player'
-                type: array
+                $ref: '#/components/schemas/getGifsById_200_response'
           description: ""
-      summary: Players
-      x-accepts:
-      - application/json
-  /{format}/PlayersByTeam/{teamid}:
-    get:
-      description: Players by Team
-      operationId: PlayersByTeam
-      parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
-        schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
-        style: simple
-      - description: "Unique FantasyData Team ID. \nExample:<code>100000001</code>."
-        explode: false
-        in: path
-        name: teamid
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/Player'
-                type: array
-          description: ""
-      summary: Players by Team
-      x-accepts:
-      - application/json
-  /{format}/Schedule/{roundid}:
-    get:
-      description: Schedule
-      operationId: Schedule
-      parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
-        schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
-        style: simple
-      - description: "Unique FantasyData Round ID. RoundIDs can be found in the Competitions\
-          \ and Competition Details endpoints. \nExamples: <code>100000138</code>,\
-          \ <code>1000001412</code>, etc"
-        explode: false
-        in: path
-        name: roundid
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/Game'
-                type: array
-          description: ""
-      summary: Schedule
-      x-accepts:
-      - application/json
-  /{format}/SeasonTeams/{seasonid}:
-    get:
-      description: Season Teams
-      operationId: SeasonTeams
-      parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
-        schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
-        style: simple
-      - description: "Unique FantasyData Season ID. SeasonIDs can be found in the\
-          \ Competitions and Competition Details endpoints. \nExamples: <code>100000023</code>,\
-          \ <code>100000024</code>, etc"
-        explode: false
-        in: path
-        name: seasonid
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/SeasonTeam'
-                type: array
-          description: ""
-      summary: Season Teams
-      x-accepts:
-      - application/json
-  /{format}/Standings/{roundid}:
-    get:
-      description: Standings
-      operationId: Standings
-      parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
-        schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
-        style: simple
-      - description: "Unique FantasyData Round ID. RoundIDs can be found in the Competitions\
-          \ and Competition Details endpoints. \nExample: <code>100000138</code>,\
-          \ etc"
-        explode: false
-        in: path
-        name: roundid
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/Standing'
-                type: array
-          description: ""
-      summary: Standings
-      x-accepts:
-      - application/json
-  /{format}/Teams:
-    get:
-      description: Teams
-      operationId: Teams
-      parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
-        schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/Team'
-                type: array
-          description: ""
-      summary: Teams
-      x-accepts:
-      - application/json
-  /{format}/Venues:
-    get:
-      description: Venues
-      operationId: Venues
-      parameters:
-      - description: Desired response format. Valid entries are <code>XML</code> or
-          <code>JSON</code>.
-        explode: false
-        in: path
-        name: format
-        required: true
-        schema:
-          default: xml
-          enum:
-          - xml
-          - json
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/Venue'
-                type: array
-          description: ""
-      summary: Venues
+        "400":
+          description: Your request was formatted incorrectly or missing required
+            parameters.
+        "403":
+          description: You weren't authorized to make your request; most likely this
+            indicates an issue with your API Key.
+        "404":
+          description: "The particular GIF you are requesting was not found. This\
+            \ occurs, for example, if you request a GIF by an id that does not exist."
+        "429":
+          description: |
+            Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.
+      summary: Trending Stickers
+      tags:
+      - stickers
       x-accepts:
       - application/json
 components:
-  schemas:
-    Area:
-      example:
-        AreaId: 0
-        CountryCode: CountryCode
-        Name: Name
-      properties:
-        AreaId:
-          nullable: false
-          type: integer
-        CountryCode:
-          nullable: true
-          type: string
-        Name:
-          nullable: true
-          type: string
-    Competition:
-      example:
-        AreaName: AreaName
-        PlayerStatsCoverage: true
-        Type: Type
-        Format: Format
-        AreaId: 0
-        Gender: Gender
-        Seasons:
-        - StartDate: StartDate
-          Rounds:
-          - StartDate: StartDate
-            Type: Type
-            SeasonType: 9
-            RoundId: 5
-            CurrentRound: true
-            SeasonId: 7
-            CurrentWeek: 5
-            Season: 2
-            EndDate: EndDate
-            Name: Name
-          - StartDate: StartDate
-            Type: Type
-            SeasonType: 9
-            RoundId: 5
-            CurrentRound: true
-            SeasonId: 7
-            CurrentWeek: 5
-            Season: 2
-            EndDate: EndDate
-            Name: Name
-          CurrentSeason: true
-          CompetitionName: CompetitionName
-          SeasonId: 2
-          Season: 3
-          CompetitionId: 1
-          EndDate: EndDate
-          Name: Name
-        - StartDate: StartDate
-          Rounds:
-          - StartDate: StartDate
-            Type: Type
-            SeasonType: 9
-            RoundId: 5
-            CurrentRound: true
-            SeasonId: 7
-            CurrentWeek: 5
-            Season: 2
-            EndDate: EndDate
-            Name: Name
-          - StartDate: StartDate
-            Type: Type
-            SeasonType: 9
-            RoundId: 5
-            CurrentRound: true
-            SeasonId: 7
-            CurrentWeek: 5
-            Season: 2
-            EndDate: EndDate
-            Name: Name
-          CurrentSeason: true
-          CompetitionName: CompetitionName
-          SeasonId: 2
-          Season: 3
-          CompetitionId: 1
-          EndDate: EndDate
-          Name: Name
-        CompetitionId: 6
-        Name: Name
-      properties:
-        AreaId:
-          nullable: false
-          type: integer
-        AreaName:
-          nullable: true
-          type: string
-        CompetitionId:
-          nullable: false
-          type: integer
-        Format:
-          nullable: true
-          type: string
-        Gender:
-          nullable: true
-          type: string
-        Name:
-          nullable: true
-          type: string
-        PlayerStatsCoverage:
-          nullable: true
-          type: boolean
-        Seasons:
-          items:
-            $ref: '#/components/schemas/Season'
-          type: array
-        Type:
-          nullable: true
-          type: string
-    CompetitionDetail:
-      example:
-        AreaName: AreaName
-        PlayerStatsCoverage: true
-        Type: Type
-        Format: Format
-        CurrentSeason:
-          StartDate: StartDate
-          Rounds:
-          - StartDate: StartDate
-            Type: Type
-            SeasonType: 9
-            RoundId: 5
-            CurrentRound: true
-            SeasonId: 7
-            CurrentWeek: 5
-            Season: 2
-            EndDate: EndDate
-            Name: Name
-          - StartDate: StartDate
-            Type: Type
-            SeasonType: 9
-            RoundId: 5
-            CurrentRound: true
-            SeasonId: 7
-            CurrentWeek: 5
-            Season: 2
-            EndDate: EndDate
-            Name: Name
-          CurrentSeason: true
-          CompetitionName: CompetitionName
-          SeasonId: 2
-          Season: 3
-          CompetitionId: 1
-          EndDate: EndDate
-          Name: Name
-        Games:
-        - Group: Group
-          TeamAKey: TeamAKey
-          TeamAMoneyLine: 1
-          IsClosed: true
-          TeamBMoneyLine: 9
-          DateTime: DateTime
-          TeamBId: 9
-          TeamAName: TeamAName
-          DrawMoneyLine: 4
-          TeamAScore: 5
-          Season: 1
-          BestOf: BestOf
-          TeamBName: TeamBName
-          Status: Status
-          RoundId: 1
-          Updated: Updated
-          TeamBPointSpreadPayout: 6
-          TeamBKey: TeamBKey
-          Winner: Winner
-          TeamAId: 7
-          SeasonType: 6
-          PointSpread: 1.2315135367772556
-          TeamAPointSpreadPayout: 4
-          VenueType: VenueType
-          UpdatedUtc: UpdatedUtc
-          VenueId: 9
-          Day: Day
-          Week: 6
-          GameId: 7
-          TeamBScore: 8
-        - Group: Group
-          TeamAKey: TeamAKey
-          TeamAMoneyLine: 1
-          IsClosed: true
-          TeamBMoneyLine: 9
-          DateTime: DateTime
-          TeamBId: 9
-          TeamAName: TeamAName
-          DrawMoneyLine: 4
-          TeamAScore: 5
-          Season: 1
-          BestOf: BestOf
-          TeamBName: TeamBName
-          Status: Status
-          RoundId: 1
-          Updated: Updated
-          TeamBPointSpreadPayout: 6
-          TeamBKey: TeamBKey
-          Winner: Winner
-          TeamAId: 7
-          SeasonType: 6
-          PointSpread: 1.2315135367772556
-          TeamAPointSpreadPayout: 4
-          VenueType: VenueType
-          UpdatedUtc: UpdatedUtc
-          VenueId: 9
-          Day: Day
-          Week: 6
-          GameId: 7
-          TeamBScore: 8
-        AreaId: 0
-        Teams:
-        - Email: Email
-          Founded: 6
-          AreaId: 3
-          Twitter: Twitter
-          Website: Website
-          ShortName: ShortName
-          TertiaryColor: TertiaryColor
-          Gender: Gender
-          TeamId: 2
-          YouTube: YouTube
-          Name: Name
-          AreaName: AreaName
-          Active: true
-          Type: Type
-          PrimaryColor: PrimaryColor
-          SecondaryColor: SecondaryColor
-          Instagram: Instagram
-          Facebook: Facebook
-          Key: Key
-          QuaternaryColor: QuaternaryColor
-          Players:
-          - PlayerId: 1
-            Updated: Updated
-            Position: Position
-            FirstName: FirstName
-            BirthCity: BirthCity
-            MatchName: MatchName
-            Gender: Gender
-            LastName: LastName
-            BirthCountry: BirthCountry
-            Nationality: Nationality
-            BirthDate: BirthDate
-            CommonName: CommonName
-          - PlayerId: 1
-            Updated: Updated
-            Position: Position
-            FirstName: FirstName
-            BirthCity: BirthCity
-            MatchName: MatchName
-            Gender: Gender
-            LastName: LastName
-            BirthCountry: BirthCountry
-            Nationality: Nationality
-            BirthDate: BirthDate
-            CommonName: CommonName
-        - Email: Email
-          Founded: 6
-          AreaId: 3
-          Twitter: Twitter
-          Website: Website
-          ShortName: ShortName
-          TertiaryColor: TertiaryColor
-          Gender: Gender
-          TeamId: 2
-          YouTube: YouTube
-          Name: Name
-          AreaName: AreaName
-          Active: true
-          Type: Type
-          PrimaryColor: PrimaryColor
-          SecondaryColor: SecondaryColor
-          Instagram: Instagram
-          Facebook: Facebook
-          Key: Key
-          QuaternaryColor: QuaternaryColor
-          Players:
-          - PlayerId: 1
-            Updated: Updated
-            Position: Position
-            FirstName: FirstName
-            BirthCity: BirthCity
-            MatchName: MatchName
-            Gender: Gender
-            LastName: LastName
-            BirthCountry: BirthCountry
-            Nationality: Nationality
-            BirthDate: BirthDate
-            CommonName: CommonName
-          - PlayerId: 1
-            Updated: Updated
-            Position: Position
-            FirstName: FirstName
-            BirthCity: BirthCity
-            MatchName: MatchName
-            Gender: Gender
-            LastName: LastName
-            BirthCountry: BirthCountry
-            Nationality: Nationality
-            BirthDate: BirthDate
-            CommonName: CommonName
-        Gender: Gender
-        Seasons:
-        - StartDate: StartDate
-          Rounds:
-          - StartDate: StartDate
-            Type: Type
-            SeasonType: 9
-            RoundId: 5
-            CurrentRound: true
-            SeasonId: 7
-            CurrentWeek: 5
-            Season: 2
-            EndDate: EndDate
-            Name: Name
-          - StartDate: StartDate
-            Type: Type
-            SeasonType: 9
-            RoundId: 5
-            CurrentRound: true
-            SeasonId: 7
-            CurrentWeek: 5
-            Season: 2
-            EndDate: EndDate
-            Name: Name
-          CurrentSeason: true
-          CompetitionName: CompetitionName
-          SeasonId: 2
-          Season: 3
-          CompetitionId: 1
-          EndDate: EndDate
-          Name: Name
-        - StartDate: StartDate
-          Rounds:
-          - StartDate: StartDate
-            Type: Type
-            SeasonType: 9
-            RoundId: 5
-            CurrentRound: true
-            SeasonId: 7
-            CurrentWeek: 5
-            Season: 2
-            EndDate: EndDate
-            Name: Name
-          - StartDate: StartDate
-            Type: Type
-            SeasonType: 9
-            RoundId: 5
-            CurrentRound: true
-            SeasonId: 7
-            CurrentWeek: 5
-            Season: 2
-            EndDate: EndDate
-            Name: Name
-          CurrentSeason: true
-          CompetitionName: CompetitionName
-          SeasonId: 2
-          Season: 3
-          CompetitionId: 1
-          EndDate: EndDate
-          Name: Name
-        CompetitionId: 6
-        Name: Name
-      properties:
-        AreaId:
-          nullable: false
-          type: integer
-        AreaName:
-          nullable: true
-          type: string
-        CompetitionId:
-          nullable: false
-          type: integer
-        CurrentSeason:
-          $ref: '#/components/schemas/Season'
-        Format:
-          nullable: true
-          type: string
-        Games:
-          items:
-            $ref: '#/components/schemas/Game'
-          type: array
-        Gender:
-          nullable: true
-          type: string
-        Name:
-          nullable: true
-          type: string
-        PlayerStatsCoverage:
-          nullable: true
-          type: boolean
-        Seasons:
-          items:
-            $ref: '#/components/schemas/Season'
-          type: array
-        Teams:
-          items:
-            $ref: '#/components/schemas/TeamDetail'
-          type: array
-        Type:
-          nullable: true
-          type: string
-    Game:
-      example:
-        Group: Group
-        TeamAKey: TeamAKey
-        TeamAMoneyLine: 1
-        IsClosed: true
-        TeamBMoneyLine: 9
-        DateTime: DateTime
-        TeamBId: 9
-        TeamAName: TeamAName
-        DrawMoneyLine: 4
-        TeamAScore: 5
-        Season: 1
-        BestOf: BestOf
-        TeamBName: TeamBName
-        Status: Status
-        RoundId: 1
-        Updated: Updated
-        TeamBPointSpreadPayout: 6
-        TeamBKey: TeamBKey
-        Winner: Winner
-        TeamAId: 7
-        SeasonType: 6
-        PointSpread: 1.2315135367772556
-        TeamAPointSpreadPayout: 4
-        VenueType: VenueType
-        UpdatedUtc: UpdatedUtc
-        VenueId: 9
-        Day: Day
-        Week: 6
-        GameId: 7
-        TeamBScore: 8
-      properties:
-        BestOf:
-          nullable: true
-          type: string
-        DateTime:
-          nullable: true
-          type: string
-        Day:
-          nullable: true
-          type: string
-        DrawMoneyLine:
-          nullable: true
-          type: integer
-        GameId:
-          nullable: false
-          type: integer
-        Group:
-          nullable: true
-          type: string
-        IsClosed:
-          nullable: true
-          type: boolean
-        PointSpread:
-          nullable: true
-          type: number
-        RoundId:
-          nullable: false
-          type: integer
-        Season:
-          nullable: false
-          type: integer
-        SeasonType:
-          nullable: false
-          type: integer
-        Status:
-          nullable: true
-          type: string
-        TeamAId:
-          nullable: true
-          type: integer
-        TeamAKey:
-          nullable: true
-          type: string
-        TeamAMoneyLine:
-          nullable: true
-          type: integer
-        TeamAName:
-          nullable: true
-          type: string
-        TeamAPointSpreadPayout:
-          nullable: true
-          type: integer
-        TeamAScore:
-          nullable: true
-          type: integer
-        TeamBId:
-          nullable: true
-          type: integer
-        TeamBKey:
-          nullable: true
-          type: string
-        TeamBMoneyLine:
-          nullable: true
-          type: integer
-        TeamBName:
-          nullable: true
-          type: string
-        TeamBPointSpreadPayout:
-          nullable: true
-          type: integer
-        TeamBScore:
-          nullable: true
-          type: integer
-        Updated:
-          nullable: true
-          type: string
-        UpdatedUtc:
-          nullable: true
-          type: string
-        VenueId:
-          nullable: true
-          type: integer
-        VenueType:
-          nullable: true
-          type: string
-        Week:
-          nullable: true
-          type: integer
-        Winner:
-          nullable: true
-          type: string
-    Membership:
-      example:
-        StartDate: StartDate
-        PlayerId: 6
-        Active: true
-        Updated: Updated
-        MembershipId: 0
-        PlayerName: PlayerName
-        TeamArea: TeamArea
-        TeamName: TeamName
-        TeamId: 1
-        EndDate: EndDate
-      properties:
-        Active:
-          nullable: false
-          type: boolean
-        EndDate:
-          nullable: true
-          type: string
-        MembershipId:
-          nullable: false
-          type: integer
-        PlayerId:
-          nullable: false
-          type: integer
-        PlayerName:
-          nullable: true
-          type: string
-        StartDate:
-          nullable: true
-          type: string
-        TeamArea:
-          nullable: true
-          type: string
-        TeamId:
-          nullable: false
-          type: integer
-        TeamName:
-          nullable: true
-          type: string
-        Updated:
-          nullable: true
-          type: string
-    Player:
-      example:
-        PlayerId: 1
-        Updated: Updated
-        Position: Position
-        FirstName: FirstName
-        BirthCity: BirthCity
-        MatchName: MatchName
-        Gender: Gender
-        LastName: LastName
-        BirthCountry: BirthCountry
-        Nationality: Nationality
-        BirthDate: BirthDate
-        CommonName: CommonName
-      properties:
-        BirthCity:
-          nullable: true
-          type: string
-        BirthCountry:
-          nullable: true
-          type: string
-        BirthDate:
-          nullable: true
-          type: string
-        CommonName:
-          nullable: true
-          type: string
-        FirstName:
-          nullable: true
-          type: string
-        Gender:
-          nullable: true
-          type: string
-        LastName:
-          nullable: true
-          type: string
-        MatchName:
-          nullable: true
-          type: string
-        Nationality:
-          nullable: true
-          type: string
-        PlayerId:
-          nullable: false
-          type: integer
-        Position:
-          nullable: true
-          type: string
-        Updated:
-          nullable: true
-          type: string
-    Round:
-      example:
-        StartDate: StartDate
-        Type: Type
-        SeasonType: 9
-        RoundId: 5
-        CurrentRound: true
-        SeasonId: 7
-        CurrentWeek: 5
-        Season: 2
-        EndDate: EndDate
-        Name: Name
-      properties:
-        CurrentRound:
-          nullable: false
-          type: boolean
-        CurrentWeek:
-          nullable: true
-          type: integer
-        EndDate:
-          nullable: true
-          type: string
-        Name:
-          nullable: true
-          type: string
-        RoundId:
-          nullable: false
-          type: integer
-        Season:
-          nullable: false
-          type: integer
-        SeasonId:
-          nullable: false
-          type: integer
-        SeasonType:
-          nullable: false
-          type: integer
-        StartDate:
-          nullable: true
-          type: string
-        Type:
-          nullable: true
-          type: string
-    Season:
-      example:
-        StartDate: StartDate
-        Rounds:
-        - StartDate: StartDate
-          Type: Type
-          SeasonType: 9
-          RoundId: 5
-          CurrentRound: true
-          SeasonId: 7
-          CurrentWeek: 5
-          Season: 2
-          EndDate: EndDate
-          Name: Name
-        - StartDate: StartDate
-          Type: Type
-          SeasonType: 9
-          RoundId: 5
-          CurrentRound: true
-          SeasonId: 7
-          CurrentWeek: 5
-          Season: 2
-          EndDate: EndDate
-          Name: Name
-        CurrentSeason: true
-        CompetitionName: CompetitionName
-        SeasonId: 2
-        Season: 3
-        CompetitionId: 1
-        EndDate: EndDate
-        Name: Name
-      properties:
-        CompetitionId:
-          nullable: false
-          type: integer
-        CompetitionName:
-          nullable: true
-          type: string
-        CurrentSeason:
-          nullable: false
-          type: boolean
-        EndDate:
-          nullable: true
-          type: string
-        Name:
-          nullable: true
-          type: string
-        Rounds:
-          items:
-            $ref: '#/components/schemas/Round'
-          type: array
-        Season:
-          nullable: false
-          type: integer
-        SeasonId:
-          nullable: false
-          type: integer
-        StartDate:
-          nullable: true
-          type: string
-    SeasonTeam:
-      example:
-        Active: true
-        Type: Type
-        SeasonTeamId: 6
-        Team:
-          Email: Email
-          Founded: 5
-          AreaId: 1
-          Twitter: Twitter
-          Website: Website
-          ShortName: ShortName
-          TertiaryColor: TertiaryColor
-          Gender: Gender
-          TeamId: 5
-          YouTube: YouTube
-          Name: Name
-          AreaName: AreaName
-          Active: true
-          Type: Type
-          PrimaryColor: PrimaryColor
-          SecondaryColor: SecondaryColor
-          Instagram: Instagram
-          Facebook: Facebook
-          Key: Key
-          QuaternaryColor: QuaternaryColor
-        Gender: Gender
-        SeasonId: 0
-        TeamName: TeamName
-        TeamId: 2
-      properties:
-        Active:
-          nullable: false
-          type: boolean
-        Gender:
-          nullable: true
-          type: string
-        SeasonId:
-          nullable: false
-          type: integer
-        SeasonTeamId:
-          nullable: false
-          type: integer
-        Team:
-          $ref: '#/components/schemas/Team'
-        TeamId:
-          nullable: false
-          type: integer
-        TeamName:
-          nullable: true
-          type: string
-        Type:
-          nullable: true
-          type: string
-    Standing:
-      example:
-        Order: 1
-        Group: Group
-        RoundId: 5
-        ScoreDifference: 7
-        TeamId: 2
-        Name: Name
-        Points: 5
-        Losses: 6
-        StandingId: 3
-        Games: 0
-        ScoreAgainst: 2
-        ScoreFor: 9
-        Wins: 4
-      properties:
-        Games:
-          nullable: false
-          type: integer
-        Group:
-          nullable: true
-          type: string
-        Losses:
-          nullable: false
-          type: integer
-        Name:
-          nullable: true
-          type: string
-        Order:
-          nullable: true
-          type: integer
-        Points:
-          nullable: false
-          type: integer
-        RoundId:
-          nullable: false
-          type: integer
-        ScoreAgainst:
-          nullable: false
-          type: integer
-        ScoreDifference:
-          nullable: false
-          type: integer
-        ScoreFor:
-          nullable: false
-          type: integer
-        StandingId:
-          nullable: false
-          type: integer
-        TeamId:
-          nullable: false
-          type: integer
-        Wins:
-          nullable: false
-          type: integer
-    Team:
-      example:
-        Email: Email
-        Founded: 5
-        AreaId: 1
-        Twitter: Twitter
-        Website: Website
-        ShortName: ShortName
-        TertiaryColor: TertiaryColor
-        Gender: Gender
-        TeamId: 5
-        YouTube: YouTube
-        Name: Name
-        AreaName: AreaName
-        Active: true
-        Type: Type
-        PrimaryColor: PrimaryColor
-        SecondaryColor: SecondaryColor
-        Instagram: Instagram
-        Facebook: Facebook
-        Key: Key
-        QuaternaryColor: QuaternaryColor
-      properties:
-        Active:
-          nullable: false
-          type: boolean
-        AreaId:
-          nullable: true
-          type: integer
-        AreaName:
-          nullable: true
-          type: string
-        Email:
-          nullable: true
-          type: string
-        Facebook:
-          nullable: true
-          type: string
-        Founded:
-          nullable: true
-          type: integer
-        Gender:
-          nullable: true
-          type: string
-        Instagram:
-          nullable: true
-          type: string
-        Key:
-          nullable: true
-          type: string
-        Name:
-          nullable: true
-          type: string
-        PrimaryColor:
-          nullable: true
-          type: string
-        QuaternaryColor:
-          nullable: true
-          type: string
-        SecondaryColor:
-          nullable: true
-          type: string
-        ShortName:
-          nullable: true
-          type: string
-        TeamId:
-          nullable: false
-          type: integer
-        TertiaryColor:
-          nullable: true
-          type: string
-        Twitter:
-          nullable: true
-          type: string
-        Type:
-          nullable: true
-          type: string
-        Website:
-          nullable: true
-          type: string
-        YouTube:
-          nullable: true
-          type: string
-    TeamDetail:
-      example:
-        Email: Email
-        Founded: 6
-        AreaId: 3
-        Twitter: Twitter
-        Website: Website
-        ShortName: ShortName
-        TertiaryColor: TertiaryColor
-        Gender: Gender
-        TeamId: 2
-        YouTube: YouTube
-        Name: Name
-        AreaName: AreaName
-        Active: true
-        Type: Type
-        PrimaryColor: PrimaryColor
-        SecondaryColor: SecondaryColor
-        Instagram: Instagram
-        Facebook: Facebook
-        Key: Key
-        QuaternaryColor: QuaternaryColor
-        Players:
-        - PlayerId: 1
-          Updated: Updated
-          Position: Position
-          FirstName: FirstName
-          BirthCity: BirthCity
-          MatchName: MatchName
-          Gender: Gender
-          LastName: LastName
-          BirthCountry: BirthCountry
-          Nationality: Nationality
-          BirthDate: BirthDate
-          CommonName: CommonName
-        - PlayerId: 1
-          Updated: Updated
-          Position: Position
-          FirstName: FirstName
-          BirthCity: BirthCity
-          MatchName: MatchName
-          Gender: Gender
-          LastName: LastName
-          BirthCountry: BirthCountry
-          Nationality: Nationality
-          BirthDate: BirthDate
-          CommonName: CommonName
-      properties:
-        Active:
-          nullable: false
-          type: boolean
-        AreaId:
-          nullable: true
-          type: integer
-        AreaName:
-          nullable: true
-          type: string
-        Email:
-          nullable: true
-          type: string
-        Facebook:
-          nullable: true
-          type: string
-        Founded:
-          nullable: true
-          type: integer
-        Gender:
-          nullable: true
-          type: string
-        Instagram:
-          nullable: true
-          type: string
-        Key:
-          nullable: true
-          type: string
-        Name:
-          nullable: true
-          type: string
-        Players:
-          items:
-            $ref: '#/components/schemas/Player'
-          type: array
-        PrimaryColor:
-          nullable: true
-          type: string
-        QuaternaryColor:
-          nullable: true
-          type: string
-        SecondaryColor:
-          nullable: true
-          type: string
-        ShortName:
-          nullable: true
-          type: string
-        TeamId:
-          nullable: false
-          type: integer
-        TertiaryColor:
-          nullable: true
-          type: string
-        Twitter:
-          nullable: true
-          type: string
-        Type:
-          nullable: true
-          type: string
-        Website:
-          nullable: true
-          type: string
-        YouTube:
-          nullable: true
-          type: string
-    Venue:
-      example:
-        Zip: Zip
-        Opened: 5
-        Address: Address
-        GeoLat: 6.027456183070403
-        City: City
-        Name: Name
-        Open: true
-        Nickname1: Nickname1
-        Nickname2: Nickname2
-        Capacity: 0
-        Country: Country
-        GeoLong: 1.4658129805029452
-        VenueId: 5
-      properties:
-        Address:
-          nullable: true
-          type: string
-        Capacity:
-          nullable: true
-          type: integer
-        City:
-          nullable: true
-          type: string
-        Country:
-          nullable: true
-          type: string
-        GeoLat:
-          nullable: true
-          type: number
-        GeoLong:
-          nullable: true
-          type: number
-        Name:
-          nullable: true
-          type: string
-        Nickname1:
-          nullable: true
-          type: string
-        Nickname2:
-          nullable: true
-          type: string
-        Open:
-          nullable: false
-          type: boolean
-        Opened:
-          nullable: true
-          type: integer
-        VenueId:
-          nullable: false
-          type: integer
-        Zip:
-          nullable: true
-          type: string
-  securitySchemes:
-    apiKeyHeader:
-      in: header
-      name: Ocp-Apim-Subscription-Key
-      type: apiKey
-    apiKeyQuery:
+  parameters:
+    gifId:
+      description: Filters results by specified GIF ID.
+      explode: false
+      in: path
+      name: gifId
+      required: true
+      schema:
+        format: int32
+        type: integer
+      style: simple
+    gifIds:
+      description: "Filters results by specified GIF IDs, separated by commas."
+      explode: true
       in: query
-      name: key
+      name: ids
+      required: false
+      schema:
+        type: string
+      style: form
+    lang:
+      description: Specify default language for regional content; use a 2-letter ISO
+        639-1 language code.
+      explode: true
+      in: query
+      name: lang
+      required: false
+      schema:
+        type: string
+      style: form
+    limit:
+      description: The maximum number of records to return.
+      explode: true
+      in: query
+      name: limit
+      required: false
+      schema:
+        default: 25
+        format: int32
+        type: integer
+      style: form
+    offset:
+      description: An optional results offset.
+      explode: true
+      in: query
+      name: offset
+      required: false
+      schema:
+        default: 0
+        format: int32
+        type: integer
+      style: form
+    query:
+      description: Search query term or prhase.
+      explode: true
+      in: query
+      name: q
+      required: true
+      schema:
+        type: string
+      style: form
+    rating:
+      description: Filters results by specified rating.
+      explode: true
+      in: query
+      name: rating
+      required: false
+      schema:
+        type: string
+      style: form
+    tag:
+      description: Filters results by specified tag.
+      explode: true
+      in: query
+      name: tag
+      required: false
+      schema:
+        type: string
+      style: form
+    term:
+      description: Search term.
+      explode: true
+      in: query
+      name: s
+      required: true
+      schema:
+        type: string
+      style: form
+  responses:
+    BadRequest:
+      description: Your request was formatted incorrectly or missing required parameters.
+    Forbidden:
+      description: You weren't authorized to make your request; most likely this indicates
+        an issue with your API Key.
+    NotFound:
+      description: "The particular GIF you are requesting was not found. This occurs,\
+        \ for example, if you request a GIF by an id that does not exist."
+    TooManyRequests:
+      description: |
+        Your API Key is making too many requests. Read about [requesting a Production Key](https://developers.giphy.com/docs/#access) to upgrade your API Key rate limits.
+  schemas:
+    Gif:
+      example:
+        import_datetime: 2000-01-23T04:56:07.000+00:00
+        images:
+          preview:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          original:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          preview_gif:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          fixed_height_small:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          looping:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          downsized_still:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          fixed_width:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          downsized_large:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          fixed_height_downsampled:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          downsized_medium:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          fixed_height:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          fixed_height_small_still:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          fixed_width_downsampled:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          downsized_small:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          fixed_width_small:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          fixed_height_still:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          fixed_width_small_still:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          fixed_width_still:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          downsized:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+          original_still:
+            mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+            frames: "15"
+            size: "32381"
+            width: "320"
+            mp4_size: "25123"
+            webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+            webp_size: "12321"
+            url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+            height: "200"
+        trending_datetime: 2000-01-23T04:56:07.000+00:00
+        update_datetime: 2000-01-23T04:56:07.000+00:00
+        bitly_url: http://gph.is/1gsWDcL
+        rating: g
+        source: http://www.reddit.com/r/reactiongifs/comments/1xpyaa/superman_goes_to_hollywood/
+        type: gif
+        source_tld: cheezburger.com
+        url: http://giphy.com/gifs/confused-flying-YsTs5ltWtEhnq
+        tags:
+        - tags
+        - tags
+        create_datetime: 2000-01-23T04:56:07.000+00:00
+        source_post_url: http://cheezburger.com/5282328320
+        content_url: content_url
+        featured_tags:
+        - featured_tags
+        - featured_tags
+        id: YsTs5ltWtEhnq
+        user:
+          twitter: '@joecool4000'
+          avatar_url: https://media1.giphy.com/avatars/election2016/XwYrZi5H87o6.gif
+          profile_url: https://giphy.com/cheezburger/
+          banner_url: https://media4.giphy.com/avatars/cheezburger/XkuejOhoGLE6.jpg
+          display_name: JoeCool4000
+          username: joecool4000
+        slug: confused-flying-YsTs5ltWtEhnq
+        embded_url: http://giphy.com/embed/YsTs5ltWtEhnq
+        username: JoeCool4000
+      properties:
+        bitly_url:
+          description: The unique bit.ly URL for this GIF
+          example: http://gph.is/1gsWDcL
+          type: string
+        content_url:
+          description: Currently unused
+          type: string
+        create_datetime:
+          description: The date this GIF was added to the GIPHY database.
+          format: date-time
+          type: string
+        embded_url:
+          description: A URL used for embedding this GIF
+          example: http://giphy.com/embed/YsTs5ltWtEhnq
+          type: string
+        featured_tags:
+          description: |
+            An array of featured tags for this GIF (Note: Not available when using the Public Beta Key)
+          items:
+            description: Tag name
+            type: string
+          type: array
+        id:
+          description: This GIF's unique ID
+          example: YsTs5ltWtEhnq
+          type: string
+        images:
+          $ref: '#/components/schemas/Gif_images'
+        import_datetime:
+          description: The creation or upload date from this GIF's source.
+          format: date-time
+          type: string
+        rating:
+          description: "The MPAA-style rating for this content. Examples include Y,\
+            \ G, PG, PG-13 and R"
+          example: g
+          type: string
+        slug:
+          description: The unique slug used in this GIF's URL
+          example: confused-flying-YsTs5ltWtEhnq
+          type: string
+        source:
+          description: The page on which this GIF was found
+          example: http://www.reddit.com/r/reactiongifs/comments/1xpyaa/superman_goes_to_hollywood/
+          type: string
+        source_post_url:
+          description: The URL of the webpage on which this GIF was found.
+          example: http://cheezburger.com/5282328320
+          type: string
+        source_tld:
+          description: The top level domain of the source URL.
+          example: cheezburger.com
+          type: string
+        tags:
+          description: |
+            An array of tags for this GIF (Note: Not available when using the Public Beta Key)
+          items:
+            description: Tag name
+            type: string
+          type: array
+        trending_datetime:
+          description: "The date on which this gif was marked trending, if applicable."
+          format: date-time
+          type: string
+        type:
+          default: gif
+          description: "Type of the gif. By default, this is almost always gif"
+          enum:
+          - gif
+          type: string
+        update_datetime:
+          description: The date on which this GIF was last updated.
+          format: date-time
+          type: string
+        url:
+          description: The unique URL for this GIF
+          example: http://giphy.com/gifs/confused-flying-YsTs5ltWtEhnq
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+        username:
+          description: "The username this GIF is attached to, if applicable"
+          example: JoeCool4000
+          type: string
+      type: object
+    Image:
+      properties:
+        frames:
+          description: The number of frames in this GIF.
+          example: "15"
+          type: string
+        height:
+          description: The height of this GIF in pixels.
+          example: "200"
+          type: string
+        mp4:
+          description: The URL for this GIF in .MP4 format.
+          example: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          type: string
+        mp4_size:
+          description: The size in bytes of the .MP4 file corresponding to this GIF.
+          example: "25123"
+          type: string
+        size:
+          description: The size of this GIF in bytes.
+          example: "32381"
+          type: string
+        url:
+          description: The publicly-accessible direct URL for this GIF.
+          example: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          type: string
+        webp:
+          description: The URL for this GIF in .webp format.
+          example: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          type: string
+        webp_size:
+          description: The size in bytes of the .webp file corresponding to this GIF.
+          example: "12321"
+          type: string
+        width:
+          description: The width of this GIF in pixels.
+          example: "320"
+          type: string
+      type: object
+    Meta:
+      description: |
+        The Meta Object contains basic information regarding the request, whether it was successful, and the response given by the API.  Check `responses` to see a description of types of response codes the API might give you under different cirumstances.
+      example:
+        msg: OK
+        response_id: 57eea03c72381f86e05c35d2
+        status: 200
+      properties:
+        msg:
+          description: HTTP Response Message
+          example: OK
+          type: string
+        response_id:
+          description: A unique ID paired with this response from the API.
+          example: 57eea03c72381f86e05c35d2
+          type: string
+        status:
+          description: HTTP Response Code
+          example: 200
+          format: int32
+          type: integer
+      type: object
+    Pagination:
+      description: |
+        The Pagination Object contains information relating to the number of total results available as well as the number of results fetched and their relative positions.
+      example:
+        offset: 75
+        total_count: 250
+        count: 25
+      properties:
+        count:
+          description: Total number of items returned.
+          example: 25
+          format: int32
+          type: integer
+        offset:
+          description: Position in pagination.
+          example: 75
+          format: int32
+          type: integer
+        total_count:
+          description: Total number of items available.
+          example: 250
+          format: int32
+          type: integer
+      type: object
+    User:
+      description: "The User Object contains information about the user associated\
+        \ with a GIF and URLs to assets such as that user's avatar image, profile,\
+        \ and more."
+      example:
+        twitter: '@joecool4000'
+        avatar_url: https://media1.giphy.com/avatars/election2016/XwYrZi5H87o6.gif
+        profile_url: https://giphy.com/cheezburger/
+        banner_url: https://media4.giphy.com/avatars/cheezburger/XkuejOhoGLE6.jpg
+        display_name: JoeCool4000
+        username: joecool4000
+      properties:
+        avatar_url:
+          description: The URL for this user's avatar image.
+          example: https://media1.giphy.com/avatars/election2016/XwYrZi5H87o6.gif
+          type: string
+        banner_url:
+          description: The URL for the banner image that appears atop this user's
+            profile page.
+          example: https://media4.giphy.com/avatars/cheezburger/XkuejOhoGLE6.jpg
+          type: string
+        display_name:
+          description: The display name associated with this user (contains formatting
+            the base username might not).
+          example: JoeCool4000
+          type: string
+        profile_url:
+          description: The URL for this user's profile.
+          example: https://giphy.com/cheezburger/
+          type: string
+        twitter:
+          description: "The Twitter username associated with this user, if applicable."
+          example: '@joecool4000'
+          type: string
+        username:
+          description: The username associated with this user.
+          example: joecool4000
+          type: string
+      type: object
+    getGifsById_200_response:
+      example:
+        pagination:
+          offset: 75
+          total_count: 250
+          count: 25
+        data:
+        - import_datetime: 2000-01-23T04:56:07.000+00:00
+          images:
+            preview:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            original:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            preview_gif:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_small:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            looping:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_large:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_downsampled:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_medium:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_small_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_downsampled:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_small:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_small:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_small_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            original_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+          trending_datetime: 2000-01-23T04:56:07.000+00:00
+          update_datetime: 2000-01-23T04:56:07.000+00:00
+          bitly_url: http://gph.is/1gsWDcL
+          rating: g
+          source: http://www.reddit.com/r/reactiongifs/comments/1xpyaa/superman_goes_to_hollywood/
+          type: gif
+          source_tld: cheezburger.com
+          url: http://giphy.com/gifs/confused-flying-YsTs5ltWtEhnq
+          tags:
+          - tags
+          - tags
+          create_datetime: 2000-01-23T04:56:07.000+00:00
+          source_post_url: http://cheezburger.com/5282328320
+          content_url: content_url
+          featured_tags:
+          - featured_tags
+          - featured_tags
+          id: YsTs5ltWtEhnq
+          user:
+            twitter: '@joecool4000'
+            avatar_url: https://media1.giphy.com/avatars/election2016/XwYrZi5H87o6.gif
+            profile_url: https://giphy.com/cheezburger/
+            banner_url: https://media4.giphy.com/avatars/cheezburger/XkuejOhoGLE6.jpg
+            display_name: JoeCool4000
+            username: joecool4000
+          slug: confused-flying-YsTs5ltWtEhnq
+          embded_url: http://giphy.com/embed/YsTs5ltWtEhnq
+          username: JoeCool4000
+        - import_datetime: 2000-01-23T04:56:07.000+00:00
+          images:
+            preview:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            original:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            preview_gif:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_small:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            looping:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_large:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_downsampled:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_medium:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_small_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_downsampled:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_small:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_small:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_small_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            original_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+          trending_datetime: 2000-01-23T04:56:07.000+00:00
+          update_datetime: 2000-01-23T04:56:07.000+00:00
+          bitly_url: http://gph.is/1gsWDcL
+          rating: g
+          source: http://www.reddit.com/r/reactiongifs/comments/1xpyaa/superman_goes_to_hollywood/
+          type: gif
+          source_tld: cheezburger.com
+          url: http://giphy.com/gifs/confused-flying-YsTs5ltWtEhnq
+          tags:
+          - tags
+          - tags
+          create_datetime: 2000-01-23T04:56:07.000+00:00
+          source_post_url: http://cheezburger.com/5282328320
+          content_url: content_url
+          featured_tags:
+          - featured_tags
+          - featured_tags
+          id: YsTs5ltWtEhnq
+          user:
+            twitter: '@joecool4000'
+            avatar_url: https://media1.giphy.com/avatars/election2016/XwYrZi5H87o6.gif
+            profile_url: https://giphy.com/cheezburger/
+            banner_url: https://media4.giphy.com/avatars/cheezburger/XkuejOhoGLE6.jpg
+            display_name: JoeCool4000
+            username: joecool4000
+          slug: confused-flying-YsTs5ltWtEhnq
+          embded_url: http://giphy.com/embed/YsTs5ltWtEhnq
+          username: JoeCool4000
+        meta:
+          msg: OK
+          response_id: 57eea03c72381f86e05c35d2
+          status: 200
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/Gif'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      type: object
+    randomGif_200_response:
+      example:
+        data:
+          import_datetime: 2000-01-23T04:56:07.000+00:00
+          images:
+            preview:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            original:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            preview_gif:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_small:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            looping:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_large:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_downsampled:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_medium:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_small_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_downsampled:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized_small:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_small:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_height_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_small_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            fixed_width_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            downsized:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+            original_still:
+              mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+              frames: "15"
+              size: "32381"
+              width: "320"
+              mp4_size: "25123"
+              webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+              webp_size: "12321"
+              url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+              height: "200"
+          trending_datetime: 2000-01-23T04:56:07.000+00:00
+          update_datetime: 2000-01-23T04:56:07.000+00:00
+          bitly_url: http://gph.is/1gsWDcL
+          rating: g
+          source: http://www.reddit.com/r/reactiongifs/comments/1xpyaa/superman_goes_to_hollywood/
+          type: gif
+          source_tld: cheezburger.com
+          url: http://giphy.com/gifs/confused-flying-YsTs5ltWtEhnq
+          tags:
+          - tags
+          - tags
+          create_datetime: 2000-01-23T04:56:07.000+00:00
+          source_post_url: http://cheezburger.com/5282328320
+          content_url: content_url
+          featured_tags:
+          - featured_tags
+          - featured_tags
+          id: YsTs5ltWtEhnq
+          user:
+            twitter: '@joecool4000'
+            avatar_url: https://media1.giphy.com/avatars/election2016/XwYrZi5H87o6.gif
+            profile_url: https://giphy.com/cheezburger/
+            banner_url: https://media4.giphy.com/avatars/cheezburger/XkuejOhoGLE6.jpg
+            display_name: JoeCool4000
+            username: joecool4000
+          slug: confused-flying-YsTs5ltWtEhnq
+          embded_url: http://giphy.com/embed/YsTs5ltWtEhnq
+          username: JoeCool4000
+        meta:
+          msg: OK
+          response_id: 57eea03c72381f86e05c35d2
+          status: 200
+      properties:
+        data:
+          $ref: '#/components/schemas/Gif'
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    Gif_images_downsized:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a version of this GIF downsized to be under
+          2mb.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_downsized_large:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a version of this GIF downsized to be under
+          8mb.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_downsized_medium:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a version of this GIF downsized to be under
+          5mb.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_downsized_small:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a version of this GIF downsized to be under
+          200kb.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_downsized_still:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a static preview image of the downsized version
+          of this GIF.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_fixed_height:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding versions of this GIF with a fixed height of
+          200 pixels. Good for mobile use.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_fixed_height_downsampled:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding versions of this GIF with a fixed height of
+          200 pixels and the number of frames reduced to 6.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_fixed_height_small:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding versions of this GIF with a fixed height of
+          100 pixels. Good for mobile keyboards.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_fixed_height_small_still:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a static image of this GIF with a fixed height
+          of 100 pixels.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_fixed_height_still:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a static image of this GIF with a fixed height
+          of 200 pixels.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_fixed_width:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding versions of this GIF with a fixed width of 200
+          pixels. Good for mobile use.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_fixed_width_downsampled:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding versions of this GIF with a fixed width of 200
+          pixels and the number of frames reduced to 6.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_fixed_width_small:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding versions of this GIF with a fixed width of 100
+          pixels. Good for mobile keyboards.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_fixed_width_small_still:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a static image of this GIF with a fixed width
+          of 100 pixels.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_fixed_width_still:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a static image of this GIF with a fixed width
+          of 200 pixels.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_looping:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a version of this GIF set to loop for 15 seconds.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_original:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding the original version of this GIF. Good for desktop
+          use.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_original_still:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a static preview image of the original GIF.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_preview:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a version of this GIF in .MP4 format limited
+          to 50kb that displays the first 1-2 seconds of the GIF.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images_preview_gif:
+      allOf:
+      - $ref: '#/components/schemas/Image'
+      - description: Data surrounding a version of this GIF limited to 50kb that displays
+          the first 1-2 seconds of the GIF.
+      example:
+        mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+        frames: "15"
+        size: "32381"
+        width: "320"
+        mp4_size: "25123"
+        webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+        webp_size: "12321"
+        url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+        height: "200"
+    Gif_images:
+      description: An object containing data for various available formats and sizes
+        of this GIF.
+      example:
+        preview:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        original:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        preview_gif:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        fixed_height_small:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        looping:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        downsized_still:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        fixed_width:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        downsized_large:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        fixed_height_downsampled:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        downsized_medium:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        fixed_height:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        fixed_height_small_still:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        fixed_width_downsampled:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        downsized_small:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        fixed_width_small:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        fixed_height_still:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        fixed_width_small_still:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        fixed_width_still:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        downsized:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+        original_still:
+          mp4: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.mp4
+          frames: "15"
+          size: "32381"
+          width: "320"
+          mp4_size: "25123"
+          webp: https://media1.giphy.com/media/cZ7rmKfFYOvYI/giphy.webp
+          webp_size: "12321"
+          url: https://media1.giphy.com/media/cZ7rmKfFYOvYI/200.gif
+          height: "200"
+      properties:
+        downsized:
+          $ref: '#/components/schemas/Gif_images_downsized'
+        downsized_large:
+          $ref: '#/components/schemas/Gif_images_downsized_large'
+        downsized_medium:
+          $ref: '#/components/schemas/Gif_images_downsized_medium'
+        downsized_small:
+          $ref: '#/components/schemas/Gif_images_downsized_small'
+        downsized_still:
+          $ref: '#/components/schemas/Gif_images_downsized_still'
+        fixed_height:
+          $ref: '#/components/schemas/Gif_images_fixed_height'
+        fixed_height_downsampled:
+          $ref: '#/components/schemas/Gif_images_fixed_height_downsampled'
+        fixed_height_small:
+          $ref: '#/components/schemas/Gif_images_fixed_height_small'
+        fixed_height_small_still:
+          $ref: '#/components/schemas/Gif_images_fixed_height_small_still'
+        fixed_height_still:
+          $ref: '#/components/schemas/Gif_images_fixed_height_still'
+        fixed_width:
+          $ref: '#/components/schemas/Gif_images_fixed_width'
+        fixed_width_downsampled:
+          $ref: '#/components/schemas/Gif_images_fixed_width_downsampled'
+        fixed_width_small:
+          $ref: '#/components/schemas/Gif_images_fixed_width_small'
+        fixed_width_small_still:
+          $ref: '#/components/schemas/Gif_images_fixed_width_small_still'
+        fixed_width_still:
+          $ref: '#/components/schemas/Gif_images_fixed_width_still'
+        looping:
+          $ref: '#/components/schemas/Gif_images_looping'
+        original:
+          $ref: '#/components/schemas/Gif_images_original'
+        original_still:
+          $ref: '#/components/schemas/Gif_images_original_still'
+        preview:
+          $ref: '#/components/schemas/Gif_images_preview'
+        preview_gif:
+          $ref: '#/components/schemas/Gif_images_preview_gif'
+      type: object
+  securitySchemes:
+    api_key:
+      in: query
+      name: api_key
       type: apiKey
 

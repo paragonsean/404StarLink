@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build LoL v3 Scores
+    name: Build Giphy API
     runs-on: ubuntu-latest
     strategy:
       matrix:
