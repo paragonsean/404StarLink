@@ -1,0 +1,3336 @@
+<!doctype html>
+<html>
+  <head>
+    <title>MLB v3 Scores</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>MLB v3 Scores</h1>
+    <div class="app-desc">MLB scores API.</div>
+    <div class="app-desc">More information: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
+    <div class="app-desc">Contact Info: <a href="team@openapitools.org">team@openapitools.org</a></div>
+    <div class="app-desc">Version: 1.0</div>
+    <div class="app-desc">BasePath:/v3/mlb/scores</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:Ocp-Apim-Subscription-Key KeyInQuery:false KeyInHeader:true</li>
+      <li>APIKey KeyParamName:key KeyInQuery:true KeyInHeader:false</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#areGamesInProgress"><code><span class="http-method">get</span> /{format}/AreAnyGamesInProgress</code></a></li>
+  <li><a href="#currentSeason"><code><span class="http-method">get</span> /{format}/CurrentSeason</code></a></li>
+  <li><a href="#gamesByDate"><code><span class="http-method">get</span> /{format}/GamesByDate/{date}</code></a></li>
+  <li><a href="#news"><code><span class="http-method">get</span> /{format}/News</code></a></li>
+  <li><a href="#newsByDate"><code><span class="http-method">get</span> /{format}/NewsByDate/{date}</code></a></li>
+  <li><a href="#newsByPlayer"><code><span class="http-method">get</span> /{format}/NewsByPlayerID/{playerid}</code></a></li>
+  <li><a href="#playerDetailsByActive"><code><span class="http-method">get</span> /{format}/Players</code></a></li>
+  <li><a href="#playerDetailsByFreeAgents"><code><span class="http-method">get</span> /{format}/FreeAgents</code></a></li>
+  <li><a href="#playerDetailsByPlayer"><code><span class="http-method">get</span> /{format}/Player/{playerid}</code></a></li>
+  <li><a href="#playersByTeam"><code><span class="http-method">get</span> /{format}/Players/{team}</code></a></li>
+  <li><a href="#schedules"><code><span class="http-method">get</span> /{format}/Games/{season}</code></a></li>
+  <li><a href="#stadiums"><code><span class="http-method">get</span> /{format}/Stadiums</code></a></li>
+  <li><a href="#standings"><code><span class="http-method">get</span> /{format}/Standings/{season}</code></a></li>
+  <li><a href="#teamGameLogsBySeason"><code><span class="http-method">get</span> /{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}</code></a></li>
+  <li><a href="#teamGameStatsByDate"><code><span class="http-method">get</span> /{format}/TeamGameStatsByDate/{date}</code></a></li>
+  <li><a href="#teamSeasonStats"><code><span class="http-method">get</span> /{format}/TeamSeasonStats/{season}</code></a></li>
+  <li><a href="#teamsActive"><code><span class="http-method">get</span> /{format}/teams</code></a></li>
+  <li><a href="#teamsAll"><code><span class="http-method">get</span> /{format}/AllTeams</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="areGamesInProgress"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/AreAnyGamesInProgress</code></pre></div>
+    <div class="method-summary">Are Games In Progress (<span class="nickname">areGamesInProgress</span>)</div>
+    <div class="method-notes">Returns <code>true</code> if there is at least one game being played at the time of the request or <code>false</code> if there are none.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Boolean
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        <a href="#Boolean">Boolean</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="currentSeason"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/CurrentSeason</code></pre></div>
+    <div class="method-summary">Current Season (<span class="nickname">currentSeason</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Season">Season</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "SeasonType" : "SeasonType",
+  "RegularSeasonStartDate" : "RegularSeasonStartDate",
+  "PostSeasonStartDate" : "PostSeasonStartDate",
+  "ApiSeason" : "ApiSeason",
+  "Season" : 0
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        <a href="#Season">Season</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="gamesByDate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/GamesByDate/{date}</code></pre></div>
+    <div class="method-summary">Games by Date (<span class="nickname">gamesByDate</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div><div class="param">date (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The date of the game(s).
+<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Game">Game</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "InningDescription" : "InningDescription",
+  "Innings" : [ {
+    "InningID" : 7,
+    "AwayTeamRuns" : 3,
+    "InningNumber" : 6,
+    "HomeTeamRuns" : 0,
+    "GameID" : 7
+  }, {
+    "InningID" : 7,
+    "AwayTeamRuns" : 3,
+    "InningNumber" : 6,
+    "HomeTeamRuns" : 0,
+    "GameID" : 7
+  } ],
+  "AwayTeam" : "AwayTeam",
+  "ForecastDescription" : "ForecastDescription",
+  "HomeTeamMoneyLine" : 6,
+  "AwayTeamRuns" : 9,
+  "HomeTeamID" : 2,
+  "ForecastTempHigh" : 1,
+  "RunnerOnThird" : true,
+  "DateTime" : "DateTime",
+  "CurrentHittingTeamID" : 7,
+  "CurrentHitter" : "CurrentHitter",
+  "CurrentHitterID" : 4,
+  "HomeTeamHits" : 1,
+  "AwayTeamErrors" : 1,
+  "AwayTeamHits" : 5,
+  "ForecastWindSpeed" : 9,
+  "GameID" : 6,
+  "OverPayout" : 8,
+  "AwayTeamStartingPitcherID" : 3,
+  "Outs" : 4,
+  "Status" : "Status",
+  "ForecastWindDirection" : 9,
+  "LosingPitcher" : "LosingPitcher",
+  "HomeTeam" : "HomeTeam",
+  "Updated" : "Updated",
+  "Channel" : "Channel",
+  "Inning" : 3,
+  "DueUpHitterID2" : 6,
+  "DueUpHitterID3" : 7,
+  "HomeTeamRuns" : 5,
+  "RunnerOnFirst" : true,
+  "CurrentPitcher" : "CurrentPitcher",
+  "DueUpHitterID1" : 1,
+  "HomeTeamStartingPitcherID" : 6,
+  "NeutralVenue" : true,
+  "StadiumID" : 9,
+  "SeriesInfo" : {
+    "GameNumber" : 1,
+    "MaxLength" : 7,
+    "AwayTeamWins" : 4,
+    "HomeTeamWins" : 4
+  },
+  "AwayRotationNumber" : 6,
+  "PointSpreadAwayTeamMoneyLine" : 3,
+  "GlobalAwayTeamID" : 8,
+  "DateTimeUTC" : "DateTimeUTC",
+  "RescheduledFromGameID" : 5,
+  "AwayTeamMoneyLine" : 2,
+  "HomeTeamErrors" : 6,
+  "RescheduledGameID" : 3,
+  "AwayTeamProbablePitcherID" : 7,
+  "GameEndDateTime" : "GameEndDateTime",
+  "HomeRotationNumber" : 3,
+  "InningHalf" : "InningHalf",
+  "HomeTeamProbablePitcherID" : 6,
+  "AwayTeamID" : 5,
+  "IsClosed" : true,
+  "LastPlay" : "LastPlay",
+  "ForecastWindChill" : 5,
+  "UnderPayout" : 9,
+  "GlobalHomeTeamID" : 6,
+  "WinningPitcher" : "WinningPitcher",
+  "HomeTeamStartingPitcher" : "HomeTeamStartingPitcher",
+  "Season" : 0,
+  "GlobalGameID" : 9,
+  "Attendance" : 0,
+  "RunnerOnSecond" : true,
+  "SavingPitcherID" : 4,
+  "OverUnder" : 7.740351818741173,
+  "Strikes" : 0,
+  "CurrentPitcherID" : 1,
+  "SeasonType" : 6,
+  "PointSpread" : 3.0205796992916243,
+  "SavingPitcher" : "SavingPitcher",
+  "LosingPitcherID" : 0,
+  "ForecastTempLow" : 4,
+  "WinningPitcherID" : 0,
+  "AwayTeamStartingPitcher" : "AwayTeamStartingPitcher",
+  "Balls" : 2,
+  "PointSpreadHomeTeamMoneyLine" : 7,
+  "CurrentPitchingTeamID" : 1,
+  "Day" : "Day"
+}, {
+  "InningDescription" : "InningDescription",
+  "Innings" : [ {
+    "InningID" : 7,
+    "AwayTeamRuns" : 3,
+    "InningNumber" : 6,
+    "HomeTeamRuns" : 0,
+    "GameID" : 7
+  }, {
+    "InningID" : 7,
+    "AwayTeamRuns" : 3,
+    "InningNumber" : 6,
+    "HomeTeamRuns" : 0,
+    "GameID" : 7
+  } ],
+  "AwayTeam" : "AwayTeam",
+  "ForecastDescription" : "ForecastDescription",
+  "HomeTeamMoneyLine" : 6,
+  "AwayTeamRuns" : 9,
+  "HomeTeamID" : 2,
+  "ForecastTempHigh" : 1,
+  "RunnerOnThird" : true,
+  "DateTime" : "DateTime",
+  "CurrentHittingTeamID" : 7,
+  "CurrentHitter" : "CurrentHitter",
+  "CurrentHitterID" : 4,
+  "HomeTeamHits" : 1,
+  "AwayTeamErrors" : 1,
+  "AwayTeamHits" : 5,
+  "ForecastWindSpeed" : 9,
+  "GameID" : 6,
+  "OverPayout" : 8,
+  "AwayTeamStartingPitcherID" : 3,
+  "Outs" : 4,
+  "Status" : "Status",
+  "ForecastWindDirection" : 9,
+  "LosingPitcher" : "LosingPitcher",
+  "HomeTeam" : "HomeTeam",
+  "Updated" : "Updated",
+  "Channel" : "Channel",
+  "Inning" : 3,
+  "DueUpHitterID2" : 6,
+  "DueUpHitterID3" : 7,
+  "HomeTeamRuns" : 5,
+  "RunnerOnFirst" : true,
+  "CurrentPitcher" : "CurrentPitcher",
+  "DueUpHitterID1" : 1,
+  "HomeTeamStartingPitcherID" : 6,
+  "NeutralVenue" : true,
+  "StadiumID" : 9,
+  "SeriesInfo" : {
+    "GameNumber" : 1,
+    "MaxLength" : 7,
+    "AwayTeamWins" : 4,
+    "HomeTeamWins" : 4
+  },
+  "AwayRotationNumber" : 6,
+  "PointSpreadAwayTeamMoneyLine" : 3,
+  "GlobalAwayTeamID" : 8,
+  "DateTimeUTC" : "DateTimeUTC",
+  "RescheduledFromGameID" : 5,
+  "AwayTeamMoneyLine" : 2,
+  "HomeTeamErrors" : 6,
+  "RescheduledGameID" : 3,
+  "AwayTeamProbablePitcherID" : 7,
+  "GameEndDateTime" : "GameEndDateTime",
+  "HomeRotationNumber" : 3,
+  "InningHalf" : "InningHalf",
+  "HomeTeamProbablePitcherID" : 6,
+  "AwayTeamID" : 5,
+  "IsClosed" : true,
+  "LastPlay" : "LastPlay",
+  "ForecastWindChill" : 5,
+  "UnderPayout" : 9,
+  "GlobalHomeTeamID" : 6,
+  "WinningPitcher" : "WinningPitcher",
+  "HomeTeamStartingPitcher" : "HomeTeamStartingPitcher",
+  "Season" : 0,
+  "GlobalGameID" : 9,
+  "Attendance" : 0,
+  "RunnerOnSecond" : true,
+  "SavingPitcherID" : 4,
+  "OverUnder" : 7.740351818741173,
+  "Strikes" : 0,
+  "CurrentPitcherID" : 1,
+  "SeasonType" : 6,
+  "PointSpread" : 3.0205796992916243,
+  "SavingPitcher" : "SavingPitcher",
+  "LosingPitcherID" : 0,
+  "ForecastTempLow" : 4,
+  "WinningPitcherID" : 0,
+  "AwayTeamStartingPitcher" : "AwayTeamStartingPitcher",
+  "Balls" : 2,
+  "PointSpreadHomeTeamMoneyLine" : 7,
+  "CurrentPitchingTeamID" : 1,
+  "Day" : "Day"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="news"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/News</code></pre></div>
+    <div class="method-summary">News (<span class="nickname">news</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#News">News</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "PlayerID" : 6,
+  "OriginalSourceUrl" : "OriginalSourceUrl",
+  "Updated" : "Updated",
+  "Categories" : "Categories",
+  "TermsOfUse" : "TermsOfUse",
+  "Title" : "Title",
+  "PlayerID2" : 1,
+  "TeamID" : 5,
+  "Source" : "Source",
+  "Url" : "Url",
+  "NewsID" : 0,
+  "TeamID2" : 5,
+  "Content" : "Content",
+  "OriginalSource" : "OriginalSource",
+  "Author" : "Author",
+  "Team" : "Team",
+  "Team2" : "Team2",
+  "TimeAgo" : "TimeAgo"
+}, {
+  "PlayerID" : 6,
+  "OriginalSourceUrl" : "OriginalSourceUrl",
+  "Updated" : "Updated",
+  "Categories" : "Categories",
+  "TermsOfUse" : "TermsOfUse",
+  "Title" : "Title",
+  "PlayerID2" : 1,
+  "TeamID" : 5,
+  "Source" : "Source",
+  "Url" : "Url",
+  "NewsID" : 0,
+  "TeamID2" : 5,
+  "Content" : "Content",
+  "OriginalSource" : "OriginalSource",
+  "Author" : "Author",
+  "Team" : "Team",
+  "Team2" : "Team2",
+  "TimeAgo" : "TimeAgo"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="newsByDate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/NewsByDate/{date}</code></pre></div>
+    <div class="method-summary">News by Date (<span class="nickname">newsByDate</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div><div class="param">date (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The date of the news.
+<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#News">News</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "PlayerID" : 6,
+  "OriginalSourceUrl" : "OriginalSourceUrl",
+  "Updated" : "Updated",
+  "Categories" : "Categories",
+  "TermsOfUse" : "TermsOfUse",
+  "Title" : "Title",
+  "PlayerID2" : 1,
+  "TeamID" : 5,
+  "Source" : "Source",
+  "Url" : "Url",
+  "NewsID" : 0,
+  "TeamID2" : 5,
+  "Content" : "Content",
+  "OriginalSource" : "OriginalSource",
+  "Author" : "Author",
+  "Team" : "Team",
+  "Team2" : "Team2",
+  "TimeAgo" : "TimeAgo"
+}, {
+  "PlayerID" : 6,
+  "OriginalSourceUrl" : "OriginalSourceUrl",
+  "Updated" : "Updated",
+  "Categories" : "Categories",
+  "TermsOfUse" : "TermsOfUse",
+  "Title" : "Title",
+  "PlayerID2" : 1,
+  "TeamID" : 5,
+  "Source" : "Source",
+  "Url" : "Url",
+  "NewsID" : 0,
+  "TeamID2" : 5,
+  "Content" : "Content",
+  "OriginalSource" : "OriginalSource",
+  "Author" : "Author",
+  "Team" : "Team",
+  "Team2" : "Team2",
+  "TimeAgo" : "TimeAgo"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="newsByPlayer"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/NewsByPlayerID/{playerid}</code></pre></div>
+    <div class="method-summary">News by Player (<span class="nickname">newsByPlayer</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div><div class="param">playerid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Player ID.
+Example:<code>10000507</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#News">News</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "PlayerID" : 6,
+  "OriginalSourceUrl" : "OriginalSourceUrl",
+  "Updated" : "Updated",
+  "Categories" : "Categories",
+  "TermsOfUse" : "TermsOfUse",
+  "Title" : "Title",
+  "PlayerID2" : 1,
+  "TeamID" : 5,
+  "Source" : "Source",
+  "Url" : "Url",
+  "NewsID" : 0,
+  "TeamID2" : 5,
+  "Content" : "Content",
+  "OriginalSource" : "OriginalSource",
+  "Author" : "Author",
+  "Team" : "Team",
+  "Team2" : "Team2",
+  "TimeAgo" : "TimeAgo"
+}, {
+  "PlayerID" : 6,
+  "OriginalSourceUrl" : "OriginalSourceUrl",
+  "Updated" : "Updated",
+  "Categories" : "Categories",
+  "TermsOfUse" : "TermsOfUse",
+  "Title" : "Title",
+  "PlayerID2" : 1,
+  "TeamID" : 5,
+  "Source" : "Source",
+  "Url" : "Url",
+  "NewsID" : 0,
+  "TeamID2" : 5,
+  "Content" : "Content",
+  "OriginalSource" : "OriginalSource",
+  "Author" : "Author",
+  "Team" : "Team",
+  "Team2" : "Team2",
+  "TimeAgo" : "TimeAgo"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="playerDetailsByActive"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Players</code></pre></div>
+    <div class="method-summary">Player Details by Active (<span class="nickname">playerDetailsByActive</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Player">Player</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "PlayerID" : 3,
+  "InjuryStartDate" : "InjuryStartDate",
+  "YahooName" : "YahooName",
+  "GlobalTeamID" : 5,
+  "FanDuelName" : "FanDuelName",
+  "InjuryStatus" : "InjuryStatus",
+  "UsaTodayHeadshotUpdated" : "UsaTodayHeadshotUpdated",
+  "SportsDirectPlayerID" : 1,
+  "UsaTodayPlayerID" : 7,
+  "Jersey" : 7,
+  "PhotoUrl" : "PhotoUrl",
+  "Status" : "Status",
+  "Position" : "Position",
+  "FanDuelPlayerID" : 6,
+  "UsaTodayHeadshotUrl" : "UsaTodayHeadshotUrl",
+  "XmlTeamPlayerID" : 4,
+  "Weight" : 1,
+  "Experience" : "Experience",
+  "SportRadarPlayerID" : "SportRadarPlayerID",
+  "College" : "College",
+  "LastName" : "LastName",
+  "BirthDate" : "BirthDate",
+  "Salary" : 7,
+  "FantasyDraftPlayerID" : 5,
+  "SportsDataID" : "SportsDataID",
+  "RotoworldPlayerID" : 4,
+  "TeamID" : 1,
+  "DraftKingsPlayerID" : 0,
+  "UpcomingGameID" : 6,
+  "UsaTodayHeadshotNoBackgroundUpdated" : "UsaTodayHeadshotNoBackgroundUpdated",
+  "Height" : 2,
+  "Team" : "Team",
+  "ThrowHand" : "ThrowHand",
+  "YahooPlayerID" : 5,
+  "FantasyDraftName" : "FantasyDraftName",
+  "StatsPlayerID" : 1,
+  "BatHand" : "BatHand",
+  "FirstName" : "FirstName",
+  "PositionCategory" : "PositionCategory",
+  "ProDebut" : "ProDebut",
+  "UsaTodayHeadshotNoBackgroundUrl" : "UsaTodayHeadshotNoBackgroundUrl",
+  "BirthState" : "BirthState",
+  "DraftKingsName" : "DraftKingsName",
+  "BirthCountry" : "BirthCountry",
+  "InjuryBodyPart" : "InjuryBodyPart",
+  "InjuryNotes" : "InjuryNotes",
+  "RotoWirePlayerID" : 2,
+  "FantasyAlarmPlayerID" : 1,
+  "HighSchool" : "HighSchool",
+  "BirthCity" : "BirthCity",
+  "MLBAMID" : 9
+}, {
+  "PlayerID" : 3,
+  "InjuryStartDate" : "InjuryStartDate",
+  "YahooName" : "YahooName",
+  "GlobalTeamID" : 5,
+  "FanDuelName" : "FanDuelName",
+  "InjuryStatus" : "InjuryStatus",
+  "UsaTodayHeadshotUpdated" : "UsaTodayHeadshotUpdated",
+  "SportsDirectPlayerID" : 1,
+  "UsaTodayPlayerID" : 7,
+  "Jersey" : 7,
+  "PhotoUrl" : "PhotoUrl",
+  "Status" : "Status",
+  "Position" : "Position",
+  "FanDuelPlayerID" : 6,
+  "UsaTodayHeadshotUrl" : "UsaTodayHeadshotUrl",
+  "XmlTeamPlayerID" : 4,
+  "Weight" : 1,
+  "Experience" : "Experience",
+  "SportRadarPlayerID" : "SportRadarPlayerID",
+  "College" : "College",
+  "LastName" : "LastName",
+  "BirthDate" : "BirthDate",
+  "Salary" : 7,
+  "FantasyDraftPlayerID" : 5,
+  "SportsDataID" : "SportsDataID",
+  "RotoworldPlayerID" : 4,
+  "TeamID" : 1,
+  "DraftKingsPlayerID" : 0,
+  "UpcomingGameID" : 6,
+  "UsaTodayHeadshotNoBackgroundUpdated" : "UsaTodayHeadshotNoBackgroundUpdated",
+  "Height" : 2,
+  "Team" : "Team",
+  "ThrowHand" : "ThrowHand",
+  "YahooPlayerID" : 5,
+  "FantasyDraftName" : "FantasyDraftName",
+  "StatsPlayerID" : 1,
+  "BatHand" : "BatHand",
+  "FirstName" : "FirstName",
+  "PositionCategory" : "PositionCategory",
+  "ProDebut" : "ProDebut",
+  "UsaTodayHeadshotNoBackgroundUrl" : "UsaTodayHeadshotNoBackgroundUrl",
+  "BirthState" : "BirthState",
+  "DraftKingsName" : "DraftKingsName",
+  "BirthCountry" : "BirthCountry",
+  "InjuryBodyPart" : "InjuryBodyPart",
+  "InjuryNotes" : "InjuryNotes",
+  "RotoWirePlayerID" : 2,
+  "FantasyAlarmPlayerID" : 1,
+  "HighSchool" : "HighSchool",
+  "BirthCity" : "BirthCity",
+  "MLBAMID" : 9
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="playerDetailsByFreeAgents"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/FreeAgents</code></pre></div>
+    <div class="method-summary">Player Details by Free Agents (<span class="nickname">playerDetailsByFreeAgents</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Player">Player</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "PlayerID" : 3,
+  "InjuryStartDate" : "InjuryStartDate",
+  "YahooName" : "YahooName",
+  "GlobalTeamID" : 5,
+  "FanDuelName" : "FanDuelName",
+  "InjuryStatus" : "InjuryStatus",
+  "UsaTodayHeadshotUpdated" : "UsaTodayHeadshotUpdated",
+  "SportsDirectPlayerID" : 1,
+  "UsaTodayPlayerID" : 7,
+  "Jersey" : 7,
+  "PhotoUrl" : "PhotoUrl",
+  "Status" : "Status",
+  "Position" : "Position",
+  "FanDuelPlayerID" : 6,
+  "UsaTodayHeadshotUrl" : "UsaTodayHeadshotUrl",
+  "XmlTeamPlayerID" : 4,
+  "Weight" : 1,
+  "Experience" : "Experience",
+  "SportRadarPlayerID" : "SportRadarPlayerID",
+  "College" : "College",
+  "LastName" : "LastName",
+  "BirthDate" : "BirthDate",
+  "Salary" : 7,
+  "FantasyDraftPlayerID" : 5,
+  "SportsDataID" : "SportsDataID",
+  "RotoworldPlayerID" : 4,
+  "TeamID" : 1,
+  "DraftKingsPlayerID" : 0,
+  "UpcomingGameID" : 6,
+  "UsaTodayHeadshotNoBackgroundUpdated" : "UsaTodayHeadshotNoBackgroundUpdated",
+  "Height" : 2,
+  "Team" : "Team",
+  "ThrowHand" : "ThrowHand",
+  "YahooPlayerID" : 5,
+  "FantasyDraftName" : "FantasyDraftName",
+  "StatsPlayerID" : 1,
+  "BatHand" : "BatHand",
+  "FirstName" : "FirstName",
+  "PositionCategory" : "PositionCategory",
+  "ProDebut" : "ProDebut",
+  "UsaTodayHeadshotNoBackgroundUrl" : "UsaTodayHeadshotNoBackgroundUrl",
+  "BirthState" : "BirthState",
+  "DraftKingsName" : "DraftKingsName",
+  "BirthCountry" : "BirthCountry",
+  "InjuryBodyPart" : "InjuryBodyPart",
+  "InjuryNotes" : "InjuryNotes",
+  "RotoWirePlayerID" : 2,
+  "FantasyAlarmPlayerID" : 1,
+  "HighSchool" : "HighSchool",
+  "BirthCity" : "BirthCity",
+  "MLBAMID" : 9
+}, {
+  "PlayerID" : 3,
+  "InjuryStartDate" : "InjuryStartDate",
+  "YahooName" : "YahooName",
+  "GlobalTeamID" : 5,
+  "FanDuelName" : "FanDuelName",
+  "InjuryStatus" : "InjuryStatus",
+  "UsaTodayHeadshotUpdated" : "UsaTodayHeadshotUpdated",
+  "SportsDirectPlayerID" : 1,
+  "UsaTodayPlayerID" : 7,
+  "Jersey" : 7,
+  "PhotoUrl" : "PhotoUrl",
+  "Status" : "Status",
+  "Position" : "Position",
+  "FanDuelPlayerID" : 6,
+  "UsaTodayHeadshotUrl" : "UsaTodayHeadshotUrl",
+  "XmlTeamPlayerID" : 4,
+  "Weight" : 1,
+  "Experience" : "Experience",
+  "SportRadarPlayerID" : "SportRadarPlayerID",
+  "College" : "College",
+  "LastName" : "LastName",
+  "BirthDate" : "BirthDate",
+  "Salary" : 7,
+  "FantasyDraftPlayerID" : 5,
+  "SportsDataID" : "SportsDataID",
+  "RotoworldPlayerID" : 4,
+  "TeamID" : 1,
+  "DraftKingsPlayerID" : 0,
+  "UpcomingGameID" : 6,
+  "UsaTodayHeadshotNoBackgroundUpdated" : "UsaTodayHeadshotNoBackgroundUpdated",
+  "Height" : 2,
+  "Team" : "Team",
+  "ThrowHand" : "ThrowHand",
+  "YahooPlayerID" : 5,
+  "FantasyDraftName" : "FantasyDraftName",
+  "StatsPlayerID" : 1,
+  "BatHand" : "BatHand",
+  "FirstName" : "FirstName",
+  "PositionCategory" : "PositionCategory",
+  "ProDebut" : "ProDebut",
+  "UsaTodayHeadshotNoBackgroundUrl" : "UsaTodayHeadshotNoBackgroundUrl",
+  "BirthState" : "BirthState",
+  "DraftKingsName" : "DraftKingsName",
+  "BirthCountry" : "BirthCountry",
+  "InjuryBodyPart" : "InjuryBodyPart",
+  "InjuryNotes" : "InjuryNotes",
+  "RotoWirePlayerID" : 2,
+  "FantasyAlarmPlayerID" : 1,
+  "HighSchool" : "HighSchool",
+  "BirthCity" : "BirthCity",
+  "MLBAMID" : 9
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="playerDetailsByPlayer"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Player/{playerid}</code></pre></div>
+    <div class="method-summary">Player Details by Player (<span class="nickname">playerDetailsByPlayer</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div><div class="param">playerid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique FantasyData Player ID.
+Example:<code>10000507</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Player">Player</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "PlayerID" : 3,
+  "InjuryStartDate" : "InjuryStartDate",
+  "YahooName" : "YahooName",
+  "GlobalTeamID" : 5,
+  "FanDuelName" : "FanDuelName",
+  "InjuryStatus" : "InjuryStatus",
+  "UsaTodayHeadshotUpdated" : "UsaTodayHeadshotUpdated",
+  "SportsDirectPlayerID" : 1,
+  "UsaTodayPlayerID" : 7,
+  "Jersey" : 7,
+  "PhotoUrl" : "PhotoUrl",
+  "Status" : "Status",
+  "Position" : "Position",
+  "FanDuelPlayerID" : 6,
+  "UsaTodayHeadshotUrl" : "UsaTodayHeadshotUrl",
+  "XmlTeamPlayerID" : 4,
+  "Weight" : 1,
+  "Experience" : "Experience",
+  "SportRadarPlayerID" : "SportRadarPlayerID",
+  "College" : "College",
+  "LastName" : "LastName",
+  "BirthDate" : "BirthDate",
+  "Salary" : 7,
+  "FantasyDraftPlayerID" : 5,
+  "SportsDataID" : "SportsDataID",
+  "RotoworldPlayerID" : 4,
+  "TeamID" : 1,
+  "DraftKingsPlayerID" : 0,
+  "UpcomingGameID" : 6,
+  "UsaTodayHeadshotNoBackgroundUpdated" : "UsaTodayHeadshotNoBackgroundUpdated",
+  "Height" : 2,
+  "Team" : "Team",
+  "ThrowHand" : "ThrowHand",
+  "YahooPlayerID" : 5,
+  "FantasyDraftName" : "FantasyDraftName",
+  "StatsPlayerID" : 1,
+  "BatHand" : "BatHand",
+  "FirstName" : "FirstName",
+  "PositionCategory" : "PositionCategory",
+  "ProDebut" : "ProDebut",
+  "UsaTodayHeadshotNoBackgroundUrl" : "UsaTodayHeadshotNoBackgroundUrl",
+  "BirthState" : "BirthState",
+  "DraftKingsName" : "DraftKingsName",
+  "BirthCountry" : "BirthCountry",
+  "InjuryBodyPart" : "InjuryBodyPart",
+  "InjuryNotes" : "InjuryNotes",
+  "RotoWirePlayerID" : 2,
+  "FantasyAlarmPlayerID" : 1,
+  "HighSchool" : "HighSchool",
+  "BirthCity" : "BirthCity",
+  "MLBAMID" : 9
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        <a href="#Player">Player</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="playersByTeam"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Players/{team}</code></pre></div>
+    <div class="method-summary">Players by Team (<span class="nickname">playersByTeam</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div><div class="param">team (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The abbreviation of the requested team.
+<br>Examples: <code>SF</code>, <code>NYY</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Player">Player</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "PlayerID" : 3,
+  "InjuryStartDate" : "InjuryStartDate",
+  "YahooName" : "YahooName",
+  "GlobalTeamID" : 5,
+  "FanDuelName" : "FanDuelName",
+  "InjuryStatus" : "InjuryStatus",
+  "UsaTodayHeadshotUpdated" : "UsaTodayHeadshotUpdated",
+  "SportsDirectPlayerID" : 1,
+  "UsaTodayPlayerID" : 7,
+  "Jersey" : 7,
+  "PhotoUrl" : "PhotoUrl",
+  "Status" : "Status",
+  "Position" : "Position",
+  "FanDuelPlayerID" : 6,
+  "UsaTodayHeadshotUrl" : "UsaTodayHeadshotUrl",
+  "XmlTeamPlayerID" : 4,
+  "Weight" : 1,
+  "Experience" : "Experience",
+  "SportRadarPlayerID" : "SportRadarPlayerID",
+  "College" : "College",
+  "LastName" : "LastName",
+  "BirthDate" : "BirthDate",
+  "Salary" : 7,
+  "FantasyDraftPlayerID" : 5,
+  "SportsDataID" : "SportsDataID",
+  "RotoworldPlayerID" : 4,
+  "TeamID" : 1,
+  "DraftKingsPlayerID" : 0,
+  "UpcomingGameID" : 6,
+  "UsaTodayHeadshotNoBackgroundUpdated" : "UsaTodayHeadshotNoBackgroundUpdated",
+  "Height" : 2,
+  "Team" : "Team",
+  "ThrowHand" : "ThrowHand",
+  "YahooPlayerID" : 5,
+  "FantasyDraftName" : "FantasyDraftName",
+  "StatsPlayerID" : 1,
+  "BatHand" : "BatHand",
+  "FirstName" : "FirstName",
+  "PositionCategory" : "PositionCategory",
+  "ProDebut" : "ProDebut",
+  "UsaTodayHeadshotNoBackgroundUrl" : "UsaTodayHeadshotNoBackgroundUrl",
+  "BirthState" : "BirthState",
+  "DraftKingsName" : "DraftKingsName",
+  "BirthCountry" : "BirthCountry",
+  "InjuryBodyPart" : "InjuryBodyPart",
+  "InjuryNotes" : "InjuryNotes",
+  "RotoWirePlayerID" : 2,
+  "FantasyAlarmPlayerID" : 1,
+  "HighSchool" : "HighSchool",
+  "BirthCity" : "BirthCity",
+  "MLBAMID" : 9
+}, {
+  "PlayerID" : 3,
+  "InjuryStartDate" : "InjuryStartDate",
+  "YahooName" : "YahooName",
+  "GlobalTeamID" : 5,
+  "FanDuelName" : "FanDuelName",
+  "InjuryStatus" : "InjuryStatus",
+  "UsaTodayHeadshotUpdated" : "UsaTodayHeadshotUpdated",
+  "SportsDirectPlayerID" : 1,
+  "UsaTodayPlayerID" : 7,
+  "Jersey" : 7,
+  "PhotoUrl" : "PhotoUrl",
+  "Status" : "Status",
+  "Position" : "Position",
+  "FanDuelPlayerID" : 6,
+  "UsaTodayHeadshotUrl" : "UsaTodayHeadshotUrl",
+  "XmlTeamPlayerID" : 4,
+  "Weight" : 1,
+  "Experience" : "Experience",
+  "SportRadarPlayerID" : "SportRadarPlayerID",
+  "College" : "College",
+  "LastName" : "LastName",
+  "BirthDate" : "BirthDate",
+  "Salary" : 7,
+  "FantasyDraftPlayerID" : 5,
+  "SportsDataID" : "SportsDataID",
+  "RotoworldPlayerID" : 4,
+  "TeamID" : 1,
+  "DraftKingsPlayerID" : 0,
+  "UpcomingGameID" : 6,
+  "UsaTodayHeadshotNoBackgroundUpdated" : "UsaTodayHeadshotNoBackgroundUpdated",
+  "Height" : 2,
+  "Team" : "Team",
+  "ThrowHand" : "ThrowHand",
+  "YahooPlayerID" : 5,
+  "FantasyDraftName" : "FantasyDraftName",
+  "StatsPlayerID" : 1,
+  "BatHand" : "BatHand",
+  "FirstName" : "FirstName",
+  "PositionCategory" : "PositionCategory",
+  "ProDebut" : "ProDebut",
+  "UsaTodayHeadshotNoBackgroundUrl" : "UsaTodayHeadshotNoBackgroundUrl",
+  "BirthState" : "BirthState",
+  "DraftKingsName" : "DraftKingsName",
+  "BirthCountry" : "BirthCountry",
+  "InjuryBodyPart" : "InjuryBodyPart",
+  "InjuryNotes" : "InjuryNotes",
+  "RotoWirePlayerID" : 2,
+  "FantasyAlarmPlayerID" : 1,
+  "HighSchool" : "HighSchool",
+  "BirthCity" : "BirthCity",
+  "MLBAMID" : 9
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="schedules"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Games/{season}</code></pre></div>
+    <div class="method-summary">Schedules (<span class="nickname">schedules</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div><div class="param">season (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Game">Game</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "InningDescription" : "InningDescription",
+  "Innings" : [ {
+    "InningID" : 7,
+    "AwayTeamRuns" : 3,
+    "InningNumber" : 6,
+    "HomeTeamRuns" : 0,
+    "GameID" : 7
+  }, {
+    "InningID" : 7,
+    "AwayTeamRuns" : 3,
+    "InningNumber" : 6,
+    "HomeTeamRuns" : 0,
+    "GameID" : 7
+  } ],
+  "AwayTeam" : "AwayTeam",
+  "ForecastDescription" : "ForecastDescription",
+  "HomeTeamMoneyLine" : 6,
+  "AwayTeamRuns" : 9,
+  "HomeTeamID" : 2,
+  "ForecastTempHigh" : 1,
+  "RunnerOnThird" : true,
+  "DateTime" : "DateTime",
+  "CurrentHittingTeamID" : 7,
+  "CurrentHitter" : "CurrentHitter",
+  "CurrentHitterID" : 4,
+  "HomeTeamHits" : 1,
+  "AwayTeamErrors" : 1,
+  "AwayTeamHits" : 5,
+  "ForecastWindSpeed" : 9,
+  "GameID" : 6,
+  "OverPayout" : 8,
+  "AwayTeamStartingPitcherID" : 3,
+  "Outs" : 4,
+  "Status" : "Status",
+  "ForecastWindDirection" : 9,
+  "LosingPitcher" : "LosingPitcher",
+  "HomeTeam" : "HomeTeam",
+  "Updated" : "Updated",
+  "Channel" : "Channel",
+  "Inning" : 3,
+  "DueUpHitterID2" : 6,
+  "DueUpHitterID3" : 7,
+  "HomeTeamRuns" : 5,
+  "RunnerOnFirst" : true,
+  "CurrentPitcher" : "CurrentPitcher",
+  "DueUpHitterID1" : 1,
+  "HomeTeamStartingPitcherID" : 6,
+  "NeutralVenue" : true,
+  "StadiumID" : 9,
+  "SeriesInfo" : {
+    "GameNumber" : 1,
+    "MaxLength" : 7,
+    "AwayTeamWins" : 4,
+    "HomeTeamWins" : 4
+  },
+  "AwayRotationNumber" : 6,
+  "PointSpreadAwayTeamMoneyLine" : 3,
+  "GlobalAwayTeamID" : 8,
+  "DateTimeUTC" : "DateTimeUTC",
+  "RescheduledFromGameID" : 5,
+  "AwayTeamMoneyLine" : 2,
+  "HomeTeamErrors" : 6,
+  "RescheduledGameID" : 3,
+  "AwayTeamProbablePitcherID" : 7,
+  "GameEndDateTime" : "GameEndDateTime",
+  "HomeRotationNumber" : 3,
+  "InningHalf" : "InningHalf",
+  "HomeTeamProbablePitcherID" : 6,
+  "AwayTeamID" : 5,
+  "IsClosed" : true,
+  "LastPlay" : "LastPlay",
+  "ForecastWindChill" : 5,
+  "UnderPayout" : 9,
+  "GlobalHomeTeamID" : 6,
+  "WinningPitcher" : "WinningPitcher",
+  "HomeTeamStartingPitcher" : "HomeTeamStartingPitcher",
+  "Season" : 0,
+  "GlobalGameID" : 9,
+  "Attendance" : 0,
+  "RunnerOnSecond" : true,
+  "SavingPitcherID" : 4,
+  "OverUnder" : 7.740351818741173,
+  "Strikes" : 0,
+  "CurrentPitcherID" : 1,
+  "SeasonType" : 6,
+  "PointSpread" : 3.0205796992916243,
+  "SavingPitcher" : "SavingPitcher",
+  "LosingPitcherID" : 0,
+  "ForecastTempLow" : 4,
+  "WinningPitcherID" : 0,
+  "AwayTeamStartingPitcher" : "AwayTeamStartingPitcher",
+  "Balls" : 2,
+  "PointSpreadHomeTeamMoneyLine" : 7,
+  "CurrentPitchingTeamID" : 1,
+  "Day" : "Day"
+}, {
+  "InningDescription" : "InningDescription",
+  "Innings" : [ {
+    "InningID" : 7,
+    "AwayTeamRuns" : 3,
+    "InningNumber" : 6,
+    "HomeTeamRuns" : 0,
+    "GameID" : 7
+  }, {
+    "InningID" : 7,
+    "AwayTeamRuns" : 3,
+    "InningNumber" : 6,
+    "HomeTeamRuns" : 0,
+    "GameID" : 7
+  } ],
+  "AwayTeam" : "AwayTeam",
+  "ForecastDescription" : "ForecastDescription",
+  "HomeTeamMoneyLine" : 6,
+  "AwayTeamRuns" : 9,
+  "HomeTeamID" : 2,
+  "ForecastTempHigh" : 1,
+  "RunnerOnThird" : true,
+  "DateTime" : "DateTime",
+  "CurrentHittingTeamID" : 7,
+  "CurrentHitter" : "CurrentHitter",
+  "CurrentHitterID" : 4,
+  "HomeTeamHits" : 1,
+  "AwayTeamErrors" : 1,
+  "AwayTeamHits" : 5,
+  "ForecastWindSpeed" : 9,
+  "GameID" : 6,
+  "OverPayout" : 8,
+  "AwayTeamStartingPitcherID" : 3,
+  "Outs" : 4,
+  "Status" : "Status",
+  "ForecastWindDirection" : 9,
+  "LosingPitcher" : "LosingPitcher",
+  "HomeTeam" : "HomeTeam",
+  "Updated" : "Updated",
+  "Channel" : "Channel",
+  "Inning" : 3,
+  "DueUpHitterID2" : 6,
+  "DueUpHitterID3" : 7,
+  "HomeTeamRuns" : 5,
+  "RunnerOnFirst" : true,
+  "CurrentPitcher" : "CurrentPitcher",
+  "DueUpHitterID1" : 1,
+  "HomeTeamStartingPitcherID" : 6,
+  "NeutralVenue" : true,
+  "StadiumID" : 9,
+  "SeriesInfo" : {
+    "GameNumber" : 1,
+    "MaxLength" : 7,
+    "AwayTeamWins" : 4,
+    "HomeTeamWins" : 4
+  },
+  "AwayRotationNumber" : 6,
+  "PointSpreadAwayTeamMoneyLine" : 3,
+  "GlobalAwayTeamID" : 8,
+  "DateTimeUTC" : "DateTimeUTC",
+  "RescheduledFromGameID" : 5,
+  "AwayTeamMoneyLine" : 2,
+  "HomeTeamErrors" : 6,
+  "RescheduledGameID" : 3,
+  "AwayTeamProbablePitcherID" : 7,
+  "GameEndDateTime" : "GameEndDateTime",
+  "HomeRotationNumber" : 3,
+  "InningHalf" : "InningHalf",
+  "HomeTeamProbablePitcherID" : 6,
+  "AwayTeamID" : 5,
+  "IsClosed" : true,
+  "LastPlay" : "LastPlay",
+  "ForecastWindChill" : 5,
+  "UnderPayout" : 9,
+  "GlobalHomeTeamID" : 6,
+  "WinningPitcher" : "WinningPitcher",
+  "HomeTeamStartingPitcher" : "HomeTeamStartingPitcher",
+  "Season" : 0,
+  "GlobalGameID" : 9,
+  "Attendance" : 0,
+  "RunnerOnSecond" : true,
+  "SavingPitcherID" : 4,
+  "OverUnder" : 7.740351818741173,
+  "Strikes" : 0,
+  "CurrentPitcherID" : 1,
+  "SeasonType" : 6,
+  "PointSpread" : 3.0205796992916243,
+  "SavingPitcher" : "SavingPitcher",
+  "LosingPitcherID" : 0,
+  "ForecastTempLow" : 4,
+  "WinningPitcherID" : 0,
+  "AwayTeamStartingPitcher" : "AwayTeamStartingPitcher",
+  "Balls" : 2,
+  "PointSpreadHomeTeamMoneyLine" : 7,
+  "CurrentPitchingTeamID" : 1,
+  "Day" : "Day"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="stadiums"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Stadiums</code></pre></div>
+    <div class="method-summary">Stadiums (<span class="nickname">stadiums</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: xml </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Stadium">Stadium</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "GeoLat" : 5.962133916683182,
+  "HomePlateDirection" : 2,
+  "MidLeftField" : 2,
+  "CenterField" : 1,
+  "RightField" : 1,
+  "City" : "City",
+  "Name" : "Name",
+  "StadiumID" : 1,
+  "Surface" : "Surface",
+  "Active" : true,
+  "LeftField" : 9,
+  "RightCenterField" : 1,
+  "Type" : "Type",
+  "MidRightField" : 7,
+  "Capacity" : 6,
+  "State" : "State",
+  "Country" : "Country",
+  "GeoLong" : 5.637376656633329,
+  "MidRightCenterField" : 4,
+  "LeftCenterField" : 7,
+  "MidLeftCenterField" : 3,
+  "Altitude" : 0
+}, {
+  "GeoLat" : 5.962133916683182,
+  "HomePlateDirection" : 2,
+  "MidLeftField" : 2,
+  "CenterField" : 1,
+  "RightField" : 1,
+  "City" : "City",
+  "Name" : "Name",
+  "StadiumID" : 1,
+  "Surface" : "Surface",
+  "Active" : true,
+  "LeftField" : 9,
+  "RightCenterField" : 1,
+  "Type" : "Type",
+  "MidRightField" : 7,
+  "Capacity" : 6,
+  "State" : "State",
+  "Country" : "Country",
+  "GeoLong" : 5.637376656633329,
+  "MidRightCenterField" : 4,
+  "LeftCenterField" : 7,
+  "MidLeftCenterField" : 3,
+  "Altitude" : 0
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="standings"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/Standings/{season}</code></pre></div>
+    <div class="method-summary">Standings (<span class="nickname">standings</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div><div class="param">season (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Year of the season.
+<br>Examples: <code>2017</code>, <code>2018</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Standing">Standing</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "LastTenGamesWins" : 1,
+  "DivisionRank" : 2,
+  "LeagueRank" : 1,
+  "DivisionLosses" : 5,
+  "GlobalTeamID" : 3,
+  "TeamID" : 6,
+  "AwayWins" : 6,
+  "Name" : "Name",
+  "NightLosses" : 6,
+  "HomeWins" : 4,
+  "RunsAgainst" : 4,
+  "WildCardRank" : 9,
+  "Division" : "Division",
+  "DivisionWins" : 7,
+  "Season" : 9,
+  "RunsScored" : 5,
+  "Wins" : 6,
+  "League" : "League",
+  "AwayLosses" : 0,
+  "Streak" : "Streak",
+  "Percentage" : 1.1730742509559433,
+  "City" : "City",
+  "DayWins" : 5,
+  "GamesBehind" : 9.301444243932576,
+  "Losses" : 1,
+  "SeasonType" : 9,
+  "NightWins" : 7,
+  "DayLosses" : 1,
+  "HomeLosses" : 2,
+  "WildCardGamesBehind" : 8.762042012749001,
+  "LastTenGamesLosses" : 7,
+  "Key" : "Key"
+}, {
+  "LastTenGamesWins" : 1,
+  "DivisionRank" : 2,
+  "LeagueRank" : 1,
+  "DivisionLosses" : 5,
+  "GlobalTeamID" : 3,
+  "TeamID" : 6,
+  "AwayWins" : 6,
+  "Name" : "Name",
+  "NightLosses" : 6,
+  "HomeWins" : 4,
+  "RunsAgainst" : 4,
+  "WildCardRank" : 9,
+  "Division" : "Division",
+  "DivisionWins" : 7,
+  "Season" : 9,
+  "RunsScored" : 5,
+  "Wins" : 6,
+  "League" : "League",
+  "AwayLosses" : 0,
+  "Streak" : "Streak",
+  "Percentage" : 1.1730742509559433,
+  "City" : "City",
+  "DayWins" : 5,
+  "GamesBehind" : 9.301444243932576,
+  "Losses" : 1,
+  "SeasonType" : 9,
+  "NightWins" : 7,
+  "DayLosses" : 1,
+  "HomeLosses" : 2,
+  "WildCardGamesBehind" : 8.762042012749001,
+  "LastTenGamesLosses" : 7,
+  "Key" : "Key"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="teamGameLogsBySeason"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}</code></pre></div>
+    <div class="method-summary">Team Game Logs By Season (<span class="nickname">teamGameLogsBySeason</span>)</div>
+    <div class="method-notes">Game by game log of total team statistics.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div><div class="param">season (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Season to get games from. Example <code>2019POST</code>, <code>2020</code> default: null </div><div class="param">teamid (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Unique ID of team.  Example <code> 12 </code> default: null </div><div class="param">numberofgames (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code> default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#TeamGame">TeamGame</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "IntentionalWalks" : 5.944895607614016,
+  "PitchingQualityStarts" : 8.28965939814297,
+  "PitchingTriples" : 5.312489704336296,
+  "PitchingHomeRuns" : 7.933506881737151,
+  "HitByPitch" : 3.5571952270680973,
+  "PitchingBlownSaves" : 5.533258397034986,
+  "DateTime" : "DateTime",
+  "SubstituteBattingOrder" : 9,
+  "IsolatedPower" : 6.704019297950036,
+  "PitchingCompleteGames" : 4.078845849666752,
+  "PitchingOnBasePlusSlugging" : 3.901545264248647,
+  "CaughtStealing" : 5.637376656633329,
+  "PopOuts" : 9.897492629215506,
+  "PitchingGroundOuts" : 9.132027271330688,
+  "Singles" : 0.4833312865174044,
+  "PitchingShutOuts" : 1.8268702177058116,
+  "EarnedRunAverage" : 9.301444243932576,
+  "Wins" : 3.812761638325517,
+  "GameID" : 4,
+  "Outs" : 0.10263654006109402,
+  "GroundOuts" : 6.438423552598547,
+  "PitchingInningStarted" : 5,
+  "PitchingHolds" : 0.5199002018724985,
+  "OnBasePercentage" : 0.8851374739011653,
+  "PitchingCatchersInterference" : 3.2588565619047607,
+  "PitchingWeightedOnBasePercentage" : 3.7814124730767915,
+  "PitchingDoublePlays" : 0.2025324113236393,
+  "OpponentID" : 6,
+  "Losses" : 7.143538047012306,
+  "FantasyPointsDraftKings" : 7.386281948385884,
+  "HomeRuns" : 1.284659006116532,
+  "PitchingStrikeoutsPerNineInnings" : 0.4182561061793122,
+  "PitchingSluggingPercentage" : 9.183123594773994,
+  "WeightedOnBasePercentage" : 1.2555055362323109,
+  "Hits" : 6.965117697638846,
+  "IsGameOver" : true,
+  "PitchesThrownStrikes" : 7.740351818741173,
+  "PitchingGroundIntoDoublePlay" : 7.260521264802104,
+  "TeamID" : 2,
+  "Runs" : 7.835035282970782,
+  "PitchingPlateAppearances" : 2.9409642974827896,
+  "PitchingRuns" : 4.573936264232251,
+  "PlateAppearances" : 3.111202833403195,
+  "Strikeouts" : 2.7977867356748476,
+  "PitchingHits" : 9.702963800023566,
+  "BattingAverageOnBallsInPlay" : 5.962133916683182,
+  "Team" : "Team",
+  "PitchingLineOuts" : 6.073898085781152,
+  "Season" : 8,
+  "Walks" : 9.806951670467935,
+  "PitchingBattingAverageOnBallsInPlay" : 7.04836565559697,
+  "PitchingGrandSlams" : 4.678947989005849,
+  "PitchesSeen" : 4.652396432933246,
+  "TotalOutsPitched" : 4.8789878742268815,
+  "PitchingFlyOuts" : 1.041444916118296,
+  "DoublePlays" : 2.3021358869347655,
+  "WalksHitsPerInningsPitched" : 1.3949519358941398,
+  "HomeOrAway" : "HomeOrAway",
+  "InningsPitchedDecimal" : 2.8841621266687802,
+  "PitchingDoubles" : 6.628464275087742,
+  "PitchingBallsInPlay" : 3.0205796992916243,
+  "Day" : "Day",
+  "PitchingSacrifices" : 9.254183946267839,
+  "LeftOnBase" : 3.353193347011243,
+  "PitchingBattingAverageAgainst" : 3.0576100241049344,
+  "SacrificeFlies" : 3.1497903714250555,
+  "GlobalTeamID" : 6,
+  "Name" : "Name",
+  "PitchingWalks" : 8.37823741034869,
+  "BattingAverage" : 1.4658129805029452,
+  "Doubles" : 7.061401241503109,
+  "PitchingEarnedRuns" : 4.258773108174356,
+  "OnBasePlusSlugging" : 7.058770351582356,
+  "BallsInPlay" : 6.027456183070403,
+  "PitchingIntentionalWalks" : 4.86315908102884,
+  "PitchesThrown" : 8.969578798196912,
+  "AtBats" : 0.8008281904610115,
+  "SubstituteBattingOrderSequence" : 0,
+  "InningsPitchedOuts" : 6.878052220127876,
+  "FantasyPointsBatting" : 4.145608029883936,
+  "Updated" : "Updated",
+  "Triples" : 6.966044574347761,
+  "BattingOrderConfirmed" : true,
+  "LineOuts" : 3.0937452626664474,
+  "PitchingReachedOnError" : 6.623518433804886,
+  "FantasyPointsFanDuel" : 1.2315135367772556,
+  "RunsBattedIn" : 0.4768402382624515,
+  "PitchingOnBasePercentage" : 4.459605034958679,
+  "Errors" : 3.616076749251911,
+  "PitchingPerfectGames" : 0.43431398824148815,
+  "Games" : 5,
+  "SluggingPercentage" : 0.35262192099236644,
+  "PitchingSingles" : 3.502657762086401,
+  "StatID" : 7,
+  "PitchingStrikeouts" : 8.761432466225475,
+  "GrandSlams" : 8.762042012749001,
+  "Saves" : 3.804112695731078,
+  "StolenBases" : 4.332304821875894,
+  "FantasyPointsYahoo" : 6.84685269835264,
+  "FieldingIndependentPitching" : 7.457744773683766,
+  "PitchingTotalBases" : 5.299143560275359,
+  "Sacrifices" : 2.380090174313445,
+  "InningsPitchedFull" : 6.778324963048013,
+  "FantasyPointsFantasyDraft" : 1.0246457001441578,
+  "FlyOuts" : 1.1730742509559433,
+  "GlobalOpponentID" : 9,
+  "Opponent" : "Opponent",
+  "GroundIntoDoublePlay" : 9.018348186070783,
+  "TotalBases" : 6.173804034172511,
+  "ReachedOnError" : 5.877124706116695,
+  "GlobalGameID" : 9,
+  "FantasyPoints" : 2.027123023002322,
+  "PitchingNoHitters" : 8.251625748923757,
+  "PitchingSacrificeFlies" : 8.863729185622827,
+  "PitchingHitByPitch" : 0.8774076871421566,
+  "SeasonType" : 4,
+  "PitchingPopOuts" : 1.7325933120207193,
+  "PitchingWalksPerNineInnings" : 7.606863723092579,
+  "FantasyPointsPitching" : 1.4894159098541704
+}, {
+  "IntentionalWalks" : 5.944895607614016,
+  "PitchingQualityStarts" : 8.28965939814297,
+  "PitchingTriples" : 5.312489704336296,
+  "PitchingHomeRuns" : 7.933506881737151,
+  "HitByPitch" : 3.5571952270680973,
+  "PitchingBlownSaves" : 5.533258397034986,
+  "DateTime" : "DateTime",
+  "SubstituteBattingOrder" : 9,
+  "IsolatedPower" : 6.704019297950036,
+  "PitchingCompleteGames" : 4.078845849666752,
+  "PitchingOnBasePlusSlugging" : 3.901545264248647,
+  "CaughtStealing" : 5.637376656633329,
+  "PopOuts" : 9.897492629215506,
+  "PitchingGroundOuts" : 9.132027271330688,
+  "Singles" : 0.4833312865174044,
+  "PitchingShutOuts" : 1.8268702177058116,
+  "EarnedRunAverage" : 9.301444243932576,
+  "Wins" : 3.812761638325517,
+  "GameID" : 4,
+  "Outs" : 0.10263654006109402,
+  "GroundOuts" : 6.438423552598547,
+  "PitchingInningStarted" : 5,
+  "PitchingHolds" : 0.5199002018724985,
+  "OnBasePercentage" : 0.8851374739011653,
+  "PitchingCatchersInterference" : 3.2588565619047607,
+  "PitchingWeightedOnBasePercentage" : 3.7814124730767915,
+  "PitchingDoublePlays" : 0.2025324113236393,
+  "OpponentID" : 6,
+  "Losses" : 7.143538047012306,
+  "FantasyPointsDraftKings" : 7.386281948385884,
+  "HomeRuns" : 1.284659006116532,
+  "PitchingStrikeoutsPerNineInnings" : 0.4182561061793122,
+  "PitchingSluggingPercentage" : 9.183123594773994,
+  "WeightedOnBasePercentage" : 1.2555055362323109,
+  "Hits" : 6.965117697638846,
+  "IsGameOver" : true,
+  "PitchesThrownStrikes" : 7.740351818741173,
+  "PitchingGroundIntoDoublePlay" : 7.260521264802104,
+  "TeamID" : 2,
+  "Runs" : 7.835035282970782,
+  "PitchingPlateAppearances" : 2.9409642974827896,
+  "PitchingRuns" : 4.573936264232251,
+  "PlateAppearances" : 3.111202833403195,
+  "Strikeouts" : 2.7977867356748476,
+  "PitchingHits" : 9.702963800023566,
+  "BattingAverageOnBallsInPlay" : 5.962133916683182,
+  "Team" : "Team",
+  "PitchingLineOuts" : 6.073898085781152,
+  "Season" : 8,
+  "Walks" : 9.806951670467935,
+  "PitchingBattingAverageOnBallsInPlay" : 7.04836565559697,
+  "PitchingGrandSlams" : 4.678947989005849,
+  "PitchesSeen" : 4.652396432933246,
+  "TotalOutsPitched" : 4.8789878742268815,
+  "PitchingFlyOuts" : 1.041444916118296,
+  "DoublePlays" : 2.3021358869347655,
+  "WalksHitsPerInningsPitched" : 1.3949519358941398,
+  "HomeOrAway" : "HomeOrAway",
+  "InningsPitchedDecimal" : 2.8841621266687802,
+  "PitchingDoubles" : 6.628464275087742,
+  "PitchingBallsInPlay" : 3.0205796992916243,
+  "Day" : "Day",
+  "PitchingSacrifices" : 9.254183946267839,
+  "LeftOnBase" : 3.353193347011243,
+  "PitchingBattingAverageAgainst" : 3.0576100241049344,
+  "SacrificeFlies" : 3.1497903714250555,
+  "GlobalTeamID" : 6,
+  "Name" : "Name",
+  "PitchingWalks" : 8.37823741034869,
+  "BattingAverage" : 1.4658129805029452,
+  "Doubles" : 7.061401241503109,
+  "PitchingEarnedRuns" : 4.258773108174356,
+  "OnBasePlusSlugging" : 7.058770351582356,
+  "BallsInPlay" : 6.027456183070403,
+  "PitchingIntentionalWalks" : 4.86315908102884,
+  "PitchesThrown" : 8.969578798196912,
+  "AtBats" : 0.8008281904610115,
+  "SubstituteBattingOrderSequence" : 0,
+  "InningsPitchedOuts" : 6.878052220127876,
+  "FantasyPointsBatting" : 4.145608029883936,
+  "Updated" : "Updated",
+  "Triples" : 6.966044574347761,
+  "BattingOrderConfirmed" : true,
+  "LineOuts" : 3.0937452626664474,
+  "PitchingReachedOnError" : 6.623518433804886,
+  "FantasyPointsFanDuel" : 1.2315135367772556,
+  "RunsBattedIn" : 0.4768402382624515,
+  "PitchingOnBasePercentage" : 4.459605034958679,
+  "Errors" : 3.616076749251911,
+  "PitchingPerfectGames" : 0.43431398824148815,
+  "Games" : 5,
+  "SluggingPercentage" : 0.35262192099236644,
+  "PitchingSingles" : 3.502657762086401,
+  "StatID" : 7,
+  "PitchingStrikeouts" : 8.761432466225475,
+  "GrandSlams" : 8.762042012749001,
+  "Saves" : 3.804112695731078,
+  "StolenBases" : 4.332304821875894,
+  "FantasyPointsYahoo" : 6.84685269835264,
+  "FieldingIndependentPitching" : 7.457744773683766,
+  "PitchingTotalBases" : 5.299143560275359,
+  "Sacrifices" : 2.380090174313445,
+  "InningsPitchedFull" : 6.778324963048013,
+  "FantasyPointsFantasyDraft" : 1.0246457001441578,
+  "FlyOuts" : 1.1730742509559433,
+  "GlobalOpponentID" : 9,
+  "Opponent" : "Opponent",
+  "GroundIntoDoublePlay" : 9.018348186070783,
+  "TotalBases" : 6.173804034172511,
+  "ReachedOnError" : 5.877124706116695,
+  "GlobalGameID" : 9,
+  "FantasyPoints" : 2.027123023002322,
+  "PitchingNoHitters" : 8.251625748923757,
+  "PitchingSacrificeFlies" : 8.863729185622827,
+  "PitchingHitByPitch" : 0.8774076871421566,
+  "SeasonType" : 4,
+  "PitchingPopOuts" : 1.7325933120207193,
+  "PitchingWalksPerNineInnings" : 7.606863723092579,
+  "FantasyPointsPitching" : 1.4894159098541704
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="teamGameStatsByDate"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/TeamGameStatsByDate/{date}</code></pre></div>
+    <div class="method-summary">Team Game Stats by Date (<span class="nickname">teamGameStatsByDate</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div><div class="param">date (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The date of the game(s).
+<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#TeamGame">TeamGame</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "IntentionalWalks" : 5.944895607614016,
+  "PitchingQualityStarts" : 8.28965939814297,
+  "PitchingTriples" : 5.312489704336296,
+  "PitchingHomeRuns" : 7.933506881737151,
+  "HitByPitch" : 3.5571952270680973,
+  "PitchingBlownSaves" : 5.533258397034986,
+  "DateTime" : "DateTime",
+  "SubstituteBattingOrder" : 9,
+  "IsolatedPower" : 6.704019297950036,
+  "PitchingCompleteGames" : 4.078845849666752,
+  "PitchingOnBasePlusSlugging" : 3.901545264248647,
+  "CaughtStealing" : 5.637376656633329,
+  "PopOuts" : 9.897492629215506,
+  "PitchingGroundOuts" : 9.132027271330688,
+  "Singles" : 0.4833312865174044,
+  "PitchingShutOuts" : 1.8268702177058116,
+  "EarnedRunAverage" : 9.301444243932576,
+  "Wins" : 3.812761638325517,
+  "GameID" : 4,
+  "Outs" : 0.10263654006109402,
+  "GroundOuts" : 6.438423552598547,
+  "PitchingInningStarted" : 5,
+  "PitchingHolds" : 0.5199002018724985,
+  "OnBasePercentage" : 0.8851374739011653,
+  "PitchingCatchersInterference" : 3.2588565619047607,
+  "PitchingWeightedOnBasePercentage" : 3.7814124730767915,
+  "PitchingDoublePlays" : 0.2025324113236393,
+  "OpponentID" : 6,
+  "Losses" : 7.143538047012306,
+  "FantasyPointsDraftKings" : 7.386281948385884,
+  "HomeRuns" : 1.284659006116532,
+  "PitchingStrikeoutsPerNineInnings" : 0.4182561061793122,
+  "PitchingSluggingPercentage" : 9.183123594773994,
+  "WeightedOnBasePercentage" : 1.2555055362323109,
+  "Hits" : 6.965117697638846,
+  "IsGameOver" : true,
+  "PitchesThrownStrikes" : 7.740351818741173,
+  "PitchingGroundIntoDoublePlay" : 7.260521264802104,
+  "TeamID" : 2,
+  "Runs" : 7.835035282970782,
+  "PitchingPlateAppearances" : 2.9409642974827896,
+  "PitchingRuns" : 4.573936264232251,
+  "PlateAppearances" : 3.111202833403195,
+  "Strikeouts" : 2.7977867356748476,
+  "PitchingHits" : 9.702963800023566,
+  "BattingAverageOnBallsInPlay" : 5.962133916683182,
+  "Team" : "Team",
+  "PitchingLineOuts" : 6.073898085781152,
+  "Season" : 8,
+  "Walks" : 9.806951670467935,
+  "PitchingBattingAverageOnBallsInPlay" : 7.04836565559697,
+  "PitchingGrandSlams" : 4.678947989005849,
+  "PitchesSeen" : 4.652396432933246,
+  "TotalOutsPitched" : 4.8789878742268815,
+  "PitchingFlyOuts" : 1.041444916118296,
+  "DoublePlays" : 2.3021358869347655,
+  "WalksHitsPerInningsPitched" : 1.3949519358941398,
+  "HomeOrAway" : "HomeOrAway",
+  "InningsPitchedDecimal" : 2.8841621266687802,
+  "PitchingDoubles" : 6.628464275087742,
+  "PitchingBallsInPlay" : 3.0205796992916243,
+  "Day" : "Day",
+  "PitchingSacrifices" : 9.254183946267839,
+  "LeftOnBase" : 3.353193347011243,
+  "PitchingBattingAverageAgainst" : 3.0576100241049344,
+  "SacrificeFlies" : 3.1497903714250555,
+  "GlobalTeamID" : 6,
+  "Name" : "Name",
+  "PitchingWalks" : 8.37823741034869,
+  "BattingAverage" : 1.4658129805029452,
+  "Doubles" : 7.061401241503109,
+  "PitchingEarnedRuns" : 4.258773108174356,
+  "OnBasePlusSlugging" : 7.058770351582356,
+  "BallsInPlay" : 6.027456183070403,
+  "PitchingIntentionalWalks" : 4.86315908102884,
+  "PitchesThrown" : 8.969578798196912,
+  "AtBats" : 0.8008281904610115,
+  "SubstituteBattingOrderSequence" : 0,
+  "InningsPitchedOuts" : 6.878052220127876,
+  "FantasyPointsBatting" : 4.145608029883936,
+  "Updated" : "Updated",
+  "Triples" : 6.966044574347761,
+  "BattingOrderConfirmed" : true,
+  "LineOuts" : 3.0937452626664474,
+  "PitchingReachedOnError" : 6.623518433804886,
+  "FantasyPointsFanDuel" : 1.2315135367772556,
+  "RunsBattedIn" : 0.4768402382624515,
+  "PitchingOnBasePercentage" : 4.459605034958679,
+  "Errors" : 3.616076749251911,
+  "PitchingPerfectGames" : 0.43431398824148815,
+  "Games" : 5,
+  "SluggingPercentage" : 0.35262192099236644,
+  "PitchingSingles" : 3.502657762086401,
+  "StatID" : 7,
+  "PitchingStrikeouts" : 8.761432466225475,
+  "GrandSlams" : 8.762042012749001,
+  "Saves" : 3.804112695731078,
+  "StolenBases" : 4.332304821875894,
+  "FantasyPointsYahoo" : 6.84685269835264,
+  "FieldingIndependentPitching" : 7.457744773683766,
+  "PitchingTotalBases" : 5.299143560275359,
+  "Sacrifices" : 2.380090174313445,
+  "InningsPitchedFull" : 6.778324963048013,
+  "FantasyPointsFantasyDraft" : 1.0246457001441578,
+  "FlyOuts" : 1.1730742509559433,
+  "GlobalOpponentID" : 9,
+  "Opponent" : "Opponent",
+  "GroundIntoDoublePlay" : 9.018348186070783,
+  "TotalBases" : 6.173804034172511,
+  "ReachedOnError" : 5.877124706116695,
+  "GlobalGameID" : 9,
+  "FantasyPoints" : 2.027123023002322,
+  "PitchingNoHitters" : 8.251625748923757,
+  "PitchingSacrificeFlies" : 8.863729185622827,
+  "PitchingHitByPitch" : 0.8774076871421566,
+  "SeasonType" : 4,
+  "PitchingPopOuts" : 1.7325933120207193,
+  "PitchingWalksPerNineInnings" : 7.606863723092579,
+  "FantasyPointsPitching" : 1.4894159098541704
+}, {
+  "IntentionalWalks" : 5.944895607614016,
+  "PitchingQualityStarts" : 8.28965939814297,
+  "PitchingTriples" : 5.312489704336296,
+  "PitchingHomeRuns" : 7.933506881737151,
+  "HitByPitch" : 3.5571952270680973,
+  "PitchingBlownSaves" : 5.533258397034986,
+  "DateTime" : "DateTime",
+  "SubstituteBattingOrder" : 9,
+  "IsolatedPower" : 6.704019297950036,
+  "PitchingCompleteGames" : 4.078845849666752,
+  "PitchingOnBasePlusSlugging" : 3.901545264248647,
+  "CaughtStealing" : 5.637376656633329,
+  "PopOuts" : 9.897492629215506,
+  "PitchingGroundOuts" : 9.132027271330688,
+  "Singles" : 0.4833312865174044,
+  "PitchingShutOuts" : 1.8268702177058116,
+  "EarnedRunAverage" : 9.301444243932576,
+  "Wins" : 3.812761638325517,
+  "GameID" : 4,
+  "Outs" : 0.10263654006109402,
+  "GroundOuts" : 6.438423552598547,
+  "PitchingInningStarted" : 5,
+  "PitchingHolds" : 0.5199002018724985,
+  "OnBasePercentage" : 0.8851374739011653,
+  "PitchingCatchersInterference" : 3.2588565619047607,
+  "PitchingWeightedOnBasePercentage" : 3.7814124730767915,
+  "PitchingDoublePlays" : 0.2025324113236393,
+  "OpponentID" : 6,
+  "Losses" : 7.143538047012306,
+  "FantasyPointsDraftKings" : 7.386281948385884,
+  "HomeRuns" : 1.284659006116532,
+  "PitchingStrikeoutsPerNineInnings" : 0.4182561061793122,
+  "PitchingSluggingPercentage" : 9.183123594773994,
+  "WeightedOnBasePercentage" : 1.2555055362323109,
+  "Hits" : 6.965117697638846,
+  "IsGameOver" : true,
+  "PitchesThrownStrikes" : 7.740351818741173,
+  "PitchingGroundIntoDoublePlay" : 7.260521264802104,
+  "TeamID" : 2,
+  "Runs" : 7.835035282970782,
+  "PitchingPlateAppearances" : 2.9409642974827896,
+  "PitchingRuns" : 4.573936264232251,
+  "PlateAppearances" : 3.111202833403195,
+  "Strikeouts" : 2.7977867356748476,
+  "PitchingHits" : 9.702963800023566,
+  "BattingAverageOnBallsInPlay" : 5.962133916683182,
+  "Team" : "Team",
+  "PitchingLineOuts" : 6.073898085781152,
+  "Season" : 8,
+  "Walks" : 9.806951670467935,
+  "PitchingBattingAverageOnBallsInPlay" : 7.04836565559697,
+  "PitchingGrandSlams" : 4.678947989005849,
+  "PitchesSeen" : 4.652396432933246,
+  "TotalOutsPitched" : 4.8789878742268815,
+  "PitchingFlyOuts" : 1.041444916118296,
+  "DoublePlays" : 2.3021358869347655,
+  "WalksHitsPerInningsPitched" : 1.3949519358941398,
+  "HomeOrAway" : "HomeOrAway",
+  "InningsPitchedDecimal" : 2.8841621266687802,
+  "PitchingDoubles" : 6.628464275087742,
+  "PitchingBallsInPlay" : 3.0205796992916243,
+  "Day" : "Day",
+  "PitchingSacrifices" : 9.254183946267839,
+  "LeftOnBase" : 3.353193347011243,
+  "PitchingBattingAverageAgainst" : 3.0576100241049344,
+  "SacrificeFlies" : 3.1497903714250555,
+  "GlobalTeamID" : 6,
+  "Name" : "Name",
+  "PitchingWalks" : 8.37823741034869,
+  "BattingAverage" : 1.4658129805029452,
+  "Doubles" : 7.061401241503109,
+  "PitchingEarnedRuns" : 4.258773108174356,
+  "OnBasePlusSlugging" : 7.058770351582356,
+  "BallsInPlay" : 6.027456183070403,
+  "PitchingIntentionalWalks" : 4.86315908102884,
+  "PitchesThrown" : 8.969578798196912,
+  "AtBats" : 0.8008281904610115,
+  "SubstituteBattingOrderSequence" : 0,
+  "InningsPitchedOuts" : 6.878052220127876,
+  "FantasyPointsBatting" : 4.145608029883936,
+  "Updated" : "Updated",
+  "Triples" : 6.966044574347761,
+  "BattingOrderConfirmed" : true,
+  "LineOuts" : 3.0937452626664474,
+  "PitchingReachedOnError" : 6.623518433804886,
+  "FantasyPointsFanDuel" : 1.2315135367772556,
+  "RunsBattedIn" : 0.4768402382624515,
+  "PitchingOnBasePercentage" : 4.459605034958679,
+  "Errors" : 3.616076749251911,
+  "PitchingPerfectGames" : 0.43431398824148815,
+  "Games" : 5,
+  "SluggingPercentage" : 0.35262192099236644,
+  "PitchingSingles" : 3.502657762086401,
+  "StatID" : 7,
+  "PitchingStrikeouts" : 8.761432466225475,
+  "GrandSlams" : 8.762042012749001,
+  "Saves" : 3.804112695731078,
+  "StolenBases" : 4.332304821875894,
+  "FantasyPointsYahoo" : 6.84685269835264,
+  "FieldingIndependentPitching" : 7.457744773683766,
+  "PitchingTotalBases" : 5.299143560275359,
+  "Sacrifices" : 2.380090174313445,
+  "InningsPitchedFull" : 6.778324963048013,
+  "FantasyPointsFantasyDraft" : 1.0246457001441578,
+  "FlyOuts" : 1.1730742509559433,
+  "GlobalOpponentID" : 9,
+  "Opponent" : "Opponent",
+  "GroundIntoDoublePlay" : 9.018348186070783,
+  "TotalBases" : 6.173804034172511,
+  "ReachedOnError" : 5.877124706116695,
+  "GlobalGameID" : 9,
+  "FantasyPoints" : 2.027123023002322,
+  "PitchingNoHitters" : 8.251625748923757,
+  "PitchingSacrificeFlies" : 8.863729185622827,
+  "PitchingHitByPitch" : 0.8774076871421566,
+  "SeasonType" : 4,
+  "PitchingPopOuts" : 1.7325933120207193,
+  "PitchingWalksPerNineInnings" : 7.606863723092579,
+  "FantasyPointsPitching" : 1.4894159098541704
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="teamSeasonStats"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/TeamSeasonStats/{season}</code></pre></div>
+    <div class="method-summary">Team Season Stats (<span class="nickname">teamSeasonStats</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div><div class="param">season (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Year of the season.
+<br>Examples: <code>2017</code>, <code>2018</code>. default: null </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#TeamSeason">TeamSeason</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "IntentionalWalks" : 2.8841621266687802,
+  "PitchingQualityStarts" : 3.901545264248647,
+  "PitchingTriples" : 9.183123594773994,
+  "PitchingHomeRuns" : 9.132027271330688,
+  "HitByPitch" : 8.762042012749001,
+  "PitchingBlownSaves" : 7.740351818741173,
+  "SubstituteBattingOrder" : 0,
+  "IsolatedPower" : 6.778324963048013,
+  "PitchingCompleteGames" : 3.0576100241049344,
+  "PitchingOnBasePlusSlugging" : 4.86315908102884,
+  "CaughtStealing" : 5.637376656633329,
+  "PopOuts" : 8.37823741034869,
+  "PitchingGroundOuts" : 4.258773108174356,
+  "Singles" : 2.380090174313445,
+  "PitchingShutOuts" : 6.623518433804886,
+  "EarnedRunAverage" : 9.301444243932576,
+  "Wins" : 6.966044574347761,
+  "Outs" : 7.143538047012306,
+  "GroundOuts" : 6.683562403749608,
+  "PitchingInningStarted" : 0,
+  "PitchingHolds" : 7.260521264802104,
+  "OnBasePercentage" : 3.353193347011243,
+  "PitchingCatchersInterference" : 3.0205796992916243,
+  "PitchingWeightedOnBasePercentage" : 5.299143560275359,
+  "PitchingDoublePlays" : 7.04836565559697,
+  "Losses" : 6.704019297950036,
+  "FantasyPointsDraftKings" : 7.386281948385884,
+  "HomeRuns" : 6.438423552598547,
+  "PitchingStrikeoutsPerNineInnings" : 1.8268702177058116,
+  "PitchingSluggingPercentage" : 8.863729185622827,
+  "WeightedOnBasePercentage" : 4.8789878742268815,
+  "Hits" : 9.018348186070783,
+  "PitchesThrownStrikes" : 6.519180951018382,
+  "PitchingGroundIntoDoublePlay" : 6.628464275087742,
+  "TeamID" : 4,
+  "Runs" : 3.7814124730767915,
+  "PitchingPlateAppearances" : 8.251625748923757,
+  "PitchingRuns" : 2.9409642974827896,
+  "PlateAppearances" : 5.312489704336296,
+  "Strikeouts" : 0.4833312865174044,
+  "PitchingHits" : 4.678947989005849,
+  "BattingAverageOnBallsInPlay" : 5.962133916683182,
+  "Team" : "Team",
+  "PitchingLineOuts" : 0.5199002018724985,
+  "Season" : 0,
+  "Walks" : 2.535258963197524,
+  "PitchingBattingAverageOnBallsInPlay" : 8.969578798196912,
+  "PitchingGrandSlams" : 0.2025324113236393,
+  "PitchesSeen" : 0.8851374739011653,
+  "TotalOutsPitched" : 9.386524999783381,
+  "PitchingFlyOuts" : 4.078845849666752,
+  "DoublePlays" : 2.3021358869347655,
+  "WalksHitsPerInningsPitched" : 6.173804034172511,
+  "InningsPitchedDecimal" : 3.5571952270680973,
+  "PitchingDoubles" : 5.533258397034986,
+  "PitchingBallsInPlay" : 0.10263654006109402,
+  "PitchingSacrifices" : 8.28965939814297,
+  "LeftOnBase" : 6.878052220127876,
+  "PitchingBattingAverageAgainst" : 4.652396432933246,
+  "SacrificeFlies" : 9.897492629215506,
+  "GlobalTeamID" : 5,
+  "Name" : "Name",
+  "PitchingWalks" : 8.761432466225475,
+  "BattingAverage" : 1.4658129805029452,
+  "Doubles" : 7.061401241503109,
+  "PitchingEarnedRuns" : 3.2588565619047607,
+  "OnBasePlusSlugging" : 3.0937452626664474,
+  "BallsInPlay" : 6.027456183070403,
+  "PitchingIntentionalWalks" : 9.702963800023566,
+  "PitchesThrown" : 7.058770351582356,
+  "AtBats" : 0.8008281904610115,
+  "SubstituteBattingOrderSequence" : 7,
+  "InningsPitchedOuts" : 1.284659006116532,
+  "FantasyPointsBatting" : 4.145608029883936,
+  "Updated" : "Updated",
+  "Triples" : 0.58919091925136,
+  "BattingOrderConfirmed" : true,
+  "LineOuts" : 5.944895607614016,
+  "PitchingReachedOnError" : 0.43431398824148815,
+  "FantasyPointsFanDuel" : 1.2315135367772556,
+  "RunsBattedIn" : 3.111202833403195,
+  "PitchingOnBasePercentage" : 5.507386964179881,
+  "Errors" : 3.616076749251911,
+  "PitchingPerfectGames" : 6.073898085781152,
+  "Games" : 4,
+  "SluggingPercentage" : 3.804112695731078,
+  "PitchingSingles" : 4.573936264232251,
+  "StatID" : 8,
+  "PitchingStrikeouts" : 9.254183946267839,
+  "GrandSlams" : 9.965781217890562,
+  "Saves" : 7.835035282970782,
+  "StolenBases" : 4.518309517874243,
+  "FantasyPointsYahoo" : 6.84685269835264,
+  "FieldingIndependentPitching" : 7.457744773683766,
+  "PitchingTotalBases" : 3.502657762086401,
+  "Sacrifices" : 5.877124706116695,
+  "InningsPitchedFull" : 6.965117697638846,
+  "FantasyPointsFantasyDraft" : 1.0246457001441578,
+  "FlyOuts" : 1.1730742509559433,
+  "GroundIntoDoublePlay" : 9.369310271410669,
+  "TotalBases" : 2.7977867356748476,
+  "ReachedOnError" : 7.606863723092579,
+  "FantasyPoints" : 2.027123023002322,
+  "PitchingNoHitters" : 7.933506881737151,
+  "PitchingSacrificeFlies" : 1.7325933120207193,
+  "PitchingHitByPitch" : 1.041444916118296,
+  "SeasonType" : 3,
+  "PitchingPopOuts" : 4.459605034958679,
+  "PitchingWalksPerNineInnings" : 0.4182561061793122,
+  "FantasyPointsPitching" : 1.4894159098541704
+}, {
+  "IntentionalWalks" : 2.8841621266687802,
+  "PitchingQualityStarts" : 3.901545264248647,
+  "PitchingTriples" : 9.183123594773994,
+  "PitchingHomeRuns" : 9.132027271330688,
+  "HitByPitch" : 8.762042012749001,
+  "PitchingBlownSaves" : 7.740351818741173,
+  "SubstituteBattingOrder" : 0,
+  "IsolatedPower" : 6.778324963048013,
+  "PitchingCompleteGames" : 3.0576100241049344,
+  "PitchingOnBasePlusSlugging" : 4.86315908102884,
+  "CaughtStealing" : 5.637376656633329,
+  "PopOuts" : 8.37823741034869,
+  "PitchingGroundOuts" : 4.258773108174356,
+  "Singles" : 2.380090174313445,
+  "PitchingShutOuts" : 6.623518433804886,
+  "EarnedRunAverage" : 9.301444243932576,
+  "Wins" : 6.966044574347761,
+  "Outs" : 7.143538047012306,
+  "GroundOuts" : 6.683562403749608,
+  "PitchingInningStarted" : 0,
+  "PitchingHolds" : 7.260521264802104,
+  "OnBasePercentage" : 3.353193347011243,
+  "PitchingCatchersInterference" : 3.0205796992916243,
+  "PitchingWeightedOnBasePercentage" : 5.299143560275359,
+  "PitchingDoublePlays" : 7.04836565559697,
+  "Losses" : 6.704019297950036,
+  "FantasyPointsDraftKings" : 7.386281948385884,
+  "HomeRuns" : 6.438423552598547,
+  "PitchingStrikeoutsPerNineInnings" : 1.8268702177058116,
+  "PitchingSluggingPercentage" : 8.863729185622827,
+  "WeightedOnBasePercentage" : 4.8789878742268815,
+  "Hits" : 9.018348186070783,
+  "PitchesThrownStrikes" : 6.519180951018382,
+  "PitchingGroundIntoDoublePlay" : 6.628464275087742,
+  "TeamID" : 4,
+  "Runs" : 3.7814124730767915,
+  "PitchingPlateAppearances" : 8.251625748923757,
+  "PitchingRuns" : 2.9409642974827896,
+  "PlateAppearances" : 5.312489704336296,
+  "Strikeouts" : 0.4833312865174044,
+  "PitchingHits" : 4.678947989005849,
+  "BattingAverageOnBallsInPlay" : 5.962133916683182,
+  "Team" : "Team",
+  "PitchingLineOuts" : 0.5199002018724985,
+  "Season" : 0,
+  "Walks" : 2.535258963197524,
+  "PitchingBattingAverageOnBallsInPlay" : 8.969578798196912,
+  "PitchingGrandSlams" : 0.2025324113236393,
+  "PitchesSeen" : 0.8851374739011653,
+  "TotalOutsPitched" : 9.386524999783381,
+  "PitchingFlyOuts" : 4.078845849666752,
+  "DoublePlays" : 2.3021358869347655,
+  "WalksHitsPerInningsPitched" : 6.173804034172511,
+  "InningsPitchedDecimal" : 3.5571952270680973,
+  "PitchingDoubles" : 5.533258397034986,
+  "PitchingBallsInPlay" : 0.10263654006109402,
+  "PitchingSacrifices" : 8.28965939814297,
+  "LeftOnBase" : 6.878052220127876,
+  "PitchingBattingAverageAgainst" : 4.652396432933246,
+  "SacrificeFlies" : 9.897492629215506,
+  "GlobalTeamID" : 5,
+  "Name" : "Name",
+  "PitchingWalks" : 8.761432466225475,
+  "BattingAverage" : 1.4658129805029452,
+  "Doubles" : 7.061401241503109,
+  "PitchingEarnedRuns" : 3.2588565619047607,
+  "OnBasePlusSlugging" : 3.0937452626664474,
+  "BallsInPlay" : 6.027456183070403,
+  "PitchingIntentionalWalks" : 9.702963800023566,
+  "PitchesThrown" : 7.058770351582356,
+  "AtBats" : 0.8008281904610115,
+  "SubstituteBattingOrderSequence" : 7,
+  "InningsPitchedOuts" : 1.284659006116532,
+  "FantasyPointsBatting" : 4.145608029883936,
+  "Updated" : "Updated",
+  "Triples" : 0.58919091925136,
+  "BattingOrderConfirmed" : true,
+  "LineOuts" : 5.944895607614016,
+  "PitchingReachedOnError" : 0.43431398824148815,
+  "FantasyPointsFanDuel" : 1.2315135367772556,
+  "RunsBattedIn" : 3.111202833403195,
+  "PitchingOnBasePercentage" : 5.507386964179881,
+  "Errors" : 3.616076749251911,
+  "PitchingPerfectGames" : 6.073898085781152,
+  "Games" : 4,
+  "SluggingPercentage" : 3.804112695731078,
+  "PitchingSingles" : 4.573936264232251,
+  "StatID" : 8,
+  "PitchingStrikeouts" : 9.254183946267839,
+  "GrandSlams" : 9.965781217890562,
+  "Saves" : 7.835035282970782,
+  "StolenBases" : 4.518309517874243,
+  "FantasyPointsYahoo" : 6.84685269835264,
+  "FieldingIndependentPitching" : 7.457744773683766,
+  "PitchingTotalBases" : 3.502657762086401,
+  "Sacrifices" : 5.877124706116695,
+  "InningsPitchedFull" : 6.965117697638846,
+  "FantasyPointsFantasyDraft" : 1.0246457001441578,
+  "FlyOuts" : 1.1730742509559433,
+  "GroundIntoDoublePlay" : 9.369310271410669,
+  "TotalBases" : 2.7977867356748476,
+  "ReachedOnError" : 7.606863723092579,
+  "FantasyPoints" : 2.027123023002322,
+  "PitchingNoHitters" : 7.933506881737151,
+  "PitchingSacrificeFlies" : 1.7325933120207193,
+  "PitchingHitByPitch" : 1.041444916118296,
+  "SeasonType" : 3,
+  "PitchingPopOuts" : 4.459605034958679,
+  "PitchingWalksPerNineInnings" : 0.4182561061793122,
+  "FantasyPointsPitching" : 1.4894159098541704
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="teamsActive"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/teams</code></pre></div>
+    <div class="method-summary">Teams (Active) (<span class="nickname">teamsActive</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Team">Team</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "League" : "League",
+  "WikipediaLogoUrl" : "WikipediaLogoUrl",
+  "GlobalTeamID" : 0,
+  "TertiaryColor" : "TertiaryColor",
+  "City" : "City",
+  "TeamID" : 1,
+  "Name" : "Name",
+  "StadiumID" : 6,
+  "Active" : true,
+  "PrimaryColor" : "PrimaryColor",
+  "WikipediaWordMarkUrl" : "WikipediaWordMarkUrl",
+  "SecondaryColor" : "SecondaryColor",
+  "Division" : "Division",
+  "Key" : "Key",
+  "QuaternaryColor" : "QuaternaryColor"
+}, {
+  "League" : "League",
+  "WikipediaLogoUrl" : "WikipediaLogoUrl",
+  "GlobalTeamID" : 0,
+  "TertiaryColor" : "TertiaryColor",
+  "City" : "City",
+  "TeamID" : 1,
+  "Name" : "Name",
+  "StadiumID" : 6,
+  "Active" : true,
+  "PrimaryColor" : "PrimaryColor",
+  "WikipediaWordMarkUrl" : "WikipediaWordMarkUrl",
+  "SecondaryColor" : "SecondaryColor",
+  "Division" : "Division",
+  "Key" : "Key",
+  "QuaternaryColor" : "QuaternaryColor"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="teamsAll"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /{format}/AllTeams</code></pre></div>
+    <div class="method-summary">Teams (All) (<span class="nickname">teamsAll</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">format (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>. default: XML </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Team">Team</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "League" : "League",
+  "WikipediaLogoUrl" : "WikipediaLogoUrl",
+  "GlobalTeamID" : 0,
+  "TertiaryColor" : "TertiaryColor",
+  "City" : "City",
+  "TeamID" : 1,
+  "Name" : "Name",
+  "StadiumID" : 6,
+  "Active" : true,
+  "PrimaryColor" : "PrimaryColor",
+  "WikipediaWordMarkUrl" : "WikipediaWordMarkUrl",
+  "SecondaryColor" : "SecondaryColor",
+  "Division" : "Division",
+  "Key" : "Key",
+  "QuaternaryColor" : "QuaternaryColor"
+}, {
+  "League" : "League",
+  "WikipediaLogoUrl" : "WikipediaLogoUrl",
+  "GlobalTeamID" : 0,
+  "TertiaryColor" : "TertiaryColor",
+  "City" : "City",
+  "TeamID" : 1,
+  "Name" : "Name",
+  "StadiumID" : 6,
+  "Active" : true,
+  "PrimaryColor" : "PrimaryColor",
+  "WikipediaWordMarkUrl" : "WikipediaWordMarkUrl",
+  "SecondaryColor" : "SecondaryColor",
+  "Division" : "Division",
+  "Key" : "Key",
+  "QuaternaryColor" : "QuaternaryColor"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Game"><code>Game</code> - </a></li>
+    <li><a href="#Inning"><code>Inning</code> - </a></li>
+    <li><a href="#News"><code>News</code> - </a></li>
+    <li><a href="#Player"><code>Player</code> - </a></li>
+    <li><a href="#Season"><code>Season</code> - </a></li>
+    <li><a href="#Series"><code>Series</code> - </a></li>
+    <li><a href="#Stadium"><code>Stadium</code> - </a></li>
+    <li><a href="#Standing"><code>Standing</code> - </a></li>
+    <li><a href="#Team"><code>Team</code> - </a></li>
+    <li><a href="#TeamGame"><code>TeamGame</code> - </a></li>
+    <li><a href="#TeamSeason"><code>TeamSeason</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Game"><code>Game</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Attendance (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AwayRotationNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AwayTeam (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AwayTeamErrors (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AwayTeamHits (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AwayTeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AwayTeamMoneyLine (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AwayTeamProbablePitcherID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AwayTeamRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AwayTeamStartingPitcher (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AwayTeamStartingPitcherID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Balls (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Channel (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CurrentHitter (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CurrentHitterID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">CurrentHittingTeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">CurrentPitcher (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CurrentPitcherID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">CurrentPitchingTeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">DateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DateTimeUTC (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Day (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DueUpHitterID1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">DueUpHitterID2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">DueUpHitterID3 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ForecastDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ForecastTempHigh (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ForecastTempLow (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ForecastWindChill (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ForecastWindDirection (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ForecastWindSpeed (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GameEndDateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GameID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GlobalAwayTeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GlobalGameID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GlobalHomeTeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeRotationNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeTeam (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">HomeTeamErrors (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeTeamHits (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeTeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeTeamMoneyLine (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeTeamProbablePitcherID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeTeamRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeTeamStartingPitcher (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">HomeTeamStartingPitcherID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Inning (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">InningDescription (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">InningHalf (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Innings (optional)</div><div class="param-desc"><span class="param-type"><a href="#Inning">array[Inning]</a></span>  </div>
+<div class="param">IsClosed (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">LastPlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">LosingPitcher (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">LosingPitcherID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">NeutralVenue (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">Outs (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">OverPayout (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">OverUnder (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PointSpread (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PointSpreadAwayTeamMoneyLine (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">PointSpreadHomeTeamMoneyLine (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">RescheduledFromGameID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">RescheduledGameID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">RunnerOnFirst (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">RunnerOnSecond (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">RunnerOnThird (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">SavingPitcher (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SavingPitcherID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Season (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonType (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeriesInfo (optional)</div><div class="param-desc"><span class="param-type"><a href="#Series">Series</a></span>  </div>
+<div class="param">StadiumID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Strikes (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">UnderPayout (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">WinningPitcher (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">WinningPitcherID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Inning"><code>Inning</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">AwayTeamRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GameID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeTeamRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">InningID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">InningNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="News"><code>News</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Author (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Categories (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Content (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NewsID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">OriginalSource (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">OriginalSourceUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">PlayerID2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Source (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Team (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Team2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamID2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TermsOfUse (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TimeAgo (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Player"><code>Player</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">BatHand (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">BirthCity (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">BirthCountry (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">BirthDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">BirthState (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">College (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DraftKingsName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DraftKingsPlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Experience (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">FanDuelName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">FanDuelPlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">FantasyAlarmPlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">FantasyDraftName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">FantasyDraftPlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">FirstName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GlobalTeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Height (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HighSchool (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">InjuryBodyPart (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">InjuryNotes (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">InjuryStartDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">InjuryStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Jersey (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">LastName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MLBAMID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">PhotoUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Position (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PositionCategory (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ProDebut (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">RotoWirePlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">RotoworldPlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Salary (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SportRadarPlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SportsDataID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SportsDirectPlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StatsPlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Team (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">ThrowHand (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UpcomingGameID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">UsaTodayHeadshotNoBackgroundUpdated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UsaTodayHeadshotNoBackgroundUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UsaTodayHeadshotUpdated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UsaTodayHeadshotUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UsaTodayPlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Weight (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">XmlTeamPlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">YahooName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">YahooPlayerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Season"><code>Season</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ApiSeason (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PostSeasonStartDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">RegularSeasonStartDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Season (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Series"><code>Series</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">AwayTeamWins (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GameNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeTeamWins (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">MaxLength (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Stadium"><code>Stadium</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Active (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">Altitude (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Capacity (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">CenterField (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">City (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GeoLat (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">GeoLong (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">HomePlateDirection (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">LeftCenterField (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">LeftField (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">MidLeftCenterField (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">MidLeftField (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">MidRightCenterField (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">MidRightField (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">RightCenterField (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">RightField (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StadiumID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">State (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Surface (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Standing"><code>Standing</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">AwayLosses (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">AwayWins (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">City (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DayLosses (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">DayWins (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Division (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DivisionLosses (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">DivisionRank (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">DivisionWins (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GamesBehind (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">GlobalTeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeLosses (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">HomeWins (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">LastTenGamesLosses (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">LastTenGamesWins (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">League (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">LeagueRank (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Losses (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NightLosses (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">NightWins (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Percentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">RunsAgainst (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">RunsScored (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Season (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonType (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Streak (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">WildCardGamesBehind (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">WildCardRank (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Wins (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Team"><code>Team</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">Active (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">City (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Division (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">GlobalTeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Key (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">League (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PrimaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">QuaternaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">SecondaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">StadiumID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TertiaryColor (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">WikipediaLogoUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">WikipediaWordMarkUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TeamGame"><code>TeamGame</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">AtBats (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">BallsInPlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">BattingAverage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">BattingAverageOnBallsInPlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">BattingOrderConfirmed (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">CaughtStealing (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">DateTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Day (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DoublePlays (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Doubles (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">EarnedRunAverage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Errors (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPoints (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsBatting (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsDraftKings (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsFanDuel (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsFantasyDraft (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsPitching (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsYahoo (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FieldingIndependentPitching (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FlyOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">GameID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Games (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GlobalGameID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GlobalOpponentID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GlobalTeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GrandSlams (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">GroundIntoDoublePlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">GroundOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">HitByPitch (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Hits (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">HomeOrAway (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">HomeRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">InningsPitchedDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">InningsPitchedFull (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">InningsPitchedOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">IntentionalWalks (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">IsGameOver (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">IsolatedPower (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">LeftOnBase (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">LineOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Losses (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">OnBasePercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">OnBasePlusSlugging (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Opponent (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">OpponentID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Outs (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchesSeen (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchesThrown (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchesThrownStrikes (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingBallsInPlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingBattingAverageAgainst (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingBattingAverageOnBallsInPlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingBlownSaves (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingCatchersInterference (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingCompleteGames (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingDoublePlays (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingDoubles (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingEarnedRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingFlyOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingGrandSlams (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingGroundIntoDoublePlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingGroundOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingHitByPitch (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingHits (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingHolds (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingHomeRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingInningStarted (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">PitchingIntentionalWalks (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingLineOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingNoHitters (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingOnBasePercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingOnBasePlusSlugging (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingPerfectGames (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingPlateAppearances (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingPopOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingQualityStarts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingReachedOnError (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingSacrificeFlies (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingSacrifices (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingShutOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingSingles (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingSluggingPercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingStrikeouts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingStrikeoutsPerNineInnings (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingTotalBases (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingTriples (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingWalks (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingWalksPerNineInnings (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingWeightedOnBasePercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PlateAppearances (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PopOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">ReachedOnError (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Runs (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">RunsBattedIn (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">SacrificeFlies (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Sacrifices (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Saves (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Season (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonType (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Singles (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">SluggingPercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">StatID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StolenBases (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Strikeouts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">SubstituteBattingOrder (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SubstituteBattingOrderSequence (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Team (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TotalBases (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">TotalOutsPitched (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Triples (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Walks (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">WalksHitsPerInningsPitched (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">WeightedOnBasePercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Wins (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="TeamSeason"><code>TeamSeason</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">AtBats (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">BallsInPlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">BattingAverage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">BattingAverageOnBallsInPlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">BattingOrderConfirmed (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">CaughtStealing (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">DoublePlays (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Doubles (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">EarnedRunAverage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Errors (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPoints (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsBatting (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsDraftKings (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsFanDuel (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsFantasyDraft (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsPitching (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FantasyPointsYahoo (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FieldingIndependentPitching (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">FlyOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Games (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GlobalTeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">GrandSlams (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">GroundIntoDoublePlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">GroundOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">HitByPitch (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Hits (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">HomeRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">InningsPitchedDecimal (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">InningsPitchedFull (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">InningsPitchedOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">IntentionalWalks (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">IsolatedPower (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">LeftOnBase (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">LineOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Losses (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">OnBasePercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">OnBasePlusSlugging (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Outs (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchesSeen (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchesThrown (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchesThrownStrikes (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingBallsInPlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingBattingAverageAgainst (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingBattingAverageOnBallsInPlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingBlownSaves (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingCatchersInterference (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingCompleteGames (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingDoublePlays (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingDoubles (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingEarnedRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingFlyOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingGrandSlams (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingGroundIntoDoublePlay (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingGroundOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingHitByPitch (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingHits (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingHolds (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingHomeRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingInningStarted (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">PitchingIntentionalWalks (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingLineOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingNoHitters (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingOnBasePercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingOnBasePlusSlugging (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingPerfectGames (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingPlateAppearances (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingPopOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingQualityStarts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingReachedOnError (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingRuns (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingSacrificeFlies (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingSacrifices (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingShutOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingSingles (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingSluggingPercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingStrikeouts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingStrikeoutsPerNineInnings (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingTotalBases (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingTriples (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingWalks (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingWalksPerNineInnings (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PitchingWeightedOnBasePercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PlateAppearances (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">PopOuts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">ReachedOnError (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Runs (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">RunsBattedIn (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">SacrificeFlies (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Sacrifices (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Saves (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Season (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SeasonType (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Singles (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">SluggingPercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">StatID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">StolenBases (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Strikeouts (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">SubstituteBattingOrder (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">SubstituteBattingOrderSequence (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Team (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TeamID (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TotalBases (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">TotalOutsPitched (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Triples (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Updated (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Walks (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">WalksHitsPerInningsPitched (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">WeightedOnBasePercentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">Wins (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
