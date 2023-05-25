@@ -1,6 +1,6 @@
 /*
- * LoL v3 Scores
- * LoL v3 Scores
+ * MLB v3 Scores
+ * MLB scores API.
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -21,7 +21,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import org.openapitools.client.model.Inning;
+import org.openapitools.client.model.Series;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -50,43 +54,279 @@ import org.openapitools.client.JSON;
 /**
  * Game
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:13:42.446348-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:14:10.079908-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Game {
-  public static final String SERIALIZED_NAME_BEST_OF = "BestOf";
-  @SerializedName(SERIALIZED_NAME_BEST_OF)
-  private String bestOf;
+  public static final String SERIALIZED_NAME_ATTENDANCE = "Attendance";
+  @SerializedName(SERIALIZED_NAME_ATTENDANCE)
+  private Integer attendance;
+
+  public static final String SERIALIZED_NAME_AWAY_ROTATION_NUMBER = "AwayRotationNumber";
+  @SerializedName(SERIALIZED_NAME_AWAY_ROTATION_NUMBER)
+  private Integer awayRotationNumber;
+
+  public static final String SERIALIZED_NAME_AWAY_TEAM = "AwayTeam";
+  @SerializedName(SERIALIZED_NAME_AWAY_TEAM)
+  private String awayTeam;
+
+  public static final String SERIALIZED_NAME_AWAY_TEAM_ERRORS = "AwayTeamErrors";
+  @SerializedName(SERIALIZED_NAME_AWAY_TEAM_ERRORS)
+  private Integer awayTeamErrors;
+
+  public static final String SERIALIZED_NAME_AWAY_TEAM_HITS = "AwayTeamHits";
+  @SerializedName(SERIALIZED_NAME_AWAY_TEAM_HITS)
+  private Integer awayTeamHits;
+
+  public static final String SERIALIZED_NAME_AWAY_TEAM_I_D = "AwayTeamID";
+  @SerializedName(SERIALIZED_NAME_AWAY_TEAM_I_D)
+  private Integer awayTeamID;
+
+  public static final String SERIALIZED_NAME_AWAY_TEAM_MONEY_LINE = "AwayTeamMoneyLine";
+  @SerializedName(SERIALIZED_NAME_AWAY_TEAM_MONEY_LINE)
+  private Integer awayTeamMoneyLine;
+
+  public static final String SERIALIZED_NAME_AWAY_TEAM_PROBABLE_PITCHER_I_D = "AwayTeamProbablePitcherID";
+  @SerializedName(SERIALIZED_NAME_AWAY_TEAM_PROBABLE_PITCHER_I_D)
+  private Integer awayTeamProbablePitcherID;
+
+  public static final String SERIALIZED_NAME_AWAY_TEAM_RUNS = "AwayTeamRuns";
+  @SerializedName(SERIALIZED_NAME_AWAY_TEAM_RUNS)
+  private Integer awayTeamRuns;
+
+  public static final String SERIALIZED_NAME_AWAY_TEAM_STARTING_PITCHER = "AwayTeamStartingPitcher";
+  @SerializedName(SERIALIZED_NAME_AWAY_TEAM_STARTING_PITCHER)
+  private String awayTeamStartingPitcher;
+
+  public static final String SERIALIZED_NAME_AWAY_TEAM_STARTING_PITCHER_I_D = "AwayTeamStartingPitcherID";
+  @SerializedName(SERIALIZED_NAME_AWAY_TEAM_STARTING_PITCHER_I_D)
+  private Integer awayTeamStartingPitcherID;
+
+  public static final String SERIALIZED_NAME_BALLS = "Balls";
+  @SerializedName(SERIALIZED_NAME_BALLS)
+  private Integer balls;
+
+  public static final String SERIALIZED_NAME_CHANNEL = "Channel";
+  @SerializedName(SERIALIZED_NAME_CHANNEL)
+  private String channel;
+
+  public static final String SERIALIZED_NAME_CURRENT_HITTER = "CurrentHitter";
+  @SerializedName(SERIALIZED_NAME_CURRENT_HITTER)
+  private String currentHitter;
+
+  public static final String SERIALIZED_NAME_CURRENT_HITTER_I_D = "CurrentHitterID";
+  @SerializedName(SERIALIZED_NAME_CURRENT_HITTER_I_D)
+  private Integer currentHitterID;
+
+  public static final String SERIALIZED_NAME_CURRENT_HITTING_TEAM_I_D = "CurrentHittingTeamID";
+  @SerializedName(SERIALIZED_NAME_CURRENT_HITTING_TEAM_I_D)
+  private Integer currentHittingTeamID;
+
+  public static final String SERIALIZED_NAME_CURRENT_PITCHER = "CurrentPitcher";
+  @SerializedName(SERIALIZED_NAME_CURRENT_PITCHER)
+  private String currentPitcher;
+
+  public static final String SERIALIZED_NAME_CURRENT_PITCHER_I_D = "CurrentPitcherID";
+  @SerializedName(SERIALIZED_NAME_CURRENT_PITCHER_I_D)
+  private Integer currentPitcherID;
+
+  public static final String SERIALIZED_NAME_CURRENT_PITCHING_TEAM_I_D = "CurrentPitchingTeamID";
+  @SerializedName(SERIALIZED_NAME_CURRENT_PITCHING_TEAM_I_D)
+  private Integer currentPitchingTeamID;
 
   public static final String SERIALIZED_NAME_DATE_TIME = "DateTime";
   @SerializedName(SERIALIZED_NAME_DATE_TIME)
   private String dateTime;
 
+  public static final String SERIALIZED_NAME_DATE_TIME_U_T_C = "DateTimeUTC";
+  @SerializedName(SERIALIZED_NAME_DATE_TIME_U_T_C)
+  private String dateTimeUTC;
+
   public static final String SERIALIZED_NAME_DAY = "Day";
   @SerializedName(SERIALIZED_NAME_DAY)
   private String day;
 
-  public static final String SERIALIZED_NAME_DRAW_MONEY_LINE = "DrawMoneyLine";
-  @SerializedName(SERIALIZED_NAME_DRAW_MONEY_LINE)
-  private Integer drawMoneyLine;
+  public static final String SERIALIZED_NAME_DUE_UP_HITTER_I_D1 = "DueUpHitterID1";
+  @SerializedName(SERIALIZED_NAME_DUE_UP_HITTER_I_D1)
+  private Integer dueUpHitterID1;
 
-  public static final String SERIALIZED_NAME_GAME_ID = "GameId";
-  @SerializedName(SERIALIZED_NAME_GAME_ID)
-  private Integer gameId;
+  public static final String SERIALIZED_NAME_DUE_UP_HITTER_I_D2 = "DueUpHitterID2";
+  @SerializedName(SERIALIZED_NAME_DUE_UP_HITTER_I_D2)
+  private Integer dueUpHitterID2;
 
-  public static final String SERIALIZED_NAME_GROUP = "Group";
-  @SerializedName(SERIALIZED_NAME_GROUP)
-  private String group;
+  public static final String SERIALIZED_NAME_DUE_UP_HITTER_I_D3 = "DueUpHitterID3";
+  @SerializedName(SERIALIZED_NAME_DUE_UP_HITTER_I_D3)
+  private Integer dueUpHitterID3;
+
+  public static final String SERIALIZED_NAME_FORECAST_DESCRIPTION = "ForecastDescription";
+  @SerializedName(SERIALIZED_NAME_FORECAST_DESCRIPTION)
+  private String forecastDescription;
+
+  public static final String SERIALIZED_NAME_FORECAST_TEMP_HIGH = "ForecastTempHigh";
+  @SerializedName(SERIALIZED_NAME_FORECAST_TEMP_HIGH)
+  private Integer forecastTempHigh;
+
+  public static final String SERIALIZED_NAME_FORECAST_TEMP_LOW = "ForecastTempLow";
+  @SerializedName(SERIALIZED_NAME_FORECAST_TEMP_LOW)
+  private Integer forecastTempLow;
+
+  public static final String SERIALIZED_NAME_FORECAST_WIND_CHILL = "ForecastWindChill";
+  @SerializedName(SERIALIZED_NAME_FORECAST_WIND_CHILL)
+  private Integer forecastWindChill;
+
+  public static final String SERIALIZED_NAME_FORECAST_WIND_DIRECTION = "ForecastWindDirection";
+  @SerializedName(SERIALIZED_NAME_FORECAST_WIND_DIRECTION)
+  private Integer forecastWindDirection;
+
+  public static final String SERIALIZED_NAME_FORECAST_WIND_SPEED = "ForecastWindSpeed";
+  @SerializedName(SERIALIZED_NAME_FORECAST_WIND_SPEED)
+  private Integer forecastWindSpeed;
+
+  public static final String SERIALIZED_NAME_GAME_END_DATE_TIME = "GameEndDateTime";
+  @SerializedName(SERIALIZED_NAME_GAME_END_DATE_TIME)
+  private String gameEndDateTime;
+
+  public static final String SERIALIZED_NAME_GAME_I_D = "GameID";
+  @SerializedName(SERIALIZED_NAME_GAME_I_D)
+  private Integer gameID;
+
+  public static final String SERIALIZED_NAME_GLOBAL_AWAY_TEAM_I_D = "GlobalAwayTeamID";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_AWAY_TEAM_I_D)
+  private Integer globalAwayTeamID;
+
+  public static final String SERIALIZED_NAME_GLOBAL_GAME_I_D = "GlobalGameID";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_GAME_I_D)
+  private Integer globalGameID;
+
+  public static final String SERIALIZED_NAME_GLOBAL_HOME_TEAM_I_D = "GlobalHomeTeamID";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_HOME_TEAM_I_D)
+  private Integer globalHomeTeamID;
+
+  public static final String SERIALIZED_NAME_HOME_ROTATION_NUMBER = "HomeRotationNumber";
+  @SerializedName(SERIALIZED_NAME_HOME_ROTATION_NUMBER)
+  private Integer homeRotationNumber;
+
+  public static final String SERIALIZED_NAME_HOME_TEAM = "HomeTeam";
+  @SerializedName(SERIALIZED_NAME_HOME_TEAM)
+  private String homeTeam;
+
+  public static final String SERIALIZED_NAME_HOME_TEAM_ERRORS = "HomeTeamErrors";
+  @SerializedName(SERIALIZED_NAME_HOME_TEAM_ERRORS)
+  private Integer homeTeamErrors;
+
+  public static final String SERIALIZED_NAME_HOME_TEAM_HITS = "HomeTeamHits";
+  @SerializedName(SERIALIZED_NAME_HOME_TEAM_HITS)
+  private Integer homeTeamHits;
+
+  public static final String SERIALIZED_NAME_HOME_TEAM_I_D = "HomeTeamID";
+  @SerializedName(SERIALIZED_NAME_HOME_TEAM_I_D)
+  private Integer homeTeamID;
+
+  public static final String SERIALIZED_NAME_HOME_TEAM_MONEY_LINE = "HomeTeamMoneyLine";
+  @SerializedName(SERIALIZED_NAME_HOME_TEAM_MONEY_LINE)
+  private Integer homeTeamMoneyLine;
+
+  public static final String SERIALIZED_NAME_HOME_TEAM_PROBABLE_PITCHER_I_D = "HomeTeamProbablePitcherID";
+  @SerializedName(SERIALIZED_NAME_HOME_TEAM_PROBABLE_PITCHER_I_D)
+  private Integer homeTeamProbablePitcherID;
+
+  public static final String SERIALIZED_NAME_HOME_TEAM_RUNS = "HomeTeamRuns";
+  @SerializedName(SERIALIZED_NAME_HOME_TEAM_RUNS)
+  private Integer homeTeamRuns;
+
+  public static final String SERIALIZED_NAME_HOME_TEAM_STARTING_PITCHER = "HomeTeamStartingPitcher";
+  @SerializedName(SERIALIZED_NAME_HOME_TEAM_STARTING_PITCHER)
+  private String homeTeamStartingPitcher;
+
+  public static final String SERIALIZED_NAME_HOME_TEAM_STARTING_PITCHER_I_D = "HomeTeamStartingPitcherID";
+  @SerializedName(SERIALIZED_NAME_HOME_TEAM_STARTING_PITCHER_I_D)
+  private Integer homeTeamStartingPitcherID;
+
+  public static final String SERIALIZED_NAME_INNING = "Inning";
+  @SerializedName(SERIALIZED_NAME_INNING)
+  private Integer inning;
+
+  public static final String SERIALIZED_NAME_INNING_DESCRIPTION = "InningDescription";
+  @SerializedName(SERIALIZED_NAME_INNING_DESCRIPTION)
+  private String inningDescription;
+
+  public static final String SERIALIZED_NAME_INNING_HALF = "InningHalf";
+  @SerializedName(SERIALIZED_NAME_INNING_HALF)
+  private String inningHalf;
+
+  public static final String SERIALIZED_NAME_INNINGS = "Innings";
+  @SerializedName(SERIALIZED_NAME_INNINGS)
+  private List<Inning> innings = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IS_CLOSED = "IsClosed";
   @SerializedName(SERIALIZED_NAME_IS_CLOSED)
   private Boolean isClosed;
 
+  public static final String SERIALIZED_NAME_LAST_PLAY = "LastPlay";
+  @SerializedName(SERIALIZED_NAME_LAST_PLAY)
+  private String lastPlay;
+
+  public static final String SERIALIZED_NAME_LOSING_PITCHER = "LosingPitcher";
+  @SerializedName(SERIALIZED_NAME_LOSING_PITCHER)
+  private String losingPitcher;
+
+  public static final String SERIALIZED_NAME_LOSING_PITCHER_I_D = "LosingPitcherID";
+  @SerializedName(SERIALIZED_NAME_LOSING_PITCHER_I_D)
+  private Integer losingPitcherID;
+
+  public static final String SERIALIZED_NAME_NEUTRAL_VENUE = "NeutralVenue";
+  @SerializedName(SERIALIZED_NAME_NEUTRAL_VENUE)
+  private Boolean neutralVenue;
+
+  public static final String SERIALIZED_NAME_OUTS = "Outs";
+  @SerializedName(SERIALIZED_NAME_OUTS)
+  private Integer outs;
+
+  public static final String SERIALIZED_NAME_OVER_PAYOUT = "OverPayout";
+  @SerializedName(SERIALIZED_NAME_OVER_PAYOUT)
+  private Integer overPayout;
+
+  public static final String SERIALIZED_NAME_OVER_UNDER = "OverUnder";
+  @SerializedName(SERIALIZED_NAME_OVER_UNDER)
+  private BigDecimal overUnder;
+
   public static final String SERIALIZED_NAME_POINT_SPREAD = "PointSpread";
   @SerializedName(SERIALIZED_NAME_POINT_SPREAD)
   private BigDecimal pointSpread;
 
-  public static final String SERIALIZED_NAME_ROUND_ID = "RoundId";
-  @SerializedName(SERIALIZED_NAME_ROUND_ID)
-  private Integer roundId;
+  public static final String SERIALIZED_NAME_POINT_SPREAD_AWAY_TEAM_MONEY_LINE = "PointSpreadAwayTeamMoneyLine";
+  @SerializedName(SERIALIZED_NAME_POINT_SPREAD_AWAY_TEAM_MONEY_LINE)
+  private Integer pointSpreadAwayTeamMoneyLine;
+
+  public static final String SERIALIZED_NAME_POINT_SPREAD_HOME_TEAM_MONEY_LINE = "PointSpreadHomeTeamMoneyLine";
+  @SerializedName(SERIALIZED_NAME_POINT_SPREAD_HOME_TEAM_MONEY_LINE)
+  private Integer pointSpreadHomeTeamMoneyLine;
+
+  public static final String SERIALIZED_NAME_RESCHEDULED_FROM_GAME_I_D = "RescheduledFromGameID";
+  @SerializedName(SERIALIZED_NAME_RESCHEDULED_FROM_GAME_I_D)
+  private Integer rescheduledFromGameID;
+
+  public static final String SERIALIZED_NAME_RESCHEDULED_GAME_I_D = "RescheduledGameID";
+  @SerializedName(SERIALIZED_NAME_RESCHEDULED_GAME_I_D)
+  private Integer rescheduledGameID;
+
+  public static final String SERIALIZED_NAME_RUNNER_ON_FIRST = "RunnerOnFirst";
+  @SerializedName(SERIALIZED_NAME_RUNNER_ON_FIRST)
+  private Boolean runnerOnFirst;
+
+  public static final String SERIALIZED_NAME_RUNNER_ON_SECOND = "RunnerOnSecond";
+  @SerializedName(SERIALIZED_NAME_RUNNER_ON_SECOND)
+  private Boolean runnerOnSecond;
+
+  public static final String SERIALIZED_NAME_RUNNER_ON_THIRD = "RunnerOnThird";
+  @SerializedName(SERIALIZED_NAME_RUNNER_ON_THIRD)
+  private Boolean runnerOnThird;
+
+  public static final String SERIALIZED_NAME_SAVING_PITCHER = "SavingPitcher";
+  @SerializedName(SERIALIZED_NAME_SAVING_PITCHER)
+  private String savingPitcher;
+
+  public static final String SERIALIZED_NAME_SAVING_PITCHER_I_D = "SavingPitcherID";
+  @SerializedName(SERIALIZED_NAME_SAVING_PITCHER_I_D)
+  private Integer savingPitcherID;
 
   public static final String SERIALIZED_NAME_SEASON = "Season";
   @SerializedName(SERIALIZED_NAME_SEASON)
@@ -96,101 +336,399 @@ public class Game {
   @SerializedName(SERIALIZED_NAME_SEASON_TYPE)
   private Integer seasonType;
 
+  public static final String SERIALIZED_NAME_SERIES_INFO = "SeriesInfo";
+  @SerializedName(SERIALIZED_NAME_SERIES_INFO)
+  private Series seriesInfo;
+
+  public static final String SERIALIZED_NAME_STADIUM_I_D = "StadiumID";
+  @SerializedName(SERIALIZED_NAME_STADIUM_I_D)
+  private Integer stadiumID;
+
   public static final String SERIALIZED_NAME_STATUS = "Status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
 
-  public static final String SERIALIZED_NAME_TEAM_A_ID = "TeamAId";
-  @SerializedName(SERIALIZED_NAME_TEAM_A_ID)
-  private Integer teamAId;
+  public static final String SERIALIZED_NAME_STRIKES = "Strikes";
+  @SerializedName(SERIALIZED_NAME_STRIKES)
+  private Integer strikes;
 
-  public static final String SERIALIZED_NAME_TEAM_A_KEY = "TeamAKey";
-  @SerializedName(SERIALIZED_NAME_TEAM_A_KEY)
-  private String teamAKey;
-
-  public static final String SERIALIZED_NAME_TEAM_A_MONEY_LINE = "TeamAMoneyLine";
-  @SerializedName(SERIALIZED_NAME_TEAM_A_MONEY_LINE)
-  private Integer teamAMoneyLine;
-
-  public static final String SERIALIZED_NAME_TEAM_A_NAME = "TeamAName";
-  @SerializedName(SERIALIZED_NAME_TEAM_A_NAME)
-  private String teamAName;
-
-  public static final String SERIALIZED_NAME_TEAM_A_POINT_SPREAD_PAYOUT = "TeamAPointSpreadPayout";
-  @SerializedName(SERIALIZED_NAME_TEAM_A_POINT_SPREAD_PAYOUT)
-  private Integer teamAPointSpreadPayout;
-
-  public static final String SERIALIZED_NAME_TEAM_A_SCORE = "TeamAScore";
-  @SerializedName(SERIALIZED_NAME_TEAM_A_SCORE)
-  private Integer teamAScore;
-
-  public static final String SERIALIZED_NAME_TEAM_B_ID = "TeamBId";
-  @SerializedName(SERIALIZED_NAME_TEAM_B_ID)
-  private Integer teamBId;
-
-  public static final String SERIALIZED_NAME_TEAM_B_KEY = "TeamBKey";
-  @SerializedName(SERIALIZED_NAME_TEAM_B_KEY)
-  private String teamBKey;
-
-  public static final String SERIALIZED_NAME_TEAM_B_MONEY_LINE = "TeamBMoneyLine";
-  @SerializedName(SERIALIZED_NAME_TEAM_B_MONEY_LINE)
-  private Integer teamBMoneyLine;
-
-  public static final String SERIALIZED_NAME_TEAM_B_NAME = "TeamBName";
-  @SerializedName(SERIALIZED_NAME_TEAM_B_NAME)
-  private String teamBName;
-
-  public static final String SERIALIZED_NAME_TEAM_B_POINT_SPREAD_PAYOUT = "TeamBPointSpreadPayout";
-  @SerializedName(SERIALIZED_NAME_TEAM_B_POINT_SPREAD_PAYOUT)
-  private Integer teamBPointSpreadPayout;
-
-  public static final String SERIALIZED_NAME_TEAM_B_SCORE = "TeamBScore";
-  @SerializedName(SERIALIZED_NAME_TEAM_B_SCORE)
-  private Integer teamBScore;
+  public static final String SERIALIZED_NAME_UNDER_PAYOUT = "UnderPayout";
+  @SerializedName(SERIALIZED_NAME_UNDER_PAYOUT)
+  private Integer underPayout;
 
   public static final String SERIALIZED_NAME_UPDATED = "Updated";
   @SerializedName(SERIALIZED_NAME_UPDATED)
   private String updated;
 
-  public static final String SERIALIZED_NAME_UPDATED_UTC = "UpdatedUtc";
-  @SerializedName(SERIALIZED_NAME_UPDATED_UTC)
-  private String updatedUtc;
+  public static final String SERIALIZED_NAME_WINNING_PITCHER = "WinningPitcher";
+  @SerializedName(SERIALIZED_NAME_WINNING_PITCHER)
+  private String winningPitcher;
 
-  public static final String SERIALIZED_NAME_VENUE_ID = "VenueId";
-  @SerializedName(SERIALIZED_NAME_VENUE_ID)
-  private Integer venueId;
-
-  public static final String SERIALIZED_NAME_VENUE_TYPE = "VenueType";
-  @SerializedName(SERIALIZED_NAME_VENUE_TYPE)
-  private String venueType;
-
-  public static final String SERIALIZED_NAME_WEEK = "Week";
-  @SerializedName(SERIALIZED_NAME_WEEK)
-  private Integer week;
-
-  public static final String SERIALIZED_NAME_WINNER = "Winner";
-  @SerializedName(SERIALIZED_NAME_WINNER)
-  private String winner;
+  public static final String SERIALIZED_NAME_WINNING_PITCHER_I_D = "WinningPitcherID";
+  @SerializedName(SERIALIZED_NAME_WINNING_PITCHER_I_D)
+  private Integer winningPitcherID;
 
   public Game() {
   }
 
-  public Game bestOf(String bestOf) {
-    this.bestOf = bestOf;
+  public Game attendance(Integer attendance) {
+    this.attendance = attendance;
     return this;
   }
 
   /**
-   * Get bestOf
-   * @return bestOf
+   * Get attendance
+   * @return attendance
    */
   @javax.annotation.Nullable
-  public String getBestOf() {
-    return bestOf;
+  public Integer getAttendance() {
+    return attendance;
   }
 
-  public void setBestOf(String bestOf) {
-    this.bestOf = bestOf;
+  public void setAttendance(Integer attendance) {
+    this.attendance = attendance;
+  }
+
+
+  public Game awayRotationNumber(Integer awayRotationNumber) {
+    this.awayRotationNumber = awayRotationNumber;
+    return this;
+  }
+
+  /**
+   * Get awayRotationNumber
+   * @return awayRotationNumber
+   */
+  @javax.annotation.Nullable
+  public Integer getAwayRotationNumber() {
+    return awayRotationNumber;
+  }
+
+  public void setAwayRotationNumber(Integer awayRotationNumber) {
+    this.awayRotationNumber = awayRotationNumber;
+  }
+
+
+  public Game awayTeam(String awayTeam) {
+    this.awayTeam = awayTeam;
+    return this;
+  }
+
+  /**
+   * Get awayTeam
+   * @return awayTeam
+   */
+  @javax.annotation.Nullable
+  public String getAwayTeam() {
+    return awayTeam;
+  }
+
+  public void setAwayTeam(String awayTeam) {
+    this.awayTeam = awayTeam;
+  }
+
+
+  public Game awayTeamErrors(Integer awayTeamErrors) {
+    this.awayTeamErrors = awayTeamErrors;
+    return this;
+  }
+
+  /**
+   * Get awayTeamErrors
+   * @return awayTeamErrors
+   */
+  @javax.annotation.Nullable
+  public Integer getAwayTeamErrors() {
+    return awayTeamErrors;
+  }
+
+  public void setAwayTeamErrors(Integer awayTeamErrors) {
+    this.awayTeamErrors = awayTeamErrors;
+  }
+
+
+  public Game awayTeamHits(Integer awayTeamHits) {
+    this.awayTeamHits = awayTeamHits;
+    return this;
+  }
+
+  /**
+   * Get awayTeamHits
+   * @return awayTeamHits
+   */
+  @javax.annotation.Nullable
+  public Integer getAwayTeamHits() {
+    return awayTeamHits;
+  }
+
+  public void setAwayTeamHits(Integer awayTeamHits) {
+    this.awayTeamHits = awayTeamHits;
+  }
+
+
+  public Game awayTeamID(Integer awayTeamID) {
+    this.awayTeamID = awayTeamID;
+    return this;
+  }
+
+  /**
+   * Get awayTeamID
+   * @return awayTeamID
+   */
+  @javax.annotation.Nullable
+  public Integer getAwayTeamID() {
+    return awayTeamID;
+  }
+
+  public void setAwayTeamID(Integer awayTeamID) {
+    this.awayTeamID = awayTeamID;
+  }
+
+
+  public Game awayTeamMoneyLine(Integer awayTeamMoneyLine) {
+    this.awayTeamMoneyLine = awayTeamMoneyLine;
+    return this;
+  }
+
+  /**
+   * Get awayTeamMoneyLine
+   * @return awayTeamMoneyLine
+   */
+  @javax.annotation.Nullable
+  public Integer getAwayTeamMoneyLine() {
+    return awayTeamMoneyLine;
+  }
+
+  public void setAwayTeamMoneyLine(Integer awayTeamMoneyLine) {
+    this.awayTeamMoneyLine = awayTeamMoneyLine;
+  }
+
+
+  public Game awayTeamProbablePitcherID(Integer awayTeamProbablePitcherID) {
+    this.awayTeamProbablePitcherID = awayTeamProbablePitcherID;
+    return this;
+  }
+
+  /**
+   * Get awayTeamProbablePitcherID
+   * @return awayTeamProbablePitcherID
+   */
+  @javax.annotation.Nullable
+  public Integer getAwayTeamProbablePitcherID() {
+    return awayTeamProbablePitcherID;
+  }
+
+  public void setAwayTeamProbablePitcherID(Integer awayTeamProbablePitcherID) {
+    this.awayTeamProbablePitcherID = awayTeamProbablePitcherID;
+  }
+
+
+  public Game awayTeamRuns(Integer awayTeamRuns) {
+    this.awayTeamRuns = awayTeamRuns;
+    return this;
+  }
+
+  /**
+   * Get awayTeamRuns
+   * @return awayTeamRuns
+   */
+  @javax.annotation.Nullable
+  public Integer getAwayTeamRuns() {
+    return awayTeamRuns;
+  }
+
+  public void setAwayTeamRuns(Integer awayTeamRuns) {
+    this.awayTeamRuns = awayTeamRuns;
+  }
+
+
+  public Game awayTeamStartingPitcher(String awayTeamStartingPitcher) {
+    this.awayTeamStartingPitcher = awayTeamStartingPitcher;
+    return this;
+  }
+
+  /**
+   * Get awayTeamStartingPitcher
+   * @return awayTeamStartingPitcher
+   */
+  @javax.annotation.Nullable
+  public String getAwayTeamStartingPitcher() {
+    return awayTeamStartingPitcher;
+  }
+
+  public void setAwayTeamStartingPitcher(String awayTeamStartingPitcher) {
+    this.awayTeamStartingPitcher = awayTeamStartingPitcher;
+  }
+
+
+  public Game awayTeamStartingPitcherID(Integer awayTeamStartingPitcherID) {
+    this.awayTeamStartingPitcherID = awayTeamStartingPitcherID;
+    return this;
+  }
+
+  /**
+   * Get awayTeamStartingPitcherID
+   * @return awayTeamStartingPitcherID
+   */
+  @javax.annotation.Nullable
+  public Integer getAwayTeamStartingPitcherID() {
+    return awayTeamStartingPitcherID;
+  }
+
+  public void setAwayTeamStartingPitcherID(Integer awayTeamStartingPitcherID) {
+    this.awayTeamStartingPitcherID = awayTeamStartingPitcherID;
+  }
+
+
+  public Game balls(Integer balls) {
+    this.balls = balls;
+    return this;
+  }
+
+  /**
+   * Get balls
+   * @return balls
+   */
+  @javax.annotation.Nullable
+  public Integer getBalls() {
+    return balls;
+  }
+
+  public void setBalls(Integer balls) {
+    this.balls = balls;
+  }
+
+
+  public Game channel(String channel) {
+    this.channel = channel;
+    return this;
+  }
+
+  /**
+   * Get channel
+   * @return channel
+   */
+  @javax.annotation.Nullable
+  public String getChannel() {
+    return channel;
+  }
+
+  public void setChannel(String channel) {
+    this.channel = channel;
+  }
+
+
+  public Game currentHitter(String currentHitter) {
+    this.currentHitter = currentHitter;
+    return this;
+  }
+
+  /**
+   * Get currentHitter
+   * @return currentHitter
+   */
+  @javax.annotation.Nullable
+  public String getCurrentHitter() {
+    return currentHitter;
+  }
+
+  public void setCurrentHitter(String currentHitter) {
+    this.currentHitter = currentHitter;
+  }
+
+
+  public Game currentHitterID(Integer currentHitterID) {
+    this.currentHitterID = currentHitterID;
+    return this;
+  }
+
+  /**
+   * Get currentHitterID
+   * @return currentHitterID
+   */
+  @javax.annotation.Nullable
+  public Integer getCurrentHitterID() {
+    return currentHitterID;
+  }
+
+  public void setCurrentHitterID(Integer currentHitterID) {
+    this.currentHitterID = currentHitterID;
+  }
+
+
+  public Game currentHittingTeamID(Integer currentHittingTeamID) {
+    this.currentHittingTeamID = currentHittingTeamID;
+    return this;
+  }
+
+  /**
+   * Get currentHittingTeamID
+   * @return currentHittingTeamID
+   */
+  @javax.annotation.Nullable
+  public Integer getCurrentHittingTeamID() {
+    return currentHittingTeamID;
+  }
+
+  public void setCurrentHittingTeamID(Integer currentHittingTeamID) {
+    this.currentHittingTeamID = currentHittingTeamID;
+  }
+
+
+  public Game currentPitcher(String currentPitcher) {
+    this.currentPitcher = currentPitcher;
+    return this;
+  }
+
+  /**
+   * Get currentPitcher
+   * @return currentPitcher
+   */
+  @javax.annotation.Nullable
+  public String getCurrentPitcher() {
+    return currentPitcher;
+  }
+
+  public void setCurrentPitcher(String currentPitcher) {
+    this.currentPitcher = currentPitcher;
+  }
+
+
+  public Game currentPitcherID(Integer currentPitcherID) {
+    this.currentPitcherID = currentPitcherID;
+    return this;
+  }
+
+  /**
+   * Get currentPitcherID
+   * @return currentPitcherID
+   */
+  @javax.annotation.Nullable
+  public Integer getCurrentPitcherID() {
+    return currentPitcherID;
+  }
+
+  public void setCurrentPitcherID(Integer currentPitcherID) {
+    this.currentPitcherID = currentPitcherID;
+  }
+
+
+  public Game currentPitchingTeamID(Integer currentPitchingTeamID) {
+    this.currentPitchingTeamID = currentPitchingTeamID;
+    return this;
+  }
+
+  /**
+   * Get currentPitchingTeamID
+   * @return currentPitchingTeamID
+   */
+  @javax.annotation.Nullable
+  public Integer getCurrentPitchingTeamID() {
+    return currentPitchingTeamID;
+  }
+
+  public void setCurrentPitchingTeamID(Integer currentPitchingTeamID) {
+    this.currentPitchingTeamID = currentPitchingTeamID;
   }
 
 
@@ -213,6 +751,25 @@ public class Game {
   }
 
 
+  public Game dateTimeUTC(String dateTimeUTC) {
+    this.dateTimeUTC = dateTimeUTC;
+    return this;
+  }
+
+  /**
+   * Get dateTimeUTC
+   * @return dateTimeUTC
+   */
+  @javax.annotation.Nullable
+  public String getDateTimeUTC() {
+    return dateTimeUTC;
+  }
+
+  public void setDateTimeUTC(String dateTimeUTC) {
+    this.dateTimeUTC = dateTimeUTC;
+  }
+
+
   public Game day(String day) {
     this.day = day;
     return this;
@@ -232,60 +789,543 @@ public class Game {
   }
 
 
-  public Game drawMoneyLine(Integer drawMoneyLine) {
-    this.drawMoneyLine = drawMoneyLine;
+  public Game dueUpHitterID1(Integer dueUpHitterID1) {
+    this.dueUpHitterID1 = dueUpHitterID1;
     return this;
   }
 
   /**
-   * Get drawMoneyLine
-   * @return drawMoneyLine
+   * Get dueUpHitterID1
+   * @return dueUpHitterID1
    */
   @javax.annotation.Nullable
-  public Integer getDrawMoneyLine() {
-    return drawMoneyLine;
+  public Integer getDueUpHitterID1() {
+    return dueUpHitterID1;
   }
 
-  public void setDrawMoneyLine(Integer drawMoneyLine) {
-    this.drawMoneyLine = drawMoneyLine;
+  public void setDueUpHitterID1(Integer dueUpHitterID1) {
+    this.dueUpHitterID1 = dueUpHitterID1;
   }
 
 
-  public Game gameId(Integer gameId) {
-    this.gameId = gameId;
+  public Game dueUpHitterID2(Integer dueUpHitterID2) {
+    this.dueUpHitterID2 = dueUpHitterID2;
     return this;
   }
 
   /**
-   * Get gameId
-   * @return gameId
+   * Get dueUpHitterID2
+   * @return dueUpHitterID2
    */
   @javax.annotation.Nullable
-  public Integer getGameId() {
-    return gameId;
+  public Integer getDueUpHitterID2() {
+    return dueUpHitterID2;
   }
 
-  public void setGameId(Integer gameId) {
-    this.gameId = gameId;
+  public void setDueUpHitterID2(Integer dueUpHitterID2) {
+    this.dueUpHitterID2 = dueUpHitterID2;
   }
 
 
-  public Game group(String group) {
-    this.group = group;
+  public Game dueUpHitterID3(Integer dueUpHitterID3) {
+    this.dueUpHitterID3 = dueUpHitterID3;
     return this;
   }
 
   /**
-   * Get group
-   * @return group
+   * Get dueUpHitterID3
+   * @return dueUpHitterID3
    */
   @javax.annotation.Nullable
-  public String getGroup() {
-    return group;
+  public Integer getDueUpHitterID3() {
+    return dueUpHitterID3;
   }
 
-  public void setGroup(String group) {
-    this.group = group;
+  public void setDueUpHitterID3(Integer dueUpHitterID3) {
+    this.dueUpHitterID3 = dueUpHitterID3;
+  }
+
+
+  public Game forecastDescription(String forecastDescription) {
+    this.forecastDescription = forecastDescription;
+    return this;
+  }
+
+  /**
+   * Get forecastDescription
+   * @return forecastDescription
+   */
+  @javax.annotation.Nullable
+  public String getForecastDescription() {
+    return forecastDescription;
+  }
+
+  public void setForecastDescription(String forecastDescription) {
+    this.forecastDescription = forecastDescription;
+  }
+
+
+  public Game forecastTempHigh(Integer forecastTempHigh) {
+    this.forecastTempHigh = forecastTempHigh;
+    return this;
+  }
+
+  /**
+   * Get forecastTempHigh
+   * @return forecastTempHigh
+   */
+  @javax.annotation.Nullable
+  public Integer getForecastTempHigh() {
+    return forecastTempHigh;
+  }
+
+  public void setForecastTempHigh(Integer forecastTempHigh) {
+    this.forecastTempHigh = forecastTempHigh;
+  }
+
+
+  public Game forecastTempLow(Integer forecastTempLow) {
+    this.forecastTempLow = forecastTempLow;
+    return this;
+  }
+
+  /**
+   * Get forecastTempLow
+   * @return forecastTempLow
+   */
+  @javax.annotation.Nullable
+  public Integer getForecastTempLow() {
+    return forecastTempLow;
+  }
+
+  public void setForecastTempLow(Integer forecastTempLow) {
+    this.forecastTempLow = forecastTempLow;
+  }
+
+
+  public Game forecastWindChill(Integer forecastWindChill) {
+    this.forecastWindChill = forecastWindChill;
+    return this;
+  }
+
+  /**
+   * Get forecastWindChill
+   * @return forecastWindChill
+   */
+  @javax.annotation.Nullable
+  public Integer getForecastWindChill() {
+    return forecastWindChill;
+  }
+
+  public void setForecastWindChill(Integer forecastWindChill) {
+    this.forecastWindChill = forecastWindChill;
+  }
+
+
+  public Game forecastWindDirection(Integer forecastWindDirection) {
+    this.forecastWindDirection = forecastWindDirection;
+    return this;
+  }
+
+  /**
+   * Get forecastWindDirection
+   * @return forecastWindDirection
+   */
+  @javax.annotation.Nullable
+  public Integer getForecastWindDirection() {
+    return forecastWindDirection;
+  }
+
+  public void setForecastWindDirection(Integer forecastWindDirection) {
+    this.forecastWindDirection = forecastWindDirection;
+  }
+
+
+  public Game forecastWindSpeed(Integer forecastWindSpeed) {
+    this.forecastWindSpeed = forecastWindSpeed;
+    return this;
+  }
+
+  /**
+   * Get forecastWindSpeed
+   * @return forecastWindSpeed
+   */
+  @javax.annotation.Nullable
+  public Integer getForecastWindSpeed() {
+    return forecastWindSpeed;
+  }
+
+  public void setForecastWindSpeed(Integer forecastWindSpeed) {
+    this.forecastWindSpeed = forecastWindSpeed;
+  }
+
+
+  public Game gameEndDateTime(String gameEndDateTime) {
+    this.gameEndDateTime = gameEndDateTime;
+    return this;
+  }
+
+  /**
+   * Get gameEndDateTime
+   * @return gameEndDateTime
+   */
+  @javax.annotation.Nullable
+  public String getGameEndDateTime() {
+    return gameEndDateTime;
+  }
+
+  public void setGameEndDateTime(String gameEndDateTime) {
+    this.gameEndDateTime = gameEndDateTime;
+  }
+
+
+  public Game gameID(Integer gameID) {
+    this.gameID = gameID;
+    return this;
+  }
+
+  /**
+   * Get gameID
+   * @return gameID
+   */
+  @javax.annotation.Nullable
+  public Integer getGameID() {
+    return gameID;
+  }
+
+  public void setGameID(Integer gameID) {
+    this.gameID = gameID;
+  }
+
+
+  public Game globalAwayTeamID(Integer globalAwayTeamID) {
+    this.globalAwayTeamID = globalAwayTeamID;
+    return this;
+  }
+
+  /**
+   * Get globalAwayTeamID
+   * @return globalAwayTeamID
+   */
+  @javax.annotation.Nullable
+  public Integer getGlobalAwayTeamID() {
+    return globalAwayTeamID;
+  }
+
+  public void setGlobalAwayTeamID(Integer globalAwayTeamID) {
+    this.globalAwayTeamID = globalAwayTeamID;
+  }
+
+
+  public Game globalGameID(Integer globalGameID) {
+    this.globalGameID = globalGameID;
+    return this;
+  }
+
+  /**
+   * Get globalGameID
+   * @return globalGameID
+   */
+  @javax.annotation.Nullable
+  public Integer getGlobalGameID() {
+    return globalGameID;
+  }
+
+  public void setGlobalGameID(Integer globalGameID) {
+    this.globalGameID = globalGameID;
+  }
+
+
+  public Game globalHomeTeamID(Integer globalHomeTeamID) {
+    this.globalHomeTeamID = globalHomeTeamID;
+    return this;
+  }
+
+  /**
+   * Get globalHomeTeamID
+   * @return globalHomeTeamID
+   */
+  @javax.annotation.Nullable
+  public Integer getGlobalHomeTeamID() {
+    return globalHomeTeamID;
+  }
+
+  public void setGlobalHomeTeamID(Integer globalHomeTeamID) {
+    this.globalHomeTeamID = globalHomeTeamID;
+  }
+
+
+  public Game homeRotationNumber(Integer homeRotationNumber) {
+    this.homeRotationNumber = homeRotationNumber;
+    return this;
+  }
+
+  /**
+   * Get homeRotationNumber
+   * @return homeRotationNumber
+   */
+  @javax.annotation.Nullable
+  public Integer getHomeRotationNumber() {
+    return homeRotationNumber;
+  }
+
+  public void setHomeRotationNumber(Integer homeRotationNumber) {
+    this.homeRotationNumber = homeRotationNumber;
+  }
+
+
+  public Game homeTeam(String homeTeam) {
+    this.homeTeam = homeTeam;
+    return this;
+  }
+
+  /**
+   * Get homeTeam
+   * @return homeTeam
+   */
+  @javax.annotation.Nullable
+  public String getHomeTeam() {
+    return homeTeam;
+  }
+
+  public void setHomeTeam(String homeTeam) {
+    this.homeTeam = homeTeam;
+  }
+
+
+  public Game homeTeamErrors(Integer homeTeamErrors) {
+    this.homeTeamErrors = homeTeamErrors;
+    return this;
+  }
+
+  /**
+   * Get homeTeamErrors
+   * @return homeTeamErrors
+   */
+  @javax.annotation.Nullable
+  public Integer getHomeTeamErrors() {
+    return homeTeamErrors;
+  }
+
+  public void setHomeTeamErrors(Integer homeTeamErrors) {
+    this.homeTeamErrors = homeTeamErrors;
+  }
+
+
+  public Game homeTeamHits(Integer homeTeamHits) {
+    this.homeTeamHits = homeTeamHits;
+    return this;
+  }
+
+  /**
+   * Get homeTeamHits
+   * @return homeTeamHits
+   */
+  @javax.annotation.Nullable
+  public Integer getHomeTeamHits() {
+    return homeTeamHits;
+  }
+
+  public void setHomeTeamHits(Integer homeTeamHits) {
+    this.homeTeamHits = homeTeamHits;
+  }
+
+
+  public Game homeTeamID(Integer homeTeamID) {
+    this.homeTeamID = homeTeamID;
+    return this;
+  }
+
+  /**
+   * Get homeTeamID
+   * @return homeTeamID
+   */
+  @javax.annotation.Nullable
+  public Integer getHomeTeamID() {
+    return homeTeamID;
+  }
+
+  public void setHomeTeamID(Integer homeTeamID) {
+    this.homeTeamID = homeTeamID;
+  }
+
+
+  public Game homeTeamMoneyLine(Integer homeTeamMoneyLine) {
+    this.homeTeamMoneyLine = homeTeamMoneyLine;
+    return this;
+  }
+
+  /**
+   * Get homeTeamMoneyLine
+   * @return homeTeamMoneyLine
+   */
+  @javax.annotation.Nullable
+  public Integer getHomeTeamMoneyLine() {
+    return homeTeamMoneyLine;
+  }
+
+  public void setHomeTeamMoneyLine(Integer homeTeamMoneyLine) {
+    this.homeTeamMoneyLine = homeTeamMoneyLine;
+  }
+
+
+  public Game homeTeamProbablePitcherID(Integer homeTeamProbablePitcherID) {
+    this.homeTeamProbablePitcherID = homeTeamProbablePitcherID;
+    return this;
+  }
+
+  /**
+   * Get homeTeamProbablePitcherID
+   * @return homeTeamProbablePitcherID
+   */
+  @javax.annotation.Nullable
+  public Integer getHomeTeamProbablePitcherID() {
+    return homeTeamProbablePitcherID;
+  }
+
+  public void setHomeTeamProbablePitcherID(Integer homeTeamProbablePitcherID) {
+    this.homeTeamProbablePitcherID = homeTeamProbablePitcherID;
+  }
+
+
+  public Game homeTeamRuns(Integer homeTeamRuns) {
+    this.homeTeamRuns = homeTeamRuns;
+    return this;
+  }
+
+  /**
+   * Get homeTeamRuns
+   * @return homeTeamRuns
+   */
+  @javax.annotation.Nullable
+  public Integer getHomeTeamRuns() {
+    return homeTeamRuns;
+  }
+
+  public void setHomeTeamRuns(Integer homeTeamRuns) {
+    this.homeTeamRuns = homeTeamRuns;
+  }
+
+
+  public Game homeTeamStartingPitcher(String homeTeamStartingPitcher) {
+    this.homeTeamStartingPitcher = homeTeamStartingPitcher;
+    return this;
+  }
+
+  /**
+   * Get homeTeamStartingPitcher
+   * @return homeTeamStartingPitcher
+   */
+  @javax.annotation.Nullable
+  public String getHomeTeamStartingPitcher() {
+    return homeTeamStartingPitcher;
+  }
+
+  public void setHomeTeamStartingPitcher(String homeTeamStartingPitcher) {
+    this.homeTeamStartingPitcher = homeTeamStartingPitcher;
+  }
+
+
+  public Game homeTeamStartingPitcherID(Integer homeTeamStartingPitcherID) {
+    this.homeTeamStartingPitcherID = homeTeamStartingPitcherID;
+    return this;
+  }
+
+  /**
+   * Get homeTeamStartingPitcherID
+   * @return homeTeamStartingPitcherID
+   */
+  @javax.annotation.Nullable
+  public Integer getHomeTeamStartingPitcherID() {
+    return homeTeamStartingPitcherID;
+  }
+
+  public void setHomeTeamStartingPitcherID(Integer homeTeamStartingPitcherID) {
+    this.homeTeamStartingPitcherID = homeTeamStartingPitcherID;
+  }
+
+
+  public Game inning(Integer inning) {
+    this.inning = inning;
+    return this;
+  }
+
+  /**
+   * Get inning
+   * @return inning
+   */
+  @javax.annotation.Nullable
+  public Integer getInning() {
+    return inning;
+  }
+
+  public void setInning(Integer inning) {
+    this.inning = inning;
+  }
+
+
+  public Game inningDescription(String inningDescription) {
+    this.inningDescription = inningDescription;
+    return this;
+  }
+
+  /**
+   * Get inningDescription
+   * @return inningDescription
+   */
+  @javax.annotation.Nullable
+  public String getInningDescription() {
+    return inningDescription;
+  }
+
+  public void setInningDescription(String inningDescription) {
+    this.inningDescription = inningDescription;
+  }
+
+
+  public Game inningHalf(String inningHalf) {
+    this.inningHalf = inningHalf;
+    return this;
+  }
+
+  /**
+   * Get inningHalf
+   * @return inningHalf
+   */
+  @javax.annotation.Nullable
+  public String getInningHalf() {
+    return inningHalf;
+  }
+
+  public void setInningHalf(String inningHalf) {
+    this.inningHalf = inningHalf;
+  }
+
+
+  public Game innings(List<Inning> innings) {
+    this.innings = innings;
+    return this;
+  }
+
+  public Game addInningsItem(Inning inningsItem) {
+    if (this.innings == null) {
+      this.innings = new ArrayList<>();
+    }
+    this.innings.add(inningsItem);
+    return this;
+  }
+
+  /**
+   * Get innings
+   * @return innings
+   */
+  @javax.annotation.Nullable
+  public List<Inning> getInnings() {
+    return innings;
+  }
+
+  public void setInnings(List<Inning> innings) {
+    this.innings = innings;
   }
 
 
@@ -308,6 +1348,139 @@ public class Game {
   }
 
 
+  public Game lastPlay(String lastPlay) {
+    this.lastPlay = lastPlay;
+    return this;
+  }
+
+  /**
+   * Get lastPlay
+   * @return lastPlay
+   */
+  @javax.annotation.Nullable
+  public String getLastPlay() {
+    return lastPlay;
+  }
+
+  public void setLastPlay(String lastPlay) {
+    this.lastPlay = lastPlay;
+  }
+
+
+  public Game losingPitcher(String losingPitcher) {
+    this.losingPitcher = losingPitcher;
+    return this;
+  }
+
+  /**
+   * Get losingPitcher
+   * @return losingPitcher
+   */
+  @javax.annotation.Nullable
+  public String getLosingPitcher() {
+    return losingPitcher;
+  }
+
+  public void setLosingPitcher(String losingPitcher) {
+    this.losingPitcher = losingPitcher;
+  }
+
+
+  public Game losingPitcherID(Integer losingPitcherID) {
+    this.losingPitcherID = losingPitcherID;
+    return this;
+  }
+
+  /**
+   * Get losingPitcherID
+   * @return losingPitcherID
+   */
+  @javax.annotation.Nullable
+  public Integer getLosingPitcherID() {
+    return losingPitcherID;
+  }
+
+  public void setLosingPitcherID(Integer losingPitcherID) {
+    this.losingPitcherID = losingPitcherID;
+  }
+
+
+  public Game neutralVenue(Boolean neutralVenue) {
+    this.neutralVenue = neutralVenue;
+    return this;
+  }
+
+  /**
+   * Get neutralVenue
+   * @return neutralVenue
+   */
+  @javax.annotation.Nullable
+  public Boolean getNeutralVenue() {
+    return neutralVenue;
+  }
+
+  public void setNeutralVenue(Boolean neutralVenue) {
+    this.neutralVenue = neutralVenue;
+  }
+
+
+  public Game outs(Integer outs) {
+    this.outs = outs;
+    return this;
+  }
+
+  /**
+   * Get outs
+   * @return outs
+   */
+  @javax.annotation.Nullable
+  public Integer getOuts() {
+    return outs;
+  }
+
+  public void setOuts(Integer outs) {
+    this.outs = outs;
+  }
+
+
+  public Game overPayout(Integer overPayout) {
+    this.overPayout = overPayout;
+    return this;
+  }
+
+  /**
+   * Get overPayout
+   * @return overPayout
+   */
+  @javax.annotation.Nullable
+  public Integer getOverPayout() {
+    return overPayout;
+  }
+
+  public void setOverPayout(Integer overPayout) {
+    this.overPayout = overPayout;
+  }
+
+
+  public Game overUnder(BigDecimal overUnder) {
+    this.overUnder = overUnder;
+    return this;
+  }
+
+  /**
+   * Get overUnder
+   * @return overUnder
+   */
+  @javax.annotation.Nullable
+  public BigDecimal getOverUnder() {
+    return overUnder;
+  }
+
+  public void setOverUnder(BigDecimal overUnder) {
+    this.overUnder = overUnder;
+  }
+
+
   public Game pointSpread(BigDecimal pointSpread) {
     this.pointSpread = pointSpread;
     return this;
@@ -327,22 +1500,174 @@ public class Game {
   }
 
 
-  public Game roundId(Integer roundId) {
-    this.roundId = roundId;
+  public Game pointSpreadAwayTeamMoneyLine(Integer pointSpreadAwayTeamMoneyLine) {
+    this.pointSpreadAwayTeamMoneyLine = pointSpreadAwayTeamMoneyLine;
     return this;
   }
 
   /**
-   * Get roundId
-   * @return roundId
+   * Get pointSpreadAwayTeamMoneyLine
+   * @return pointSpreadAwayTeamMoneyLine
    */
   @javax.annotation.Nullable
-  public Integer getRoundId() {
-    return roundId;
+  public Integer getPointSpreadAwayTeamMoneyLine() {
+    return pointSpreadAwayTeamMoneyLine;
   }
 
-  public void setRoundId(Integer roundId) {
-    this.roundId = roundId;
+  public void setPointSpreadAwayTeamMoneyLine(Integer pointSpreadAwayTeamMoneyLine) {
+    this.pointSpreadAwayTeamMoneyLine = pointSpreadAwayTeamMoneyLine;
+  }
+
+
+  public Game pointSpreadHomeTeamMoneyLine(Integer pointSpreadHomeTeamMoneyLine) {
+    this.pointSpreadHomeTeamMoneyLine = pointSpreadHomeTeamMoneyLine;
+    return this;
+  }
+
+  /**
+   * Get pointSpreadHomeTeamMoneyLine
+   * @return pointSpreadHomeTeamMoneyLine
+   */
+  @javax.annotation.Nullable
+  public Integer getPointSpreadHomeTeamMoneyLine() {
+    return pointSpreadHomeTeamMoneyLine;
+  }
+
+  public void setPointSpreadHomeTeamMoneyLine(Integer pointSpreadHomeTeamMoneyLine) {
+    this.pointSpreadHomeTeamMoneyLine = pointSpreadHomeTeamMoneyLine;
+  }
+
+
+  public Game rescheduledFromGameID(Integer rescheduledFromGameID) {
+    this.rescheduledFromGameID = rescheduledFromGameID;
+    return this;
+  }
+
+  /**
+   * Get rescheduledFromGameID
+   * @return rescheduledFromGameID
+   */
+  @javax.annotation.Nullable
+  public Integer getRescheduledFromGameID() {
+    return rescheduledFromGameID;
+  }
+
+  public void setRescheduledFromGameID(Integer rescheduledFromGameID) {
+    this.rescheduledFromGameID = rescheduledFromGameID;
+  }
+
+
+  public Game rescheduledGameID(Integer rescheduledGameID) {
+    this.rescheduledGameID = rescheduledGameID;
+    return this;
+  }
+
+  /**
+   * Get rescheduledGameID
+   * @return rescheduledGameID
+   */
+  @javax.annotation.Nullable
+  public Integer getRescheduledGameID() {
+    return rescheduledGameID;
+  }
+
+  public void setRescheduledGameID(Integer rescheduledGameID) {
+    this.rescheduledGameID = rescheduledGameID;
+  }
+
+
+  public Game runnerOnFirst(Boolean runnerOnFirst) {
+    this.runnerOnFirst = runnerOnFirst;
+    return this;
+  }
+
+  /**
+   * Get runnerOnFirst
+   * @return runnerOnFirst
+   */
+  @javax.annotation.Nullable
+  public Boolean getRunnerOnFirst() {
+    return runnerOnFirst;
+  }
+
+  public void setRunnerOnFirst(Boolean runnerOnFirst) {
+    this.runnerOnFirst = runnerOnFirst;
+  }
+
+
+  public Game runnerOnSecond(Boolean runnerOnSecond) {
+    this.runnerOnSecond = runnerOnSecond;
+    return this;
+  }
+
+  /**
+   * Get runnerOnSecond
+   * @return runnerOnSecond
+   */
+  @javax.annotation.Nullable
+  public Boolean getRunnerOnSecond() {
+    return runnerOnSecond;
+  }
+
+  public void setRunnerOnSecond(Boolean runnerOnSecond) {
+    this.runnerOnSecond = runnerOnSecond;
+  }
+
+
+  public Game runnerOnThird(Boolean runnerOnThird) {
+    this.runnerOnThird = runnerOnThird;
+    return this;
+  }
+
+  /**
+   * Get runnerOnThird
+   * @return runnerOnThird
+   */
+  @javax.annotation.Nullable
+  public Boolean getRunnerOnThird() {
+    return runnerOnThird;
+  }
+
+  public void setRunnerOnThird(Boolean runnerOnThird) {
+    this.runnerOnThird = runnerOnThird;
+  }
+
+
+  public Game savingPitcher(String savingPitcher) {
+    this.savingPitcher = savingPitcher;
+    return this;
+  }
+
+  /**
+   * Get savingPitcher
+   * @return savingPitcher
+   */
+  @javax.annotation.Nullable
+  public String getSavingPitcher() {
+    return savingPitcher;
+  }
+
+  public void setSavingPitcher(String savingPitcher) {
+    this.savingPitcher = savingPitcher;
+  }
+
+
+  public Game savingPitcherID(Integer savingPitcherID) {
+    this.savingPitcherID = savingPitcherID;
+    return this;
+  }
+
+  /**
+   * Get savingPitcherID
+   * @return savingPitcherID
+   */
+  @javax.annotation.Nullable
+  public Integer getSavingPitcherID() {
+    return savingPitcherID;
+  }
+
+  public void setSavingPitcherID(Integer savingPitcherID) {
+    this.savingPitcherID = savingPitcherID;
   }
 
 
@@ -384,6 +1709,44 @@ public class Game {
   }
 
 
+  public Game seriesInfo(Series seriesInfo) {
+    this.seriesInfo = seriesInfo;
+    return this;
+  }
+
+  /**
+   * Get seriesInfo
+   * @return seriesInfo
+   */
+  @javax.annotation.Nullable
+  public Series getSeriesInfo() {
+    return seriesInfo;
+  }
+
+  public void setSeriesInfo(Series seriesInfo) {
+    this.seriesInfo = seriesInfo;
+  }
+
+
+  public Game stadiumID(Integer stadiumID) {
+    this.stadiumID = stadiumID;
+    return this;
+  }
+
+  /**
+   * Get stadiumID
+   * @return stadiumID
+   */
+  @javax.annotation.Nullable
+  public Integer getStadiumID() {
+    return stadiumID;
+  }
+
+  public void setStadiumID(Integer stadiumID) {
+    this.stadiumID = stadiumID;
+  }
+
+
   public Game status(String status) {
     this.status = status;
     return this;
@@ -403,231 +1766,41 @@ public class Game {
   }
 
 
-  public Game teamAId(Integer teamAId) {
-    this.teamAId = teamAId;
+  public Game strikes(Integer strikes) {
+    this.strikes = strikes;
     return this;
   }
 
   /**
-   * Get teamAId
-   * @return teamAId
+   * Get strikes
+   * @return strikes
    */
   @javax.annotation.Nullable
-  public Integer getTeamAId() {
-    return teamAId;
+  public Integer getStrikes() {
+    return strikes;
   }
 
-  public void setTeamAId(Integer teamAId) {
-    this.teamAId = teamAId;
+  public void setStrikes(Integer strikes) {
+    this.strikes = strikes;
   }
 
 
-  public Game teamAKey(String teamAKey) {
-    this.teamAKey = teamAKey;
+  public Game underPayout(Integer underPayout) {
+    this.underPayout = underPayout;
     return this;
   }
 
   /**
-   * Get teamAKey
-   * @return teamAKey
+   * Get underPayout
+   * @return underPayout
    */
   @javax.annotation.Nullable
-  public String getTeamAKey() {
-    return teamAKey;
+  public Integer getUnderPayout() {
+    return underPayout;
   }
 
-  public void setTeamAKey(String teamAKey) {
-    this.teamAKey = teamAKey;
-  }
-
-
-  public Game teamAMoneyLine(Integer teamAMoneyLine) {
-    this.teamAMoneyLine = teamAMoneyLine;
-    return this;
-  }
-
-  /**
-   * Get teamAMoneyLine
-   * @return teamAMoneyLine
-   */
-  @javax.annotation.Nullable
-  public Integer getTeamAMoneyLine() {
-    return teamAMoneyLine;
-  }
-
-  public void setTeamAMoneyLine(Integer teamAMoneyLine) {
-    this.teamAMoneyLine = teamAMoneyLine;
-  }
-
-
-  public Game teamAName(String teamAName) {
-    this.teamAName = teamAName;
-    return this;
-  }
-
-  /**
-   * Get teamAName
-   * @return teamAName
-   */
-  @javax.annotation.Nullable
-  public String getTeamAName() {
-    return teamAName;
-  }
-
-  public void setTeamAName(String teamAName) {
-    this.teamAName = teamAName;
-  }
-
-
-  public Game teamAPointSpreadPayout(Integer teamAPointSpreadPayout) {
-    this.teamAPointSpreadPayout = teamAPointSpreadPayout;
-    return this;
-  }
-
-  /**
-   * Get teamAPointSpreadPayout
-   * @return teamAPointSpreadPayout
-   */
-  @javax.annotation.Nullable
-  public Integer getTeamAPointSpreadPayout() {
-    return teamAPointSpreadPayout;
-  }
-
-  public void setTeamAPointSpreadPayout(Integer teamAPointSpreadPayout) {
-    this.teamAPointSpreadPayout = teamAPointSpreadPayout;
-  }
-
-
-  public Game teamAScore(Integer teamAScore) {
-    this.teamAScore = teamAScore;
-    return this;
-  }
-
-  /**
-   * Get teamAScore
-   * @return teamAScore
-   */
-  @javax.annotation.Nullable
-  public Integer getTeamAScore() {
-    return teamAScore;
-  }
-
-  public void setTeamAScore(Integer teamAScore) {
-    this.teamAScore = teamAScore;
-  }
-
-
-  public Game teamBId(Integer teamBId) {
-    this.teamBId = teamBId;
-    return this;
-  }
-
-  /**
-   * Get teamBId
-   * @return teamBId
-   */
-  @javax.annotation.Nullable
-  public Integer getTeamBId() {
-    return teamBId;
-  }
-
-  public void setTeamBId(Integer teamBId) {
-    this.teamBId = teamBId;
-  }
-
-
-  public Game teamBKey(String teamBKey) {
-    this.teamBKey = teamBKey;
-    return this;
-  }
-
-  /**
-   * Get teamBKey
-   * @return teamBKey
-   */
-  @javax.annotation.Nullable
-  public String getTeamBKey() {
-    return teamBKey;
-  }
-
-  public void setTeamBKey(String teamBKey) {
-    this.teamBKey = teamBKey;
-  }
-
-
-  public Game teamBMoneyLine(Integer teamBMoneyLine) {
-    this.teamBMoneyLine = teamBMoneyLine;
-    return this;
-  }
-
-  /**
-   * Get teamBMoneyLine
-   * @return teamBMoneyLine
-   */
-  @javax.annotation.Nullable
-  public Integer getTeamBMoneyLine() {
-    return teamBMoneyLine;
-  }
-
-  public void setTeamBMoneyLine(Integer teamBMoneyLine) {
-    this.teamBMoneyLine = teamBMoneyLine;
-  }
-
-
-  public Game teamBName(String teamBName) {
-    this.teamBName = teamBName;
-    return this;
-  }
-
-  /**
-   * Get teamBName
-   * @return teamBName
-   */
-  @javax.annotation.Nullable
-  public String getTeamBName() {
-    return teamBName;
-  }
-
-  public void setTeamBName(String teamBName) {
-    this.teamBName = teamBName;
-  }
-
-
-  public Game teamBPointSpreadPayout(Integer teamBPointSpreadPayout) {
-    this.teamBPointSpreadPayout = teamBPointSpreadPayout;
-    return this;
-  }
-
-  /**
-   * Get teamBPointSpreadPayout
-   * @return teamBPointSpreadPayout
-   */
-  @javax.annotation.Nullable
-  public Integer getTeamBPointSpreadPayout() {
-    return teamBPointSpreadPayout;
-  }
-
-  public void setTeamBPointSpreadPayout(Integer teamBPointSpreadPayout) {
-    this.teamBPointSpreadPayout = teamBPointSpreadPayout;
-  }
-
-
-  public Game teamBScore(Integer teamBScore) {
-    this.teamBScore = teamBScore;
-    return this;
-  }
-
-  /**
-   * Get teamBScore
-   * @return teamBScore
-   */
-  @javax.annotation.Nullable
-  public Integer getTeamBScore() {
-    return teamBScore;
-  }
-
-  public void setTeamBScore(Integer teamBScore) {
-    this.teamBScore = teamBScore;
+  public void setUnderPayout(Integer underPayout) {
+    this.underPayout = underPayout;
   }
 
 
@@ -650,98 +1823,41 @@ public class Game {
   }
 
 
-  public Game updatedUtc(String updatedUtc) {
-    this.updatedUtc = updatedUtc;
+  public Game winningPitcher(String winningPitcher) {
+    this.winningPitcher = winningPitcher;
     return this;
   }
 
   /**
-   * Get updatedUtc
-   * @return updatedUtc
+   * Get winningPitcher
+   * @return winningPitcher
    */
   @javax.annotation.Nullable
-  public String getUpdatedUtc() {
-    return updatedUtc;
+  public String getWinningPitcher() {
+    return winningPitcher;
   }
 
-  public void setUpdatedUtc(String updatedUtc) {
-    this.updatedUtc = updatedUtc;
+  public void setWinningPitcher(String winningPitcher) {
+    this.winningPitcher = winningPitcher;
   }
 
 
-  public Game venueId(Integer venueId) {
-    this.venueId = venueId;
+  public Game winningPitcherID(Integer winningPitcherID) {
+    this.winningPitcherID = winningPitcherID;
     return this;
   }
 
   /**
-   * Get venueId
-   * @return venueId
+   * Get winningPitcherID
+   * @return winningPitcherID
    */
   @javax.annotation.Nullable
-  public Integer getVenueId() {
-    return venueId;
+  public Integer getWinningPitcherID() {
+    return winningPitcherID;
   }
 
-  public void setVenueId(Integer venueId) {
-    this.venueId = venueId;
-  }
-
-
-  public Game venueType(String venueType) {
-    this.venueType = venueType;
-    return this;
-  }
-
-  /**
-   * Get venueType
-   * @return venueType
-   */
-  @javax.annotation.Nullable
-  public String getVenueType() {
-    return venueType;
-  }
-
-  public void setVenueType(String venueType) {
-    this.venueType = venueType;
-  }
-
-
-  public Game week(Integer week) {
-    this.week = week;
-    return this;
-  }
-
-  /**
-   * Get week
-   * @return week
-   */
-  @javax.annotation.Nullable
-  public Integer getWeek() {
-    return week;
-  }
-
-  public void setWeek(Integer week) {
-    this.week = week;
-  }
-
-
-  public Game winner(String winner) {
-    this.winner = winner;
-    return this;
-  }
-
-  /**
-   * Get winner
-   * @return winner
-   */
-  @javax.annotation.Nullable
-  public String getWinner() {
-    return winner;
-  }
-
-  public void setWinner(String winner) {
-    this.winner = winner;
+  public void setWinningPitcherID(Integer winningPitcherID) {
+    this.winningPitcherID = winningPitcherID;
   }
 
 
@@ -755,36 +1871,84 @@ public class Game {
       return false;
     }
     Game game = (Game) o;
-    return Objects.equals(this.bestOf, game.bestOf) &&
+    return Objects.equals(this.attendance, game.attendance) &&
+        Objects.equals(this.awayRotationNumber, game.awayRotationNumber) &&
+        Objects.equals(this.awayTeam, game.awayTeam) &&
+        Objects.equals(this.awayTeamErrors, game.awayTeamErrors) &&
+        Objects.equals(this.awayTeamHits, game.awayTeamHits) &&
+        Objects.equals(this.awayTeamID, game.awayTeamID) &&
+        Objects.equals(this.awayTeamMoneyLine, game.awayTeamMoneyLine) &&
+        Objects.equals(this.awayTeamProbablePitcherID, game.awayTeamProbablePitcherID) &&
+        Objects.equals(this.awayTeamRuns, game.awayTeamRuns) &&
+        Objects.equals(this.awayTeamStartingPitcher, game.awayTeamStartingPitcher) &&
+        Objects.equals(this.awayTeamStartingPitcherID, game.awayTeamStartingPitcherID) &&
+        Objects.equals(this.balls, game.balls) &&
+        Objects.equals(this.channel, game.channel) &&
+        Objects.equals(this.currentHitter, game.currentHitter) &&
+        Objects.equals(this.currentHitterID, game.currentHitterID) &&
+        Objects.equals(this.currentHittingTeamID, game.currentHittingTeamID) &&
+        Objects.equals(this.currentPitcher, game.currentPitcher) &&
+        Objects.equals(this.currentPitcherID, game.currentPitcherID) &&
+        Objects.equals(this.currentPitchingTeamID, game.currentPitchingTeamID) &&
         Objects.equals(this.dateTime, game.dateTime) &&
+        Objects.equals(this.dateTimeUTC, game.dateTimeUTC) &&
         Objects.equals(this.day, game.day) &&
-        Objects.equals(this.drawMoneyLine, game.drawMoneyLine) &&
-        Objects.equals(this.gameId, game.gameId) &&
-        Objects.equals(this.group, game.group) &&
+        Objects.equals(this.dueUpHitterID1, game.dueUpHitterID1) &&
+        Objects.equals(this.dueUpHitterID2, game.dueUpHitterID2) &&
+        Objects.equals(this.dueUpHitterID3, game.dueUpHitterID3) &&
+        Objects.equals(this.forecastDescription, game.forecastDescription) &&
+        Objects.equals(this.forecastTempHigh, game.forecastTempHigh) &&
+        Objects.equals(this.forecastTempLow, game.forecastTempLow) &&
+        Objects.equals(this.forecastWindChill, game.forecastWindChill) &&
+        Objects.equals(this.forecastWindDirection, game.forecastWindDirection) &&
+        Objects.equals(this.forecastWindSpeed, game.forecastWindSpeed) &&
+        Objects.equals(this.gameEndDateTime, game.gameEndDateTime) &&
+        Objects.equals(this.gameID, game.gameID) &&
+        Objects.equals(this.globalAwayTeamID, game.globalAwayTeamID) &&
+        Objects.equals(this.globalGameID, game.globalGameID) &&
+        Objects.equals(this.globalHomeTeamID, game.globalHomeTeamID) &&
+        Objects.equals(this.homeRotationNumber, game.homeRotationNumber) &&
+        Objects.equals(this.homeTeam, game.homeTeam) &&
+        Objects.equals(this.homeTeamErrors, game.homeTeamErrors) &&
+        Objects.equals(this.homeTeamHits, game.homeTeamHits) &&
+        Objects.equals(this.homeTeamID, game.homeTeamID) &&
+        Objects.equals(this.homeTeamMoneyLine, game.homeTeamMoneyLine) &&
+        Objects.equals(this.homeTeamProbablePitcherID, game.homeTeamProbablePitcherID) &&
+        Objects.equals(this.homeTeamRuns, game.homeTeamRuns) &&
+        Objects.equals(this.homeTeamStartingPitcher, game.homeTeamStartingPitcher) &&
+        Objects.equals(this.homeTeamStartingPitcherID, game.homeTeamStartingPitcherID) &&
+        Objects.equals(this.inning, game.inning) &&
+        Objects.equals(this.inningDescription, game.inningDescription) &&
+        Objects.equals(this.inningHalf, game.inningHalf) &&
+        Objects.equals(this.innings, game.innings) &&
         Objects.equals(this.isClosed, game.isClosed) &&
+        Objects.equals(this.lastPlay, game.lastPlay) &&
+        Objects.equals(this.losingPitcher, game.losingPitcher) &&
+        Objects.equals(this.losingPitcherID, game.losingPitcherID) &&
+        Objects.equals(this.neutralVenue, game.neutralVenue) &&
+        Objects.equals(this.outs, game.outs) &&
+        Objects.equals(this.overPayout, game.overPayout) &&
+        Objects.equals(this.overUnder, game.overUnder) &&
         Objects.equals(this.pointSpread, game.pointSpread) &&
-        Objects.equals(this.roundId, game.roundId) &&
+        Objects.equals(this.pointSpreadAwayTeamMoneyLine, game.pointSpreadAwayTeamMoneyLine) &&
+        Objects.equals(this.pointSpreadHomeTeamMoneyLine, game.pointSpreadHomeTeamMoneyLine) &&
+        Objects.equals(this.rescheduledFromGameID, game.rescheduledFromGameID) &&
+        Objects.equals(this.rescheduledGameID, game.rescheduledGameID) &&
+        Objects.equals(this.runnerOnFirst, game.runnerOnFirst) &&
+        Objects.equals(this.runnerOnSecond, game.runnerOnSecond) &&
+        Objects.equals(this.runnerOnThird, game.runnerOnThird) &&
+        Objects.equals(this.savingPitcher, game.savingPitcher) &&
+        Objects.equals(this.savingPitcherID, game.savingPitcherID) &&
         Objects.equals(this.season, game.season) &&
         Objects.equals(this.seasonType, game.seasonType) &&
+        Objects.equals(this.seriesInfo, game.seriesInfo) &&
+        Objects.equals(this.stadiumID, game.stadiumID) &&
         Objects.equals(this.status, game.status) &&
-        Objects.equals(this.teamAId, game.teamAId) &&
-        Objects.equals(this.teamAKey, game.teamAKey) &&
-        Objects.equals(this.teamAMoneyLine, game.teamAMoneyLine) &&
-        Objects.equals(this.teamAName, game.teamAName) &&
-        Objects.equals(this.teamAPointSpreadPayout, game.teamAPointSpreadPayout) &&
-        Objects.equals(this.teamAScore, game.teamAScore) &&
-        Objects.equals(this.teamBId, game.teamBId) &&
-        Objects.equals(this.teamBKey, game.teamBKey) &&
-        Objects.equals(this.teamBMoneyLine, game.teamBMoneyLine) &&
-        Objects.equals(this.teamBName, game.teamBName) &&
-        Objects.equals(this.teamBPointSpreadPayout, game.teamBPointSpreadPayout) &&
-        Objects.equals(this.teamBScore, game.teamBScore) &&
+        Objects.equals(this.strikes, game.strikes) &&
+        Objects.equals(this.underPayout, game.underPayout) &&
         Objects.equals(this.updated, game.updated) &&
-        Objects.equals(this.updatedUtc, game.updatedUtc) &&
-        Objects.equals(this.venueId, game.venueId) &&
-        Objects.equals(this.venueType, game.venueType) &&
-        Objects.equals(this.week, game.week) &&
-        Objects.equals(this.winner, game.winner);
+        Objects.equals(this.winningPitcher, game.winningPitcher) &&
+        Objects.equals(this.winningPitcherID, game.winningPitcherID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -793,7 +1957,7 @@ public class Game {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bestOf, dateTime, day, drawMoneyLine, gameId, group, isClosed, pointSpread, roundId, season, seasonType, status, teamAId, teamAKey, teamAMoneyLine, teamAName, teamAPointSpreadPayout, teamAScore, teamBId, teamBKey, teamBMoneyLine, teamBName, teamBPointSpreadPayout, teamBScore, updated, updatedUtc, venueId, venueType, week, winner);
+    return Objects.hash(attendance, awayRotationNumber, awayTeam, awayTeamErrors, awayTeamHits, awayTeamID, awayTeamMoneyLine, awayTeamProbablePitcherID, awayTeamRuns, awayTeamStartingPitcher, awayTeamStartingPitcherID, balls, channel, currentHitter, currentHitterID, currentHittingTeamID, currentPitcher, currentPitcherID, currentPitchingTeamID, dateTime, dateTimeUTC, day, dueUpHitterID1, dueUpHitterID2, dueUpHitterID3, forecastDescription, forecastTempHigh, forecastTempLow, forecastWindChill, forecastWindDirection, forecastWindSpeed, gameEndDateTime, gameID, globalAwayTeamID, globalGameID, globalHomeTeamID, homeRotationNumber, homeTeam, homeTeamErrors, homeTeamHits, homeTeamID, homeTeamMoneyLine, homeTeamProbablePitcherID, homeTeamRuns, homeTeamStartingPitcher, homeTeamStartingPitcherID, inning, inningDescription, inningHalf, innings, isClosed, lastPlay, losingPitcher, losingPitcherID, neutralVenue, outs, overPayout, overUnder, pointSpread, pointSpreadAwayTeamMoneyLine, pointSpreadHomeTeamMoneyLine, rescheduledFromGameID, rescheduledGameID, runnerOnFirst, runnerOnSecond, runnerOnThird, savingPitcher, savingPitcherID, season, seasonType, seriesInfo, stadiumID, status, strikes, underPayout, updated, winningPitcher, winningPitcherID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -807,36 +1971,84 @@ public class Game {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Game {\n");
-    sb.append("    bestOf: ").append(toIndentedString(bestOf)).append("\n");
+    sb.append("    attendance: ").append(toIndentedString(attendance)).append("\n");
+    sb.append("    awayRotationNumber: ").append(toIndentedString(awayRotationNumber)).append("\n");
+    sb.append("    awayTeam: ").append(toIndentedString(awayTeam)).append("\n");
+    sb.append("    awayTeamErrors: ").append(toIndentedString(awayTeamErrors)).append("\n");
+    sb.append("    awayTeamHits: ").append(toIndentedString(awayTeamHits)).append("\n");
+    sb.append("    awayTeamID: ").append(toIndentedString(awayTeamID)).append("\n");
+    sb.append("    awayTeamMoneyLine: ").append(toIndentedString(awayTeamMoneyLine)).append("\n");
+    sb.append("    awayTeamProbablePitcherID: ").append(toIndentedString(awayTeamProbablePitcherID)).append("\n");
+    sb.append("    awayTeamRuns: ").append(toIndentedString(awayTeamRuns)).append("\n");
+    sb.append("    awayTeamStartingPitcher: ").append(toIndentedString(awayTeamStartingPitcher)).append("\n");
+    sb.append("    awayTeamStartingPitcherID: ").append(toIndentedString(awayTeamStartingPitcherID)).append("\n");
+    sb.append("    balls: ").append(toIndentedString(balls)).append("\n");
+    sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
+    sb.append("    currentHitter: ").append(toIndentedString(currentHitter)).append("\n");
+    sb.append("    currentHitterID: ").append(toIndentedString(currentHitterID)).append("\n");
+    sb.append("    currentHittingTeamID: ").append(toIndentedString(currentHittingTeamID)).append("\n");
+    sb.append("    currentPitcher: ").append(toIndentedString(currentPitcher)).append("\n");
+    sb.append("    currentPitcherID: ").append(toIndentedString(currentPitcherID)).append("\n");
+    sb.append("    currentPitchingTeamID: ").append(toIndentedString(currentPitchingTeamID)).append("\n");
     sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
+    sb.append("    dateTimeUTC: ").append(toIndentedString(dateTimeUTC)).append("\n");
     sb.append("    day: ").append(toIndentedString(day)).append("\n");
-    sb.append("    drawMoneyLine: ").append(toIndentedString(drawMoneyLine)).append("\n");
-    sb.append("    gameId: ").append(toIndentedString(gameId)).append("\n");
-    sb.append("    group: ").append(toIndentedString(group)).append("\n");
+    sb.append("    dueUpHitterID1: ").append(toIndentedString(dueUpHitterID1)).append("\n");
+    sb.append("    dueUpHitterID2: ").append(toIndentedString(dueUpHitterID2)).append("\n");
+    sb.append("    dueUpHitterID3: ").append(toIndentedString(dueUpHitterID3)).append("\n");
+    sb.append("    forecastDescription: ").append(toIndentedString(forecastDescription)).append("\n");
+    sb.append("    forecastTempHigh: ").append(toIndentedString(forecastTempHigh)).append("\n");
+    sb.append("    forecastTempLow: ").append(toIndentedString(forecastTempLow)).append("\n");
+    sb.append("    forecastWindChill: ").append(toIndentedString(forecastWindChill)).append("\n");
+    sb.append("    forecastWindDirection: ").append(toIndentedString(forecastWindDirection)).append("\n");
+    sb.append("    forecastWindSpeed: ").append(toIndentedString(forecastWindSpeed)).append("\n");
+    sb.append("    gameEndDateTime: ").append(toIndentedString(gameEndDateTime)).append("\n");
+    sb.append("    gameID: ").append(toIndentedString(gameID)).append("\n");
+    sb.append("    globalAwayTeamID: ").append(toIndentedString(globalAwayTeamID)).append("\n");
+    sb.append("    globalGameID: ").append(toIndentedString(globalGameID)).append("\n");
+    sb.append("    globalHomeTeamID: ").append(toIndentedString(globalHomeTeamID)).append("\n");
+    sb.append("    homeRotationNumber: ").append(toIndentedString(homeRotationNumber)).append("\n");
+    sb.append("    homeTeam: ").append(toIndentedString(homeTeam)).append("\n");
+    sb.append("    homeTeamErrors: ").append(toIndentedString(homeTeamErrors)).append("\n");
+    sb.append("    homeTeamHits: ").append(toIndentedString(homeTeamHits)).append("\n");
+    sb.append("    homeTeamID: ").append(toIndentedString(homeTeamID)).append("\n");
+    sb.append("    homeTeamMoneyLine: ").append(toIndentedString(homeTeamMoneyLine)).append("\n");
+    sb.append("    homeTeamProbablePitcherID: ").append(toIndentedString(homeTeamProbablePitcherID)).append("\n");
+    sb.append("    homeTeamRuns: ").append(toIndentedString(homeTeamRuns)).append("\n");
+    sb.append("    homeTeamStartingPitcher: ").append(toIndentedString(homeTeamStartingPitcher)).append("\n");
+    sb.append("    homeTeamStartingPitcherID: ").append(toIndentedString(homeTeamStartingPitcherID)).append("\n");
+    sb.append("    inning: ").append(toIndentedString(inning)).append("\n");
+    sb.append("    inningDescription: ").append(toIndentedString(inningDescription)).append("\n");
+    sb.append("    inningHalf: ").append(toIndentedString(inningHalf)).append("\n");
+    sb.append("    innings: ").append(toIndentedString(innings)).append("\n");
     sb.append("    isClosed: ").append(toIndentedString(isClosed)).append("\n");
+    sb.append("    lastPlay: ").append(toIndentedString(lastPlay)).append("\n");
+    sb.append("    losingPitcher: ").append(toIndentedString(losingPitcher)).append("\n");
+    sb.append("    losingPitcherID: ").append(toIndentedString(losingPitcherID)).append("\n");
+    sb.append("    neutralVenue: ").append(toIndentedString(neutralVenue)).append("\n");
+    sb.append("    outs: ").append(toIndentedString(outs)).append("\n");
+    sb.append("    overPayout: ").append(toIndentedString(overPayout)).append("\n");
+    sb.append("    overUnder: ").append(toIndentedString(overUnder)).append("\n");
     sb.append("    pointSpread: ").append(toIndentedString(pointSpread)).append("\n");
-    sb.append("    roundId: ").append(toIndentedString(roundId)).append("\n");
+    sb.append("    pointSpreadAwayTeamMoneyLine: ").append(toIndentedString(pointSpreadAwayTeamMoneyLine)).append("\n");
+    sb.append("    pointSpreadHomeTeamMoneyLine: ").append(toIndentedString(pointSpreadHomeTeamMoneyLine)).append("\n");
+    sb.append("    rescheduledFromGameID: ").append(toIndentedString(rescheduledFromGameID)).append("\n");
+    sb.append("    rescheduledGameID: ").append(toIndentedString(rescheduledGameID)).append("\n");
+    sb.append("    runnerOnFirst: ").append(toIndentedString(runnerOnFirst)).append("\n");
+    sb.append("    runnerOnSecond: ").append(toIndentedString(runnerOnSecond)).append("\n");
+    sb.append("    runnerOnThird: ").append(toIndentedString(runnerOnThird)).append("\n");
+    sb.append("    savingPitcher: ").append(toIndentedString(savingPitcher)).append("\n");
+    sb.append("    savingPitcherID: ").append(toIndentedString(savingPitcherID)).append("\n");
     sb.append("    season: ").append(toIndentedString(season)).append("\n");
     sb.append("    seasonType: ").append(toIndentedString(seasonType)).append("\n");
+    sb.append("    seriesInfo: ").append(toIndentedString(seriesInfo)).append("\n");
+    sb.append("    stadiumID: ").append(toIndentedString(stadiumID)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    teamAId: ").append(toIndentedString(teamAId)).append("\n");
-    sb.append("    teamAKey: ").append(toIndentedString(teamAKey)).append("\n");
-    sb.append("    teamAMoneyLine: ").append(toIndentedString(teamAMoneyLine)).append("\n");
-    sb.append("    teamAName: ").append(toIndentedString(teamAName)).append("\n");
-    sb.append("    teamAPointSpreadPayout: ").append(toIndentedString(teamAPointSpreadPayout)).append("\n");
-    sb.append("    teamAScore: ").append(toIndentedString(teamAScore)).append("\n");
-    sb.append("    teamBId: ").append(toIndentedString(teamBId)).append("\n");
-    sb.append("    teamBKey: ").append(toIndentedString(teamBKey)).append("\n");
-    sb.append("    teamBMoneyLine: ").append(toIndentedString(teamBMoneyLine)).append("\n");
-    sb.append("    teamBName: ").append(toIndentedString(teamBName)).append("\n");
-    sb.append("    teamBPointSpreadPayout: ").append(toIndentedString(teamBPointSpreadPayout)).append("\n");
-    sb.append("    teamBScore: ").append(toIndentedString(teamBScore)).append("\n");
+    sb.append("    strikes: ").append(toIndentedString(strikes)).append("\n");
+    sb.append("    underPayout: ").append(toIndentedString(underPayout)).append("\n");
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
-    sb.append("    updatedUtc: ").append(toIndentedString(updatedUtc)).append("\n");
-    sb.append("    venueId: ").append(toIndentedString(venueId)).append("\n");
-    sb.append("    venueType: ").append(toIndentedString(venueType)).append("\n");
-    sb.append("    week: ").append(toIndentedString(week)).append("\n");
-    sb.append("    winner: ").append(toIndentedString(winner)).append("\n");
+    sb.append("    winningPitcher: ").append(toIndentedString(winningPitcher)).append("\n");
+    sb.append("    winningPitcherID: ").append(toIndentedString(winningPitcherID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -859,36 +2071,84 @@ public class Game {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("BestOf");
+    openapiFields.add("Attendance");
+    openapiFields.add("AwayRotationNumber");
+    openapiFields.add("AwayTeam");
+    openapiFields.add("AwayTeamErrors");
+    openapiFields.add("AwayTeamHits");
+    openapiFields.add("AwayTeamID");
+    openapiFields.add("AwayTeamMoneyLine");
+    openapiFields.add("AwayTeamProbablePitcherID");
+    openapiFields.add("AwayTeamRuns");
+    openapiFields.add("AwayTeamStartingPitcher");
+    openapiFields.add("AwayTeamStartingPitcherID");
+    openapiFields.add("Balls");
+    openapiFields.add("Channel");
+    openapiFields.add("CurrentHitter");
+    openapiFields.add("CurrentHitterID");
+    openapiFields.add("CurrentHittingTeamID");
+    openapiFields.add("CurrentPitcher");
+    openapiFields.add("CurrentPitcherID");
+    openapiFields.add("CurrentPitchingTeamID");
     openapiFields.add("DateTime");
+    openapiFields.add("DateTimeUTC");
     openapiFields.add("Day");
-    openapiFields.add("DrawMoneyLine");
-    openapiFields.add("GameId");
-    openapiFields.add("Group");
+    openapiFields.add("DueUpHitterID1");
+    openapiFields.add("DueUpHitterID2");
+    openapiFields.add("DueUpHitterID3");
+    openapiFields.add("ForecastDescription");
+    openapiFields.add("ForecastTempHigh");
+    openapiFields.add("ForecastTempLow");
+    openapiFields.add("ForecastWindChill");
+    openapiFields.add("ForecastWindDirection");
+    openapiFields.add("ForecastWindSpeed");
+    openapiFields.add("GameEndDateTime");
+    openapiFields.add("GameID");
+    openapiFields.add("GlobalAwayTeamID");
+    openapiFields.add("GlobalGameID");
+    openapiFields.add("GlobalHomeTeamID");
+    openapiFields.add("HomeRotationNumber");
+    openapiFields.add("HomeTeam");
+    openapiFields.add("HomeTeamErrors");
+    openapiFields.add("HomeTeamHits");
+    openapiFields.add("HomeTeamID");
+    openapiFields.add("HomeTeamMoneyLine");
+    openapiFields.add("HomeTeamProbablePitcherID");
+    openapiFields.add("HomeTeamRuns");
+    openapiFields.add("HomeTeamStartingPitcher");
+    openapiFields.add("HomeTeamStartingPitcherID");
+    openapiFields.add("Inning");
+    openapiFields.add("InningDescription");
+    openapiFields.add("InningHalf");
+    openapiFields.add("Innings");
     openapiFields.add("IsClosed");
+    openapiFields.add("LastPlay");
+    openapiFields.add("LosingPitcher");
+    openapiFields.add("LosingPitcherID");
+    openapiFields.add("NeutralVenue");
+    openapiFields.add("Outs");
+    openapiFields.add("OverPayout");
+    openapiFields.add("OverUnder");
     openapiFields.add("PointSpread");
-    openapiFields.add("RoundId");
+    openapiFields.add("PointSpreadAwayTeamMoneyLine");
+    openapiFields.add("PointSpreadHomeTeamMoneyLine");
+    openapiFields.add("RescheduledFromGameID");
+    openapiFields.add("RescheduledGameID");
+    openapiFields.add("RunnerOnFirst");
+    openapiFields.add("RunnerOnSecond");
+    openapiFields.add("RunnerOnThird");
+    openapiFields.add("SavingPitcher");
+    openapiFields.add("SavingPitcherID");
     openapiFields.add("Season");
     openapiFields.add("SeasonType");
+    openapiFields.add("SeriesInfo");
+    openapiFields.add("StadiumID");
     openapiFields.add("Status");
-    openapiFields.add("TeamAId");
-    openapiFields.add("TeamAKey");
-    openapiFields.add("TeamAMoneyLine");
-    openapiFields.add("TeamAName");
-    openapiFields.add("TeamAPointSpreadPayout");
-    openapiFields.add("TeamAScore");
-    openapiFields.add("TeamBId");
-    openapiFields.add("TeamBKey");
-    openapiFields.add("TeamBMoneyLine");
-    openapiFields.add("TeamBName");
-    openapiFields.add("TeamBPointSpreadPayout");
-    openapiFields.add("TeamBScore");
+    openapiFields.add("Strikes");
+    openapiFields.add("UnderPayout");
     openapiFields.add("Updated");
-    openapiFields.add("UpdatedUtc");
-    openapiFields.add("VenueId");
-    openapiFields.add("VenueType");
-    openapiFields.add("Week");
-    openapiFields.add("Winner");
+    openapiFields.add("WinningPitcher");
+    openapiFields.add("WinningPitcherID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -915,44 +2175,83 @@ public class Game {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("BestOf") != null && !jsonObj.get("BestOf").isJsonNull()) && !jsonObj.get("BestOf").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `BestOf` to be a primitive type in the JSON string but got `%s`", jsonObj.get("BestOf").toString()));
+      if ((jsonObj.get("AwayTeam") != null && !jsonObj.get("AwayTeam").isJsonNull()) && !jsonObj.get("AwayTeam").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `AwayTeam` to be a primitive type in the JSON string but got `%s`", jsonObj.get("AwayTeam").toString()));
+      }
+      if ((jsonObj.get("AwayTeamStartingPitcher") != null && !jsonObj.get("AwayTeamStartingPitcher").isJsonNull()) && !jsonObj.get("AwayTeamStartingPitcher").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `AwayTeamStartingPitcher` to be a primitive type in the JSON string but got `%s`", jsonObj.get("AwayTeamStartingPitcher").toString()));
+      }
+      if ((jsonObj.get("Channel") != null && !jsonObj.get("Channel").isJsonNull()) && !jsonObj.get("Channel").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `Channel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Channel").toString()));
+      }
+      if ((jsonObj.get("CurrentHitter") != null && !jsonObj.get("CurrentHitter").isJsonNull()) && !jsonObj.get("CurrentHitter").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `CurrentHitter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CurrentHitter").toString()));
+      }
+      if ((jsonObj.get("CurrentPitcher") != null && !jsonObj.get("CurrentPitcher").isJsonNull()) && !jsonObj.get("CurrentPitcher").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `CurrentPitcher` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CurrentPitcher").toString()));
       }
       if ((jsonObj.get("DateTime") != null && !jsonObj.get("DateTime").isJsonNull()) && !jsonObj.get("DateTime").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `DateTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("DateTime").toString()));
       }
+      if ((jsonObj.get("DateTimeUTC") != null && !jsonObj.get("DateTimeUTC").isJsonNull()) && !jsonObj.get("DateTimeUTC").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `DateTimeUTC` to be a primitive type in the JSON string but got `%s`", jsonObj.get("DateTimeUTC").toString()));
+      }
       if ((jsonObj.get("Day") != null && !jsonObj.get("Day").isJsonNull()) && !jsonObj.get("Day").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Day` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Day").toString()));
       }
-      if ((jsonObj.get("Group") != null && !jsonObj.get("Group").isJsonNull()) && !jsonObj.get("Group").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Group` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Group").toString()));
+      if ((jsonObj.get("ForecastDescription") != null && !jsonObj.get("ForecastDescription").isJsonNull()) && !jsonObj.get("ForecastDescription").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ForecastDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ForecastDescription").toString()));
+      }
+      if ((jsonObj.get("GameEndDateTime") != null && !jsonObj.get("GameEndDateTime").isJsonNull()) && !jsonObj.get("GameEndDateTime").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `GameEndDateTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("GameEndDateTime").toString()));
+      }
+      if ((jsonObj.get("HomeTeam") != null && !jsonObj.get("HomeTeam").isJsonNull()) && !jsonObj.get("HomeTeam").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `HomeTeam` to be a primitive type in the JSON string but got `%s`", jsonObj.get("HomeTeam").toString()));
+      }
+      if ((jsonObj.get("HomeTeamStartingPitcher") != null && !jsonObj.get("HomeTeamStartingPitcher").isJsonNull()) && !jsonObj.get("HomeTeamStartingPitcher").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `HomeTeamStartingPitcher` to be a primitive type in the JSON string but got `%s`", jsonObj.get("HomeTeamStartingPitcher").toString()));
+      }
+      if ((jsonObj.get("InningDescription") != null && !jsonObj.get("InningDescription").isJsonNull()) && !jsonObj.get("InningDescription").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `InningDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("InningDescription").toString()));
+      }
+      if ((jsonObj.get("InningHalf") != null && !jsonObj.get("InningHalf").isJsonNull()) && !jsonObj.get("InningHalf").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `InningHalf` to be a primitive type in the JSON string but got `%s`", jsonObj.get("InningHalf").toString()));
+      }
+      if (jsonObj.get("Innings") != null && !jsonObj.get("Innings").isJsonNull()) {
+        JsonArray jsonArrayinnings = jsonObj.getAsJsonArray("Innings");
+        if (jsonArrayinnings != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("Innings").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `Innings` to be an array in the JSON string but got `%s`", jsonObj.get("Innings").toString()));
+          }
+
+          // validate the optional field `Innings` (array)
+          for (int i = 0; i < jsonArrayinnings.size(); i++) {
+            Inning.validateJsonElement(jsonArrayinnings.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("LastPlay") != null && !jsonObj.get("LastPlay").isJsonNull()) && !jsonObj.get("LastPlay").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `LastPlay` to be a primitive type in the JSON string but got `%s`", jsonObj.get("LastPlay").toString()));
+      }
+      if ((jsonObj.get("LosingPitcher") != null && !jsonObj.get("LosingPitcher").isJsonNull()) && !jsonObj.get("LosingPitcher").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `LosingPitcher` to be a primitive type in the JSON string but got `%s`", jsonObj.get("LosingPitcher").toString()));
+      }
+      if ((jsonObj.get("SavingPitcher") != null && !jsonObj.get("SavingPitcher").isJsonNull()) && !jsonObj.get("SavingPitcher").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `SavingPitcher` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SavingPitcher").toString()));
+      }
+      // validate the optional field `SeriesInfo`
+      if (jsonObj.get("SeriesInfo") != null && !jsonObj.get("SeriesInfo").isJsonNull()) {
+        Series.validateJsonElement(jsonObj.get("SeriesInfo"));
       }
       if ((jsonObj.get("Status") != null && !jsonObj.get("Status").isJsonNull()) && !jsonObj.get("Status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Status").toString()));
       }
-      if ((jsonObj.get("TeamAKey") != null && !jsonObj.get("TeamAKey").isJsonNull()) && !jsonObj.get("TeamAKey").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `TeamAKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TeamAKey").toString()));
-      }
-      if ((jsonObj.get("TeamAName") != null && !jsonObj.get("TeamAName").isJsonNull()) && !jsonObj.get("TeamAName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `TeamAName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TeamAName").toString()));
-      }
-      if ((jsonObj.get("TeamBKey") != null && !jsonObj.get("TeamBKey").isJsonNull()) && !jsonObj.get("TeamBKey").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `TeamBKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TeamBKey").toString()));
-      }
-      if ((jsonObj.get("TeamBName") != null && !jsonObj.get("TeamBName").isJsonNull()) && !jsonObj.get("TeamBName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `TeamBName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TeamBName").toString()));
-      }
       if ((jsonObj.get("Updated") != null && !jsonObj.get("Updated").isJsonNull()) && !jsonObj.get("Updated").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Updated` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Updated").toString()));
       }
-      if ((jsonObj.get("UpdatedUtc") != null && !jsonObj.get("UpdatedUtc").isJsonNull()) && !jsonObj.get("UpdatedUtc").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `UpdatedUtc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("UpdatedUtc").toString()));
-      }
-      if ((jsonObj.get("VenueType") != null && !jsonObj.get("VenueType").isJsonNull()) && !jsonObj.get("VenueType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `VenueType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("VenueType").toString()));
-      }
-      if ((jsonObj.get("Winner") != null && !jsonObj.get("Winner").isJsonNull()) && !jsonObj.get("Winner").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Winner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Winner").toString()));
+      if ((jsonObj.get("WinningPitcher") != null && !jsonObj.get("WinningPitcher").isJsonNull()) && !jsonObj.get("WinningPitcher").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `WinningPitcher` to be a primitive type in the JSON string but got `%s`", jsonObj.get("WinningPitcher").toString()));
       }
   }
 

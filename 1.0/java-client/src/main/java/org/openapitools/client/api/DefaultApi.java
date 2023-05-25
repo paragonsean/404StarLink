@@ -1,6 +1,6 @@
 /*
- * LoL v3 Scores
- * LoL v3 Scores
+ * MLB v3 Scores
+ * MLB scores API.
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -27,16 +27,15 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.Area;
-import org.openapitools.client.model.Competition;
-import org.openapitools.client.model.CompetitionDetail;
 import org.openapitools.client.model.Game;
-import org.openapitools.client.model.Membership;
+import org.openapitools.client.model.News;
 import org.openapitools.client.model.Player;
-import org.openapitools.client.model.SeasonTeam;
+import org.openapitools.client.model.Season;
+import org.openapitools.client.model.Stadium;
 import org.openapitools.client.model.Standing;
 import org.openapitools.client.model.Team;
-import org.openapitools.client.model.Venue;
+import org.openapitools.client.model.TeamGame;
+import org.openapitools.client.model.TeamSeason;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -82,7 +81,7 @@ public class DefaultApi {
     }
 
     /**
-     * Build call for areasCountries
+     * Build call for areGamesInProgress
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -93,7 +92,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call areasCountriesCall(String format, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call areGamesInProgressCall(String format, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -110,7 +109,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/{format}/Areas"
+        String localVarPath = "/{format}/AreAnyGamesInProgress"
             .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -139,21 +138,21 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call areasCountriesValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call areGamesInProgressValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'format' is set
         if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling areasCountries(Async)");
+            throw new ApiException("Missing the required parameter 'format' when calling areGamesInProgress(Async)");
         }
 
-        return areasCountriesCall(format, _callback);
+        return areGamesInProgressCall(format, _callback);
 
     }
 
     /**
-     * Areas (Countries)
-     * Areas (Countries)
+     * Are Games In Progress
+     * Returns &lt;code&gt;true&lt;/code&gt; if there is at least one game being played at the time of the request or &lt;code&gt;false&lt;/code&gt; if there are none.
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return List&lt;Area&gt;
+     * @return Boolean
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -161,16 +160,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public List<Area> areasCountries(String format) throws ApiException {
-        ApiResponse<List<Area>> localVarResp = areasCountriesWithHttpInfo(format);
+    public Boolean areGamesInProgress(String format) throws ApiException {
+        ApiResponse<Boolean> localVarResp = areGamesInProgressWithHttpInfo(format);
         return localVarResp.getData();
     }
 
     /**
-     * Areas (Countries)
-     * Areas (Countries)
+     * Are Games In Progress
+     * Returns &lt;code&gt;true&lt;/code&gt; if there is at least one game being played at the time of the request or &lt;code&gt;false&lt;/code&gt; if there are none.
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return ApiResponse&lt;List&lt;Area&gt;&gt;
+     * @return ApiResponse&lt;Boolean&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -178,15 +177,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Area>> areasCountriesWithHttpInfo(String format) throws ApiException {
-        okhttp3.Call localVarCall = areasCountriesValidateBeforeCall(format, null);
-        Type localVarReturnType = new TypeToken<List<Area>>(){}.getType();
+    public ApiResponse<Boolean> areGamesInProgressWithHttpInfo(String format) throws ApiException {
+        okhttp3.Call localVarCall = areGamesInProgressValidateBeforeCall(format, null);
+        Type localVarReturnType = new TypeToken<Boolean>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Areas (Countries) (asynchronously)
-     * Areas (Countries)
+     * Are Games In Progress (asynchronously)
+     * Returns &lt;code&gt;true&lt;/code&gt; if there is at least one game being played at the time of the request or &lt;code&gt;false&lt;/code&gt; if there are none.
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -197,17 +196,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call areasCountriesAsync(String format, final ApiCallback<List<Area>> _callback) throws ApiException {
+    public okhttp3.Call areGamesInProgressAsync(String format, final ApiCallback<Boolean> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = areasCountriesValidateBeforeCall(format, _callback);
-        Type localVarReturnType = new TypeToken<List<Area>>(){}.getType();
+        okhttp3.Call localVarCall = areGamesInProgressValidateBeforeCall(format, _callback);
+        Type localVarReturnType = new TypeToken<Boolean>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for competitionFixturesLeagueDetails
+     * Build call for currentSeason
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param competitionid A LoL competition/league unique CompetitionId. Possible values include: &lt;code&gt;100000009&lt;/code&gt;, etc. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -217,7 +215,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call competitionFixturesLeagueDetailsCall(String format, String competitionid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call currentSeasonCall(String format, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -234,139 +232,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/{format}/CompetitionDetails/{competitionid}"
-            .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()))
-            .replace("{" + "competitionid" + "}", localVarApiClient.escapeString(competitionid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "apiKeyQuery", "apiKeyHeader" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call competitionFixturesLeagueDetailsValidateBeforeCall(String format, String competitionid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'format' is set
-        if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling competitionFixturesLeagueDetails(Async)");
-        }
-
-        // verify the required parameter 'competitionid' is set
-        if (competitionid == null) {
-            throw new ApiException("Missing the required parameter 'competitionid' when calling competitionFixturesLeagueDetails(Async)");
-        }
-
-        return competitionFixturesLeagueDetailsCall(format, competitionid, _callback);
-
-    }
-
-    /**
-     * Competition Fixtures (League Details)
-     * Competition Fixtures (League Details)
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param competitionid A LoL competition/league unique CompetitionId. Possible values include: &lt;code&gt;100000009&lt;/code&gt;, etc. (required)
-     * @return CompetitionDetail
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public CompetitionDetail competitionFixturesLeagueDetails(String format, String competitionid) throws ApiException {
-        ApiResponse<CompetitionDetail> localVarResp = competitionFixturesLeagueDetailsWithHttpInfo(format, competitionid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Competition Fixtures (League Details)
-     * Competition Fixtures (League Details)
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param competitionid A LoL competition/league unique CompetitionId. Possible values include: &lt;code&gt;100000009&lt;/code&gt;, etc. (required)
-     * @return ApiResponse&lt;CompetitionDetail&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CompetitionDetail> competitionFixturesLeagueDetailsWithHttpInfo(String format, String competitionid) throws ApiException {
-        okhttp3.Call localVarCall = competitionFixturesLeagueDetailsValidateBeforeCall(format, competitionid, null);
-        Type localVarReturnType = new TypeToken<CompetitionDetail>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Competition Fixtures (League Details) (asynchronously)
-     * Competition Fixtures (League Details)
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param competitionid A LoL competition/league unique CompetitionId. Possible values include: &lt;code&gt;100000009&lt;/code&gt;, etc. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call competitionFixturesLeagueDetailsAsync(String format, String competitionid, final ApiCallback<CompetitionDetail> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = competitionFixturesLeagueDetailsValidateBeforeCall(format, competitionid, _callback);
-        Type localVarReturnType = new TypeToken<CompetitionDetail>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for competitionsLeagues
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call competitionsLeaguesCall(String format, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/{format}/Competitions"
+        String localVarPath = "/{format}/CurrentSeason"
             .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -395,21 +261,21 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call competitionsLeaguesValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call currentSeasonValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'format' is set
         if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling competitionsLeagues(Async)");
+            throw new ApiException("Missing the required parameter 'format' when calling currentSeason(Async)");
         }
 
-        return competitionsLeaguesCall(format, _callback);
+        return currentSeasonCall(format, _callback);
 
     }
 
     /**
-     * Competitions (Leagues)
-     * Competitions (Leagues)
+     * Current Season
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return List&lt;Competition&gt;
+     * @return Season
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -417,16 +283,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public List<Competition> competitionsLeagues(String format) throws ApiException {
-        ApiResponse<List<Competition>> localVarResp = competitionsLeaguesWithHttpInfo(format);
+    public Season currentSeason(String format) throws ApiException {
+        ApiResponse<Season> localVarResp = currentSeasonWithHttpInfo(format);
         return localVarResp.getData();
     }
 
     /**
-     * Competitions (Leagues)
-     * Competitions (Leagues)
+     * Current Season
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return ApiResponse&lt;List&lt;Competition&gt;&gt;
+     * @return ApiResponse&lt;Season&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -434,15 +300,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Competition>> competitionsLeaguesWithHttpInfo(String format) throws ApiException {
-        okhttp3.Call localVarCall = competitionsLeaguesValidateBeforeCall(format, null);
-        Type localVarReturnType = new TypeToken<List<Competition>>(){}.getType();
+    public ApiResponse<Season> currentSeasonWithHttpInfo(String format) throws ApiException {
+        okhttp3.Call localVarCall = currentSeasonValidateBeforeCall(format, null);
+        Type localVarReturnType = new TypeToken<Season>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Competitions (Leagues) (asynchronously)
-     * Competitions (Leagues)
+     * Current Season (asynchronously)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -453,17 +319,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call competitionsLeaguesAsync(String format, final ApiCallback<List<Competition>> _callback) throws ApiException {
+    public okhttp3.Call currentSeasonAsync(String format, final ApiCallback<Season> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = competitionsLeaguesValidateBeforeCall(format, _callback);
-        Type localVarReturnType = new TypeToken<List<Competition>>(){}.getType();
+        okhttp3.Call localVarCall = currentSeasonValidateBeforeCall(format, _callback);
+        Type localVarReturnType = new TypeToken<Season>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for gamesByDate
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2018-01-13&lt;/code&gt;, &lt;code&gt;2018-06-13&lt;/code&gt;. (required)
+     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -537,9 +403,9 @@ public class DefaultApi {
 
     /**
      * Games by Date
-     * Games by Date
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2018-01-13&lt;/code&gt;, &lt;code&gt;2018-06-13&lt;/code&gt;. (required)
+     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
      * @return List&lt;Game&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -555,9 +421,9 @@ public class DefaultApi {
 
     /**
      * Games by Date
-     * Games by Date
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2018-01-13&lt;/code&gt;, &lt;code&gt;2018-06-13&lt;/code&gt;. (required)
+     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
      * @return ApiResponse&lt;List&lt;Game&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -574,9 +440,9 @@ public class DefaultApi {
 
     /**
      * Games by Date (asynchronously)
-     * Games by Date
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2018-01-13&lt;/code&gt;, &lt;code&gt;2018-06-13&lt;/code&gt;. (required)
+     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -594,7 +460,7 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
-     * Build call for membershipsActive
+     * Build call for news
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -605,7 +471,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call membershipsActiveCall(String format, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call newsCall(String format, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -622,7 +488,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/{format}/ActiveMemberships"
+        String localVarPath = "/{format}/News"
             .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -651,21 +517,21 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call membershipsActiveValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call newsValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'format' is set
         if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling membershipsActive(Async)");
+            throw new ApiException("Missing the required parameter 'format' when calling news(Async)");
         }
 
-        return membershipsActiveCall(format, _callback);
+        return newsCall(format, _callback);
 
     }
 
     /**
-     * Memberships (Active)
-     * Memberships (Active)
+     * News
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return List&lt;Membership&gt;
+     * @return List&lt;News&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -673,16 +539,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public List<Membership> membershipsActive(String format) throws ApiException {
-        ApiResponse<List<Membership>> localVarResp = membershipsActiveWithHttpInfo(format);
+    public List<News> news(String format) throws ApiException {
+        ApiResponse<List<News>> localVarResp = newsWithHttpInfo(format);
         return localVarResp.getData();
     }
 
     /**
-     * Memberships (Active)
-     * Memberships (Active)
+     * News
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return ApiResponse&lt;List&lt;Membership&gt;&gt;
+     * @return ApiResponse&lt;List&lt;News&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -690,15 +556,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Membership>> membershipsActiveWithHttpInfo(String format) throws ApiException {
-        okhttp3.Call localVarCall = membershipsActiveValidateBeforeCall(format, null);
-        Type localVarReturnType = new TypeToken<List<Membership>>(){}.getType();
+    public ApiResponse<List<News>> newsWithHttpInfo(String format) throws ApiException {
+        okhttp3.Call localVarCall = newsValidateBeforeCall(format, null);
+        Type localVarReturnType = new TypeToken<List<News>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Memberships (Active) (asynchronously)
-     * Memberships (Active)
+     * News (asynchronously)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -709,17 +575,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call membershipsActiveAsync(String format, final ApiCallback<List<Membership>> _callback) throws ApiException {
+    public okhttp3.Call newsAsync(String format, final ApiCallback<List<News>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = membershipsActiveValidateBeforeCall(format, _callback);
-        Type localVarReturnType = new TypeToken<List<Membership>>(){}.getType();
+        okhttp3.Call localVarCall = newsValidateBeforeCall(format, _callback);
+        Type localVarReturnType = new TypeToken<List<News>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for membershipsByTeamActive
+     * Build call for newsByDate
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
+     * @param date The date of the news. &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -729,7 +595,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call membershipsByTeamActiveCall(String format, String teamid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call newsByDateCall(String format, String date, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -746,9 +612,9 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/{format}/MembershipsByTeam/{teamid}"
+        String localVarPath = "/{format}/NewsByDate/{date}"
             .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()))
-            .replace("{" + "teamid" + "}", localVarApiClient.escapeString(teamid.toString()));
+            .replace("{" + "date" + "}", localVarApiClient.escapeString(date.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -776,27 +642,27 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call membershipsByTeamActiveValidateBeforeCall(String format, String teamid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call newsByDateValidateBeforeCall(String format, String date, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'format' is set
         if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling membershipsByTeamActive(Async)");
+            throw new ApiException("Missing the required parameter 'format' when calling newsByDate(Async)");
         }
 
-        // verify the required parameter 'teamid' is set
-        if (teamid == null) {
-            throw new ApiException("Missing the required parameter 'teamid' when calling membershipsByTeamActive(Async)");
+        // verify the required parameter 'date' is set
+        if (date == null) {
+            throw new ApiException("Missing the required parameter 'date' when calling newsByDate(Async)");
         }
 
-        return membershipsByTeamActiveCall(format, teamid, _callback);
+        return newsByDateCall(format, date, _callback);
 
     }
 
     /**
-     * Memberships by Team (Active)
-     * Memberships by Team (Active)
+     * News by Date
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
-     * @return List&lt;Membership&gt;
+     * @param date The date of the news. &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
+     * @return List&lt;News&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -804,17 +670,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public List<Membership> membershipsByTeamActive(String format, String teamid) throws ApiException {
-        ApiResponse<List<Membership>> localVarResp = membershipsByTeamActiveWithHttpInfo(format, teamid);
+    public List<News> newsByDate(String format, String date) throws ApiException {
+        ApiResponse<List<News>> localVarResp = newsByDateWithHttpInfo(format, date);
         return localVarResp.getData();
     }
 
     /**
-     * Memberships by Team (Active)
-     * Memberships by Team (Active)
+     * News by Date
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
-     * @return ApiResponse&lt;List&lt;Membership&gt;&gt;
+     * @param date The date of the news. &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
+     * @return ApiResponse&lt;List&lt;News&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -822,17 +688,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Membership>> membershipsByTeamActiveWithHttpInfo(String format, String teamid) throws ApiException {
-        okhttp3.Call localVarCall = membershipsByTeamActiveValidateBeforeCall(format, teamid, null);
-        Type localVarReturnType = new TypeToken<List<Membership>>(){}.getType();
+    public ApiResponse<List<News>> newsByDateWithHttpInfo(String format, String date) throws ApiException {
+        okhttp3.Call localVarCall = newsByDateValidateBeforeCall(format, date, null);
+        Type localVarReturnType = new TypeToken<List<News>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Memberships by Team (Active) (asynchronously)
-     * Memberships by Team (Active)
+     * News by Date (asynchronously)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
+     * @param date The date of the news. &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -842,17 +708,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call membershipsByTeamActiveAsync(String format, String teamid, final ApiCallback<List<Membership>> _callback) throws ApiException {
+    public okhttp3.Call newsByDateAsync(String format, String date, final ApiCallback<List<News>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = membershipsByTeamActiveValidateBeforeCall(format, teamid, _callback);
-        Type localVarReturnType = new TypeToken<List<Membership>>(){}.getType();
+        okhttp3.Call localVarCall = newsByDateValidateBeforeCall(format, date, _callback);
+        Type localVarReturnType = new TypeToken<List<News>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for membershipsByTeamHistorical
+     * Build call for newsByPlayer
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
+     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;10000507&lt;/code&gt;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -862,7 +728,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call membershipsByTeamHistoricalCall(String format, String teamid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call newsByPlayerCall(String format, String playerid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -879,9 +745,9 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/{format}/HistoricalMembershipsByTeam/{teamid}"
+        String localVarPath = "/{format}/NewsByPlayerID/{playerid}"
             .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()))
-            .replace("{" + "teamid" + "}", localVarApiClient.escapeString(teamid.toString()));
+            .replace("{" + "playerid" + "}", localVarApiClient.escapeString(playerid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -909,27 +775,27 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call membershipsByTeamHistoricalValidateBeforeCall(String format, String teamid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call newsByPlayerValidateBeforeCall(String format, String playerid, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'format' is set
         if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling membershipsByTeamHistorical(Async)");
+            throw new ApiException("Missing the required parameter 'format' when calling newsByPlayer(Async)");
         }
 
-        // verify the required parameter 'teamid' is set
-        if (teamid == null) {
-            throw new ApiException("Missing the required parameter 'teamid' when calling membershipsByTeamHistorical(Async)");
+        // verify the required parameter 'playerid' is set
+        if (playerid == null) {
+            throw new ApiException("Missing the required parameter 'playerid' when calling newsByPlayer(Async)");
         }
 
-        return membershipsByTeamHistoricalCall(format, teamid, _callback);
+        return newsByPlayerCall(format, playerid, _callback);
 
     }
 
     /**
-     * Memberships by Team (Historical)
-     * Memberships by Team (Historical)
+     * News by Player
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
-     * @return List&lt;Membership&gt;
+     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;10000507&lt;/code&gt;. (required)
+     * @return List&lt;News&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -937,17 +803,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public List<Membership> membershipsByTeamHistorical(String format, String teamid) throws ApiException {
-        ApiResponse<List<Membership>> localVarResp = membershipsByTeamHistoricalWithHttpInfo(format, teamid);
+    public List<News> newsByPlayer(String format, String playerid) throws ApiException {
+        ApiResponse<List<News>> localVarResp = newsByPlayerWithHttpInfo(format, playerid);
         return localVarResp.getData();
     }
 
     /**
-     * Memberships by Team (Historical)
-     * Memberships by Team (Historical)
+     * News by Player
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
-     * @return ApiResponse&lt;List&lt;Membership&gt;&gt;
+     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;10000507&lt;/code&gt;. (required)
+     * @return ApiResponse&lt;List&lt;News&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -955,17 +821,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Membership>> membershipsByTeamHistoricalWithHttpInfo(String format, String teamid) throws ApiException {
-        okhttp3.Call localVarCall = membershipsByTeamHistoricalValidateBeforeCall(format, teamid, null);
-        Type localVarReturnType = new TypeToken<List<Membership>>(){}.getType();
+    public ApiResponse<List<News>> newsByPlayerWithHttpInfo(String format, String playerid) throws ApiException {
+        okhttp3.Call localVarCall = newsByPlayerValidateBeforeCall(format, playerid, null);
+        Type localVarReturnType = new TypeToken<List<News>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Memberships by Team (Historical) (asynchronously)
-     * Memberships by Team (Historical)
+     * News by Player (asynchronously)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
+     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;10000507&lt;/code&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -975,15 +841,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call membershipsByTeamHistoricalAsync(String format, String teamid, final ApiCallback<List<Membership>> _callback) throws ApiException {
+    public okhttp3.Call newsByPlayerAsync(String format, String playerid, final ApiCallback<List<News>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = membershipsByTeamHistoricalValidateBeforeCall(format, teamid, _callback);
-        Type localVarReturnType = new TypeToken<List<Membership>>(){}.getType();
+        okhttp3.Call localVarCall = newsByPlayerValidateBeforeCall(format, playerid, _callback);
+        Type localVarReturnType = new TypeToken<List<News>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for membershipsHistorical
+     * Build call for playerDetailsByActive
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -994,7 +860,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call membershipsHistoricalCall(String format, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call playerDetailsByActiveCall(String format, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1011,7 +877,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/{format}/HistoricalMemberships"
+        String localVarPath = "/{format}/Players"
             .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1040,21 +906,21 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call membershipsHistoricalValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call playerDetailsByActiveValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'format' is set
         if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling membershipsHistorical(Async)");
+            throw new ApiException("Missing the required parameter 'format' when calling playerDetailsByActive(Async)");
         }
 
-        return membershipsHistoricalCall(format, _callback);
+        return playerDetailsByActiveCall(format, _callback);
 
     }
 
     /**
-     * Memberships (Historical)
-     * Memberships (Historical)
+     * Player Details by Active
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return List&lt;Membership&gt;
+     * @return List&lt;Player&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1062,16 +928,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public List<Membership> membershipsHistorical(String format) throws ApiException {
-        ApiResponse<List<Membership>> localVarResp = membershipsHistoricalWithHttpInfo(format);
+    public List<Player> playerDetailsByActive(String format) throws ApiException {
+        ApiResponse<List<Player>> localVarResp = playerDetailsByActiveWithHttpInfo(format);
         return localVarResp.getData();
     }
 
     /**
-     * Memberships (Historical)
-     * Memberships (Historical)
+     * Player Details by Active
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return ApiResponse&lt;List&lt;Membership&gt;&gt;
+     * @return ApiResponse&lt;List&lt;Player&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1079,15 +945,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Membership>> membershipsHistoricalWithHttpInfo(String format) throws ApiException {
-        okhttp3.Call localVarCall = membershipsHistoricalValidateBeforeCall(format, null);
-        Type localVarReturnType = new TypeToken<List<Membership>>(){}.getType();
+    public ApiResponse<List<Player>> playerDetailsByActiveWithHttpInfo(String format) throws ApiException {
+        okhttp3.Call localVarCall = playerDetailsByActiveValidateBeforeCall(format, null);
+        Type localVarReturnType = new TypeToken<List<Player>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Memberships (Historical) (asynchronously)
-     * Memberships (Historical)
+     * Player Details by Active (asynchronously)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1098,17 +964,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call membershipsHistoricalAsync(String format, final ApiCallback<List<Membership>> _callback) throws ApiException {
+    public okhttp3.Call playerDetailsByActiveAsync(String format, final ApiCallback<List<Player>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = membershipsHistoricalValidateBeforeCall(format, _callback);
-        Type localVarReturnType = new TypeToken<List<Membership>>(){}.getType();
+        okhttp3.Call localVarCall = playerDetailsByActiveValidateBeforeCall(format, _callback);
+        Type localVarReturnType = new TypeToken<List<Player>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for player
+     * Build call for playerDetailsByFreeAgents
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;100000576&lt;/code&gt;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1118,7 +983,131 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call playerCall(String format, String playerid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call playerDetailsByFreeAgentsCall(String format, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/{format}/FreeAgents"
+            .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "apiKeyQuery", "apiKeyHeader" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call playerDetailsByFreeAgentsValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'format' is set
+        if (format == null) {
+            throw new ApiException("Missing the required parameter 'format' when calling playerDetailsByFreeAgents(Async)");
+        }
+
+        return playerDetailsByFreeAgentsCall(format, _callback);
+
+    }
+
+    /**
+     * Player Details by Free Agents
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @return List&lt;Player&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<Player> playerDetailsByFreeAgents(String format) throws ApiException {
+        ApiResponse<List<Player>> localVarResp = playerDetailsByFreeAgentsWithHttpInfo(format);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Player Details by Free Agents
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @return ApiResponse&lt;List&lt;Player&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<Player>> playerDetailsByFreeAgentsWithHttpInfo(String format) throws ApiException {
+        okhttp3.Call localVarCall = playerDetailsByFreeAgentsValidateBeforeCall(format, null);
+        Type localVarReturnType = new TypeToken<List<Player>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Player Details by Free Agents (asynchronously)
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call playerDetailsByFreeAgentsAsync(String format, final ApiCallback<List<Player>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = playerDetailsByFreeAgentsValidateBeforeCall(format, _callback);
+        Type localVarReturnType = new TypeToken<List<Player>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for playerDetailsByPlayer
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;10000507&lt;/code&gt;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call playerDetailsByPlayerCall(String format, String playerid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1165,26 +1154,26 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call playerValidateBeforeCall(String format, String playerid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call playerDetailsByPlayerValidateBeforeCall(String format, String playerid, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'format' is set
         if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling player(Async)");
+            throw new ApiException("Missing the required parameter 'format' when calling playerDetailsByPlayer(Async)");
         }
 
         // verify the required parameter 'playerid' is set
         if (playerid == null) {
-            throw new ApiException("Missing the required parameter 'playerid' when calling player(Async)");
+            throw new ApiException("Missing the required parameter 'playerid' when calling playerDetailsByPlayer(Async)");
         }
 
-        return playerCall(format, playerid, _callback);
+        return playerDetailsByPlayerCall(format, playerid, _callback);
 
     }
 
     /**
-     * Player
-     * Player
+     * Player Details by Player
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;100000576&lt;/code&gt;. (required)
+     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;10000507&lt;/code&gt;. (required)
      * @return Player
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1193,16 +1182,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public Player player(String format, String playerid) throws ApiException {
-        ApiResponse<Player> localVarResp = playerWithHttpInfo(format, playerid);
+    public Player playerDetailsByPlayer(String format, String playerid) throws ApiException {
+        ApiResponse<Player> localVarResp = playerDetailsByPlayerWithHttpInfo(format, playerid);
         return localVarResp.getData();
     }
 
     /**
-     * Player
-     * Player
+     * Player Details by Player
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;100000576&lt;/code&gt;. (required)
+     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;10000507&lt;/code&gt;. (required)
      * @return ApiResponse&lt;Player&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1211,17 +1200,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Player> playerWithHttpInfo(String format, String playerid) throws ApiException {
-        okhttp3.Call localVarCall = playerValidateBeforeCall(format, playerid, null);
+    public ApiResponse<Player> playerDetailsByPlayerWithHttpInfo(String format, String playerid) throws ApiException {
+        okhttp3.Call localVarCall = playerDetailsByPlayerValidateBeforeCall(format, playerid, null);
         Type localVarReturnType = new TypeToken<Player>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Player (asynchronously)
-     * Player
+     * Player Details by Player (asynchronously)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;100000576&lt;/code&gt;. (required)
+     * @param playerid Unique FantasyData Player ID. Example:&lt;code&gt;10000507&lt;/code&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1231,140 +1220,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call playerAsync(String format, String playerid, final ApiCallback<Player> _callback) throws ApiException {
+    public okhttp3.Call playerDetailsByPlayerAsync(String format, String playerid, final ApiCallback<Player> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = playerValidateBeforeCall(format, playerid, _callback);
+        okhttp3.Call localVarCall = playerDetailsByPlayerValidateBeforeCall(format, playerid, _callback);
         Type localVarReturnType = new TypeToken<Player>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for players
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call playersCall(String format, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/{format}/Players"
-            .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "apiKeyQuery", "apiKeyHeader" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call playersValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'format' is set
-        if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling players(Async)");
-        }
-
-        return playersCall(format, _callback);
-
-    }
-
-    /**
-     * Players
-     * Players
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return List&lt;Player&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public List<Player> players(String format) throws ApiException {
-        ApiResponse<List<Player>> localVarResp = playersWithHttpInfo(format);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Players
-     * Players
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return ApiResponse&lt;List&lt;Player&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<List<Player>> playersWithHttpInfo(String format) throws ApiException {
-        okhttp3.Call localVarCall = playersValidateBeforeCall(format, null);
-        Type localVarReturnType = new TypeToken<List<Player>>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Players (asynchronously)
-     * Players
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call playersAsync(String format, final ApiCallback<List<Player>> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = playersValidateBeforeCall(format, _callback);
-        Type localVarReturnType = new TypeToken<List<Player>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for playersByTeam
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
+     * @param team The abbreviation of the requested team. &lt;br&gt;Examples: &lt;code&gt;SF&lt;/code&gt;, &lt;code&gt;NYY&lt;/code&gt;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1374,7 +1240,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call playersByTeamCall(String format, String teamid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call playersByTeamCall(String format, String team, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1391,9 +1257,9 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/{format}/PlayersByTeam/{teamid}"
+        String localVarPath = "/{format}/Players/{team}"
             .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()))
-            .replace("{" + "teamid" + "}", localVarApiClient.escapeString(teamid.toString()));
+            .replace("{" + "team" + "}", localVarApiClient.escapeString(team.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1421,26 +1287,26 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call playersByTeamValidateBeforeCall(String format, String teamid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call playersByTeamValidateBeforeCall(String format, String team, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'format' is set
         if (format == null) {
             throw new ApiException("Missing the required parameter 'format' when calling playersByTeam(Async)");
         }
 
-        // verify the required parameter 'teamid' is set
-        if (teamid == null) {
-            throw new ApiException("Missing the required parameter 'teamid' when calling playersByTeam(Async)");
+        // verify the required parameter 'team' is set
+        if (team == null) {
+            throw new ApiException("Missing the required parameter 'team' when calling playersByTeam(Async)");
         }
 
-        return playersByTeamCall(format, teamid, _callback);
+        return playersByTeamCall(format, team, _callback);
 
     }
 
     /**
      * Players by Team
-     * Players by Team
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
+     * @param team The abbreviation of the requested team. &lt;br&gt;Examples: &lt;code&gt;SF&lt;/code&gt;, &lt;code&gt;NYY&lt;/code&gt;. (required)
      * @return List&lt;Player&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1449,16 +1315,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public List<Player> playersByTeam(String format, String teamid) throws ApiException {
-        ApiResponse<List<Player>> localVarResp = playersByTeamWithHttpInfo(format, teamid);
+    public List<Player> playersByTeam(String format, String team) throws ApiException {
+        ApiResponse<List<Player>> localVarResp = playersByTeamWithHttpInfo(format, team);
         return localVarResp.getData();
     }
 
     /**
      * Players by Team
-     * Players by Team
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
+     * @param team The abbreviation of the requested team. &lt;br&gt;Examples: &lt;code&gt;SF&lt;/code&gt;, &lt;code&gt;NYY&lt;/code&gt;. (required)
      * @return ApiResponse&lt;List&lt;Player&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1467,17 +1333,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Player>> playersByTeamWithHttpInfo(String format, String teamid) throws ApiException {
-        okhttp3.Call localVarCall = playersByTeamValidateBeforeCall(format, teamid, null);
+    public ApiResponse<List<Player>> playersByTeamWithHttpInfo(String format, String team) throws ApiException {
+        okhttp3.Call localVarCall = playersByTeamValidateBeforeCall(format, team, null);
         Type localVarReturnType = new TypeToken<List<Player>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Players by Team (asynchronously)
-     * Players by Team
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param teamid Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. (required)
+     * @param team The abbreviation of the requested team. &lt;br&gt;Examples: &lt;code&gt;SF&lt;/code&gt;, &lt;code&gt;NYY&lt;/code&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1487,17 +1353,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call playersByTeamAsync(String format, String teamid, final ApiCallback<List<Player>> _callback) throws ApiException {
+    public okhttp3.Call playersByTeamAsync(String format, String team, final ApiCallback<List<Player>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = playersByTeamValidateBeforeCall(format, teamid, _callback);
+        okhttp3.Call localVarCall = playersByTeamValidateBeforeCall(format, team, _callback);
         Type localVarReturnType = new TypeToken<List<Player>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for schedule
+     * Build call for schedules
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param roundid Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Examples: &lt;code&gt;100000138&lt;/code&gt;, &lt;code&gt;1000001412&lt;/code&gt;, etc (required)
+     * @param season Year of the season (with optional season type).&lt;br&gt;Examples: &lt;code&gt;2018&lt;/code&gt;, &lt;code&gt;2018PRE&lt;/code&gt;, &lt;code&gt;2018POST&lt;/code&gt;, &lt;code&gt;2018STAR&lt;/code&gt;, &lt;code&gt;2019&lt;/code&gt;, etc. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1507,7 +1373,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scheduleCall(String format, String roundid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call schedulesCall(String format, String season, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1524,9 +1390,9 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/{format}/Schedule/{roundid}"
+        String localVarPath = "/{format}/Games/{season}"
             .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()))
-            .replace("{" + "roundid" + "}", localVarApiClient.escapeString(roundid.toString()));
+            .replace("{" + "season" + "}", localVarApiClient.escapeString(season.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1554,26 +1420,26 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scheduleValidateBeforeCall(String format, String roundid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call schedulesValidateBeforeCall(String format, String season, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'format' is set
         if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling schedule(Async)");
+            throw new ApiException("Missing the required parameter 'format' when calling schedules(Async)");
         }
 
-        // verify the required parameter 'roundid' is set
-        if (roundid == null) {
-            throw new ApiException("Missing the required parameter 'roundid' when calling schedule(Async)");
+        // verify the required parameter 'season' is set
+        if (season == null) {
+            throw new ApiException("Missing the required parameter 'season' when calling schedules(Async)");
         }
 
-        return scheduleCall(format, roundid, _callback);
+        return schedulesCall(format, season, _callback);
 
     }
 
     /**
-     * Schedule
-     * Schedule
+     * Schedules
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param roundid Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Examples: &lt;code&gt;100000138&lt;/code&gt;, &lt;code&gt;1000001412&lt;/code&gt;, etc (required)
+     * @param season Year of the season (with optional season type).&lt;br&gt;Examples: &lt;code&gt;2018&lt;/code&gt;, &lt;code&gt;2018PRE&lt;/code&gt;, &lt;code&gt;2018POST&lt;/code&gt;, &lt;code&gt;2018STAR&lt;/code&gt;, &lt;code&gt;2019&lt;/code&gt;, etc. (required)
      * @return List&lt;Game&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1582,16 +1448,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public List<Game> schedule(String format, String roundid) throws ApiException {
-        ApiResponse<List<Game>> localVarResp = scheduleWithHttpInfo(format, roundid);
+    public List<Game> schedules(String format, String season) throws ApiException {
+        ApiResponse<List<Game>> localVarResp = schedulesWithHttpInfo(format, season);
         return localVarResp.getData();
     }
 
     /**
-     * Schedule
-     * Schedule
+     * Schedules
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param roundid Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Examples: &lt;code&gt;100000138&lt;/code&gt;, &lt;code&gt;1000001412&lt;/code&gt;, etc (required)
+     * @param season Year of the season (with optional season type).&lt;br&gt;Examples: &lt;code&gt;2018&lt;/code&gt;, &lt;code&gt;2018PRE&lt;/code&gt;, &lt;code&gt;2018POST&lt;/code&gt;, &lt;code&gt;2018STAR&lt;/code&gt;, &lt;code&gt;2019&lt;/code&gt;, etc. (required)
      * @return ApiResponse&lt;List&lt;Game&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1600,17 +1466,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Game>> scheduleWithHttpInfo(String format, String roundid) throws ApiException {
-        okhttp3.Call localVarCall = scheduleValidateBeforeCall(format, roundid, null);
+    public ApiResponse<List<Game>> schedulesWithHttpInfo(String format, String season) throws ApiException {
+        okhttp3.Call localVarCall = schedulesValidateBeforeCall(format, season, null);
         Type localVarReturnType = new TypeToken<List<Game>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Schedule (asynchronously)
-     * Schedule
+     * Schedules (asynchronously)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param roundid Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Examples: &lt;code&gt;100000138&lt;/code&gt;, &lt;code&gt;1000001412&lt;/code&gt;, etc (required)
+     * @param season Year of the season (with optional season type).&lt;br&gt;Examples: &lt;code&gt;2018&lt;/code&gt;, &lt;code&gt;2018PRE&lt;/code&gt;, &lt;code&gt;2018POST&lt;/code&gt;, &lt;code&gt;2018STAR&lt;/code&gt;, &lt;code&gt;2019&lt;/code&gt;, etc. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1620,17 +1486,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scheduleAsync(String format, String roundid, final ApiCallback<List<Game>> _callback) throws ApiException {
+    public okhttp3.Call schedulesAsync(String format, String season, final ApiCallback<List<Game>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = scheduleValidateBeforeCall(format, roundid, _callback);
+        okhttp3.Call localVarCall = schedulesValidateBeforeCall(format, season, _callback);
         Type localVarReturnType = new TypeToken<List<Game>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for seasonTeams
+     * Build call for stadiums
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param seasonid Unique FantasyData Season ID. SeasonIDs can be found in the Competitions and Competition Details endpoints.  Examples: &lt;code&gt;100000023&lt;/code&gt;, &lt;code&gt;100000024&lt;/code&gt;, etc (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1640,7 +1505,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call seasonTeamsCall(String format, String seasonid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call stadiumsCall(String format, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1657,272 +1522,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/{format}/SeasonTeams/{seasonid}"
-            .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()))
-            .replace("{" + "seasonid" + "}", localVarApiClient.escapeString(seasonid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "apiKeyQuery", "apiKeyHeader" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call seasonTeamsValidateBeforeCall(String format, String seasonid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'format' is set
-        if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling seasonTeams(Async)");
-        }
-
-        // verify the required parameter 'seasonid' is set
-        if (seasonid == null) {
-            throw new ApiException("Missing the required parameter 'seasonid' when calling seasonTeams(Async)");
-        }
-
-        return seasonTeamsCall(format, seasonid, _callback);
-
-    }
-
-    /**
-     * Season Teams
-     * Season Teams
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param seasonid Unique FantasyData Season ID. SeasonIDs can be found in the Competitions and Competition Details endpoints.  Examples: &lt;code&gt;100000023&lt;/code&gt;, &lt;code&gt;100000024&lt;/code&gt;, etc (required)
-     * @return List&lt;SeasonTeam&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public List<SeasonTeam> seasonTeams(String format, String seasonid) throws ApiException {
-        ApiResponse<List<SeasonTeam>> localVarResp = seasonTeamsWithHttpInfo(format, seasonid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Season Teams
-     * Season Teams
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param seasonid Unique FantasyData Season ID. SeasonIDs can be found in the Competitions and Competition Details endpoints.  Examples: &lt;code&gt;100000023&lt;/code&gt;, &lt;code&gt;100000024&lt;/code&gt;, etc (required)
-     * @return ApiResponse&lt;List&lt;SeasonTeam&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<List<SeasonTeam>> seasonTeamsWithHttpInfo(String format, String seasonid) throws ApiException {
-        okhttp3.Call localVarCall = seasonTeamsValidateBeforeCall(format, seasonid, null);
-        Type localVarReturnType = new TypeToken<List<SeasonTeam>>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Season Teams (asynchronously)
-     * Season Teams
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param seasonid Unique FantasyData Season ID. SeasonIDs can be found in the Competitions and Competition Details endpoints.  Examples: &lt;code&gt;100000023&lt;/code&gt;, &lt;code&gt;100000024&lt;/code&gt;, etc (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call seasonTeamsAsync(String format, String seasonid, final ApiCallback<List<SeasonTeam>> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = seasonTeamsValidateBeforeCall(format, seasonid, _callback);
-        Type localVarReturnType = new TypeToken<List<SeasonTeam>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for standings
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param roundid Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Example: &lt;code&gt;100000138&lt;/code&gt;, etc (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call standingsCall(String format, String roundid, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/{format}/Standings/{roundid}"
-            .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()))
-            .replace("{" + "roundid" + "}", localVarApiClient.escapeString(roundid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "apiKeyQuery", "apiKeyHeader" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call standingsValidateBeforeCall(String format, String roundid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'format' is set
-        if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling standings(Async)");
-        }
-
-        // verify the required parameter 'roundid' is set
-        if (roundid == null) {
-            throw new ApiException("Missing the required parameter 'roundid' when calling standings(Async)");
-        }
-
-        return standingsCall(format, roundid, _callback);
-
-    }
-
-    /**
-     * Standings
-     * Standings
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param roundid Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Example: &lt;code&gt;100000138&lt;/code&gt;, etc (required)
-     * @return List&lt;Standing&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public List<Standing> standings(String format, String roundid) throws ApiException {
-        ApiResponse<List<Standing>> localVarResp = standingsWithHttpInfo(format, roundid);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Standings
-     * Standings
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param roundid Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Example: &lt;code&gt;100000138&lt;/code&gt;, etc (required)
-     * @return ApiResponse&lt;List&lt;Standing&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<List<Standing>> standingsWithHttpInfo(String format, String roundid) throws ApiException {
-        okhttp3.Call localVarCall = standingsValidateBeforeCall(format, roundid, null);
-        Type localVarReturnType = new TypeToken<List<Standing>>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Standings (asynchronously)
-     * Standings
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param roundid Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Example: &lt;code&gt;100000138&lt;/code&gt;, etc (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call standingsAsync(String format, String roundid, final ApiCallback<List<Standing>> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = standingsValidateBeforeCall(format, roundid, _callback);
-        Type localVarReturnType = new TypeToken<List<Standing>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for teams
-     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call teamsCall(String format, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/{format}/Teams"
+        String localVarPath = "/{format}/Stadiums"
             .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1951,19 +1551,694 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call teamsValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call stadiumsValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'format' is set
         if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling teams(Async)");
+            throw new ApiException("Missing the required parameter 'format' when calling stadiums(Async)");
         }
 
-        return teamsCall(format, _callback);
+        return stadiumsCall(format, _callback);
 
     }
 
     /**
-     * Teams
-     * Teams
+     * Stadiums
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @return List&lt;Stadium&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<Stadium> stadiums(String format) throws ApiException {
+        ApiResponse<List<Stadium>> localVarResp = stadiumsWithHttpInfo(format);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Stadiums
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @return ApiResponse&lt;List&lt;Stadium&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<Stadium>> stadiumsWithHttpInfo(String format) throws ApiException {
+        okhttp3.Call localVarCall = stadiumsValidateBeforeCall(format, null);
+        Type localVarReturnType = new TypeToken<List<Stadium>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Stadiums (asynchronously)
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stadiumsAsync(String format, final ApiCallback<List<Stadium>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = stadiumsValidateBeforeCall(format, _callback);
+        Type localVarReturnType = new TypeToken<List<Stadium>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for standings
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Year of the season. &lt;br&gt;Examples: &lt;code&gt;2017&lt;/code&gt;, &lt;code&gt;2018&lt;/code&gt;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call standingsCall(String format, String season, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/{format}/Standings/{season}"
+            .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()))
+            .replace("{" + "season" + "}", localVarApiClient.escapeString(season.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "apiKeyQuery", "apiKeyHeader" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call standingsValidateBeforeCall(String format, String season, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'format' is set
+        if (format == null) {
+            throw new ApiException("Missing the required parameter 'format' when calling standings(Async)");
+        }
+
+        // verify the required parameter 'season' is set
+        if (season == null) {
+            throw new ApiException("Missing the required parameter 'season' when calling standings(Async)");
+        }
+
+        return standingsCall(format, season, _callback);
+
+    }
+
+    /**
+     * Standings
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Year of the season. &lt;br&gt;Examples: &lt;code&gt;2017&lt;/code&gt;, &lt;code&gt;2018&lt;/code&gt;. (required)
+     * @return List&lt;Standing&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<Standing> standings(String format, String season) throws ApiException {
+        ApiResponse<List<Standing>> localVarResp = standingsWithHttpInfo(format, season);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Standings
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Year of the season. &lt;br&gt;Examples: &lt;code&gt;2017&lt;/code&gt;, &lt;code&gt;2018&lt;/code&gt;. (required)
+     * @return ApiResponse&lt;List&lt;Standing&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<Standing>> standingsWithHttpInfo(String format, String season) throws ApiException {
+        okhttp3.Call localVarCall = standingsValidateBeforeCall(format, season, null);
+        Type localVarReturnType = new TypeToken<List<Standing>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Standings (asynchronously)
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Year of the season. &lt;br&gt;Examples: &lt;code&gt;2017&lt;/code&gt;, &lt;code&gt;2018&lt;/code&gt;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call standingsAsync(String format, String season, final ApiCallback<List<Standing>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = standingsValidateBeforeCall(format, season, _callback);
+        Type localVarReturnType = new TypeToken<List<Standing>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for teamGameLogsBySeason
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Season to get games from. Example &lt;code&gt;2019POST&lt;/code&gt;, &lt;code&gt;2020&lt;/code&gt; (required)
+     * @param teamid Unique ID of team.  Example &lt;code&gt; 12 &lt;/code&gt; (required)
+     * @param numberofgames How many games to return. Example &lt;code&gt;all&lt;/code&gt;, &lt;code&gt;10&lt;/code&gt;, &lt;code&gt;25&lt;/code&gt; (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call teamGameLogsBySeasonCall(String format, String season, String teamid, String numberofgames, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}"
+            .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()))
+            .replace("{" + "season" + "}", localVarApiClient.escapeString(season.toString()))
+            .replace("{" + "teamid" + "}", localVarApiClient.escapeString(teamid.toString()))
+            .replace("{" + "numberofgames" + "}", localVarApiClient.escapeString(numberofgames.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "apiKeyQuery", "apiKeyHeader" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call teamGameLogsBySeasonValidateBeforeCall(String format, String season, String teamid, String numberofgames, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'format' is set
+        if (format == null) {
+            throw new ApiException("Missing the required parameter 'format' when calling teamGameLogsBySeason(Async)");
+        }
+
+        // verify the required parameter 'season' is set
+        if (season == null) {
+            throw new ApiException("Missing the required parameter 'season' when calling teamGameLogsBySeason(Async)");
+        }
+
+        // verify the required parameter 'teamid' is set
+        if (teamid == null) {
+            throw new ApiException("Missing the required parameter 'teamid' when calling teamGameLogsBySeason(Async)");
+        }
+
+        // verify the required parameter 'numberofgames' is set
+        if (numberofgames == null) {
+            throw new ApiException("Missing the required parameter 'numberofgames' when calling teamGameLogsBySeason(Async)");
+        }
+
+        return teamGameLogsBySeasonCall(format, season, teamid, numberofgames, _callback);
+
+    }
+
+    /**
+     * Team Game Logs By Season
+     * Game by game log of total team statistics.
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Season to get games from. Example &lt;code&gt;2019POST&lt;/code&gt;, &lt;code&gt;2020&lt;/code&gt; (required)
+     * @param teamid Unique ID of team.  Example &lt;code&gt; 12 &lt;/code&gt; (required)
+     * @param numberofgames How many games to return. Example &lt;code&gt;all&lt;/code&gt;, &lt;code&gt;10&lt;/code&gt;, &lt;code&gt;25&lt;/code&gt; (required)
+     * @return List&lt;TeamGame&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<TeamGame> teamGameLogsBySeason(String format, String season, String teamid, String numberofgames) throws ApiException {
+        ApiResponse<List<TeamGame>> localVarResp = teamGameLogsBySeasonWithHttpInfo(format, season, teamid, numberofgames);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Team Game Logs By Season
+     * Game by game log of total team statistics.
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Season to get games from. Example &lt;code&gt;2019POST&lt;/code&gt;, &lt;code&gt;2020&lt;/code&gt; (required)
+     * @param teamid Unique ID of team.  Example &lt;code&gt; 12 &lt;/code&gt; (required)
+     * @param numberofgames How many games to return. Example &lt;code&gt;all&lt;/code&gt;, &lt;code&gt;10&lt;/code&gt;, &lt;code&gt;25&lt;/code&gt; (required)
+     * @return ApiResponse&lt;List&lt;TeamGame&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<TeamGame>> teamGameLogsBySeasonWithHttpInfo(String format, String season, String teamid, String numberofgames) throws ApiException {
+        okhttp3.Call localVarCall = teamGameLogsBySeasonValidateBeforeCall(format, season, teamid, numberofgames, null);
+        Type localVarReturnType = new TypeToken<List<TeamGame>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Team Game Logs By Season (asynchronously)
+     * Game by game log of total team statistics.
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Season to get games from. Example &lt;code&gt;2019POST&lt;/code&gt;, &lt;code&gt;2020&lt;/code&gt; (required)
+     * @param teamid Unique ID of team.  Example &lt;code&gt; 12 &lt;/code&gt; (required)
+     * @param numberofgames How many games to return. Example &lt;code&gt;all&lt;/code&gt;, &lt;code&gt;10&lt;/code&gt;, &lt;code&gt;25&lt;/code&gt; (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call teamGameLogsBySeasonAsync(String format, String season, String teamid, String numberofgames, final ApiCallback<List<TeamGame>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = teamGameLogsBySeasonValidateBeforeCall(format, season, teamid, numberofgames, _callback);
+        Type localVarReturnType = new TypeToken<List<TeamGame>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for teamGameStatsByDate
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call teamGameStatsByDateCall(String format, String date, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/{format}/TeamGameStatsByDate/{date}"
+            .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()))
+            .replace("{" + "date" + "}", localVarApiClient.escapeString(date.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "apiKeyQuery", "apiKeyHeader" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call teamGameStatsByDateValidateBeforeCall(String format, String date, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'format' is set
+        if (format == null) {
+            throw new ApiException("Missing the required parameter 'format' when calling teamGameStatsByDate(Async)");
+        }
+
+        // verify the required parameter 'date' is set
+        if (date == null) {
+            throw new ApiException("Missing the required parameter 'date' when calling teamGameStatsByDate(Async)");
+        }
+
+        return teamGameStatsByDateCall(format, date, _callback);
+
+    }
+
+    /**
+     * Team Game Stats by Date
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
+     * @return List&lt;TeamGame&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<TeamGame> teamGameStatsByDate(String format, String date) throws ApiException {
+        ApiResponse<List<TeamGame>> localVarResp = teamGameStatsByDateWithHttpInfo(format, date);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Team Game Stats by Date
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
+     * @return ApiResponse&lt;List&lt;TeamGame&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<TeamGame>> teamGameStatsByDateWithHttpInfo(String format, String date) throws ApiException {
+        okhttp3.Call localVarCall = teamGameStatsByDateValidateBeforeCall(format, date, null);
+        Type localVarReturnType = new TypeToken<List<TeamGame>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Team Game Stats by Date (asynchronously)
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param date The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call teamGameStatsByDateAsync(String format, String date, final ApiCallback<List<TeamGame>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = teamGameStatsByDateValidateBeforeCall(format, date, _callback);
+        Type localVarReturnType = new TypeToken<List<TeamGame>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for teamSeasonStats
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Year of the season. &lt;br&gt;Examples: &lt;code&gt;2017&lt;/code&gt;, &lt;code&gt;2018&lt;/code&gt;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call teamSeasonStatsCall(String format, String season, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/{format}/TeamSeasonStats/{season}"
+            .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()))
+            .replace("{" + "season" + "}", localVarApiClient.escapeString(season.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "apiKeyQuery", "apiKeyHeader" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call teamSeasonStatsValidateBeforeCall(String format, String season, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'format' is set
+        if (format == null) {
+            throw new ApiException("Missing the required parameter 'format' when calling teamSeasonStats(Async)");
+        }
+
+        // verify the required parameter 'season' is set
+        if (season == null) {
+            throw new ApiException("Missing the required parameter 'season' when calling teamSeasonStats(Async)");
+        }
+
+        return teamSeasonStatsCall(format, season, _callback);
+
+    }
+
+    /**
+     * Team Season Stats
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Year of the season. &lt;br&gt;Examples: &lt;code&gt;2017&lt;/code&gt;, &lt;code&gt;2018&lt;/code&gt;. (required)
+     * @return List&lt;TeamSeason&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<TeamSeason> teamSeasonStats(String format, String season) throws ApiException {
+        ApiResponse<List<TeamSeason>> localVarResp = teamSeasonStatsWithHttpInfo(format, season);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Team Season Stats
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Year of the season. &lt;br&gt;Examples: &lt;code&gt;2017&lt;/code&gt;, &lt;code&gt;2018&lt;/code&gt;. (required)
+     * @return ApiResponse&lt;List&lt;TeamSeason&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<TeamSeason>> teamSeasonStatsWithHttpInfo(String format, String season) throws ApiException {
+        okhttp3.Call localVarCall = teamSeasonStatsValidateBeforeCall(format, season, null);
+        Type localVarReturnType = new TypeToken<List<TeamSeason>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Team Season Stats (asynchronously)
+     * 
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param season Year of the season. &lt;br&gt;Examples: &lt;code&gt;2017&lt;/code&gt;, &lt;code&gt;2018&lt;/code&gt;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call teamSeasonStatsAsync(String format, String season, final ApiCallback<List<TeamSeason>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = teamSeasonStatsValidateBeforeCall(format, season, _callback);
+        Type localVarReturnType = new TypeToken<List<TeamSeason>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for teamsActive
+     * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call teamsActiveCall(String format, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/{format}/teams"
+            .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "apiKeyQuery", "apiKeyHeader" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call teamsActiveValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'format' is set
+        if (format == null) {
+            throw new ApiException("Missing the required parameter 'format' when calling teamsActive(Async)");
+        }
+
+        return teamsActiveCall(format, _callback);
+
+    }
+
+    /**
+     * Teams (Active)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @return List&lt;Team&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1973,14 +2248,14 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public List<Team> teams(String format) throws ApiException {
-        ApiResponse<List<Team>> localVarResp = teamsWithHttpInfo(format);
+    public List<Team> teamsActive(String format) throws ApiException {
+        ApiResponse<List<Team>> localVarResp = teamsActiveWithHttpInfo(format);
         return localVarResp.getData();
     }
 
     /**
-     * Teams
-     * Teams
+     * Teams (Active)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @return ApiResponse&lt;List&lt;Team&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1990,15 +2265,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Team>> teamsWithHttpInfo(String format) throws ApiException {
-        okhttp3.Call localVarCall = teamsValidateBeforeCall(format, null);
+    public ApiResponse<List<Team>> teamsActiveWithHttpInfo(String format) throws ApiException {
+        okhttp3.Call localVarCall = teamsActiveValidateBeforeCall(format, null);
         Type localVarReturnType = new TypeToken<List<Team>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Teams (asynchronously)
-     * Teams
+     * Teams (Active) (asynchronously)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2009,15 +2284,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call teamsAsync(String format, final ApiCallback<List<Team>> _callback) throws ApiException {
+    public okhttp3.Call teamsActiveAsync(String format, final ApiCallback<List<Team>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = teamsValidateBeforeCall(format, _callback);
+        okhttp3.Call localVarCall = teamsActiveValidateBeforeCall(format, _callback);
         Type localVarReturnType = new TypeToken<List<Team>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for venues
+     * Build call for teamsAll
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2028,7 +2303,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call venuesCall(String format, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call teamsAllCall(String format, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2045,7 +2320,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/{format}/Venues"
+        String localVarPath = "/{format}/AllTeams"
             .replace("{" + "format" + "}", localVarApiClient.escapeString(format.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2074,21 +2349,21 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call venuesValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call teamsAllValidateBeforeCall(String format, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'format' is set
         if (format == null) {
-            throw new ApiException("Missing the required parameter 'format' when calling venues(Async)");
+            throw new ApiException("Missing the required parameter 'format' when calling teamsAll(Async)");
         }
 
-        return venuesCall(format, _callback);
+        return teamsAllCall(format, _callback);
 
     }
 
     /**
-     * Venues
-     * Venues
+     * Teams (All)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return List&lt;Venue&gt;
+     * @return List&lt;Team&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2096,16 +2371,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public List<Venue> venues(String format) throws ApiException {
-        ApiResponse<List<Venue>> localVarResp = venuesWithHttpInfo(format);
+    public List<Team> teamsAll(String format) throws ApiException {
+        ApiResponse<List<Team>> localVarResp = teamsAllWithHttpInfo(format);
         return localVarResp.getData();
     }
 
     /**
-     * Venues
-     * Venues
+     * Teams (All)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
-     * @return ApiResponse&lt;List&lt;Venue&gt;&gt;
+     * @return ApiResponse&lt;List&lt;Team&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2113,15 +2388,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Venue>> venuesWithHttpInfo(String format) throws ApiException {
-        okhttp3.Call localVarCall = venuesValidateBeforeCall(format, null);
-        Type localVarReturnType = new TypeToken<List<Venue>>(){}.getType();
+    public ApiResponse<List<Team>> teamsAllWithHttpInfo(String format) throws ApiException {
+        okhttp3.Call localVarCall = teamsAllValidateBeforeCall(format, null);
+        Type localVarReturnType = new TypeToken<List<Team>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Venues (asynchronously)
-     * Venues
+     * Teams (All) (asynchronously)
+     * 
      * @param format Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2132,10 +2407,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call venuesAsync(String format, final ApiCallback<List<Venue>> _callback) throws ApiException {
+    public okhttp3.Call teamsAllAsync(String format, final ApiCallback<List<Team>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = venuesValidateBeforeCall(format, _callback);
-        Type localVarReturnType = new TypeToken<List<Venue>>(){}.getType();
+        okhttp3.Call localVarCall = teamsAllValidateBeforeCall(format, _callback);
+        Type localVarReturnType = new TypeToken<List<Team>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

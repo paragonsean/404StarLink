@@ -1,6 +1,6 @@
 /*
- * LoL v3 Scores
- * LoL v3 Scores
+ * MLB v3 Scores
+ * MLB scores API.
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -49,43 +49,31 @@ import org.openapitools.client.JSON;
 /**
  * Team
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:13:42.446348-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:14:10.079908-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Team {
   public static final String SERIALIZED_NAME_ACTIVE = "Active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
 
-  public static final String SERIALIZED_NAME_AREA_ID = "AreaId";
-  @SerializedName(SERIALIZED_NAME_AREA_ID)
-  private Integer areaId;
+  public static final String SERIALIZED_NAME_CITY = "City";
+  @SerializedName(SERIALIZED_NAME_CITY)
+  private String city;
 
-  public static final String SERIALIZED_NAME_AREA_NAME = "AreaName";
-  @SerializedName(SERIALIZED_NAME_AREA_NAME)
-  private String areaName;
+  public static final String SERIALIZED_NAME_DIVISION = "Division";
+  @SerializedName(SERIALIZED_NAME_DIVISION)
+  private String division;
 
-  public static final String SERIALIZED_NAME_EMAIL = "Email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
-
-  public static final String SERIALIZED_NAME_FACEBOOK = "Facebook";
-  @SerializedName(SERIALIZED_NAME_FACEBOOK)
-  private String facebook;
-
-  public static final String SERIALIZED_NAME_FOUNDED = "Founded";
-  @SerializedName(SERIALIZED_NAME_FOUNDED)
-  private Integer founded;
-
-  public static final String SERIALIZED_NAME_GENDER = "Gender";
-  @SerializedName(SERIALIZED_NAME_GENDER)
-  private String gender;
-
-  public static final String SERIALIZED_NAME_INSTAGRAM = "Instagram";
-  @SerializedName(SERIALIZED_NAME_INSTAGRAM)
-  private String instagram;
+  public static final String SERIALIZED_NAME_GLOBAL_TEAM_I_D = "GlobalTeamID";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_TEAM_I_D)
+  private Integer globalTeamID;
 
   public static final String SERIALIZED_NAME_KEY = "Key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
+
+  public static final String SERIALIZED_NAME_LEAGUE = "League";
+  @SerializedName(SERIALIZED_NAME_LEAGUE)
+  private String league;
 
   public static final String SERIALIZED_NAME_NAME = "Name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -103,33 +91,25 @@ public class Team {
   @SerializedName(SERIALIZED_NAME_SECONDARY_COLOR)
   private String secondaryColor;
 
-  public static final String SERIALIZED_NAME_SHORT_NAME = "ShortName";
-  @SerializedName(SERIALIZED_NAME_SHORT_NAME)
-  private String shortName;
+  public static final String SERIALIZED_NAME_STADIUM_I_D = "StadiumID";
+  @SerializedName(SERIALIZED_NAME_STADIUM_I_D)
+  private Integer stadiumID;
 
-  public static final String SERIALIZED_NAME_TEAM_ID = "TeamId";
-  @SerializedName(SERIALIZED_NAME_TEAM_ID)
-  private Integer teamId;
+  public static final String SERIALIZED_NAME_TEAM_I_D = "TeamID";
+  @SerializedName(SERIALIZED_NAME_TEAM_I_D)
+  private Integer teamID;
 
   public static final String SERIALIZED_NAME_TERTIARY_COLOR = "TertiaryColor";
   @SerializedName(SERIALIZED_NAME_TERTIARY_COLOR)
   private String tertiaryColor;
 
-  public static final String SERIALIZED_NAME_TWITTER = "Twitter";
-  @SerializedName(SERIALIZED_NAME_TWITTER)
-  private String twitter;
+  public static final String SERIALIZED_NAME_WIKIPEDIA_LOGO_URL = "WikipediaLogoUrl";
+  @SerializedName(SERIALIZED_NAME_WIKIPEDIA_LOGO_URL)
+  private String wikipediaLogoUrl;
 
-  public static final String SERIALIZED_NAME_TYPE = "Type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
-
-  public static final String SERIALIZED_NAME_WEBSITE = "Website";
-  @SerializedName(SERIALIZED_NAME_WEBSITE)
-  private String website;
-
-  public static final String SERIALIZED_NAME_YOU_TUBE = "YouTube";
-  @SerializedName(SERIALIZED_NAME_YOU_TUBE)
-  private String youTube;
+  public static final String SERIALIZED_NAME_WIKIPEDIA_WORD_MARK_URL = "WikipediaWordMarkUrl";
+  @SerializedName(SERIALIZED_NAME_WIKIPEDIA_WORD_MARK_URL)
+  private String wikipediaWordMarkUrl;
 
   public Team() {
   }
@@ -153,136 +133,60 @@ public class Team {
   }
 
 
-  public Team areaId(Integer areaId) {
-    this.areaId = areaId;
+  public Team city(String city) {
+    this.city = city;
     return this;
   }
 
   /**
-   * Get areaId
-   * @return areaId
+   * Get city
+   * @return city
    */
   @javax.annotation.Nullable
-  public Integer getAreaId() {
-    return areaId;
+  public String getCity() {
+    return city;
   }
 
-  public void setAreaId(Integer areaId) {
-    this.areaId = areaId;
+  public void setCity(String city) {
+    this.city = city;
   }
 
 
-  public Team areaName(String areaName) {
-    this.areaName = areaName;
+  public Team division(String division) {
+    this.division = division;
     return this;
   }
 
   /**
-   * Get areaName
-   * @return areaName
+   * Get division
+   * @return division
    */
   @javax.annotation.Nullable
-  public String getAreaName() {
-    return areaName;
+  public String getDivision() {
+    return division;
   }
 
-  public void setAreaName(String areaName) {
-    this.areaName = areaName;
+  public void setDivision(String division) {
+    this.division = division;
   }
 
 
-  public Team email(String email) {
-    this.email = email;
+  public Team globalTeamID(Integer globalTeamID) {
+    this.globalTeamID = globalTeamID;
     return this;
   }
 
   /**
-   * Get email
-   * @return email
+   * Get globalTeamID
+   * @return globalTeamID
    */
   @javax.annotation.Nullable
-  public String getEmail() {
-    return email;
+  public Integer getGlobalTeamID() {
+    return globalTeamID;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public Team facebook(String facebook) {
-    this.facebook = facebook;
-    return this;
-  }
-
-  /**
-   * Get facebook
-   * @return facebook
-   */
-  @javax.annotation.Nullable
-  public String getFacebook() {
-    return facebook;
-  }
-
-  public void setFacebook(String facebook) {
-    this.facebook = facebook;
-  }
-
-
-  public Team founded(Integer founded) {
-    this.founded = founded;
-    return this;
-  }
-
-  /**
-   * Get founded
-   * @return founded
-   */
-  @javax.annotation.Nullable
-  public Integer getFounded() {
-    return founded;
-  }
-
-  public void setFounded(Integer founded) {
-    this.founded = founded;
-  }
-
-
-  public Team gender(String gender) {
-    this.gender = gender;
-    return this;
-  }
-
-  /**
-   * Get gender
-   * @return gender
-   */
-  @javax.annotation.Nullable
-  public String getGender() {
-    return gender;
-  }
-
-  public void setGender(String gender) {
-    this.gender = gender;
-  }
-
-
-  public Team instagram(String instagram) {
-    this.instagram = instagram;
-    return this;
-  }
-
-  /**
-   * Get instagram
-   * @return instagram
-   */
-  @javax.annotation.Nullable
-  public String getInstagram() {
-    return instagram;
-  }
-
-  public void setInstagram(String instagram) {
-    this.instagram = instagram;
+  public void setGlobalTeamID(Integer globalTeamID) {
+    this.globalTeamID = globalTeamID;
   }
 
 
@@ -302,6 +206,25 @@ public class Team {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public Team league(String league) {
+    this.league = league;
+    return this;
+  }
+
+  /**
+   * Get league
+   * @return league
+   */
+  @javax.annotation.Nullable
+  public String getLeague() {
+    return league;
+  }
+
+  public void setLeague(String league) {
+    this.league = league;
   }
 
 
@@ -381,41 +304,41 @@ public class Team {
   }
 
 
-  public Team shortName(String shortName) {
-    this.shortName = shortName;
+  public Team stadiumID(Integer stadiumID) {
+    this.stadiumID = stadiumID;
     return this;
   }
 
   /**
-   * Get shortName
-   * @return shortName
+   * Get stadiumID
+   * @return stadiumID
    */
   @javax.annotation.Nullable
-  public String getShortName() {
-    return shortName;
+  public Integer getStadiumID() {
+    return stadiumID;
   }
 
-  public void setShortName(String shortName) {
-    this.shortName = shortName;
+  public void setStadiumID(Integer stadiumID) {
+    this.stadiumID = stadiumID;
   }
 
 
-  public Team teamId(Integer teamId) {
-    this.teamId = teamId;
+  public Team teamID(Integer teamID) {
+    this.teamID = teamID;
     return this;
   }
 
   /**
-   * Get teamId
-   * @return teamId
+   * Get teamID
+   * @return teamID
    */
   @javax.annotation.Nullable
-  public Integer getTeamId() {
-    return teamId;
+  public Integer getTeamID() {
+    return teamID;
   }
 
-  public void setTeamId(Integer teamId) {
-    this.teamId = teamId;
+  public void setTeamID(Integer teamID) {
+    this.teamID = teamID;
   }
 
 
@@ -438,79 +361,41 @@ public class Team {
   }
 
 
-  public Team twitter(String twitter) {
-    this.twitter = twitter;
+  public Team wikipediaLogoUrl(String wikipediaLogoUrl) {
+    this.wikipediaLogoUrl = wikipediaLogoUrl;
     return this;
   }
 
   /**
-   * Get twitter
-   * @return twitter
+   * Get wikipediaLogoUrl
+   * @return wikipediaLogoUrl
    */
   @javax.annotation.Nullable
-  public String getTwitter() {
-    return twitter;
+  public String getWikipediaLogoUrl() {
+    return wikipediaLogoUrl;
   }
 
-  public void setTwitter(String twitter) {
-    this.twitter = twitter;
+  public void setWikipediaLogoUrl(String wikipediaLogoUrl) {
+    this.wikipediaLogoUrl = wikipediaLogoUrl;
   }
 
 
-  public Team type(String type) {
-    this.type = type;
+  public Team wikipediaWordMarkUrl(String wikipediaWordMarkUrl) {
+    this.wikipediaWordMarkUrl = wikipediaWordMarkUrl;
     return this;
   }
 
   /**
-   * Get type
-   * @return type
+   * Get wikipediaWordMarkUrl
+   * @return wikipediaWordMarkUrl
    */
   @javax.annotation.Nullable
-  public String getType() {
-    return type;
+  public String getWikipediaWordMarkUrl() {
+    return wikipediaWordMarkUrl;
   }
 
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public Team website(String website) {
-    this.website = website;
-    return this;
-  }
-
-  /**
-   * Get website
-   * @return website
-   */
-  @javax.annotation.Nullable
-  public String getWebsite() {
-    return website;
-  }
-
-  public void setWebsite(String website) {
-    this.website = website;
-  }
-
-
-  public Team youTube(String youTube) {
-    this.youTube = youTube;
-    return this;
-  }
-
-  /**
-   * Get youTube
-   * @return youTube
-   */
-  @javax.annotation.Nullable
-  public String getYouTube() {
-    return youTube;
-  }
-
-  public void setYouTube(String youTube) {
-    this.youTube = youTube;
+  public void setWikipediaWordMarkUrl(String wikipediaWordMarkUrl) {
+    this.wikipediaWordMarkUrl = wikipediaWordMarkUrl;
   }
 
 
@@ -525,25 +410,20 @@ public class Team {
     }
     Team team = (Team) o;
     return Objects.equals(this.active, team.active) &&
-        Objects.equals(this.areaId, team.areaId) &&
-        Objects.equals(this.areaName, team.areaName) &&
-        Objects.equals(this.email, team.email) &&
-        Objects.equals(this.facebook, team.facebook) &&
-        Objects.equals(this.founded, team.founded) &&
-        Objects.equals(this.gender, team.gender) &&
-        Objects.equals(this.instagram, team.instagram) &&
+        Objects.equals(this.city, team.city) &&
+        Objects.equals(this.division, team.division) &&
+        Objects.equals(this.globalTeamID, team.globalTeamID) &&
         Objects.equals(this.key, team.key) &&
+        Objects.equals(this.league, team.league) &&
         Objects.equals(this.name, team.name) &&
         Objects.equals(this.primaryColor, team.primaryColor) &&
         Objects.equals(this.quaternaryColor, team.quaternaryColor) &&
         Objects.equals(this.secondaryColor, team.secondaryColor) &&
-        Objects.equals(this.shortName, team.shortName) &&
-        Objects.equals(this.teamId, team.teamId) &&
+        Objects.equals(this.stadiumID, team.stadiumID) &&
+        Objects.equals(this.teamID, team.teamID) &&
         Objects.equals(this.tertiaryColor, team.tertiaryColor) &&
-        Objects.equals(this.twitter, team.twitter) &&
-        Objects.equals(this.type, team.type) &&
-        Objects.equals(this.website, team.website) &&
-        Objects.equals(this.youTube, team.youTube);
+        Objects.equals(this.wikipediaLogoUrl, team.wikipediaLogoUrl) &&
+        Objects.equals(this.wikipediaWordMarkUrl, team.wikipediaWordMarkUrl);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -552,7 +432,7 @@ public class Team {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, areaId, areaName, email, facebook, founded, gender, instagram, key, name, primaryColor, quaternaryColor, secondaryColor, shortName, teamId, tertiaryColor, twitter, type, website, youTube);
+    return Objects.hash(active, city, division, globalTeamID, key, league, name, primaryColor, quaternaryColor, secondaryColor, stadiumID, teamID, tertiaryColor, wikipediaLogoUrl, wikipediaWordMarkUrl);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -567,25 +447,20 @@ public class Team {
     StringBuilder sb = new StringBuilder();
     sb.append("class Team {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
-    sb.append("    areaId: ").append(toIndentedString(areaId)).append("\n");
-    sb.append("    areaName: ").append(toIndentedString(areaName)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    facebook: ").append(toIndentedString(facebook)).append("\n");
-    sb.append("    founded: ").append(toIndentedString(founded)).append("\n");
-    sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
-    sb.append("    instagram: ").append(toIndentedString(instagram)).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    division: ").append(toIndentedString(division)).append("\n");
+    sb.append("    globalTeamID: ").append(toIndentedString(globalTeamID)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    league: ").append(toIndentedString(league)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    primaryColor: ").append(toIndentedString(primaryColor)).append("\n");
     sb.append("    quaternaryColor: ").append(toIndentedString(quaternaryColor)).append("\n");
     sb.append("    secondaryColor: ").append(toIndentedString(secondaryColor)).append("\n");
-    sb.append("    shortName: ").append(toIndentedString(shortName)).append("\n");
-    sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
+    sb.append("    stadiumID: ").append(toIndentedString(stadiumID)).append("\n");
+    sb.append("    teamID: ").append(toIndentedString(teamID)).append("\n");
     sb.append("    tertiaryColor: ").append(toIndentedString(tertiaryColor)).append("\n");
-    sb.append("    twitter: ").append(toIndentedString(twitter)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    website: ").append(toIndentedString(website)).append("\n");
-    sb.append("    youTube: ").append(toIndentedString(youTube)).append("\n");
+    sb.append("    wikipediaLogoUrl: ").append(toIndentedString(wikipediaLogoUrl)).append("\n");
+    sb.append("    wikipediaWordMarkUrl: ").append(toIndentedString(wikipediaWordMarkUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -609,25 +484,20 @@ public class Team {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("Active");
-    openapiFields.add("AreaId");
-    openapiFields.add("AreaName");
-    openapiFields.add("Email");
-    openapiFields.add("Facebook");
-    openapiFields.add("Founded");
-    openapiFields.add("Gender");
-    openapiFields.add("Instagram");
+    openapiFields.add("City");
+    openapiFields.add("Division");
+    openapiFields.add("GlobalTeamID");
     openapiFields.add("Key");
+    openapiFields.add("League");
     openapiFields.add("Name");
     openapiFields.add("PrimaryColor");
     openapiFields.add("QuaternaryColor");
     openapiFields.add("SecondaryColor");
-    openapiFields.add("ShortName");
-    openapiFields.add("TeamId");
+    openapiFields.add("StadiumID");
+    openapiFields.add("TeamID");
     openapiFields.add("TertiaryColor");
-    openapiFields.add("Twitter");
-    openapiFields.add("Type");
-    openapiFields.add("Website");
-    openapiFields.add("YouTube");
+    openapiFields.add("WikipediaLogoUrl");
+    openapiFields.add("WikipediaWordMarkUrl");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -654,23 +524,17 @@ public class Team {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("AreaName") != null && !jsonObj.get("AreaName").isJsonNull()) && !jsonObj.get("AreaName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `AreaName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("AreaName").toString()));
+      if ((jsonObj.get("City") != null && !jsonObj.get("City").isJsonNull()) && !jsonObj.get("City").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `City` to be a primitive type in the JSON string but got `%s`", jsonObj.get("City").toString()));
       }
-      if ((jsonObj.get("Email") != null && !jsonObj.get("Email").isJsonNull()) && !jsonObj.get("Email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Email").toString()));
-      }
-      if ((jsonObj.get("Facebook") != null && !jsonObj.get("Facebook").isJsonNull()) && !jsonObj.get("Facebook").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Facebook` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Facebook").toString()));
-      }
-      if ((jsonObj.get("Gender") != null && !jsonObj.get("Gender").isJsonNull()) && !jsonObj.get("Gender").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Gender` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Gender").toString()));
-      }
-      if ((jsonObj.get("Instagram") != null && !jsonObj.get("Instagram").isJsonNull()) && !jsonObj.get("Instagram").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Instagram` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Instagram").toString()));
+      if ((jsonObj.get("Division") != null && !jsonObj.get("Division").isJsonNull()) && !jsonObj.get("Division").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `Division` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Division").toString()));
       }
       if ((jsonObj.get("Key") != null && !jsonObj.get("Key").isJsonNull()) && !jsonObj.get("Key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Key").toString()));
+      }
+      if ((jsonObj.get("League") != null && !jsonObj.get("League").isJsonNull()) && !jsonObj.get("League").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `League` to be a primitive type in the JSON string but got `%s`", jsonObj.get("League").toString()));
       }
       if ((jsonObj.get("Name") != null && !jsonObj.get("Name").isJsonNull()) && !jsonObj.get("Name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Name").toString()));
@@ -684,23 +548,14 @@ public class Team {
       if ((jsonObj.get("SecondaryColor") != null && !jsonObj.get("SecondaryColor").isJsonNull()) && !jsonObj.get("SecondaryColor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `SecondaryColor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SecondaryColor").toString()));
       }
-      if ((jsonObj.get("ShortName") != null && !jsonObj.get("ShortName").isJsonNull()) && !jsonObj.get("ShortName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ShortName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ShortName").toString()));
-      }
       if ((jsonObj.get("TertiaryColor") != null && !jsonObj.get("TertiaryColor").isJsonNull()) && !jsonObj.get("TertiaryColor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `TertiaryColor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TertiaryColor").toString()));
       }
-      if ((jsonObj.get("Twitter") != null && !jsonObj.get("Twitter").isJsonNull()) && !jsonObj.get("Twitter").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Twitter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Twitter").toString()));
+      if ((jsonObj.get("WikipediaLogoUrl") != null && !jsonObj.get("WikipediaLogoUrl").isJsonNull()) && !jsonObj.get("WikipediaLogoUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `WikipediaLogoUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("WikipediaLogoUrl").toString()));
       }
-      if ((jsonObj.get("Type") != null && !jsonObj.get("Type").isJsonNull()) && !jsonObj.get("Type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Type").toString()));
-      }
-      if ((jsonObj.get("Website") != null && !jsonObj.get("Website").isJsonNull()) && !jsonObj.get("Website").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Website` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Website").toString()));
-      }
-      if ((jsonObj.get("YouTube") != null && !jsonObj.get("YouTube").isJsonNull()) && !jsonObj.get("YouTube").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `YouTube` to be a primitive type in the JSON string but got `%s`", jsonObj.get("YouTube").toString()));
+      if ((jsonObj.get("WikipediaWordMarkUrl") != null && !jsonObj.get("WikipediaWordMarkUrl").isJsonNull()) && !jsonObj.get("WikipediaWordMarkUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `WikipediaWordMarkUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("WikipediaWordMarkUrl").toString()));
       }
   }
 

@@ -1,6 +1,6 @@
 /*
- * LoL v3 Scores
- * LoL v3 Scores
+ * MLB v3 Scores
+ * MLB scores API.
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -20,10 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import org.openapitools.client.model.Round;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -52,166 +49,85 @@ import org.openapitools.client.JSON;
 /**
  * Season
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:13:42.446348-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:14:10.079908-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Season {
-  public static final String SERIALIZED_NAME_COMPETITION_ID = "CompetitionId";
-  @SerializedName(SERIALIZED_NAME_COMPETITION_ID)
-  private Integer competitionId;
+  public static final String SERIALIZED_NAME_API_SEASON = "ApiSeason";
+  @SerializedName(SERIALIZED_NAME_API_SEASON)
+  private String apiSeason;
 
-  public static final String SERIALIZED_NAME_COMPETITION_NAME = "CompetitionName";
-  @SerializedName(SERIALIZED_NAME_COMPETITION_NAME)
-  private String competitionName;
+  public static final String SERIALIZED_NAME_POST_SEASON_START_DATE = "PostSeasonStartDate";
+  @SerializedName(SERIALIZED_NAME_POST_SEASON_START_DATE)
+  private String postSeasonStartDate;
 
-  public static final String SERIALIZED_NAME_CURRENT_SEASON = "CurrentSeason";
-  @SerializedName(SERIALIZED_NAME_CURRENT_SEASON)
-  private Boolean currentSeason;
-
-  public static final String SERIALIZED_NAME_END_DATE = "EndDate";
-  @SerializedName(SERIALIZED_NAME_END_DATE)
-  private String endDate;
-
-  public static final String SERIALIZED_NAME_NAME = "Name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_ROUNDS = "Rounds";
-  @SerializedName(SERIALIZED_NAME_ROUNDS)
-  private List<Round> rounds = new ArrayList<>();
+  public static final String SERIALIZED_NAME_REGULAR_SEASON_START_DATE = "RegularSeasonStartDate";
+  @SerializedName(SERIALIZED_NAME_REGULAR_SEASON_START_DATE)
+  private String regularSeasonStartDate;
 
   public static final String SERIALIZED_NAME_SEASON = "Season";
   @SerializedName(SERIALIZED_NAME_SEASON)
   private Integer season;
 
-  public static final String SERIALIZED_NAME_SEASON_ID = "SeasonId";
-  @SerializedName(SERIALIZED_NAME_SEASON_ID)
-  private Integer seasonId;
-
-  public static final String SERIALIZED_NAME_START_DATE = "StartDate";
-  @SerializedName(SERIALIZED_NAME_START_DATE)
-  private String startDate;
+  public static final String SERIALIZED_NAME_SEASON_TYPE = "SeasonType";
+  @SerializedName(SERIALIZED_NAME_SEASON_TYPE)
+  private String seasonType;
 
   public Season() {
   }
 
-  public Season competitionId(Integer competitionId) {
-    this.competitionId = competitionId;
+  public Season apiSeason(String apiSeason) {
+    this.apiSeason = apiSeason;
     return this;
   }
 
   /**
-   * Get competitionId
-   * @return competitionId
+   * Get apiSeason
+   * @return apiSeason
    */
   @javax.annotation.Nullable
-  public Integer getCompetitionId() {
-    return competitionId;
+  public String getApiSeason() {
+    return apiSeason;
   }
 
-  public void setCompetitionId(Integer competitionId) {
-    this.competitionId = competitionId;
+  public void setApiSeason(String apiSeason) {
+    this.apiSeason = apiSeason;
   }
 
 
-  public Season competitionName(String competitionName) {
-    this.competitionName = competitionName;
+  public Season postSeasonStartDate(String postSeasonStartDate) {
+    this.postSeasonStartDate = postSeasonStartDate;
     return this;
   }
 
   /**
-   * Get competitionName
-   * @return competitionName
+   * Get postSeasonStartDate
+   * @return postSeasonStartDate
    */
   @javax.annotation.Nullable
-  public String getCompetitionName() {
-    return competitionName;
+  public String getPostSeasonStartDate() {
+    return postSeasonStartDate;
   }
 
-  public void setCompetitionName(String competitionName) {
-    this.competitionName = competitionName;
+  public void setPostSeasonStartDate(String postSeasonStartDate) {
+    this.postSeasonStartDate = postSeasonStartDate;
   }
 
 
-  public Season currentSeason(Boolean currentSeason) {
-    this.currentSeason = currentSeason;
+  public Season regularSeasonStartDate(String regularSeasonStartDate) {
+    this.regularSeasonStartDate = regularSeasonStartDate;
     return this;
   }
 
   /**
-   * Get currentSeason
-   * @return currentSeason
+   * Get regularSeasonStartDate
+   * @return regularSeasonStartDate
    */
   @javax.annotation.Nullable
-  public Boolean getCurrentSeason() {
-    return currentSeason;
+  public String getRegularSeasonStartDate() {
+    return regularSeasonStartDate;
   }
 
-  public void setCurrentSeason(Boolean currentSeason) {
-    this.currentSeason = currentSeason;
-  }
-
-
-  public Season endDate(String endDate) {
-    this.endDate = endDate;
-    return this;
-  }
-
-  /**
-   * Get endDate
-   * @return endDate
-   */
-  @javax.annotation.Nullable
-  public String getEndDate() {
-    return endDate;
-  }
-
-  public void setEndDate(String endDate) {
-    this.endDate = endDate;
-  }
-
-
-  public Season name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Get name
-   * @return name
-   */
-  @javax.annotation.Nullable
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public Season rounds(List<Round> rounds) {
-    this.rounds = rounds;
-    return this;
-  }
-
-  public Season addRoundsItem(Round roundsItem) {
-    if (this.rounds == null) {
-      this.rounds = new ArrayList<>();
-    }
-    this.rounds.add(roundsItem);
-    return this;
-  }
-
-  /**
-   * Get rounds
-   * @return rounds
-   */
-  @javax.annotation.Nullable
-  public List<Round> getRounds() {
-    return rounds;
-  }
-
-  public void setRounds(List<Round> rounds) {
-    this.rounds = rounds;
+  public void setRegularSeasonStartDate(String regularSeasonStartDate) {
+    this.regularSeasonStartDate = regularSeasonStartDate;
   }
 
 
@@ -234,41 +150,22 @@ public class Season {
   }
 
 
-  public Season seasonId(Integer seasonId) {
-    this.seasonId = seasonId;
+  public Season seasonType(String seasonType) {
+    this.seasonType = seasonType;
     return this;
   }
 
   /**
-   * Get seasonId
-   * @return seasonId
+   * Get seasonType
+   * @return seasonType
    */
   @javax.annotation.Nullable
-  public Integer getSeasonId() {
-    return seasonId;
+  public String getSeasonType() {
+    return seasonType;
   }
 
-  public void setSeasonId(Integer seasonId) {
-    this.seasonId = seasonId;
-  }
-
-
-  public Season startDate(String startDate) {
-    this.startDate = startDate;
-    return this;
-  }
-
-  /**
-   * Get startDate
-   * @return startDate
-   */
-  @javax.annotation.Nullable
-  public String getStartDate() {
-    return startDate;
-  }
-
-  public void setStartDate(String startDate) {
-    this.startDate = startDate;
+  public void setSeasonType(String seasonType) {
+    this.seasonType = seasonType;
   }
 
 
@@ -282,15 +179,11 @@ public class Season {
       return false;
     }
     Season season = (Season) o;
-    return Objects.equals(this.competitionId, season.competitionId) &&
-        Objects.equals(this.competitionName, season.competitionName) &&
-        Objects.equals(this.currentSeason, season.currentSeason) &&
-        Objects.equals(this.endDate, season.endDate) &&
-        Objects.equals(this.name, season.name) &&
-        Objects.equals(this.rounds, season.rounds) &&
+    return Objects.equals(this.apiSeason, season.apiSeason) &&
+        Objects.equals(this.postSeasonStartDate, season.postSeasonStartDate) &&
+        Objects.equals(this.regularSeasonStartDate, season.regularSeasonStartDate) &&
         Objects.equals(this.season, season.season) &&
-        Objects.equals(this.seasonId, season.seasonId) &&
-        Objects.equals(this.startDate, season.startDate);
+        Objects.equals(this.seasonType, season.seasonType);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -299,7 +192,7 @@ public class Season {
 
   @Override
   public int hashCode() {
-    return Objects.hash(competitionId, competitionName, currentSeason, endDate, name, rounds, season, seasonId, startDate);
+    return Objects.hash(apiSeason, postSeasonStartDate, regularSeasonStartDate, season, seasonType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -313,15 +206,11 @@ public class Season {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Season {\n");
-    sb.append("    competitionId: ").append(toIndentedString(competitionId)).append("\n");
-    sb.append("    competitionName: ").append(toIndentedString(competitionName)).append("\n");
-    sb.append("    currentSeason: ").append(toIndentedString(currentSeason)).append("\n");
-    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    rounds: ").append(toIndentedString(rounds)).append("\n");
+    sb.append("    apiSeason: ").append(toIndentedString(apiSeason)).append("\n");
+    sb.append("    postSeasonStartDate: ").append(toIndentedString(postSeasonStartDate)).append("\n");
+    sb.append("    regularSeasonStartDate: ").append(toIndentedString(regularSeasonStartDate)).append("\n");
     sb.append("    season: ").append(toIndentedString(season)).append("\n");
-    sb.append("    seasonId: ").append(toIndentedString(seasonId)).append("\n");
-    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    seasonType: ").append(toIndentedString(seasonType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -344,15 +233,11 @@ public class Season {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("CompetitionId");
-    openapiFields.add("CompetitionName");
-    openapiFields.add("CurrentSeason");
-    openapiFields.add("EndDate");
-    openapiFields.add("Name");
-    openapiFields.add("Rounds");
+    openapiFields.add("ApiSeason");
+    openapiFields.add("PostSeasonStartDate");
+    openapiFields.add("RegularSeasonStartDate");
     openapiFields.add("Season");
-    openapiFields.add("SeasonId");
-    openapiFields.add("StartDate");
+    openapiFields.add("SeasonType");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -379,31 +264,17 @@ public class Season {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("CompetitionName") != null && !jsonObj.get("CompetitionName").isJsonNull()) && !jsonObj.get("CompetitionName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `CompetitionName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CompetitionName").toString()));
+      if ((jsonObj.get("ApiSeason") != null && !jsonObj.get("ApiSeason").isJsonNull()) && !jsonObj.get("ApiSeason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ApiSeason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ApiSeason").toString()));
       }
-      if ((jsonObj.get("EndDate") != null && !jsonObj.get("EndDate").isJsonNull()) && !jsonObj.get("EndDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `EndDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EndDate").toString()));
+      if ((jsonObj.get("PostSeasonStartDate") != null && !jsonObj.get("PostSeasonStartDate").isJsonNull()) && !jsonObj.get("PostSeasonStartDate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `PostSeasonStartDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("PostSeasonStartDate").toString()));
       }
-      if ((jsonObj.get("Name") != null && !jsonObj.get("Name").isJsonNull()) && !jsonObj.get("Name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Name").toString()));
+      if ((jsonObj.get("RegularSeasonStartDate") != null && !jsonObj.get("RegularSeasonStartDate").isJsonNull()) && !jsonObj.get("RegularSeasonStartDate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `RegularSeasonStartDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("RegularSeasonStartDate").toString()));
       }
-      if (jsonObj.get("Rounds") != null && !jsonObj.get("Rounds").isJsonNull()) {
-        JsonArray jsonArrayrounds = jsonObj.getAsJsonArray("Rounds");
-        if (jsonArrayrounds != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("Rounds").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `Rounds` to be an array in the JSON string but got `%s`", jsonObj.get("Rounds").toString()));
-          }
-
-          // validate the optional field `Rounds` (array)
-          for (int i = 0; i < jsonArrayrounds.size(); i++) {
-            Round.validateJsonElement(jsonArrayrounds.get(i));
-          };
-        }
-      }
-      if ((jsonObj.get("StartDate") != null && !jsonObj.get("StartDate").isJsonNull()) && !jsonObj.get("StartDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `StartDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("StartDate").toString()));
+      if ((jsonObj.get("SeasonType") != null && !jsonObj.get("SeasonType").isJsonNull()) && !jsonObj.get("SeasonType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `SeasonType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SeasonType").toString()));
       }
   }
 

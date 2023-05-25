@@ -1,34 +1,36 @@
 # DefaultApi
 
-All URIs are relative to *http://azure-api.sportsdata.io/v3/lol/scores*
+All URIs are relative to *http://azure-api.sportsdata.io/v3/mlb/scores*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**areasCountries**](DefaultApi.md#areasCountries) | **GET** /{format}/Areas | Areas (Countries) |
-| [**competitionFixturesLeagueDetails**](DefaultApi.md#competitionFixturesLeagueDetails) | **GET** /{format}/CompetitionDetails/{competitionid} | Competition Fixtures (League Details) |
-| [**competitionsLeagues**](DefaultApi.md#competitionsLeagues) | **GET** /{format}/Competitions | Competitions (Leagues) |
+| [**areGamesInProgress**](DefaultApi.md#areGamesInProgress) | **GET** /{format}/AreAnyGamesInProgress | Are Games In Progress |
+| [**currentSeason**](DefaultApi.md#currentSeason) | **GET** /{format}/CurrentSeason | Current Season |
 | [**gamesByDate**](DefaultApi.md#gamesByDate) | **GET** /{format}/GamesByDate/{date} | Games by Date |
-| [**membershipsActive**](DefaultApi.md#membershipsActive) | **GET** /{format}/ActiveMemberships | Memberships (Active) |
-| [**membershipsByTeamActive**](DefaultApi.md#membershipsByTeamActive) | **GET** /{format}/MembershipsByTeam/{teamid} | Memberships by Team (Active) |
-| [**membershipsByTeamHistorical**](DefaultApi.md#membershipsByTeamHistorical) | **GET** /{format}/HistoricalMembershipsByTeam/{teamid} | Memberships by Team (Historical) |
-| [**membershipsHistorical**](DefaultApi.md#membershipsHistorical) | **GET** /{format}/HistoricalMemberships | Memberships (Historical) |
-| [**player**](DefaultApi.md#player) | **GET** /{format}/Player/{playerid} | Player |
-| [**players**](DefaultApi.md#players) | **GET** /{format}/Players | Players |
-| [**playersByTeam**](DefaultApi.md#playersByTeam) | **GET** /{format}/PlayersByTeam/{teamid} | Players by Team |
-| [**schedule**](DefaultApi.md#schedule) | **GET** /{format}/Schedule/{roundid} | Schedule |
-| [**seasonTeams**](DefaultApi.md#seasonTeams) | **GET** /{format}/SeasonTeams/{seasonid} | Season Teams |
-| [**standings**](DefaultApi.md#standings) | **GET** /{format}/Standings/{roundid} | Standings |
-| [**teams**](DefaultApi.md#teams) | **GET** /{format}/Teams | Teams |
-| [**venues**](DefaultApi.md#venues) | **GET** /{format}/Venues | Venues |
+| [**news**](DefaultApi.md#news) | **GET** /{format}/News | News |
+| [**newsByDate**](DefaultApi.md#newsByDate) | **GET** /{format}/NewsByDate/{date} | News by Date |
+| [**newsByPlayer**](DefaultApi.md#newsByPlayer) | **GET** /{format}/NewsByPlayerID/{playerid} | News by Player |
+| [**playerDetailsByActive**](DefaultApi.md#playerDetailsByActive) | **GET** /{format}/Players | Player Details by Active |
+| [**playerDetailsByFreeAgents**](DefaultApi.md#playerDetailsByFreeAgents) | **GET** /{format}/FreeAgents | Player Details by Free Agents |
+| [**playerDetailsByPlayer**](DefaultApi.md#playerDetailsByPlayer) | **GET** /{format}/Player/{playerid} | Player Details by Player |
+| [**playersByTeam**](DefaultApi.md#playersByTeam) | **GET** /{format}/Players/{team} | Players by Team |
+| [**schedules**](DefaultApi.md#schedules) | **GET** /{format}/Games/{season} | Schedules |
+| [**stadiums**](DefaultApi.md#stadiums) | **GET** /{format}/Stadiums | Stadiums |
+| [**standings**](DefaultApi.md#standings) | **GET** /{format}/Standings/{season} | Standings |
+| [**teamGameLogsBySeason**](DefaultApi.md#teamGameLogsBySeason) | **GET** /{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames} | Team Game Logs By Season |
+| [**teamGameStatsByDate**](DefaultApi.md#teamGameStatsByDate) | **GET** /{format}/TeamGameStatsByDate/{date} | Team Game Stats by Date |
+| [**teamSeasonStats**](DefaultApi.md#teamSeasonStats) | **GET** /{format}/TeamSeasonStats/{season} | Team Season Stats |
+| [**teamsActive**](DefaultApi.md#teamsActive) | **GET** /{format}/teams | Teams (Active) |
+| [**teamsAll**](DefaultApi.md#teamsAll) | **GET** /{format}/AllTeams | Teams (All) |
 
 
-<a id="areasCountries"></a>
-# **areasCountries**
-> List&lt;Area&gt; areasCountries(format)
+<a id="areGamesInProgress"></a>
+# **areGamesInProgress**
+> Boolean areGamesInProgress(format)
 
-Areas (Countries)
+Are Games In Progress
 
-Areas (Countries)
+Returns &lt;code&gt;true&lt;/code&gt; if there is at least one game being played at the time of the request or &lt;code&gt;false&lt;/code&gt; if there are none.
 
 ### Example
 ```java
@@ -43,7 +45,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -58,12 +60,12 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
     try {
-      List<Area> result = apiInstance.areasCountries(format);
+      Boolean result = apiInstance.areGamesInProgress(format);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#areasCountries");
+      System.err.println("Exception when calling DefaultApi#areGamesInProgress");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -77,11 +79,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
 
 ### Return type
 
-[**List&lt;Area&gt;**](Area.md)
+**Boolean**
 
 ### Authorization
 
@@ -97,13 +99,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 
-<a id="competitionFixturesLeagueDetails"></a>
-# **competitionFixturesLeagueDetails**
-> CompetitionDetail competitionFixturesLeagueDetails(format, competitionid)
+<a id="currentSeason"></a>
+# **currentSeason**
+> Season currentSeason(format)
 
-Competition Fixtures (League Details)
-
-Competition Fixtures (League Details)
+Current Season
 
 ### Example
 ```java
@@ -118,7 +118,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -133,13 +133,12 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
-    String competitionid = "competitionid_example"; // String | A LoL competition/league unique CompetitionId. Possible values include: <code>100000009</code>, etc.
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
     try {
-      CompetitionDetail result = apiInstance.competitionFixturesLeagueDetails(format, competitionid);
+      Season result = apiInstance.currentSeason(format);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#competitionFixturesLeagueDetails");
+      System.err.println("Exception when calling DefaultApi#currentSeason");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -153,87 +152,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
-| **competitionid** | **String**| A LoL competition/league unique CompetitionId. Possible values include: &lt;code&gt;100000009&lt;/code&gt;, etc. | |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
 
 ### Return type
 
-[**CompetitionDetail**](CompetitionDetail.md)
-
-### Authorization
-
-[apiKeyQuery](../README.md#apiKeyQuery), [apiKeyHeader](../README.md#apiKeyHeader)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** |  |  -  |
-
-<a id="competitionsLeagues"></a>
-# **competitionsLeagues**
-> List&lt;Competition&gt; competitionsLeagues(format)
-
-Competitions (Leagues)
-
-Competitions (Leagues)
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
-    
-    // Configure API key authorization: apiKeyQuery
-    ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
-    apiKeyQuery.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyQuery.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: apiKeyHeader
-    ApiKeyAuth apiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyHeader");
-    apiKeyHeader.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyHeader.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
-    try {
-      List<Competition> result = apiInstance.competitionsLeagues(format);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#competitionsLeagues");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
-
-### Return type
-
-[**List&lt;Competition&gt;**](Competition.md)
+[**Season**](Season.md)
 
 ### Authorization
 
@@ -255,8 +178,6 @@ public class Example {
 
 Games by Date
 
-Games by Date
-
 ### Example
 ```java
 // Import classes:
@@ -270,7 +191,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -285,8 +206,8 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
-    String date = "date_example"; // String | The date of the game(s). <br>Examples: <code>2018-01-13</code>, <code>2018-06-13</code>.
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String date = "date_example"; // String | The date of the game(s). <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.
     try {
       List<Game> result = apiInstance.gamesByDate(format, date);
       System.out.println(result);
@@ -305,8 +226,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
-| **date** | **String**| The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2018-01-13&lt;/code&gt;, &lt;code&gt;2018-06-13&lt;/code&gt;. | |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
+| **date** | **String**| The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. | |
 
 ### Return type
 
@@ -326,13 +247,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 
-<a id="membershipsActive"></a>
-# **membershipsActive**
-> List&lt;Membership&gt; membershipsActive(format)
+<a id="news"></a>
+# **news**
+> List&lt;News&gt; news(format)
 
-Memberships (Active)
-
-Memberships (Active)
+News
 
 ### Example
 ```java
@@ -347,7 +266,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -362,12 +281,12 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
     try {
-      List<Membership> result = apiInstance.membershipsActive(format);
+      List<News> result = apiInstance.news(format);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#membershipsActive");
+      System.err.println("Exception when calling DefaultApi#news");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -381,11 +300,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
 
 ### Return type
 
-[**List&lt;Membership&gt;**](Membership.md)
+[**List&lt;News&gt;**](News.md)
 
 ### Authorization
 
@@ -401,13 +320,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 
-<a id="membershipsByTeamActive"></a>
-# **membershipsByTeamActive**
-> List&lt;Membership&gt; membershipsByTeamActive(format, teamid)
+<a id="newsByDate"></a>
+# **newsByDate**
+> List&lt;News&gt; newsByDate(format, date)
 
-Memberships by Team (Active)
-
-Memberships by Team (Active)
+News by Date
 
 ### Example
 ```java
@@ -422,7 +339,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -437,13 +354,13 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
-    String teamid = "teamid_example"; // String | Unique FantasyData Team ID.  Example:<code>100000001</code>.
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String date = "date_example"; // String | The date of the news. <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.
     try {
-      List<Membership> result = apiInstance.membershipsByTeamActive(format, teamid);
+      List<News> result = apiInstance.newsByDate(format, date);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#membershipsByTeamActive");
+      System.err.println("Exception when calling DefaultApi#newsByDate");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -457,12 +374,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
-| **teamid** | **String**| Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. | |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
+| **date** | **String**| The date of the news. &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. | |
 
 ### Return type
 
-[**List&lt;Membership&gt;**](Membership.md)
+[**List&lt;News&gt;**](News.md)
 
 ### Authorization
 
@@ -478,13 +395,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 
-<a id="membershipsByTeamHistorical"></a>
-# **membershipsByTeamHistorical**
-> List&lt;Membership&gt; membershipsByTeamHistorical(format, teamid)
+<a id="newsByPlayer"></a>
+# **newsByPlayer**
+> List&lt;News&gt; newsByPlayer(format, playerid)
 
-Memberships by Team (Historical)
-
-Memberships by Team (Historical)
+News by Player
 
 ### Example
 ```java
@@ -499,7 +414,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -514,13 +429,13 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
-    String teamid = "teamid_example"; // String | Unique FantasyData Team ID.  Example:<code>100000001</code>.
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String playerid = "playerid_example"; // String | Unique FantasyData Player ID. Example:<code>10000507</code>.
     try {
-      List<Membership> result = apiInstance.membershipsByTeamHistorical(format, teamid);
+      List<News> result = apiInstance.newsByPlayer(format, playerid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#membershipsByTeamHistorical");
+      System.err.println("Exception when calling DefaultApi#newsByPlayer");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -534,12 +449,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
-| **teamid** | **String**| Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. | |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
+| **playerid** | **String**| Unique FantasyData Player ID. Example:&lt;code&gt;10000507&lt;/code&gt;. | |
 
 ### Return type
 
-[**List&lt;Membership&gt;**](Membership.md)
+[**List&lt;News&gt;**](News.md)
 
 ### Authorization
 
@@ -555,13 +470,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 
-<a id="membershipsHistorical"></a>
-# **membershipsHistorical**
-> List&lt;Membership&gt; membershipsHistorical(format)
+<a id="playerDetailsByActive"></a>
+# **playerDetailsByActive**
+> List&lt;Player&gt; playerDetailsByActive(format)
 
-Memberships (Historical)
-
-Memberships (Historical)
+Player Details by Active
 
 ### Example
 ```java
@@ -576,7 +489,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -591,12 +504,12 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
     try {
-      List<Membership> result = apiInstance.membershipsHistorical(format);
+      List<Player> result = apiInstance.playerDetailsByActive(format);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#membershipsHistorical");
+      System.err.println("Exception when calling DefaultApi#playerDetailsByActive");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -610,11 +523,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
 
 ### Return type
 
-[**List&lt;Membership&gt;**](Membership.md)
+[**List&lt;Player&gt;**](Player.md)
 
 ### Authorization
 
@@ -630,13 +543,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 
-<a id="player"></a>
-# **player**
-> Player player(format, playerid)
+<a id="playerDetailsByFreeAgents"></a>
+# **playerDetailsByFreeAgents**
+> List&lt;Player&gt; playerDetailsByFreeAgents(format)
 
-Player
-
-Player
+Player Details by Free Agents
 
 ### Example
 ```java
@@ -651,7 +562,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -666,13 +577,12 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
-    String playerid = "playerid_example"; // String | Unique FantasyData Player ID. Example:<code>100000576</code>.
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
     try {
-      Player result = apiInstance.player(format, playerid);
+      List<Player> result = apiInstance.playerDetailsByFreeAgents(format);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#player");
+      System.err.println("Exception when calling DefaultApi#playerDetailsByFreeAgents");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -686,8 +596,82 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
-| **playerid** | **String**| Unique FantasyData Player ID. Example:&lt;code&gt;100000576&lt;/code&gt;. | |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
+
+### Return type
+
+[**List&lt;Player&gt;**](Player.md)
+
+### Authorization
+
+[apiKeyQuery](../README.md#apiKeyQuery), [apiKeyHeader](../README.md#apiKeyHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+<a id="playerDetailsByPlayer"></a>
+# **playerDetailsByPlayer**
+> Player playerDetailsByPlayer(format, playerid)
+
+Player Details by Player
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
+    
+    // Configure API key authorization: apiKeyQuery
+    ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
+    apiKeyQuery.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyQuery.setApiKeyPrefix("Token");
+
+    // Configure API key authorization: apiKeyHeader
+    ApiKeyAuth apiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyHeader");
+    apiKeyHeader.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyHeader.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String playerid = "playerid_example"; // String | Unique FantasyData Player ID. Example:<code>10000507</code>.
+    try {
+      Player result = apiInstance.playerDetailsByPlayer(format, playerid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#playerDetailsByPlayer");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
+| **playerid** | **String**| Unique FantasyData Player ID. Example:&lt;code&gt;10000507&lt;/code&gt;. | |
 
 ### Return type
 
@@ -707,86 +691,9 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 
-<a id="players"></a>
-# **players**
-> List&lt;Player&gt; players(format)
-
-Players
-
-Players
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
-    
-    // Configure API key authorization: apiKeyQuery
-    ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
-    apiKeyQuery.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyQuery.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: apiKeyHeader
-    ApiKeyAuth apiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyHeader");
-    apiKeyHeader.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyHeader.setApiKeyPrefix("Token");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
-    try {
-      List<Player> result = apiInstance.players(format);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#players");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
-
-### Return type
-
-[**List&lt;Player&gt;**](Player.md)
-
-### Authorization
-
-[apiKeyQuery](../README.md#apiKeyQuery), [apiKeyHeader](../README.md#apiKeyHeader)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** |  |  -  |
-
 <a id="playersByTeam"></a>
 # **playersByTeam**
-> List&lt;Player&gt; playersByTeam(format, teamid)
-
-Players by Team
+> List&lt;Player&gt; playersByTeam(format, team)
 
 Players by Team
 
@@ -803,7 +710,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -818,10 +725,10 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
-    String teamid = "teamid_example"; // String | Unique FantasyData Team ID.  Example:<code>100000001</code>.
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String team = "team_example"; // String | The abbreviation of the requested team. <br>Examples: <code>SF</code>, <code>NYY</code>.
     try {
-      List<Player> result = apiInstance.playersByTeam(format, teamid);
+      List<Player> result = apiInstance.playersByTeam(format, team);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#playersByTeam");
@@ -838,8 +745,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
-| **teamid** | **String**| Unique FantasyData Team ID.  Example:&lt;code&gt;100000001&lt;/code&gt;. | |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
+| **team** | **String**| The abbreviation of the requested team. &lt;br&gt;Examples: &lt;code&gt;SF&lt;/code&gt;, &lt;code&gt;NYY&lt;/code&gt;. | |
 
 ### Return type
 
@@ -859,13 +766,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 
-<a id="schedule"></a>
-# **schedule**
-> List&lt;Game&gt; schedule(format, roundid)
+<a id="schedules"></a>
+# **schedules**
+> List&lt;Game&gt; schedules(format, season)
 
-Schedule
-
-Schedule
+Schedules
 
 ### Example
 ```java
@@ -880,7 +785,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -895,13 +800,13 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
-    String roundid = "roundid_example"; // String | Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Examples: <code>100000138</code>, <code>1000001412</code>, etc
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String season = "season_example"; // String | Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.
     try {
-      List<Game> result = apiInstance.schedule(format, roundid);
+      List<Game> result = apiInstance.schedules(format, season);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#schedule");
+      System.err.println("Exception when calling DefaultApi#schedules");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -915,8 +820,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
-| **roundid** | **String**| Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Examples: &lt;code&gt;100000138&lt;/code&gt;, &lt;code&gt;1000001412&lt;/code&gt;, etc | |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
+| **season** | **String**| Year of the season (with optional season type).&lt;br&gt;Examples: &lt;code&gt;2018&lt;/code&gt;, &lt;code&gt;2018PRE&lt;/code&gt;, &lt;code&gt;2018POST&lt;/code&gt;, &lt;code&gt;2018STAR&lt;/code&gt;, &lt;code&gt;2019&lt;/code&gt;, etc. | |
 
 ### Return type
 
@@ -936,13 +841,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 
-<a id="seasonTeams"></a>
-# **seasonTeams**
-> List&lt;SeasonTeam&gt; seasonTeams(format, seasonid)
+<a id="stadiums"></a>
+# **stadiums**
+> List&lt;Stadium&gt; stadiums(format)
 
-Season Teams
-
-Season Teams
+Stadiums
 
 ### Example
 ```java
@@ -957,7 +860,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -973,12 +876,11 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
-    String seasonid = "seasonid_example"; // String | Unique FantasyData Season ID. SeasonIDs can be found in the Competitions and Competition Details endpoints.  Examples: <code>100000023</code>, <code>100000024</code>, etc
     try {
-      List<SeasonTeam> result = apiInstance.seasonTeams(format, seasonid);
+      List<Stadium> result = apiInstance.stadiums(format);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#seasonTeams");
+      System.err.println("Exception when calling DefaultApi#stadiums");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -993,11 +895,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
-| **seasonid** | **String**| Unique FantasyData Season ID. SeasonIDs can be found in the Competitions and Competition Details endpoints.  Examples: &lt;code&gt;100000023&lt;/code&gt;, &lt;code&gt;100000024&lt;/code&gt;, etc | |
 
 ### Return type
 
-[**List&lt;SeasonTeam&gt;**](SeasonTeam.md)
+[**List&lt;Stadium&gt;**](Stadium.md)
 
 ### Authorization
 
@@ -1015,9 +916,7 @@ public class Example {
 
 <a id="standings"></a>
 # **standings**
-> List&lt;Standing&gt; standings(format, roundid)
-
-Standings
+> List&lt;Standing&gt; standings(format, season)
 
 Standings
 
@@ -1034,7 +933,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -1049,10 +948,10 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
-    String roundid = "roundid_example"; // String | Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Example: <code>100000138</code>, etc
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String season = "season_example"; // String | Year of the season. <br>Examples: <code>2017</code>, <code>2018</code>.
     try {
-      List<Standing> result = apiInstance.standings(format, roundid);
+      List<Standing> result = apiInstance.standings(format, season);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#standings");
@@ -1069,8 +968,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
-| **roundid** | **String**| Unique FantasyData Round ID. RoundIDs can be found in the Competitions and Competition Details endpoints.  Example: &lt;code&gt;100000138&lt;/code&gt;, etc | |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
+| **season** | **String**| Year of the season. &lt;br&gt;Examples: &lt;code&gt;2017&lt;/code&gt;, &lt;code&gt;2018&lt;/code&gt;. | |
 
 ### Return type
 
@@ -1090,13 +989,13 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 
-<a id="teams"></a>
-# **teams**
-> List&lt;Team&gt; teams(format)
+<a id="teamGameLogsBySeason"></a>
+# **teamGameLogsBySeason**
+> List&lt;TeamGame&gt; teamGameLogsBySeason(format, season, teamid, numberofgames)
 
-Teams
+Team Game Logs By Season
 
-Teams
+Game by game log of total team statistics.
 
 ### Example
 ```java
@@ -1111,7 +1010,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -1126,12 +1025,15 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String season = "season_example"; // String | Season to get games from. Example <code>2019POST</code>, <code>2020</code>
+    String teamid = "teamid_example"; // String | Unique ID of team.  Example <code> 12 </code>
+    String numberofgames = "numberofgames_example"; // String | How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>
     try {
-      List<Team> result = apiInstance.teams(format);
+      List<TeamGame> result = apiInstance.teamGameLogsBySeason(format, season, teamid, numberofgames);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#teams");
+      System.err.println("Exception when calling DefaultApi#teamGameLogsBySeason");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1145,7 +1047,233 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
+| **season** | **String**| Season to get games from. Example &lt;code&gt;2019POST&lt;/code&gt;, &lt;code&gt;2020&lt;/code&gt; | |
+| **teamid** | **String**| Unique ID of team.  Example &lt;code&gt; 12 &lt;/code&gt; | |
+| **numberofgames** | **String**| How many games to return. Example &lt;code&gt;all&lt;/code&gt;, &lt;code&gt;10&lt;/code&gt;, &lt;code&gt;25&lt;/code&gt; | |
+
+### Return type
+
+[**List&lt;TeamGame&gt;**](TeamGame.md)
+
+### Authorization
+
+[apiKeyQuery](../README.md#apiKeyQuery), [apiKeyHeader](../README.md#apiKeyHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+<a id="teamGameStatsByDate"></a>
+# **teamGameStatsByDate**
+> List&lt;TeamGame&gt; teamGameStatsByDate(format, date)
+
+Team Game Stats by Date
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
+    
+    // Configure API key authorization: apiKeyQuery
+    ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
+    apiKeyQuery.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyQuery.setApiKeyPrefix("Token");
+
+    // Configure API key authorization: apiKeyHeader
+    ApiKeyAuth apiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyHeader");
+    apiKeyHeader.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyHeader.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String date = "date_example"; // String | The date of the game(s). <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.
+    try {
+      List<TeamGame> result = apiInstance.teamGameStatsByDate(format, date);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#teamGameStatsByDate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
+| **date** | **String**| The date of the game(s). &lt;br&gt;Examples: &lt;code&gt;2017-JUL-31&lt;/code&gt;, &lt;code&gt;2017-SEP-01&lt;/code&gt;. | |
+
+### Return type
+
+[**List&lt;TeamGame&gt;**](TeamGame.md)
+
+### Authorization
+
+[apiKeyQuery](../README.md#apiKeyQuery), [apiKeyHeader](../README.md#apiKeyHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+<a id="teamSeasonStats"></a>
+# **teamSeasonStats**
+> List&lt;TeamSeason&gt; teamSeasonStats(format, season)
+
+Team Season Stats
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
+    
+    // Configure API key authorization: apiKeyQuery
+    ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
+    apiKeyQuery.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyQuery.setApiKeyPrefix("Token");
+
+    // Configure API key authorization: apiKeyHeader
+    ApiKeyAuth apiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyHeader");
+    apiKeyHeader.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyHeader.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String season = "season_example"; // String | Year of the season. <br>Examples: <code>2017</code>, <code>2018</code>.
+    try {
+      List<TeamSeason> result = apiInstance.teamSeasonStats(format, season);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#teamSeasonStats");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
+| **season** | **String**| Year of the season. &lt;br&gt;Examples: &lt;code&gt;2017&lt;/code&gt;, &lt;code&gt;2018&lt;/code&gt;. | |
+
+### Return type
+
+[**List&lt;TeamSeason&gt;**](TeamSeason.md)
+
+### Authorization
+
+[apiKeyQuery](../README.md#apiKeyQuery), [apiKeyHeader](../README.md#apiKeyHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+<a id="teamsActive"></a>
+# **teamsActive**
+> List&lt;Team&gt; teamsActive(format)
+
+Teams (Active)
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
+    
+    // Configure API key authorization: apiKeyQuery
+    ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
+    apiKeyQuery.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyQuery.setApiKeyPrefix("Token");
+
+    // Configure API key authorization: apiKeyHeader
+    ApiKeyAuth apiKeyHeader = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyHeader");
+    apiKeyHeader.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyHeader.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    try {
+      List<Team> result = apiInstance.teamsActive(format);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#teamsActive");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
 
 ### Return type
 
@@ -1165,13 +1293,11 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 
-<a id="venues"></a>
-# **venues**
-> List&lt;Venue&gt; venues(format)
+<a id="teamsAll"></a>
+# **teamsAll**
+> List&lt;Team&gt; teamsAll(format)
 
-Venues
-
-Venues
+Teams (All)
 
 ### Example
 ```java
@@ -1186,7 +1312,7 @@ import org.openapitools.client.api.DefaultApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/lol/scores");
+    defaultClient.setBasePath("http://azure-api.sportsdata.io/v3/mlb/scores");
     
     // Configure API key authorization: apiKeyQuery
     ApiKeyAuth apiKeyQuery = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyQuery");
@@ -1201,12 +1327,12 @@ public class Example {
     //apiKeyHeader.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String format = "xml"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
+    String format = "XML"; // String | Desired response format. Valid entries are <code>XML</code> or <code>JSON</code>.
     try {
-      List<Venue> result = apiInstance.venues(format);
+      List<Team> result = apiInstance.teamsAll(format);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#venues");
+      System.err.println("Exception when calling DefaultApi#teamsAll");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1220,11 +1346,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to xml] [enum: xml, json] |
+| **format** | **String**| Desired response format. Valid entries are &lt;code&gt;XML&lt;/code&gt; or &lt;code&gt;JSON&lt;/code&gt;. | [default to XML] [enum: XML, JSON] |
 
 ### Return type
 
-[**List&lt;Venue&gt;**](Venue.md)
+[**List&lt;Team&gt;**](Team.md)
 
 ### Authorization
 

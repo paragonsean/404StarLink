@@ -1,6 +1,6 @@
 /*
- * LoL v3 Scores
- * LoL v3 Scores
+ * MLB v3 Scores
+ * MLB scores API.
  *
  * The version of the OpenAPI document: 1.0
  * 
@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -49,15 +50,79 @@ import org.openapitools.client.JSON;
 /**
  * Standing
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:13:42.446348-04:00[America/New_York]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-11T02:14:10.079908-04:00[America/New_York]", comments = "Generator version: 7.9.0")
 public class Standing {
-  public static final String SERIALIZED_NAME_GAMES = "Games";
-  @SerializedName(SERIALIZED_NAME_GAMES)
-  private Integer games;
+  public static final String SERIALIZED_NAME_AWAY_LOSSES = "AwayLosses";
+  @SerializedName(SERIALIZED_NAME_AWAY_LOSSES)
+  private Integer awayLosses;
 
-  public static final String SERIALIZED_NAME_GROUP = "Group";
-  @SerializedName(SERIALIZED_NAME_GROUP)
-  private String group;
+  public static final String SERIALIZED_NAME_AWAY_WINS = "AwayWins";
+  @SerializedName(SERIALIZED_NAME_AWAY_WINS)
+  private Integer awayWins;
+
+  public static final String SERIALIZED_NAME_CITY = "City";
+  @SerializedName(SERIALIZED_NAME_CITY)
+  private String city;
+
+  public static final String SERIALIZED_NAME_DAY_LOSSES = "DayLosses";
+  @SerializedName(SERIALIZED_NAME_DAY_LOSSES)
+  private Integer dayLosses;
+
+  public static final String SERIALIZED_NAME_DAY_WINS = "DayWins";
+  @SerializedName(SERIALIZED_NAME_DAY_WINS)
+  private Integer dayWins;
+
+  public static final String SERIALIZED_NAME_DIVISION = "Division";
+  @SerializedName(SERIALIZED_NAME_DIVISION)
+  private String division;
+
+  public static final String SERIALIZED_NAME_DIVISION_LOSSES = "DivisionLosses";
+  @SerializedName(SERIALIZED_NAME_DIVISION_LOSSES)
+  private Integer divisionLosses;
+
+  public static final String SERIALIZED_NAME_DIVISION_RANK = "DivisionRank";
+  @SerializedName(SERIALIZED_NAME_DIVISION_RANK)
+  private Integer divisionRank;
+
+  public static final String SERIALIZED_NAME_DIVISION_WINS = "DivisionWins";
+  @SerializedName(SERIALIZED_NAME_DIVISION_WINS)
+  private Integer divisionWins;
+
+  public static final String SERIALIZED_NAME_GAMES_BEHIND = "GamesBehind";
+  @SerializedName(SERIALIZED_NAME_GAMES_BEHIND)
+  private BigDecimal gamesBehind;
+
+  public static final String SERIALIZED_NAME_GLOBAL_TEAM_I_D = "GlobalTeamID";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_TEAM_I_D)
+  private Integer globalTeamID;
+
+  public static final String SERIALIZED_NAME_HOME_LOSSES = "HomeLosses";
+  @SerializedName(SERIALIZED_NAME_HOME_LOSSES)
+  private Integer homeLosses;
+
+  public static final String SERIALIZED_NAME_HOME_WINS = "HomeWins";
+  @SerializedName(SERIALIZED_NAME_HOME_WINS)
+  private Integer homeWins;
+
+  public static final String SERIALIZED_NAME_KEY = "Key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private String key;
+
+  public static final String SERIALIZED_NAME_LAST_TEN_GAMES_LOSSES = "LastTenGamesLosses";
+  @SerializedName(SERIALIZED_NAME_LAST_TEN_GAMES_LOSSES)
+  private Integer lastTenGamesLosses;
+
+  public static final String SERIALIZED_NAME_LAST_TEN_GAMES_WINS = "LastTenGamesWins";
+  @SerializedName(SERIALIZED_NAME_LAST_TEN_GAMES_WINS)
+  private Integer lastTenGamesWins;
+
+  public static final String SERIALIZED_NAME_LEAGUE = "League";
+  @SerializedName(SERIALIZED_NAME_LEAGUE)
+  private String league;
+
+  public static final String SERIALIZED_NAME_LEAGUE_RANK = "LeagueRank";
+  @SerializedName(SERIALIZED_NAME_LEAGUE_RANK)
+  private Integer leagueRank;
 
   public static final String SERIALIZED_NAME_LOSSES = "Losses";
   @SerializedName(SERIALIZED_NAME_LOSSES)
@@ -67,37 +132,49 @@ public class Standing {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_ORDER = "Order";
-  @SerializedName(SERIALIZED_NAME_ORDER)
-  private Integer order;
+  public static final String SERIALIZED_NAME_NIGHT_LOSSES = "NightLosses";
+  @SerializedName(SERIALIZED_NAME_NIGHT_LOSSES)
+  private Integer nightLosses;
 
-  public static final String SERIALIZED_NAME_POINTS = "Points";
-  @SerializedName(SERIALIZED_NAME_POINTS)
-  private Integer points;
+  public static final String SERIALIZED_NAME_NIGHT_WINS = "NightWins";
+  @SerializedName(SERIALIZED_NAME_NIGHT_WINS)
+  private Integer nightWins;
 
-  public static final String SERIALIZED_NAME_ROUND_ID = "RoundId";
-  @SerializedName(SERIALIZED_NAME_ROUND_ID)
-  private Integer roundId;
+  public static final String SERIALIZED_NAME_PERCENTAGE = "Percentage";
+  @SerializedName(SERIALIZED_NAME_PERCENTAGE)
+  private BigDecimal percentage;
 
-  public static final String SERIALIZED_NAME_SCORE_AGAINST = "ScoreAgainst";
-  @SerializedName(SERIALIZED_NAME_SCORE_AGAINST)
-  private Integer scoreAgainst;
+  public static final String SERIALIZED_NAME_RUNS_AGAINST = "RunsAgainst";
+  @SerializedName(SERIALIZED_NAME_RUNS_AGAINST)
+  private Integer runsAgainst;
 
-  public static final String SERIALIZED_NAME_SCORE_DIFFERENCE = "ScoreDifference";
-  @SerializedName(SERIALIZED_NAME_SCORE_DIFFERENCE)
-  private Integer scoreDifference;
+  public static final String SERIALIZED_NAME_RUNS_SCORED = "RunsScored";
+  @SerializedName(SERIALIZED_NAME_RUNS_SCORED)
+  private Integer runsScored;
 
-  public static final String SERIALIZED_NAME_SCORE_FOR = "ScoreFor";
-  @SerializedName(SERIALIZED_NAME_SCORE_FOR)
-  private Integer scoreFor;
+  public static final String SERIALIZED_NAME_SEASON = "Season";
+  @SerializedName(SERIALIZED_NAME_SEASON)
+  private Integer season;
 
-  public static final String SERIALIZED_NAME_STANDING_ID = "StandingId";
-  @SerializedName(SERIALIZED_NAME_STANDING_ID)
-  private Integer standingId;
+  public static final String SERIALIZED_NAME_SEASON_TYPE = "SeasonType";
+  @SerializedName(SERIALIZED_NAME_SEASON_TYPE)
+  private Integer seasonType;
 
-  public static final String SERIALIZED_NAME_TEAM_ID = "TeamId";
-  @SerializedName(SERIALIZED_NAME_TEAM_ID)
-  private Integer teamId;
+  public static final String SERIALIZED_NAME_STREAK = "Streak";
+  @SerializedName(SERIALIZED_NAME_STREAK)
+  private String streak;
+
+  public static final String SERIALIZED_NAME_TEAM_I_D = "TeamID";
+  @SerializedName(SERIALIZED_NAME_TEAM_I_D)
+  private Integer teamID;
+
+  public static final String SERIALIZED_NAME_WILD_CARD_GAMES_BEHIND = "WildCardGamesBehind";
+  @SerializedName(SERIALIZED_NAME_WILD_CARD_GAMES_BEHIND)
+  private BigDecimal wildCardGamesBehind;
+
+  public static final String SERIALIZED_NAME_WILD_CARD_RANK = "WildCardRank";
+  @SerializedName(SERIALIZED_NAME_WILD_CARD_RANK)
+  private Integer wildCardRank;
 
   public static final String SERIALIZED_NAME_WINS = "Wins";
   @SerializedName(SERIALIZED_NAME_WINS)
@@ -106,41 +183,345 @@ public class Standing {
   public Standing() {
   }
 
-  public Standing games(Integer games) {
-    this.games = games;
+  public Standing awayLosses(Integer awayLosses) {
+    this.awayLosses = awayLosses;
     return this;
   }
 
   /**
-   * Get games
-   * @return games
+   * Get awayLosses
+   * @return awayLosses
    */
   @javax.annotation.Nullable
-  public Integer getGames() {
-    return games;
+  public Integer getAwayLosses() {
+    return awayLosses;
   }
 
-  public void setGames(Integer games) {
-    this.games = games;
+  public void setAwayLosses(Integer awayLosses) {
+    this.awayLosses = awayLosses;
   }
 
 
-  public Standing group(String group) {
-    this.group = group;
+  public Standing awayWins(Integer awayWins) {
+    this.awayWins = awayWins;
     return this;
   }
 
   /**
-   * Get group
-   * @return group
+   * Get awayWins
+   * @return awayWins
    */
   @javax.annotation.Nullable
-  public String getGroup() {
-    return group;
+  public Integer getAwayWins() {
+    return awayWins;
   }
 
-  public void setGroup(String group) {
-    this.group = group;
+  public void setAwayWins(Integer awayWins) {
+    this.awayWins = awayWins;
+  }
+
+
+  public Standing city(String city) {
+    this.city = city;
+    return this;
+  }
+
+  /**
+   * Get city
+   * @return city
+   */
+  @javax.annotation.Nullable
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+
+  public Standing dayLosses(Integer dayLosses) {
+    this.dayLosses = dayLosses;
+    return this;
+  }
+
+  /**
+   * Get dayLosses
+   * @return dayLosses
+   */
+  @javax.annotation.Nullable
+  public Integer getDayLosses() {
+    return dayLosses;
+  }
+
+  public void setDayLosses(Integer dayLosses) {
+    this.dayLosses = dayLosses;
+  }
+
+
+  public Standing dayWins(Integer dayWins) {
+    this.dayWins = dayWins;
+    return this;
+  }
+
+  /**
+   * Get dayWins
+   * @return dayWins
+   */
+  @javax.annotation.Nullable
+  public Integer getDayWins() {
+    return dayWins;
+  }
+
+  public void setDayWins(Integer dayWins) {
+    this.dayWins = dayWins;
+  }
+
+
+  public Standing division(String division) {
+    this.division = division;
+    return this;
+  }
+
+  /**
+   * Get division
+   * @return division
+   */
+  @javax.annotation.Nullable
+  public String getDivision() {
+    return division;
+  }
+
+  public void setDivision(String division) {
+    this.division = division;
+  }
+
+
+  public Standing divisionLosses(Integer divisionLosses) {
+    this.divisionLosses = divisionLosses;
+    return this;
+  }
+
+  /**
+   * Get divisionLosses
+   * @return divisionLosses
+   */
+  @javax.annotation.Nullable
+  public Integer getDivisionLosses() {
+    return divisionLosses;
+  }
+
+  public void setDivisionLosses(Integer divisionLosses) {
+    this.divisionLosses = divisionLosses;
+  }
+
+
+  public Standing divisionRank(Integer divisionRank) {
+    this.divisionRank = divisionRank;
+    return this;
+  }
+
+  /**
+   * Get divisionRank
+   * @return divisionRank
+   */
+  @javax.annotation.Nullable
+  public Integer getDivisionRank() {
+    return divisionRank;
+  }
+
+  public void setDivisionRank(Integer divisionRank) {
+    this.divisionRank = divisionRank;
+  }
+
+
+  public Standing divisionWins(Integer divisionWins) {
+    this.divisionWins = divisionWins;
+    return this;
+  }
+
+  /**
+   * Get divisionWins
+   * @return divisionWins
+   */
+  @javax.annotation.Nullable
+  public Integer getDivisionWins() {
+    return divisionWins;
+  }
+
+  public void setDivisionWins(Integer divisionWins) {
+    this.divisionWins = divisionWins;
+  }
+
+
+  public Standing gamesBehind(BigDecimal gamesBehind) {
+    this.gamesBehind = gamesBehind;
+    return this;
+  }
+
+  /**
+   * Get gamesBehind
+   * @return gamesBehind
+   */
+  @javax.annotation.Nullable
+  public BigDecimal getGamesBehind() {
+    return gamesBehind;
+  }
+
+  public void setGamesBehind(BigDecimal gamesBehind) {
+    this.gamesBehind = gamesBehind;
+  }
+
+
+  public Standing globalTeamID(Integer globalTeamID) {
+    this.globalTeamID = globalTeamID;
+    return this;
+  }
+
+  /**
+   * Get globalTeamID
+   * @return globalTeamID
+   */
+  @javax.annotation.Nullable
+  public Integer getGlobalTeamID() {
+    return globalTeamID;
+  }
+
+  public void setGlobalTeamID(Integer globalTeamID) {
+    this.globalTeamID = globalTeamID;
+  }
+
+
+  public Standing homeLosses(Integer homeLosses) {
+    this.homeLosses = homeLosses;
+    return this;
+  }
+
+  /**
+   * Get homeLosses
+   * @return homeLosses
+   */
+  @javax.annotation.Nullable
+  public Integer getHomeLosses() {
+    return homeLosses;
+  }
+
+  public void setHomeLosses(Integer homeLosses) {
+    this.homeLosses = homeLosses;
+  }
+
+
+  public Standing homeWins(Integer homeWins) {
+    this.homeWins = homeWins;
+    return this;
+  }
+
+  /**
+   * Get homeWins
+   * @return homeWins
+   */
+  @javax.annotation.Nullable
+  public Integer getHomeWins() {
+    return homeWins;
+  }
+
+  public void setHomeWins(Integer homeWins) {
+    this.homeWins = homeWins;
+  }
+
+
+  public Standing key(String key) {
+    this.key = key;
+    return this;
+  }
+
+  /**
+   * Get key
+   * @return key
+   */
+  @javax.annotation.Nullable
+  public String getKey() {
+    return key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+
+  public Standing lastTenGamesLosses(Integer lastTenGamesLosses) {
+    this.lastTenGamesLosses = lastTenGamesLosses;
+    return this;
+  }
+
+  /**
+   * Get lastTenGamesLosses
+   * @return lastTenGamesLosses
+   */
+  @javax.annotation.Nullable
+  public Integer getLastTenGamesLosses() {
+    return lastTenGamesLosses;
+  }
+
+  public void setLastTenGamesLosses(Integer lastTenGamesLosses) {
+    this.lastTenGamesLosses = lastTenGamesLosses;
+  }
+
+
+  public Standing lastTenGamesWins(Integer lastTenGamesWins) {
+    this.lastTenGamesWins = lastTenGamesWins;
+    return this;
+  }
+
+  /**
+   * Get lastTenGamesWins
+   * @return lastTenGamesWins
+   */
+  @javax.annotation.Nullable
+  public Integer getLastTenGamesWins() {
+    return lastTenGamesWins;
+  }
+
+  public void setLastTenGamesWins(Integer lastTenGamesWins) {
+    this.lastTenGamesWins = lastTenGamesWins;
+  }
+
+
+  public Standing league(String league) {
+    this.league = league;
+    return this;
+  }
+
+  /**
+   * Get league
+   * @return league
+   */
+  @javax.annotation.Nullable
+  public String getLeague() {
+    return league;
+  }
+
+  public void setLeague(String league) {
+    this.league = league;
+  }
+
+
+  public Standing leagueRank(Integer leagueRank) {
+    this.leagueRank = leagueRank;
+    return this;
+  }
+
+  /**
+   * Get leagueRank
+   * @return leagueRank
+   */
+  @javax.annotation.Nullable
+  public Integer getLeagueRank() {
+    return leagueRank;
+  }
+
+  public void setLeagueRank(Integer leagueRank) {
+    this.leagueRank = leagueRank;
   }
 
 
@@ -182,155 +563,212 @@ public class Standing {
   }
 
 
-  public Standing order(Integer order) {
-    this.order = order;
+  public Standing nightLosses(Integer nightLosses) {
+    this.nightLosses = nightLosses;
     return this;
   }
 
   /**
-   * Get order
-   * @return order
+   * Get nightLosses
+   * @return nightLosses
    */
   @javax.annotation.Nullable
-  public Integer getOrder() {
-    return order;
+  public Integer getNightLosses() {
+    return nightLosses;
   }
 
-  public void setOrder(Integer order) {
-    this.order = order;
+  public void setNightLosses(Integer nightLosses) {
+    this.nightLosses = nightLosses;
   }
 
 
-  public Standing points(Integer points) {
-    this.points = points;
+  public Standing nightWins(Integer nightWins) {
+    this.nightWins = nightWins;
     return this;
   }
 
   /**
-   * Get points
-   * @return points
+   * Get nightWins
+   * @return nightWins
    */
   @javax.annotation.Nullable
-  public Integer getPoints() {
-    return points;
+  public Integer getNightWins() {
+    return nightWins;
   }
 
-  public void setPoints(Integer points) {
-    this.points = points;
+  public void setNightWins(Integer nightWins) {
+    this.nightWins = nightWins;
   }
 
 
-  public Standing roundId(Integer roundId) {
-    this.roundId = roundId;
+  public Standing percentage(BigDecimal percentage) {
+    this.percentage = percentage;
     return this;
   }
 
   /**
-   * Get roundId
-   * @return roundId
+   * Get percentage
+   * @return percentage
    */
   @javax.annotation.Nullable
-  public Integer getRoundId() {
-    return roundId;
+  public BigDecimal getPercentage() {
+    return percentage;
   }
 
-  public void setRoundId(Integer roundId) {
-    this.roundId = roundId;
+  public void setPercentage(BigDecimal percentage) {
+    this.percentage = percentage;
   }
 
 
-  public Standing scoreAgainst(Integer scoreAgainst) {
-    this.scoreAgainst = scoreAgainst;
+  public Standing runsAgainst(Integer runsAgainst) {
+    this.runsAgainst = runsAgainst;
     return this;
   }
 
   /**
-   * Get scoreAgainst
-   * @return scoreAgainst
+   * Get runsAgainst
+   * @return runsAgainst
    */
   @javax.annotation.Nullable
-  public Integer getScoreAgainst() {
-    return scoreAgainst;
+  public Integer getRunsAgainst() {
+    return runsAgainst;
   }
 
-  public void setScoreAgainst(Integer scoreAgainst) {
-    this.scoreAgainst = scoreAgainst;
+  public void setRunsAgainst(Integer runsAgainst) {
+    this.runsAgainst = runsAgainst;
   }
 
 
-  public Standing scoreDifference(Integer scoreDifference) {
-    this.scoreDifference = scoreDifference;
+  public Standing runsScored(Integer runsScored) {
+    this.runsScored = runsScored;
     return this;
   }
 
   /**
-   * Get scoreDifference
-   * @return scoreDifference
+   * Get runsScored
+   * @return runsScored
    */
   @javax.annotation.Nullable
-  public Integer getScoreDifference() {
-    return scoreDifference;
+  public Integer getRunsScored() {
+    return runsScored;
   }
 
-  public void setScoreDifference(Integer scoreDifference) {
-    this.scoreDifference = scoreDifference;
+  public void setRunsScored(Integer runsScored) {
+    this.runsScored = runsScored;
   }
 
 
-  public Standing scoreFor(Integer scoreFor) {
-    this.scoreFor = scoreFor;
+  public Standing season(Integer season) {
+    this.season = season;
     return this;
   }
 
   /**
-   * Get scoreFor
-   * @return scoreFor
+   * Get season
+   * @return season
    */
   @javax.annotation.Nullable
-  public Integer getScoreFor() {
-    return scoreFor;
+  public Integer getSeason() {
+    return season;
   }
 
-  public void setScoreFor(Integer scoreFor) {
-    this.scoreFor = scoreFor;
+  public void setSeason(Integer season) {
+    this.season = season;
   }
 
 
-  public Standing standingId(Integer standingId) {
-    this.standingId = standingId;
+  public Standing seasonType(Integer seasonType) {
+    this.seasonType = seasonType;
     return this;
   }
 
   /**
-   * Get standingId
-   * @return standingId
+   * Get seasonType
+   * @return seasonType
    */
   @javax.annotation.Nullable
-  public Integer getStandingId() {
-    return standingId;
+  public Integer getSeasonType() {
+    return seasonType;
   }
 
-  public void setStandingId(Integer standingId) {
-    this.standingId = standingId;
+  public void setSeasonType(Integer seasonType) {
+    this.seasonType = seasonType;
   }
 
 
-  public Standing teamId(Integer teamId) {
-    this.teamId = teamId;
+  public Standing streak(String streak) {
+    this.streak = streak;
     return this;
   }
 
   /**
-   * Get teamId
-   * @return teamId
+   * Get streak
+   * @return streak
    */
   @javax.annotation.Nullable
-  public Integer getTeamId() {
-    return teamId;
+  public String getStreak() {
+    return streak;
   }
 
-  public void setTeamId(Integer teamId) {
-    this.teamId = teamId;
+  public void setStreak(String streak) {
+    this.streak = streak;
+  }
+
+
+  public Standing teamID(Integer teamID) {
+    this.teamID = teamID;
+    return this;
+  }
+
+  /**
+   * Get teamID
+   * @return teamID
+   */
+  @javax.annotation.Nullable
+  public Integer getTeamID() {
+    return teamID;
+  }
+
+  public void setTeamID(Integer teamID) {
+    this.teamID = teamID;
+  }
+
+
+  public Standing wildCardGamesBehind(BigDecimal wildCardGamesBehind) {
+    this.wildCardGamesBehind = wildCardGamesBehind;
+    return this;
+  }
+
+  /**
+   * Get wildCardGamesBehind
+   * @return wildCardGamesBehind
+   */
+  @javax.annotation.Nullable
+  public BigDecimal getWildCardGamesBehind() {
+    return wildCardGamesBehind;
+  }
+
+  public void setWildCardGamesBehind(BigDecimal wildCardGamesBehind) {
+    this.wildCardGamesBehind = wildCardGamesBehind;
+  }
+
+
+  public Standing wildCardRank(Integer wildCardRank) {
+    this.wildCardRank = wildCardRank;
+    return this;
+  }
+
+  /**
+   * Get wildCardRank
+   * @return wildCardRank
+   */
+  @javax.annotation.Nullable
+  public Integer getWildCardRank() {
+    return wildCardRank;
+  }
+
+  public void setWildCardRank(Integer wildCardRank) {
+    this.wildCardRank = wildCardRank;
   }
 
 
@@ -363,18 +801,37 @@ public class Standing {
       return false;
     }
     Standing standing = (Standing) o;
-    return Objects.equals(this.games, standing.games) &&
-        Objects.equals(this.group, standing.group) &&
+    return Objects.equals(this.awayLosses, standing.awayLosses) &&
+        Objects.equals(this.awayWins, standing.awayWins) &&
+        Objects.equals(this.city, standing.city) &&
+        Objects.equals(this.dayLosses, standing.dayLosses) &&
+        Objects.equals(this.dayWins, standing.dayWins) &&
+        Objects.equals(this.division, standing.division) &&
+        Objects.equals(this.divisionLosses, standing.divisionLosses) &&
+        Objects.equals(this.divisionRank, standing.divisionRank) &&
+        Objects.equals(this.divisionWins, standing.divisionWins) &&
+        Objects.equals(this.gamesBehind, standing.gamesBehind) &&
+        Objects.equals(this.globalTeamID, standing.globalTeamID) &&
+        Objects.equals(this.homeLosses, standing.homeLosses) &&
+        Objects.equals(this.homeWins, standing.homeWins) &&
+        Objects.equals(this.key, standing.key) &&
+        Objects.equals(this.lastTenGamesLosses, standing.lastTenGamesLosses) &&
+        Objects.equals(this.lastTenGamesWins, standing.lastTenGamesWins) &&
+        Objects.equals(this.league, standing.league) &&
+        Objects.equals(this.leagueRank, standing.leagueRank) &&
         Objects.equals(this.losses, standing.losses) &&
         Objects.equals(this.name, standing.name) &&
-        Objects.equals(this.order, standing.order) &&
-        Objects.equals(this.points, standing.points) &&
-        Objects.equals(this.roundId, standing.roundId) &&
-        Objects.equals(this.scoreAgainst, standing.scoreAgainst) &&
-        Objects.equals(this.scoreDifference, standing.scoreDifference) &&
-        Objects.equals(this.scoreFor, standing.scoreFor) &&
-        Objects.equals(this.standingId, standing.standingId) &&
-        Objects.equals(this.teamId, standing.teamId) &&
+        Objects.equals(this.nightLosses, standing.nightLosses) &&
+        Objects.equals(this.nightWins, standing.nightWins) &&
+        Objects.equals(this.percentage, standing.percentage) &&
+        Objects.equals(this.runsAgainst, standing.runsAgainst) &&
+        Objects.equals(this.runsScored, standing.runsScored) &&
+        Objects.equals(this.season, standing.season) &&
+        Objects.equals(this.seasonType, standing.seasonType) &&
+        Objects.equals(this.streak, standing.streak) &&
+        Objects.equals(this.teamID, standing.teamID) &&
+        Objects.equals(this.wildCardGamesBehind, standing.wildCardGamesBehind) &&
+        Objects.equals(this.wildCardRank, standing.wildCardRank) &&
         Objects.equals(this.wins, standing.wins);
   }
 
@@ -384,7 +841,7 @@ public class Standing {
 
   @Override
   public int hashCode() {
-    return Objects.hash(games, group, losses, name, order, points, roundId, scoreAgainst, scoreDifference, scoreFor, standingId, teamId, wins);
+    return Objects.hash(awayLosses, awayWins, city, dayLosses, dayWins, division, divisionLosses, divisionRank, divisionWins, gamesBehind, globalTeamID, homeLosses, homeWins, key, lastTenGamesLosses, lastTenGamesWins, league, leagueRank, losses, name, nightLosses, nightWins, percentage, runsAgainst, runsScored, season, seasonType, streak, teamID, wildCardGamesBehind, wildCardRank, wins);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -398,18 +855,37 @@ public class Standing {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Standing {\n");
-    sb.append("    games: ").append(toIndentedString(games)).append("\n");
-    sb.append("    group: ").append(toIndentedString(group)).append("\n");
+    sb.append("    awayLosses: ").append(toIndentedString(awayLosses)).append("\n");
+    sb.append("    awayWins: ").append(toIndentedString(awayWins)).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    dayLosses: ").append(toIndentedString(dayLosses)).append("\n");
+    sb.append("    dayWins: ").append(toIndentedString(dayWins)).append("\n");
+    sb.append("    division: ").append(toIndentedString(division)).append("\n");
+    sb.append("    divisionLosses: ").append(toIndentedString(divisionLosses)).append("\n");
+    sb.append("    divisionRank: ").append(toIndentedString(divisionRank)).append("\n");
+    sb.append("    divisionWins: ").append(toIndentedString(divisionWins)).append("\n");
+    sb.append("    gamesBehind: ").append(toIndentedString(gamesBehind)).append("\n");
+    sb.append("    globalTeamID: ").append(toIndentedString(globalTeamID)).append("\n");
+    sb.append("    homeLosses: ").append(toIndentedString(homeLosses)).append("\n");
+    sb.append("    homeWins: ").append(toIndentedString(homeWins)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lastTenGamesLosses: ").append(toIndentedString(lastTenGamesLosses)).append("\n");
+    sb.append("    lastTenGamesWins: ").append(toIndentedString(lastTenGamesWins)).append("\n");
+    sb.append("    league: ").append(toIndentedString(league)).append("\n");
+    sb.append("    leagueRank: ").append(toIndentedString(leagueRank)).append("\n");
     sb.append("    losses: ").append(toIndentedString(losses)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    order: ").append(toIndentedString(order)).append("\n");
-    sb.append("    points: ").append(toIndentedString(points)).append("\n");
-    sb.append("    roundId: ").append(toIndentedString(roundId)).append("\n");
-    sb.append("    scoreAgainst: ").append(toIndentedString(scoreAgainst)).append("\n");
-    sb.append("    scoreDifference: ").append(toIndentedString(scoreDifference)).append("\n");
-    sb.append("    scoreFor: ").append(toIndentedString(scoreFor)).append("\n");
-    sb.append("    standingId: ").append(toIndentedString(standingId)).append("\n");
-    sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
+    sb.append("    nightLosses: ").append(toIndentedString(nightLosses)).append("\n");
+    sb.append("    nightWins: ").append(toIndentedString(nightWins)).append("\n");
+    sb.append("    percentage: ").append(toIndentedString(percentage)).append("\n");
+    sb.append("    runsAgainst: ").append(toIndentedString(runsAgainst)).append("\n");
+    sb.append("    runsScored: ").append(toIndentedString(runsScored)).append("\n");
+    sb.append("    season: ").append(toIndentedString(season)).append("\n");
+    sb.append("    seasonType: ").append(toIndentedString(seasonType)).append("\n");
+    sb.append("    streak: ").append(toIndentedString(streak)).append("\n");
+    sb.append("    teamID: ").append(toIndentedString(teamID)).append("\n");
+    sb.append("    wildCardGamesBehind: ").append(toIndentedString(wildCardGamesBehind)).append("\n");
+    sb.append("    wildCardRank: ").append(toIndentedString(wildCardRank)).append("\n");
     sb.append("    wins: ").append(toIndentedString(wins)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -433,18 +909,37 @@ public class Standing {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("Games");
-    openapiFields.add("Group");
+    openapiFields.add("AwayLosses");
+    openapiFields.add("AwayWins");
+    openapiFields.add("City");
+    openapiFields.add("DayLosses");
+    openapiFields.add("DayWins");
+    openapiFields.add("Division");
+    openapiFields.add("DivisionLosses");
+    openapiFields.add("DivisionRank");
+    openapiFields.add("DivisionWins");
+    openapiFields.add("GamesBehind");
+    openapiFields.add("GlobalTeamID");
+    openapiFields.add("HomeLosses");
+    openapiFields.add("HomeWins");
+    openapiFields.add("Key");
+    openapiFields.add("LastTenGamesLosses");
+    openapiFields.add("LastTenGamesWins");
+    openapiFields.add("League");
+    openapiFields.add("LeagueRank");
     openapiFields.add("Losses");
     openapiFields.add("Name");
-    openapiFields.add("Order");
-    openapiFields.add("Points");
-    openapiFields.add("RoundId");
-    openapiFields.add("ScoreAgainst");
-    openapiFields.add("ScoreDifference");
-    openapiFields.add("ScoreFor");
-    openapiFields.add("StandingId");
-    openapiFields.add("TeamId");
+    openapiFields.add("NightLosses");
+    openapiFields.add("NightWins");
+    openapiFields.add("Percentage");
+    openapiFields.add("RunsAgainst");
+    openapiFields.add("RunsScored");
+    openapiFields.add("Season");
+    openapiFields.add("SeasonType");
+    openapiFields.add("Streak");
+    openapiFields.add("TeamID");
+    openapiFields.add("WildCardGamesBehind");
+    openapiFields.add("WildCardRank");
     openapiFields.add("Wins");
 
     // a set of required properties/fields (JSON key names)
@@ -472,11 +967,23 @@ public class Standing {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("Group") != null && !jsonObj.get("Group").isJsonNull()) && !jsonObj.get("Group").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Group` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Group").toString()));
+      if ((jsonObj.get("City") != null && !jsonObj.get("City").isJsonNull()) && !jsonObj.get("City").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `City` to be a primitive type in the JSON string but got `%s`", jsonObj.get("City").toString()));
+      }
+      if ((jsonObj.get("Division") != null && !jsonObj.get("Division").isJsonNull()) && !jsonObj.get("Division").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `Division` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Division").toString()));
+      }
+      if ((jsonObj.get("Key") != null && !jsonObj.get("Key").isJsonNull()) && !jsonObj.get("Key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `Key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Key").toString()));
+      }
+      if ((jsonObj.get("League") != null && !jsonObj.get("League").isJsonNull()) && !jsonObj.get("League").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `League` to be a primitive type in the JSON string but got `%s`", jsonObj.get("League").toString()));
       }
       if ((jsonObj.get("Name") != null && !jsonObj.get("Name").isJsonNull()) && !jsonObj.get("Name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Name").toString()));
+      }
+      if ((jsonObj.get("Streak") != null && !jsonObj.get("Streak").isJsonNull()) && !jsonObj.get("Streak").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `Streak` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Streak").toString()));
       }
   }
 
